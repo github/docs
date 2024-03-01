@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -32,4 +31,5 @@ You can also see deployment information on the "Conversation" tab of a pull requ
    ![Screenshot of the main page of a repository. In the right sidebar, "Environments" is outlined in dark orange.](/assets/images/help/actions/environments.png)
 
 ## Further reading
+
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"

@@ -12,12 +12,10 @@ permissions: You must have at least read permissions to view a package.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About package views
 
@@ -50,7 +48,7 @@ You can find and view a package located in the repositories of an organization y
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-3. Under your organization name, click {% octicon "package" aria-hidden="true" %} **Packages**.
+1. Under your organization name, click {% octicon "package" aria-hidden="true" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Viewing your packages

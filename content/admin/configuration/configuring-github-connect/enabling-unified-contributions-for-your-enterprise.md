@@ -14,14 +14,11 @@ redirect_from:
 permissions: 'Enterprise owners can enable unified contributions between {% data variables.location.product_location %} and {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - GitHub Connect
 ---
-
-{% data reusables.github-connect.beta %}
 
 ## About unified contributions
 

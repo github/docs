@@ -16,7 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -29,6 +28,9 @@ You can modify your {% data variables.product.prodname_github_app %} registratio
 For example, you can change the name and description of your app, the permissions granted to your app, the webhooks your app subscribes to, or the visibility of your app.
 
 You can also choose to test new optional features for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+
+<!-- Anchor to maintain links to this heading -->
+<a name="navigating-to-your-github-app-settings"></a>
 
 ## Navigating to your {% data variables.product.prodname_github_app %} settings
 
@@ -76,7 +78,7 @@ If you select **Request user authorization (OAuth) during installation**, you wi
 
 You can change the access permissions that are granted to your {% data variables.product.prodname_github_app %} using the following steps.
 
-When you change the **repository** or **organization** permissions of an app, each account where the app is installed will need to approve the new permissions. When you change the **account** permissions of an app, each user that has authorized the app will need to approve the permission changes. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
+When you change the **repository** or **organization** permissions of an app, each account where the app is installed will need to approve the new permissions. When you change the **account** permissions of an app, each user that has authorized the app will need to approve the permission changes. In both cases, {% data variables.product.prodname_dotcom %} will send an email to each organization owner or user, notifying them of the request to update the app's permissions. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
 
 Changing the permissions of an app may also change the webhooks that your app can subscribe to and the actions that your app can take with the API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 

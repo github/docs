@@ -86,6 +86,6 @@ Before you can become a sponsored developer, you must enable 2FA for your accoun
 ## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-4. Click **Request approval**.
+1. Click **Request approval**.
 
 {% data reusables.sponsors.github-review-app %}

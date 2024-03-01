@@ -1,13 +1,13 @@
-import { DefaultLayout } from 'components/DefaultLayout'
-import { ArticleTitle } from 'components/article/ArticleTitle'
-import { MarkdownContent } from 'components/ui/MarkdownContent'
-import { Lead } from 'components/ui/Lead'
-import { PermissionsStatement } from 'components/ui/PermissionsStatement'
-import { ArticleGridLayout } from '../../../components/article/ArticleGridLayout'
-import { MiniTocs } from 'components/ui/MiniTocs'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
+import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
+import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
+import { Lead } from 'src/frame/components/ui/Lead'
+import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
+import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayout'
+import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from 'components/ClientSideHighlight'
-import { Callout } from 'components/ui/Callout'
+import { ClientSideHighlight } from 'src/frame/components/ClientSideHighlight'
+import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 
 type Props = {
   children: React.ReactNode
@@ -23,7 +23,14 @@ export const AutomatedPage = ({ children }: Props) => {
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<ArticleTitle>{title}</ArticleTitle>}
+          topper={
+            <>
+              <div className="d-none d-xl-block my-3 mr-auto width-full">
+                <Breadcrumbs />
+              </div>
+              <ArticleTitle>{title}</ArticleTitle>
+            </>
+          }
           intro={
             <>
               {intro && (
@@ -32,15 +39,7 @@ export const AutomatedPage = ({ children }: Props) => {
                 </Lead>
               )}
 
-              {permissions && <PermissionsStatement permissions={permissions} />}
-
-              {product && (
-                <Callout
-                  variant="success"
-                  className="mb-4"
-                  dangerouslySetInnerHTML={{ __html: product }}
-                />
-              )}
+              <PermissionsStatement permissions={permissions} product={product} />
             </>
           }
           toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

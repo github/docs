@@ -11,6 +11,7 @@ on:
       - opened
 
 permissions:
+  contents: read
   issues: write
 
 jobs:

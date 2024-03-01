@@ -10,6 +10,7 @@ on:
       - created
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -19,7 +20,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: is-internal-contributor
         with:
           result-encoding: string
@@ -46,3 +47,12 @@ jobs:
         with:
           add-labels: 'triage'
           ignore-if-labeled: true
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

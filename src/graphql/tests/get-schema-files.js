@@ -1,7 +1,7 @@
 import { describe } from '@jest/globals'
 import { readFileSync } from 'fs'
 
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import {
   getGraphqlSchema,
   getGraphqlChangelog,
@@ -11,7 +11,7 @@ import {
 
 describe('graphql schema', () => {
   const graphqlTypes = JSON.parse(readFileSync('src/graphql/lib/types.json')).map(
-    (item) => item.kind
+    (item) => item.kind,
   )
   for (const version in allVersions) {
     for (const type of graphqlTypes) {

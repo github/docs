@@ -1,6 +1,6 @@
 ---
 title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can test your connection.'
+intro: 'After you''ve set up your SSH key and added it to your account on {% data variables.location.product_location %}, you can test your connection.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -22,7 +21,8 @@ Before testing your SSH connection, you should have:
 When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter the following:
+1. Enter the following:
+
    ```shell
    $ ssh -T git@{% data variables.command_line.codeblock %}
    # Attempts to ssh to {% data variables.product.product_name %}
@@ -36,7 +36,8 @@ When you test your connection, you'll need to authenticate this action using you
    > Are you sure you want to continue connecting (yes/no)?
    ```
 
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+1. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+
    ```shell
    > Hi USERNAME! You've successfully authenticated, but GitHub does not
    > provide shell access.
@@ -45,6 +46,7 @@ When you test your connection, you'll need to authenticate this action using you
    {% linux %}
 
    You may see this error message:
+
    ```shell
    ...
    Agent admitted failure to sign using the key.
@@ -62,4 +64,4 @@ When you test your connection, you'll need to authenticate this action using you
 
    {% endnote %}
 
-4. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."
+1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."

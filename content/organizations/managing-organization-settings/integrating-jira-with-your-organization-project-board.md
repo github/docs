@@ -1,16 +1,16 @@
 ---
-title: Integrating Jira with your organization project board
+title: 'Integrating Jira with your organization {% data variables.projects.projects_v1_board %}'
 intro: 'You can integrate Jira Cloud with your organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues.'
 redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board
 versions:
   ghes: '*'
-  ghae: '*'
 shortTitle: Integrate Jira
+allowTitleToDifferFromFilename: true
 ---
 
-{% ifversion ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghes %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings**, then click **OAuth Apps**.

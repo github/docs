@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -42,7 +41,7 @@ If a public repository is made private, its public forks are split off into a ne
 
 In other words, a public repository's forks will remain public in their own separate repository network even after the upstream repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/get-started/learning-about-github/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) upstream repository—even though they didn't need those permissions before.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
 {% endif %}
 
@@ -52,7 +51,7 @@ If a public repository is made private and then deleted, its public forks will c
 
 ## Changing a private repository to a public repository
 
-If a private repository is made public, each of its private forks is turned into a standalone private repository and becomes the upstream of its own new repository network. Private forks are never automatically made public because they could contain sensitive commits that shouldn't be exposed publicly.
+When you change a private repository to public, all the commits in that repository, including any commits made in the repositories it was forked into, will be visible to everyone. However, the private forks will not automatically become public. Instead, each private fork will become a separate private repository and create its own independent network of repositories. Any new changes made to these networks will not be accessible from the original repository.
 
 ### Deleting the public repository
 
@@ -60,11 +59,9 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## Changing the visibility of an internal repository
-
-
 
 If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
 

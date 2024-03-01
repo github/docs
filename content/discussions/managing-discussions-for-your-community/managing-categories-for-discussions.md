@@ -41,13 +41,15 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
    ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
 
-1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+1. {% data reusables.discussions.edit-category-details %}
 {% ifversion discussions-category-section %}
 {% data reusables.discussions.add-category-to-section %}{% endif %}
 1. Click **Create**.
 
 {% ifversion discussions-category-section %}
+
 ## Creating a section
+
 1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
@@ -72,6 +74,7 @@ You can edit a category to change the category's emoji, title, description, and 
 1. Click **Save changes**.
 
 {% ifversion discussions-category-section %}
+
 ## Editing a section
 
 You can edit a section to change the section's emoji and title, and to add and remove categories from the section.
@@ -97,6 +100,7 @@ When you delete a category, {% data variables.product.product_name %} will move 
 1. Click **Delete & Move**.
 
 {% ifversion discussions-category-section %}
+
 ## Deleting a section
 
 When you delete a section, all categories within the section will no longer belong to a section.

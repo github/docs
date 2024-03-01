@@ -1,8 +1,7 @@
 ---
 title: database create
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -26,7 +25,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database create [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--github-url=<url>] [--source-root=<dir>] [--threads=<num>] [--ram=<MB>] [--command=<command>] [--mode=<mode>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
 ```
 
@@ -35,15 +34,17 @@ codeql database create [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--
 Create a CodeQL database for a source tree that can be analyzed using
 one of the CodeQL products.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
-be created, and *must not* already exist (but its parent must).
+be created, and _must not_ already exist (but its parent must).
 
 If the `--db-cluster` option is given, this will not be a database
-itself, but a directory that will *contain* databases for several
+itself, but a directory that will _contain_ databases for several
 languages built from the same source root.
 
 It is important that this directory is not in a location that the build
@@ -61,8 +62,8 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from this file in a
-later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
+to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
+this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
 
@@ -86,14 +87,6 @@ analyse. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
 
-#### `--[no-]calculate-baseline`
-
-\[Advanced] Calculate baseline information about the code being
-analyzed and add it to the database. By default, this is enabled unless
-the source root is the root of a filesystem. This flag can be used to
-either disable, or force the behavior to be enabled even in the root of
-the filesystem.
-
 #### `-s, --source-root=<dir>`
 
 \[Default: .] The root source code directory. In many cases, this will
@@ -107,7 +100,7 @@ Use this many threads for the import operation, and pass it as a hint to
 any invoked build commands.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -126,7 +119,7 @@ If no build command is specified, the command attempts to figure out
 automatically how to build the source tree, based on heuristics from the
 selected language pack.
 
-Beware that some combinations of multiple languages *require* an
+Beware that some combinations of multiple languages _require_ an
 explicit build command to be specified.
 
 #### `--no-cleanup`
@@ -144,6 +137,34 @@ extractor.
 \[Advanced] Output a warning instead of failing if a database is empty
 because no source code was seen during the build. The empty database
 will be left unfinalized.
+
+#### `--[no-]linkage-aware-import`
+
+\[Advanced] Controls whether [codeql dataset import](/code-security/codeql-cli/codeql-cli-manual/dataset-import) is linkage-aware _(default)_ or not. On projects where this part of database creation
+consumes too much memory, disabling this option may help them progress
+at the expense of database completeness.
+
+Available since `v2.15.3`.
+
+### Baseline calculation options
+
+#### `--[no-]calculate-baseline`
+
+\[Advanced] Calculate baseline information about the code being
+analyzed and add it to the database. By default, this is enabled unless
+the source root is the root of a filesystem. This flag can be used to
+either disable, or force the behavior to be enabled even in the root of
+the filesystem.
+
+#### `--[no-]sublanguage-file-coverage`
+
+\[GitHub.com and GitHub Enterprise Server v3.12.0+ only] Use
+sub-language file coverage information. This calculates, displays, and
+exports separate file coverage information for languages which share a
+CodeQL extractor like C and C++, Java and Kotlin, and JavaScript and
+TypeScript.
+
+Available since `v2.15.2`.
 
 ### Extractor selection options
 
@@ -227,13 +248,13 @@ below this percentage.
 
 Select how aggressively to trim the cache. Choices include:
 
-`brutal`: Remove the entire cache, trimming down to the state of a
+`clear`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` *(default)*: Trim everything except explicitly "cached"
+`trim` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
-`light`: Simply make sure the defined size limits for the disk cache are
+`fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
 #### `--cleanup-upgrade-backups`
@@ -361,3 +382,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

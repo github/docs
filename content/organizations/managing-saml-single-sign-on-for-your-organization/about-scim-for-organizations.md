@@ -26,8 +26,8 @@ If you use SAML SSO without implementing SCIM, you won't have automatic deprovis
 
 ## Supported identity providers
 
-These identity providers (IdPs) are compatible with the {% data variables.product.product_name %} SCIM API for organizations. For more information, see [SCIM](/rest/scim) in the {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
-- Azure AD
+These identity providers (IdPs) are compatible with the {% data variables.product.product_name %} SCIM API for organizations. For more information, see "[AUTOTITLE](/rest/scim)."
+- Microsoft Entra ID (previously known as Azure AD)
 - Okta
 - OneLogin
 
@@ -41,7 +41,7 @@ Before you authorize the {% data variables.product.prodname_oauth_app %}, you mu
 
 **Note:** {% data reusables.scim.nameid-and-username-must-match %}
 
-{% endnote %} 
+{% endnote %}
 
 ## Further reading
 

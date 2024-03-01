@@ -1,11 +1,10 @@
 ---
-title: Gist comments
+title: REST API endpoints for gist comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comments
 intro: Use the REST API to view and modify comments on a gist.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -25,6 +24,5 @@ These are the supported media types for gist comments.
     application/vnd.github.VERSION.base64
 
 For more information about media types, see "[AUTOTITLE](/rest/overview/media-types)."
-
 
 <!-- Content after this section is automatically generated -->

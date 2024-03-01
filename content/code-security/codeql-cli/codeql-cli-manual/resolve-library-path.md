@@ -1,8 +1,7 @@
 ---
 title: resolve library-path
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,7 +23,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve library-path (--query=<qlfile> | --dir=<dir> | --root-pack=<pkgname>) <options>...
 ```
 
@@ -46,7 +45,9 @@ query.
 **The command is deeply internal and its behavior or existence may
 change without much notice as the QL language ecosystem evolves.**
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--[no-]find-extractors`
 
@@ -59,7 +60,7 @@ on by default.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print command line arguments on one line each.
+`lines` _(default)_: Print command line arguments on one line each.
 
 `json`: Print a JSON object with all the data.
 
@@ -104,8 +105,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -185,7 +186,7 @@ The root directory of the pack containing queries to compile.
 resolution.
 
 This is used when the pack can be found by name somewhere in the search
-path. If you know the *disk location* of your desired root package,
+path. If you know the _disk location_ of your desired root package,
 pretend it contains a .ql file and use `--query` instead.
 
 ### Common options
@@ -222,3 +223,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

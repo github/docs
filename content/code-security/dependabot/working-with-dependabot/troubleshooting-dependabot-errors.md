@@ -23,8 +23,6 @@ topics:
   - Dependencies
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} errors
@@ -50,9 +48,6 @@ When {% data variables.product.prodname_dependabot %} is blocked from creating a
 There are several reasons why an alert may have no pull request link:
 
 1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
-{% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
-{% endif %}
 1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
 1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
 
@@ -60,15 +55,23 @@ If an error blocked {% data variables.product.prodname_dependabot %} from creati
 
 ## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, {% ifversion dependabot-job-log %} you can view the job logs list to find out more about the error {% else %} it posts the error icon on the manifest file{% endif %}.
 
-![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+{% ifversion dependabot-job-log %}
 
-{% ifversion fpt or ghec %}
+{% data reusables.dependabot.dependabot-jobs-log-access %}
 
-To see the log file for any manifest file, click the **Last checked TIME ago** link. When you display the log file for a manifest that's shown with an error symbol, any errors are also displayed.
+To view the full logs files for a particular job, to the right of the log entry you are interested in, click **view logs**.
+
+![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs", is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)."
 
 {% else %}
+
+The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+
+![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
 
 To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
 
@@ -91,16 +94,28 @@ The best way to avoid this problem is to stay up to date with the most recently 
 **Security updates only.** {% data variables.product.prodname_dependabot %} updates explicitly defined transitive dependencies that are vulnerable for all ecosystems. For npm, {% data variables.product.prodname_dependabot %} will raise a pull request that also updates the parent dependency if it's the only way to fix the transitive dependency.
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
-```
+
+```shell
 my project
 |
 --> A (2.0.0) [~2.0.0]
        |
        --> B (1.0.1) [~1.0.0]
 ```
+
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
+
+### {% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch
+
+{% data variables.product.prodname_dependabot %} will close pull requests for dependency updates, once it detects these updates have been committed to the default branch. However, in rare circumstances, the pull request may remain open. If you notice that you have committed an update to a dependency manually, and that the pull request for that same update is still open, you can use one of the following commands in a comment on the pull request:
+- `@dependabot recreate`, or
+- `@dependabot rebase`.
+
+Either comment will trigger {% data variables.product.prodname_dependabot %} to check if the dependency is no longer upgradable or vulnerable. If {% data variables.product.prodname_dependabot %} detects that the pull request is no longer required, it will close the pull request in this particular case.
+
+For more information about {% data variables.product.prodname_dependabot %} comment commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 ### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
 
@@ -108,9 +123,19 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 There are two options: you can review the open pull request and merge it as soon as you are confident that the change is safe, or close that pull request and trigger a new security update pull request. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
 
+### No security update is needed as DEPENDENCY is no longer vulnerable
+
+**Security updates only.** {% data variables.product.prodname_dependabot %} cannot close a pull request to update a dependency that is not, or is no longer, vulnerable. You may see this error when dependency graph data is stale, or when the dependency graph and {% data variables.product.prodname_dependabot %} do not agree if a particular version of a dependency is vulnerable.
+
+To debug the problem, we recommend you first examine the dependency graph for your repository, review what version it has detected for the dependency, and check if the identified version matches what is being used in your repository.
+
+If you suspect your dependency graph data is out of date, you may need to manually update the dependency graph for your repository or investigate your dependency information further. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
+
+If you are able to confirm the dependency version is no longer vulnerable, you can close the {% data variables.product.prodname_dependabot %} pull request.
+
 ### {% data variables.product.prodname_dependabot %} timed out during its update
 
-{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of *package.json* files. Updates to the Composer ecosystem also take longer to assess and may time out.
+{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of _package.json_ files. Updates to the Composer ecosystem also take longer to assess and may time out.
 
 This error is difficult to address. If a version update times out, you could specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 
@@ -130,25 +155,104 @@ If {% data variables.product.prodname_dependabot %} attempts to check whether de
 
 Similarly, if {% data variables.product.prodname_dependabot %} can't access a private package registry in which a dependency is located, one of the following errors is generated:
 
-*	"Dependabot can't reach a dependency in a private package registry"<br>
+-	"Dependabot can't reach a dependency in a private package registry"<br>
    (API error type: `private_source_not_reachable`)
-*	"Dependabot can't authenticate to a private package registry"<br>
+-	"Dependabot can't authenticate to a private package registry"<br>
    (API error type:`private_source_authentication_failure`)
-*	"Dependabot timed out while waiting for a private package registry"<br>
+-	"Dependabot timed out while waiting for a private package registry"<br>
    (API error type:`private_source_timed_out`)
-*	"Dependabot couldn't validate the certificate for a private package registry"<br>
+-	"Dependabot couldn't validate the certificate for a private package registry"<br>
    (API error type:`private_source_certificate_failure`)
 
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
 
 **Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
 
+{% ifversion dependabot-version-updates-groups %}
+
+### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
+
+{% ifversion dependabot-grouped-security-updates %}The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+
+When you configure grouped version updates, you must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
+
+You may have unintentionally created empty groups. This happens, for example, when you set a `dependency-type` in the `allow` key for the overall job.
+
+```yaml
+allow:
+  dependency-type: production
+  # this restricts the entire job to production dependencies
+  groups:
+      development-dependencies:
+        dependency-type: "development"
+        # this group will always be empty
+```
+
+In this example, {% data variables.product.prodname_dependabot %} will:
+1. Look at your dependency list and restrict the job to dependencies used in `production` only.
+1. Try to create a group called `development-dependencies` which is a subset of this reduced list.
+1. Work out that the `development-dependencies` group is empty as all `development` dependencies were removed in step 1.
+1. **Individually** update all the dependencies that are not in the group. As the group for dependencies in production is empty, {% data variables.product.prodname_dependabot %} will ignore the group, and create a separate pull request for each dependency.
+
+You need to ensure that configuration settings don't cancel each other, and update them appropriately in your configuration file.
+
+For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+
+{% ifversion dependabot-grouped-security-updates %}
+
+### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}
+
+The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.
+
+For grouped security updates, {% data variables.product.prodname_dependabot %} uses the following guidelines to create grouped pull requests.
+
+- {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories.
+- {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates.
+- {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
+- {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates#impact-of-configuration-changes-on-security-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+
+{% endif %}
+
+### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
+
+{% ifversion dependabot-grouped-security-updates %}There are different troubleshooting techniques you can use for failed version updates and failed security updates.
+
+#### Handling failures in grouped version updates{% endif %}
+
+**Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+
+If the dependency still fails to update, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
+
+If the dependency still fails to update, there may be a problem with the dependency itself, or with {% data variables.product.prodname_dependabot %} for that specific ecosystem.
+
+{% data reusables.dependabot.dependabot-ignore-dependencies %}
+
+{% ifversion dependabot-grouped-security-updates %}
+
+#### Handling failures in grouped security updates
+
+**Security updates only.** If a grouped pull request for security updates fails or is unable to be merged, we recommend you manually open pull requests to bump the versions of breaking changes. When you manually update a package that is included in a grouped pull request, {% data variables.product.prodname_dependabot %} will rebase the pull request so it does not include the manually updated package.
+
+{% endif %}
+
+### Continuous integration (CI) fails on my grouped pull request
+
+**Version updates only.** If the failure is due to a single dependency, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
+
+{% data reusables.dependabot.dependabot-ignore-dependencies %}
+
+If you continue to see CI failures, you should remove the group configuration so that {% data variables.product.prodname_dependabot %} reverts to raising individual pull requests for each dependency. Then, you should check and confirm that the update works correctly for each individual pull request.
+
+{% endif %}
+
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 
 If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.
 
 - **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
-- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
+- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked _TIME_ ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
 
 ## Further reading
 

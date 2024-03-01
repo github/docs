@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -15,7 +14,7 @@ shortTitle: Actions for project management
 ---
 
 
-You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a project board.
+You can use {% data variables.product.prodname_actions %} to automate your project management tasks by creating workflows. Each workflow contains a series of tasks that are performed automatically every time the workflow runs. For example, you can create a workflow that runs every time an issue is created to add a label, leave a comment, and move the issue onto a {% data variables.projects.projects_v1_board %}.
 
 ## When do workflows run?
 
@@ -32,7 +31,7 @@ For a full list of events that can trigger workflows, see "[AUTOTITLE](/actions/
 
 ## What can workflows do?
 
-Workflows can do many things, such as commenting on an issue, adding or removing labels, moving cards on project boards, and opening issues.
+Workflows can do many things, such as commenting on an issue, adding or removing labels, moving cards on {% data variables.projects.projects_v1_boards %}, and opening issues.
 
 You can learn about using {% data variables.product.prodname_actions %} for project management by following these tutorials, which include example workflows that you can adapt to meet your needs.
 

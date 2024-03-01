@@ -5,7 +5,6 @@ intro: Specify an environment for a job.
 versions:
   fpt: '*'
   ghes: '> 3.0'
-  ghae: '*'
   ghec: '*'
 ---
  

@@ -1,4 +1,344 @@
 {
+  "2024-07-01": [
+    {
+      "location": "TeamDiscussionComment.url",
+      "description": "<p><code>url</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.number",
+      "description": "<p><code>number</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.discussion",
+      "description": "<p><code>discussion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.bodyVersion",
+      "description": "<p><code>bodyVersion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussionComment.authorAssociation",
+      "description": "<p><code>authorAssociation</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.viewerCanPin",
+      "description": "<p><code>viewerCanPin</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.url",
+      "description": "<p><code>url</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.title",
+      "description": "<p><code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.team",
+      "description": "<p><code>team</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.number",
+      "description": "<p><code>number</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.isPrivate",
+      "description": "<p><code>isPrivate</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.isPinned",
+      "description": "<p><code>isPinned</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.commentsUrl",
+      "description": "<p><code>commentsUrl</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.commentsResourcePath",
+      "description": "<p><code>commentsResourcePath</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.comments",
+      "description": "<p><code>comments</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.bodyVersion",
+      "description": "<p><code>bodyVersion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "TeamDiscussion.authorAssociation",
+      "description": "<p><code>authorAssociation</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "PullRequestReviewComment.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequestReview.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequest.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "OrganizationInvitation.inviter",
+      "description": "<p><code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>.</p>",
+      "reason": "<p><code>inviter</code> will be removed.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "jdennes"
+    },
+    {
+      "location": "CreateTeamDiscussionPayload.teamDiscussion",
+      "description": "<p><code>teamDiscussion</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.title",
+      "description": "<p><code>title</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.teamId",
+      "description": "<p><code>teamId</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.private",
+      "description": "<p><code>private</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionInput.body",
+      "description": "<p><code>body</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentPayload.teamDiscussionComment",
+      "description": "<p><code>teamDiscussionComment</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentInput.discussionId",
+      "description": "<p><code>discussionId</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    },
+    {
+      "location": "CreateTeamDiscussionCommentInput.body",
+      "description": "<p><code>body</code> will be removed. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement.</p>",
+      "reason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "deborah-digges"
+    }
+  ],
+  "2024-04-01": [
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_SPECIFIC",
+      "description": "<p><code>TOO_SPECIFIC</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_GENERAL",
+      "description": "<p><code>TOO_GENERAL</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.PERSONAL_PREFERENCE",
+      "description": "<p><code>PERSONAL_PREFERENCE</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.NOT_RELEVANT",
+      "description": "<p><code>NOT_RELEVANT</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.reason",
+      "description": "<p><code>reason</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    }
+  ],
   "2023-10-01": [
     {
       "location": "PullRequestReviewComment.position",

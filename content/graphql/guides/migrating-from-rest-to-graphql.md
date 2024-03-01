@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 shortTitle: Migrate from REST to GraphQL
@@ -22,7 +21,7 @@ Migrating from REST to GraphQL represents a significant shift in API logic. The 
 
 To migrate your code from the [REST API](/rest) to the GraphQL API:
 
-- Review the [GraphQL spec](https://graphql.github.io/graphql-spec/June2018/)
+- Review the [GraphQL spec](https://spec.graphql.org/June2018/)
 - Review GitHub's [GraphQL schema](/graphql/reference)
 - Consider how any existing code you have currently interacts with the GitHub REST API
 - Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
@@ -38,6 +37,7 @@ Here are examples of each.
 ## Example: Getting the data you need and nothing more
 
 A single REST API call retrieves a list of your organization's members:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
@@ -60,11 +60,13 @@ query {
 ```
 
 Consider another example: retrieving a list of pull requests and checking if each one is mergeable. A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
 Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
@@ -89,6 +91,7 @@ query {
 ## Example: Nesting
 
 Querying with nested fields lets you replace multiple REST calls with fewer GraphQL queries. For example, retrieving a pull request along with its commits, non-review comments, and reviews using the **REST API** requires four separate calls:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits

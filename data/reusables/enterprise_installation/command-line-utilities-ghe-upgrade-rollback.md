@@ -1,4 +1,4 @@
-When rolling back an upgrade, you must use an upgrade package file with the *.pkg* extension. Hotpatch package files with the *.hpkg* extension are not supported.
+When rolling back an upgrade, you must use an upgrade package file with the _.pkg_ extension. Hotpatch package files with the _.hpkg_ extension are not supported.
 
 ```shell
 ghe-upgrade --allow-patch-rollback EARLIER-RELEASE-UPGRADE-PACKAGE.pkg

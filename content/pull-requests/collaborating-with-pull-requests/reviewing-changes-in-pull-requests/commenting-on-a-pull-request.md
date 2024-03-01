@@ -12,7 +12,6 @@ intro: 'After you open a pull request in a repository, collaborators or team mem
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

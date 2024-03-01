@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -29,7 +28,7 @@ If you want to use a hardware security key to authenticate to {% data variables.
 
 ## Generating a new SSH key
 
-You can generate a new SSH key on your local machine. After you generate the key, you can add the public key to your account on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable authentication for Git operations over SSH.
+You can generate a new SSH key on your local machine. After you generate the key, you can add the public key to your account on {% data variables.location.product_location %} to enable authentication for Git operations over SSH.
 
 {% ifversion ghes %}
 
@@ -40,47 +39,42 @@ If you are a site administrator for {% data variables.location.product_location 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
-   {%- ifversion ghae %}
-    <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
-   ```shell
-   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+1. Paste the text below, replacing the email used in the example with your {% data variables.product.product_name %} email address.
 
-   ```
-   {%- else %}
    ```shell
-   $ ssh-keygen -t ed25519 -C "your_email@example.com"
+   ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
+
    {% note %}
 
    **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+
    ```shell
-    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    ```
 
    {% endnote %}
-   {%- endif %}
 
    This creates a new SSH key, using the provided email as a label.
+
    ```shell
    > Generating public/private ALGORITHM key pair.
    ```
-When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
 
+   When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ALGORITHM with your custom key name.
 
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM: [Press enter]
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
    ```
 
    {% endmac %}
 
    {% windows %}
 
-   ```shell
-   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
+   ```powershell
+   > Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endwindows %}
@@ -88,12 +82,13 @@ When you're prompted to "Enter a file in which to save the key", you can press *
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/YOU/.ssh/ALGORITHM):[Press enter]
+   > Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endlinux %}
 
 1. At the prompt, type a secure passphrase. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
@@ -109,26 +104,26 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 1. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-   * First, check to see if your `~/.ssh/config` file exists in the default location.
+   - First, check to see if your `~/.ssh/config` file exists in the default location.
 
      ```shell
      $ open ~/.ssh/config
      > The file /Users/YOU/.ssh/config does not exist.
      ```
 
-   * If the file doesn't exist, create the file.
+   - If the file doesn't exist, create the file.
 
      ```shell
-     $ touch ~/.ssh/config
+     touch ~/.ssh/config
      ```
 
-   * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
+   - Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
 
-     ```
-     Host {% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
+     ```text
+     Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
        AddKeysToAgent yes
        UseKeychain yes
-       IdentityFile ~/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}
+       IdentityFile ~/.ssh/id_ed25519
      ```
 
      {% note %}
@@ -137,27 +132,22 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
      - If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
 
-     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}` section.
+     - If you see a `Bad configuration option: usekeychain` error, add an additional line to the configuration's' `Host *.{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}` section.
 
-       ```
-       Host {% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
+       ```text
+       Host {% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
          IgnoreUnknown UseKeychain
        ```
+
      {% endnote %}
 
 1. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+
    ```shell
-   $ ssh-add --apple-use-keychain ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
+   ssh-add --apple-use-keychain ~/.ssh/id_ed25519
    ```
-   {% note %}
 
-   **Note:** The `--apple-use-keychain` option stores the passphrase in your keychain for you when you add an SSH key to the ssh-agent. If you chose not to add a passphrase to your key, run the command without the `--apple-use-keychain` option.
-
-   The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
-
-   If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
-
-   {% endnote %}
+   {% data reusables.ssh.apple-use-keychain %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -167,15 +157,20 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
-   ```shell
+1. In a new _admin elevated_ PowerShell window, ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+
+   ```powershell
    # start the ssh-agent in the background
-   $ eval "$(ssh-agent -s)"
-   > Agent pid 59566
+   Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+   Start-Service ssh-agent
    ```
 
-1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+1. In a terminal window without elevated permissions, add your SSH private key to the ssh-agent.
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+
+   ```powershell
+   ssh-add c:/Users/YOU/.ssh/id_ed25519
+   ```
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -185,8 +180,11 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.command_line.start_ssh_agent %}
 
-1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+1. Add your SSH private key to the ssh-agent.
+
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+
+   {% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -198,36 +196,21 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
-   ```shell
-   $ ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
-   ```
 
-   {%- ifversion not ghae %}
-   {% note %}
-
-   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
-   ```shell
-    $ ssh-keygen -t ecdsa-sk -C "your_email@example.com"
-   ```
-
-   {% endnote %}
-   {%- endif %}
-1. When you are prompted, touch the button on your hardware security key.
-1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
+1. Paste the text below, replacing the email address in the example with the email address associated with your account on {% data variables.product.product_name %}.
 
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk): [Press enter]
+   ssh-keygen -t ed25519-sk -C "your_email@example.com"
    ```
 
    {% endmac %}
 
    {% windows %}
 
-   ```shell
-   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
+   ```powershell
+   ssh-keygen -t ed25519-sk -C "your_email@example.com"
    ```
 
    {% endwindows %}
@@ -235,14 +218,53 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
+   ssh-keygen -t ed25519-sk -C "your_email@example.com"
+   ```
+
+   {% endlinux %}
+
+   {% note %}
+
+   **Note:** If the command fails and you receive the error `invalid format` or `feature not supported,` you may be using a hardware security key that does not support the Ed25519 algorithm. Enter the following command instead.
+
+   ```shell
+    ssh-keygen -t ecdsa-sk -C "your_email@example.com"
+   ```
+
+   {% endnote %}
+
+1. When you are prompted, touch the button on your hardware security key.
+1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
+
+   {% mac %}
+
+   ```shell
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ed25519_sk): [Press enter]
+   ```
+
+   {% endmac %}
+
+   {% windows %}
+
+   ```shell
+   > Enter a file in which to save the key (c:\Users\YOU\.ssh\id_ed25519_sk):[Press enter]
+   ```
+
+   {% endwindows %}
+
+   {% linux %}
+
+   ```shell
+   > Enter a file in which to save the key (/home/YOU/.ssh/id_ed25519_sk):[Press enter]
    ```
 
    {% endlinux %}
 
 1. When you are prompted to type a passphrase, press **Enter**.
+
    ```shell
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
+
 {% data reusables.ssh.add-public-key-to-github %}

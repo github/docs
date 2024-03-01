@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -19,14 +18,14 @@ The GitHub GraphQL API represents an architectural and conceptual shift from the
 
 ## Schema
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.github.io/learn/validation/) and [executed](https://graphql.github.io/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.org/learn/validation/) and [executed](https://graphql.org/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
 
 ## Field
 
-A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.github.io/learn/schema/) say:
+A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.org/learn/schema/) say:
 "The GraphQL query language is basically about selecting fields on objects."
 
-The [official spec](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) also says about fields:
+The [official spec](https://spec.graphql.org/June2018/#sec-Language.Fields) also says about fields:
 
 > All GraphQL operations must specify their selections down to fields which return scalar values to ensure an unambiguously shaped response.
 
@@ -42,7 +41,7 @@ A GraphQL schema may use the term _implements_ to define how an object inherits 
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
-```
+```graphql
 interface X {
   some_field: String!
   other_field: String!
@@ -59,9 +58,9 @@ This means object `Y` requires the same fields/arguments/return types that inter
 
 In the reference docs, you'll find that:
 
-* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
+- Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
 
-* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
+- Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
 
 ## Connection
 
@@ -71,7 +70,7 @@ It's helpful to picture a graph: dots connected by lines. The dots are nodes, th
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for pagination. For more information, see "[AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)."
 
 ## Node
 
@@ -79,9 +78,9 @@ _Node_ is a generic term for an object. You can look up a node directly, or you 
 
 ## Discovering the GraphQL API
 
-GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
+GraphQL is [introspective](https://graphql.org/learn/introspection/). This means you can query a GraphQL schema for details about itself.
 
-* Query `__schema` to list all types defined in the schema and get details about each:
+- Query `__schema` to list all types defined in the schema and get details about each:
 
   ```graphql
   query {
@@ -98,7 +97,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* Query `__type` to get details about any type:
+- Query `__type` to get details about any type:
 
   ```graphql
   query {
@@ -113,15 +112,15 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* You can also run an _introspection query_ of the schema via a `GET` request:
+- You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
+  curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token.  If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. {% ifversion pat-v2 %}If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.{% endif %}
 
   {% endnote %}
 

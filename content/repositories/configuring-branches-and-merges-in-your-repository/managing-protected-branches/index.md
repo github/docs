@@ -11,14 +11,11 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 children:
   - /about-protected-branches
   - /managing-a-branch-protection-rule
-  - /troubleshooting-required-status-checks
 shortTitle: Manage protected branches
 ---
-

@@ -1,6 +1,6 @@
 ---
 title: Removing self-hosted runners
-intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes or ghae %}, an organization, or an enterprise{% endif %}.'
+intro: 'You can permanently remove a self-hosted runner from a repository{% ifversion fpt %} or organization{% elsif ghec or ghes %}, an organization, or an enterprise{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/removing-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners
@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 shortTitle: Remove self-hosted runners
@@ -67,7 +66,7 @@ To remove a self-hosted runner from an organization, you must be an organization
 {% ifversion fpt %}
 If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove runners from an enterprise. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-an-enterprise).
 {% endif %}
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 {% note %}
 
 **Notes:**
@@ -82,7 +81,7 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions#self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

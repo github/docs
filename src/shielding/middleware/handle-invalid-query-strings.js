@@ -1,5 +1,5 @@
 import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl, defaultCacheControl } from '../../../middleware/cache-control.js'
+import { noCacheControl, defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystrings'
 
@@ -69,7 +69,24 @@ export default function handleInvalidQuerystrings(req, res, next) {
       return
     }
 
-    if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT) {
+    // This is a pattern we've observed in production and we're shielding
+    // against it happening again. The root home page is hit with a
+    // 8 character long query string that has no value.
+    const rootHomePage = path.split('/').length === 2
+    const badKeylessQuery =
+      rootHomePage && keys.length === 1 && keys[0].length === 8 && !query[keys[0]]
+
+    // It's still a mystery why these requests happen but we've seen large
+    // number of requests that have a very long URL-encoded query string
+    // that starts with 'tool' but doesn't have any value.
+    // For example
+    //   ?tool%25252525253Dvisualstudio%252525253D%2525252526tool%25252525...
+    //   ...3Dvscode%2525253D%25252526tool%2525253Dvscode%25253D%252526tool...
+    //   ...%25253Dvimneovim%253D%2526tool%253Djetbrains%3D%26tool%3Djetbrains=&
+    // Let's shield against those by removing them.
+    const badToolsQuery = keys.some((key) => key.startsWith('tool%') && !query[key])
+
+    if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT || badKeylessQuery || badToolsQuery) {
       defaultCacheControl(res)
       const sp = new URLSearchParams(query)
       keys.forEach((key) => sp.delete(key))

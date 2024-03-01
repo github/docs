@@ -9,6 +9,9 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
 ---
+
+{% data reusables.classroom.note-on-assignment-changes %}
+
 ## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}
@@ -101,7 +104,6 @@ Optionally, you can automatically grade assignments and create a space for discu
 {% data reusables.classroom.assignments-guide-create-review-pull-request %}
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
-
 
 ## Inviting students to an assignment
 

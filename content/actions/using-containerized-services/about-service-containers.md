@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -22,7 +21,7 @@ topics:
 
 Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
 
-You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job. However, you cannot create and use service containers inside a composite action. 
+You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job. However, you cannot create and use service containers inside a composite action.
 
 {% data reusables.actions.docker-container-os-support %}
 
@@ -51,7 +50,8 @@ You can use the `services` keyword to create service containers that are part of
 This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Redis container example
 on: push
 
@@ -70,6 +70,7 @@ jobs:
         # Docker Hub image
         image: redis
 ```
+
 {% endraw %}
 
 ## Mapping Docker host and service container ports
@@ -93,7 +94,8 @@ When you specify the Docker host port but not the container port, the container 
 This example maps the service container `redis` port 6379 to the Docker host port 6379.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Redis Service Example
 on: push
 
@@ -114,6 +116,37 @@ jobs:
           # Opens tcp port 6379 on the host and service container
           - 6379:6379
 ```
+
+{% endraw %}
+
+## Authenticating with image registries
+
+You can specify credentials for your service containers in case you need to authenticate with an image registry. This allows you to use images from private registries or to [increase your DockerHub rate limit](https://www.docker.com/increase-rate-limits/).
+
+Here’s an example of authenticating with Docker Hub and the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}:
+
+{% raw %}
+
+```yaml copy
+jobs:
+  build:
+    services:
+      redis:
+        # Docker Hub image
+        image: redis
+        ports:
+          - 6379:6379
+        credentials:
+          username: ${{ secrets.dockerhub_username }}
+          password: ${{ secrets.dockerhub_password }}
+      db:
+        # Private registry image
+        image:  ghcr.io/octocat/testdb:latest
+        credentials:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.ghcr_password }}
+```
+
 {% endraw %}
 
 ## Further reading

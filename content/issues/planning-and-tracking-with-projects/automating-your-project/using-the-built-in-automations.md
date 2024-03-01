@@ -9,11 +9,12 @@ topics:
   - Projects
 ---
 
-{% note %}
 
-**Note:** Built-in workflows are available as part of a limited beta.
+{% ifversion ghes > 3.8 %}
 
-{% endnote %}
+{% data reusables.projects.enable_enterprise_workflows %}
+
+{% endif %}
 
 {% data variables.product.prodname_projects_v2 %} includes built-in workflows that you can use to update the **Status** of items based on certain events. For example, you can automatically set the status to **Todo** when an item is added to your project or set the status to **Done** when an issue is closed.
 

@@ -5,11 +5,13 @@ name: Move and unlabel ready to merge PRs
 # **Who does it impact**: Open source contributors, open-source maintainers.
 
 on:
+  # Needed in lieu of `pull_request` so that the a PR from a fork can trigger the project board and label automation.
   pull_request_target:
     types:
       - labeled
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
         with:
           project: Docs open source board
           column: Triage
-          repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
 
       - name: remove label
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90

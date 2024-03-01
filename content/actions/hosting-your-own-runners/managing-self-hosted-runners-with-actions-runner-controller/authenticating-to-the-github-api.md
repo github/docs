@@ -12,14 +12,11 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## Overview
 
 You can authenticate {% data variables.product.prodname_actions_runner_controller %} (ARC) to the {% data variables.product.prodname_dotcom %} API by using a {% data variables.product.prodname_github_app %} or by using a {% data variables.product.pat_v1 %}.
-
 
 {% note %}
 
@@ -31,10 +28,15 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
 
 1. Create a {% data variables.product.prodname_github_app %} that is owned by an organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)". Configure the {% data variables.product.prodname_github_app %} as follows.
 
-   1. For "Homepage URL," enter `http://github.com/actions/actions-runner-controller`.
+   1. For "Homepage URL," enter `https://github.com/actions/actions-runner-controller`.
 
    1. Under "Permissions," click **Repository permissions**. Then use the dropdown menus to select the following access permissions.
       - **Administration**: Read and write
+        {% note %}
+
+        **Note**: `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
+
+        {% endnote %}
       - **Metadata**: Read-only
 
    1. Under "Permissions," click **Organization permissions**. Then use the dropdown menus to select the following access permissions.
@@ -56,7 +58,9 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
 {% ifversion ghec or ghes %}
 {% note %}
+
 **Note:** Authenticating ARC with a {% data variables.product.pat_v1 %} is the only supported authentication method to register runners at the enterprise level.
+
 {% endnote %}
 {% endif %}
 
@@ -70,10 +74,12 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
     {% endif %}
 1. To create a Kubernetes secret with the value of your {% data variables.product.pat_v1 %}, use the following command.
 
-   ```bash{:copy}
+   {% data reusables.actions.arc-runners-namespace %}
+
+   ```bash copy
    kubectl create secret generic pre-defined-secret \
-      --namespace=my_namespace \
-      --from-literal=github_token='<YOUR PAT>'
+      --namespace=arc-runners \
+      --from-literal=github_token='YOUR-PAT'
    ```
 
 1. In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file, pass the secret name as a reference.

@@ -5,7 +5,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -23,7 +22,7 @@ By default, authorized users can access your organization's resources from any I
 {% ifversion ghec %}
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
 - If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
@@ -39,11 +38,24 @@ If you set up an allow list you can also choose to automatically add to your all
 
 You can also configure allowed IP addresses at the enterprise account level, and the entries in the enterprise account's allow list are inherited by all the organizations owned by the enterprise. {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
+{% warning %}
+
+**Warning:** Losing access to the IP addresses in your IP allow list could result in unintended consequences, such as getting locked out of your enterprise or organization.
+
+{% endwarning %}
+
+As a best practice, to ensure both secure and reliable access to your enterprise and organization resources when creating an IP allow list, consider the following:
+
+- Maintaining more than one owner of the enterprise account or organization that the IP allow list will be enforced for.
+- Using CIDR notation to specify a range of IP addresses that will include dynamically assigned addresses, to minimize the number of allow list entries.
+- Including a static network in your allowed IP addresses, for backup access in case of problems.
+
 ## Adding an allowed IP address
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -103,6 +115,8 @@ For more information about how to create an allow list for a {% data variables.p
 
 ## Deleting an allowed IP address
 
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
@@ -112,3 +126,7 @@ For more information about how to create an allow list for a {% data variables.p
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
+
+## Using {% data variables.product.prodname_pages %} with an IP allow list
+
+{% data reusables.pages.ip-allow-list-pages %}

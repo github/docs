@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -38,6 +37,7 @@ You can filter files in a pull request by file extension type, such as `.html` o
    ![Screenshot of the view options for a pull request. The "Clear filters" option is outlined in dark orange.](/assets/images/help/pull_requests/clear-file-filter.png)
 
 {% ifversion pr-tree-view %}
+
 ## Using the file tree
 
 {% data reusables.repositories.sidebar-pr %}

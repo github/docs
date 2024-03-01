@@ -4,30 +4,24 @@ intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - CD
   - Azure Kubernetes Service
 ---
- 
-{% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
-
-{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -51,7 +45,7 @@ Under the workflow `env` key, change the following values:
 
 This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -88,7 +82,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
-    
+
     - name: Gets K8s context
       uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
       with:
@@ -103,9 +97,9 @@ jobs:
         renderEngine: 'helm'
         helmChart: {% raw %}${{ env.CHART_PATH }}{% endraw %}
         overrideFiles: {% raw %}${{ env.CHART_OVERRIDE_PATH }}{% endraw %}
-        overrides: |     
+        overrides: |
           replicas:2
-        helm-version: 'latest' 
+        helm-version: 'latest'
       id: bake
 
     - name: Deploys application
@@ -122,6 +116,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+- For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+- The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
+- For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

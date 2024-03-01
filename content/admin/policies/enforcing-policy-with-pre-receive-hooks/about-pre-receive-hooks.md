@@ -34,3 +34,14 @@ Examples of how you can use pre-receive hooks:
 Impact to developers and their workflows can be significant and must be considered carefully. Pre-receive hooks that are based on business needs and implemented thoughtfully will provide the most benefit to the organization as a whole.
 
 Pre-receive hooks can have unintended effects on the performance of {% data variables.location.product_location %} and should be carefully implemented and reviewed.
+
+Due to risk of failure and performance impact for all users of your instance, we recommend the following.
+
+- Avoid API requests within a pre-receive hook. In particular, we strongly discourage that you make requests to external services, which may take longer and can compound performance impact.
+- Avoid long-running Git operations within a pre-receive hook. If your pre-receive hook performs Git operations within large or busy repositories, your instance's Git and overall performance may be negatively impacted.
+
+{% note %}
+
+**Note:** To avoid rejection of a push due to a timeout, all combined pre-receive hooks should run in under five seconds.
+
+{% endnote %}

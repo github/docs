@@ -1,0 +1,116 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+/* Code annotations
+----------------------------------------------------------------------------*/
+
+.annotate.beside {
+  .annotate-beside {
+    display: inherit;
+  }
+  .annotate-inline {
+    display: none;
+  }
+}
+
+.annotate.inline {
+  .annotate-beside {
+    display: none;
+  }
+  .annotate-inline {
+    display: inherit;
+  }
+}
+
+.annotate {
+  pre {
+    border: 0px !important;
+    margin: 0px !important;
+  }
+}
+
+.annotate-header header {
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.annotate-beside,
+.beside .annotate-header {
+  margin: auto;
+
+  @include breakpoint(md) {
+    // 720px: content width, 4rem padding
+    margin: 0 calc((100vw - 720px - 4rem) / 2 * -1);
+  }
+
+  @include breakpoint-xxl {
+    // 326px: navigation width
+    margin: 0 max(-12rem, calc((100vw - 720px - 326px - 4rem) / 2 * -1));
+  }
+}
+
+.beside .annotate-header header {
+  width: auto;
+
+  @include breakpoint(md) {
+    width: 50%;
+  }
+}
+
+.annotate-beside > div:last-child > .annotate-code {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.annotate-inline {
+  border-left: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.annotate-row {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    margin: 0 auto;
+
+    &:hover {
+      border-radius: 4px;
+      outline: 2px solid var(--color-accent-fg);
+    }
+  }
+}
+
+.annotate-code {
+  background-color: var(--color-canvas-subtle);
+  border-left: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
+
+  @include breakpoint(md) {
+    width: 50%;
+  }
+}
+
+.annotate-note {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  @include breakpoint(md) {
+    width: 50%;
+
+    padding: 16px 0 16px 16px;
+    font-size: 14px;
+    margin: 0px;
+  }
+}
+
+.annotate-note > p:last-child {
+  margin-bottom: 0px;
+}
+
+.subnav-item[aria-current]:not([aria-current="false"]) {
+  z-index: 0;
+}

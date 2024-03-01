@@ -23,7 +23,7 @@ Your action should:
 - Work across {% data variables.product.product_name %}-hosted and self-hosted runners
 - Leverage community tooling when possible
 
-This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`. 
+This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`.
 
 ## Prerequisites
 
@@ -36,7 +36,8 @@ The following script demonstrates how you can get a user-specified version as in
 {% data variables.product.prodname_dotcom %} provides [`actions/toolkit`](https://github.com/actions/toolkit), which is a set of packages that helps you create actions. This example uses the [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) and [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) packages.
 
 {% raw %}
-```javascript{:copy}
+
+```javascript copy
 const core = require('@actions/core');
 const tc = require('@actions/tool-cache');
 
@@ -56,6 +57,7 @@ async function setup() {
 
 module.exports = setup
 ```
+
 {% endraw %}
 
 To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
@@ -66,7 +68,6 @@ For a full example of how to set up this action, see [example-setup-gh](https://
 
 This pattern is employed in several actions. For more examples, see:
 
-* [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
-* [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
-* [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
-
+- [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
+- [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
+- [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)

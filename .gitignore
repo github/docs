@@ -9,13 +9,14 @@ coverage/
 /assets/images/early-access
 /content/early-access
 /data/early-access
-/script/dev-toc/static
+/src/dev-toc/static
 .next
 .eslintcache
 *.tsbuildinfo
 /translations/
 .node-version
 .linkinator/full.log
+next-env.d.ts
 
 # blc: broken link checker
 blc_output.log
@@ -30,7 +31,7 @@ lib/redirects/.redirects-cache*.json
 user-code/
 
 # Logs from scripts
-script/logs/
+*/logs/
 external-link-checker-db.json
 
 # Playwright related
@@ -47,3 +48,6 @@ assets/images/help/writing/unordered-list-rendered (1).png
 
 # Used by getRemoteJSON()
 .remotejson-cache/
+
+# Used by precompute-pageinfo
+.pageinfo-cache.json.br

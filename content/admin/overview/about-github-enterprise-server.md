@@ -49,7 +49,7 @@ For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-e
 
 ## About administration
 
-You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintainance of {% data variables.product.product_name %}.
+You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintenance of {% data variables.product.product_name %}.
 
 You can give certain employees administrative access to {% data variables.product.product_name %}, so they can set up external authentication, configure the instance to meet developer needs, and monitor the instance's activity and performance. To ensure compliance with business rules or regulatory restrictions, administrators can configure policies that control how people use {% data variables.location.product_location %}. For more information, see the following articles.
 
@@ -96,7 +96,7 @@ Different versions of {% data variables.product.product_name %} are reflected se
 
 ## Trying {% data variables.product.product_name %}
 
-You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
+You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
 
 ## Further reading
 

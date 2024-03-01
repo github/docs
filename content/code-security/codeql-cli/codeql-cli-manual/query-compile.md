@@ -1,8 +1,7 @@
 ---
 title: query compile
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,7 +23,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query compile [--check-only] [--keep-going] [--threads=<num>] [--ram=<MB>] <options>... -- <file>...
 ```
 
@@ -33,21 +32,23 @@ codeql query compile [--check-only] [--keep-going] [--threads=<num>] [--ram=<MB>
 Compile or check QL code.
 
 Compile one or more queries. Usually the main outcome of this command is
-that the compiled version of the query is written to a *compilation
-cache* where it will be found when the query is later executed. Other
+that the compiled version of the query is written to a _compilation
+cache_ where it will be found when the query is later executed. Other
 output options are mostly for debugging.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>...`
 
 \[Mandatory] Queries to compile. Each argument is one of:
 
-*   A .ql file to compile.
-*   A directory which will be searched recursively for .ql files.
-*   A .qls file that defines a particular set of queries.
-*   The basename of a "well-known" .qls file exported by one of the
-    installed QL packs.
+- A .ql file to compile.
+- A directory which will be searched recursively for .ql files.
+- A .qls file that defines a particular set of queries.
+- The basename of a "well-known" .qls file exported by one of the
+  installed QL packs.
 
 #### `-n, --check-only`
 
@@ -93,14 +94,14 @@ compiled.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-j, --threads=<num>`
 
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -115,7 +116,7 @@ How to handle warnings from the QL compiler. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with compilation.
+`show` _(default)_: Print warnings but continue with compilation.
 
 `error`: Treat warnings as errors.
 
@@ -163,6 +164,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
 
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
+
 ### Options to set up compilation environment
 
 #### `--search-path=<dir>[:<dir>...]`
@@ -197,8 +203,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -291,3 +297,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

@@ -1,6 +1,6 @@
 name: Set up local Elasticsearch
 
-description: Install a local Elasticseach with version that matches prod
+description: Install a local Elasticsearch with version that matches prod
 
 inputs:
   token:
@@ -15,8 +15,9 @@ runs:
       # is one that will run tests against an Elasticsearch on localhost.
       uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
       with:
-        # Make sure this matches production and `sync-search-pr.yml`
-        elasticsearch version: '7.11.1'
+        # Make sure this matches production
+        # It might also need to match what's available on Docker hub
+        elasticsearch version: '8.12.0'
         host port: 9200
         container port: 9200
         host node port: 9300

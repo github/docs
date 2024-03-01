@@ -1,0 +1,199 @@
+Category,Old Attribute,New Attribute
+Aqueduct,kube_cluster,k8s.cluster.name
+Aqueduct,kube_app,k8s.app.name
+Aqueduct,kube_pod_namespace,k8s.pod.namespace
+Aqueduct,kube_pod,k8s.pod.name
+Aqueduct,kube_pod_ip,k8s.pod.ip
+Aqueduct,current_ref,aqueduct.ref
+Aqueduct,cluster,aqueduct.cluster.name
+Aqueduct Bridge,current_ref,aqueduct-bridge.ref
+Pull Requests,pull,gh.pull_request.id
+Pull Requests,pull_valid,gh.pull_request.valid
+Pull Requests,pull_saved,gh.pull_request.saved
+Pull Requests,pull_errors,gh.pull_request.errors
+Pull Requests,issue_valid,gh.issue.valid
+Pull Requests,issue_saved,gh.issue.saved
+Pull Requests,issue_errors,gh.issue.errors
+Viewscreen,action,gh.viewscreen.action
+Viewscreen,format,gh.viewscreen.format
+gitcoin/billing,business_id,gh.business.id
+gitcoin/billing,failed_event,code.namespace
+gitcoin/billing,job,gh.job.name
+gitcoin/billing,customer_id,gh.customer.id
+gitcoin/billing,product,gh.product.name
+gitcoin/billing,legacy,gh.billing.legacy.status
+gitcoin/billing,purpose,gh.billing.synchronization.purpose
+gitcoin/billing,user_id,gh.user.id
+gitcoin/billing,plan_name,gh.plan.name
+gitcoin/billing,attempts_per_exception,gh.job.attempt.count
+gitcoin/billing,account_id,gh.billing.zuora_account.id
+gitcoin/billing,owner_id,gh.user.id
+gitcoin/billing,asset_status_id,gh.asset_status.id
+gitcoin/billing,user,gh.user.id
+gitcoin/billing,billing_transaction_id,gh.billing.transaction.id
+gitcoin/billing,twirp_error_code,http.status.code
+gitcoin/billing,name,http.method
+gitcoin/billing,user,gh.target.id
+gitcoin/billing,business,gh.business.id
+gitcoin/billing,results,gh.billing.plan_subscription.synchronization.results
+gitcoin/billing,zuora_account_id,gh.billing.zuora_account.id
+gitcoin/billing,message,gh.billing.result.error_message
+gitcoin/billing,message,gh.billing.zuora.result.error_message
+gitcoin/billing,name,code.function
+gitcoin/billing,stripe_transfer_id,gh.billing.stripe_transfer.id
+gitcoin/billing,account_id,gh.account.id
+gitcoin/billing,account_type,gh.account.type
+gitcoin/billing,subscription_item_id,gh.billing.subscription_item.id
+gitcoin/billing,target ,gh.target.id
+gitcoin/billing,processor,code.namespace
+gitcoin/billing,zuora_invoice_id,gh.billing.zuora_invoice.id
+gitcoin/billing,zuora_error_result,gh.billing.zuora.result
+gitcoin/billing,invoice_id,gh.billing.zuora.invoice.id
+gitcoin/billing,adjustment_amount,gh.billing.zuora.invoice_adjustment.amount
+gitcoin/billing,adjustments ,gh.billing.zuora.adjustments
+gitcoin/billing,message,gh.billing.braintree.response.message
+gitcoin/billing,gh.user.login,gh.user.id
+gitcoin/billing,gh.billing.billable_entity.name,gh.billing.billable_entity.id
+notebooks,repository_id,gh.repo.id
+notebooks,commit,gh.git.sha
+notebooks,browser,browser.brands
+notebooks,version,browser.brands
+notebooks,kube_cluster_name,k8s.cluster.name
+notebooks,path,url.path
+notebooks,is_iframe,gh.notebooks.is_iframe
+notebooks,source,gh.notebooks.error.source
+notebooks,repository_type,gh.notebooks.repo_type
+notebooks,view_type,gh.notebooks.view_type
+notebooks,LFS,gh.notebooks.LFS
+notebooks,bypass_fastly,gh.notebooks.bypass_fastly
+notebooks,fastly-cache-hit,gh.notebooks.fastly_cache_hit
+notebooks,codeload_response,gh.notebooks.codeload.response
+notebooks,codeload_status_code,gh.notebooks.codeload.status
+notebooks,language,gh.notebooks.notebook.language
+notebooks,visibility,gh.notebooks.notebook.visibility
+notebooks,file_size,gh.notebooks.notebook.size
+notebooks,notebook_version,gh.notebooks.notebook.version
+Pull Requests,method,gh.pull_request.merge_method
+Pull Requests,head_oid,gh.pull_request.head_oid
+Pull Requests,base_oid,gh.pull_request.base_oid
+Pull Requests,root_oid,gh.pull_request.root_oid
+Pull Requests,comment_id,gh.comment.id
+Pull Requests,user_id,gh.owner.id
+Pull Requests,force_pushed,gh.pull_request.force_pushed
+Pull Requests,pusher,gh.pull_request.pusher.id
+Pull Requests,ref_name,gh.merge_queue.ref_name_suffix
+Pull Requests,ref_sha,gh.merge_queue.ref_sha
+Pull Requests,gh.merge_queue.branch,gh.merge_queue.id
+Pull Requests,queue_id,gh.merge_queue.id
+Pull Requests,record_errors,gh.merge_queue.record_errors
+Pull Requests,new_head_ref,gh.pull_request.new_head_ref
+Pull Requests,job_id,gh.pull_request.job.id
+Pull Requests,spec,gh.repo.dgit_spec
+Pull Requests,thread,gh.pull_request_review_thread.id
+Pull Requests,reason_code,gh.pull_request.reason_code
+Pull Requests,auto_merge_request_id,gh.auto_merge_request.id
+Pull Requests,solo,gh.auto_merge_request.solo
+Pull Requests,jump_queue,gh.auto_merge_request.jump_queue
+Pull Requests,head_repo_id,gh.pull_request.head_repo.id
+Pull Requests,branch,gh.merge_queue.branch
+Pull Requests,guid,gh.pull_request.guid
+Pull Requests,fn,"code.namespace,code.function"
+Pull Requests,organization,gh.organization
+Pull Requests,result,gh.merge_queue.result
+Pull Requests,feature_flag,gh.merge_queue.feature_flag
+Pull Requests,plan_support,gh.merge_queue.plan_support
+Pull Requests,github_owned,gh.merge_queue.github_owned
+Pull Requests,direct_compare,gh.pull_request.comparison.direct
+Pull Requests,head_ref_valid,gh.pull_request.head_ref.valid
+Pull Requests,comparison_viewable,gh.pull_request.comparison.viewable
+Pull Requests,comparison_valid,gh.pull_request.comparison.valid
+Pull Requests,pull_valid,gh.pull_request.valid
+Pull Requests,pull_saved,gh.pull_request.saved
+Pull Requests,pull_errors,gh.pull_request.errors
+API,accept,http.request.header.accept
+API,api_route,http.route
+API,auth_fingerprint,gh.auth.fingerprint
+API,auth,gh.auth.type
+API,connections,gh.db.connection_map
+API,content_authorization_failure,gh.auth.failure.name
+API,controller,code.namespace
+API,critical,gh.exception.is_critical
+API,current_user,gh.actor.id
+API,granted_oauth_scopes,enduser.scope
+API,graphql_current_field,gh.graphql.current_field
+API,graphql_current_path,gh.graphql.current_path
+API,graphql_global_id_type,gh.graphql.global_id_type
+API,graphql_query_hash,gh.graphql.query_hash
+API,graphql_schema_target,gh.graphql.schema_target
+API,graphql_variables_hash,gh.graphql.variables_hash
+API,graphql,gh.request.is_graphql
+API,installation_id,gh.integration_installation.id
+API,integration_id,gh.integration.id
+API,integration,gh.integration.id
+API,is_employee,gh.user.is_employee
+API,is_protected_by_hmac,gh.api.is_protected_by_hmac
+API,language,http.request.header.accept_language
+API,limited_index,gh.rate_limit.secondary.search_index
+API,limited_key,gh.rate_limit.secondary.key
+API,limited_limit,gh.rate_limit.secondary.max
+API,limited_ttl,gh.rate_limit.secondary.ttl
+API,limited,gh.rate_limit.secondary.limit_reason
+API,master_pid,process.parent_pid
+API,master_started_at,gh.process.parent.started_at
+API,method,http.method
+API,oauth_access_id,gh.oauth.access.id
+API,oauth_app,gh.oauth.app.id
+API,oauth_application_id,gh.oauth.app.id
+API,oauth_party,gh.oauth.app.party_type
+API,oauth_scopes,enduser.scope
+API,operation_name,graphql.operation.name
+API,org,gh.organization.login
+API,origin,gh.graphql.origin
+API,params,http.request.parameters.*
+API,parent_installation_id,gh.parent_installation.id
+API,path_info,http.path
+API,private_repo,gh.repo.is_private
+API,query_owning_catalog_service,gh.graphql.catalog_service
+API,query_string,http.query
+API,rails,rails.version
+API,rate_limit_family,gh.rate_limit.primary.family
+API,rate_limit_key,gh.rate_limit.primary.key
+API,rate_limit_remaining,gh.rate_limit.primary.remaining
+API,rate_limit_reset,gh.rate_limit.primary.reset
+API,rate_limit_used,gh.rate_limit.primary.used
+API,rate_limit,gh.rate_limit.primary.max
+API,referrer_controller_action,gh.graphql.referrer.controller_action
+API,repo_id,gh.repo.id
+API,request_category,gh.request.category
+API,request_id,gh.request_id
+API,request_wait_time,gh.request.wait_duration
+API,requested_api_version,gh.api.requested_version
+API,requested_at,gh.request.start_time
+API,robot,gh.robot.type
+API,route,http.route
+API,selected_api_version_reason,gh.api.selected_version_reason
+API,selected_api_version,gh.api.selected_version
+API,server_id,service.instance.id
+API,time,gh.exception.create_time
+API,twirp_client_name,peer.service
+API,twirp_client,peer.service
+API,twirp_handler_class,rpc.service
+API,twirp_rpc_method,rpc.method
+API,unconverted_path,gh.api.is_unconverted_path
+API,url_pattern,gh.graphql.referrer.http.route
+API,user_agent,http.request.header.user_agent
+API,user_programmatic_access_id,gh.user_programmatic_access.id
+API,version,gh.api.version
+API,viewer,gh.graphql.viewer.id
+API,worker_pid,process.pid
+API,worker_request_count,http.server.request.count
+API,worker_started_at,gh.process.started_at
+API,x_forwarded_for,http.request.header.x_forwarded_for
+API,x_real_ip,http.request.header.x_real_ip
+API,tenant,gh.tenant.id
+API,user,gh.user.id
+API,current_user,gh.actor.id
+API,current_user,gh.actor.login
+API,org,gh.organization.id
+API,org,gh.organization.login
+API,viewer,gh.graphql.viewer.id

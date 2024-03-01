@@ -7,9 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Properties supported by GitHub
 ---
 {% data reusables.subversion.sunset %}
@@ -24,7 +22,7 @@ We convert `svn:executable` properties by updating the file mode directly before
 
 ## Ignoring unversioned items (`svn:ignore`)
 
-If you've set files and directories to be ignored in Subversion, {% data variables.product.product_name %} will track them internally. Files ignored by subversion clients are completely distinct from entries in a *.gitignore* file.
+If you've set files and directories to be ignored in Subversion, {% data variables.product.product_name %} will track them internally. Files ignored by subversion clients are completely distinct from entries in a _.gitignore_ file.
 
 ## Currently unsupported properties
 

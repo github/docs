@@ -1,7 +1,7 @@
 import rateLimit from 'express-rate-limit'
 
 import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl } from '../../../middleware/cache-control.js'
+import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const EXPIRES_IN_AS_SECONDS = 60
 
@@ -97,7 +97,7 @@ const MISC_KEYS = [
 ]
 
 /**
- * Return true if the request looks like a DoS request. I.e. suspcious.
+ * Return true if the request looks like a DoS request. I.e. suspicious.
  *
  * We've seen lots of requests slip past the CDN and its edge rate limiter
  * that clearly are not realistic URLs that you'd get in a browser.
@@ -106,7 +106,7 @@ const MISC_KEYS = [
  * have one more query string keys. In particular the `/api/..` endpoints.
  *
  * Remember, just because this function might return true, it doesn't mean
- * the request will be rate limited. It has to be both suspicous AND
+ * the request will be rate limited. It has to be both suspicious AND
  * have lots and lots of requests.
  *
  * @param {Request} req

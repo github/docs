@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -20,7 +19,7 @@ If you publicize your private contributions, people without access to the privat
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**Note:** On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location%}{% endif %}.
 
 {% endnote %}
 
@@ -31,8 +30,11 @@ You can choose to publicize your private contributions, which allows visitors to
 If you choose to hide your private contributions, visitors will only see your public contributions.
 
 {% data reusables.profile.access_profile %}
-1. Under "Contributions & Activity", select or deselect **Include private contributions on my profile**.
+1. Above the contribution calendar, click **Contribution settings**.
 
+   ![Screenshot of the "Contribution settings" link, highlighted with a dark orange outline.](/assets/images/help/profile/contribution-settings.png)
+
+1. Click **Private contributions** to show or hide private contributions on your profile.
 
 ## Changing the visibility of achievements
 
@@ -49,10 +51,11 @@ You can hide an individual achievement on your profile. When hidden, badges are 
 {% data reusables.profile.access_profile %}
 1. Under "Achievements", click the achievement you want to hide.
 
-   ![Screenshot of the "Achievements" section of a user profile. A badge with a cowboy image is highlighted with an orange outline.](/assets/images/help/profile/achievements-on-profile.png)
+   ![Screenshot of the "Achievements" section of a user profile. A badge with a cowboy image is highlighted with a dark orange outline.](/assets/images/help/profile/achievements-on-profile.png)
+
 1. Click {% octicon "eye" aria-label="Hide from profile" %}.
 
-   ![Screenshot of an achievement. An open eye icon is highlighted with an orange outline.](/assets/images/help/profile/achievements-detail-view.png)
+   ![Screenshot of an achievement. An open eye icon is highlighted with a dark orange outline.](/assets/images/help/profile/achievements-detail-view.png)
 
 {% endif %}
 

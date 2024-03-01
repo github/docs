@@ -1,17 +1,19 @@
+// Returns false when no changes were made to the frontmatter,
+// true when changes were made.
 export default function removeDeprecatedFrontmatter(
   file,
   frontmatterVersions,
   releaseToDeprecate,
-  nextOldestRelease
+  nextOldestRelease,
 ) {
   // skip files with no Enterprise Server versions frontmatter
-  if (!frontmatterVersions) return
-  if (!frontmatterVersions.ghes) return
+  if (!frontmatterVersions) return false
+  if (!frontmatterVersions.ghes) return false
 
   const ghesRange = frontmatterVersions.ghes
 
   // skip files with versions frontmatter that already applies to all enterprise-server releases
-  if (ghesRange === '*') return
+  if (ghesRange === '*') return false
 
   // if the release to deprecate is 2.13, and the FM is either '>=2.13', '>2.13', or '>=2.14',
   // we can safely change the FM to ghes: '*'
@@ -22,7 +24,7 @@ export default function removeDeprecatedFrontmatter(
 
   if (appliesToAllSupportedGhesReleases) {
     frontmatterVersions.ghes = '*'
-    return
+    return true
   }
 
   // if the release to deprecate is 2.13, and the FM is either '=2.13', '<2.13', '<=2.13', or '<2.14',
@@ -37,11 +39,12 @@ export default function removeDeprecatedFrontmatter(
     // Throw a warning if there are no other frontmatter versions specified.
     if (Object.keys(frontmatterVersions).length === 1) {
       console.log(
-        `Warning! ${file} has frontmatter versioning that will make it never appear when ${releaseToDeprecate} is deprecated. The article should probably be removed.`
+        `Warning! ${file} has frontmatter versioning that will make it never appear when ${releaseToDeprecate} is deprecated. The article should probably be removed.`,
       )
-      return
+      return false
     }
 
     delete frontmatterVersions.ghes
+    return true
   }
 }

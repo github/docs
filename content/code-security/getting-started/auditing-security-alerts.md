@@ -4,7 +4,6 @@ intro: '{% data variables.product.prodname_dotcom %} provides a variety of tools
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -46,6 +45,8 @@ You can access and search audit logs using the API or the audit log UI. The audi
 
 For a list of audit log events, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
+For information on how to access the audit log for your enterprise or organization, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+
 {% ifversion audit-log-streaming %}
 
 You can also stream audit data from {% data variables.product.prodname_dotcom %} to an external data management system, which enables you to analyze and collect data for internal charts. Enterprise owners can configure audit log streaming. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
@@ -56,7 +57,7 @@ You can also stream audit data from {% data variables.product.prodname_dotcom %}
 
 You can set up `code_scanning_alert`, `dependabot_alert`, and `secret_scanning_alert` webhooks to receive payloads whenever there is a response to a security alert in an organization or repository. You can also define which responses to act on, for example, you might want to define a webhook that tracks {% data variables.product.prodname_secret_scanning %} alerts created when someone bypasses push protection using the alert property `"push_protection_bypassed": true`.
 
-You can also integrate webhook payloads into other tools you use to monitor and inform security behaviors. For example, a webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload and integrate it into tools your team uses like Slack, Microsoft Teams, Splunk, or email. For more information, see "[About webhooks](/webhooks-and-events/webhooks/about-webhooks)" and "[Webhook events and payloads](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+You can also integrate webhook payloads into other tools you use to monitor and inform security behaviors. For example, a webhook fires when a secret alert is either created, resolved, {% ifversion secret-scanning-validity-check-partner-patterns %}revoked, reopened, or when a secret's validity status changes{% else %}or reopened{% endif %}. You can then parse the webhook payload and integrate it into tools your team uses like Slack, Microsoft Teams, Splunk, or email. For more information, see "[About webhooks](/webhooks-and-events/webhooks/about-webhooks)" and "[Webhook events and payloads](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
 ## API
 
@@ -87,6 +88,7 @@ You can list all {% data variables.product.prodname_code_scanning %} alerts for 
 For more information, see "[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
 
 ## Further reading
-- [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)
+
+- [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
 - [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 - [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

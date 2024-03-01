@@ -6,6 +6,7 @@ export type SearchResultHitT = {
   highlights: {
     title?: string[]
     content?: string[]
+    content_explicit?: string[]
   }
   score?: number
   popularity?: number
@@ -32,21 +33,12 @@ export type SearchResultsT = {
 
 export type SearchQueryT = {
   query: string
-  version: string
-  language: string
-  size: number
-  page: number
-  sort: string
-  highlights: string[]
-  autocomplete: boolean
   debug: boolean
-  include: string[]
-  indexName: string
 }
 
 export type SearchValidationErrorT = {
   error: string
-  fields?: string[]
+  // key: string
 }
 
 export type SearchT = {

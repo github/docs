@@ -1,0 +1,3 @@
+{% data variables.product.prodname_copilot %} content exclusion settings do not apply to everyone who uses {% data variables.product.prodname_copilot_short %}.
+
+A content exclusion setting only applies to people who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription and are members of the same {% ifversion fpt %}organization{% else %}enterprise{% endif %} in which the content exclusion is configured. Other users who can access the specified files will not be affected by the content exclusion and will still see code completion suggestions.

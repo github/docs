@@ -1,8 +1,7 @@
 ---
 title: pack packlist
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -26,14 +25,14 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack packlist <options>... -- <dir>
 ```
 
 ## Description
 
-\[Experimental] \[Plumbing] Compute the set of files to be included in
-a QL query pack or library pack.
+\[Plumbing] Compute the set of files to be included in a QL query pack
+or library pack.
 
 This command determines the set of files to be included in the pack
 based on the patterns specified in any `.gitignore` files present in the
@@ -41,7 +40,9 @@ pack or in an ancestor directory.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>`
 
@@ -49,7 +50,7 @@ The root directory of the package.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Common options
 
@@ -85,3 +86,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

@@ -11,13 +11,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
 shortTitle: App query parameters
 ---
-## About URL parameters for registering {% data variables.product.prodname_github_app %}s
+## About URL parameters for registering {% data variables.product.prodname_github_apps %}
 
 You can use URL parameters to preselect the configuration settings of a new {% data variables.product.prodname_github_app %} registration and share a custom link with other people. The link will take people to a {% data variables.product.prodname_github_app %} registration page, where the app settings will be pre-filled according to the URL parameters you included in the URL.
 
@@ -29,8 +28,8 @@ Alternatively, you can create a {% data variables.product.prodname_github_app %}
 
 To create a custom configuration URL for a {% data variables.product.prodname_github_app %} on a personal or organization account, add query parameters after the following base URLs.
 
-* To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
+- To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
+- To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
 
 On the app registration page, the person registering the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person registering the app will need to input a value before they can register the app.
 
@@ -56,14 +55,13 @@ Parameter name | Type | Description
 `public` | `boolean` | Set to `true` when your {% data variables.product.prodname_github_app %} is available to the public or `false` when it is only accessible to the owner of the app.
 `webhook_active` | `boolean` | Set to `true` to enable webhook. Webhook is disabled by default.
 `webhook_url` | `string` | The full URL that you would like to send webhook event payloads to.
-{% ifversion ghae %}`webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks)" for more details.
-{% endif %}`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. For more information, see the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.
+`events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. For more information, see the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.
 `single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% ifversion fpt or ghes or ghec %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% ifversion fpt or ghes or ghec %}
 `single_file_paths` | `array of strings` | This allows the app to access up ten specified files in a repository. When you set the `single_file` permission to `read` or `write`, this array can store the paths for up to ten files that your {% data variables.product.prodname_github_app %} will manage. These files all receive the same permission set by `single_file`, and do not have separate individual permissions. When two or more files are configured, the API returns `multiple_single_files=true`, otherwise it returns `multiple_single_files=false`.{% endif %}
 
 ## {% data variables.product.prodname_github_app %} permissions
 
-You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For more information about the possible permissions you can select for the app, and the endpoints that the app can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)." For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
+You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
 
 For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.
 

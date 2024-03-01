@@ -1,0 +1,1 @@
+To use {% data variables.product.company_short %}-hosted runners with Azure VNET, you will need to configure your Azure resources then create an Azure private network configuration in {% data variables.product.company_short %}.

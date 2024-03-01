@@ -15,7 +15,7 @@ You can customize which items appear in your views using filters for item metada
 
 To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
-![Screenshot showing the location of the filter icon.](/assets/images/help/projects-v2/filter-example.png)
+![Screenshot of "Mona's project". A field labeled "Filter by keyword or by field" is highlighted with an orange outline.](/assets/images/help/projects-v2/filter-example.png)
 
 In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
@@ -29,7 +29,7 @@ The same filters are available for charts you create using insights for {% data 
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
-You can use filters to produce views for very specific purposes. For example, you could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
+You can use filters to produce views for very specific purposes. For example, you{% ifversion fpt or ghec or ghes > 3.8 %} could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You{% endif %} could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
 
 ## Filtering for fields
 
@@ -130,13 +130,15 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that are tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
 | <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
 
 {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.8 %}
 
 ## Filtering for when an item was last updated
 
@@ -148,6 +150,10 @@ You can use the `{number}days` syntax to filter for when items were last updated
 |                                               | **last-updated:7days** will show items last updated seven or more days ago.
 |                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
 
+{% data reusables.projects.last-updated-explanation %}
+
+{% endif %}
+
 ## Filtering number, date, and iteration fields
 
 You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fields. Dates should be provided in the `YYYY-MM-DD` format.
@@ -157,7 +163,7 @@ You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fiel
 | <code>field:&gt;<em>VALUE</em></code>  | **priority:&gt;1** will show items with a priority greater than 1.
 | <code>field:&gt;=<em>VALUE</em></code> | **date:&gt;=2022-06-01** will show items with a date of "2022-06-01" or later.
 | <code>field:&lt;<em>VALUE</em></code>  | **iteration:<"Iteration 5"** will show items with an iteration before "Iteration 5."
-| <code>field:&gt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
+| <code>field:&lt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
 
 You can also use `..` to filter for an inclusive range. When working with a range, `*` can be supplied as a wildcard operator.
 

@@ -1,7 +1,8 @@
-@import "@primer/css/support/index.scss";
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
 
 .codeBlock {
-  overflow: auto;
+  overflow-y: auto;
   margin-bottom: 1rem;
   line-height: 1.45;
   background-color: var(--color-canvas-subtle);
@@ -9,9 +10,8 @@
 
   code {
     background-color: transparent;
-    padding: 8px 8px 16px;
-    white-space: pre;
-    max-width: 90vw;
+    padding: 0.5rem 0.5rem 1rem;
+    max-width: calc(100vw - 2.5rem);
 
     @include breakpoint(lg) {
       max-width: 40vw;
@@ -25,9 +25,9 @@
 
 .requestCodeBlock {
   max-height: 30vh;
-  min-height: 70px;
+  min-height: 120px;
 }
 
 .responseCodeBlock {
-  min-height: 70px;
+  min-height: 120px;
 }

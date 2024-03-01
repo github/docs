@@ -1,11 +1,11 @@
 ---
-title: Viewing security alerts for repositories in your organization
+title: Viewing security information for your organization or enterprise
 shortTitle: Security overview
-intro: 'View, sort, and filter the security alerts from across your organization in one place.'
+allowTitleToDifferFromFilename: true
+intro: 'View, sort, and filter security alerts and coverage information from across your organization or enterprise, and enable security features for their repositories.'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 topics:
@@ -13,8 +13,11 @@ topics:
   - Advanced Security
 children:
   - /about-security-overview
+  - /viewing-security-insights-for-your-organization
   - /assessing-adoption-code-security
   - /assessing-code-security-risk
   - /filtering-alerts-in-security-overview
   - /enabling-security-features-for-multiple-repositories
+  - /exporting-data-from-the-risk-and-coverage-pages
+  - /viewing-metrics-for-secret-scanning-push-protection-in-your-organization
 ---

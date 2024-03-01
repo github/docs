@@ -1,0 +1,6 @@
+# Issue 10218
+# Archive entire Organization
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

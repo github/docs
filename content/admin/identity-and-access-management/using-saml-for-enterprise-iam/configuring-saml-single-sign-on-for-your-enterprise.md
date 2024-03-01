@@ -1,12 +1,11 @@
 ---
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configure SAML SSO
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes or ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
-permissions: '{% ifversion ghes %}Site administrators{% elsif ghec or ghae %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec or ghae %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
+intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.location.product_location %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+permissions: '{% ifversion ghes %}Site administrators{% elsif ghec %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -45,21 +44,13 @@ For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-
 
 {% data reusables.apps.reauthorize-apps-saml %}
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 
 SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
 
 After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.location.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
 
 {% data reusables.saml.saml-ghes-account-revocation %}
-
-{% ifversion ghae %}
-
-{% data reusables.saml.assert-the-administrator-attribute %}
-
-{% data reusables.scim.after-you-configure-saml %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
-
-{% endif %}
 
 {% endif %}
 
@@ -69,9 +60,19 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% ifversion ghec %}
 
+For more information about connecting Microsoft Entra ID (previously known as Azure AD) to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
+
+{% elsif ghes %}
+
+For more information about connecting Entra ID to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
+
 ## Username considerations with SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+
+{% endif %}
+
+{% ifversion ghec %}
 
 ## Enforcing SAML single-sign on for organizations in your enterprise account
 
@@ -90,7 +91,7 @@ For more detailed information about how to enable SAML using Okta, see "[AUTOTIT
 1. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
-1. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct.
+1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration** . {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
@@ -131,68 +132,6 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 1. Select the **Name Identifier Format** dropdown menu, then click a format.
 1. Under "Verification certificate," click **Choose File**, then choose a certificate to validate SAML responses from the IdP.
 1. Under "User attributes", modify the SAML attribute names to match your IdP if needed, or accept the default names.
-
-{% elsif ghae %}
-
-## Enabling SAML SSO
-
-{% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
-
-The following IdPs provide documentation about configuring SAML SSO for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
-
- | IdP | More information |
- | :- | :- |
- | Azure AD | "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
-| Okta | "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)" |
-
-During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML service provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata)."
-
-## Editing the SAML SSO configuration
-
-If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.location.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
-
-{% ifversion ghae %}
-
-{% note %}
-
-**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", type the new details for your IdP.
-{% data reusables.saml.edit-signature-and-digest-methods %}
-1. To ensure that the information you've entered is correct, click **Test SAML configuration**.
-1. Click **Save**.
-1. Optionally, to automatically provision and deprovision user accounts for {% data variables.location.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
-
-{% endif %}
-
-{% ifversion ghae %}
-
-## Disabling SAML SSO
-
-{% warning %}
-
-**Warning**: If you disable SAML SSO for {% data variables.location.product_location %}, users without existing SAML SSO sessions cannot sign into {% data variables.location.product_location %}. SAML SSO sessions on {% data variables.location.product_location %} end after 24 hours.
-
-{% endwarning %}
-
-{% note %}
-
-**Note**: {% data reusables.saml.contact-support-if-your-idp-is-unavailable %}
-
-{% endnote %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-1. Under "SAML single sign-on", deselect **Enable SAML authentication**.
-1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**.
-
-{% endif %}
 
 {% endif %}
 

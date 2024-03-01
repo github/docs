@@ -5,7 +5,6 @@ permissions: People with admin access for a repository can change the default br
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
@@ -20,7 +19,7 @@ shortTitle: Change the default branch
 
 You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
-{% ifversion not ghae %}
+{% ifversion ghes < 3.13 %}
 {% note %}
 
 **Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
@@ -35,6 +34,8 @@ You can also rename the default branch. For more information, see "[AUTOTITLE](/
 ## Prerequisites
 
 To change the default branch, your repository must have more than one branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
+
+Additionally, you need to have admin access to a repository to change the default branch.
 
 ## Changing the default branch
 

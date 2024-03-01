@@ -5,7 +5,6 @@ intro: Use a container to run the steps in a job.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  
@@ -38,4 +37,3 @@ versions:
 ## Setting container resource options
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
-

@@ -11,7 +11,6 @@ redirect_from:
   - /admin/user-management/monitoring-activity-in-your-enterprise/searching-the-audit-log
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -63,38 +62,40 @@ Key            | Value
 -------------- | --------------------------------------------------------
 `action`       | Name of the audited action.
 `actor`        | Name of the user account that initiated the action.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `actor_id`     | ID of the user account that initiated the action.{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `actor_ip`     | IP address from which the action was initiated.{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `business` | Name of the enterprise affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `business_id` | ID of the enterprise affected by the action (if applicable).{% endif %}
 {%- ifversion token-audit-log %}
 `created`      | Time at which the action occurred.{% ifversion ghes %} If querying the audit log from the site admin dashboard, use `created_at` instead.{% endif %}
 `country`           | Name of the country where the actor was when performing the action.
 `country_code`      | Two-letter short code of the country where the actor was when performing the action.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `from`         | View from which the action was initiated.{% endif %}
 `hashed_token` | The token used to authenticate for the action (if applicable, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). {% endif %}
 `ip`                | IP address of the actor.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}
-{%- ifversion ghes or ghae %}
-`oauth_app_id` | ID of the OAuth application associated with the action.{% endif %}
+{%- ifversion ghes %}
+`oauth_app_id` | ID of the {% data variables.product.prodname_oauth_app %} associated with the action.{% endif %}
 `operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `org`          | Name of the organization affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `org_id`       | ID of the organization affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `repo_id`      | ID of the repository affected by the action (if applicable).{% endif %}
-`repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
+`repository`        | Name with owner of the repository where the action occurred (such as `"octocat/octo-repo"`).{% endif %}
+{%- ifversion ghec %}
+`repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).{% endif %}
+{%- ifversion ghes %}
 `user_id`      | ID of the user affected by the action.{% endif %}
 `user`         | Name of the user affected by the action.
-
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
@@ -112,13 +113,13 @@ For a full list of actions in your enterprise audit log, see "[AUTOTITLE](/admin
 
 To search for specific events, use the `action` qualifier in your query. For example:
 
-* `action:team` finds all events grouped within the team category.
-* `-action:hook` excludes all events in the webhook category.
+- `action:team` finds all events grouped within the team category.
+- `-action:hook` excludes all events in the webhook category.
 
 Each category has a set of associated actions that you can filter on. For example:
 
-* `action:team.create` finds all events where a team was created.
-* `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+- `action:team.create` finds all events where a team was created.
+- `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
 Actions that can be found in your enterprise audit log are grouped within the following categories:
 
@@ -134,20 +135,21 @@ Use the `created` qualifier to filter events in the audit log based on when they
 
 For example:
 
-* `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-* `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-* `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-* `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+- `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+- `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+- `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+- `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 ### Search based on location
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-* `country:de` finds all events that occurred in Germany.
-* `country:Mexico` finds all events that occurred in Mexico.
-* `country:"United States"` all finds events that occurred in the United States.
+- `country:de` finds all events that occurred in Germany.
+- `country:Mexico` finds all events that occurred in Mexico.
+- `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion token-audit-log %}
+
 ### Search based on the token that performed the action
 
 Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."

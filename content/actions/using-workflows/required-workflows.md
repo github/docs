@@ -3,7 +3,8 @@ title: Required workflows
 shortTitle: Required workflows
 intro: You can specify which workflows will run as required status checks in all repositories or selected repositories in your organization.
 versions:
-  feature: required-workflows
+  feature: required-workflows-deprecation
+permissions: Because {% data variables.product.company_short %} no longer supports this feature, this article is only relevant if you are already using required workflows for {% data variables.product.prodname_actions %}.
 type: how_to
 topics:
   - Workflows
@@ -44,8 +45,6 @@ After a required workflow has run at least once in a repository, you can view it
 1. In the left sidebar, you can view workflow runs for required workflows under "Required workflows."
 
    ![Screenshot of the sidebar on the "Actions" page. A subsection, labeled "Required workflows", contains an entry called "Test required workflow" and is outlined in dark orange.](/assets/images/help/settings/view-required-workflows.png)
-
-
 
 ## Adding a required workflow to an organization
 

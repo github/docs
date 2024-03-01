@@ -4,7 +4,6 @@ intro: 'You can import a repository from Team Foundation Version Control (TFVC) 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Team Foundation Version Control
 ---
@@ -60,3 +59,10 @@ To follow these steps, you must use Windows and have the following tools install
 {% data reusables.migrations.move-into-git-repo-directory %}
 {% data reusables.migrations.add-github-repo-as-remote %}
 {% data reusables.migrations.push-to-github %}
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

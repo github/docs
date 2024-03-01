@@ -27,31 +27,33 @@ redirect_from:
 
    ![Screenshot of the "Marketplace" tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
 
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+1. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
 
    ![Screenshot of the "Marketplace" tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {},
-        ...
+        // ...
 	}
     ```
+
 1. By default, the latest version of the feature will be used. To choose a different version, or configure other options for the feature, expand the properties listed under "Options" to view the available values, then add the options by manually editing the object in your `devcontainer.json` file.
 
    ![Screenshot of the "Options" section of the "Marketplace" tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {
             "version": "1.1",
             "tflint": "latest"
         },
-        ...
+        // ...
 	}
     ```
+
 1. Commit the changes to your `devcontainer.json` file.
 
 The configuration changes will take effect in new codespaces created from the repository. To make the changes take effect in existing codespaces, you will need to pull the updates to the `devcontainer.json` file into your codespace, then rebuild the container for the codespace. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."

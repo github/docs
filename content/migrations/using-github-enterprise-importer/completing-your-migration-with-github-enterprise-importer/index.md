@@ -13,5 +13,3 @@ children:
 redirect_from:
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer
 ---
-
-{% data reusables.enterprise-migration-tool.release-phase %}

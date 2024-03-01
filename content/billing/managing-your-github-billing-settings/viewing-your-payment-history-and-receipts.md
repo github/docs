@@ -36,6 +36,7 @@ shortTitle: View history & receipts
 {% data reusables.dotcom_billing.download_receipt %}
 
 {% ifversion ghec %}
+
 ## Viewing receipts for your enterprise account
 
 {% data reusables.enterprise-accounts.billing-perms %}

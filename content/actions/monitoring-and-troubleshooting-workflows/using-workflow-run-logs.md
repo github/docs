@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  
@@ -73,7 +72,9 @@ You can download the log files from your workflow run. You can also download a w
 
 ## Deleting logs
 
-You can delete the log files from your workflow run. {% data reusables.repositories.permissions-statement-write %}
+You can delete the log files from your workflow runs through the {% data variables.product.prodname_dotcom %} web interface or programmatically. {% data reusables.repositories.permissions-statement-write %}
+
+### Deleting logs via the {% data variables.product.prodname_dotcom %} web interface
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -86,6 +87,74 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 1. Review the confirmation prompt.
 
 After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+
+### Deleting logs programmatically
+
+You can use the following script to automatically delete all logs for a workflow. This can be a useful way to clean up logs for multiple workflow runs.
+
+To run the example script below:
+
+1. Copy the code example and save it to a file called `delete-logs.sh`.
+1. Grant it the execute permission with `chmod +x delete-logs.sh`.
+1. Run the following command, where `REPOSITORY_NAME` is the name of your repository and `WORKFLOW_NAME` is the file name of your workflow.
+
+    ```shell copy
+    ./delete-logs.sh REPOSITORY_NAME WORKFLOW_NAME
+    ```
+
+    For example, to delete all of the logs in the `monalisa/octocat` repository for the `.github/workflows/ci.yaml` workflow, you would run `./delete-logs.sh monalisa/octocat ci.yaml`.
+
+#### Example script
+
+```bash copy
+#!/usr/bin/env bash
+
+# Delete all logs for a given workflow
+# Usage: delete-logs.sh <repository> <workflow-name>
+
+set -oe pipefail
+
+REPOSITORY=$1
+WORKFLOW_NAME=$2
+
+# Validate arguments
+if [[ -z "$REPOSITORY" ]]; then
+  echo "Repository is required"
+  exit 1
+fi
+
+if [[ -z "$WORKFLOW_NAME" ]]; then
+  echo "Workflow name is required"
+  exit 1
+fi
+
+echo "Getting all completed runs for workflow $WORKFLOW_NAME in $REPOSITORY"
+
+RUNS=$(
+  gh api \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    "/repos/$REPOSITORY/actions/workflows/$WORKFLOW_NAME/runs" \
+    --paginate \
+    --jq '.workflow_runs[] | select(.conclusion != "") | .id'
+)
+
+echo "Found $(echo "$RUNS" | wc -l) completed runs for workflow $WORKFLOW_NAME"
+
+# Delete logs for each run
+for RUN in $RUNS; do
+  echo "Deleting logs for run $RUN"
+  gh api \
+    --silent \
+    --method DELETE \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    "/repos/$REPOSITORY/actions/runs/$RUN/logs" || echo "Failed to delete logs for run $RUN"
+
+  # Sleep for 100ms to avoid rate limiting
+  sleep 0.1
+done
+```
 
 ## Viewing logs with {% data variables.product.prodname_cli %}
 

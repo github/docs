@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  
@@ -21,4 +20,4 @@ versions:
 1. The graph displays each job in the workflow. An icon to the left of the job name indicates the status of the job. Lines between jobs indicate dependencies.
 
    ![Screenshot of the visualization graph of a workflow run.](/assets/images/help/actions/workflow-graph.png)
-2. To view a job's log, click the job.
+1. To view a job's log, click the job.

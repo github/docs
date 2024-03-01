@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { GuideCard } from 'src/landings/components/GuideCard'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const GuideCards = () => {
   const router = useRouter()
@@ -23,7 +23,7 @@ export const GuideCards = () => {
   return (
     <div>
       <div className="d-lg-flex flex-items-stretch">
-        <ul className="d-flex flex-wrap gutter width-full">
+        <ul className="d-flex flex-wrap gutter">
           {(featuredLinks.guideCards || []).map((guide) => {
             return <GuideCard key={guide.href} guide={guide} />
           })}

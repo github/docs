@@ -5,19 +5,14 @@ intro: Prevent a job from running unless your conditions are met.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
 
-{% note %}
-
-**Note:** A job that is skipped will report its status as "Success". It will not prevent a pull request from merging, even if it is a required check.
-
-{% endnote %}
+{% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
 {% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
 

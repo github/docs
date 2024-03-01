@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -16,18 +15,14 @@ topics:
   - Gradle
 shortTitle: Build & test Java & Gradle
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Gradle build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
-{% endif %}
 
 ## Prerequisites
 
@@ -35,56 +30,69 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
+We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Gradle starter workflow
+## Using a Gradle starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[AUTOTITLE](/actions/quickstart)."
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Gradle that should work for most Java with Gradle projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Java with Gradle".
+1. On the "Java with Gradle" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-```yaml{:copy}
-{% data reusables.actions.actions-not-certified-by-github-comment %}
+{%- ifversion ghes %}
 
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+   If you don't find the "Java with Gradle" starter workflow, copy the following workflow code to a new file called `gradle.yml` in the `.github/workflows` directory of your repository.
 
-name: Java CI
+   ```yaml copy
+   name: Java CI with Gradle
 
-on: [push]
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+   permissions:
+     contents: read
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 17
-        uses: {% data reusables.actions.action-setup-java %}
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        with:
-          arguments: build
-```
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up JDK 17
+         uses: {% data reusables.actions.action-setup-java %}
+         with:
+           java-version: '17'
+           distribution: 'temurin'
 
-This workflow performs the following steps:
+       - name: Setup Gradle
+         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
-1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
-4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
+       - name: Build with Gradle
+         run: ./gradlew build
+   ```
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+{%- endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. The "Build with Gradle" step executes the `build` task using the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
 
-{% data reusables.actions.example-github-runner %}
+1. Edit the workflow as required. For example, change the Java version.
+
+   {% indented_data_reference reusables.actions.third-party-actions spaces=3 %}
+
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `gradle.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 {% data reusables.actions.java-jvm-architecture %}
 
@@ -96,28 +104,28 @@ The starter workflow will run the `build` task by default. In the default Gradle
 
 If you use different commands to build your project, or you want to use a different task, you can specify those. For example, you may want to run the `package` task that's configured in your _ci.gradle_ file.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '17'
       distribution: 'temurin'
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
-  - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-    with:
-      arguments: -b ci.gradle package
+
+  - name: Setup Gradle
+    uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
+  - name: Build with Gradle
+    run: ./gradlew -b ci.gradle package
 ```
 
 {% ifversion actions-caching %}
 
 ## Caching dependencies
 
-Your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
+Your build dependencies can be cached to speed up your workflow runs. After a successful run, `gradle/actions/setup-gradle` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
 
-Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
+Caching is enabled by default when using the `gradle/actions/setup-gradle` action. For more information, see [`gradle/actions/setup-gradle`](https://github.com/gradle/actions/blob/main/setup-gradle/README.md#caching-build-state-between-jobs).
 
 {% endif %}
 
@@ -127,20 +135,22 @@ After your build has succeeded and your tests have passed, you may want to uploa
 
 Gradle will usually create output files like JARs, EARs, or WARs in the `build/libs` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '17'
       distribution: 'temurin'
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+
+  - name: Setup Gradle
+    uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-    with:
-      arguments: build
-  - uses: {% data reusables.actions.action-upload-artifact %}
+    run: ./gradlew build
+
+  - name: Upload build artifacts
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/libs

@@ -4,7 +4,6 @@ intro: 'To create an ideal workflow for triaging your notifications, you can ada
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications

@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -21,10 +20,6 @@ topics:
 shortTitle: Remove yourself
 ---
 {% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-hidden="true" %} Repositories**.
-{% else %}
-1. In the left sidebar, click **Repositories**.
-{% endif %}
 1. Next to the repository you want to leave, click **Leave**.
 1. Read the warning carefully, then click **I understand, leave this repository.**

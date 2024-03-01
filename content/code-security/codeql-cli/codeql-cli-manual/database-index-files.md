@@ -1,8 +1,7 @@
 ---
 title: database index-files
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,7 +23,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database index-files --language=<lang> [--threads=<num>] [--ram=<MB>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
 ```
 
@@ -40,14 +39,16 @@ the set of included files.
 The `--include`, `--exclude`, and `--prune` options all take glob
 patterns, which can use the following wildcard characters:
 
-*   A single "?" matches any character other than a forward/backward
-    slash;
-*   A single "\*" matches any number of characters other than a
-    forward/backward slash;
-*   The pattern "\*\*" matches zero or more complete directory
-    components.
+- A single "?" matches any character other than a forward/backward
+  slash;
+- A single "\*" matches any number of characters other than a
+  forward/backward slash;
+- The pattern "\*\*" matches zero or more complete directory
+  components.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -64,8 +65,8 @@ Ask the extractor to use this many threads. This option is passed to the
 extractor as a suggestion. If the CODEQL\_THREADS environment variable is
 set, the environment variable value takes precedence over this option.
 
-You can pass 0 to use one thread per core on the machine, or -*N* to
-leave *N* cores unused (except still use at least one thread).
+You can pass 0 to use one thread per core on the machine, or -_N_ to
+leave _N_ cores unused (except still use at least one thread).
 
 #### `-M, --ram=<MB>`
 
@@ -240,3 +241,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

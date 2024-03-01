@@ -1,5 +1,6 @@
 ---
-title: Metrics
+title: REST API endpoints for metrics
+shortTitle: Metrics
 intro: 'Use the REST API to retrieve the community profile, statistics, and traffic for your repository.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -8,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

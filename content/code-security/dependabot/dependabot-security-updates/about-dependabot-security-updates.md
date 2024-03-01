@@ -24,12 +24,13 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot_security_updates %}
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
+
+{% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
 
 {% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
@@ -61,6 +62,16 @@ When you merge a pull request that contains a security update, the corresponding
 
 {% data reusables.dependabot.automated-tests-note %}
 
+{% ifversion dependabot-grouped-security-updates %}
+
+## About grouped security updates
+
+{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
+
+To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time. For security updates, {% data variables.product.prodname_dependabot %} **will** group dependencies from different directories. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## About compatibility scores
@@ -70,6 +81,7 @@ When you merge a pull request that contains a security update, the corresponding
 {% endif %}
 
 {% ifversion dependabot-updates-paused %}
+
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}

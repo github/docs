@@ -1,8 +1,7 @@
 ---
 title: github upload-results
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,7 +23,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql github upload-results --sarif=<file> [--github-auth-stdin] [--github-url=<url>] [--repository=<repository-name>] [--ref=<ref>] [--commit=<commit>] [--checkout-path=<path>] <options>...
 ```
 
@@ -32,8 +31,7 @@ codeql github upload-results --sarif=<file> [--github-auth-stdin] [--github-url=
 
 Uploads a SARIF file to GitHub code scanning.
 
-See:
-<https://docs.github.com/en/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github>
+See: [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)
 
 A GitHub Apps token or personal access token must be set. For best
 security practices, it is recommended to set the `--github-auth-stdin`
@@ -42,29 +40,31 @@ Alternatively, the `GITHUB_TOKEN` environment variable can be set.
 
 This token must have the `security_events` scope.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `-s, --sarif=<file>`
 
 \[Mandatory] Path to the SARIF file to upload. This should be the
 output of [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or
-GitHub AE, or the appropriate supported format tag for GitHub Enterprise
-Server instances (see <https://docs.github.com/> for the right value for
-your release).
+the appropriate supported format tag for GitHub Enterprise Server
+instances (see [AUTOTITLE](/enterprise-server@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning) for
+SARIF versions supported by your release).
 
 #### `-r, --repository=<repository-name>`
 
-GitHub repository owner and name (e.g., *github/octocat*) to use as an
+GitHub repository owner and name (e.g., _github/octocat_) to use as an
 endpoint for uploading. The CLI will attempt to autodetect this from the
 checkout path if it is omitted.
 
 #### `-f, --ref=<ref>`
 
 Name of the ref that was analyzed. If this ref is a pull request merge
-commit, then use *refs/pulls/1234/merge* or *refs/pulls/1234/head*
+commit, then use _refs/pulls/1234/merge_ or _refs/pulls/1234/head_
 (depending on whether or not this commit corresponds to the HEAD or
 MERGE commit of the PR). Otherwise, this should be a branch:
-*refs/heads/branch-name*. If omitted, the CLI will attempt to
+_refs/heads/branch-name_. If omitted, the CLI will attempt to
 automatically populate this from the current branch of the checkout
 path, if this exists.
 
@@ -90,13 +90,12 @@ version 2.1.0 (this is the default version of SARIF used by CodeQL).
 
 Select output format. Choices include:
 
-`text` *(default)*: Print the URL for tracking the status of the SARIF
+`text` _(default)_: Print the URL for tracking the status of the SARIF
 upload.
 
 `json`: Print the response body of the SARIF upload API request.
 
-See also:
-<https://docs.github.com/en/rest/reference/code-scanning#upload-an-analysis-as-sarif-data>
+See also: [AUTOTITLE](/rest/code-scanning/code-scanning)
 
 ### Options to configure where to upload SARIF files.
 
@@ -146,3 +145,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

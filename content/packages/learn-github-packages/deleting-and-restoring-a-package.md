@@ -11,7 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 shortTitle: Delete & restore a package
 ---
 
@@ -28,7 +27,7 @@ On {% data variables.product.prodname_dotcom %} if you have the required access,
 {% note %}
 
 **Note:**
-- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
+- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
 - When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
@@ -86,6 +85,7 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 1. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
 
 {% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
@@ -111,6 +111,7 @@ You cannot directly delete an entire package using GraphQL, but if you delete ev
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ### Deleting a version of a user-scoped package on {% data variables.product.prodname_dotcom %}
 
 To delete a specific version of a user-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps. To delete an entire package, see "[Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)."
@@ -152,6 +153,7 @@ To delete an entire repository-scoped package, you must have admin permissions t
 1. To confirm, review the confirmation message, enter your package name, and click **I understand, delete this package.**
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}
 
 To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
@@ -190,7 +192,7 @@ To restore a deleted package, you must also meet one of these permission require
 - For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes %}
 To delete a package, you must also have admin permissions to the repository in which the package is published.
 {% endif %}
 

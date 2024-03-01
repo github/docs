@@ -1,0 +1,46 @@
+.markdownBody {
+  [class~="highlight"] pre,
+  pre {
+    margin-top: 0.5rem;
+    border: 1px var(--color-border-default) solid;
+  }
+
+  [class~="height-constrained-code-block"] pre {
+    max-height: 32rem;
+  }
+
+  [class~="code-example"] {
+    margin-top: 1.5rem;
+
+    pre,
+    div {
+      margin-top: 0 !important;
+      border-top-left-radius: 0 !important;
+      border-top-right-radius: 0 !important;
+      border-left: 1px var(--color-border-default) solid !important;
+      border-bottom: 1px var(--color-border-default) solid !important;
+      border-right: 1px var(--color-border-default) solid !important;
+    }
+  }
+
+  // on graphql/overview/resource-limitations
+  pre [class~="redbox"],
+  pre [class~="greenbox"],
+  pre [class~="bluebox"] {
+    color: var(--color-fg-on-emphasis);
+    padding: 0 0.25rem;
+    border-radius: 4px; // primer rounded-1
+  }
+
+  pre [class~="redbox"] {
+    background-color: var(--color-danger-emphasis);
+  }
+
+  pre [class~="greenbox"] {
+    background-color: var(--color-success-emphasis);
+  }
+
+  pre [class~="bluebox"] {
+    background-color: var(--color-accent-emphasis);
+  }
+}

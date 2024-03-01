@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---
@@ -41,7 +40,7 @@ For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-java
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. For example:
 
-```
+```shell
 if <condition> ; then
   echo "Game over!"
   exit 1

@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: About permissions
 ---
@@ -45,6 +44,7 @@ For {% ifversion ghes %}the {% data variables.product.prodname_container_registr
 {% endif %}
 
 {% ifversion packages-registries-v2 %}
+
 ## Visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
@@ -60,14 +60,14 @@ For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuri
 To use or manage a package hosted by a package registry, you must use a {% data variables.product.pat_v1 %} with the appropriate scope, and your personal account must have appropriate permissions.
 
 For example:
--  To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must have the `delete:packages` and `repo` scope. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+- To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
+- To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `delete:packages` | Delete packages from {% data variables.product.prodname_registry %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
@@ -105,6 +105,7 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)."
 
 {% ifversion fpt or ghec %}
+
 ### {% data variables.product.prodname_actions %} access for packages with granular permissions
 
 To ensure your workflows have access to packages stored in registries that support granular permissions, you must give {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."

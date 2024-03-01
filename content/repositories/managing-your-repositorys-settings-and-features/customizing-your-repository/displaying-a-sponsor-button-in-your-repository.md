@@ -27,9 +27,9 @@ Platform | Syntax
 [Ko-fi](https://ko-fi.com/) | `ko_fi: USERNAME`
 [Liberapay](https://en.liberapay.com/) | `liberapay: USERNAME`
 [Open Collective](https://opencollective.com/) | `open_collective: USERNAME`
-[Otechie](https://otechie.com/)| `otechie: USERNAME`
 [Patreon](https://www.patreon.com/) | `patreon: USERNAME`
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
+[Polar](https://www.polar.sh/) | `polar: USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.
@@ -44,7 +44,8 @@ PHP | `packagist`
 C# | `nuget`
 
 Here's an example `FUNDING.yml` file:
-```
+
+```yaml
 github: [octocat, surftocat]
 patreon: octocat
 tidelift: npm/octo-package
@@ -61,7 +62,7 @@ You can create a default sponsor button for your organization or personal accoun
 
 {% note %}
 
-Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please contact {% data variables.contact.contact_support %}.
+Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
 
 {% endnote %}
 
@@ -79,5 +80,6 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 {% data reusables.files.propose_new_file %}
 
 ## Further reading
+
 - "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

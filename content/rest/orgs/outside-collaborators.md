@@ -1,9 +1,10 @@
 ---
-title: Outside Collaborators
+title: REST API endpoints for outside collaborators
+shortTitle: Outside collaborators
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage outside collaborators.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

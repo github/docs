@@ -42,6 +42,12 @@ When you choose a paid plan with a free trial:
 
 {% data reusables.user-settings.context_switcher %}
 
+{% note %}
+
+**Note:** When you transfer an organization with paid {% data variables.product.prodname_marketplace %} apps into an enterprise account, you may receive a second receipt but you will not be charged twice.
+
+{% endnote %}
+
 ## Unit plan limits
 
 If you choose a unit plan (for example, a plan that charges per user), and you exceed the units that you're paying for, the integrator may disable your access until you upgrade the app. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app)."

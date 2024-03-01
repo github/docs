@@ -1,5 +1,193 @@
 {
+  "2023-10-01": [
+    {
+      "location": "PullRequestReviewComment.position",
+      "description": "<p><code>position</code> will be removed. Use the <code>line</code> and <code>startLine</code> fields instead, which are file line numbers instead of diff line numbers</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "PullRequestReviewComment.originalPosition",
+      "description": "<p><code>originalPosition</code> will be removed.</p>",
+      "reason": "<p>We are phasing out diff-relative positioning for PR comments</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewInput.comments",
+      "description": "<p><code>comments</code> will be removed. use the <code>threads</code> argument instead</p>",
+      "reason": "<p>We are deprecating comment fields that use diff-relative positioning</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestReviewId",
+      "description": "<p><code>pullRequestReviewId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.pullRequestId",
+      "description": "<p><code>pullRequestId</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.position",
+      "description": "<p><code>position</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.path",
+      "description": "<p><code>path</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.inReplyTo",
+      "description": "<p><code>inReplyTo</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.commitOID",
+      "description": "<p><code>commitOID</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    },
+    {
+      "location": "AddPullRequestReviewCommentInput.body",
+      "description": "<p><code>body</code> will be removed. use addPullRequestReviewThread or addPullRequestReviewThreadReply instead</p>",
+      "reason": "<p>We are deprecating the addPullRequestReviewComment mutation</p>",
+      "date": "2023-10-01",
+      "criticality": "breaking",
+      "owner": "aharpole"
+    }
+  ],
+  "2023-07-01": [
+    {
+      "location": "ProjectV2ItemFieldGroup.field",
+      "description": "<p><code>field</code> will be removed. Check out the <code>ProjectV2ItemFieldGroup#groupByField</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2ItemFieldGroup#field</code> API is deprecated in favour of the more capable <code>ProjectV2ItemFieldGroup#groupByField</code> API.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "stevepopovich"
+    },
+    {
+      "location": "MergeQueueEntry.isSolo",
+      "description": "<p><code>isSolo</code> will be removed. Use <code>solo</code> instead.</p>",
+      "reason": "<p><code>isSolo</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.headOid",
+      "description": "<p><code>headOid</code> will be removed. Use <code>headCommit</code> instead.</p>",
+      "reason": "<p><code>headOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.hasJumpedQueue",
+      "description": "<p><code>hasJumpedQueue</code> will be removed. Use <code>jump</code> instead.</p>",
+      "reason": "<p><code>hasJumpedQueue</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.checkStatus",
+      "description": "<p><code>checkStatus</code> will be removed. Use <code>state</code> instead.</p>",
+      "reason": "<p><code>checkStatus</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.blockedByMergeConflicts",
+      "description": "<p><code>blockedByMergeConflicts</code> will be removed. Use <code>state</code> instead.</p>",
+      "reason": "<p><code>blockedByMergeConflicts</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueueEntry.baseOid",
+      "description": "<p><code>baseOid</code> will be removed. Use <code>baseCommit</code> instead.</p>",
+      "reason": "<p><code>baseOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.pendingRemovalEntries",
+      "description": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+      "reason": "<p><code>pendingRemovalEntries</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.mergingEntries",
+      "description": "<p><code>mergingEntries</code> will be removed.</p>",
+      "reason": "<p><code>mergingEntries</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.mergeMethod",
+      "description": "<p><code>mergeMethod</code> will be removed. Use <code>configuration.merge_method</code> instead.</p>",
+      "reason": "<p><code>mergeMethod</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "MergeQueue.headOid",
+      "description": "<p><code>headOid</code> will be removed. Use <code>entry.headOid</code> instead.</p>",
+      "reason": "<p><code>headOid</code> will be removed.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "github/merge_queue"
+    },
+    {
+      "location": "Commit.pushedDate",
+      "description": "<p><code>pushedDate</code> will be removed.</p>",
+      "reason": "<p><code>pushedDate</code> is no longer supported.</p>",
+      "date": "2023-07-01",
+      "criticality": "breaking",
+      "owner": "darthwillis"
+    }
+  ],
   "2023-04-01": [
+    {
+      "location": "RepositoryVulnerabilityAlert.fixReason",
+      "description": "<p><code>fixReason</code> will be removed.</p>",
+      "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "jamestran201"
+    },
     {
       "location": "Repository.squashPrTitleUsedAsDefault",
       "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
@@ -43,118 +231,6 @@
       "owner": "mattruggio"
     },
     {
-      "location": "ProjectNextFieldType.TRACKS",
-      "description": "<p><code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.TRACKED_BY",
-      "description": "<p><code>TRACKED_BY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.TITLE",
-      "description": "<p><code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.TEXT",
-      "description": "<p><code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.SINGLE_SELECT",
-      "description": "<p><code>SINGLE_SELECT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.REVIEWERS",
-      "description": "<p><code>REVIEWERS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.REPOSITORY",
-      "description": "<p><code>REPOSITORY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.NUMBER",
-      "description": "<p><code>NUMBER</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.MILESTONE",
-      "description": "<p><code>MILESTONE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.LINKED_PULL_REQUESTS",
-      "description": "<p><code>LINKED_PULL_REQUESTS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.LABELS",
-      "description": "<p><code>LABELS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.ITERATION",
-      "description": "<p><code>ITERATION</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.DATE",
-      "description": "<p><code>DATE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
-      "location": "ProjectNextFieldType.ASSIGNEES",
-      "description": "<p><code>ASSIGNEES</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
-      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
-      "date": "2023-01-01",
-      "criticality": "breaking",
-      "owner": "lukewar"
-    },
-    {
       "location": "Commit.changedFiles",
       "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
       "reason": "<p><code>changedFiles</code> will be removed.</p>",
@@ -164,14 +240,6 @@
     }
   ],
   "2022-10-01": [
-    {
-      "location": "RepositoryVulnerabilityAlert.fixReason",
-      "description": "<p><code>fixReason</code> will be removed.</p>",
-      "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
-      "date": "2022-10-01",
-      "criticality": "breaking",
-      "owner": "jamestran201"
-    },
     {
       "location": "RemovePullRequestFromMergeQueueInput.branch",
       "description": "<p><code>branch</code> will be removed.</p>",

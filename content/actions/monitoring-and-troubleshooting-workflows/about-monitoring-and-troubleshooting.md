@@ -4,7 +4,6 @@ intro: 'You can use the tools in {% data variables.product.prodname_actions %} t
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
 ---
@@ -14,6 +13,7 @@ shortTitle: About monitoring and troubleshooting
 ## Monitoring your workflows
 
 {% ifversion github-runner-dashboard %}
+
 ### Monitoring your current jobs in your organization or enterprise
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}
@@ -35,6 +35,7 @@ For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-w
 For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)."
 
 {% ifversion fpt or ghec %}
+
 ### Viewing job execution time
 
 To identify how long a job took to run, you can view its execution time. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."

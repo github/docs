@@ -1,8 +1,7 @@
 ---
 title: pack ls
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -27,19 +26,20 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack ls <options>... -- <dir>
 ```
 
 ## Description
 
-\[Experimental] \[Deep plumbing] List the CodeQL packages rooted at
-this directory. This directory must contain a qlpack.yml or
-.codeqlmanifest.json file.
+\[Deep plumbing] List the CodeQL packages rooted at this directory.
+This directory must contain a qlpack.yml or .codeqlmanifest.json file.
 
 Available since `v2.7.1`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>`
 
@@ -53,17 +53,17 @@ then this operation will run on all CodeQL packages in the workspace.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--groups=[-]<group>[,[-]<group>...]`
 
 List of CodeQL pack groups to include or exclude from this operation. A
 qlpack in the given workspace is included if:
 
-*   It is in at least one of the groups listed without a minus sign (this
-    condition is automatically satisfied if there are no groups listed
-    without a minus sign), and
-*   It is not in any group listed with a minus sign
+- It is in at least one of the groups listed without a minus sign (this
+  condition is automatically satisfied if there are no groups listed
+  without a minus sign), and
+- It is not in any group listed with a minus sign
 
 ### Common options
 
@@ -99,3 +99,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

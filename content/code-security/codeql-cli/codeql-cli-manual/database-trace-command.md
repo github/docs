@@ -1,8 +1,7 @@
 ---
 title: database trace-command
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -24,7 +23,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database trace-command [--threads=<num>] [--ram=<MB>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database> <command>...
 ```
 
@@ -36,7 +35,9 @@ This runs a single given command line under a tracer, thus possibly
 performing some extraction, but does not finalize the resulting CodeQL
 database.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -44,7 +45,7 @@ database.
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `<command>...`
@@ -65,8 +66,8 @@ Ask the extractor to use this many threads. This option is passed to the
 extractor as a suggestion. If the CODEQL\_THREADS environment variable is
 set, the environment variable value takes precedence over this option.
 
-You can pass 0 to use one thread per core on the machine, or -*N* to
-leave *N* cores unused (except still use at least one thread).
+You can pass 0 to use one thread per core on the machine, or -_N_ to
+leave _N_ cores unused (except still use at least one thread).
 
 #### `-M, --ram=<MB>`
 
@@ -77,7 +78,7 @@ set, the environment variable value takes precedence over this option.
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 #### `--no-tracing`
@@ -204,3 +205,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

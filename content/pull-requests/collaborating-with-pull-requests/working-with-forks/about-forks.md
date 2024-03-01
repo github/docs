@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -17,7 +16,7 @@ topics:
 
 ## About forks
 
-Forks let you make changes to a project without affecting the original repository, also known as the "upstream" repository. After you fork a repository, you can fetch updates from the upstream repository to keep your fork up to date, and you can propose changes from your fork to the upstream repository with pull requests. A fork can be owned by either a personal account or an organization.
+{% data reusables.repositories.about-forks %} A fork can be owned by either a personal account or an organization.
 
 When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
 
@@ -33,7 +32,7 @@ Deleting a fork will not delete the original upstream repository. You can make a
 
 {% data reusables.repositories.you-can-fork %}
 
-For instructions for forking a repository, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo#forking-a-repository)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
+For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
 {% tip %}
 
@@ -47,10 +46,10 @@ If you want to create a new repository from the contents of an existing reposito
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 
-* You can use a pull request to suggest changes from your fork to the upstream repository.
-* You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
-* Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
-* Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
+- You can use a pull request to suggest changes from your fork to the upstream repository.
+- You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
+- Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
+- Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
 
 ## Further reading
 

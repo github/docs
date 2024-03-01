@@ -64,7 +64,6 @@ In your organization's repositories, blocked users also cannot:
 1. Click **Block user**.
 1. Optionally, to add a note to describe why a user was blocked, click **Add Note**. The note will be visible to the owners and moderators of the organization.
 
-
 ## Further reading
 
 - "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"

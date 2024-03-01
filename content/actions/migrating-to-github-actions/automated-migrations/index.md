@@ -5,7 +5,6 @@ intro: 'Learn how to use {% data variables.product.prodname_actions_importer %} 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /automating-migration-with-github-actions-importer
@@ -13,6 +12,7 @@ children:
   - /supplemental-arguments-and-settings
   - /migrating-from-azure-devops-with-github-actions-importer
   - /migrating-from-bamboo-with-github-actions-importer
+  - /migrating-from-bitbucket-pipelines-with-github-actions-importer
   - /migrating-from-circleci-with-github-actions-importer
   - /migrating-from-gitlab-with-github-actions-importer
   - /migrating-from-jenkins-with-github-actions-importer

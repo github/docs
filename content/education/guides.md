@@ -11,8 +11,8 @@ shortTitle: Guides
 
 Teachers, students, and researchers can use tools from {% data variables.product.product_name %} to enrich a software development curriculum and develop real-world collaboration skills.
 
-- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)
-- [Git and {% data variables.product.prodname_dotcom %} quickstart](/get-started/quickstart)
+- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/get-started/start-your-journey/creating-an-account-on-github)
+- [Git and {% data variables.product.prodname_dotcom %} quickstart](/get-started/start-your-journey)
 - [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
 - [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)
 - [Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)
@@ -36,7 +36,7 @@ Administer a classroom, assign and review work from your students, and teach the
 
 Incorporate {% data variables.product.prodname_dotcom %} into your education, and use the same tools as the professionals.
 
-- [Git and {% data variables.product.prodname_dotcom %} learning resources](/get-started/quickstart/git-and-github-learning-resources)
+- [Git and {% data variables.product.prodname_dotcom %} learning resources](/get-started/start-your-journey/git-and-github-learning-resources)
 - [{% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students)
 - [Try {% data variables.product.prodname_desktop %}](/desktop)
 - [Try {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)

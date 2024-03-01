@@ -16,7 +16,7 @@ shortTitle: Manage scheduled reminders
 
 Scheduled reminders are used to make sure that users focus on the most important review requests that require their attention. Scheduled reminders for pull requests will send a message to you in Slack with open pull requests needing your review at a specified time. For example, you can setup scheduled reminders to send you a message in Slack every morning at 10 AM with pull requests needing to be reviewed by you or one of your teams.
 
-For certain events, you can also enable real-time alerts for scheduled reminders. Real-time alerts get sent to your Slack channel as soon as an important event, such as when you are assigned a review, takes place.
+For certain events, you can also enable real-time alerts for scheduled reminders. Real-time alerts get sent to your Slack channel as soon as an important event, such as when you are assigned a review, is triggered by another user.
 
 You can set scheduled reminders for personal or team-level review requests for pull requests in organizations you are a member of. Before you can create a scheduled reminder for yourself, an organization owner must authorize your Slack workspace. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)."
 
@@ -34,12 +34,13 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.days-dropdown %}
 {% data reusables.reminders.times-dropdowns %}
 1. Optionally, to receive scheduled reminders for reviews you've been assigned to, select **Review requests assigned to you**.
-2. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
+1. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
 {% data reusables.reminders.real-time-alerts %}
 {% data reusables.reminders.create-reminder %}
 {% data reusables.reminders.test-reminder %}
 
 ## Managing scheduled reminders for your personal account
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to edit scheduled reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.
@@ -51,6 +52,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.test-reminder %}
 
 ## Deleting scheduled reminders for your personal account
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to delete reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.

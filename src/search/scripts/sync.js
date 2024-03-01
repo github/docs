@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import chalk from 'chalk'
 
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { namePrefix } from '#src/search/lib/config.js'
 import { writeIndexRecords } from './search-index-records.js'
 
@@ -12,27 +12,22 @@ import { writeIndexRecords } from './search-index-records.js'
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
 export default async function syncSearchIndexes({
   language,
-  version,
   notLanguage,
   outDirectory,
+  versionsToBuild,
   config = {},
 }) {
   const t0 = new Date()
 
   // build indices for a specific language if provided; otherwise build indices for all languages
   const languagesToBuild = Object.keys(languages).filter((lang) =>
-    notLanguage ? notLanguage !== lang : language ? language === lang : true
-  )
-
-  // build indices for a specific version if provided; otherwise build indices for all versions
-  const versionsToBuild = Object.keys(allVersions).filter((ver) =>
-    version ? version === ver : true
+    notLanguage ? notLanguage !== lang : language ? language === lang : true,
   )
 
   console.log(
     `Building indices for ${chalk.yellow(language || 'all languages')} and ${chalk.yellow(
-      version || 'all versions'
-    )}.\n`
+      versionsToBuild.length === 1 ? versionsToBuild[0] : 'all versions',
+    )}.\n`,
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
@@ -55,7 +50,6 @@ export default async function syncSearchIndexes({
     for (const pageVersion of versionsToBuild) {
       // if GHES, resolves to the release number like 2.21, 2.22, etc.
       // if FPT, resolves to 'dotcom'
-      // if GHAE, resolves to 'ghae'
       const indexVersion =
         allVersions[pageVersion].plan === 'enterprise-server'
           ? allVersions[pageVersion].currentRelease
@@ -71,7 +65,7 @@ export default async function syncSearchIndexes({
         pageVersion,
         languageCode,
         redirects,
-        config
+        config,
       )
       countRecordsTotal += records.length
       const fileWritten = await writeIndexRecords(indexName, records, outDirectory)

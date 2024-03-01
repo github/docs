@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`annotate renders annotations 1`] = `
-"<div class="annotate"><div class="annotate-row"><div class="annotate-code"><pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Post</span> <span class="hljs-string">welcome</span> <span class="hljs-string">comment</span></code></pre></div><div class="annotate-note"><p>The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.</p></div></div><div class="annotate-row"><div class="annotate-code"><pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
-  <span class="hljs-attr">pull_request:</span>
-    <span class="hljs-attr">types:</span> [<span class="hljs-string">opened</span>]</code></pre></div><div class="annotate-note"><p>Add the <code>pull_request</code> event, so that the workflow runs automatically
-every time a pull request is created.</p></div></div></div>"
-`;
