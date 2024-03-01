@@ -5,7 +5,6 @@ intro: 'When building an integration, you should consider using a {% data variab
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

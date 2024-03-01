@@ -3,7 +3,6 @@ title: Deploy keys
 intro: Use the REST API to create and manage deploy keys.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

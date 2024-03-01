@@ -187,8 +187,8 @@ To enable caching, set the following.
 ```yaml
 steps:
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-    with:
-      bundler-cache: true
+  with:
+    bundler-cache: true
 ```
 
 {% endraw %}

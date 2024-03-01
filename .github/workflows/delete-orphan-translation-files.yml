@@ -60,10 +60,10 @@ jobs:
             language_repo: github/docs-internal.ko-kr
 
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Checkout the language-specific repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: ${{ matrix.language_repo }}
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -91,6 +91,14 @@ jobs:
           # Needed for gh
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            exit 0
+          fi
+
           git status
           current_timestamp=$(date '+%Y-%m-%d-%H%M%S')
           branch_name="delete-orphan-files-$current_timestamp"

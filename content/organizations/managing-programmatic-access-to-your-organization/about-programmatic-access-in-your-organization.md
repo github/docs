@@ -11,7 +11,6 @@ shortTitle: About programmatic access
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -55,6 +54,6 @@ If their organization uses SAML, organization owners can see each {% data variab
 
 {% ifversion ghes %}
 
-Site administrators can use the REST API to manage {% data variables.product.pat_generic %}s in their enterprise. For more information, see "[AUTOTITLE](/rest/enterprise-admin/users)" in the REST API documentation.
+Site administrators can use the REST API to manage {% data variables.product.pat_generic %}s in their enterprise. For more information, see "[AUTOTITLE](/rest/enterprise-admin/users)."
 
 {% endif %}

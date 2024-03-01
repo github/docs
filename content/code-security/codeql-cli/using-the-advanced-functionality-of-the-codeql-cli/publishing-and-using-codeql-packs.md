@@ -238,6 +238,10 @@ The following properties are supported in `qlpack.yml` files.
     codeql/cpp-all: ^0.0.2
   ```
 
+  If you are unsure or it does not matter which version should be used, then you can use `"*"`, which indicates that any version of this dependency is compatible with this pack. In practice, this will usually resolve to the highest published version of the dependency.
+
+  There is a special version placeholder, `${workspace}`, which indicates that this {% data variables.product.prodname_codeql %} pack depends on whatever version of the dependency is in the same workspace. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#using-workspace-as-a-version-range-in-qlpackyml-files)."
+
 #### `defaultSuiteFile`
 
 - Required by packs that export a set of default queries to run.
@@ -296,12 +300,9 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `suites`
 
-- Optional for packs that define query suites.
-- Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run "well-known" suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)." For example:
-
-  ```yaml
-  suites: octo-org-query-suites
-  ```
+- Optional for packs that define query suites. This allows users to run query suites stored in the specified directory by specifying the pack name, without providing the full path.
+- Currently supported only for the standard query packs included in {% data variables.product.prodname_codeql %} CLI bundle.
+- This option is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the {% data variables.product.prodname_dotcom %} container registry.
 
 #### `tests`
 
@@ -443,12 +444,9 @@ version: 1.2.3
 dependencies:
   codeql/cpp-all: ^0.1.2
   my-github-user/my-custom-libraries: ^1.2.3
-suites: my-custom-suites
 ```
 
 where `codeql/cpp-all` is the name of the {% data variables.product.prodname_codeql %} pack for C/C++ analysis included in the {% data variables.product.prodname_codeql %} repository. The version range `^0.1.2` indicates that this pack is compatible with all versions of `codeql/cpp-all` that are greater than or equal to `0.1.2` and less than `0.2.0`. `my-github-user/my-custom-libraries` is the name of a {% data variables.product.prodname_codeql %} pack containing custom {% data variables.product.prodname_codeql %} libraries for C++. Any {% data variables.product.prodname_codeql %} library file (a file with a `.qll` extension) defined in this pack will be available to queries in the `my-github-user/my-custom-queries` pack.
-
-The `suites` property indicates a directory where "well-known" query suites can be found. These suites can be used on the command line by referring to their name only, rather than their full path. For more information about query suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
 
 ### {% data variables.product.prodname_codeql %} packs for custom tests
 

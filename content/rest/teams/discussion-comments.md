@@ -1,5 +1,5 @@
 ---
-title: Team discussion comments
+title: REST API endpoints for team discussion comments
 allowTitleToDifferFromFilename: true
 shortTitle: Discussion comments
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   [team discussion](/rest/reference/teams#discussions) post.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

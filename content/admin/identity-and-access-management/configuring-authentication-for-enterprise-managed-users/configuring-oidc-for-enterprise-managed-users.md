@@ -57,3 +57,9 @@ OIDC does not support IdP-initiated authentication.
 ## Enabling provisioning
 
 After you enable OIDC SSO, enable provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+
+## Enabling guest collaborators
+
+You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
+
+To use guest collaborators with OIDC authentication, you may need to update your settings in Entra ID. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."

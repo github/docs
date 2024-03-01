@@ -1,5 +1,7 @@
 ---
-title: Checks
+title: REST API endpoints for checks
+shortTitle: Checks
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
 redirect_from:
   - /v3/checks
@@ -7,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

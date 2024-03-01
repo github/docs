@@ -33,7 +33,7 @@ security_advisories:
     - >-
       /code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory
     - >-
-      /code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory
+      /code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory
     - >-
       /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 dependabot_alerts:

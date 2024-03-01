@@ -1,0 +1,5 @@
+# Reference: #12903
+# Feature parity between the Management Console API and the Manage GHES API
+
+versions:
+  ghes: '>=3.12'

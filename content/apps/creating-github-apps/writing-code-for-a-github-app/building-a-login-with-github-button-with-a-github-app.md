@@ -5,7 +5,6 @@ intro: 'Follow this tutorial to write Ruby code to generate a user access token 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

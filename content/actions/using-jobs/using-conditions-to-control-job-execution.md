@@ -5,7 +5,6 @@ intro: Prevent a job from running unless your conditions are met.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

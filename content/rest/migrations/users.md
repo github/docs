@@ -1,5 +1,5 @@
 ---
-title: User migrations
+title: REST API endpoints for user migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Users
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   data variables.product.product_name %}.com.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

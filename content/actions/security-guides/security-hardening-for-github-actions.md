@@ -113,17 +113,13 @@ There are a number of different approaches available to help you mitigate the ri
 
 ### Using an action instead of an inline script (recommended)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
-
-{% raw %}
+The recommended approach is to create a JavaScript action that processes the context value as an argument. This approach is not vulnerable to the injection attack, since the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 ```yaml
 uses: fakeaction/checktitle@v3
 with:
-    title: ${{ github.event.pull_request.title }}
+    title: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
 ```
-
-{% endraw %}
 
 ### Using an intermediate environment variable
 
@@ -131,12 +127,10 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
-{% raw %}
-
 ```yaml
       - name: Check PR title
         env:
-          TITLE: ${{ github.event.pull_request.title }}
+          TITLE: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
         run: |
           if [[ "$TITLE" =~ ^octocat ]]; then
           echo "PR title starts with 'octocat'"
@@ -146,8 +140,6 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
-
-{% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
 
@@ -174,15 +166,11 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% data reusables.actions.oidc-custom-claims-aws-restriction %}
-
-{% endif %}
 
 ## Using third-party actions
 
@@ -375,13 +363,9 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
-
-{% endif %}
 
 ## Auditing {% data variables.product.prodname_actions %} events
 

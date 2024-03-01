@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Variables
+title: REST API endpoints for GitHub Actions variables
 allowTitleToDifferFromFilename: true
 shortTitle: Variables
 intro: 'Use the REST API to interact with variables in {% data variables.product.prodname_actions %}.'

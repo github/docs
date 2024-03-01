@@ -23,7 +23,7 @@ children:
   - /setting-pricing-plans-for-your-listing
   - /configuring-a-webhook-to-notify-you-of-plan-changes
   - /submitting-your-listing-for-publication
-  - /deleting-your-github-app-listing-from-github-marketplace
+  - /deleting-your-app-listing-from-github-marketplace
 shortTitle: List an app on the Marketplace
 ---
 

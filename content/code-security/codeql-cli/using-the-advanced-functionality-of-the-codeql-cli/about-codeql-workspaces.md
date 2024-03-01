@@ -109,3 +109,31 @@ dependencies:
 ```
 
 When you execute `codeql pack publish` from the query pack directory, the `codeql/cpp-all` dependency from the package cache and the `my-company/my-library` from the workspace are bundled with `my-company/my-queries` and published to the {% data variables.product.prodname_dotcom %} container registry.
+
+## Using `${workspace}` as a version range in `qlpack.yml` files
+
+{% data variables.product.prodname_codeql %} packs in a workspace can use the special `${workspace}`, `~${workspace}`, and `^${workspace}` version range placeholders. These placeholders indicate that this pack depends on the version of the specified pack that is currently in the workspace. This placeholder is typically used for dependencies inside of library packs to ensure that when they are published, the dependencies in their `qlpack.yml` file reflect the state of the workspace when they were published.
+
+### Example
+
+Consider the following two library packs in the same workspace:
+
+```yaml
+name: my-company/my-library
+library: true
+version: 1.2.3
+dependencies:
+  my-company/my-library2: ${workspace}
+```
+
+```yaml
+name: my-company/my-library2
+library: true
+version: 4.5.6
+```
+
+When `my-company/my-library` is published to the {% data variables.product.prodname_dotcom %} container registry, the version of the `my-company/my-library2` dependency in the published `qlpack.yml` file will be written as `4.5.6`.
+
+Similarly, if the dependency is `my-company/my-library2: ^${workspace}` in the source pack, and then the pack is published, the version of the `my-company/my-library2` dependency in the published `qlpack.yml` file will be written as `^4.5.6`, indicating that versions `>= 4.5.6` and `< 5.0.0` are all compatible with this library pack.
+
+If the dependency is `my-company/my-library2: ~${workspace}` in the source pack, and then the pack is published, the version of the `my-company/my-library2` dependency in the published `qlpack.yml` file will be written as `~4.5.6`, indicating that versions `>= 4.5.6` and `< 4.6.0` are all compatible with this library pack.

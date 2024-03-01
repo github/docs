@@ -48,4 +48,4 @@ You can also use the REST API to edit repository security advisories. For more i
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"

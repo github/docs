@@ -4971,6 +4971,48 @@
       ]
     },
     {
+      "name": "markNotificationAsDone",
+      "kind": "mutations",
+      "id": "marknotificationasdone",
+      "href": "/graphql/reference/mutations#marknotificationasdone",
+      "description": "<p>Marks a notification as done.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MarkNotificationAsDoneInput!",
+          "id": "marknotificationasdoneinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#marknotificationasdoneinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user that the notification belongs to.</p>"
+        }
+      ]
+    },
+    {
       "name": "markProjectV2AsTemplate",
       "kind": "mutations",
       "id": "markprojectv2astemplate",
@@ -30468,7 +30510,7 @@
       "kind": "objects",
       "id": "linkedbranchconnection",
       "href": "/graphql/reference/objects#linkedbranchconnection",
-      "description": "<p>The connection type for LinkedBranch.</p>",
+      "description": "<p>A list of branches linked to an issue.</p>",
       "fields": [
         {
           "name": "edges",
@@ -30708,7 +30750,7 @@
       "kind": "objects",
       "id": "mannequinconnection",
       "href": "/graphql/reference/objects#mannequinconnection",
-      "description": "<p>The connection type for Mannequin.</p>",
+      "description": "<p>A list of mannequins.</p>",
       "fields": [
         {
           "name": "edges",
@@ -42366,7 +42408,7 @@
       "kind": "objects",
       "id": "organizationmemberconnection",
       "href": "/graphql/reference/objects#organizationmemberconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users who belong to the organization.</p>",
       "fields": [
         {
           "name": "edges",
@@ -46314,6 +46356,14 @@
           ]
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the ProjectV2Item object.</p>",
           "type": "ID!",
@@ -49240,7 +49290,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "deletions",
@@ -49307,6 +49359,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "headRef",
@@ -51444,7 +51504,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "editor",
@@ -51453,6 +51515,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -51905,7 +51975,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "diffHunk",
@@ -51930,6 +52002,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -60544,6 +60624,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasVulnerabilityAlertsEnabled",
           "description": "<p>Whether vulnerability alerts are enabled for the repository.</p>",
           "type": "Boolean!",
@@ -63238,7 +63326,7 @@
         },
         {
           "name": "warningsCount",
-          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -63251,7 +63339,7 @@
       "kind": "objects",
       "id": "repositorymigrationconnection",
       "href": "/graphql/reference/objects#repositorymigrationconnection",
-      "description": "<p>The connection type for RepositoryMigration.</p>",
+      "description": "<p>A list of migrations.</p>",
       "fields": [
         {
           "name": "edges",
@@ -66455,7 +66543,7 @@
       "kind": "objects",
       "id": "sponsorconnection",
       "href": "/graphql/reference/objects#sponsorconnection",
-      "description": "<p>The connection type for Sponsor.</p>",
+      "description": "<p>A list of users and organizations sponsoring someone via GitHub Sponsors.</p>",
       "fields": [
         {
           "name": "edges",
@@ -67551,7 +67639,7 @@
       "kind": "objects",
       "id": "sponsorshipconnection",
       "href": "/graphql/reference/objects#sponsorshipconnection",
-      "description": "<p>The connection type for Sponsorship.</p>",
+      "description": "<p>A list of sponsorships either from the subject or received by the subject.</p>",
       "fields": [
         {
           "name": "edges",
@@ -76704,7 +76792,7 @@
       "kind": "objects",
       "id": "userconnection",
       "href": "/graphql/reference/objects#userconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users.</p>",
       "fields": [
         {
           "name": "edges",
@@ -79184,7 +79272,7 @@
         },
         {
           "name": "warningsCount",
-          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -80478,6 +80566,14 @@
         {
           "name": "hasProjectsEnabled",
           "description": "<p>Indicates if the repository has the Projects feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -83169,6 +83265,10 @@
         {
           "name": "PATREON",
           "description": "<p>Patreon funding platform.</p>"
+        },
+        {
+          "name": "POLAR",
+          "description": "<p>Polar funding platform.</p>"
         },
         {
           "name": "TIDELIFT",
@@ -96800,6 +96900,32 @@
       ]
     },
     {
+      "name": "MarkNotificationAsDoneInput",
+      "kind": "inputObjects",
+      "id": "marknotificationasdoneinput",
+      "href": "/graphql/reference/input-objects#marknotificationasdoneinput",
+      "description": "<p>Autogenerated input type of MarkNotificationAsDone.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The NotificationThread id.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "MarkProjectV2AsTemplateInput",
       "kind": "inputObjects",
       "id": "markprojectv2astemplateinput",
@@ -102957,6 +103083,14 @@
         {
           "name": "hasProjectsEnabled",
           "description": "<p>Indicates if the repository should have the project boards feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

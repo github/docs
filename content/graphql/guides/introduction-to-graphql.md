@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -19,14 +18,14 @@ The GitHub GraphQL API represents an architectural and conceptual shift from the
 
 ## Schema
 
-A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.github.io/learn/validation/) and [executed](https://graphql.github.io/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
+A schema defines a GraphQL API's type system. It describes the complete set of possible data (objects, fields, relationships, everything) that a client can access. Calls from the client are [validated](https://graphql.org/learn/validation/) and [executed](https://graphql.org/learn/execution/) against the schema. A client can find information about the schema via [introspection](#discovering-the-graphql-api). A schema resides on the GraphQL API server. For more information, see "[Discovering the GraphQL API](#discovering-the-graphql-api)."
 
 ## Field
 
-A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.github.io/learn/schema/) say:
+A field is a unit of data you can retrieve from an object. As the [official GraphQL docs](https://graphql.org/learn/schema/) say:
 "The GraphQL query language is basically about selecting fields on objects."
 
-The [official spec](https://graphql.github.io/graphql-spec/June2018/#sec-Language.Fields) also says about fields:
+The [official spec](https://spec.graphql.org/June2018/#sec-Language.Fields) also says about fields:
 
 > All GraphQL operations must specify their selections down to fields which return scalar values to ensure an unambiguously shaped response.
 
@@ -79,7 +78,7 @@ _Node_ is a generic term for an object. You can look up a node directly, or you 
 
 ## Discovering the GraphQL API
 
-GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
+GraphQL is [introspective](https://graphql.org/learn/introspection/). This means you can query a GraphQL schema for details about itself.
 
 - Query `__schema` to list all types defined in the schema and get details about each:
 
