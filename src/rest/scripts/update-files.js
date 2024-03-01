@@ -65,6 +65,8 @@ program
 
 const { versions, includeUnpublished, includeDeprecated, next, output, sourceRepo } = program.opts()
 
+const sourceRepoDirectory = sourceRepo === 'github' ? GITHUB_REP_DIR : REST_API_DESCRIPTION_ROOT
+
 main()
 
 async function main() {
@@ -104,6 +106,7 @@ async function main() {
   if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
+
     derefDir.forEach((schema) => {
       // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
@@ -116,7 +119,7 @@ async function main() {
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory)
   }
 
   if (pipelines.includes('webhooks')) {
@@ -126,11 +129,7 @@ async function main() {
 
   if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
-    await syncGitHubAppsData(
-      TEMP_OPENAPI_DIR,
-      restSchemas,
-      sourceRepo === 'github' && GITHUB_REP_DIR,
-    )
+    await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory)
   }
 
   if (pipelines.includes('rest-redirects')) {
@@ -230,7 +229,6 @@ async function validateInputParameters() {
   }
 
   // Check that the source repo exists.
-  const sourceRepoDirectory = sourceRepo === 'github' ? GITHUB_REP_DIR : REST_API_DESCRIPTION_ROOT
   if (!existsSync(sourceRepoDirectory)) {
     const errorMsg =
       sourceRepo === 'github'

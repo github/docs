@@ -4,7 +4,6 @@ intro: You can manage outside collaborators, or people who have access to reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

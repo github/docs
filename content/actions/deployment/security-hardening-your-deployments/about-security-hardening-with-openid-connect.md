@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of OpenID Connect
@@ -276,7 +276,7 @@ To security harden their OIDC configuration, enterprise administrators can confi
 
 This configuration means that your enterprise will receive the OIDC token from a unique URL, and you can then configure your cloud provider to only accept tokens from that URL. This helps ensure that only the enterprise's repositories can access your cloud resources using OIDC.
 
-To activate this setting for your enterprise, an enterprise administrator must use the `/enterprises/{enterprise}/actions/oidc/customization/issuer` endpoint and specify `"include_enterprise_slug": true` in the request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)" in the REST API documentation.
+To activate this setting for your enterprise, an enterprise administrator must use the `/enterprises/{enterprise}/actions/oidc/customization/issuer` endpoint and specify `"include_enterprise_slug": true` in the request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise)."
 
 After this setting is applied, the JWT will contain the updated `iss` value. In the following example, the `iss` key uses `octocat-inc` as its `enterpriseSlug` value:
 
@@ -298,7 +298,7 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 ### Customizing the subject claims for an organization or repository
 
-To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the [OIDC REST API](/rest/actions/oidc) to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`.
+To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the REST API to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`. For more information, see "[AUTOTITLE](/rest/actions/oidc)."
 
 {% note %}
 
@@ -307,6 +307,12 @@ To help improve security, compliance, and standardization, you can customize the
 {% endnote %}
 
 Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
+
+{% note %}
+
+**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:<orgName/repoName>`) instead of `repository` to reference the repository.
+
+{% endnote %}
 
 The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim.
 
@@ -450,7 +456,7 @@ In your cloud provider's OIDC configuration, configure the `sub` condition to re
 
 Default subject claims can be created at the organization level. All repositories in an organization have the ability to opt in or opt out of using their organization's default `sub` claim.
 
-To create a default `sub` claim at the organization level, an organization administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)." Once an organization has created a default claim, the REST API can be used to programmatically apply the default claim to repositories within the organization. To configure repositories to use the default `sub` claim format, use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" with the following request body:
+To create a default `sub` claim at the organization level, an organization administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)." Once an organization has created a default claim, the REST API can be used to programmatically apply the default claim to repositories within the organization. To configure repositories to use the default `sub` claim format, use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 
 ```json
 {
@@ -462,7 +468,7 @@ To create a default `sub` claim at the organization level, an organization admin
 
 A repository administrator can configure their repository to use the template created by the administrator of their organisation.
 
-To configure the repository to use the organization's template, a repository admin must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)" with the following request body:
+To configure the repository to use the organization's template, a repository admin must use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 
 ```json
 {

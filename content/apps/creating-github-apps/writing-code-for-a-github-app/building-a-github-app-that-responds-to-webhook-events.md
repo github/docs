@@ -5,7 +5,6 @@ intro: 'Learn how to build a {% data variables.product.prodname_github_app %} th
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -33,7 +32,7 @@ For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-githu
 
 ## Prerequisites
 
-This tutorial requires your computer or codespace to run Node.js version 12 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
+This tutorial requires your computer or codespace to run Node.js version 20 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
 
 This tutorial assumes you have a basic understanding of JavaScript and ES6 syntax.
 

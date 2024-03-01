@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -17,22 +16,18 @@ topics:
   - JavaScript
   - Azure App Service
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghes %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -120,7 +115,7 @@ jobs:
         name: node-app
 
     - name: 'Deploy to Azure WebApp'
-      id: deploy-to-webapp 
+      id: deploy-to-webapp
       uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
       with:
         app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}

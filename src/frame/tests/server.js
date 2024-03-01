@@ -326,7 +326,6 @@ describe('static routes', () => {
         )
       ).statusCode,
     ).toBe(200)
-    expect((await get('/public/ghae/schema.docs-ghae.graphql')).statusCode).toBe(200)
   })
 
   test('does not serve repo contents that live outside the /assets directory', async () => {

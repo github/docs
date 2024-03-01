@@ -109,14 +109,6 @@ aAAAe9
 
 Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion ghae %}
-{% note %}
-
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
-
-{% endnote %}
-{% endif %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
@@ -137,11 +129,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 
 ## Defining a custom pattern for an enterprise account
 
-{% ifversion fpt or ghec or ghes %}
-
 Before defining a custom pattern, you must ensure that you enable secret scanning for your enterprise account. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise]({% ifversion fpt or ghec %}/enterprise-server@latest/{% endif %}/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)."
-
-{% endif %}
 
 {% note %}
 

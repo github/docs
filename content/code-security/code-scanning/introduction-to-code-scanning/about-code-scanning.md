@@ -19,7 +19,6 @@ topics:
   - Code scanning
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ## About {% data variables.product.prodname_code_scanning %}
@@ -44,6 +43,8 @@ To get started with {% data variables.product.prodname_code_scanning %}, see "[A
 ## About billing for {% data variables.product.prodname_code_scanning %}
 
 {% data variables.product.prodname_code_scanning_caps %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+
+To use {% data variables.product.prodname_code_scanning %} on a private repository, you will also need a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.ghas-trial %}
 
 {% endif %}
 

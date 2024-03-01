@@ -14,7 +14,6 @@ redirect_from:
 permissions: 'Enterprise owners can{% ifversion dependabot-alerts-ghes-enablement %} set up{% else %} enable{% endif %} {% data variables.product.prodname_dependabot %}.'
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -32,8 +31,6 @@ topics:
 ### About {% data variables.product.prodname_dependabot_alerts %}
 
 {% endif %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
 
 With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.location.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
 
@@ -56,8 +53,6 @@ For repositories with {% data variables.product.prodname_dependabot_alerts %} en
 {% ifversion ghes %}
 
 ### About {% data variables.product.prodname_dependabot_updates %}
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
 
 After you enable {% data variables.product.prodname_dependabot_alerts %}, you can choose to enable {% data variables.product.prodname_dependabot_updates %}. When {% data variables.product.prodname_dependabot_updates %} are enabled for {% data variables.location.product_location %}, users can configure repositories so that their dependencies are updated and kept secure automatically.
 

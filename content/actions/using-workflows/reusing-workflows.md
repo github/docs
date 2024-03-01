@@ -77,12 +77,12 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 
 {% ifversion nested-reusable-workflow %}
 - You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
-- You can call a maximum of 20 reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+- You can call a maximum of 20 unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
 
   For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 {% else %}
 - Reusable workflows can't call other reusable workflows.
-- You can call a maximum of 20 reusable workflows from a single workflow file.
+- You can call a maximum of 20 unique reusable workflows from a single workflow file.
 {% endif %}
 {% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 {% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}

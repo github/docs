@@ -5,7 +5,6 @@ intro: 'Learn how to authenticate your REST API requests.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

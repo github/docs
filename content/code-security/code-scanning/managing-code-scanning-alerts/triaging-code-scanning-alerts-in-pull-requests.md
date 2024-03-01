@@ -24,8 +24,6 @@ topics:
 ---
 
 
-{% data reusables.code-scanning.beta %}
-
 ## About {% data variables.product.prodname_code_scanning %} results on pull requests
 
 In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. {% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
@@ -112,11 +110,11 @@ You can choose to require all conversations in a pull request, including those o
 
 Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
 
-{% ifversion code-scanning-autofix-js-ts %}
+{% ifversion code-scanning-autofix %}
 
 ## Working with autofix suggestions for alerts
 
-{% data reusables.rai.code-scanning.beta-autofix-js-ts %}
+{% data reusables.rai.code-scanning.beta-autofix %}
 
 Autofix is an AI-powered expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 

@@ -1,11 +1,13 @@
-When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any previously pending job or workflow in the concurrency group will be canceled. To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.
+When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any pending job or workflow in the concurrency group will be canceled.  This means that there can be at most one running and one pending job in a concurrency group at any time.
+
+To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.  To conditionally cancel currently running jobs or workflows in the same concurrency group, you can specify `cancel-in-progress` as an expression with any of the allowed expression contexts.
 
 {% note %}
 
 **Notes:**
 
 - The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
-- Ordering is not guaranteed for jobs or runs using concurrency groups, they are handled in the order that they are processed.
+- Ordering is not guaranteed for jobs or workflow runs using concurrency groups. Jobs or workflow runs in the same concurrency group are handled in an arbitrary order.
 
 {% endnote %}
 
@@ -129,3 +131,21 @@ concurrency:
 ```
 
 {% endraw %}
+
+### Example: Only cancel in-progress jobs on specific branches
+
+If you would like to cancel in-progress jobs on certain branches but not on others, you can use conditional expressions with `cancel-in-progress`. For example, you can do this if you would like to cancel in-progress jobs on development branches but not on release branches.
+
+To only cancel in-progress runs of the same workflow when not running on a release branch, you can set `cancel-in-progress` to an expression similar to the following:
+
+{% raw %}
+
+```yaml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !contains(github.ref, 'release/')}}
+```
+
+{% endraw %}
+
+In this example, multiple pushes to a `release/1.2.3` branch would not cancel in-progress runs. Pushes to another branch, such as `main`, would cancel in-progress runs.

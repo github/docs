@@ -4,7 +4,6 @@ intro: 'Hover cards give you information about other articles on {% data variabl
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Hover cards
 redirect_from:

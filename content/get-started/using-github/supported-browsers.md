@@ -10,7 +10,6 @@ intro: 'For the best experience with {% data variables.product.product_name %}, 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

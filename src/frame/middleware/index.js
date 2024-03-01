@@ -44,7 +44,7 @@ import currentProductTree from './context/current-product-tree.js'
 import genericToc from './context/generic-toc.js'
 import breadcrumbs from './context/breadcrumbs.js'
 import glossaries from './context/glossaries.js'
-import renderProductMap from './context/render-product-map.js'
+import renderProductName from './context/render-product-name.js'
 import features from '#src/versions/middleware/features.js'
 import productExamples from './context/product-examples.js'
 import productGroups from './context/product-groups.js'
@@ -217,6 +217,7 @@ export default function (app) {
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
   app.use(shortVersions) // Support version shorthands
+  app.use(asyncMiddleware(renderProductName)) // Must come after shortVersions
 
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
@@ -276,7 +277,6 @@ export default function (app) {
   app.use(asyncMiddleware(contextualizeSearch))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
-  app.use(asyncMiddleware(renderProductMap))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

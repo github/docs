@@ -11,6 +11,10 @@ on:
       - src/content-render/scripts/test-move-content.ts
       - 'src/frame/lib/**/*.js'
       - .github/workflows/move-content.yml
+      # In case any of the dependencies affect the script
+      - 'package*.json'
+      - src/fixtures/fixtures/content/get-started/
+      - src/fixtures/fixtures/content/code-security/
 
 permissions:
   contents: read
@@ -21,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -38,12 +42,12 @@ jobs:
           ROOT: src/fixtures/fixtures
         run: |
           npm run move-content -- \
-            src/fixtures/fixtures/content/get-started/quickstart/hello-world.md \
-            src/fixtures/fixtures/content/get-started/quickstart/hello-wurld.md
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
 
           npm run test-moved-content -- \
-            src/fixtures/fixtures/content/get-started/quickstart/hello-world.md \
-            src/fixtures/fixtures/content/get-started/quickstart/hello-wurld.md
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
 
           # TODO: Add tests that inspects the git log
           git log | head -n 100

@@ -3,7 +3,6 @@ title: Release notes
 layout: release-notes
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
   - Upgrades

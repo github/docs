@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -84,7 +83,7 @@ An _authorized_ {% data variables.product.prodname_oauth_app %} has access to al
 | A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An {% data variables.product.prodname_oauth_app %} can exchange a request token for an access token after a redirect via a web request. |
 | An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
 | Installation access tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits that scale with the number of installations. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of {% ifversion fpt or ghec or ghes %}5,000{% elsif ghae %}15,000{% endif %} requests per hour. |
+| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits that scale with the number of installations. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
 | Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per {% data variables.product.prodname_oauth_app %}. Every token granted to that {% data variables.product.prodname_oauth_app %} gets the increased limit. |
 | {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user. The flow to authorize is the same as the {% data variables.product.prodname_oauth_app %} authorization flow. User access tokens can expire and be renewed with a refresh token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used to generate a {% data variables.product.prodname_github_app %} user access token. |
 

@@ -7,7 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

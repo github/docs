@@ -5,7 +5,6 @@ intro: 'Learn how to use {% data variables.product.prodname_actions_importer %} 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /automating-migration-with-github-actions-importer

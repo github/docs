@@ -425,7 +425,7 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Publish package
-        uses: pypa/gh-action-pypi-publish@v1
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```

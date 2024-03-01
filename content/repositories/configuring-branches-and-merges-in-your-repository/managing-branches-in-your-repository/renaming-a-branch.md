@@ -5,7 +5,6 @@ permissions: 'People with write permissions to a repository can rename a branch 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

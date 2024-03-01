@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { slug as githubSlug } from 'github-slugger'
+import { CheckIcon, XIcon } from '@primer/octicons-react'
 
 import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -107,9 +108,6 @@ export function PermissionsList({
                 </span>
               ) : null
 
-              const additionalPermissions = operation['additional-permissions'].map(
-                (permission) => items[permission].displayTitle,
-              )
               const permissionsClass = operation['additional-permissions'].length
                 ? ''
                 : 'text-center'
@@ -129,18 +127,16 @@ export function PermissionsList({
                     </td>
                   ) : null}
                   <td className={permissionsClass}>
-                    {operation['additional-permissions'].length
-                      ? additionalPermissions.map((permission, index) => {
-                          return (
-                            <div key={`${permission}-${index}`}>
-                              <a href={`#${githubSlug(permission)}`}>{permission}</a>
-                              {additionalPermissions.length - 1 !== index ? (
-                                <span className="pl-1">, </span>
-                              ) : null}
-                            </div>
-                          )
-                        })
-                      : '✖️'}
+                    {operation['additional-permissions'] ? (
+                      <Link href={opPath} title={t('screen_reader_text_checkmark_icon')}>
+                        <CheckIcon aria-hidden="true" />
+                        <span className="visually-hidden">
+                          {t('screen_reader_text_checkmark_icon')}
+                        </span>
+                      </Link>
+                    ) : (
+                      <XIcon />
+                    )}
                   </td>
                 </tr>
               )

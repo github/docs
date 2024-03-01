@@ -1,10 +1,9 @@
 ---
 title: Articles
-versions: 
+versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
-children: 
+children:
   - '/article'
 ---

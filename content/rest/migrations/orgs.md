@@ -1,12 +1,14 @@
 ---
-title: Organization migrations
+title: REST API endpoints for organization migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
 intro: >-
-  Use the REST API to export one or more repositories so you can move them to {% ifversion ghes %}another{% endif %} {% data variables.product.prodname_ghe_server %}{% ifversion ghes %} instance{% endif %}.
+  Use the REST API to export one or more repositories so you can move them to {%
+  ifversion ghes %}another{% endif %} {% data
+  variables.product.prodname_ghe_server %}{% ifversion ghes %} instance{% endif
+  %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

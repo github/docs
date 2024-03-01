@@ -12,7 +12,6 @@ redirect_from:
   - /admin/configuration/managing-connections-between-your-enterprise-accounts
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise

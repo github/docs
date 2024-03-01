@@ -1,5 +1,7 @@
 ---
-title: SCIM
+title: REST API endpoints for SCIM
+shortTitle: SCIM
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to automate user creation and team memberships with SCIM.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'

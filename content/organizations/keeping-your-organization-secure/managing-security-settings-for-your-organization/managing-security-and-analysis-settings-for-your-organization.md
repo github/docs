@@ -20,6 +20,8 @@ shortTitle: Manage security & analysis
 
 {% data variables.product.prodname_dotcom %} can help you to secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% ifversion ghec %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).{% endif %}
 
+{% ifversion ghec or ghes %}If your organization is owned by an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, then extra options for managing security and analysis settings may be available. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."{% endif %}
+
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
@@ -34,8 +36,6 @@ The page that's displayed allows you to enable or disable all security and analy
 {% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
 {% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
-
-{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
 ## Enabling or disabling a feature for all existing repositories
 
@@ -148,7 +148,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 
 You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret by sending it to the relevant partner. When you select the checkbox in the organization settings, the feature is enabled for all repositories in the organization. Alternatively, you can enable the validity check for a single repository, or at the enterprise level. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
-You can also use the REST API to enable validity checks for partner patterns for your organization. For more information, see "[AUTOTITLE](/rest/orgs/orgs#update-an-organization)" in the REST API documentation.
+You can also use the REST API to enable validity checks for partner patterns for your organization. For more information, see "[AUTOTITLE](/rest/orgs/orgs#update-an-organization)."
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 {% data reusables.secret-scanning.validity-check-auto-enable %}
@@ -179,6 +179,6 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 ## Further reading
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
-- "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"{% endif %}
+- "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}
+- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"

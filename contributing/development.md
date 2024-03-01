@@ -44,7 +44,7 @@ The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser sh
 
 By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
 
-The supported language codes are defined in [lib/languages.js](#src/languages/lib/languages.js).
+The supported language codes are defined in [lib/languages.js](../src/languages/lib/languages.js).
 
 ## Site structure
 
@@ -69,6 +69,5 @@ For more info about working with this site, check out these READMEs:
 - [data/README.md](../data/README.md)
 - [data/reusables/README.md](../data/reusables/README.md)
 - [data/variables/README.md](../data/variables/README.md)
-- [src/content-render/README.md](src/content-render/README.md)
-- [includes/README.md](../includes/README.md)
-- [src/README.md](src/README.md)
+- [src/content-render/README.md](../src/content-render/README.md)
+- [src/README.md](../src/README.md)

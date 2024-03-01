@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -48,7 +47,7 @@ On your {% data variables.product.prodname_github_app %} registration page, the 
 
 ## Choosing permissions for REST API access
 
-For more information about which REST API endpoints you can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)." Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For more information, see the documentation for the endpoint.
+The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
 
 For example, to use the `GET /orgs/{org}/dependabot/secrets` endpoint, your app must have at least read-level permission for the "organization dependabot secrets" permission.
 

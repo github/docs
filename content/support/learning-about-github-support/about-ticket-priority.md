@@ -1,6 +1,6 @@
 ---
 title: About ticket priority
-intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
+intro: Support tickets are assigned a priority based on the circumstances of the issue and impact to you and your team.
 shortTitle: Ticket priority
 versions:
   ghec: '*'
@@ -11,7 +11,7 @@ topics:
 
 ## About ticket priorities
 
-When you contact {% data variables.contact.github_support %}, you can choose a priority for the ticket:
+When you contact {% data variables.contact.github_support %}, {% data variables.product.company_short %} will choose a priority for the ticket:
 
 - {% data variables.product.support_ticket_priority_low %}
 - {% data variables.product.support_ticket_priority_normal %}
@@ -19,6 +19,8 @@ When you contact {% data variables.contact.github_support %}, you can choose a p
 - {% data variables.product.support_ticket_priority_urgent %} {% ifversion ghec %}([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %}
 
 {% data reusables.support.zendesk-old-tickets %}
+
+Ticket priority helps to ensure that support requests are handled in order, and according to their circumstances and impact.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
@@ -52,6 +54,22 @@ When you contact {% data variables.contact.github_support %}, you can choose a p
 | {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
 | {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
+
+{% ifversion ghes != 3.8 %}
+
+## Ticket priorities for {% data variables.product.prodname_actions_runner_controller %}  (ARC)
+
+| Priority | Description | Examples |
+| :---: | --- | --- |
+| {% data variables.product.support_ticket_priority_urgent %}{% ifversion ghec %}<br><br>([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %} | Issues that critically impact the functionality of GitHub-supported ARC in an existing production environment. | ARC fails to create pods/start job/remove pods, or ARC has a significant bug affecting production and a rollback is not possible. |
+| {% data variables.product.support_ticket_priority_high %} | Issues that affect the performance of  {% data variables.product.prodname_dotcom %}-supported ARC in an existing production environment but do not result in a complete system failure. | Delays in pod termination or assignment of jobs to pods, where the delay is not in line with expectations but does not entirely halt the workflow. |
+| {% data variables.product.support_ticket_priority_normal %} / {% data variables.product.support_ticket_priority_low %} | Any other minor issues not classified as {% data variables.product.support_ticket_priority_urgent %} or {% data variables.product.support_ticket_priority_high %} should be directed to [the open source {% data variables.product.prodname_actions_runner_controller %} repository](https://github.com/actions/actions-runner-controller) issues/discussions.  | Customization, performance analysis, initial setup. |
+
+For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
+
+If you are uncertain if the issue is out of scope, contact {% data variables.contact.contact_support_page %} and we're happy to help you determine the best way to proceed.
+
+{% endif %}
 
 ## Further reading
 

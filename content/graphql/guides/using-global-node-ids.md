@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -108,7 +107,7 @@ When you run this query, you'll see that the `__typename` is [`User`](/graphql/r
 
 ## 3. Do a direct node lookup in GraphQL
 
-Once you've confirmed the type, you can use an [inline fragment](https://graphql.github.io/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
+Once you've confirmed the type, you can use an [inline fragment](https://graphql.org/learn/queries/#inline-fragments) to access the object by its ID and return additional data. In this example, we define the fields on `User` that we'd like to query:
 
 ```graphql
 query {

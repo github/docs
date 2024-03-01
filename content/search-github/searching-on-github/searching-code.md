@@ -12,14 +12,13 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - GitHub search
 ---
 {% ifversion code-search-code-view %}
 {% note %}
 
-**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search#search-code).
+**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
 
 For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
