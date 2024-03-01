@@ -44,11 +44,15 @@ If your organization's parent enterprise has selected **No policy**, {% data var
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies and features**.
+{% data reusables.copilot.policy-settings %}
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
    - **Disabled**: The feature is disabled for all members of the organization.
+
+1. If you select **Enabled**, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed.
+
+   Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
 
 ## Further reading
 
