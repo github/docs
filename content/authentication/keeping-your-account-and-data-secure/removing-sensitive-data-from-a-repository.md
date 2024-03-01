@@ -208,9 +208,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 ## Avoiding accidental commits in the future
 
-{% ifversion fpt or ghec or ghes %}
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
-{% endif %}
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
