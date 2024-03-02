@@ -86309,10 +86309,6 @@
           "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
         },
         {
-          "name": "RULESET_REQUIRED_SIGNATURES",
-          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
-        },
-        {
           "name": "SECRET_SCANNING",
           "description": "<p>Secret scanning.</p>"
         },
