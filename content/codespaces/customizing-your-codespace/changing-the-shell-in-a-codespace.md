@@ -27,9 +27,9 @@ If you don't want to use the default shell, open a new terminal session with a d
 
 ## Installing a new shell
 
-You can install a new shell if you want to use a shell that isn't already installed in the base image or dev container configuration for a codespace.
+You can install a new shell if you want to use a shell not installed in the base image or dev container configuration for a codespace.
 
-If you're using the default dev container image, you can just look for installation instructions for Ubuntu Linux. If you want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose the installed programs if you rebuild the container in the codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
+If you're using the default dev container image, you can look for installation instructions for Ubuntu Linux. If you want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose the installed programs if you rebuild the container in the codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
 
 A more robust option for installing new shells is to include the installation commands either in a dotfiles repository or as a lifecycle command, such as `postCreateCommand` in a `devcontainer.json` file. You should use a dotfiles repository to install a shell you want to use in all your codespaces and a `devcontainer.json` file for a shell that contributors to a specific repository should have installed. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
@@ -37,7 +37,7 @@ A more robust option for installing new shells is to include the installation co
 
 {% data variables.product.prodname_vscode_shortname %} automatically detects most standard shells and adds them as a terminal profile, so you can easily open new terminal windows using the shell you have installed.
 
-If the shell you install isn't detected automatically, you can add a new terminal profile to your user settings. This setting is dependent on your operating system, so you should use `linux` for the {% data variables.product.prodname_vscode_shortname %} web client and your local operating system for the desktop application.
+If the shell you install isn't detected automatically, you can add a new terminal profile to your user settings. This setting depends on your operating system, so you should use `linux` for the {% data variables.product.prodname_vscode_shortname %} web client and your local operating system for the desktop application.
 
 {% data reusables.codespaces.access-user-settings %}
 1. In the `settings.json` file, inside the JSON object, add a new property like the following. Replace `OPERATING-SYSTEM` with the relevant operating system (such as `linux`, `windows`, or `osx`) and `SHELL` with the shell you have installed.
@@ -66,7 +66,7 @@ If the shell you install isn't detected automatically, you can add a new termina
 
 ## Setting the default shell in {% data variables.product.prodname_vscode_shortname %}
 
-You can set a default terminal profile to choose the default shell used for all new terminal windows you open in {% data variables.product.prodname_vscode_shortname %}. The default terminal profile is dependent on your operating system, so you can set a default profile for Linux, if you're using the {% data variables.product.prodname_vscode_shortname %} web client, or for your local operating system, if you're using the desktop application.
+You can set a default terminal profile to choose the default shell used for all new terminal windows you open in {% data variables.product.prodname_vscode_shortname %}. The default terminal profile depends on your operating system, so you can set a default profile for Linux, if you're using the {% data variables.product.prodname_vscode_shortname %} web client, or for your local operating system, if you're using the desktop application.
 
 {% note %}
 
