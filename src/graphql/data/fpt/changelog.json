@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'RULESET_REQUIRED_SIGNATURES<code>was removed from enum</code>RepositoryRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>fullDatabaseId</code> was added to object type 'ProjectV2Item'</p>"
         ]
       }
