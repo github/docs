@@ -31,7 +31,7 @@ To find the display name of a codespace:
 
 ### Permanent codespace names
 
-In addition to a display name, every codespace also has a unique, permanent name. The permanent name is a combination of the initial display name, followed by some random characters - for example, `literate-space-parakeet-w5vg5ww5p793g7g9`. You can't change the permanent name.
+In addition to a display name, every codespace has a unique, permanent name. The permanent name combines the initial display name, followed by some random characters - for example, `literate-space-parakeet-w5vg5ww5p793g7g9`. You can't change the permanent name.
 
 {% data reusables.codespaces.permanent-codespace-names %}
 
