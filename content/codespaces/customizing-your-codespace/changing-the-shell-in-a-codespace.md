@@ -10,13 +10,13 @@ topics:
 type: how_to
 ---
 
-When you're working in a codespace, you can open a new terminal window with a shell of your choice, change your default shell for new terminal windows, or install a new shell. You can also use dotfiles to configure your shell.
+When working in a codespace, you can open a new terminal window with a shell of your choice, change your default shell for new terminal windows, or install a new shell. You can also use dotfiles to configure your shell.
 
 Codespaces that use the default dev container image come with the `bash`, `zsh`, and `fish` shells installed. If you open a new codespace in the {% data variables.product.prodname_vscode_shortname %} web client, or connect to a codespace over SSH, the terminal opens with a `bash` session running by default. In the {% data variables.product.prodname_vscode_shortname %} desktop application, the default shell depends on your local settings and operating system. For more information, see [Terminal Profiles](https://code.visualstudio.com/docs/terminal/profiles) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Changing from the default shell in {% data variables.product.prodname_vscode_shortname %}
 
-If you don't want to use the default shell, you can open a new terminal session with a different shell.
+If you don't want to use the default shell, open a new terminal session with a different shell.
 
 1. If you cannot see the integrated terminal in {% data variables.product.prodname_vscode_shortname %}, press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
 1. To the right of the {% octicon "plus" aria-label="plus" %} icon for opening a new terminal window, select the dropdown icon.
@@ -27,11 +27,11 @@ If you don't want to use the default shell, you can open a new terminal session 
 
 ## Installing a new shell
 
-If you want to use a shell that isn't already installed in the base image or dev container configuration for a codespace, you can install a new shell.
+You can install a new shell if you want to use a shell that isn't already installed in the base image or dev container configuration for a codespace.
 
-If you're using the default dev container image, look for installation instructions for Ubuntu Linux. If you just want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose programs you have installed if you rebuild the container in the codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
+If you're using the default dev container image, you can just look for installation instructions for Ubuntu Linux. If you want to use a different shell for one session, you can use the command line to install the shell in the codespace you're working in. However, you may lose the installed programs if you rebuild the container in the codespace. For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#about-the-directory-structure-of-a-codespace)."
 
-A more robust option for installing new shells is to include the installation commands either in a dotfiles repository, or as a lifecycle command such as `postCreateCommand` in a `devcontainer.json` file. You should use a dotfiles repository to install a shell you want to use in all your own codespaces, and a `devcontainer.json` file for a shell that contributors to a specific repository should have installed. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+A more robust option for installing new shells is to include the installation commands either in a dotfiles repository or as a lifecycle command, such as `postCreateCommand` in a `devcontainer.json` file. You should use a dotfiles repository to install a shell you want to use in all your codespaces and a `devcontainer.json` file for a shell that contributors to a specific repository should have installed. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)" and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ### Adding a {% data variables.product.prodname_vscode_shortname %} terminal profile for a new shell
 
