@@ -85,5 +85,4 @@ To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_shor
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
