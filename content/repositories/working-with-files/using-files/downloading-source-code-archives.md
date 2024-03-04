@@ -4,7 +4,6 @@ intro: 'You can download a snapshot of the code in your repository.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -21,11 +20,8 @@ You can download the source code archives in three ways.
 ### Downloading source code archives from the repository view
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click {% octicon "code" aria-hidden="true" %} **Code**.
-
-   ![Screenshot of the list of files on the landing page of a repository. The "Code" button is highlighted with a dark orange outline.](/assets/images/help/repository/code-button.png)
-
-1. Click {% octicon "file-zip" aria-hidden="true" %} **Download ZIP**.
+{% data reusables.repositories.click-code-dropdown %}
+{% data reusables.repositories.download-zip %}
 
 ### Downloading source code archives from a release
 

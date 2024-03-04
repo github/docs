@@ -86,11 +86,11 @@ describe('release notes', () => {
   // Return an array of tuples for each language and each first version
   // per plan. E.g. ...
   //   [
+  //      ['ja', 'enterprise-server@3.9'],
+  //      ['pt', 'enterprise-server@3.9'],
+  //      ...
   //      ['ja', 'enterprise-server@3.8'],
   //      ['pt', 'enterprise-server@3.8'],
-  //      ...
-  //      ['ja', 'github-ae@latest'],
-  //      ['pt', 'github-ae@latest'],
   //      ...
   //
   // This is useful because if we test every single individual version of

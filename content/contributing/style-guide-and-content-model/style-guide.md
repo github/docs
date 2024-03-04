@@ -1,7 +1,6 @@
 ---
 title: Style guide
 intro: 'Follow this guide to make sure {% data variables.product.company_short %}''s documentation stays consistent and follows clear patterns that our readers can understand.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
@@ -66,11 +65,11 @@ For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](
 
 Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
-If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in the `docs-strategy` repository to share your use case for approval by the Content Strategy team.
+If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
 
 ## Call to action (CTA) buttons
 
-CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the CTA in "[AUTOTITLE](/free-pro-team@latest/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
+CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the "Try {% data variables.product.prodname_copilot %}" CTA in "[AUTOTITLE](/free-pro-team@latest/copilot/using-github-copilot/getting-started-with-github-copilot)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
 
 Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)" since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
 
@@ -87,7 +86,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
-- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml)" in the `github/docs` repository.
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the [`github/docs`](https://github.com/github/docs) repository.
 - Do not use HTML to style or markup a code block.
 - Style any placeholders that people need to replace with their own values in all caps.
   - **Use:** `git checkout -b BRANCH-NAME`
@@ -213,9 +212,17 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
 
-- **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %} (classic).
+- **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
 - **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
 - **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
+
+## Error messages
+
+When you include the text of an error message from a {% data variables.product.company_short %} product or interface in an article, format the text according to the interface where the message appears.
+
+- If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
+
+- If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
 
 ## Footnotes
 
@@ -246,7 +253,29 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
+- **Use:**
+
+  ```markdown
+  ## HEADER (H2)
+  TEXT
+
+  ### SUBHEADER (H3)
+  TEXT
+
+  #### SUBHEADER (H4)
+  TEXT
+  ```
+
+- **Avoid:**
+
+  ```markdown
+  ## HEADER (H2)
+
+  #### SUBHEADER (H4)
+  ```
+
+When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
@@ -264,8 +293,8 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
 - End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
-- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
-- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
 - Follow standard language used to describe UI elements in article text.
 - Put multi-word titles, such as names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
@@ -285,7 +314,7 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}..." rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}…" rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu…," to avoid multiple nouns in a row.
 
 ##### Examples
 
@@ -455,19 +484,28 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we're linking.
+Links must be consistent, accessible to as many people as possible, translatable, and clear. People need to know where a link leads to and how it relates to what they want to accomplish.
 
-For any link that points to another {% data variables.product.prodname_docs %} page, use the special keyword `AUTOTITLE`. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
+Before adding a link, decide if someone must visit the link to understand the content. If the link is not necessary, consider removing it or including it at the end of the article as further reading.
+
+You can introduce links with just the verb "see" if the context makes it clear what the link is for. If the context is not clear, use a phrase or sentence to introduce the link such as "For more information, see" or "To learn more about X, see Y."
+
+Use the title of the documentation article, or external web page, as the link text. For any link that points to another article on the {% data variables.product.prodname_docs %} site, use the special keyword `AUTOTITLE` for the link text. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
+
+Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and can be harder to read.
+
+- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+- **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 Usage examples:
 
-- For links to other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE)."`
+- For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
 - For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
 - For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
-For links to external documentation, type out the full article name: `For more information, see [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+For links to external documentation, type out the full article name: `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
 
 Do not include quotation marks within a hyperlink.
 
@@ -477,15 +515,9 @@ Some best practices for using links:
 - Do not repeat the same link more than once in the same article or under the same H2 header.
 - Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
-For accessibility and readability, avoid inline or midsentence links.
-- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
-- **Avoid:** `Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
-
-For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
-
 ### Links between versions
 
-Sometimes, you need to link from one version of GitHub Docs to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
+Sometimes, you need to link from one version of {% data variables.product.prodname_docs %} to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
 
 For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the {% data variables.product.prodname_ghe_cloud %} version of the same article like this:
 
@@ -549,9 +581,20 @@ For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
 
 ### Links to external resources
 
-When linking to an external site, choose the most useful resource for the context of the link - you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
+When linking to an external site, choose the most useful resource for the context of the link—you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
 
 It's not necessary to link to an external product’s website when we mention an external product.
+
+### Adding anchors to preserve links
+
+If you know that there are links to a specific section of an article, you can add an anchor to the section to preserve the link. For example, if an external resource links to a specific section of an article, you could add an anchor so that the link directs to the correct section even if the section title changes.
+
+Use this format for link anchors. The anchor name should be the section name that is being preserved. Use an HTML comment to explain why you are adding the anchor.
+
+```markdown
+<!-- Anchor to maintain the current example link. -->
+<a name="SECTION-TITLE-THAT-MIGHT-CHANGE"></a>
+```
 
 ## Lists
 
@@ -608,26 +651,28 @@ Examples:
 - Under your organization name, click **Settings**.
 - To confirm your change, click **Remove credit card**.
 - Optionally, to see your plan’s details, click **Show details**.
-- Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click [down arrow octicon] next to your sponsored amount, then click **Change tier**.
+- Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="More options" %} next to your sponsored amount, then click **Change tier**.
 
 ## Product names
 
-Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses).
+Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses). Product names are never possessive.
 
-Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the github/docs repository.
+Use product name variables to render product names—do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the [data directory](https://github.com/github/docs/tree/main/data) of the [`github/docs`](https://github.com/github/docs) repository.
 
 Product names are always singular.
 - **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
 - **Avoid:** {% data variables.product.prodname_actions %} help you automate your software development workflows.
 
-Take care to distinguish between product names and product elements.
+Take care to distinguish between product names and product features. Product features are always lowercase.
 
-| Product | Element |
+| Product | Feature |
 | --- | --- |
 | {% data variables.product.prodname_actions %} | an action |
 | {% data variables.product.prodname_github_codespaces %} | a codespace |
 | {% data variables.product.prodname_registry %} | a package |
 | {% data variables.product.prodname_pages %} | a GitHub Pages site |
+
+Do not capitalize commonly used features like pull requests, topics, or issues.
 
 ## Product-specific conventions
 
@@ -667,11 +712,7 @@ Code examples that use third-party actions must include the following disclaimer
 # documentation.
 ```
 
-To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example:
-
-```text
-{% raw %}{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}{% endraw %}
-```
+To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}{% endraw %}` reusable.
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 
@@ -838,9 +879,10 @@ A release note for a bug fix answers the following questions.
 > _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
 
 - Because the bug is now fixed, write in the past tense.
-- Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
+- Language like "fixed a bug…" or "fixed an issue…" is implied and unnecessary.
 - To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
+- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
 
 #### Examples of release notes for bug fixes
 
@@ -896,6 +938,7 @@ A release note for a known issue answers the following questions.
 
 - To clarify actors and impact, avoid passive language when possible.
 - To reduce repetition and unnecessary words, "now" is usually implied.
+- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
 - If useful, include relevant links to GitHub Docs.
 - Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
 
@@ -958,7 +1001,7 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 
 ## Reusables and variables
 
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the github/docs repository, "[Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content)", and the “[Product names](#product-names)” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the [`github/docs`](https://github.com/github/docs) repository, "[Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content)", and the “[Product names](#product-names)” section of this document.
 
 ## Sectional TOCs
 
@@ -1073,16 +1116,18 @@ To add row headers for a Markdown table, wrap the table in the Liquid tags `{% r
 
 ### Include a value for every cell
 
-Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+Every cell in a table must contain a value.
 
-If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 
 For tables that use symbols:
 
 - Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE]/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
 - Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 - Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
@@ -1264,6 +1309,12 @@ Format radio button labels in bold and omit the words “radio button” or any 
 Use a standard format to refer to repositories. Link to repositories when helpful.
 - **Use:** in the `[account-name/repository-name](URL)` repository
 
+### Responsive elements
+
+We only document the responsive states of UI elements when they create ambiguity or confusion. If a task is unclear because of a responsive UI element, describe the interaction that someone must do to achieve the goal of the task. Do not just describe the visual state of the UI element.
+
+- **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
+
 ### User interface text
 
 When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
@@ -1294,7 +1345,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 
@@ -1337,11 +1388,11 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
 - {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
-  - **Use:** With {% data variables.product.prodname_emus %} , you can create and manage user accounts for your enterprise members.
-  - **Avoid:** With {% data variables.product.prodname_emus %} , you can create and manage the personal accounts for your enterprise members.
+  - **Use:** With {% data variables.product.prodname_emus %}, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With {% data variables.product.prodname_emus %}, you can create and manage the personal accounts for your enterprise members.
 - {% data variables.product.prodname_ghe_server %}
-  - **Use:** If you need to temporarily take over a user account...
-  - **Avoid:** If you need to temporarily take over a personal account...
+  - **Use:** If you need to temporarily take over a user account…
+  - **Avoid:** If you need to temporarily take over a personal account…
 
 The following documentation should reference "user accounts."
 
@@ -1416,7 +1467,7 @@ For subsequent references to currency in an article or where appropriate (such a
 - **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
 - **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
 
-Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+Where the first reference concerns cents or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
@@ -1428,25 +1479,26 @@ A **permission** is the ability to perform a specific action. For example, the a
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
 - Accounts (e.g., organization owner, billing manager for an enterprise account)
-- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
-- Teams (e.g., "team maintainer")
+- Resources (e.g., write for a repository, admin for a security advisory)
+- Teams (e.g., team maintainer)
 
 A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
 
 Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
 
-- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
-- **Use:** `Managing a team's access to your organization's repository`
-- **Use:** `If your team membership gives you a different level of access than your role as organization owner...`
-- **Use:** `People with write access can...`
-- **Avoid:** `People with the write role can...`
-- **Avoid:** `People with write permissions can...`
-- **Avoid:** `People with write privileges can...`
+- **Use:** To create a custom repository role, you choose an inherited role and then add individual permissions.
+- **Use:** Managing a team's access to your organization's repository
+- **Use:** If your team membership gives you a different level of access than your role as organization owner…
+- **Use:** People with write access can…
+- **Avoid:** People with the write access can...
+- **Avoid:** People with the write role can…
+- **Avoid:** People with write permissions can…
+- **Avoid:** People with write privileges can…
 
 When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
 
-- **Use:** `People with write access to a repository can do X to the repository.`
-- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+- **Use:** People with write access to a repository can do X to the repository.
+- **Avoid:** Organization owners and people with write access can do X to the repository.
 
 For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
 

@@ -142,7 +142,7 @@ sections:
 
         # https://github.com/github/releases/issues/3023
         - |
-          Users can use the GraphQL API to review dependencies submitted using the Dependency submission API. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
+          Users can use the GraphQL API to review dependencies submitted using the {% data variables.dependency-submission-api.name %}. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
 
     - heading: GitHub Actions
       notes:
@@ -440,7 +440,15 @@ sections:
     - |
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
 
   deprecations:
     # https://github.com/github/releases/issues/2826

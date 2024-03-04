@@ -99,5 +99,15 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
    ![Screenshot of the sidebar of the "Settings" page for a repository. The "Rules" sub-menu is expanded, and the "Insights" option is outlined in orange.](/assets/images/help/repository/ruleset-insights.png)
 1. On the "Rule Insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, branch, actor, and time period.
 {% data reusables.repositories.rulesets-view-rule-runs %}
+{%- ifversion repo-rules-merge-queue %}
+1. Optionally, review merge queue details for corresponding pull requests in the same merge group.
+
+    {% note %}
+
+    **Note:** The merge queue rule is in public beta and this interface is subject to change.
+
+    {% endnote %}
+
+{% endif %}
 
 {% endif %}

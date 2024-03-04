@@ -10,13 +10,13 @@ describe('product landing page', () => {
     const $ = await getDOM('/pages')
     // Note that this particular page (in the fixtures) has Liquid
     // in its shorTitle.
-    expect($('#all-docs a').first().text()).toMatch('All Pages (GitHub) docs')
+    expect($('#all-docs a').first().text()).toMatch('All Pages (HubGit) docs')
   })
 
   test('product landing page lists with shortTitle heading (enterprise-server)', async () => {
     const $ = await getDOM('/enterprise-server@latest/pages')
     // Note that this particular page (in the fixtures) has Liquid
     // in its shorTitle.
-    expect($('#all-docs a').first().text()).toMatch('All Pages (GitHub Enterprise Server) docs')
+    expect($('#all-docs a').first().text()).toMatch('All Pages (HubGit Enterprise Server) docs')
   })
 })

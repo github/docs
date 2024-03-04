@@ -13,7 +13,6 @@ topics:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -75,7 +74,7 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 Use deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} to restrict which branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to the environment. Below are the options for deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} for an environment:
 
 {% ifversion deployment-protections-tag-patterns %}
-- **No restriction**: No restriction on which branch or tag can deploy to the enviornment.
+- **No restriction**: No restriction on which branch or tag can deploy to the environment.
 {%- else %}
 - **All branches**: All branches in the repository can deploy to the environment.
 {%- endif %}
@@ -262,7 +261,7 @@ You can also delete environments through the REST API. For more information, see
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[AUTOTITLE](/rest/repos#deployments)" (REST API), "[AUTOTITLE](/graphql/reference/objects#deployment)" (GraphQL API), or "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[AUTOTITLE](/rest/repos#deployments)," "[AUTOTITLE](/graphql/reference/objects#deployment)" (GraphQL API), or "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
 
 ## Next steps
 

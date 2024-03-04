@@ -1,6 +1,6 @@
 ---
-title: Code security documentation
-shortTitle: Code security
+title: '{% data variables.product.product_name %} Code security documentation'
+shortTitle: '{% data variables.product.product_name %} Code security'
 intro: 'Code security'
 layout: product-landing
 featuredLinks:
@@ -10,13 +10,8 @@ featuredLinks:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /getting-started
   - /guides
 ---
-
-
-
-

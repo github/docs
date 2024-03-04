@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -19,7 +18,7 @@ You can search for issues and pull requests globally across all of {% data varia
 
 {% tip %}
 
-**Tips:**{% ifversion ghes or ghae %}
+**Tips:**{% ifversion ghes %}
 - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
 - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
 - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
@@ -103,7 +102,7 @@ You can filter by the visibility of the repository containing the issues and pul
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec or ghae %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %}
 | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
@@ -160,6 +159,15 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.
 | `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
+## Search for my issues and pull requests
+
+You can search for issues and pull requests you have created or have interacted with by following the desired qualifier with `@me`. Any qualifier that works with a username allows you to limit your search to issues and pull requests you created, are assigned, mentioned on, or are requested as a reviewer of.
+
+| Qualifier        | Example
+| ------------- | -------------
+| <code>author:<em>@me</em></code> | **[author:@me](https://github.com/search?q=author%3A%40me)** matches issues and pull requests you have authored.
+| <code>is:pr commenter:<em>@me</em></code> | **[is:pr commenter:@me](https://github.com/search?q=is%3Apr+commenter%3A%40me&type=pullrequests)** matches pull requests you have commented on.
+
 ## Search for linked issues and pull requests
 
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
@@ -191,14 +199,14 @@ The `milestone` qualifier finds issues or pull requests that are a part of a [mi
 | <code>milestone:<em>MILESTONE</em></code> | [**milestone:"overhaul"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22overhaul%22&type=Issues) matches issues that are in a milestone named "overhaul."
 | <code>milestone:<em>MILESTONE</em></code> | [**milestone:"bug fix"**](https://github.com/search?utf8=%E2%9C%93&q=milestone%3A%22bug+fix%22&type=Issues) matches issues that are in a milestone named "bug fix."
 
-## Search by project board
+## Search by project
 
-You can use the `project` qualifier to find issues that are associated with a specific [project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) in a repository or organization. You must search project boards by the project board number. You can find the project board number at the end of a project board's URL.
+You can use the `project` qualifier to find issues that are associated with a specific project. You must search projects by the project number. You can find the project number at the end of a project's URL.
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project board 57.
-| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository.
+| <code>project:<em>PROJECT_NUMBER</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project 57.
+| <code>project:<em>REPOSITORY/PROJECT_NUMBER</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project 1 in @github's linguist repository.
 
 ## Search by commit status
 
@@ -367,7 +375,7 @@ You can narrow your search to issues and pull requests that are missing certain 
 | `no:label` | [**priority no:label**](https://github.com/search?q=priority+no%3Alabel&type=Issues) matches issues and pull requests with the word "priority" that also don't have any labels.
 | `no:milestone` | [**sprint no:milestone type:issue**](https://github.com/search?q=sprint+no%3Amilestone+type%3Aissue&type=Issues) matches issues not associated with a milestone containing the word "sprint."
 | `no:assignee` | [**important no:assignee language:java type:issue**](https://github.com/search?q=important+no%3Aassignee+language%3Ajava+type%3Aissue&type=Issues) matches issues not associated with an assignee, containing the word "important," and in Java repositories.
-| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a project board, containing the word "build."
+| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.projects_v1_board %}, containing the word "build."
 
 ## Further reading
 

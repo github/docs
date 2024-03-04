@@ -11,6 +11,7 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces
+  - /codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces
 ---
 
 ## Overview
@@ -62,7 +63,9 @@ You configure repository permissions for {% data variables.product.prodname_gith
 
    {% note %}
 
-   **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   **Notes:**
+   - You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   - You can use the `*` wildcard to grant permissions to multiple repositories in an organization. For example, to grant permissions to all repositories in the `my_org` organization use `my_org/*`. This syntax is only valid for codespaces. In any `devcontainer.json` files that are used for prebuilds, you must define permissions for each repository separately. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)."
 
    {% endnote %}
 
@@ -123,26 +126,6 @@ If additional repository permissions are defined in the `devcontainer.json` file
 You should only authorize permissions for repositories you know and trust. If you don't trust the set of requested permissions, click **Continue without authorizing** to create the codespace with the base set of permissions. Rejecting additional permissions may impact the functionality of your project within the codespace as the codespace will only have access to the repository from which it was created.
 
 You can only authorize permissions that your personal account already possesses. If a codespace requests permissions for repositories that you don't currently have access to, contact an owner or admin of the repository to obtain sufficient access and then try to create a codespace again.
-
-## Access and security
-
-{% warning %}
-
-**Deprecation note**: The access and security setting described below is now deprecated and is documented here for reference only. To enable expanded access to other repositories, add the requested permissions to your dev container definition for your codespace, as described above.
-
-{% endwarning %}
-
-When you enable access and security for a repository owned by your personal account, any codespaces that are created for that repository will have read permissions to all other repositories you own. If you want to restrict the repositories a codespace can access, you can limit to it to either the repository the codespace was opened for or specific repositories. You should only enable access and security for repositories you trust.
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.codespaces-tab %}
-1. Under "Access and security," select the setting you want for your personal account:
-
-   - **Disabled** - Limit access of your personal codespaces to the repository they were created from.
-   - **All repositories** - All of your personal codespaces can access other repositories you own.
-   - **Selected repositories** - Personal codespaces created from specific repositories can access other repositories you own.
-
-1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat this step for all repositories whose codespaces you want to access other repositories you own.
 
 ## Further reading
 

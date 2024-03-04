@@ -5,22 +5,20 @@ intro: >-
   To create integrations, retrieve data, and automate your workflows, build with
   the {% data variables.product.prodname_dotcom %} REST API.
 introLinks:
-  quickstart: /rest/overview
+  quickstart: /rest
 featuredLinks:
   popular:
-    - /rest/overview/about-githubs-apis
+    - /rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api
 changelog:
   label: 'api, apis'
 layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
-  - /overview
+  - /about-the-rest-api
   - /actions
-  - /code-scanning
 
 ---
 

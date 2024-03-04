@@ -75,7 +75,7 @@ export const liquidIfVersionTags = {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
-      .filter((token) => token.name === 'ifversion')
+      .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
 
     for (const token of tokens) {
       const args = token.args
@@ -157,7 +157,6 @@ function validateIfversionConditionals(cond, possibleVersionNames) {
       // allows us to deprecate the version before removing
       // the old liquid content.
       if (
-        version !== 'ghae' &&
         !(
           supported.includes(release) ||
           release === next ||

@@ -49,19 +49,6 @@ const plans = [
     openApiBaseName: 'ghes-',
     miscBaseName: 'ghes-',
   },
-  {
-    plan: 'github-ae',
-    planTitle: 'GitHub AE',
-    shortName: 'ghae',
-    releases: [latestNonNumberedRelease],
-    latestRelease: latestNonNumberedRelease,
-    // The below is used in lib/liquid-tags/ifversion.js and lib/get-applicable-versions.js.
-    // It lets us do semantic comparison internally while only exposing `@latest` in the UI.
-    internalLatestRelease: '3.6',
-    hasNumberedReleases: false,
-    openApiBaseName: 'ghae',
-    miscBaseName: 'ghae',
-  },
 ]
 
 const allVersions = {}

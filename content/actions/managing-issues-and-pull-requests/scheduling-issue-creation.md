@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -63,7 +62,7 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
                 gh issue pin "$new_issue_url"
               fi
             env:
-              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
               GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
               TITLE: Team sync
               ASSIGNEES: monalisa,doctocat,hubot

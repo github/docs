@@ -26,8 +26,6 @@ When you publish a package that is scoped to a personal account or an organizati
 1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.repository_connection_steps %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Connecting a repository to a container image using the command line
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
@@ -100,5 +98,3 @@ When you publish a package that is scoped to a personal account or an organizati
    ```shell
    docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
-
-{% endif %}

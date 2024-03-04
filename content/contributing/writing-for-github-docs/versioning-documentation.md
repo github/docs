@@ -1,7 +1,6 @@
 ---
 title: Versioning documentation
 intro: '{% data variables.product.prodname_docs %} uses YAML frontmatter and liquid operators to support multiple versions of {% data variables.product.company_short %} with a single-source approach.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
@@ -241,10 +240,6 @@ versions:
   fpt: '*'
   feature: 'some-new-feature'
 ```
-
-### Schema enforcement
-
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/src/content-linter/tests/lint-versioning.js).
 
 ## Best practices
 

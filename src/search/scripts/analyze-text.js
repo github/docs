@@ -8,7 +8,7 @@
 //
 // Example:
 //
-//    ./src/search/scripts/analyze-text.js my words to tokenize
+//    npm run analyze-text "my words" to tokenize
 //
 // [end-readme]
 

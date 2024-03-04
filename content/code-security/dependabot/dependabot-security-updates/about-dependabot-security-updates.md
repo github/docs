@@ -24,7 +24,6 @@ topics:
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot_security_updates %}
@@ -62,6 +61,16 @@ Each pull request contains everything you need to quickly and safely review and 
 When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)."
 
 {% data reusables.dependabot.automated-tests-note %}
+
+{% ifversion dependabot-grouped-security-updates %}
+
+## About grouped security updates
+
+{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
+
+To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time. For security updates, {% data variables.product.prodname_dependabot %} **will** group dependencies from different directories. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 

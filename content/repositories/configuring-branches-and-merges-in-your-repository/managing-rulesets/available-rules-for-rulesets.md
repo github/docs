@@ -34,6 +34,38 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
+{% ifversion repo-rules-merge-queue %}
+
+## Require merge queue
+
+{% note %}
+
+**Notes:**
+
+- Configuring a merge queue via rulesets is in public beta and subject to change.
+- This rule is not available for rulesets created at the organization level. For more information about creating rulesets at the repository level, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
+
+{% endnote %}
+
+You can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues)."
+
+### Additional settings
+
+You can configure various settings for your merge queue rule.
+
+- **Merge method**: Method to use when merging changes from pull requests.
+- **Build concurrency**: Limit the number of queued pull requests requesting checks and workflow runs at the same time.
+  - This setting controls when merge queue dispatches the `merge_group.checks_requested` webhook event, which triggers {% data variables.product.prodname_actions %} workflows that are configured to run on `merge_group`. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#merge_group)."
+  - For example, if there are 5 pull requests added to the queue and the build concurrency setting is 3, merge queue will dispatch the `checks_requested` event for the first 3 pull requeusts. When it receives a result for one of those pull requests, merge queue will dispatch the event for the 4th pull request, and so on.
+- **Minimum/maximum group size**: The number of pull requests that will be merged together in a group.
+- **Wait time to meet minimum group size (minutes)**: The time the merge queue will wait after the first pull request is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged.
+- **Require all queue entries to pass required checks**:
+    - When this setting is enabled, each item in the merge group must pass all required checks.
+    - When this setting is disabled, only the commit at the head of the merge group, i.e. the commit containing changes from all of the pull requests in the group, must pass its required checks to merge.
+- **Status check timeout (minutes)**: Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed
+
+{% endif %}
+
 ## Require deployments to succeed before merging
 
 {% ifversion repo-rules-enterprise %}
@@ -49,6 +81,10 @@ You can require that changes are successfully deployed to specific environments 
 ## Require signed commits
 
 When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+
+Branch protection rules and rulesets behave differently when you create a branch: with rulesets, we check only the commits that aren't accessible from other branches, whereas with branch protection rules, we do not verify signed commits unless you restrict pushes that create matching branches. With both, when you update a branch, we still check all the commits in the specified range, even if a commit is reachable from other branches.
+
+With both methods, we use the `verified_signature?` to confirm if a commit has a valid signature. If not, the update is not accepted.
 
 {% note %}
 
@@ -136,19 +172,13 @@ If someone force pushes to a branch or tag, commits that other collaborators hav
 
 Enabling force pushes will not override any other rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% ifversion ghes or ghae %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+{% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
 {% ifversion repo-rules-required-workflows %}
 
 ## Require workflows to pass before merging
-
-{% note %}
-
-**Note:** This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
-
-{% endnote %}
 
 You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
 

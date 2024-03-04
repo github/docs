@@ -4,7 +4,6 @@ intro: 'You can manage branches in your repository, configure the way branches a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -15,4 +14,3 @@ children:
   - /managing-rulesets
 shortTitle: Branches and merges
 ---
-

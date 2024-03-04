@@ -15,7 +15,6 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -48,9 +47,7 @@ You can link to an image in a repository on {% data variables.product.product_na
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-
-## Adding mathematical expressions and diagrams{% endif %}
+## Adding mathematical expressions and diagrams
 
 {% data reusables.getting-started.math-and-diagrams %}
 

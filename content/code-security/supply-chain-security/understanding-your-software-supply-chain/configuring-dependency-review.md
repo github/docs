@@ -5,7 +5,6 @@ shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -22,11 +21,7 @@ topics:
 
 For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-{% ifversion fpt or ghec or ghes %}
-
 ## About configuring dependency review
-
-{% endif %}
 
 {% ifversion fpt %}
 Dependency review is available in all public repositories in all products and cannot be disabled. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
@@ -103,9 +98,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-      {% ifversion ghes %}runs-on: self-hosted
-        {% else %}runs-on: ubuntu-latest
-        {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
         - name: 'Checkout Repository'
           uses: {% data reusables.actions.action-checkout %}
         - name: Dependency Review
@@ -127,9 +121,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-     {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review
@@ -141,10 +134,10 @@ Notice that all of the examples use a short version number for the action (`v3`)
            {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
-           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+           # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
            allow-licenses: GPL-3.0, BSD-3-Clause, MIT
            # ([String]). Block the pull request on these licenses (optional)
-           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+           # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
            deny-licenses: LGPL-2.0, BSD-2-Clause
            {% endif %}
            # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
@@ -174,9 +167,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-       {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review
@@ -205,13 +197,13 @@ Notice that all of the examples use a short version number for the action (`v3`)
    {% ifversion dependency-review-action-licenses %}
      # You can only include one of these two options: `allow-licenses` and `deny-licenses`
      # ([String]). Only allow these licenses (optional)
-     # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+     # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
      allow-licenses:
        - GPL-3.0
        - BSD-3-Clause
        - MIT
       # ([String]). Block the pull request on these licenses (optional)
-      # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+      # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
      deny-licenses:
        - LGPL-2.0
        - BSD-2-Clause

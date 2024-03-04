@@ -17,7 +17,7 @@ topics:
 {% ifversion projects-v2-tasklists %}
 {% note %}
 
-**Note:** For more information about the new iteration of tasklists, which is currently in beta, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+**Note:** For more information about the new iteration of tasklists, which is currently in beta, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/creating-a-tasklist)."
 
 {% endnote %}
 {% endif %}

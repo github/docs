@@ -34,7 +34,7 @@ There are three types of migrations you can perform:
 
 With ghe-migrator, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository _and_ the organization, as well as any users, teams, issues, and pull requests associated with the repository.
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
+The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data cannot be migrated, including {% data variables.large_files.product_name_short %} assets.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 
@@ -46,7 +46,7 @@ The items in the table below can be migrated with a repository. Any items not sh
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.
-| {% data variables.product.prodname_projects_v1_caps %} boards | Project boards associated with the repository and with the organization that owns the repository are migrated. {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is not supported.
+| {% data variables.product.prodname_projects_v1_caps %} boards | {% data variables.projects.projects_v1_boards_caps %} associated with the repository and with the organization that owns the repository are migrated. {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is not supported.
 | Issues | Issue references and timestamps are preserved.
 | Issue comments | Cross-references to comments are rewritten for the target instance.
 | Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.

@@ -104,6 +104,16 @@ const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
+  'rai-reusable-usage': {
+    // GHD035
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'image-no-gif': {
+    // GHD036
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -129,6 +139,11 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-liquid-syntax': {
     // GHD017
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'liquid-ifversion-tags': {
+    // GHD020
     severity: 'error',
     'partial-markdown-files': false,
   },

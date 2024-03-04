@@ -19,26 +19,25 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /get-started/quickstart
+  quickstart: /get-started/start-your-journey
 featuredLinks:
   startHere:
+    - /get-started/start-your-journey/about-github-and-git
     - /get-started/learning-about-github/githubs-plans
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
-    - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /get-started/quickstart/creating-an-account-on-github
-    - /get-started/quickstart/hello-world
-    - /get-started/quickstart/set-up-git
+    - /get-started/start-your-journey/creating-an-account-on-github
+    - /get-started/start-your-journey/hello-world
+    - /get-started/getting-started-with-git/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
-    - /get-started/quickstart/github-glossary
+    - /get-started/learning-about-github/github-glossary
     - /get-started/accessibility/keyboard-shortcuts
   guideCards:
     - /get-started/learning-about-github/types-of-github-accounts
@@ -50,10 +49,10 @@ topics:
   - Notifications
   - Accounts
 children:
-  - /quickstart
+  - /start-your-journey
   - /onboarding
-  - /learning-about-github
   - /using-github
+  - /learning-about-github
   - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
@@ -63,4 +62,5 @@ children:
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
+  - /showcase-your-expertise-with-github-certifications
 ---

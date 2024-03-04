@@ -1,6 +1,6 @@
 ---
 title: Reviewing your SSH keys
-intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% data variables.location.product_location %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity

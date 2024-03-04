@@ -10,7 +10,7 @@ describe('article versioning', () => {
     expect(links.attr('href')).toBe('/en/get-started/versioning/only-fpt')
   })
 
-  test('only links to articles for ghae', async () => {
+  test('only links to articles for ghec', async () => {
     const $ = await getDOM('/enterprise-cloud@latest/get-started/versioning')
     const links = $('[data-testid="table-of-contents"] a')
     expect(links.length).toBe(2)

@@ -4,11 +4,11 @@ intro: 'You can view user and system activity by leveraging dashboards, webhooks
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:
   - /activity-dashboard
+  - /accessing-reports-for-your-instance
   - /viewing-push-logs
   - /log-forwarding
   - /managing-global-webhooks

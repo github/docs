@@ -11,8 +11,9 @@ export const ProductGuides = () => {
   const { title, learningTracks, includeGuides } = useProductGuidesContext()
   const { t } = useTranslation('product_guides')
 
-  const { currentProduct } = useMainContext()
-  const productName = currentProduct?.name || title
+  const { currentProductName } = useMainContext()
+
+  const productName = currentProductName || title
   const nameRegex = /{{\s*name\s*}}/
 
   return (

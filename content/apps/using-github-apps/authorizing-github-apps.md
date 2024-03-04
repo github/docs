@@ -5,7 +5,6 @@ intro: 'You can authorize a {% data variables.product.prodname_github_app %} to 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity

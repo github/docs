@@ -4,7 +4,6 @@ intro: Learn how to control deployments with features like environments and conc
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 redirect_from:
@@ -147,18 +146,14 @@ You can also view the logs of each workflow run and the history of workflow runs
 ## Tracking deployments through apps
 
 {% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
+If your personal account or organization on {% data variables.location.product_location %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
 {% endif %}
 
 You can also build an app that uses deployment and deployment status webhooks to track deployments. {% data reusables.actions.environment-deployment-event %} For more information, see "[AUTOTITLE](/apps)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Choosing a runner
 
 You can run your deployment workflow on {% data variables.product.company_short %}-hosted runners or on self-hosted runners. Traffic from {% data variables.product.company_short %}-hosted runners can come from a [wide range of network addresses](/rest/meta#get-github-meta-information). If you are deploying to an internal environment and your company restricts external traffic into private networks, {% data variables.product.prodname_actions %} workflows running on {% data variables.product.company_short %}-hosted runners may not be able to communicate with your internal services or resources. To overcome this, you can host your own runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-
-{% endif %}
 
 ## Displaying a status badge
 

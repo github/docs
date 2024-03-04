@@ -14,6 +14,7 @@ import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
 import { prettyPrintResults } from './pretty-print-results.js'
+import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -45,6 +46,7 @@ program
   .addOption(
     new Option('-o, --output-file <filepath>', `Outputs the errors/warnings to the filepath.`),
   )
+  .option('--print-annotations', 'Print annotations for GitHub Actions check runs.', false)
   .parse(process.argv)
 
 const {
@@ -56,6 +58,7 @@ const {
   outputFile,
   verbose,
   precommit: isPrecommit,
+  printAnnotations,
 } = program.opts()
 
 const ALL_CONTENT_DIR = ['content', 'data']
@@ -91,7 +94,7 @@ async function main() {
     customRules: configuredRules.data,
   })
 
-  // Run Markdownlint for data directory
+  // Run Markdownlint for content directory (frontmatter only)
   const resultFrontmatter = await markdownlint.promises.markdownlint({
     frontMatter: null,
     files: files.content,
@@ -154,6 +157,18 @@ async function main() {
       })
     }
   }
+
+  if (printAnnotations) {
+    printAnnotationResults(formattedResults, {
+      skippableRules: [
+        // As of Feb 2024, this rule is quite noisy. It's present in
+        // many files and is not always a problem. And besides, when it
+        // does warn, it's usually a very long one.
+        'code-fence-line-length', // a.k.a. GHD030
+      ],
+    })
+  }
+
   const end = Date.now()
   // Ensure previous console logging is not truncated
   console.log('\n')
@@ -214,9 +229,15 @@ async function main() {
   }
 
   if (errorFileCount) {
-    process.exit(1)
+    if (printAnnotations) {
+      console.warn('When printing annotations, the exit code is always 0')
+      process.exit(0)
+    } else {
+      process.exit(1)
+    }
+  } else {
+    spinner.succeed('No errors found')
   }
-  spinner.succeed('No errors found')
 }
 
 function pluralize(things, word, pluralForm = null) {
@@ -250,7 +271,7 @@ function getFilesToLint(paths) {
     const extension = path.extname(lintPath)
     // We currently only lint Markdown files but will add
     // YAML files soon.
-    const isMdFile = extension === '.md'
+    const isMdFile = extension === '.md' && path.basename(lintPath) !== 'README.md'
     const isDirectory = extension === ''
     if (!isMdFile && !isDirectory) continue
     // The path can be relative or absolute. All paths get

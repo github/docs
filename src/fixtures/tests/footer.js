@@ -1,15 +1,11 @@
-import { jest } from '@jest/globals'
-
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 describe('footer', () => {
-  jest.setTimeout(10 * 60 * 1000)
-
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(
-        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`,
+        `/en/${nonEnterpriseDefaultVersion}/get-started/start-your-journey/hello-world`,
       )
       expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
@@ -40,7 +36,7 @@ describe('footer', () => {
 
   describe('test redirects for non-product landing community links pages', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
-      const $ = await getDOM(`/en/get-started/quickstart/hello-world`)
+      const $ = await getDOM(`/en/get-started/start-your-journey/hello-world`)
       expect($('a#ask-community').attr('href')).toBe(
         'https://github.com/orgs/community/discussions',
       )

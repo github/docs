@@ -3,7 +3,6 @@ title: Pulls
 intro: Use the REST API to interact with pull requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -41,7 +40,7 @@ Pull requests have these possible link relations:
 - `issue`: The API location of this pull request's [issue](/rest/issues)
 - `comments`: The API location of this pull request's [issue comments](/rest/issues#comments)
 - `review_comments`: The API location of this pull request's [review comments](/rest/pulls#comments)
-- `review_comment`: The [URL template](/rest#hypermedia) to construct the API location for a [review comment](/rest/pulls#comments) in this pull request's repository
+- `review_comment`: The [URL template](/rest/using-the-rest-api/getting-started-with-the-rest-api#hypermedia) to construct the API location for a [review comment](/rest/pulls#comments) in this pull request's repository
 - `commits`: The API location of this pull request's [commits](#list-commits-on-a-pull-request)
 - `statuses`: The API location of this pull request's [commit statuses](/rest/commits#commit-statuses), which are the statuses of its `head` branch
 

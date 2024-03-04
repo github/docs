@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -34,6 +33,9 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 
    You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
 1. Optionally, filter the files to show only the files you want to review{% ifversion pr-tree-view %} or use the file tree to navigate to a specific file{% endif %}. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+{%- ifversion ghec %}
+1. Optionally, if you have access to {% data variables.product.prodname_copilot_enterprise %}, you can ask {% data variables.product.prodname_copilot_short %} about the changes in a file in a pull request by clicking {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, clicking **Ask {% data variables.product.prodname_copilot_short %} about this diff**, then typing a request such as "Explain these changes." For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#finding-out-about-the-changes-in-a-pull-request)."
+{%- endif %}
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -41,9 +43,9 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 {% data reusables.repositories.start-file-comment %}{% endif %}
 1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Cancel review**.
+Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Abandon review**.
 
-![Screenshot of the comment field for a review. The "Cancel review" button is outlined in dark orange.](/assets/images/help/pull_requests/cancel-review-button.png)
+![Screenshot of the comment field for a review. The "Abandon review" button is outlined in dark orange.](/assets/images/help/pull_requests/abandon-review-button.png)
 {% endwebui %}
 
 {% ifversion fpt or ghec %}
@@ -64,6 +66,8 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
+
+{% data reusables.codespaces.reviewing-a-pr %}
 
 1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 

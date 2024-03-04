@@ -26,7 +26,7 @@ describe('audit log events docs', () => {
   test.each(auditLogEventPages)(
     'loads audit log event data for all versions on page %o',
     async (page) => {
-      for (const version in allVersions) {
+      for (const version of Object.keys(allVersions)) {
         const auditLogEvents = getAuditLogEvents(page.type, version, true)
 
         if (Object.keys(auditLogEvents).length === 0) {

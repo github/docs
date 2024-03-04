@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -24,7 +23,7 @@ topics:
 
 A repository is the most basic element of {% data variables.product.prodname_dotcom %}. It's a place where you can store your code, your files, and each file's revision history. Repositories can have multiple collaborators and can be either public{% ifversion ghes or ghec %}, internal,{% endif %} or private.
 
-To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)."
+To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."
 
 ## Repository terminology
 
@@ -56,7 +55,7 @@ You can use repositories to manage your work and collaborate with others.
 - You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."{% ifversion fpt or ghec %}
 - {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-- You can use project boards to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+- You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 {% ifversion fpt or ghec %}
 With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
@@ -66,28 +65,18 @@ Each person and organization can own unlimited repositories and invite an unlimi
 
 ## About repository visibility
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% else %}public or private{% endif %}.
 
-{% ifversion fpt or ghec or ghes %}
-
-When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
-
-{% elsif ghae %}
-
-When you create a repository owned by your personal account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
-
-{% endif %}
+When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).{% endif %}
 
 {%- ifversion fpt or ghec %}
-- Public repositories are accessible to everyone on the internet.
+- {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
 - If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
-{%- elsif ghae %}
-- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 - Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 
@@ -95,7 +84,7 @@ Organization owners always have access to every repository created in an organiz
 
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## About internal repositories
 

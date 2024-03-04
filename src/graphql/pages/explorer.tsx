@@ -9,7 +9,11 @@ type Props = {
   graphqlExplorerUrl: string
 }
 export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
-  const { page } = mainContext
+  // Use TypeScript's "not null assertion" because `context.page` should
+  // will present in main context if it's gotten to the stage of React
+  // rendering.
+  const page = mainContext.page!
+
   const graphiqlRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {

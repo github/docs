@@ -9,7 +9,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Advanced Security
@@ -21,7 +20,7 @@ allowTitleToDifferFromFilename: true
 
 {% ifversion code-scanning-without-workflow %}If you need to configure a highly customizable {% data variables.product.prodname_code_scanning %} setup for many repositories in your organization, or if repositories in your organization are ineligible for default setup, you can configure {% data variables.product.prodname_code_scanning %} at scale with advanced setup.{% endif %}
 
-To configure {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %} across multiple repositories, you can write a bulk configuration script. To successfully execute the script, {% data variables.product.prodname_actions %} must be enabled for the {% ifversion fpt %}organization{% elsif ghec or ghae %}organization or enterprise{% elsif ghes %}site{% endif %}.
+To configure {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %} across multiple repositories, you can write a bulk configuration script. To successfully execute the script, {% data variables.product.prodname_actions %} must be enabled for the {% ifversion fpt %}organization{% elsif ghec %}organization or enterprise{% elsif ghes %}site{% endif %}.
 
 {% ifversion code-scanning-without-workflow %}
 Alternatively, if you do not need granular control over the {% data variables.product.prodname_code_scanning %} configuration for many repositories in your organization, you can quickly and easily configure {% data variables.product.prodname_code_scanning %} at scale with default setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."

@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
@@ -63,6 +63,23 @@ jobs:
                 await closePullRequest(pull.number)
               }
               console.log('Closed existing pull requests')
+            }
+
+            try {
+              const { data } = await github.rest.repos.compareCommits({
+                owner,
+                repo,
+                head,
+                base,
+              })
+              const { files } = data
+              console.log(`File changes between ${head} and ${base}:`, files)
+              if (!files.length) {
+                console.log('No files changed, bailing')
+                return
+              }
+            } catch (err) {
+              console.error(`Unable to compute the files difference between ${head} and ${base}`, err.message)
             }
 
             console.log('Creating a new pull request')

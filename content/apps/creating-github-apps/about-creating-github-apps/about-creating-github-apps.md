@@ -5,7 +5,6 @@ intro: '{% data variables.product.prodname_github_apps %} let you build integrat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /apps/creating-github-apps/creating-github-apps/about-apps

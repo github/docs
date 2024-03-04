@@ -1,5 +1,5 @@
 ---
-title: Git blobs
+title: REST API endpoints for Git blobs
 shortTitle: Blobs
 allowTitleToDifferFromFilename: true
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   type used to store the contents of each file in a repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

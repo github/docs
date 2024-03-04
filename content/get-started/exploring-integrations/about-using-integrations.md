@@ -15,7 +15,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -23,7 +22,7 @@ Integrations are tools that extend {% data variables.product.company_short %}'s 
 
 You can discover many integrations in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% data variables.product.prodname_marketplace %} includes {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and custom actions that you can use in {% data variables.product.prodname_actions %} workflows. You can also get integrations directly from the integration creator.
 
-{% ifversion fpt or ghec or ghes > 3.7 %} For a list of featured {% data variables.product.company_short %} integrations, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations)."{% endif %}
+For a list of featured {% data variables.product.company_short %} integrations, see "[AUTOTITLE](/get-started/exploring-integrations/featured-github-integrations)."
 
 {% ifversion ghes %}
 

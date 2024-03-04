@@ -1,5 +1,6 @@
-import Ajv from 'ajv'
 import { jest } from '@jest/globals'
+
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import schema from '#src/tests/helpers/schemas/site-tree-schema.js'
 import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { loadSiteTree } from '#src/frame/lib/page-data.js'
@@ -8,8 +9,7 @@ import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 
 const latestEnterpriseRelease = EnterpriseServerReleases.latest
 
-const ajv = new Ajv({ allErrors: true })
-const siteTreeValidate = ajv.compile(schema.childPage)
+const siteTreeValidate = getJsonValidator(schema.childPage)
 
 describe('siteTree', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -26,7 +26,7 @@ describe('siteTree', () => {
   test('object order and structure', () => {
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].href).toBe('/en/get-started')
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].childPages[0].href).toBe(
-      '/en/get-started/quickstart',
+      '/en/get-started/start-your-journey',
     )
   })
 
@@ -58,16 +58,16 @@ describe('siteTree', () => {
 
 function validate(currentPage) {
   ;(currentPage.childPages || []).forEach((childPage) => {
-    const valid = siteTreeValidate(childPage)
+    const isValid = siteTreeValidate(childPage)
     let errors
 
-    if (!valid) {
+    if (!isValid) {
       errors = `file ${childPage.page.fullPath}: ${formatAjvErrors(siteTreeValidate.errors)}`
     }
 
-    expect(valid, errors).toBe(true)
+    expect(isValid, errors).toBe(true)
 
-    // Run recurisvely until we run out of child pages
+    // Run recursively until we run out of child pages
     validate(childPage)
   })
 }

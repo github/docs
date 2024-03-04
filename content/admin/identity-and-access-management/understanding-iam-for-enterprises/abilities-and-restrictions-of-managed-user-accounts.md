@@ -52,3 +52,5 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 - {% data variables.enterprise.prodname_managed_users_caps %} can create {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
   {% data reusables.emus.oauth-app-note %}
+- {% data reusables.secret-scanning.secret-scanning-user-owned-enablement %}
+- {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.

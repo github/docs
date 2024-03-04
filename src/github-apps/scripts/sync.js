@@ -10,12 +10,12 @@ import yaml from 'js-yaml'
 import { getContents } from '#src/workflows/git-utils.js'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
-import { validateData } from '../../rest/scripts/utils/validate-data.js'
+import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
-export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource = false) {
+export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
@@ -48,72 +48,78 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         const appDataOperationWithCategory = Object.assign({ category }, appDataOperation)
         // server-to-server
         if (isInstallationAccessToken) {
-          initAppData(githubAppsData['server-to-server-rest'], category, appDataOperation)
+          addAppData(githubAppsData['server-to-server-rest'], category, appDataOperation)
         }
 
         // user-to-server
         if (isUserAccessToken) {
-          initAppData(githubAppsData['user-to-server-rest'], category, appDataOperation)
+          addAppData(githubAppsData['user-to-server-rest'], category, appDataOperation)
         }
 
         // fine-grained pat
         if (isFineGrainedPat) {
-          initAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
+          addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
         }
 
         // permissions
-        for (const [permissionName, readOrWrite] of Object.entries(
-          progAccessData[operation.operationId].permissions,
-        )) {
-          const tempTitle = permissionName.replace(/_/g, ' ')
-          const permissionNameExists = progActorResources[permissionName]
-          if (!permissionNameExists) {
-            console.warn(
-              `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
-            )
-          }
-          const title = progActorResources[permissionName]?.title || tempTitle
-          const resourceGroup = progActorResources[permissionName]?.resource_group || ''
-          const displayTitle = getDisplayTitle(title, resourceGroup)
-          const relatedPermissionNames = Object.keys(
-            progAccessData[operation.operationId].permissions,
-          ).filter((permission) => permission !== permissionName)
-
-          // github app permissions
-          const serverToServerPermissions = githubAppsData['server-to-server-permissions']
-          if (!serverToServerPermissions[permissionName]) {
-            serverToServerPermissions[permissionName] = {
-              title,
-              displayTitle,
-              permissions: [],
+        for (const permissionSet of progAccessData[operation.operationId].permissions) {
+          for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
+            const tempTitle = permissionName.replace(/_/g, ' ')
+            const permissionNameExists = progActorResources[permissionName]
+            if (!permissionNameExists) {
+              console.warn(
+                `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
+              )
             }
-          }
-          const worksWithData = {
-            'user-to-server': Boolean(isUserAccessToken),
-            'server-to-server': Boolean(isInstallationAccessToken),
-            'additional-permissions': relatedPermissionNames,
-          }
-          serverToServerPermissions[permissionName].permissions.push(
-            Object.assign({}, appDataOperationWithCategory, { access: readOrWrite }, worksWithData),
-          )
-
-          // fine-grained pats
-          if (isFineGrainedPat) {
-            const findGrainedPatPermissions = githubAppsData['fine-grained-pat-permissions']
-            if (!findGrainedPatPermissions[permissionName]) {
-              findGrainedPatPermissions[permissionName] = {
+            const title = progActorResources[permissionName]?.title || tempTitle
+            const resourceGroup = progActorResources[permissionName]?.resource_group || ''
+            const displayTitle = getDisplayTitle(title, resourceGroup)
+            const additionalPermissions =
+              progAccessData[operation.operationId].permissions.length > 1 ||
+              progAccessData[operation.operationId].permissions.some(
+                (permissionSet) => Object.keys(permissionSet).length > 1,
+              )
+            // github app permissions
+            const serverToServerPermissions = githubAppsData['server-to-server-permissions']
+            if (!serverToServerPermissions[permissionName]) {
+              serverToServerPermissions[permissionName] = {
                 title,
                 displayTitle,
                 permissions: [],
               }
             }
-
-            findGrainedPatPermissions[permissionName].permissions.push(
-              Object.assign({}, appDataOperationWithCategory, {
-                'additional-permissions': relatedPermissionNames,
-                access: readOrWrite,
-              }),
+            const worksWithData = {
+              'user-to-server': Boolean(isUserAccessToken),
+              'server-to-server': Boolean(isInstallationAccessToken),
+              'additional-permissions': additionalPermissions,
+            }
+            serverToServerPermissions[permissionName].permissions.push(
+              Object.assign(
+                {},
+                appDataOperationWithCategory,
+                { access: readOrWrite },
+                worksWithData,
+              ),
             )
+
+            // fine-grained pats
+            if (isFineGrainedPat) {
+              const findGrainedPatPermissions = githubAppsData['fine-grained-pat-permissions']
+              if (!findGrainedPatPermissions[permissionName]) {
+                findGrainedPatPermissions[permissionName] = {
+                  title,
+                  displayTitle,
+                  permissions: [],
+                }
+              }
+
+              findGrainedPatPermissions[permissionName].permissions.push(
+                Object.assign({}, appDataOperationWithCategory, {
+                  'additional-permissions': additionalPermissions,
+                  access: readOrWrite,
+                }),
+              )
+            }
           }
         }
       }
@@ -147,24 +153,22 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
   }
 }
 
-// When progAccessSource is defined, it will contain the root directory
-// of the repo with the programmatic access file. If it is not defined,
-// the file will be retrieved from the remote repo via the REST API.
-async function getProgAccessData(progAccessSource) {
+export async function getProgAccessData(progAccessSource) {
+  const useRemoteGitHubFiles = progAccessSource === 'rest-api-description'
+  // check for required PAT
+  if (useRemoteGitHubFiles && !process.env.GITHUB_TOKEN) {
+    throw new Error(
+      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.',
+    )
+  }
+
   let progAccessDataRaw
   // config/locales/programmatic_actor_fine_grained_resources.en.yml
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
 
-  // check for required PAT
-  if (!process.env.GITHUB_TOKEN) {
-    throw new Error(
-      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.',
-    )
-  }
-
-  if (progAccessSource) {
+  if (!useRemoteGitHubFiles) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     )
@@ -182,24 +186,13 @@ async function getProgAccessData(progAccessSource) {
 
   const progAccessData = {}
   for (const operation of progAccessDataRaw) {
-    const permissions = {}
-    if (operation.permission_sets) {
-      operation.permission_sets.forEach((permissionSet) => {
-        Object.assign(permissions, permissionSet)
-      })
-    }
-
-    const userToServerRest = operation.user_to_server.enabled
-    const serverToServer = operation.server_to_server.enabled
-    const allowPermissionlessAccess = operation.allows_permissionless_access
-    const disabledForPatV2 = operation.disabled_for_patv2
-
     progAccessData[operation.operation_ids] = {
-      userToServerRest,
-      serverToServer,
-      permissions,
-      allowPermissionlessAccess,
-      disabledForPatV2,
+      userToServerRest: operation.user_to_server.enabled,
+      serverToServer: operation.server_to_server.enabled,
+      fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
+      permissions: operation.permission_sets || [],
+      allowPermissionlessAccess: operation.allows_permissionless_access,
+      allowsPublicRead: operation.allows_public_read,
     }
   }
   return { progAccessData, progActorResources }
@@ -246,7 +239,7 @@ function sentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-function initAppData(storage, category, data) {
+function addAppData(storage, category, data) {
   if (!storage[category]) {
     storage[category] = []
   }
@@ -256,12 +249,20 @@ function initAppData(storage, category, data) {
 async function validateAppData(data, pageType) {
   if (pageType.includes('permissions')) {
     for (const value of Object.values(data)) {
-      validateData(value, permissionSchema)
+      const { isValid, errors } = validateJson(permissionSchema, value)
+      if (!isValid) {
+        console.error(JSON.stringify(errors, null, 2))
+        throw new Error('GitHub Apps permission schema validation failed')
+      }
     }
   } else {
     for (const arrayItems of Object.values(data)) {
       for (const item of arrayItems) {
-        validateData(item, enabledSchema)
+        const { isValid, errors } = validateJson(enabledSchema, item)
+        if (!isValid) {
+          console.error(JSON.stringify(errors, null, 2))
+          throw new Error('GitHub Apps enabled apps schema validation failed')
+        }
       }
     }
   }

@@ -355,6 +355,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -849,6 +855,12 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
+      "slug": "list-notifications-for-the-authenticated-user",
+      "subcategory": "notifications",
+      "verb": "get",
+      "requestPath": "/notifications"
+    },
+    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -971,6 +983,18 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
+    },
+    {
+      "slug": "list-app-installations-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations"
+    },
+    {
+      "slug": "list-repositories-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations/{installation_id}/repositories"
     }
   ],
   "billing": [
@@ -1333,6 +1357,12 @@
       "subcategory": "code-scanning",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
+    },
+    {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
     },
     {
       "slug": "update-a-code-scanning-default-setup-configuration",
@@ -1791,6 +1821,12 @@
       "subcategory": "protection-rules",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "get-a-custom-deployment-protection-rule",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     },
     {
       "slug": "disable-a-custom-protection-rule-for-an-environment",
@@ -2673,6 +2709,54 @@
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
     },
     {
+      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
+    },
+    {
+      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories"
+    },
+    {
+      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}"
+    },
+    {
+      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -2695,6 +2779,12 @@
       "subcategory": "members",
       "verb": "delete",
       "requestPath": "/orgs/{org}/public_members/{username}"
+    },
+    {
+      "slug": "list-repository-fine-grained-permissions-for-an-organization",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/repository-fine-grained-permissions"
     },
     {
       "slug": "list-security-manager-teams",
@@ -2914,7 +3004,7 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
     }
   ],
   "projects": [
@@ -3221,6 +3311,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3431,7 +3529,7 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"

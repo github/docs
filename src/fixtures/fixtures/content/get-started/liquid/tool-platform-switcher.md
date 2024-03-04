@@ -6,7 +6,6 @@ defaultPlatform: mac
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---
@@ -78,3 +77,11 @@ Bla bla
 `linux` specific content.
 
 {% endlinux %}
+
+## Misc testing
+
+{% linux %}
+It's important to test that immediately after the end tag, the Markdown
+there renders to HTML.
+{% endlinux %}
+On *this* line is `Markdown` too.

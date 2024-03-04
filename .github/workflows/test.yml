@@ -71,7 +71,6 @@ jobs:
           - release-notes
           - rest
           - search
-          - secret-scanning
           - shielding
           # - tests
           # - tools
@@ -90,7 +89,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -104,7 +103,7 @@ jobs:
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
-        run: ./src/tests/scripts/copy-fixture-data.js --check
+        run: npm run copy-fixture-data -- --check
 
       # This keeps our fixture content/data in check
       - name: Check the test fixture content (if applicable)
@@ -114,11 +113,11 @@ jobs:
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
+          npm run update-internal-links -- --dry-run --check --strict \
             src/fixtures/fixtures/content \
             --exclude src/fixtures/fixtures/content/get-started/foo/typo-autotitling.md \
             --exclude src/fixtures/fixtures/content/get-started/foo/anchor-autotitling.md
-          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
+          npm run update-internal-links -- --dry-run --check --strict \
             src/fixtures/fixtures/data
 
       - name: Clone all translations
@@ -170,6 +169,12 @@ jobs:
         # Only the 'routing' tests include end-to-end tests about
         # archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
+
+      - uses: ./.github/actions/precompute-pageinfo
+        # Only the 'pageinfo' tests include end-to-end tests about this.
+        if: ${{ matrix.name == 'pageinfo' }}
+        env:
+          ROOT: src/fixtures/fixtures
 
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group

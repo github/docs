@@ -26,9 +26,27 @@ Sometimes you may not be able to access a codespace from your browser. If this h
 - If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created.
 - If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
 
-Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
+### Diagnose by error message
 
-If you still cannot connect, {% data reusables.codespaces.contact-support %}
+#### "Oh no, it looks like you are offline"
+
+Check that you have a stable internet connection and that your company network is not blocking the connection. If possible, check logging for rejected connections on your device.
+
+If you see rejected connections, make sure the domains documented by the `/meta` REST API endpoint are not blocked by your firewall. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
+
+To get the list of domains required by {% data variables.product.prodname_github_codespaces %}, execute the following command using {% data variables.product.prodname_cli %}:
+
+`gh api meta | jq .domains.codespaces`
+
+### "We are having trouble fetching your codespace information"
+
+This is a transitional error. Wait for a few minutes and try again.
+
+### "We were unable to authenticate your connection"
+
+This indicates that something went wrong with authentication. Try clearing up your local storage and cookies and try again.
+
+If you still can't connect and the message you're seeing isn't in this list, check the service availability of {% data variables.product.prodname_codespaces %} at [githubstatus.com](https://www.githubstatus.com/). If the {% data variables.product.prodname_codespaces %} service is available, {% data reusables.codespaces.contact-support %}
 
 ## Unable to connect to your codespace in JupyterLab
 

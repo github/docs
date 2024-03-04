@@ -48,7 +48,7 @@ You can also use organization discussions to facilitate conversations across you
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/quickstart/communicating-on-github)"
+- "[AUTOTITLE](/get-started/using-github/communicating-on-github)"
 - "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
 - "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
 - "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

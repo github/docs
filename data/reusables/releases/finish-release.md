@@ -10,6 +10,6 @@
 {%- endif %}
 1. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
 
-   {%- ifversion fpt or ghec or ghae > 3.3 %}
+   {%- ifversion fpt or ghec %}
    You can then view your published or draft releases in the releases feed for your repository. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
    {%- endif %}

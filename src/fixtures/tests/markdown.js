@@ -6,17 +6,33 @@ describe('markdown rendering', () => {
     const html = $('[data-testid="lead"]').html()
     expect(html).toMatch('<strong>Markdown</strong>')
     expect(html).toMatch('<code>syntax</code>')
-    expect(html).toMatch('<em>GitHub</em>')
+    expect(html).toMatch('<em>HubGit</em>')
   })
+})
 
-  test('page with permission frontmatter', async () => {
-    const $ = await getDOM('/get-started/markdown/permissions')
-    const html = $('[data-testid="permissions-statement"]').html()
-    // part of the UI
-    expect(html).toMatch('Who can use this feature')
-    // Markdown
-    expect(html).toMatch('<strong>admin</strong>')
-    // Liquid
-    expect(html).toMatch('GitHub Pages site')
+describe('alerts', () => {
+  test('basic rendering', async () => {
+    const $ = await getDOM('/get-started/markdown/alerts')
+    const alerts = $('#article-contents .ghd-alert')
+    // See src/fixtures/fixtures/content/get-started/markdown/alerts.md
+    // to be this confident in the assertions.
+    expect(alerts.length).toBe(5)
+    const svgs = $('svg', alerts)
+    expect(svgs.length).toBe(5)
+    const titles = $('.ghd-alert-title', alerts)
+      .map((_, el) => $(el).text())
+      .get()
+    expect(titles).toEqual(['Tip', 'Note', 'Important', 'Warning', 'Caution'])
+    const bodies = $('p:nth-child(2)', alerts)
+      .map((_, el) => $(el).text())
+      .get()
+      .map((s) => s.trim())
+    expect(bodies).toEqual([
+      "Here's a free tip",
+      'A note.',
+      'This is important',
+      'Just a warning',
+      'Be careful!',
+    ])
   })
 })

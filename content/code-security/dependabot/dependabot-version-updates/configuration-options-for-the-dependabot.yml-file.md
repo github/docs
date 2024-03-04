@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file
@@ -70,7 +69,11 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes %}
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers.
+
+If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+
+If you want to allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you can include a `registries` setting in the configuration file. For more information, see [`registries`](#registries) below.{% ifversion ghes %}
 
 {% note %}
 
@@ -269,7 +272,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
+**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
 
 {% endnote %}
 
@@ -333,7 +336,7 @@ If you use the same configuration as in the example above, bumping the `requests
 
 ### `groups`
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% ifversion dependabot-grouped-security-updates %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
@@ -361,6 +364,15 @@ You can also manage pull requests for grouped version updates using comment comm
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
+
+{% warning %}
+
+**Warning**:
+- We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+
+- For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
+
+{% endwarning %}
 
 #### Creating `ignore` conditions from `@dependabot ignore`
 
@@ -410,14 +422,11 @@ updates:
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% note %}
 
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 {% endnote %}
-
-{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -871,7 +880,9 @@ updates:
 ## Configuration options for private registries
 
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
-{% ifversion ghes > 3.7 %}
+
+You can give {% data variables.product.prodname_dependabot %} access to private package registries hosted by GitLab or Bitbucket by specifying a `type` of `git`. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
+{% ifversion ghes %}
 {% note %}
 
 **Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
@@ -880,8 +891,9 @@ The top-level `registries` key is optional. It allows you to specify authenticat
 - Docker
 - Gradle
 - Maven
-- Npm
-- Nuget
+- npm
+- Nuget{% ifversion dependabot-updates-pub-private-registry %}
+- pub{% endif %}
 - Python
 - Yarn
 
@@ -1203,6 +1215,33 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### `pub-repository`
+
+The `pub-repository` type supports a URL and a token.
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+{% endif %}
+
 ### `python-index`
 
 The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
@@ -1312,8 +1351,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -1328,12 +1365,9 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes %}
-  - package-ecosystem: "beta-ecosystem"{% else %}
-  - package-ecosystem: "pub"{% endif %}
+updates:
+  - package-ecosystem: "beta-ecosystem"
     directory: "/"
     schedule:
       interval: "weekly"
 ```
-
-{% endif %}

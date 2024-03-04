@@ -1,13 +1,12 @@
 ---
 title: Enabling automatic access to GitHub.com actions using GitHub Connect
 intro: 'To allow {% data variables.product.prodname_actions %} in your enterprise to use actions from {% data variables.product.prodname_dotcom_the_website %}, you can connect your enterprise instance to {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
+permissions: 'Enterprise owners can enable access to public {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -15,7 +14,7 @@ topics:
   - GitHub Connect
 shortTitle: Use GitHub Connect for actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
@@ -30,12 +29,11 @@ Alternatively, if you want stricter control over which actions are allowed in yo
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. {% ifversion ghae %}A malicious user could take advantage of this behavior to run code as part of a workflow.{% else %}For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
-{% endif %}
+If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
 
-## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
+## Enabling automatic access to public {% data variables.product.prodname_dotcom_the_website %} actions
 
-Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
+Before enabling access to public actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
 - Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 - Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 

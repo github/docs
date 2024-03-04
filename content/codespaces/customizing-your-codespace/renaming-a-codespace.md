@@ -31,16 +31,9 @@ To find the display name of a codespace:
 
 ### Permanent codespace names
 
-In addition to the display name, when you create a codespace, a permanent name is also assigned to the codespace. The name is a combination of your {% data variables.product.company_short %} handle, and the auto-generated display name. For example: `octocat-literate-space-parakeet-mld5`. You can't change the permanent name.
+In addition to a display name, every codespace also has a unique, permanent name. The permanent name is a combination of the initial display name, followed by some random characters - for example, `literate-space-parakeet-w5vg5ww5p793g7g9`. You can't change the permanent name.
 
-To find the permanent name of a codespace:
-
-- On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces.
-
-   ![Screenshot of the mouse pointer positioned over a display name, with the corresponding codespace name shown at the bottom of the browser page.](/assets/images/help/codespaces/find-codespace-name-github.png)
-
-- In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
-- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+{% data reusables.codespaces.permanent-codespace-names %}
 
 ## Renaming a codespace
 
@@ -53,10 +46,12 @@ Changing the display name of a codespace can be useful if you have multiple code
 To change the display name of a codespace, use the `gh codespace edit` subcommand:
 
 ```shell
-gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
+gh codespace edit -c PERMANENT-CODESPACE-NAME -d 'NEW-DISPLAY-NAME'
 ```
 
 In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
+
+Display names can be up to 48 characters in length. The display name can contain any combination of characters, including spaces, provided you enclose it in single quotes.
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace)."
 

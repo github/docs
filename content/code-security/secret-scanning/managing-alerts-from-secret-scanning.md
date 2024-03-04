@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -19,8 +18,6 @@ topics:
   - Repositories
 shortTitle: Manage secret alerts
 ---
-
-{% data reusables.secret-scanning.beta %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
@@ -47,8 +44,12 @@ shortTitle: Manage secret alerts
    {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 
    {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
-{% endif %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.{% ifversion secret-scanning-non-provider-patterns %}
+{% endif %}{% ifversion secret-scanning-bypass-filter %}
+1. Optionally, to see which alerts are the result of a user bypassing push protection, select the "Bypassed" dropdown menu, then click **True**.{% endif %}
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view. {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}{% endif %}
+
+   {% ifversion secret-scanning-non-provider-patterns %}
+
    {% note %}
 
    **Note:** The **High confidence** view is the default view for the list of {% data variables.product.prodname_secret_scanning %} alerts. If the detection of non-provider patterns is enabled for your repository or organization, you'll need to use a different view to be able to see non-provider alerts. For more information, see "[Managing alerts from non-provider patterns](#managing-alerts-from-non-provider-patterns)" below.
@@ -133,7 +134,7 @@ If your repository has validity checks enabled, you can also perform an on-deman
 
 You can filter alerts for supported partner patterns by their validation status, and use the status of a leaked secret to help prioritize the secrets needing remediation steps.
 
-You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation.
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in "[AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert)."
 
 {% data reusables.secret-scanning.validity-check-table %}
 
@@ -167,6 +168,8 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 |Expired on| Date the token expired|
 |Last used on| Date the token was last used|
 |Access| Whether the token has organization access|
+
+{% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
 
 {% endif %}
 

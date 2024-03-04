@@ -32,6 +32,6 @@ See these pages for details on how to authenticate when using the {% data variab
 
 {% note %}
 
-**Note:** [Rate limits for the REST API](/rest/overview/rate-limits-for-the-rest-api) apply to all {% data variables.product.prodname_marketplace %} API endpoints.
+**Note:** [Rate limits for the REST API](/rest/using-the-rest-api/rate-limits-for-the-rest-api) apply to all {% data variables.product.prodname_marketplace %} API endpoints.
 
 {% endnote %}

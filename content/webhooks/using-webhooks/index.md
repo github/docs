@@ -4,7 +4,6 @@ intro: 'Learn how to use webhooks to react to events on {% data variables.produc
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

@@ -29,7 +29,7 @@ The same filters are available for charts you create using insights for {% data 
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
-You can use filters to produce views for very specific purposes. For example, you could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
+You can use filters to produce views for very specific purposes. For example, you{% ifversion fpt or ghec or ghes > 3.8 %} could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You{% endif %} could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
 
 ## Filtering for fields
 
@@ -138,6 +138,8 @@ You can filter for issues that are tracked by another issue in a tasklist. For m
 
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.8 %}
+
 ## Filtering for when an item was last updated
 
 You can use the `{number}days` syntax to filter for when items were last updated.
@@ -150,6 +152,8 @@ You can use the `{number}days` syntax to filter for when items were last updated
 
 {% data reusables.projects.last-updated-explanation %}
 
+{% endif %}
+
 ## Filtering number, date, and iteration fields
 
 You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fields. Dates should be provided in the `YYYY-MM-DD` format.
@@ -159,7 +163,7 @@ You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fiel
 | <code>field:&gt;<em>VALUE</em></code>  | **priority:&gt;1** will show items with a priority greater than 1.
 | <code>field:&gt;=<em>VALUE</em></code> | **date:&gt;=2022-06-01** will show items with a date of "2022-06-01" or later.
 | <code>field:&lt;<em>VALUE</em></code>  | **iteration:<"Iteration 5"** will show items with an iteration before "Iteration 5."
-| <code>field:&gt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
+| <code>field:&lt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
 
 You can also use `..` to filter for an inclusive range. When working with a range, `*` can be supplied as a wildcard operator.
 

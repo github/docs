@@ -6,19 +6,18 @@ redirect_from:
   - /admin/github-actions/manually-syncing-actions-from-githubcom
 versions:
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Actions
   - Enterprise
 shortTitle: Manually sync actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
@@ -45,9 +44,9 @@ The `actions-sync` tool can only download actions from {% data variables.product
 - If you want to sync the bundled actions in the `actions` organization on {% data variables.location.product_location %}, you must be an owner of the `actions` organization.
 
   {% note %}
-  
+
   **Note:** By default, even site administrators are not owners of the bundled `actions` organization.
-  
+
   {% endnote %}
 
   Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote)."
