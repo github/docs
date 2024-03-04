@@ -53,13 +53,13 @@ You can restore your backup by decompressing the archive and then pushing the wi
 
 You can use the REST API to generate a migration archive for a repository. For more information, see "[AUTOTITLE](/rest/migrations/orgs)."
 
-These archives are designed for moving data between {% data variables.product.prodname_dotcom %} products, but they can also be used {% ifversion fpt or ghec %}to back up a repository for archiving purposes{% else %} as backups.{% endif %}{% ifversion fpt or ghec or ghes %}
+These archives are designed for moving data between {% data variables.product.prodname_dotcom %} products, but they can also be used {% ifversion fpt or ghec %}to back up a repository for archiving purposes{% else %} as backups.{% endif %}
 
 {% warning %}
 
 **Warning:** Migration archives do not include all data related to a repository. For example, {% data variables.large_files.product_name_long %} objects, discussions, or packages are not included. For more information on what is included in migration archives, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
 
-{% endwarning %}{% endif %}
+{% endwarning %}
 
 Once you have generated an archive, you can move it to a location of your choice for safe-keeping.
 
