@@ -108,8 +108,6 @@ You can use security overview to find a set of repositories and enable or disabl
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
@@ -136,8 +134,6 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 1. Start typing the name of the repository you want to grant {% data variables.product.prodname_dependabot %} access to.
 1. A list of matching repositories in the organization is displayed, click the repository you want to to allow access to and this adds the repository to the allowed list.
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
-
-{% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
