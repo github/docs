@@ -102,5 +102,5 @@ No. We follow responsible practices in accordance with our [Privacy Statement](/
 ## Further reading
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"{% endif %}
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/){% endif %}
 - "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
