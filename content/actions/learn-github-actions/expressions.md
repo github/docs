@@ -128,7 +128,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first conditional after the `&&` must be `true`. Otherwise, the value after the `||` will always be returned.
+It is important to note that the first value after the `&&` must be truthy. Otherwise, the value after the `||` will always be returned.
 
 ## Functions
 
