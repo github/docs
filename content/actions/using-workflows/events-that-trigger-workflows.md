@@ -175,7 +175,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[AUTOTITLE](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[AUTOTITLE](/rest/deployments#create-a-deployment-status)" in the REST API documentation.
+Runs your workflow when a third party provides a deployment status. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment status, see "[AUTOTITLE](/graphql/reference/mutations#createdeploymentstatus)" in the GraphQL API documentation or "[AUTOTITLE](/rest/deployments#create-a-deployment-status)."
 
 For example, you can run a workflow when the `deployment_status` event occurs.
 
@@ -931,7 +931,7 @@ jobs:
 
 {% note %}
 
-**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[AUTOTITLE](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#get-a-commit)" in the REST API documentation.
+**Note:** The webhook payload available to GitHub Actions does not include the `added`, `removed`, and `modified` attributes in the `commit` object. You can retrieve the full commit object using the API. For information, see "[AUTOTITLE](/graphql/reference/objects#commit)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#get-a-commit)."
 
 {% endnote %}
 
@@ -1215,7 +1215,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[AUTOTITLE](/graphql/reference/objects#status)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#commit-statuses)" in the REST API documentation.
+Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[AUTOTITLE](/graphql/reference/objects#status)" in the GraphQL API documentation or "[AUTOTITLE](/rest/commits#commit-statuses)."
 
 For example, you can run a workflow when the `status` event occurs.
 
