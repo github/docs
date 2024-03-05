@@ -67,3 +67,4 @@ All requests for {% data variables.product.prodname_copilot_for_business %} are 
 ## Further reading
 
 - "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"
