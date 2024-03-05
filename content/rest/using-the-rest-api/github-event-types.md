@@ -175,8 +175,6 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -184,7 +182,6 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ### Event `payload` object for PublicEvent
 
 This event returns an empty `payload` object.
-{% endif %}
 
 ## PullRequestEvent
 
