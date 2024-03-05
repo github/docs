@@ -43,11 +43,7 @@ Some features are {% ifversion fpt or ghec %}enabled by default in public reposi
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 There are some features you must configure for each repository individually. For example, to enable {% data variables.product.prodname_dependabot_version_updates %} in a repository, you must add a `dependabot.yml` file specifying where to find information about the project's dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
-
-{% endif %}
 
 ## Enabling security features in your organization
 
@@ -136,9 +132,7 @@ You can use various tools to monitor the actions that your organization's member
 
 ## Next steps
 
-{% ifversion fpt or ghes or ghec %}
 To help users report security vulnerabilities, you can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-{% endif %}
 
 {% ifversion ghec or ghes %}
 Once your organization's security setup is in place, you may want to prevent users from changing the security settings in a repository. An enterprise owner can prevent repository administrators from enabling or disabling features in a repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
