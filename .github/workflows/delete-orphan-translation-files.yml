@@ -99,6 +99,22 @@ jobs:
             exit 0
           fi
 
+          # Create a general retry function that retries and sleeps
+          retry_command() {
+            local max_attempts=3
+            local attempt=1
+
+            while [ $attempt -le $max_attempts ]; do
+              echo "Attempt $attempt: $@"
+              "$@" && return 0
+              ((attempt++))
+              sleep 3 # You can adjust the sleep duration as needed
+            done
+
+            echo "Max attempts reached. Command failed after $max_attempts attempts."
+            return 1
+          }
+
           git status
           current_timestamp=$(date '+%Y-%m-%d-%H%M%S')
           branch_name="delete-orphan-files-$current_timestamp"
@@ -115,7 +131,7 @@ jobs:
             ' \
             --repo "${{ matrix.language_repo }}"
           echo "Merge created PR..."
-          gh pr merge --merge --auto --delete-branch "$branch_name"
+          retry_command gh pr merge --merge --auto --delete-branch "$branch_name"
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
