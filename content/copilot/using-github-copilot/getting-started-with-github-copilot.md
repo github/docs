@@ -139,7 +139,7 @@ You may not want to accept an entire suggestion from {% data variables.product.p
    {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 1. Open a new tab with multiple additional suggestions.
 
-   - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
+   - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\\</kbd> to open the new tab immediately.
    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
 
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.

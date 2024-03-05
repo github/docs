@@ -49,7 +49,7 @@ shortTitle: Managing policies
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 - "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"
 {% ifversion ghec %}- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)"{% endif %}
 - "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
