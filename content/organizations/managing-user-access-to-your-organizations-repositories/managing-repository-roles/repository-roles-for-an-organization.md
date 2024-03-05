@@ -53,13 +53,11 @@ In addition to managing organization-level settings, organization owners have ad
 Some of the features listed below are limited to organizations using {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
 {% note %}
 
 **Note:** The roles required to use security features are listed in "[Access requirements for security features](#access-requirements-for-security-features)" below.
 
 {% endnote %}
-{% endif %}
 
 {% rowheaders %}
 

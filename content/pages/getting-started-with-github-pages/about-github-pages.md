@@ -33,9 +33,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 
 To get started, see "[AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site)."
 
-{% ifversion fpt or ghes or ghec %}
 Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-{% endif %}
 
 ## Types of {% data variables.product.prodname_pages %} sites
 
