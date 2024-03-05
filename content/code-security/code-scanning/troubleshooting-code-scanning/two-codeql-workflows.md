@@ -6,7 +6,6 @@ versions:
   feature: code-scanning-without-workflow
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
 Default setup overrides existing {% data variables.product.prodname_codeql %} setups by disabling any existing {% data variables.product.prodname_codeql %} workflows, and blocking any {% data variables.product.prodname_codeql %} analysis API uploads. This behavior stops you using {% data variables.product.prodname_actions %} minutes to run workflows for {% data variables.product.prodname_codeql %} advanced setup when only the results from default setup will be used. For more information about switching between advanced and default setups, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/results-are-different-than-expected)."

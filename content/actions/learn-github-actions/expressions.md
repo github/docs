@@ -5,7 +5,6 @@ intro: You can evaluate expressions in workflows and actions.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

@@ -11,7 +11,6 @@ intro: 'If you need to manage multiple projects within a single repository, you 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## About subtree merges

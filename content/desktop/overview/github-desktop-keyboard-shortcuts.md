@@ -15,7 +15,7 @@ versions:
 
 GitHub Desktop keyboard shortcuts on macOS
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -64,6 +64,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>U</kbd> | Update from default branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>B</kbd> | Compare to an existing branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>M</kbd> | Merge into current branch
+|<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>S</kbd> | Stash current changes
 |<kbd>Control</kbd>+<kbd>H</kbd> | Show or hide stashed changes
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
 |<kbd>Command</kbd>+<kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}
@@ -74,7 +75,7 @@ GitHub Desktop keyboard shortcuts on macOS
 
 GitHub Desktop keyboard shortcuts on Windows
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -120,6 +121,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> | Update from default branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Compare to an existing branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Merge into current branch
+|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | Stash current changes
 |<kbd>Ctrl</kbd>+<kbd>H</kbd> | Show or hide stashed changes
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
 |<kbd>Ctrl</kbd>+<kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}

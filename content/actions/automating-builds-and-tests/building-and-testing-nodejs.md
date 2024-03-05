@@ -136,7 +136,7 @@ jobs:
       - name: Use Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '20.x'
+          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -161,7 +161,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
 - name: Install dependencies
   run: npm ci
 ```
@@ -174,7 +174,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
 - name: Install dependencies
   run: npm install
 ```
@@ -189,7 +189,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
 - name: Install dependencies
   run: yarn --frozen-lockfile
 ```
@@ -202,7 +202,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
 - name: Install dependencies
   run: yarn
 ```
@@ -224,7 +224,7 @@ steps:
   uses: {% data reusables.actions.action-setup-node %}
   with:
     always-auth: true
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
     registry-url: https://registry.npmjs.org
     scope: '@octocat'
 - name: Install dependencies
@@ -254,7 +254,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20'
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
     cache: 'npm'
 - run: npm install
 - run: npm test
@@ -267,7 +267,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20'
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
     cache: 'yarn'
 - run: yarn
 - run: yarn test
@@ -287,7 +287,7 @@ steps:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20'
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
     cache: 'pnpm'
 - run: pnpm install
 - run: pnpm test
@@ -307,7 +307,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '20.x'
+    node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'18.x'{% endif %}
 - run: npm install
 - run: npm run build --if-present
 - run: npm test

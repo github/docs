@@ -29,7 +29,7 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 | Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | YAML workflow label |
 | --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
-| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large [latest] </code>, <code>macos-13-large</code>, <code>macos-14-large</code>[Beta] |
+| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large</code>, <code>macos-13-large</code> [latest], <code>macos-14-large</code>[Beta] |
 | XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>, <code>macos-13-xlarge</code>[latest], <code>macos-14-xlarge</code>[Beta] |
 
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
@@ -135,7 +135,7 @@ You can configure the maximum job concurrency, which allows you to control your 
 
 {% endnote %}
 
-By default, {% data variables.actions.hosted_runners %} receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runners %} to receive a static IP address from {% data variables.product.prodname_dotcom %}'s IP address pool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
+By default, {% data variables.actions.hosted_runners %} receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runners %} to receive static IP addresses from {% data variables.product.prodname_dotcom %}'s IP address pool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
 
 When enabled, instances of the {% data variables.actions.hosted_runner %} will receive IP addresses from specific ranges that are unique to the runner, allowing you to use the ranges to configure a firewall allowlist. {% ifversion fpt %}You can use up to 10 {% data variables.actions.hosted_runners %} with static IP address ranges in total across all your {% data variables.actions.hosted_runners %}{% endif %}{% ifversion ghec %}You can use up to 10 {% data variables.actions.hosted_runners %} with static IP address ranges for the {% data variables.actions.hosted_runners %} created at the enterprise level. In addition, you can use up to 10 {% data variables.actions.hosted_runners %} with static IP address ranges for the {% data variables.actions.hosted_runners %} created at the organization level, for each organization in your enterprise{% endif %}. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#networking-for-larger-runners)."
 

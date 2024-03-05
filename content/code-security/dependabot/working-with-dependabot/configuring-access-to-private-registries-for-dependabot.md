@@ -20,8 +20,6 @@ topics:
 shortTitle: Configure access to private registries
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 ## About private registries
 
 {% data variables.product.prodname_dependabot_version_updates %} keeps your dependencies up-to-date. {% data variables.product.prodname_dependabot %} can access public registries. In addition, you can give {% data variables.product.prodname_dependabot_version_updates %} access to private package registries and private {% data variables.product.prodname_dotcom %} repositories so that you can keep your private and innersource dependencies as up-to-date as your public dependencies.

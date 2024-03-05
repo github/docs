@@ -4,8 +4,8 @@
    {% mac %}
 
    ```shell
-   $ pbcopy < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-   # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+   $ pbcopy < ~/.ssh/id_ed25519.pub
+   # Copies the contents of the id_ed25519.pub file to your clipboard
    ```
 
    {% tip %}
@@ -17,8 +17,8 @@
    {% windows %}
 
    ```shell
-   $ clip < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-   # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+   $ clip < ~/.ssh/id_ed25519.pub
+   # Copies the contents of the id_ed25519.pub file to your clipboard
    ```
 
    {% note %}
@@ -29,8 +29,8 @@
    - On newer versions of Windows that use the Windows Terminal, or anywhere else that uses the PowerShell command line, you may receive a `ParseError` stating that `The '&lt;' operator is reserved for future use.` In this case, the following alternative `clip` command should be used:
 
    ```shell
-   $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub | clip
-   # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+   $ cat ~/.ssh/id_ed25519.pub | clip
+   # Copies the contents of the id_ed25519.pub file to your clipboard
    ```
 
    {% endnote %}
@@ -38,8 +38,8 @@
    {% linux %}
 
    ```shell
-   $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
-   # Then select and copy the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file
+   $ cat ~/.ssh/id_ed25519.pub
+   # Then select and copy the contents of the id_ed25519.pub file
    # displayed in the terminal to your clipboard
    ```
 

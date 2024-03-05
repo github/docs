@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 shortTitle: Migrate from REST to GraphQL
@@ -22,7 +21,7 @@ Migrating from REST to GraphQL represents a significant shift in API logic. The 
 
 To migrate your code from the [REST API](/rest) to the GraphQL API:
 
-- Review the [GraphQL spec](https://graphql.github.io/graphql-spec/June2018/)
+- Review the [GraphQL spec](https://spec.graphql.org/June2018/)
 - Review GitHub's [GraphQL schema](/graphql/reference)
 - Consider how any existing code you have currently interacts with the GitHub REST API
 - Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions

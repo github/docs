@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: RubyGems registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -70,8 +68,6 @@ To install gems, you need to authenticate to {% data variables.product.prodname_
 - `TOKEN` with your {% data variables.product.pat_v1 %}.
 - `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %}
 - `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.
-{% elsif ghae %}
-- `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.
 {% endif %}
 
 If you would like your package to be available globally, you can run the following command to add your registry as a source.
@@ -80,7 +76,7 @@ If you would like your package to be available globally, you can run the followi
 gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE/
 ```
 
-To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_generic %}, and NAMESPACE with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.{% endif %}
+To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_generic %}, and NAMESPACE with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
 
 ```shell
 bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
@@ -100,7 +96,7 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
    gem build GEM_NAME.gemspec
    ```
 
-1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
+1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
 
    {% note %}
 
@@ -145,7 +141,7 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{%
 You can use gems from {% data variables.product.prodname_registry %} much like you use gems from _rubygems.org_. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the _~/.gemrc_ file or by using Bundler and editing your _Gemfile_.
 
 {% data reusables.package_registry.authenticate-step %}
-1. For Bundler, add your {% data variables.product.prodname_dotcom %} user or organization as a source in your _Gemfile_ to fetch gems from this new source. For example, you can add a new `source` block to your _Gemfile_ that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing `GEM_NAME` with the package you want to install from {% data variables.product.prodname_registry %} and `NAMESPACE` with the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem you want to install is scoped{% else %}that owns the repository containing the gem you want to install{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
+1. For Bundler, add your {% data variables.product.prodname_dotcom %} user or organization as a source in your _Gemfile_ to fetch gems from this new source. For example, you can add a new `source` block to your _Gemfile_ that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing `GEM_NAME` with the package you want to install from {% data variables.product.prodname_registry %} and `NAMESPACE` with the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem you want to install is scoped{% else %}that owns the repository containing the gem you want to install{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
 
    ```ruby
    source "https://rubygems.org"

@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file
@@ -273,7 +272,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes or ghae > 3.7 %}50{% elsif ghae < 3.8 %}15{% endif %} character limit.
+**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
 
 {% endnote %}
 
@@ -423,14 +422,11 @@ updates:
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% note %}
 
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 {% endnote %}
-
-{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -895,8 +891,9 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Docker
 - Gradle
 - Maven
-- Npm
-- Nuget
+- npm
+- Nuget{% ifversion dependabot-updates-pub-private-registry %}
+- pub{% endif %}
 - Python
 - Yarn
 
@@ -1192,15 +1189,13 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
-{% data reusables.dependabot.dependabot-updates-path-match %}
-
 {% raw %}
 
 ```yaml
 registries:
   nuget-example:
     type: nuget-feed
-    url: https://nuget.pkg.github.com/my-org
+    url: https://nuget.example.com/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_NUGET_PASSWORD}}
 ```
@@ -1213,12 +1208,39 @@ registries:
 registries:
   nuget-azure-devops:
     type: nuget-feed
-    url: https://pkgs.dev.azure.com
+    url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 
 {% endraw %}
+
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### `pub-repository`
+
+The `pub-repository` type supports a URL and a token.
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `python-index`
 
@@ -1329,8 +1351,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -1345,12 +1365,9 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes %}
-  - package-ecosystem: "beta-ecosystem"{% else %}
-  - package-ecosystem: "pub"{% endif %}
+updates:
+  - package-ecosystem: "beta-ecosystem"
     directory: "/"
     schedule:
       interval: "weekly"
 ```
-
-{% endif %}

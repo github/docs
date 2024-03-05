@@ -8,7 +8,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
   - a single string
   - a single variable containing a string
   - an array of strings, variables containing strings, or a combination of both
-  - a `key: value` pair using the `group` or `label` keys
+  - a `key: value` pair using the `group` or `labels` keys
 - If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
 
   ```yaml
@@ -48,7 +48,6 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
@@ -83,18 +82,10 @@ The <code>windows-latest</code> label currently uses the Windows 2022 runner ima
 </tr>
 <tr>
 <td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
+<code>macos-latest</code>, <code>macos-14</code> [Beta], <code>macos-13</code>, <code>macos-12</code>, <code>macos-11</code>
 </td>
 <td>
 The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
-</td>
-</tr>
-<tr>
-<td>
-<code>macos-13</code> [Beta]
-</td>
-<td>
-N/A
 </td>
 </tr>
 </tbody>
@@ -121,13 +112,8 @@ runs-on: ubuntu-latest
 ```
 
 For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
 
 ### Choosing self-hosted runners
-
-{% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 

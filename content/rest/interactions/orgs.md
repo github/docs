@@ -1,5 +1,5 @@
 ---
-title: Organization interactions
+title: REST API endpoints for organization interactions
 shortTitle: Organization
 intro: >-
   Use the REST API to temporarily restrict which type of user can comment, open

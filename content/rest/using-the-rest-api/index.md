@@ -4,7 +4,6 @@ intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST A
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -13,7 +12,6 @@ children:
   - /rate-limits-for-the-rest-api
   - /using-pagination-in-the-rest-api
   - /libraries-for-the-rest-api
-  - /media-types
   - /best-practices-for-using-the-rest-api
   - /troubleshooting-the-rest-api
   - /timezones-and-the-rest-api
@@ -21,4 +19,3 @@ children:
   - /issue-event-types
   - /github-event-types
 ---
-

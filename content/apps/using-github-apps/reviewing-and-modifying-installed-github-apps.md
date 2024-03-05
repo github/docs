@@ -5,7 +5,6 @@ intro: "You can review the permissions and change the repository access for {% d
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

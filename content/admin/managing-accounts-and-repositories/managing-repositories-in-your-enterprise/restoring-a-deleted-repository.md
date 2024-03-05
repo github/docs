@@ -4,7 +4,6 @@ intro: You can restore deleted repositories to recover their contents.
 permissions: Enterprise owners can restore a deleted repository.
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
   - Privacy

@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Fundamentals
@@ -52,7 +51,7 @@ For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secret
 
 There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions);" particularly "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-codeowners-to-monitor-changes)."
+For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions)" and "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions)."
 
 ## Next steps
 

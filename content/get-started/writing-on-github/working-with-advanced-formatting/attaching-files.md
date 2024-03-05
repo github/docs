@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -81,11 +80,11 @@ We support these files:
 - Microsoft Word (_.docx_), PowerPoint (_.pptx_), and Excel (_.xlsx_) documents
 - Text files (_.txt_)
 - PDFs (_.pdf_)
-- ZIP (_.zip_, _.gz_, _.tgz_){% ifversion fpt or ghec or ghes %}
-- Video (_.mp4_, _.mov_, _.webm_){% endif %}
+- ZIP (_.zip_, _.gz_, _.tgz_)
+- Video (_.mp4_, _.mov_, _.webm_)
 
-{% ifversion fpt or ghec or ghes %}{% note %}
+{% note %}
 
 **Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
 
-{% endnote %}{% endif %}
+{% endnote %}

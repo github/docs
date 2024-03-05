@@ -4,7 +4,6 @@ intro: 'You can import a repository from Team Foundation Version Control (TFVC) 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Team Foundation Version Control
 ---

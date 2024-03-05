@@ -6,12 +6,11 @@ layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 learningTracks:
   - getting_started
   - adopting_github_actions_for_your_enterprise_ghec
-  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
+  - adopting_github_actions_for_your_enterprise_ghes
   - hosting_your_own_runners
   - create_actions
 includeGuides:

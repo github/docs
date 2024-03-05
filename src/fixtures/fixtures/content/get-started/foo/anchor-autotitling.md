@@ -4,7 +4,6 @@ intro: If the author use an anchor link for AUTOTITLE it should fail
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 ---
 

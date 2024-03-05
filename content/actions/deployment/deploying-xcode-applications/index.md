@@ -5,7 +5,6 @@ intro: 'You can sign Xcode apps within your continuous integration (CI) workflow
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /installing-an-apple-certificate-on-macos-runners-for-xcode-development

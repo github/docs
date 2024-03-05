@@ -4,7 +4,6 @@ intro: '{% data reusables.shortdesc.rate_limits_apps %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - OAuth apps

@@ -51,7 +51,10 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
       '- {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan',
       '-  {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan',
       '- x64',
+      '- @mention your friends',
+      '- @hash tags',
       '- 05:00',
+      '- "keyword" starts with a quotation sign',
     ].join('\n')
     const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown

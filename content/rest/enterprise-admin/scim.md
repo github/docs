@@ -1,5 +1,7 @@
 ---
-title: SCIM
+title: REST API endpoints for SCIM
+shortTitle: SCIM
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to automate user creation and team memberships with SCIM.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
@@ -37,15 +39,19 @@ After a {% data variables.enterprise.prodname_managed_user %} successfully authe
 
 {% data variables.product.company_short %} requires the following SAML claim and SCIM attribute to successfully match the user with the identity provisioned by SCIM. Identity providers may differ in the field used to uniquely identify a user.
 
-#### Azure AD for SAML
+#### Microsoft Entra ID for SAML
 
-| SAML claims | Matching SCIM attribute |
+To use Entra ID (previously known as Azure AD) for SAML, the following SAML claims and SCIM attribute must match.
+
+| SAML claim | Matching SCIM attribute |
 | :- | :- |
 | `http://schemas.microsoft.com/identity/claims/objectidentifier` | `externalId` |
 
-#### Other identity provider for SAML
+#### Other IdPs for SAML
 
-| SAML claims | Matching SCIM attribute |
+To use other IdPs for SAML, the following SAML claims and SCIM attribute must match.
+
+| SAML claim | Matching SCIM attribute |
 | :- | :- |
 | `NameID` | `userName` |
 
@@ -121,7 +127,7 @@ The {% data variables.product.product_name %} instance links each user who authe
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If the {% data variables.product.product_name %} uses Azure AD as a SAML IdP, {% data variables.product.product_name %} will also check the SCIM `externalId` claim and SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` claim to match users first, instead of using `NameID` and `userName`.
+**Note:** If the {% data variables.product.product_name %} uses Entra ID as a SAML IdP, {% data variables.product.product_name %} will also check the SCIM `externalId` claim and SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` claim to match users first, instead of using `NameID` and `userName`.
 
 {% endnote %}
 {% endif %}

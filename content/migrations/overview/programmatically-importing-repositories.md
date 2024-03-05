@@ -17,15 +17,15 @@ The term "source repository" refers to the repository you're importing, and "imp
 
 ### About the deprecation of the Source imports REST API
 
-The REST API endpoints to manage source imports allowed the programmatic import of a repositories that are accessible over the internet to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/rest/migrations/source-imports)" in the REST API documentation.
+The REST API endpoints to manage source imports allowed the programmatic import of a repositories that are accessible over the internet to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/rest/migrations/source-imports)."
 
-On April 12, 2024, {% data variables.product.company_short %} will deprecate all of the endpoints listed within "[AUTOTITLE](/rest/migrations/source-imports)" in the REST API documentation. If you currently use these operations, you'll need to make changes to your code or your application will stop working on April 12, 2024.
+On April 12, 2024, {% data variables.product.company_short %} will deprecate all of the endpoints listed within "[AUTOTITLE](/rest/migrations/source-imports)." If you currently use these operations, you'll need to make changes to your code or your application will stop working on April 12, 2024.
 
 ## Using forks
 
 If the source repository is on {% data variables.product.prodname_dotcom_the_website %}, you may be able to use a fork instead of importing the repository. {% data reusables.repositories.about-forks %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
-You can programmatically fork a repository using the REST API. For more information, see "[AUTOTITLE](/rest/repos/forks)" in the REST API documentation.
+You can programmatically fork a repository using the REST API. For more information, see "[AUTOTITLE](/rest/repos/forks)."
 
 If your use case meets any of the following criteria, you can't use forking instead of directly importing your repository.
 
@@ -38,7 +38,7 @@ If the source repository is on {% data variables.product.prodname_dotcom_the_web
 
 To use repository templates, you must either have read access to an existing repository that's a template, or you must have access to create a template.
 
-You can programmatically create a repository from a repository template using the REST API. For more information, see "[AUTOTITLE](/rest/repos/repos)" in the REST API documentation.
+You can programmatically create a repository from a repository template using the REST API. For more information, see "[AUTOTITLE](/rest/repos/repos)."
 
 ## Using {% data variables.product.prodname_importer_proper_name %}
 
@@ -64,4 +64,4 @@ If the source repository is a Git repository, you can call the {% data variables
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/repos/repos)" in the REST API documentation
+- "[AUTOTITLE](/rest/repos/repos)"

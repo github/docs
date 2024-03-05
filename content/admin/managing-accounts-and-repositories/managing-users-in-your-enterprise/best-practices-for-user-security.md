@@ -7,7 +7,6 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/best-practices-for-user-security
 versions:
   ghes: '*'
-  ghae: '*'
 type: reference
 topics:
   - Enterprise

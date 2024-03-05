@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -22,19 +21,13 @@ shortTitle: Deleted or changes visibility
 
 When you delete a private repository, all of its private forks are also deleted.
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Deleting a public repository
 
 When you delete a public repository, one of the existing public forks is chosen to be the new upstream repository. All other repositories are forked off of this new upstream and subsequent pull requests go to this new upstream repository.
 
-{% endif %}
-
 ## Private forks and permissions
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
-
-{% ifversion fpt or ghes or ghec %}
 
 ## Changing a public repository to a private repository
 
@@ -58,9 +51,7 @@ When you change a private repository to public, all the commits in that reposito
 
 If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
 
-{% endif %}
-
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## Changing the visibility of an internal repository
 

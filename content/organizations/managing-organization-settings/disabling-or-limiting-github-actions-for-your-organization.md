@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -102,7 +101,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion required-workflows %}
+{% ifversion required-workflows-deprecation %}
 
 ## Adding a required workflow to an organization
 
@@ -147,13 +146,11 @@ Note the following restrictions and behaviors for the target repositories:
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Enabling workflows for private repository forks
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -163,7 +160,6 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
-{% endif %}
 
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 

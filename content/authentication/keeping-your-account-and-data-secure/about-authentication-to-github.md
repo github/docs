@@ -4,7 +4,6 @@ intro: 'You can securely access your account''s resources by authenticating to {
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -16,22 +15,16 @@ shortTitle: Authentication to GitHub
 ---
 ## About authentication to {% data variables.product.prodname_dotcom %}
 
-To keep your account secure, you must authenticate before you can access{% ifversion not ghae %} certain{% endif %} resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
+To keep your account secure, you must authenticate before you can access certain resources on {% data variables.product.product_name %}. When you authenticate to {% data variables.product.product_name %}, you supply or confirm credentials that are unique to you to prove that you are exactly who you declare to be.
 
 You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
 {%- ifversion not fpt %}
-- Your identity provider (IdP){% endif %}{% ifversion not ghae %}
-- Username and password with two-factor authentication{% ifversion passkeys %}, or a passkey{% endif %}{% endif %}
+- Your identity provider (IdP){% endif %}
+- Username and password with two-factor authentication{% ifversion passkeys %}, or a passkey{% endif %}
 - {% data variables.product.pat_generic_caps %}
 - SSH key
 
 ## Authenticating in your browser
-
-{% ifversion ghae %}
-
-You can authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
-
-{% else %}
 
 {% ifversion fpt or ghec %}
 
@@ -81,8 +74,6 @@ If you need to use multiple accounts on {% data variables.location.product_locat
   - Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
 - **SAML single sign-on**
   - Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-
-{% endif %}
 
 ### Session cookies
 

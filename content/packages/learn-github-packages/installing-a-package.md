@@ -10,12 +10,10 @@ permissions: You can install any package that you have permission to view.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About package installation
 
@@ -25,7 +23,7 @@ After you find a package, you can read the package's description and installatio
 
 ## Installing a package
 
-You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
 1. Install the package using the instructions for your package client.

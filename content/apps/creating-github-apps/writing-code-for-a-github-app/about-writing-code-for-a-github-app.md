@@ -5,7 +5,6 @@ intro: 'You need to write code to add functionality to your {% data variables.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

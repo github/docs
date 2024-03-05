@@ -11,7 +11,6 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/managing-projects-using-jira
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise

@@ -36,7 +36,7 @@ runs:
     - name: Run script
       if: ${{ inputs.restore-only == '' }}
       shell: bash
-      run: npm run precompute-pageinfo
+      run: npm run precompute-pageinfo -- --max-versions 2
 
     - name: Cache .remotejson-cache (save)
       if: ${{ inputs.restore-only == '' }}

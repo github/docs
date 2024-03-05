@@ -58,17 +58,7 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
   const foundStandardVersions = evaluateVersions(versionsObj)
 
   // Combine them!
-  let applicableVersions = Array.from(new Set(foundStandardVersions.concat(foundFeatureVersions)))
-
-  // GHAE is still around but can optionally be excluded.
-  // The reason is that we don't yet (early 2024) entirely delete it,
-  // but we don't want to encourage it either. The version is deprecated
-  // but we're not yet ready to remove it from all-versions.js.
-  if (opts.excludeGHAE) {
-    applicableVersions = applicableVersions.filter(
-      (applicableVersion) => !applicableVersion.startsWith('github-ae@'),
-    )
-  }
+  const applicableVersions = Array.from(new Set(foundStandardVersions.concat(foundFeatureVersions)))
 
   if (!applicableVersions.length && !opts.doNotThrow) {
     throw new Error(
@@ -98,7 +88,7 @@ function evaluateVersions(versionsObj) {
   // where versions obj is something like:
   //   fpt: '*'
   //   ghes: '>=2.19'
-  //   ghae: '*'
+  //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.js)
   Object.entries(versionsObj).forEach(([plan, planValue]) => {
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.

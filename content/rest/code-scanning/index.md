@@ -1,11 +1,12 @@
 ---
-title: Code Scanning
+title: REST API endpoints for code scanning
+shortTitle: Code scanning
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to retrieve and update {% data
   variables.product.prodname_code_scanning %} alerts from a repository.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

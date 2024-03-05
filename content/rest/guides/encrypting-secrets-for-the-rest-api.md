@@ -4,7 +4,6 @@ intro: In order to create or update a secret with the REST API, you must encrypt
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
