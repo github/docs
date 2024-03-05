@@ -11,6 +11,7 @@ versions:
 topics:
   - Copilot
 shortTitle: About GitHub Copilot Individual
+product: '{% data reusables.copilot.copilot-individual-emus %}'
 ---
 
 ## About {% data variables.product.prodname_copilot %}

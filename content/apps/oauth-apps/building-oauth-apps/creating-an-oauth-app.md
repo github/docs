@@ -57,13 +57,12 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 1. In "Homepage URL", type the full URL to your app's website.
 1. Optionally, in "Application description", type a description of your app that users will see.
 1. In "Authorization callback URL", type the callback URL of your app.
-{% ifversion fpt or ghes or ghec %}
    {% note %}
 
    **Note:** {% data variables.product.prodname_oauth_apps %} cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}{% ifversion device-flow-is-opt-in %}
+{% ifversion device-flow-is-opt-in %}
 1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."{% endif %}
 1. Click **Register application**.
 

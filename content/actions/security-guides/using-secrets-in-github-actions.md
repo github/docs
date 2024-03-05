@@ -1,7 +1,7 @@
 ---
 title: Using secrets in GitHub Actions
 shortTitle: Using secrets
-intro: 'Secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+intro: 'Secrets allow you to store sensitive information in your organization, repository, or repository environments.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
