@@ -231,7 +231,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "8.11.0",
     "@github/failbot": "0.8.3",
-    "@octokit/plugin-retry": "6.0.1",
+    "@octokit/plugin-retry": "7.0.3",
     "@octokit/request-error": "5.0.1",
     "@primer/behaviors": "^1.3.5",
     "@primer/css": "^21.0.7",
