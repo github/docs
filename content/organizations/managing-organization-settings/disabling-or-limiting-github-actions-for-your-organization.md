@@ -146,8 +146,6 @@ Note the following restrictions and behaviors for the target repositories:
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Enabling workflows for private repository forks
 
 {% data reusables.actions.private-repository-forks-overview %}
@@ -162,7 +160,6 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
-{% endif %}
 
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
