@@ -152,6 +152,18 @@ apps/ @octocat
 
 Repository owners can update branch protection rules to ensure that changed code is reviewed by the owners of the changed files. Edit your branch protection rule and enable the option "Require review from Code Owners". For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
+{% note %}
+
+**Note:** When reviews from code owners are required, an approval from _any_ of the owners is sufficient to meet this requirement. For example, let's say that your CODEOWNERS file contains the following line:
+
+```text
+*.js     @global-owner1 @global-owner2
+```
+
+This means that changes to JavaScript files could be approved by either `@global-owner1` _or_ `@global-owner2`, but approvals from _both_ are not required.
+
+{% endnote %}
+
 To protect a repository fully against unauthorized changes, you also need to define an owner for the CODEOWNERS file itself. The most secure method is to define a CODEOWNERS file in the `.github` directory of the repository and define the repository owner as the owner of either the CODEOWNERS file (``/.github/CODEOWNERS @owner_username``) or the whole directory (``/.github/ @owner_username``).
 
 {% ifversion repo-rules %}
