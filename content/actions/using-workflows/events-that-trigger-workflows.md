@@ -345,7 +345,7 @@ jobs:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)." For information about the issue APIs, see "[AUTOTITLE](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues)" in the REST API documentation.
+Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. For more information about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)." For information about the issue APIs, see "[AUTOTITLE](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues)."
 
 For example, you can run a workflow when an issue has been `opened`, `edited`, or `milestoned`.
 
@@ -369,7 +369,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[AUTOTITLE](/graphql/reference/objects#label)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues#labels)" in the REST API documentation.
+Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[AUTOTITLE](/graphql/reference/objects#label)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues#labels)."
 
 If you want to run your workflow when a label is added to or removed from an issue, pull request, or discussion, use the `labeled` or `unlabeled` activity types for the [`issues`](#issues), [`pull_request`](#pull_request), [`pull_request_target`](#pull_request_target), or [`discussion`](#discussion) events instead.
 
@@ -421,7 +421,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[AUTOTITLE](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues#milestones)" in the REST API documentation.
+Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[AUTOTITLE](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[AUTOTITLE](/rest/issues#milestones)."
 
 If you want to run your workflow when an issue is added to or removed from a milestone, use the `milestoned` or `demilestoned` activity types for the [`issues`](#issues) event instead.
 
