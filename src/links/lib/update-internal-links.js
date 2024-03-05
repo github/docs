@@ -454,7 +454,7 @@ function getNewHref(href, context, opts, file) {
   const pure = parsed.pathname
   let newHref = pure.replace(patterns.trailingSlash, '$1')
 
-  // Before testing if it redirects takes it somewhere, we temporarily
+  // Before testing if it redirects somewhere, we temporarily
   // pretend it's already prefixed for English (/en)
   const [language, withoutLanguage] = splitPathByLanguage(newHref, currentLanguage)
   if (withoutLanguage !== newHref) {
