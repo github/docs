@@ -5,6 +5,7 @@ import handleInvalidPaths from './handle-invalid-paths.js'
 import handleOldNextDataPaths from './handle-old-next-data-paths.js'
 import handleInvalidQuerystringValues from './handle-invalid-query-string-values.js'
 import handleInvalidNextPaths from './handle-invalid-nextjs-paths.js'
+import handleInvalidHeaders from './handle-invalid-headers.js'
 import rateLimit from './rate-limit.js'
 
 const router = express.Router()
@@ -15,5 +16,6 @@ router.use(handleInvalidPaths)
 router.use(handleOldNextDataPaths)
 router.use(handleInvalidQuerystringValues)
 router.use(handleInvalidNextPaths)
+router.use(handleInvalidHeaders)
 
 export default router

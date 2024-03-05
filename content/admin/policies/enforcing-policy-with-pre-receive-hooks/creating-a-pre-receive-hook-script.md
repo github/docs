@@ -84,7 +84,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 
 | Value | Action | More information |
 | :- | :- | :- |
-| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[AUTOTITLE](/rest/deployments#create-a-deployment)" in the REST API documentation |
+| <pre>auto-merge deployment api</pre> | Automatic merge of the base branch via a deployment created with the API | "[AUTOTITLE](/rest/deployments#create-a-deployment)" |
 | <pre>blob#save</pre> | Change to a file's contents in the web interface | "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)" |
 | <pre>branch merge api</pre> | Merge of a branch via the API | "[AUTOTITLE](/rest/branches#merge-a-branch)" |
 | <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |

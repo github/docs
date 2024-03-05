@@ -1,5 +1,6 @@
 ---
-title: Commit comments
+title: REST API endpoints for commit comments
+shortTitle: Commit comments
 intro: Use the REST API to interact with commit comments.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
