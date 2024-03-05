@@ -38,14 +38,16 @@ shortTitle: Export from GHES
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To prepare a repository for export, use the `ghe-migrator add` command with the repository's URL:
     - If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
+
       ```shell
-      $ ghe-migrator add https://HOSTNAME/USERNAME/REPO-NAME --lock
+      ghe-migrator add https://HOSTNAME/USERNAME/REPO-NAME --lock
       ```
+
     - You can exclude file attachments by appending `--exclude_attachments` to the command. {% data reusables.enterprise_migrations.exclude-file-attachments %}
     - To prepare multiple repositories at once for export, create a text file listing each repository URL on a separate line, and run the `ghe-migrator add` command with the `-i` flag and the path to your text file.
 
       ```shell
-      $ ghe-migrator add -i PATH/TO/YOUR/REPOSITORY_URL.txt
+      ghe-migrator add -i PATH/TO/YOUR/REPOSITORY_URL.txt
       ```
 
 1. When prompted, enter your {% data variables.product.prodname_ghe_server %} username:

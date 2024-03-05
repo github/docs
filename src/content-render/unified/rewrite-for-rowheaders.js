@@ -42,7 +42,7 @@ function insideRowheaders(ancestors) {
     (node) =>
       node.properties &&
       node.properties.className &&
-      node.properties.className.includes('rowheaders')
+      node.properties.className.includes('rowheaders'),
   )
 }
 

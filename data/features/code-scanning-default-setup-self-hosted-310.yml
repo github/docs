@@ -1,0 +1,3 @@
+# Reference: #10802
+versions:
+  ghes: '>3.9'

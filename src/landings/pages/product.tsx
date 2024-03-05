@@ -3,11 +3,16 @@ import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
-import copyCode from 'components/lib/copy-code'
-import toggleAnnotation from 'components/lib/toggle-annotations'
-import wrapCodeTerms from 'components/lib/wrap-code-terms'
+import copyCode from 'src/frame/components/lib/copy-code'
+import toggleAnnotation from 'src/frame/components/lib/toggle-annotations'
+import wrapCodeTerms from 'src/frame/components/lib/wrap-code-terms'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'src/frame/components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
@@ -24,8 +29,8 @@ import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
-} from 'components/context/ArticleContext'
-import { ArticlePage } from 'components/article/ArticlePage'
+} from 'src/frame/components/context/ArticleContext'
+import { ArticlePage } from 'src/frame/components/article/ArticlePage'
 
 import { ProductLanding } from 'src/landings/components/ProductLanding'
 import { ProductGuides } from 'src/landings/components/ProductGuides'
@@ -34,7 +39,7 @@ import {
   getTocLandingContextFromRequest,
   TocLandingContext,
   TocLandingContextT,
-} from 'components/context/TocLandingContext'
+} from 'src/frame/components/context/TocLandingContext'
 import { useEffect } from 'react'
 
 function initiateArticleScripts() {
@@ -94,7 +99,14 @@ const GlobalPage = ({
       </ArticleContext.Provider>
     )
   } else {
-    throw new Error('No context provided to page')
+    // In local dev, when Next.js needs the initial compiled version
+    // it will request `/_next/static/webpack/$HASH.webpack.hot-update.json`
+    // or `/_next/webpack-hmr` and then we just let the `content` be undefined.
+    if (
+      !(router.asPath.startsWith('/_next/static/') || router.asPath.startsWith('/_next/webpack'))
+    ) {
+      throw new Error(`No context provided to page (${router.asPath})`)
+    }
   }
 
   return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
@@ -111,16 +123,31 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
   const { currentLayoutName, relativePath } = props.mainContext
 
+  const additionalUINamespaces: string[] = []
+
   // This looks a little funky, but it's so we only send one context's data to the client
   if (currentLayoutName === 'product-landing') {
     props.productLandingContext = await getProductLandingContextFromRequest(req)
+    additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'product-guides') {
     props.productGuidesContext = getProductGuidesContextFromRequest(req)
+    additionalUINamespaces.push('product_guides')
   } else if (relativePath?.endsWith('index.md')) {
     props.tocLandingContext = getTocLandingContextFromRequest(req)
-  } else {
+    if (props.tocLandingContext.currentLearningTrack?.trackName) {
+      additionalUINamespaces.push('learning_track_nav')
+    }
+  } else if (props.mainContext.page) {
+    // All articles that might have hover cards needs this
+    additionalUINamespaces.push('popovers')
+
     props.articleContext = getArticleContextFromRequest(req)
+    if (props.articleContext.currentLearningTrack?.trackName) {
+      additionalUINamespaces.push('learning_track_nav')
+    }
   }
+
+  addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)
 
   return {
     props,

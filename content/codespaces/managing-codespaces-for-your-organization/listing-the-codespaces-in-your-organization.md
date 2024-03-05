@@ -26,14 +26,14 @@ For information on how to see the current total {% data variables.product.prodna
 To list all of the current codespaces for a specified organization, use the following command.
 
 ```shell copy
-gh codespace list --org ORGANIZATION 
+gh codespace list --org ORGANIZATION
 ```
 
 This command returns a list that includes the following information for each codespace:
-	- The name and display name
-	- The user who created the codespace
-	- The repository and branch
-	- The current state of the codespace
+- The name and display name
+- The user who created the codespace
+- The repository and branch
+- The current state of the codespace
 
 To list all of the current codespaces for an organization that were created by a specific user, use the following command.
 

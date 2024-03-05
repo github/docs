@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -52,14 +51,22 @@ You can create a branch in different ways on {% data variables.product.product_n
 {% else %}
 1. Select the branch selector dropdown menu.
 
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
+
+{% else %}
+
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+
+{% endif %}
 {% endif %}
 1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click another branch, then select the branch dropdown menu again.
 1. In the "Find or create a branch..." text field, type a unique name for your new branch, then click **Create branch**.
 
    ![Screenshot of the branch selector dropdown menu. "Create branch: new-branch" is highlighted with an orange outline.](/assets/images/help/branches/create-branch-text.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Creating a branch for an issue
 
@@ -83,9 +90,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 1. Next to the branch that you want to delete, click {% octicon "trash" aria-label="The trash icon" %} .
 
    ![Screenshot of a branch in the branch list. A trash icon is highlighted with an orange outline.](/assets/images/help/branches/branches-delete.png)
-{%- ifversion fpt or ghes > 3.5 or ghae > 3.5 or ghec %}
 1. If the branch is associated with at least one open pull request, deleting the branch will close the pull requests. Read the warning, then click **Delete**.
-{%- endif %}
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#working-with-branches)."

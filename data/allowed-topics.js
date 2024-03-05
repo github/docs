@@ -19,6 +19,7 @@ export default [
   'Actions Runner Controller',
   'Administrator',
   'Advanced Security',
+  'AI',
   'Alerts',
   'Amazon ECS',
   'Analytics',

@@ -1,6 +1,6 @@
 ---
 title: Viewing insights for your organization
-intro: 'Organization insights provide data about your organization''s activity, contributions, and dependencies.'
+intro: 'Organization insights provide data about your organization dependencies.'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
@@ -15,31 +15,13 @@ permissions: Organization members can view organization insights.
 
 {% note %}
 
-**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Note:** To view organization dependency insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
-
-## About organization insights
-
-You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
-
-## Viewing organization activity insights
-
-{% note %}
-
-**Note:** Organization activity insights are currently in public beta and subject to change.
-
-{% endnote %}
-
-With organization activity insights you can view weekly, monthly, and yearly data visualizations of your entire organization or specific repositories, including issue and pull request activity, top languages used, and cumulative information about where your organization members spend their time.
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.insights %}
-1. Optionally, to view data for the last 1 week, 1 month, or 1 year, in the upper-right corner of the page, select the **Period** dropdown menu, then click a period.
-1. Optionally, to filter by repositories, in the upper-right corner of the page, select the **Repositories** dropdown menu, click up to three repositories, then click **Apply**.
 
 ## Viewing organization dependency insights
+
+Dependency insights can help you track, report, and act on your organization's open source usage.
 
 {% note %}
 
@@ -52,7 +34,6 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.insights %}
-1. In the "Insights" sidebar, click **Dependencies**.
 1. Optionally, to view dependency insights for all your organizations, click **My organizations**.
 
    ![Screenshot of the "Dependency insights" page. A button, labeled "My organizations," is outlined in dark orange.](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
@@ -63,5 +44,5 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 
 - "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
-- "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}
-- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)"{% endif %}
+- "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"
+- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)"

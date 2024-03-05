@@ -78,30 +78,6 @@ upcoming_changes:
     date: '2022-10-01T00:00:00+00:00'
     criticality: breaking
     owner: jhunschejones
-  - location: PackageType.NPM
-    description: '`NPM` will be removed.'
-    reason:
-      NPM will be removed from this enum as this type will be migrated to only
-      be used by the Packages REST API.
-    date: '2022-11-21'
-    criticality: breaking
-    owner: s-anupam
-  - location: PackageType.NUGET
-    description: '`NUGET` will be removed.'
-    reason:
-      NUGET will be removed from this enum as this type will be migrated to only
-      be used by the Packages REST API.
-    date: '2022-11-21'
-    criticality: breaking
-    owner: s-anupam
-  - location: PackageType.RUBYGEMS
-    description: '`RUBYGEMS` will be removed.'
-    reason:
-      RUBYGEMS will be removed from this enum as this type will be migrated to
-      only be used by the Packages REST API.
-    date: '2022-12-28'
-    criticality: breaking
-    owner: ankitkaushal01
   - location: Commit.changedFiles
     description: '`changedFiles` will be removed. Use `changedFilesIfAvailable` instead.'
     reason: '`changedFiles` will be removed.'
@@ -118,14 +94,6 @@ upcoming_changes:
     date: '2023-01-01T00:00:00+00:00'
     criticality: breaking
     owner: mattruggio
-  - location: PackageType.MAVEN
-    description: '`MAVEN` will be removed.'
-    reason:
-      MAVEN will be removed from this enum as this type will be migrated to only
-      be used by the Packages REST API.
-    date: '2023-02-10'
-    criticality: breaking
-    owner: ankitkaushal01
   - location: ProjectV2View.groupBy
     description:
       '`groupBy` will be removed. Check out the `ProjectV2View#group_by_fields`

@@ -23,7 +23,7 @@ To maintain the security of your account when you perform a potentially sensitiv
 - Addition of a new SSH key
 - Creation of a PAT or application
 
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} will wait a few hours before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} has a two-hour session timeout period before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
 {% ifversion ghes %}
 
@@ -38,7 +38,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% note %}
 
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you will not receive prompts to enter sudo mode, as your account doesn't have credentials stored on {% data variables.product.product_name %}.
+**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
 
 {% endnote %}
 
@@ -48,8 +48,11 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 ## Confirming access for sudo mode
 
-To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
+To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion passkeys %}a passkey, {% endif %}{% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
 
+{%- ifversion passkeys %}
+- [Confirming access using a passkey key](#confirming-access-using-a-passkey)
+{%- endif %}
 {%- ifversion totp-and-mobile-sudo-challenge %}
 - [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
@@ -58,6 +61,13 @@ To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge
 - [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
 - [Confirming access using your password](#confirming-access-using-your-password)
 {%- endif %}
+
+{% ifversion passkeys %}
+
+## Confirming access using a passkey
+
+You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."
+{% endif %}
 
 {% ifversion totp-and-mobile-sudo-challenge %}
 

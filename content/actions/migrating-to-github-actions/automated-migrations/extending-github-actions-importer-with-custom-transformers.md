@@ -5,13 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Migration
   - CI
   - CD
-shortTitle: 'Extending GitHub Actions Importer'
+shortTitle: Extending GitHub Actions Importer
 ---
 
 [Legal notice](#legal-notice)
@@ -32,13 +31,13 @@ You can use the `--custom-transformers` CLI option to specify which custom trans
 
 For example, if custom transformers are defined in a file named `transformers.rb`, you can use the following command to use them with {% data variables.product.prodname_actions_importer %}:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers.rb
 ```
 
 Alternatively, you can use the glob pattern syntax to specify multiple custom transformer files. For example, if multiple custom transformer files are within a directory named `transformers`, you can provide them all to {% data variables.product.prodname_actions_importer %} with the following command:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers/*.rb
 ```
 
@@ -63,10 +62,10 @@ You can create custom transformers that {% data variables.product.prodname_actio
 
 ### Example custom transformer for a build step
 
-The following example converts a build step that uses the "buildJavascriptApp" identifier to run various `npm` commands:
+The following example converts a build step that uses the "buildJavaScriptApp" identifier to run various `npm` commands:
 
 ```ruby copy
-transform "buildJavascriptApp" do |item|
+transform "buildJavaScriptApp" do |item|
   command = ["build", "package", "deploy"].map do |script|
     "npm run #{script}"
   end
@@ -78,7 +77,7 @@ transform "buildJavascriptApp" do |item|
 end
 ```
 
-The above example results in the following {% data variables.product.prodname_actions %} workflow step. It is comprised of converted build steps that had a `buildJavascriptApp` identifier:
+The above example results in the following {% data variables.product.prodname_actions %} workflow step. It is comprised of converted build steps that had a `buildJavaScriptApp` identifier:
 
 ```yaml
 - name: build javascript app
@@ -88,7 +87,7 @@ The above example results in the following {% data variables.product.prodname_ac
     npm run deploy
 ```
 
-The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavascriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavascriptApp", "buildTypescriptApp" { |item| ... }`.
+The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavaScriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavaScriptApp", "buildTypeScriptApp" { |item| ... }`.
 
 {% note %}
 
@@ -103,7 +102,7 @@ You can customize the mapping between runners in your source CI/CD instance and 
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for runners:
 
 - The custom transformer file must have at least one `runner` method.
-- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. {% ifversion not ghae %}For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% endif %}
+- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 ### Example custom transformers for runners
 
@@ -156,7 +155,7 @@ There are several ways you can set up custom transformers to map your environmen
   env "MONALISA", secret("OCTOCAT")
   ```
 
-  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)."
 
 - You can also use regular expressions to update the values of multiple environment variables at once. For example, the following custom transformer removes all environment variables from the converted workflow:
 

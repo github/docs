@@ -42,7 +42,7 @@ A GraphQL schema may use the term _implements_ to define how an object inherits 
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
-```
+```graphql
 interface X {
   some_field: String!
   other_field: String!
@@ -71,7 +71,7 @@ It's helpful to picture a graph: dots connected by lines. The dots are nodes, th
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for pagination. For more information, see "[AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)."
 
 ## Node
 
@@ -121,7 +121,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token.  If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. {% ifversion pat-v2 %}If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.{% endif %}
 
   {% endnote %}
 

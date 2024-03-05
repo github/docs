@@ -14,7 +14,7 @@ topics:
   - Deployment
 shortTitle: Deploy with GitHub Actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -60,7 +60,7 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trig
 
 ## Using concurrency
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time.
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 
 {% note %}
 
@@ -147,7 +147,7 @@ You can also view the logs of each workflow run and the history of workflow runs
 ## Tracking deployments through apps
 
 {% ifversion fpt or ghec %}
-If your personal account or organization on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
+If your personal account or organization on {% data variables.location.product_location %} is integrated with Microsoft Teams or Slack, you can track deployments that use environments through Microsoft Teams or Slack. For example, you can receive notifications through the app when a deployment is pending approval, when a deployment is approved, or when the deployment status changes. For more information about integrating  Microsoft Teams or Slack, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)."
 {% endif %}
 
 You can also build an app that uses deployment and deployment status webhooks to track deployments. {% data reusables.actions.environment-deployment-event %} For more information, see "[AUTOTITLE](/apps)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."

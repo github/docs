@@ -75,7 +75,7 @@ The selected users or teams will automatically be given access and don't need to
 
 ## Selecting whether a package inherits permissions from a repository
 
-{% ifversion packages-inherit-permissions %}By default, if publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
 
 When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions of the linked repository.
 
@@ -139,7 +139,9 @@ If you publish a package that is linked to a repository, {% data variables.produ
 
 {% note %}
 
-**Note:** Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Notes:**
+- Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+- You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 
 {% endnote %}
 
@@ -227,10 +229,12 @@ When you first publish a package, the default visibility is private and only you
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
     - To make the package visible to anyone, click **Public**.
-     {% warning %}
 
-     **Warning:** Once you make a package public, you cannot make it private again.
+      {% warning %}
 
-     {% endwarning %}
+      **Warning:** Once you make a package public, you cannot make it private again.
+
+      {% endwarning %}
+
     - To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
     - To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

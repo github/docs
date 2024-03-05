@@ -7,6 +7,11 @@ type: tutorial
 topics:
   - Projects
 ---
+{% ifversion ghes > 3.8 %}
+
+{% data reusables.projects.enable_enterprise_workflows %}
+
+{% endif %}
 
 ## About automatically adding items
 
@@ -17,7 +22,7 @@ When you enable the auto-add workflow, existing items matching your criteria wil
 The auto-add workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
 | Qualifier | Possible values
-| --- | --- | --- |
+| --- | --- |
 | `is` | open, closed, merged, draft, issue, pr
 | `label` | "label name"
 | `reason` | completed, reopened, "not planned"

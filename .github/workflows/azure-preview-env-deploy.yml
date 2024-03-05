@@ -17,12 +17,6 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
-    types:
-      # In case someone puts the 'preview-with-translations' label on the PR
-      - opened
-      - synchronize
-      - reopened
-      - labeled
   merge_group:
   workflow_dispatch:
     inputs:
@@ -44,7 +38,7 @@ permissions:
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -56,11 +50,11 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
-         && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
+        (github.event.pull_request.head.sha || inputs.COMMIT_REF)
+         && (github.event.number || inputs.PR_NUMBER || github.run_id)
        )
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-       &&  github.actor != 'dependabot[bot]'
+       && github.actor != 'dependabot[bot]'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
@@ -70,8 +64,8 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
-      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
       # This may also run in forked repositories, not just 'github/docs'
@@ -92,18 +86,18 @@ jobs:
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+        uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           ref: 'main'
           persist-credentials: 'false'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin @3.5.2
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -112,7 +106,7 @@ jobs:
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       - name: 'Set env vars'
         run: |
@@ -122,7 +116,7 @@ jobs:
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
@@ -151,7 +145,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -160,10 +154,10 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: Determine if we should include translations?
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: with-translations
         with:
           script: |
@@ -184,7 +178,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -198,22 +192,22 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
-          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
+          rsync -rptovR ./user-code/src/./**/*.{scss,ts,tsx} ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:
           restore-only: true
 
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
+
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
-        run: .github/actions-scripts/prune-for-preview-env.sh
+        run: src/workflows/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09
         with:
           context: .
           push: true
@@ -238,7 +232,7 @@ jobs:
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./azure-preview-env-template.json
+          template: ./src/workflows/azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"

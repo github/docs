@@ -1,1 +1,1 @@
-By default, repositories in an organization do not have access to enterprise-level runner groups. To give repositories access to enterprise runner groups, organization administrators must configure each enterprise runner group and choose which repositories have access.
+By default, repositories in an organization do not have access to enterprise-level runner groups. To give repositories access to enterprise runner groups, organization owners must configure each enterprise runner group and choose which repositories have access.

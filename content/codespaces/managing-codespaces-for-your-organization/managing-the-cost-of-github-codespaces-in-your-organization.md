@@ -38,11 +38,9 @@ You can check the compute and storage usage for {% data variables.product.prodna
 
 {% endnote %}
 
-## Disabling or limiting {% data variables.product.prodname_codespaces %}
+## Disabling or limiting billing for {% data variables.product.prodname_codespaces %}
 
-You can disable all use of {% data variables.product.prodname_github_codespaces %} that would be billed to your organization. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
-
-{% data reusables.codespaces.codespaces-disabling-org-billing %}
+You can choose for all usage of {% data variables.product.prodname_codespaces %} in your organization to be billed to the user who creates the codespace. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 
 You can limit the number of codespaces that people can create, where the organization will be billed for the codespace. This can help to reduce codespace storage charges for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)."
 
@@ -60,11 +58,11 @@ Repository owners who set up prebuilds for their repository can reduce the stora
 
 Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
-As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
+As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
 {% note %}
 
-**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 {% endnote %}
 

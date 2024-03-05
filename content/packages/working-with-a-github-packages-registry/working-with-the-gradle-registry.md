@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Gradle registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -118,7 +116,7 @@ publishing {
         }
     }
     publications {
-        register&lt;MavenPublication>("gpr") {
+        register<MavenPublication>("gpr") {
             from(components["java"])
         }
     }
@@ -133,7 +131,7 @@ plugins {
 }
 subprojects {
     apply(plugin = "maven-publish")
-    configure&lt;PublishingExtension> {
+    configure<PublishingExtension> {
         repositories {
             maven {
                 name = "GitHubPackages"
@@ -145,7 +143,7 @@ subprojects {
             }
         }
         publications {
-            register&lt;MavenPublication>("gpr") {
+            register<MavenPublication>("gpr") {
                 from(components["java"])
             }
         }

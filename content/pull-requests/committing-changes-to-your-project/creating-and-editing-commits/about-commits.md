@@ -68,4 +68,4 @@ You can use the file tree to navigate between files in a commit.
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}
+- "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}

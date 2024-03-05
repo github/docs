@@ -17,7 +17,6 @@ children:
   - /about-ghe-migrator
   - /exporting-migration-data-from-github-enterprise-server
   - /exporting-migration-data-from-githubcom
-  - /preparing-to-migrate-data-to-github-enterprise-server
   - /migrating-data-to-github-enterprise-server
 shortTitle: ghe-migrator
 ---

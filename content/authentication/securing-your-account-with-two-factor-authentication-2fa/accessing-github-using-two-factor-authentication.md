@@ -37,7 +37,7 @@ After you sign in to {% data variables.product.product_name %} using your passwo
 
 ### Generating a code through a TOTP application
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+If you chose to set up two-factor authentication using a TOTP application, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
 
 If you delete your authenticator application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
@@ -49,6 +49,14 @@ If you've set up a security key on your account, and your browser supports secur
 1. If you use a physical security key, ensure it's connected to your device.
 1. To trigger the security key prompt from your operating system, select "Use security key".
 1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
+
+{% ifversion passkeys %}
+
+### Using a passkey
+
+If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -75,9 +83,7 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 ## Using two-factor authentication with the command line
 
-{% ifversion fpt or ghec %}
-Enabling 2FA may affect authentication to {% data variables.product.prodname_dotcom %} through the command line. To find out if your authentication method is affected, see the following sections.
-{% else %}
+{% ifversion ghes %}
 After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a {% data variables.product.pat_generic %}, or an SSH key.
 {% endif %}
 
@@ -99,11 +105,14 @@ For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-
 
 Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
 
+{% ifversion ghes < 3.13 %}
+
 ## Using two-factor authentication to access a repository using Subversion
 
 {% data reusables.subversion.sunset %}
 
 When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% endif %}
 
 ## Troubleshooting
 

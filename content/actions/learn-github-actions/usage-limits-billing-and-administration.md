@@ -12,7 +12,7 @@ topics:
   - Billing
 shortTitle: Workflow billing & limits
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About billing for {% data variables.product.prodname_actions %}
@@ -47,7 +47,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 - **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
 {% data reusables.actions.usage-api-requests %}
-- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your GitHub plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
+- **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
 
@@ -56,17 +56,17 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
-  | Enterprise | 500 | 50 |
+  | Enterprise | 1000 | 50 |
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
   |---|---|---|
-  | All | 500 | Not applicable |
+  | All | 500 | The limit is based on your {% data variables.product.prodname_dotcom %} plan. |
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
 
   {% endnote %}
 
@@ -87,8 +87,6 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 {% ifversion fpt or ghes or ghec %}
 
 ## Billing for reusable workflows
-
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 

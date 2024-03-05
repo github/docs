@@ -13,9 +13,9 @@ topics:
 ---
 ## Introduction
 
-You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
+You can use {% data variables.product.prodname_dotcom %} repositories, issues, projects, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a {% data variables.projects.projects_v1_board %} for organizing and tracking issues.
 
 ## Creating a repository
 
@@ -75,6 +75,8 @@ Here is an example of an issue created for a large initiative, front-end work, i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body includes a list of tasks to complete.](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 
+{% ifversion task-lists-v1 %}
+
 ### Task list example
 
 You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
@@ -82,10 +84,11 @@ You can use task lists to break larger issues down into smaller tasks and to tra
 Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
+{% endif %}
 
 ## Making decisions as a team
 
-You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github#which-discussion-tool-should-i-use)."
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
 
@@ -109,7 +112,7 @@ Below is an example of a `front-end` label that we created and added to the issu
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-## Adding issues to a project board
+## Adding issues to a {% data variables.projects.projects_v1_board %}
 
 {% ifversion projects-v2 %}
 
@@ -128,13 +131,13 @@ We can also view the same project as a board.
 {% endif %}
 {% ifversion projects-v1 %}
 
-You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create project boards for feature work, high-level roadmaps, or even release checklists. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can {% ifversion projects-v2 %} also use the existing{% else %} use{% endif %} {% data variables.product.prodname_projects_v1 %} on {% data variables.product.prodname_dotcom %} to plan and track your or your team's work. {% data variables.projects.projects_v1_boards_caps %} are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can create {% data variables.projects.projects_v1_boards %} for feature work, high-level roadmaps, or even release checklists. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
-### Project board example
+### {% data variables.projects.projects_v1_board_caps %} example
 
-Below is a project board for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
+Below is a {% data variables.projects.projects_v1_board %} for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![Screenshot of a project board called "Project Octocat Board," with issues organized into columns for "To do", "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
+![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do", "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
 
 {% endif %}
 
@@ -145,8 +148,8 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)" for learning more about creating repositories
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
 - "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists
+- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels{% ifversion task-lists-v1 %}
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists{% endif %}
 {% ifversion projects-v2 %} - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
 - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" for learning how to customize views for projects{% endif %}
-{% ifversion projects-v1 %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}
+{% ifversion projects-v1 %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}

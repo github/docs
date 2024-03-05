@@ -1,0 +1,3 @@
+If you are using Azure and {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.company_short %}-hosted runners in your Azure VNET(s) using the Azure private network configuration. For more information about Azure VNET, see [What is Azure Virtual Network?](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) in the Azure documentation.
+
+Using {% data variables.product.company_short %}-hosted runners in an Azure VNET enables you to use {% data variables.product.company_short %}-managed infrastructure for CI/CD while providing you with full control over the networking policies of your runners.

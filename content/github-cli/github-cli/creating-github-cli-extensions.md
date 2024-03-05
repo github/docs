@@ -74,11 +74,11 @@ You can use the `--precompiled=other` argument to create a project for your non-
 
 1. In the directory that you created, add an executable file with the same name as the directory.
 
-  {% note %}
+   {% note %}
 
-  **Note:** Make sure that your file is executable. On Unix, you can execute `chmod +x file_name` in the command line to make `file_name` executable. On Windows, you can run `git init -b main`, `git add file_name`, then `git update-index --chmod=+x file_name`.
+   **Note:** Make sure that your file is executable. On Unix, you can execute `chmod +x file_name` in the command line to make `file_name` executable. On Windows, you can run `git init -b main`, `git add file_name`, then `git update-index --chmod=+x file_name`.
 
-  {% endnote %}
+   {% endnote %}
 
 1. Write your script in the executable file. For example:
 
@@ -162,9 +162,9 @@ For example, to create an issue programmatically, specify the title and body:
 gh issue create --title "My Title" --body "Issue description"
 ```
 
-### Fetching data programatically
+### Fetching data programmatically
 
-Many core commands support the `--json` flag for fetching data programatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
+Many core commands support the `--json` flag for fetching data programmatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
 
 ```shell
 gh pr list --json number,title,mergeStateStatus
@@ -190,7 +190,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. In the directory you created, add some source code. For example:
 
-    ```go
+    ```golang
     package main
     import (
       "github.com/cli/go-gh"
@@ -230,18 +230,18 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
 
-  {% note %}
+   {% note %}
 
-  **Note:** Be careful not to commit the binary produced by your compilation step to version control.
+   **Note:** Be careful not to commit the binary produced by your compilation step to version control.
 
-  {% endnote %}
+   {% endnote %}
 
-    ```shell
+   ```shell
     git init -b main
-    echo "gh-EXTENSION-NAME" >> .gitignore
-    git add main.go go.* .gitignore && git commit -m 'Initial commit'
-    gh repo create "gh-EXTENSION-NAME"
-    ```
+   echo "gh-EXTENSION-NAME" >> .gitignore
+   git add main.go go.* .gitignore && git commit -m 'Initial commit'
+   gh repo create "gh-EXTENSION-NAME"
+   ```
 
 1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of OS-ARCHITECTURE\[EXTENSION\].
 

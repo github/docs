@@ -19,7 +19,7 @@ import { existsSync } from 'fs'
 
 import { syncRestData, getOpenApiSchemaFiles } from './utils/sync.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { syncWebhookData } from '../../webhooks/scripts/sync.js'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
 import { syncRestRedirects } from './utils/get-redirects.js'
@@ -38,25 +38,28 @@ program
   .addOption(
     new Option(
       '-o, --output [docs-pipeline...]',
-      'A list of docs pipelines to sync from the OpenAPI schema, separated by a space. Ex. `-o github-apps rest webhooks`.'
+      'A list of docs pipelines to sync from the OpenAPI schema, separated by a space. Ex. `-o github-apps rest webhooks`.',
     )
       .choices(['rest', 'github-apps', 'webhooks', 'rest-redirects'])
-      .default('rest', 'rest')
+      .default('rest', 'rest'),
   )
   .addOption(
     new Option(
       '-s, --source-repo <repo>',
-      `The source repository to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`
+      `The source repository to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
       .choices(['github', REST_API_DESCRIPTION_ROOT])
-      .default('github', 'github')
+      .default('github', 'github'),
   )
   .option(
     '-v --versions [VERSIONS...]',
-    'A list of undeprecated, published versions to build, separated by a space. Example `-v ghes-3.1` or `-v api.github.com github.ae`'
+    'A list of undeprecated, published versions to build, separated by a space. Example `-v ghes-3.1` or `-v api.github.com github.ae`',
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
-  .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option(
+    '-u --include-unpublished',
+    'Includes operations that are marked as `published: false`. Does not include nodes that are marked as `x-unpublished`.',
+  )
   .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
   .parse(process.argv)
 
@@ -126,13 +129,13 @@ async function main() {
     await syncGitHubAppsData(
       TEMP_OPENAPI_DIR,
       restSchemas,
-      sourceRepo === 'github' && GITHUB_REP_DIR
+      sourceRepo === 'github' && GITHUB_REP_DIR,
     )
   }
 
   if (pipelines.includes('rest-redirects')) {
     console.log(`\n▶️  Generating REST redirect data files...\n`)
-    await syncRestRedirects(TEMP_OPENAPI_DIR, restSchemas)
+    await syncRestRedirects()
   }
 
   // If the source repo is REST_API_DESCRIPTION_ROOT, we want to update
@@ -156,7 +159,7 @@ async function main() {
   }
 
   console.log(
-    `\n🏁 The static REST API files are now up-to-date with \`github/${sourceRepo}\`. To revert uncommitted data changes, run \`git checkout src/**/data/*\`\n`
+    `\n🏁 The static REST API files are now up-to-date with \`github/${sourceRepo}\`. To revert uncommitted data changes, run \`git checkout src/**/data/*\`\n`,
   )
 }
 
@@ -177,7 +180,7 @@ async function getBundledFiles() {
   await mkdirp(TEMP_BUNDLED_OPENAPI_DIR)
 
   console.log(
-    `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`
+    `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`,
   )
   // Format the command supplied to the bundle script in `github/github`
   const bundlerOptions = await getBundlerOptions()
@@ -212,10 +215,17 @@ async function getBundlerOptions() {
 }
 
 async function validateInputParameters() {
-  // The `--versions` and `--decorate-only` options cannot be used
+  // The `--versions` option cannot be used
+  // with the `--include-deprecated` option
+  if (includeDeprecated && versions) {
+    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    throw new Error(errorMsg)
+  }
+
+  // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  if ((includeDeprecated || includeUnpublished) && (sourceRepo !== 'github' || versions)) {
-    const errorMsg = `🛑 You cannot use the versions option with the include-unpublished or include-deprecated options. This is not currently supported in the bundler.\nYou cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+  if ((includeDeprecated || includeUnpublished) && sourceRepo !== 'github') {
+    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
@@ -246,13 +256,13 @@ export async function normalizeDataVersionNames(sourceDirectory) {
   for (const schema of schemas) {
     const baseName = path.basename(schema, '.deref.json')
     const matchingSourceVersion = Object.keys(VERSION_NAMES).find((version) =>
-      baseName.startsWith(version)
+      baseName.startsWith(version),
     )
     // Update the version name to use docs convention, e.g.,
     // api.github.com.2022-11-28 -> fpt.2022-11-28
     const docsBaseName = baseName.replace(
       matchingSourceVersion,
-      VERSION_NAMES[matchingSourceVersion]
+      VERSION_NAMES[matchingSourceVersion],
     )
     // Match a calendar version if it exists, e.g., .2022-11-28
     const regex = /.\d{4}-\d{2}-\d{2}/

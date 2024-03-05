@@ -17,7 +17,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow commands
@@ -38,7 +38,7 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -46,7 +46,7 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**Note:** Workflow command and parameter names are not case-sensitive.
+**Note:** Workflow command and parameter names are case insensitive.
 
 {% endnote %}
 
@@ -104,10 +104,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -118,10 +118,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: Write-Output "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -179,7 +179,7 @@ echo "::set-output name=action_fruit::strawberry"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
@@ -206,7 +206,7 @@ echo "::debug::Set the Octocat variable"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::debug::Set the Octocat variable"
 ```
 
@@ -234,7 +234,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -262,7 +262,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -290,7 +290,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -363,7 +363,7 @@ echo "::add-mask::Mona The Octocat"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::add-mask::Mona The Octocat"
 ```
 
@@ -480,7 +480,7 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 #### Setup
 
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 #### Workflow
 
@@ -498,19 +498,22 @@ on: push
 jobs:
   secret-generator:
     runs-on: ubuntu-latest
+    outputs:
+      handle: {% raw %}${{ steps.generate-secret.outputs.handle }}{% endraw %}
     steps:
     - uses: some/secret-store@v1
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: generate secret
+      id: generate-secret
       shell: bash
       run: |
         GENERATED_SECRET=$((RANDOM))
         echo "::add-mask::$GENERATED_SECRET"
         SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
-        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
-        echo "::set-output name=handle::$secret_handle"{% endif %}
+        echo "handle=$SECRET_HANDLE" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$SECRET_HANDLE"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
@@ -735,8 +738,6 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
-Most commands in the following examples use double quotes for echoing strings, which will attempt to interpolate characters like `$` for shell variable names. To always use literal values in quoted strings, you can use single quotes instead.
-
 {% powershell %}
 
 {% note %}
@@ -762,7 +763,7 @@ jobs:
     steps:
       - shell: pwsh
         run: |
-          "mypath" >> $env:GITHUB_PATH
+          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endnote %}
@@ -770,6 +771,8 @@ jobs:
 {% endpowershell %}
 
 ## Setting an environment variable
+
+{% data reusables.actions.environment-variables-as-case-sensitive %}
 
 {% bash %}
 
@@ -783,8 +786,8 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 - Using PowerShell version 6 and higher:
 
-  ```pwsh copy
-  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```powershell copy
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
 - Using PowerShell version 5.1 and below:
@@ -795,7 +798,15 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
+
+{% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
+
+{% ifversion github-env-node-options %}{% note %}
+
+**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+
+{% endnote %}{% endif %}
 
 ### Example of writing an environment variable to `GITHUB_ENV`
 
@@ -810,9 +821,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
-      echo "${{ env.action_state }}" # This will output 'yellow'
-{% endraw %}
+      printf '%s\n' "$action_state" # This will output 'yellow'
 ```
 
 {% endbash %}
@@ -824,13 +833,11 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-      "action_state=yellow" >> $env:GITHUB_ENV
+      "action_state=yellow" | Out-File -FilePath $env:GITHUB_ENV -Append
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
-      Write-Output "${{ env.action_state }}" # This will output 'yellow'
-{% endraw %}
+      Write-Output "$env:action_state" # This will output 'yellow'
 ```
 
 {% endpowershell %}
@@ -847,13 +854,13 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 {% endwarning %}
 
 #### Example of a multiline string
 
-This example selects a random value for `$EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+This example uses `EOF` as the delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -862,10 +869,11 @@ steps:
   - name: Set the value in bash
     id: step_one
     run: |
-      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-      echo "JSON_RESPONSE<<$EOF" >> "$GITHUB_ENV"
-      curl https://example.com >> "$GITHUB_ENV"
-      echo "$EOF" >> "$GITHUB_ENV"
+      {
+        echo 'JSON_RESPONSE<<EOF'
+        curl https://example.com
+        echo EOF
+      } >> "$GITHUB_ENV"
 ```
 
 {% endbash %}
@@ -877,10 +885,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
-      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
-      "$EOF" >> $env:GITHUB_ENV
+      $EOF = -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)})
+      "JSON_RESPONSE<<$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
+      (Invoke-WebRequest -Uri "https://example.com").Content | Out-File -FilePath $env:GITHUB_ENV -Append
+      "$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
     shell: pwsh
 ```
 
@@ -902,8 +910,8 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 
 {% powershell %}
 
-```pwsh copy
-"{name}=value" >> $env:GITHUB_OUTPUT
+```powershell copy
+"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 ```
 
 {% endpowershell %}
@@ -916,12 +924,12 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
-{% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
+        run: echo "The selected color is $SELECTED_COLOR"
 ```
 
 {% endbash %}
@@ -932,13 +940,13 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: |
-            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
+            "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
-{% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
+        run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
 {% endpowershell %}
@@ -958,8 +966,8 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
-"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```powershell copy
+"{markdown content}" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
@@ -982,8 +990,8 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
-"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```powershell copy
+"### Hello world! :rocket:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
@@ -1015,18 +1023,18 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 ```yaml
 - name: Generate list using Markdown
   run: |
-    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
-    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
-    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
-    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
-    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+    "This is the lead in sentence for the list" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append # this is a blank line
+    "- Lets add a bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- Lets add a second bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- How about a third one?" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
 
 ### Overwriting job summaries
 
-To clear all content for the current step, you can use `>` to overwrite any previously added content.
+To clear all content for the current step, you can use `>` to overwrite any previously added content in Bash, or remove `-Append` in PowerShell
 
 #### Example of overwriting job summaries
 
@@ -1046,8 +1054,8 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 ```yaml
 - name: Overwrite Markdown
   run: |
-    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
-    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+    "Adding some Markdown content" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "There was an error, we need to clear the previous Markdown with some new content." | Out-File -FilePath $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -1074,8 +1082,8 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 ```yaml
 - name: Delete all summary content
   run: |
-    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
-    rm $env:GITHUB_STEP_SUMMARY
+    "Adding Markdown content that we want to remove before the step ends" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    Remove-Item $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -1102,8 +1110,8 @@ echo "{path}" >> $GITHUB_PATH
 
 {% powershell %}
 
-```pwsh copy
-"{path}" >> $env:GITHUB_PATH
+```powershell copy
+"{path}" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endpowershell %}
@@ -1124,8 +1132,8 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
-```pwsh copy
-"$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
+```powershell copy
+"$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endpowershell %}

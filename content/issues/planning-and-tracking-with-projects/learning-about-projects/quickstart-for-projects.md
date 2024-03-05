@@ -74,7 +74,7 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 Specify a priority for all issues in your project.
 
-![Screenshot showing a list of issues, each with a priority of "Low," "Medium," or "High" in the "Priority" field.](/assets/images/help/projects/priority_example.png)
+![Screenshot showing a list of issues, each with a priority of "Low," "Medium," or "High" in the "Priority" field.](/assets/images/help/projects/priority-example.png)
 
 ## Grouping issues by priority
 

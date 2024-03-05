@@ -29,7 +29,7 @@ To facilitate migration to the new ID format, you can use the `X-Github-Next-Glo
 
 Here is an example request using a `curl` command:
 
-```
+```shell
 $ curl \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "X-Github-Next-Global-ID: 1" \
@@ -39,7 +39,7 @@ $ curl \
 
 Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
 
-```
+```json
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
 
@@ -48,7 +48,7 @@ To perform bulk operations, you can use aliases to submit multiple node queries 
 
 You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
 
-```
+```graphql
 {
   organization(login: "github") {
     repositories(last: 10) {
@@ -68,4 +68,4 @@ Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value 
 
 ## Sharing feedback
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+If you have any concerns about the rollout of this change impacting your app, please contact {% data variables.contact.contact_support %} and include information such as your app name so that we can better assist you.

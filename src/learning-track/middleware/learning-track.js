@@ -1,7 +1,7 @@
-import { getPathWithoutLanguage, getPathWithoutVersion } from '../../../lib/path-utils.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '#src/frame/lib/path-utils.js'
 import getLinkData from '../lib/get-link-data.js'
 import { renderContent } from '#src/content-render/index.js'
-import { getDeepDataByLanguage } from '../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 export default async function learningTrack(req, res, next) {
   const noTrack = () => {
@@ -16,6 +16,30 @@ export default async function learningTrack(req, res, next) {
 
   let trackProduct = req.context.currentProduct
   const allLearningTracks = getDeepDataByLanguage('learning-tracks', req.language)
+  if (req.langauge !== 'en') {
+    // Don't trust the `.guides` from the translation. It too often has
+    // broken Liquid (e.g. `{% ifversion fpt 또는 ghec 또는 ghes %}`)
+    const allEnglishLearningTracks = getDeepDataByLanguage('learning-tracks', 'en')
+    for (const [key, tracks] of Object.entries(allLearningTracks)) {
+      if (!(key in allEnglishLearningTracks)) {
+        // This can happen when the translation of
+        // `data/learning-tracks/foo.yml` has stuff in it that the English
+        // content no longer has. In that case, just skip it.
+        delete allLearningTracks[key]
+        console.warn('No English learning track for %s', key)
+        continue
+      }
+      for (const [name, track] of Object.entries(tracks)) {
+        // If this individual track does no longer exist in English,
+        // delete it from the translation too.
+        if (!(name in allEnglishLearningTracks[key])) {
+          delete tracks[name]
+          continue
+        }
+        track.guides = allEnglishLearningTracks[key][name].guides
+      }
+    }
+  }
   let tracksPerProduct = allLearningTracks[trackProduct]
 
   // If there are no learning tracks for the current product, try and fall

@@ -33,149 +33,44 @@ Your new {% data variables.product.prodname_actions %} workflow file is now inst
 
 To help you understand how YAML syntax is used to create a workflow file, this section explains each line of the introduction's example:
 
-<table>
-<tr>
-  <th scope="col">Code</th>
-  <th scope="col">Explanation</th>
-</tr>
-<tr>
-<td>
+```yaml annotate copy
+# Optional - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository. If this field is omitted, the name of the workflow file will be used instead.
+name: learn-github-actions
 
-  ```yaml
-  name: learn-github-actions
-  ```
-
-</td>
-<td>
-  <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
-</td>
-</tr>
 {%- ifversion actions-run-name %}
-<tr>
-<td>
-
-  ```yaml
-  run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-  ```
-
-</td>
-<td>
-
-  <em>Optional</em> - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
-</td>
-</tr>
+# Optional - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
+run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
 {%- endif %}
-<tr>
-<td>
 
-  ```yaml
-  on: [push]
-  ```
+# Specifies the trigger for this workflow. This example uses the `push` event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "[AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+on: [push]
 
-</td>
-<td>
-Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# Groups together all the jobs that run in the `learn-github-actions` workflow.
   jobs:
-  ```
 
-</td>
-<td>
- Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# Defines a job named `check-bats-version`. The child keys will define properties of the job.
   check-bats-version:
-  ```
 
-</td>
-<td>
-Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "[AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)"
     runs-on: ubuntu-latest
-  ```
 
-</td>
-<td>
-  Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# Groups together all the steps that run in the `check-bats-version` job. Each item nested under this section is a separate action or shell script.
     steps:
-  ```
 
-</td>
-<td>
-  Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell script.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# The `uses` keyword specifies that this step will run `v4` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
       - uses: {% data reusables.actions.action-checkout %}
-  ```
 
-</td>
-<td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 14.) This puts both the `node` and `npm` commands in your `PATH`.
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
-  ```
 
-</td>
-<td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# The `run` keyword tells the job to execute a command on the runner. In this case, you are using `npm` to install the `bats` software testing package.
       - run: npm install -g bats
-  ```
 
-</td>
-<td>
-  The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
+# Finally, you'll run the `bats` command with a parameter that outputs the software version.
       - run: bats -v
-  ```
-
-</td>
-<td>
-  Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.
-</td>
-</tr>
-</table>
+```
 
 ### Visualizing the workflow file
 

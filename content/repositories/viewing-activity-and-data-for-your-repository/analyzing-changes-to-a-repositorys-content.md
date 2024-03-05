@@ -36,7 +36,7 @@ The top graph shows commits for the entire year by week. The bottom graph shows 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Commits**.
-![Screenshot of the left sidebar. The "Commits" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/commits_tab.png)
+![Screenshot of the left sidebar. The "Commits" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/commits-tab.png)
 
 ## Visualizing additions and deletion to content in a repository
 
@@ -44,7 +44,7 @@ The code frequency graph displays the content additions and deletions for each w
 
 {% ifversion fpt or ghec %}
 
-![Screenshot of the code frequency graph.](/assets/images/help/graphs/repo_code_frequency_graph_dotcom.png)
+![Screenshot of the code frequency graph.](/assets/images/help/graphs/repo-code-frequency-graph-dotcom.png)
 
 {% endif %}
 
@@ -53,7 +53,7 @@ The code frequency graph displays the content additions and deletions for each w
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Code frequency**.
-![Screenshot of the left sidebar. The "Code frequency" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/code_frequency_tab.png)
+![Screenshot of the left sidebar. The "Code frequency" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/code-frequency-tab.png)
 
 {% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}

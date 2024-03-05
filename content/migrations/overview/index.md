@@ -9,5 +9,7 @@ versions:
 children:
   - /about-githubs-migration-tooling
   - /planning-your-migration-to-github
+  - /migration-paths-to-github
   - /about-locked-repositories
+  - /programmatically-importing-repositories
 ---

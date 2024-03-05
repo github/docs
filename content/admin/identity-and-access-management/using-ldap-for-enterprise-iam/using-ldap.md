@@ -89,7 +89,7 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 | `Enable LDAP certificate verification` | {% octicon "x" aria-label="Optional" %} |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
 | `Synchronization` | {% octicon "x" aria-label="Optional" %} | If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
 
-### Disabling password authentication for Git operations
+## Disabling password authentication for Git operations
 
 To enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests, you can disable password authentication for Git operations.
 
@@ -99,7 +99,7 @@ To disable password authentication for Git operations, select **Disable username
 
 When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
-### Enabling LDAP certificate verification
+## Enabling LDAP certificate verification
 
 You can validate the LDAP server certificate you use with TLS by enabling LDAP certificate verification.
 
@@ -110,19 +110,23 @@ When this option is selected, the certificate is validated to make sure:
 - The certificate is not expired.
 - The certificate is signed by a trusted certificate authority (CA).
 
-### Enabling LDAP Sync
+## Enabling LDAP Sync
 
 You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
 
+LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see "[Viewing and creating LDAP users](#viewing-and-creating-ldap-users)."
+
 {% note %}
 
-**Note:** If you use Active Directory, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
+**Note:** Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
+
+If you use Active Directory specifically, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
 
 If you need help determining if modifying the `MaxValRange` is the right approach for your Active Directory environment, contact Microsoft Support.
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
+To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
@@ -171,11 +175,11 @@ This has the potential to disclose sensitive organizational information to contr
 - The existence of specific LDAP Groups visible to the _Domain search user_.
 - Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
 
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
+If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 
-### Supported LDAP group object classes
+## Supported LDAP group object classes
 
 {% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
 
@@ -185,6 +189,8 @@ If disclosing such information is not desired, your company or organization shou
 - `posixGroup`
 
 ## Viewing and creating LDAP users
+
+When you use LDAP, your instance creates a user account the first time someone successfully signs in using LDAP credentials. Alternatively, you can manually provision a user account.
 
 You can view the full list of LDAP users who have access to your instance and provision new users.
 
@@ -201,7 +207,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 - To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 - To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
-### Manually syncing LDAP accounts
+## Manually syncing LDAP accounts
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -217,3 +223,7 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap)
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
 If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".
+
+## About logging for LDAP
+
+Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %})."

@@ -12,30 +12,37 @@ import { existsSync } from 'fs'
 import assert from 'assert'
 import { program, Option } from 'commander'
 
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import searchSync from './sync.js'
 
+const availableVersions = Object.fromEntries(
+  Object.entries(allVersions)
+    // GHAE is deprecated and not yet entirely deleted from all-versions
+    // Until so, we manually filter it out.
+    .filter(([version]) => version !== 'github-ae@latest')
+    .map(([key, value]) => [key, value]),
+)
 const shortNames = Object.fromEntries(
-  Object.values(allVersions).map((info) => {
+  Object.values(availableVersions).map((info) => {
     const shortName = info.hasNumberedReleases
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
+  }),
 )
 
-const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(allVersions)]
+const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(availableVersions)]
 
 program
   .description('Creates search records by scraping')
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version <VERSION>', 'Specific versions').choices(allVersionKeys))
   .addOption(
-    new Option('-l, --language <LANGUAGE>', 'Which languages to focus on').choices(languageKeys)
+    new Option('-l, --language <LANGUAGE>', 'Which languages to focus on').choices(languageKeys),
   )
   .addOption(
-    new Option('--not-language <LANGUAGE>', 'Specific language to omit').choices(languageKeys)
+    new Option('--not-language <LANGUAGE>', 'Specific language to omit').choices(languageKeys),
   )
   .option('--no-markers', 'Do not print a marker for each parsed document')
   .option('--filter <MATCH>', 'Filter to only do pages that match this string')
@@ -51,7 +58,7 @@ async function main(opts, args) {
     language = opts.language
     if (process.env.LANGUAGE) {
       console.warn(
-        `'language' specified as argument ('${language}') AND environment variable ('${process.env.LANGUAGE}')`
+        `'language' specified as argument ('${language}') AND environment variable ('${process.env.LANGUAGE}')`,
       )
     }
   } else {
@@ -59,7 +66,7 @@ async function main(opts, args) {
       language = process.env.LANGUAGE
       if (!languageKeys.includes(language)) {
         throw new Error(
-          `Environment variable 'VERSION' (${language}) is not recognized. Must be one of ${languageKeys}`
+          `Environment variable 'VERSION' (${language}) is not recognized. Must be one of ${languageKeys}`,
         )
       }
     }
@@ -74,7 +81,7 @@ async function main(opts, args) {
     version = opts.version
     if (process.env.VERSION) {
       console.warn(
-        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`
+        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`,
       )
     }
   } else {
@@ -82,7 +89,7 @@ async function main(opts, args) {
       version = process.env.VERSION
       if (!allVersionKeys.includes(version)) {
         throw new Error(
-          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`
+          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`,
         )
       }
     }
@@ -119,7 +126,7 @@ async function main(opts, args) {
   }
   assert(
     !indexVersion || indexVersion in allVersions,
-    `version must be undefined or one of ${Object.keys(allVersions)}`
+    `version must be undefined or one of ${Object.keys(allVersions)}`,
   )
 
   const [outDirectory] = args
@@ -133,9 +140,9 @@ async function main(opts, args) {
   const options = {
     language,
     notLanguage,
-    version: indexVersion,
     outDirectory,
     config,
+    versionsToBuild: indexVersion ? [indexVersion] : Object.keys(availableVersions),
   }
   await searchSync(options)
 }

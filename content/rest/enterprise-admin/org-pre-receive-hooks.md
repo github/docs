@@ -3,7 +3,7 @@ title: Organization Pre-receive Hooks
 intro: >-
   Use the REST API to view and modify enforcement of the pre-receive hooks that
   are available to an organization.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

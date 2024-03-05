@@ -1,1 +1,1 @@
-github/codeql-action/analyze@{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}
+github/codeql-action/analyze{% ifversion codeql-action-node16-deprecated %}@v3{% else %}@v2{% endif %}

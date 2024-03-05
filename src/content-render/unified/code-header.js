@@ -11,7 +11,7 @@ import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import murmur from 'imurmurhash'
 
-const languages = yaml.load(fs.readFileSync('./data/variables/code-languages.yml', 'utf8'))
+const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 
 const matcher = (node) =>
   node.type === 'element' &&
@@ -60,13 +60,15 @@ export function header(lang, code, subnav) {
         'button',
         {
           class: ['js-btn-copy', 'btn', 'btn-sm', 'tooltipped', 'tooltipped-nw'],
-          'aria-label': 'Copy code to clipboard',
+          'aria-label': `Copy ${languages[lang]?.name} code to clipboard`,
           'data-clipboard': codeId,
+          'aria-live': 'polite',
+          'aria-atomic': 'true',
         },
-        btnIcon()
+        btnIcon(),
       ),
       h('pre', { hidden: true, 'data-clipboard': codeId }, code),
-    ]
+    ],
   )
 }
 

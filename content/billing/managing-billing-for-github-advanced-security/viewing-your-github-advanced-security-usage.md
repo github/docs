@@ -75,7 +75,7 @@ You can download a CSV file with {% data variables.product.prodname_GH_advanced_
 - The username of the person using the {% ifversion ghas-billing-UI-update %}license{% else %}seat{% endif %}
 - The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
 - The organizations that people using {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} belong to
-- The most recent commit dates
+- The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
 
 You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} {% ifversion ghas-billing-UI-update %}license{% else %}seat{% endif %} or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 
@@ -124,7 +124,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {%- elsif ghes > 3.8 %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
 
-   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
+   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)
 
 {%- else %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," {% octicon "download" aria-label="The download icon" %} in the header of the "Committers" table.

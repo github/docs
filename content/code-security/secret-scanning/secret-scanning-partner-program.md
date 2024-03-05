@@ -81,16 +81,19 @@ The list of valid values for `source` are:
 
 - content
 - commit
+- pull_request_title
 - pull_request_description
 - pull_request_comment
+- issue_title
 - issue_description
 - issue_comment
+- discussion_title
 - discussion_body
 - discussion_comment
 - commit_comment
 - gist_content
 - gist_comment
-- npm_package
+- npm
 - unknown
 
 ### Implement signature verification in your secret alert service
@@ -100,12 +103,12 @@ to validate the messages you receive are genuinely from {% data variables.produc
 
 The two HTTP headers to look for are:
 
-- `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
-- `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+- `Github-Public-Key-Identifier`: Which `key_identifier` to use from our API
+- `Github-Public-Key-Signature`: Signature of the payload
 
 You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
 will provide several `key_identifier` and public keys. You can determine which public
-key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
+key to use based on the value of `Github-Public-Key-Identifier`.
 
 {% note %}
 
@@ -125,27 +128,13 @@ key to use based on the value of `GITHUB-PUBLIC-KEY-IDENTIFIER`.
 POST / HTTP/2
 Host: HOST
 Accept: */*
-content-type: application/json
-GITHUB-PUBLIC-KEY-IDENTIFIER: f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d
-GITHUB-PUBLIC-KEY-SIGNATURE: MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY=
-Content-Length: 83
+Content-Length: 104
+Content-Type: application/json
+Github-Public-Key-Identifier: bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c
+Github-Public-Key-Signature: MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg==
 
-[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
+[{"source":"commit","token":"some_token","type":"some_type","url":"https://example.com/base-repo-url/"}]
 ```
-
-{% note %}
-
-**Note**: The key id and signature from the example payload is derived from a test key.
-The public key for them is:
-
-```
------BEGIN PUBLIC KEY-----
-MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
-HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
------END PUBLIC KEY-----
-```
-
-{% endnote %}
 
 The following code snippets demonstrate how you could perform signature validation.
 The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
@@ -324,7 +313,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 **Validation sample in JavaScript**
 
-```js
+```javascript
 const crypto = require("crypto");
 const axios = require("axios");
 
@@ -377,7 +366,7 @@ When we report secrets to you, we send a JSON array with each element containing
 
 You can send us the raw token:
 
-```
+```json
 [
   {
     "token_raw": "The raw token",
@@ -389,7 +378,7 @@ You can send us the raw token:
 
 You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
-```
+```json
 [
   {
     "token_hash": "The SHA-256 hashed form of the raw token",

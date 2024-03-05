@@ -50,7 +50,7 @@ When referencing the URL of a label in Markdown, the label is automatically rend
 
 The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
 
-```md
+```markdown
 https://github.com/github/docs/labels/enhancement
 ```
 

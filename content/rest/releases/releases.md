@@ -1,7 +1,7 @@
 ---
 title: Releases
 intro: 'Use the REST API to create, modify, and delete releases and release assets.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

@@ -26,15 +26,16 @@ redirect_from:
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
-Charges are billed to an organization or enterprise when all of the following are true:
+Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true.
 
-- The repository from which a codespace is started (or the parent repository, in the case of a forked repository) is owned by an organization.
-- The organization is configured to be billed for codespaces created from the repository or forks of the repository.
-- The user creating the codespace belongs to the organization, or is an outside collaborator affiliated with the organization, and the organization has chosen to pay for this user's use of organization-owned codespaces.
+- The organization has chosen for codespaces to be organization-owned.
+{% data reusables.codespaces.when-an-org-pays %}
+
+For more information about enabling {% data variables.product.prodname_github_codespaces %} for users, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
 
 Otherwise use of {% data variables.product.prodname_github_codespaces %} applies to the personal account of the person who created the codespace, and either consumes some of the monthly included usage for their personal account, or their account is billed according to their usage in excess of their included quotas.
 
-For information about how to configure an organization to be billed for codespace usage, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
+The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
 
 {% ifversion ghec %}
 {% data reusables.codespaces.codespaces-unavailable-for-emus %}
@@ -101,7 +102,7 @@ If you enable prebuilding of codespaces this will incur additional charges. For 
 
 Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
 
@@ -109,7 +110,7 @@ The compute usage of a codespace is the length of time for which that codespace 
 
 As an example, if a codespace is active for 1 hour and 15 minutes, then the compute cost will be the hourly cost of the codespace, as determined by its machine type, multiplied by 1.25.
 
-You can control compute usage by stopping your codespaces. For information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+You can control compute usage by stopping your codespaces. For information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
 ## About billing for storage usage
 
@@ -138,7 +139,7 @@ Organization owners can:
 - See the total {% data variables.product.prodname_github_codespaces %} compute and storage usage for your organization for the current month to date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 - Configure your organization settings to manage the cost of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)."
 
-To estimate the costs for metered services, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
+To estimate the costs for usage-based billing, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
@@ -169,6 +170,8 @@ The storage cost for the prebuilds generated by a prebuild configuration is ther
 
 You can check how many GB-months of storage has been used by prebuilds by reviewing the current billing data for your personal or organization account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
+{% data reusables.codespaces.prebuilds-billing-for-forks %} For more information, see "[How billing is handled for forked repositories](#how-billing-is-handled-for-forked-repositories)."
+
 ### Controlling the cost of prebuilds
 
 To reduce consumption of Actions minutes, you can set a prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. You can also manage your storage usage by adjusting the number of previous versions of each prebuild that are retained. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
@@ -197,6 +200,18 @@ For information on managing and changing your account's spending limit, see "[AU
 
 {% data reusables.codespaces.exporting-changes %}
 
+## Viewing projected usage for an organization
+
+Organization owners and billing managers can view an estimated total usage cost for {% data variables.product.prodname_github_codespaces %} for the organization, for the current monthly billing cycle. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage#viewing-github-codespaces-usage-for-your-organization-account)."
+
+The projected usage shown on the billing page for an organization is calculated based on the total cost for {% data variables.product.prodname_codespaces %} compute and storage usage incurred during the previous seven days, prior to the current day. This is projected forward for the remainder of the billing month to give you an idea of how much the total cost might be for the current billing cycle.
+
+The calculation used for this estimate is:
+
+`<cost for the previous 7 full days>/7 * <days remaining in the billing month, including the current day> + <cost already accrued in this billing month>`
+
+The projected usage does not take into account information such as whether {% data variables.product.prodname_github_codespaces %} is still enabled, the number or size of codespaces that currently exist, or your prebuild settings. For this reason, if all of the organization's codespaces and prebuilds were deleted today, the projected usage for the billing month would still show a figure higher than the accrued usage. However, after seven days have elapsed, with no further {% data variables.product.prodname_codespaces %} usage, the projected usage will be the same as the currently accrued usage.
+
 ## Limiting the machine types for organization-owned codespaces
 
 By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
@@ -215,11 +230,33 @@ Usage of codespaces created from a forked repository will be billed to your pers
 
 For example, consider a member, or outside collaborator, of an organization that has allowed billing for codespaces for that user. If the user has permission to fork an organization-owned private repository, they can subsequently create and use a codespace for the new repository at the organization's expense. This is because the organization is the owner of the parent repository. Note that the organization owner can remove the user's access to the private repository, the forked repository, and therefore also the codespace. The organization owner can also delete the parent repository which will also delete the forked repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)."
 
-{% data reusables.codespaces.codespaces-disabling-org-billing %}
+{% data reusables.codespaces.prebuilds-billing-for-forks %}
 
 ## How billing is handled when a repository is transferred to another organization
 
-Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
+Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
+
+## How billing is handled for {% data variables.product.prodname_github_codespaces %} templates
+
+You can get started on a new project by creating a codespace from a template. Codespaces created from templates aren't initially associated with a repository, but you can publish the codespace to a repository owned by your personal account. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+Any organization can maintain a template repository for use with {% data variables.product.prodname_github_codespaces %}. As with any other repository in an organization, a codespace created from a template repository is billed to the organization if the organization has set a spending limit for {% data variables.product.prodname_github_codespaces %} and allowed the user creating the codespace to do so at the organization's expense. Otherwise, the codespace is billed to the user who creates the codespace.
+
+If a user publishes a codespace created from a template, the codespace is published to a new repository owned by the user's personal account. If the codespace is currently billed to an organization, ownership and billing of the codespace transfer to the user who created the codespace.
+
+{% ifversion ghec %}
+
+{% note %}
+
+**Note:** A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
+- A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
+- A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
+
+For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endnote %}
+
+{% endif %}
 
 ## What happens when users are removed
 

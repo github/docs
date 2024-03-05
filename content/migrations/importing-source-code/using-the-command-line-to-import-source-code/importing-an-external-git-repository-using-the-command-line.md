@@ -26,7 +26,7 @@ For purposes of demonstration, we'll use:
 - An external account named **extuser**
 - An external Git host named `https://external-host.com`
 - A {% data variables.product.product_name %} personal account named **ghuser**
-- A repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} named **repo.git**
+- A repository on {% data variables.location.product_location %} named **repo.git**
 
 {% endtip %}
 
@@ -43,7 +43,7 @@ For purposes of demonstration, we'll use:
    ```shell
    $ cd REPO.git
    $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
-   # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
+   # Pushes the mirror to the new repository on {% data variables.location.product_location %}
    ```
 
 1. Remove the temporary local repository.
@@ -54,3 +54,10 @@ For purposes of demonstration, we'll use:
    ```
 
 If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

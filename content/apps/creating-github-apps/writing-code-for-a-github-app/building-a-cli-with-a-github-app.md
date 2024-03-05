@@ -133,13 +133,13 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    `help` is not yet defined
    ```
 
    You can also test your script without a command or with an unhandled command. For example, `./app_cli.rb create-issue` should output:
 
-   ```
+   ```shell
    Unknown command `create-issue`
    ```
 
@@ -172,7 +172,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
 1. Optionally, check your progress:
 
-   `app_cli.rb` now looks like this. The order of the functions don't matter as long as the `main` function call is at the end of the file.
+   `app_cli.rb` now looks like this. The order of the functions doesn't matter as long as the `main` function call is at the end of the file.
 
    ```ruby copy
    #!/usr/bin/env ruby
@@ -204,7 +204,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    usage: app_cli <help>
    ```
 
@@ -218,7 +218,7 @@ The `login` command will run the device flow to get a user access token. For mor
    CLIENT_ID="YOUR_CLIENT_ID"
    ```
 
-1. Add the following `parse_response` function to `app_cli.rb`. This function parses a response from the {% data variables.product.company_short %} REST API. When the response status is `200 OK` or `201 Created`, the function returns the parsed response body. Otherwise, the function prints the response and body an exits the program.
+1. Add the following `parse_response` function to `app_cli.rb`. This function parses a response from the {% data variables.product.company_short %} REST API. When the response status is `200 OK` or `201 Created`, the function returns the parsed response body. Otherwise, the function prints the response and body and exits the program.
 
    ```ruby copy
    def parse_response(response)
@@ -356,7 +356,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Optionally, check your progress:
 
-   `app_cli.rb` now looks something like this, where `YOUR_CLIENT_ID` is the client ID of your app. The order of the functions don't matter as long as the `main` function call is at the end of the file.
+   `app_cli.rb` now looks something like this, where `YOUR_CLIENT_ID` is the client ID of your app. The order of the functions doesn't matter as long as the `main` function call is at the end of the file.
 
    ```ruby copy
    #!/usr/bin/env ruby
@@ -474,7 +474,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
    1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-      ```
+      ```shell
       Please visit: {% data variables.product.oauth_host_code %}/login/device
       and enter code: CA86-8D94
       ```
@@ -705,13 +705,13 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see output that looks like this.
 
-   ```
+   ```shell
    usage: app_cli <login | whoami | help>
    ```
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-   ```
+   ```shell
    Please visit: {% data variables.product.oauth_host_code %}/login/device
    and enter code: CA86-8D94
    ```
@@ -721,21 +721,21 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 1. Your terminal should now say "Successfully authenticated!".
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this, where `octocat` is your username.
 
-   ```
+   ```shell
    You are octocat
    ```
 
 1. Open the `.token` file in your editor, and modify the token. Now, the token is invalid.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 
 1. Delete the `.token` file.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 
@@ -749,7 +749,7 @@ This tutorial demonstrated how to write a CLI that uses the device flow to gener
 
 This tutorial generates a user access token and saves it in a local file. You should never commit this file or publicize the token.
 
-Depending on your device, you may choose different way to store the token. You should check the best practices for storing tokens on your device.
+Depending on your device, you may choose different ways to store the token. You should check the best practices for storing tokens on your device.
 
 For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
 

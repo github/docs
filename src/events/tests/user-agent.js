@@ -25,6 +25,14 @@ describe('parseUserAgent', () => {
     expect(browser).toBe('edge')
   })
 
+  it('mac, edge', () => {
+    const ua =
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.203'
+    const { os, browser } = parseUserAgent(ua)
+    expect(os).toBe('mac')
+    expect(browser).toBe('edge')
+  })
+
   it('mac, safari', () => {
     const ua =
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9'
@@ -46,6 +54,14 @@ describe('parseUserAgent', () => {
     const { os, browser } = parseUserAgent(ua)
     expect(os).toBe('linux')
     expect(browser).toBe('firefox')
+  })
+
+  it('mac, opera', () => {
+    const ua =
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 OPR/101.0.0.0'
+    const { os, browser } = parseUserAgent(ua)
+    expect(os).toBe('mac')
+    expect(browser).toBe('opera')
   })
 
   it('other, other', () => {

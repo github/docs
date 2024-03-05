@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import Ajv from 'ajv'
 import { get, isPlainObject } from 'lodash-es'
 
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { renderContent } from '#src/content-render/index.js'
 import webhookSchema from './webhook-schema.js'
 import { getBodyParams } from '../../rest/scripts/utils/get-body-params.js'
@@ -15,6 +15,8 @@ const NO_CHILD_PROPERTIES = [
   'sender',
 ]
 
+const validate = getJsonValidator(webhookSchema)
+
 export default class Webhook {
   #webhook
   constructor(webhook) {
@@ -26,7 +28,7 @@ export default class Webhook {
     this.action = get(
       webhook,
       `requestBody.content['application/json'].schema.properties.action.enum[0]`,
-      null
+      null,
     )
 
     // for some webhook action types (like some pull-request webhook types) the
@@ -36,7 +38,7 @@ export default class Webhook {
       this.action = get(
         webhook,
         `requestBody.content['application/json'].schema.oneOf[0].properties.action.enum[0]`,
-        null
+        null,
       )
     }
 
@@ -50,10 +52,9 @@ export default class Webhook {
   async process() {
     await Promise.all([this.renderDescription(), this.renderBodyParameterDescriptions()])
 
-    const ajv = new Ajv()
-    const valid = ajv.validate(webhookSchema, this)
-    if (!valid) {
-      console.error(JSON.stringify(ajv.errors, null, 2))
+    const isValid = validate(this)
+    if (!isValid) {
+      console.error(JSON.stringify(validate.errors, null, 2))
       throw new Error(`Invalid OpenAPI webhook found: ${this.category}`)
     }
   }

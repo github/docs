@@ -42,7 +42,7 @@ export async function createChangelogEntry(
   newSchemaString,
   previews,
   oldUpcomingChanges,
-  newUpcomingChanges
+  newUpcomingChanges,
 ) {
   // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString, {})
@@ -58,14 +58,15 @@ export async function createChangelogEntry(
       // Do nothing
     } else {
       throw new Error(
-        'This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: ' + change.type
+        'This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: ' +
+          change.type,
       )
     }
   })
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
     changesToReport,
-    previews
+    previews,
   )
 
   const addedUpcomingChanges = newUpcomingChanges.filter(function (change) {
@@ -96,7 +97,7 @@ export async function createChangelogEntry(
     const renderedScheamChanges = await Promise.all(
       cleanedSchemaChanges.map(async (change) => {
         return await renderContent(change)
-      })
+      }),
     )
     const schemaChange = {
       title: 'The GraphQL schema includes these changes:',
@@ -111,7 +112,7 @@ export async function createChangelogEntry(
       const renderedPreviewChanges = await Promise.all(
         cleanedPreviewChanges.map(async (change) => {
           return renderContent(change)
-        })
+        }),
       )
       const cleanTitle = cleanPreviewTitle(previewTitle)
       const entryTitle =
@@ -136,7 +137,7 @@ export async function createChangelogEntry(
       const renderedUpcomingChanges = await Promise.all(
         cleanedUpcomingChanges.map(async (change) => {
           return await renderContent(change)
-        })
+        }),
       )
       changelogEntry.upcomingChanges.push({
         title: 'The following changes will be made to the schema:',

@@ -3,8 +3,7 @@ title: Git LFS
 intro: >-
   Use the REST API to enable or disable {% data
   variables.large_files.product_name_long %} (LFS) for a repository.
-versions:
-  fpt: '*'
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghec: '*'
   ghes: '*'

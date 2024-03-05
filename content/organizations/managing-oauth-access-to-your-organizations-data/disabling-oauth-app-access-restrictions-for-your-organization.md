@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Unrestrict {% data variables.product.prodname_oauth_app %}s
+shortTitle: Unrestrict {% data variables.product.prodname_oauth_apps %}
 ---
 
 {% danger %}

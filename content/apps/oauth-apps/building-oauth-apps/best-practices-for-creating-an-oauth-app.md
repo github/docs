@@ -13,11 +13,11 @@ topics:
 
 ## Use a {% data variables.product.prodname_github_app %} instead
 
-If possible, consider using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_apps %}. {% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of your app by limiting the damage that could be done if your app's credentials are leaked.
+If possible, consider using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. In general, {% data variables.product.prodname_github_apps %} are preferred over {% data variables.product.prodname_oauth_apps %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of your app by limiting the damage that could be done if your app's credentials are leaked.
 
-Similar to {% data variables.product.prodname_oauth_app %}s, {% data variables.product.prodname_github_app %}s can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_app %}s can also act independently of a user.
+Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
-For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+For more information about {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
 
@@ -54,6 +54,14 @@ You should have a plan in place so that you can handle any security breaches in 
 In the event that your app's client secret is compromised, you will need to generate a new secret, update your app to use the new secret, and delete your old secret.
 
 In the event that user access tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)."
+
+## Verify a user's access to your organizations
+
+Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
+
+To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)" in the REST API documentation.
+
+{% data reusables.emus.oauth-app-note %}
 
 ## Conduct regular vulnerability scans
 

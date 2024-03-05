@@ -349,6 +349,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -917,6 +923,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "billing": [
@@ -2484,7 +2496,7 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
     }
   ],
   "projects": [
@@ -2791,6 +2803,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3001,7 +3021,7 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -3073,6 +3093,78 @@
       "requestPath": "/repos/{owner}/{repo}/forks"
     },
     {
+      "slug": "list-repository-webhooks",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks"
+    },
+    {
+      "slug": "create-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks"
+    },
+    {
+      "slug": "get-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "update-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "delete-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "get-a-webhook-configuration-for-a-repository",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+    },
+    {
+      "slug": "update-a-webhook-configuration-for-a-repository",
+      "subcategory": "webhooks",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+    },
+    {
+      "slug": "list-deliveries-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries"
+    },
+    {
+      "slug": "get-a-delivery-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}"
+    },
+    {
+      "slug": "redeliver-a-delivery-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
+    },
+    {
+      "slug": "ping-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/pings"
+    },
+    {
+      "slug": "test-the-push-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
+    },
+    {
       "slug": "list-repository-languages",
       "subcategory": "repos",
       "verb": "get",
@@ -3109,6 +3201,12 @@
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
+      "slug": "download-a-repository-archive-tar",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"
+    },
+    {
       "slug": "list-repository-teams",
       "subcategory": "repos",
       "verb": "get",
@@ -3125,6 +3223,12 @@
       "subcategory": "repos",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/topics"
+    },
+    {
+      "slug": "download-a-repository-archive-zip",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
     },
     {
       "slug": "list-public-repositories",
@@ -3325,80 +3429,6 @@
       "subcategory": "ssh-signing-keys",
       "verb": "get",
       "requestPath": "/users/{username}/ssh_signing_keys"
-    }
-  ],
-  "webhooks": [
-    {
-      "slug": "list-repository-webhooks",
-      "subcategory": "repos",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks"
-    },
-    {
-      "slug": "create-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks"
-    },
-    {
-      "slug": "get-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "update-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "delete-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "delete",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "get-a-webhook-configuration-for-a-repository",
-      "subcategory": "repo-config",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
-    },
-    {
-      "slug": "update-a-webhook-configuration-for-a-repository",
-      "subcategory": "repo-config",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
-    },
-    {
-      "slug": "list-deliveries-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries"
-    },
-    {
-      "slug": "get-a-delivery-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}"
-    },
-    {
-      "slug": "redeliver-a-delivery-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
-    },
-    {
-      "slug": "ping-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/pings"
-    },
-    {
-      "slug": "test-the-push-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
     }
   ]
 }

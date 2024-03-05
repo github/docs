@@ -14,7 +14,7 @@ topics:
   - Networking
   - Storage
 shortTitle: Tool cache for offline runners
---- 
+---
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the included setup actions and the runner tool cache
@@ -35,7 +35,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 ## Prerequisites
 
-- Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
+- Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 14 and 16.
 - Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
 - Access to your self-hosted runner's file system to populate the tool cache folder.
 
@@ -44,10 +44,10 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository that you can use to run a {% data variables.product.prodname_actions %} workflow.
 1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {% data variables.product.prodname_dotcom %}-hosted runner's tool cache.
 
-   The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 22.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
+   The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 22.04 environment, using the `setup-node` action with Node.js versions 14 and 16.
 
    ```yaml
-   name: Upload Node.js 10 and 12 tool cache
+   name: Upload Node.js 14 and 16 tool cache
    on: push
    jobs:
      upload_tool_cache:
@@ -57,14 +57,14 @@ You can populate the runner tool cache by running a {% data variables.product.pr
            run: |
              mv "{% raw %}${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"{% endraw %}
              mkdir -p "{% raw %}${{ runner.tool_cache }}{% endraw %}"
-         - name: Setup Node 10
+         - name: Setup Node 14
            uses: {% data reusables.actions.action-setup-node %}
            with:
-             node-version: 10.x
-         - name: Setup Node 12
+             node-version: 14.x
+         - name: Setup Node 16
            uses: {% data reusables.actions.action-setup-node %}
            with:
-             node-version: 12.x
+             node-version: 16.x
          - name: Archive tool cache
            run: |
              cd "{% raw %}${{ runner.tool_cache }}{% endraw %}"
@@ -80,16 +80,16 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
     After extracting the tool cache artifact uploaded in the above example, you should have a directory structure on your self-hosted runner that is similar to the following example:
 
-    ```
+    ```text
     RUNNER_DIR
     ├── ...
     └── _work
         ├── ...
         └── _tool
             └── node
-                ├── 10.22.0
+                ├── 14.21.3
                 │   └── ...
-                └── 12.18.3
+                └── 16.16.0
                     └── ...
     ```
 

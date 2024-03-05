@@ -1,7 +1,7 @@
 ---
 title: Blocking users
 intro: Use the REST API to block and unblock users in an organization.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

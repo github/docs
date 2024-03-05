@@ -1,7 +1,7 @@
 import assert from 'assert'
 
 import { THROW_ON_EMPTY, IndentedDataReferenceError } from './error-handling.js'
-import { getDataByLanguage } from '../../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 // This class supports a tag that expects two parameters, a data reference and `spaces=NUMBER`:
 //

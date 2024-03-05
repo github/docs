@@ -11,7 +11,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 shortTitle: Delete & restore a package
 ---
 
@@ -28,7 +27,7 @@ On {% data variables.product.prodname_dotcom %} if you have the required access,
 {% note %}
 
 **Note:**
-- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact [GitHub support](https://support.github.com/contact?tags=docs-packages) for further assistance.
+- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
 - When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
@@ -193,7 +192,7 @@ To restore a deleted package, you must also meet one of these permission require
 - For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes %}
 To delete a package, you must also have admin permissions to the repository in which the package is published.
 {% endif %}
 

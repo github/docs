@@ -38,7 +38,7 @@ Documentation for both administrators and users of {% data variables.product.pro
 
 ## Trying {% data variables.product.product_name %}
 
-You can sign up for a free, 30-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)."
+You can sign up for a free, 30-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 ## Further reading
 

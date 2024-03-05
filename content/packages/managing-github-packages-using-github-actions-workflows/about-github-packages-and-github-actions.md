@@ -4,12 +4,10 @@ intro: 'Learn the fundamentals of managing packages through your {% data variabl
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Packages & Actions
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.about-packaging-and-actions %}

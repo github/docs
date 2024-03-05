@@ -42,7 +42,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
 
      - **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
 
-     - **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.  
+     - **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
 
 - Contribute in a positive and constructive way.
   - **Improve the discussion.** Help us make this a great place for discussion by always working to improve the discussion in some way, however small. If you are not sure your post adds to the conversation, think over what you want to say and try again later.
@@ -77,7 +77,21 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 - **Other conduct which could reasonably be considered inappropriate in a professional setting.** GitHub Community is a professional space and should be treated as such.
 
-- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/site-policy/github-terms/github-terms-of-service) we will have to close your account.  
+- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/site-policy/github-terms/github-terms-of-service) we will have to close your account.
+
+### _Reasonable use of AI generated content_
+
+We love experimenting with new technologies, and we are especially fond of [GitHub Copilot](https://github.com/features/copilot). But as with all new technology, many of us are still getting accustomed to using generative AI tools the most effectively. Here are important guidelines to follow when using generative AI to answer questions in the community:
+
+  - Take personal responsibility for everything you post.
+  - Read and revise the content before you post it; use your own authentic voice.
+  - Use your expertise as a developer to verify that the answer works and makes sense.
+  - Do not just post AI-generated content verbatim to inflate your reputation or give a false impression of product expertise.
+  - AI tools will often answer in an authoritative tone that sounds like a tech support professional. Be careful not to [mislead other users](/site-policy/acceptable-use-policies/github-impersonation) into thinking that this authoritative tone means they are receiving an official response from GitHub.
+
+Additionally, all of the guidelines listed in the previous section ([Best Practices for Maintaining a Strong Community](/site-policy/github-terms/github-community-code-of-conduct#best-practices-for-maintaining-a-strong-community)) also apply here.
+
+The community is here for users to build trust through authentic reputations. Not adhering to these guidelines may, in some cases, constitute a Code of Conduct violation. Refer to [the enforcement section](#enforcement) below for more information.
 
 ## Enforcement
 
@@ -103,7 +117,7 @@ GitHub Community moderators who do not follow or enforce the Code of Conduct in 
 
 ## Contacting GitHub Staff
 
-If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of GitHub Community privately, you can use our [Support contact form](https://support.github.com/contact?tags=docs-community-support). Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than GitHub Community itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
+If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of GitHub Community privately, you can contact GitHub Support through the [GitHub Support portal](https://support.github.com/). Contacting any member of GitHub Staff via unsolicited mentions or pings, or via channels other than GitHub Community itself, or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
 
 Let's work together to keep GitHub Community a place where people feel safe to participate by being respectful of them and their time.
 
@@ -115,4 +129,4 @@ This Code of Conduct does not modify our [Terms of Service](/site-policy/github-
 
 ### Data Retention and Deletion of Data
 
-If you're a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting [GitHub Support](https://support.github.com/contact). We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements, but barring legal requirements, will delete your full profile (within reason) within 90 days of your request. For more information please see the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+If you're a GitHub user, you may access, update, alter, or delete your basic user profile information by [editing your user profile](https://github.com/settings/profile) or contacting GitHub Support through the [GitHub Support portal](https://support.github.com/). We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements, but barring legal requirements, will delete your full profile (within reason) within 90 days of your request. For more information please see the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).

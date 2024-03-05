@@ -5,11 +5,13 @@ name: Move and unlabel ready to merge PRs
 # **Who does it impact**: Open source contributors, open-source maintainers.
 
 on:
+  # Needed in lieu of `pull_request` so that the a PR from a fork can trigger the project board and label automation.
   pull_request_target:
     types:
       - labeled
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:

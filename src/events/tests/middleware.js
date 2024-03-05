@@ -1,5 +1,5 @@
 import { expect, jest } from '@jest/globals'
-import { post } from '../../../tests/helpers/e2etest.js'
+import { post } from '#src/tests/helpers/e2etest.js'
 
 describe('POST /events', () => {
   jest.setTimeout(60 * 1000)

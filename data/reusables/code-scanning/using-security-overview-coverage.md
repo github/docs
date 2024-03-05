@@ -3,4 +3,3 @@
     - Click **NUMBER enabled** or **NUMBER not enabled** in the header for any feature to show only the repositories with that feature enabled or not enabled.
     - At the top of the list of repositories, click **NUMBER Archived** to show only repositories that are archived.
     - Click in the search box to add further filters to the repositories displayed.
-    

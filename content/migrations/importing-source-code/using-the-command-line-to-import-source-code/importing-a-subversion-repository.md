@@ -39,7 +39,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 1. Update your `authors.txt` file, mapping the author name used in the Subversion repository to the name you want to use in your Git repository, with the following format:
 
-   ```
+   ```text
    octocat = The Octocat <octocat@github.com>
    ```
 
@@ -47,7 +47,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
    - If your Subversion repository has a standard format, with “trunk”, “branches”, and “tags” folders, run `git svn clone -s URL PATH/TO/DESTINATION --authors-file PATH/TO/AUTHORS.TXT`, replacing `URL` with the URL of the Subversion repository, `PATH/TO/DESTINATION` with the path to the directory you want to clone the repository into, and `PATH/TO/AUTHORS.TXT` with the path to your `authors.txt` file.
 
-    For example, to clone the Logisim project from Sourceforge into a directory called logisim, run `git svn clone -s https://svn.code.sf.net/p/circuit/code logisim --authors-file path/to/authors.txt`.
+     For example, to clone the Logisim project from Sourceforge into a directory called logisim, run `git svn clone -s https://svn.code.sf.net/p/circuit/code logisim --authors-file path/to/authors.txt`.
 
    - If your Subversion repository is non-standard, you can customize `git svn` to handle your repository. For more information, see [git-svn](https://git-scm.com/docs/git-svn) in the Git documentation.
 1. Git will check out each SVN revision and turn the revision into a Git commit. If your repository has many files or a lot of history, this process will take a long time.
@@ -56,3 +56,10 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 {% data reusables.migrations.move-into-git-repo-directory %}
 {% data reusables.migrations.add-github-repo-as-remote %}
 {% data reusables.migrations.push-to-github %}
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

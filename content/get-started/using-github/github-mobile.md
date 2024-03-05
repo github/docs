@@ -26,11 +26,14 @@ With {% data variables.product.prodname_mobile %} you can:
 - Edit files in pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
+{% ifversion mobile-code-search %}- Search through code in a specific repository{% endif %}
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
 - Verify your sign in attempts on unrecognized devices{% endif %}
 
-For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
+- For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+{% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile)."{% endif %}
 {% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile)." {% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
@@ -39,7 +42,7 @@ To install {% data variables.product.prodname_mobile %} for Android or iOS, see 
 
 ## Managing accounts
 
-You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+You can be simultaneously signed into mobile with multiple accounts on {% data variables.product.prodname_dotcom_the_website %} and on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -55,11 +58,13 @@ During the beta for {% data variables.product.prodname_mobile %} with {% data va
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in.
+You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
-After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
+After signing in with an account on {% data variables.product.prodname_ghe_server %}, you can switch between any other accounts you're currently logged into within the app. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
 
-If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+If you no longer need to access your account on {% ifversion ghec or ghes%}{% data variables.product.prodname_ghe_server %} from{% endif %} {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+
+Alternatively, once logged into one account, access the account switcher to log into other accounts or log out of an existing account by navigating to the {% octicon "person" aria-hidden="true" %} **Profile** tab, then tapping {% octicon "gear" aria-hidden="true" %}, and then tapping **Manage Accounts**.
 
 ## Supported languages for {% data variables.product.prodname_mobile %}
 
@@ -70,6 +75,8 @@ If you no longer need to access data for your personal account on {% data variab
 - Brazilian Portuguese
 - Simplified Chinese
 - Spanish
+- German
+- Korean
 
 If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 

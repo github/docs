@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with cloud provi
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -32,6 +32,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 1. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
+
+{% data reusables.actions.oidc-deployment-protection-rules %}
 
 ### Adding permissions settings
 
@@ -77,7 +79,7 @@ jobs:
 
 ### Requesting the JWT using environment variables
 
-The following example demonstrates how to use enviroment variables to request a JSON Web Token.
+The following example demonstrates how to use environment variables to request a JSON Web Token.
 
 For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
 
@@ -133,3 +135,7 @@ The steps for exchanging the OIDC token for an access token will vary for each c
 
 Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
 In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

@@ -30,7 +30,7 @@ Issues and pull requests in public repositories, and in private repositories for
 1. Open the issue or pull request that you want to assign to someone.
 1. In the right side menu, click **Assignees**.
 
-   ![Screenshot of the right sidebar of an issue. A header, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/assignee_menu.png)
+   ![Screenshot of the right sidebar of an issue. A header, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/assignee-menu.png)
 1. To assign the issue or pull request to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
 
 ## Assigning multiple issues or pull requests
@@ -39,7 +39,7 @@ Issues and pull requests in public repositories, and in private repositories for
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select the items you want to assign to someone.
 
-   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues_assign_checkbox.png)
+   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues-assign-checkbox.png)
 1. In the upper-right corner, click **Assign**.
 1. To assign the items to a user, start typing their username, then click their name when it appears. You can select and add up to ten assignees to an issue or pull request.
 

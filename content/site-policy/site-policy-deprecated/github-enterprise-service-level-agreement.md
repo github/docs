@@ -33,6 +33,6 @@ Excluded from the Uptime Calculation are Service Feature failures resulting from
 
 ## Service Credits Redemption
 
-If GitHub does not meet this SLA, Customer may redeem Service Credits only upon written request to GitHub within thirty (30) days of the end of the calendar quarter. Written requests for Service Credits redemption and GitHub Enterprise Cloud custom monthly or quarterly reports should be sent to [GitHub Support](https://support.github.com/contact?tags=docs-policy).
+If GitHub does not meet this SLA, Customer may redeem Service Credits only upon written request to GitHub within thirty (30) days of the end of the calendar quarter. Written requests for Service Credits redemption and GitHub Enterprise Cloud custom monthly or quarterly reports should be sent to GitHub using the contact form available at [GitHub Support](https://support.github.com/).
 
 Service Credits may take the form of a refund or credit to Customer’s account, cannot be exchanged into a cash amount, are limited to a maximum of ninety (90) days of paid service per calendar quarter, require Customer to have paid any outstanding invoices, and expire upon termination of Customer’s agreement with GitHub. Service Credits are the sole and exclusive remedy for any failure by GitHub to meet any obligations in this SLA.

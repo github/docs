@@ -56,7 +56,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 1. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
 1. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
-   ```
+   ```text
    If you have questions, please
    <<<<<<< HEAD
    open an issue
@@ -80,7 +80,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 1. Commit your changes with a comment.
 
    ```shell
-   git commit -m "Resolved merge conflict by incorporating both suggestions."
+   git commit -m "Resolve merge conflict by incorporating both suggestions"
    ```
 
 You can now merge the branches on the command line or [push your changes to your remote repository](/get-started/using-git/pushing-commits-to-a-remote-repository) on {% data variables.product.product_name %} and [merge your changes](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) in a pull request.
@@ -137,7 +137,7 @@ For example, if you edited a file, such as _README.md_, and another person remov
 1. Commit your changes with a comment.
 
    ```shell
-   $ git commit -m "Resolved merge conflict by keeping README.md file."
+   $ git commit -m "Resolve merge conflict by keeping README.md file"
    > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
    ```
 

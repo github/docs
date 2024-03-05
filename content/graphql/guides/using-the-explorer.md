@@ -7,12 +7,19 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
 
 ## About the GraphQL Explorer
+
+{% ifversion ghec %}
+{% note %}
+
+**Note**: If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
 

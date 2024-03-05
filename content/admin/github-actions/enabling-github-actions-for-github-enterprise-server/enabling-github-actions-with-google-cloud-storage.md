@@ -23,8 +23,6 @@ shortTitle: Google Cloud Storage
 
 {% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 {% endif %}
 
 ## Prerequisites
@@ -38,8 +36,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% ifversion ghes-actions-storage-oidc %}
 
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage using OIDC (recommended)
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with Google Cloud Storage, you must first create a Google Cloud service account, then create a Google Cloud identity pool and identity provider, and finally configure {% data variables.product.prodname_ghe_server %} to use the provider and service account to access your Google Cloud Storage bucket.
 
@@ -65,13 +61,13 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
    - For "Provider name", enter a name for the provider.
    - For "Issuer (URL)", enter the following URL, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-     ```
+     ```text
      https://HOSTNAME/_services/token
      ```
 
      For example:
 
-     ```
+     ```text
      https://my-ghes-host.example.com/_services/token
      ```
 
@@ -83,13 +79,13 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
    - Under "Attribute Conditions", click **Add condition**.
    - For "Condition CEL", enter the following condition, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-     ```
+     ```text
      google.subject == "HOSTNAME"
      ```
 
      For example:
 
-     ```
+     ```text
      google.subject == "my-ghes-host.example.com"
      ```
 
@@ -151,11 +147,11 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 {% data reusables.actions.enterprise-gcp-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- else %}
 1. Under "Artifact & Log Storage", select **Google Cloud Storage**, and enter your bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

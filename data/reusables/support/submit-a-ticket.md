@@ -1,5 +1,13 @@
-1. Select the **Select personal account, enterprise account or organization** dropdown menu and click the name of the account your support ticket is regarding.
+{% ifversion fpt %}
+1. At the top of the page, under "How can we help?", choose a topic or click **open a support ticket**.
+   {% note %}
+
+   **Note:** You will only see the link to open a support ticket if your account uses a paid {% data variables.product.prodname_dotcom %} product or you are a member of an organization that uses a paid product. If you don't see the link, you can speak to {% data variables.product.prodname_dotcom %} users and staff on the {% data variables.contact.community_support_forum %} for most issues, and you can still contact {% data variables.contact.github_support %} to report account, security, and abuse issues.
+
+   {% endnote %}
+{%- endif %}
 {% ifversion ghec or ghes %}
+1. Select the **Select personal account, enterprise account or organization** dropdown menu and click the name of the account your support ticket is regarding.
    {% note %}
 
    **Notes:**
@@ -19,7 +27,7 @@
 1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-ticket-priority)."
+1. Select the **Type of Issue** dropdown menu and click the appropriate circumstance.
 {%- endif %}
 {%- ifversion ghes %}
     - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
@@ -28,7 +36,7 @@
     - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket issue aligns to our {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
 
    {% note %}
 
@@ -48,7 +56,7 @@
 
       {% warning %}
 
-      **Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)."{% endif %}
+      **Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. To keep sensitive media files private, serve them from a private network or server that requires authentication. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)."{% endif %}
 
       {% endwarning %}
 

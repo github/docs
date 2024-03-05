@@ -63,12 +63,13 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 
 {% warning %}
 
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, contact {% data variables.contact.contact_ent_support %} to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
+**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. If you're locked out of your server, visit {% data variables.contact.contact_ent_support %} and contact us to reconfigure the original firewall rules. Restoring the original firewall rules involves downtime for your server.
 
 {% endwarning %}
 
 1. Configure a custom firewall rule.
 1. Check the status of each new rule with the `status numbered` command.
+
    ```shell
    sudo ufw status numbered
    ```
@@ -87,7 +88,7 @@ If something goes wrong after you change the firewall rules, you can reset the r
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**Warning:** If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
 
 {% endwarning %}
 

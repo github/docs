@@ -1,6 +1,6 @@
 date: '2023-06-08'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -287,17 +287,7 @@ sections:
         - |
           Users of the GraphQL API can revert a merged pull request by using the revertPullRequest mutation. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" and "[AUTOTITLE](/graphql/reference/mutations#revertpullrequest)" in the GraphQL API documentation.
 
-  changes:
-    # HOLD FOR GA:
-    #
-    # https://github.com/github/releases/issues/3050
-    #- |
-    # Before beginning a backup with GitHub Enterprise Server Backup Utilities 3.9.0 and later, the `ghe-host-check` utility will now perform a preflight check on the backup host to confirm the software version and disk space requirements. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository on GitHub.com.
-
-    # https://github.com/github/releases/issues/3052
-    #- |
-    # GitHub Enterprise Server Backup Utilities 3.9.0 and later displays a progress indicator for backup and restoration operations. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository on GitHub.com.
-      
+  changes: 
     # https://github.com/github/releases/issues/2909
     - |
       Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names will change in upcoming releases. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
@@ -380,11 +370,22 @@ sections:
     - |
       If a user archives a repository, responses from the GraphQL API that include information about the repository now include an `archivedAt` value with a timestamp representing the archival date.
 
+  backups:
+    # https://github.com/github/releases/issues/3050
+    - |
+     Before beginning a backup with GitHub Enterprise Server Backup Utilities 3.9.0 and later, the `ghe-host-check` utility will now perform a preflight check on the backup host to confirm the software version and disk space requirements. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the github/backup-utils repository on GitHub.com.
+
+    # https://github.com/github/releases/issues/3052
+    - |
+     GitHub Enterprise Server Backup Utilities 3.9.0 allows administrators to view the progress of backup and restoration operations on the backup host using the `ghe-backup-progress` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#monitoring-backup-or-restoration-progress)."
+
   known_issues:
     - |
       If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, the database server on your instance will be upgraded from MySQL 5.7 to MySQL 8.0. I/O utilization will increase as a result, and in some cases this may affect your instance's performance. Do not upgrade to this RC in a production environment, and ensure that you take and verify a backup of the instance before upgrading to the GA release. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
-      {% data reusables.release-notes.manage-api-unreachable %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
+    - |
+      {% data reusables.release-notes.manage-api-unreachable %} [Updated: 2023-06-22]
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 
@@ -395,8 +396,7 @@ sections:
       You can safely ignore this message.
     - |
       Custom firewall rules are removed during the upgrade process.
-    - |
-      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
@@ -410,6 +410,10 @@ sections:
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      {% data reusables.release-notes.2023-09-ephemeral-self-hosted-runners-not-auto-upgrading %} [Updated: 2023-09-29]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
 
   deprecations:
     # https://github.com/github/releases/issues/2826

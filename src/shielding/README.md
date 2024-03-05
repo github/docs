@@ -19,7 +19,7 @@ work loads:
 
 ## How it works
 
-At its root, the `src/shielding/middleware/index.js` is injected into our
+At its root, the `src/shielding/frame/middleware/index.js` is injected into our
 Express server. From there, it loads all its individual middleware handlers.
 
 Each middleware is one file that focuses on a single use-case. The

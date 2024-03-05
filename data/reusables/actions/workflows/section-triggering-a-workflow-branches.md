@@ -24,9 +24,17 @@ on:
       - 'releases/**'
 ```
 
+{% note %}
+
+**Note:** {% ifversion required-workflows %}You should not use branch filtering to skip workflow runs if the workflow has been configured to be required. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
+
+{% endif %}If a workflow is skipped due to branch filtering, [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
+{% endnote %}
+
 #### Example: Excluding branches
 
-When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
 
 - A branch named `mona/octocat` (`refs/heads/mona/octocat`)
 - A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)

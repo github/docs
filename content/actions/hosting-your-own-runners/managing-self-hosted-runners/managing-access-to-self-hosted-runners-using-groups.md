@@ -1,7 +1,7 @@
 ---
 title: Managing access to self-hosted runners using groups
 shortTitle: Manage access with runner groups
-intro: You can use policies to limit access to self-hosted runners that have been added to an organization{% ifversion ghec or ghes or ghae %} or enterprise{% endif %}.
+intro: You can use policies to limit access to self-hosted runners that have been added to an organization{% ifversion ghec or ghes %} or enterprise{% endif %}.
 permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} can create and manage additional runner groups.'
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
@@ -10,11 +10,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About runner groups
@@ -31,7 +30,7 @@ type: tutorial
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Creating a self-hosted runner group for an enterprise
 
@@ -45,7 +44,8 @@ type: tutorial
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
+
 ## Changing which organizations can access a runner group
 
 {%- ifversion fpt or ghec or ghes %}
@@ -103,19 +103,21 @@ For runner groups in an organization, you can change what repositories in the or
 
 ## Changing the name of a runner group
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 You can edit the name of your runner groups at the enterprise and organization levels.
 
 - [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
 - [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
+
 ### Changing the name of an enterprise runner group
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}
@@ -129,39 +131,48 @@ You can edit the name of your runner groups at the enterprise and organization l
 ## Moving a self-hosted runner to a group
 
 {% data reusables.actions.about-moving-a-runner-to-a-group %}
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 - [Moving an organization runner to a group](#moving-an-organization-runner-to-a-group)
 - [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
 
 ### Moving an organization runner to a group
+
 {% endif %}
 
-{% data reusables.actions.runner-groups-org-navigation %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
+
 ### Moving an enterprise runner to a group
 
-{% data reusables.actions.runner-groups-enterprise-navigation %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 {% endif %}
 
 ## Removing a self-hosted runner group
 
 {% data reusables.actions.about-removing-a-runner-group %}
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 - [Removing a runner group from an organization](#removing-a-runner-group-from-an-organization)
 - [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
 
 ### Removing a runner group from an organization
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.removing-a-runner-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
+
 ### Removing a runner group from an enterprise
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}

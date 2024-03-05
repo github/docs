@@ -4,7 +4,7 @@ intro: Use the REST API to manage SSH signing keys of authenticated users.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.7'
+  ghes: '*'
 topics:
   - API
 allowTitleToDifferFromFilename: true

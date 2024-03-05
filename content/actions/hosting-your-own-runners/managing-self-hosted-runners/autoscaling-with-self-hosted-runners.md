@@ -18,27 +18,13 @@ type: overview
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label. For example, you can create automation that adds a new self-hosted runner each time you receive a [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook event with the  [`queued`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity, which notifies you that a new job is ready for processing. The webhook payload includes label data, so you can identify the type of runner the job is requesting. Once the job has finished, you can then create automation that removes the runner in response to the `workflow_job` [`completed`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity.
 
-## Recommended autoscaling solutions
+## Supported autoscaling solutions
 
-{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs.
+{% data variables.product.prodname_dotcom %} recommends using [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) for autoscaling your runners.
 
-The following repositories have detailed instructions for setting up these autoscalers:
-
-- [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
-- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
-
-Each solution has certain specifics that may be important to consider.
-
-{% rowheaders %}
-
-| | actions-runner-controller | terraform-aws-github-runner |
-| :--- | :--- | :--- |
-| Runtime | Kubernetes | Linux and Windows VMs |
-| Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
-| Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
-
-{% endrowheaders %}
+{%- ifversion fpt or ghec or ghes > 3.8 %}
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+{% endif %}
 
 ## Using ephemeral runners for autoscaling
 
@@ -66,8 +52,6 @@ Alternatively, you can create ephemeral, just-in-time runners using the REST API
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
-
 ## Controlling runner software updates on self-hosted runners
 
 By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
@@ -90,14 +74,12 @@ For instructions on how to install the latest runner version, see the installati
 
 {% endnote %}
 
-{% endif %}
-
 ## Using webhooks for autoscaling
 
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
 - For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
+- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
 
 ## Authentication requirements
 

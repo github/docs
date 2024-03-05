@@ -4,18 +4,16 @@ import path from 'path'
 import { mkdirp } from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
-import { getContents, listMatchingRefs } from '../../../script/helpers/git-utils.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { getContents, hasMatchingRef } from '#src/workflows/git-utils.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 
-const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
-const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
-const dataFilenames = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './src/graphql/scripts/utils/data-filenames.json'))
-)
+const graphqlDataDir = 'data/graphql'
+const graphqlStaticDir = 'src/graphql/data'
+const dataFilenames = JSON.parse(await fs.readFile('src/graphql/scripts/utils/data-filenames.json'))
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -41,7 +39,7 @@ async function main() {
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,
-      path.join(graphqlStaticDir, graphqlVersion, 'previews.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'previews.json'),
     )
 
     // 2. UPDATE UPCOMING CHANGES
@@ -52,7 +50,7 @@ async function main() {
     const upcomingChangesJson = await processUpcomingChanges(safeForPublicChanges)
     await updateStaticFile(
       upcomingChangesJson,
-      path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json'),
     )
 
     // 3. UPDATE SCHEMAS
@@ -61,10 +59,10 @@ async function main() {
     const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     await updateFile(schemaPath, latestSchema)
-    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
+    const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews) // This is slow!
     await updateStaticFile(
       schemaJsonPerVersion,
-      path.join(graphqlStaticDir, graphqlVersion, 'schema.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
     )
 
     // 4. UPDATE CHANGELOG
@@ -75,12 +73,12 @@ async function main() {
         latestSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        yaml.load(safeForPublicChanges).upcoming_changes
+        yaml.load(safeForPublicChanges).upcoming_changes,
       )
       if (changelogEntry) {
         prependDatedEntry(
           changelogEntry,
-          path.join(graphqlStaticDir, graphqlVersion, 'changelog.json')
+          path.join(graphqlStaticDir, graphqlVersion, 'changelog.json'),
         )
       }
     }
@@ -98,12 +96,20 @@ async function getRemoteRawContent(filepath, graphqlVersion) {
   }
 
   // find the relevant branch in github/github and set it as options.ref
-  await setBranchAsRef(options, graphqlVersion)
+  let t0 = new Date()
+  options.ref = await getBranchAsRef(options, graphqlVersion)
+  let took = new Date() - t0
+  console.log(`Got ref (${options.ref}) for '${graphqlVersion}'. Took ${formatTime(took)}`)
 
   // add the filepath to the options so we can get the contents of the file
   options.path = `config/${path.basename(filepath)}`
 
-  return getContents(...Object.values(options))
+  t0 = new Date()
+  const contents = await getContents(...Object.values(options))
+  took = new Date() - t0
+  console.log(`Got content for '${options.path}' (in ${options.ref}). Took ${formatTime(took)}`)
+
+  return contents
 }
 
 // find the relevant filepath in src/graphql/scripts/util/data-filenames.json
@@ -120,7 +126,7 @@ function getDataFilepath(id, graphqlVersion) {
   return path.join(graphqlDataDir, dataSubdir, filename)
 }
 
-async function setBranchAsRef(options, graphqlVersion, branch = false) {
+async function getBranchAsRef(options, graphqlVersion, branch = false) {
   const versionType = getVersionType(graphqlVersion)
   const defaultBranch = 'master'
 
@@ -136,16 +142,17 @@ async function setBranchAsRef(options, graphqlVersion, branch = false) {
   if (!branch) branch = branches[versionType]
 
   // set the branch as the ref
-  options.ref = `heads/${branch}`
+  const ref = `heads/${branch}`
 
   // check whether the branch can be found in github/github
-  const foundRefs = await listMatchingRefs(...Object.values(options))
+  const exists = await hasMatchingRef(...Object.values(options), ref)
 
-  // if foundRefs array is empty, the branch cannot be found, so try a fallback
-  if (!foundRefs.length) {
+  // if ref is not found, the branch cannot be found, so try a fallback
+  if (!exists) {
     const fallbackBranch = defaultBranch
-    await setBranchAsRef(options, graphqlVersion, fallbackBranch)
+    return await getBranchAsRef(options, graphqlVersion, fallbackBranch)
   }
+  return ref
 }
 
 // given a GraphQL version like `ghes-2.22`, return `ghes`;
@@ -155,12 +162,24 @@ function getVersionType(graphqlVersion) {
 }
 
 async function updateFile(filepath, content) {
-  console.log(`fetching latest data to ${filepath}`)
+  console.log(`Updating file ${filepath}`)
   await mkdirp(path.dirname(filepath))
   return fs.writeFile(filepath, content, 'utf8')
 }
 
 async function updateStaticFile(json, filepath) {
+  console.log(`Updating static file ${filepath}`)
   const jsonString = JSON.stringify(json, null, 2)
   return updateFile(filepath, jsonString)
+}
+
+function formatTime(ms) {
+  if (ms < 1000) {
+    return `${ms.toFixed(0)}ms`
+  }
+  const seconds = ms / 1000
+  if (seconds > 60) {
+    return `${Math.round(seconds / 60)}m${Math.round(seconds % 60)}s`
+  }
+  return `${seconds.toFixed(1)}s`
 }

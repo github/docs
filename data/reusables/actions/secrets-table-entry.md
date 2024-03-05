@@ -1,1 +1,1 @@
-| Referencing secrets in a workflow | [Secrets](/actions/security-guides/encrypted-secrets)|
+| Referencing secrets in a workflow | [Secrets](/actions/security-guides/using-secrets-in-github-actions)|

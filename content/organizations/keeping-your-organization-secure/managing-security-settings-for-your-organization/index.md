@@ -15,6 +15,7 @@ children:
   - /managing-allowed-ip-addresses-for-your-organization
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
+  - /identifying-audit-log-events-performed-by-an-access-token
   - /displaying-ip-addresses-in-the-audit-log-for-your-organization
   - /audit-log-events-for-your-organization
   - /accessing-compliance-reports-for-your-organization

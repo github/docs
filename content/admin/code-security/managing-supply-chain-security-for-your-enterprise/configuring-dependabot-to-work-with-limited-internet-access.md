@@ -27,7 +27,7 @@ The instructions below assume that you need to set up {% data variables.product.
 
 Before configuring {% data variables.product.prodname_dependabot %}, install Docker on your self-hosted runner. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#configuring-self-hosted-runners-for-dependabot-updates)."
 
-1.  On {% data variables.location.product_location %}, navigate to the `github/dependabot-action` repository and retrieve information about the `dependabot-updater` and `dependabot-proxy` container images from the `containers.json` file.
+1. On {% data variables.location.product_location %}, navigate to the `github/dependabot-action` repository and retrieve information about the `dependabot-updater` and `dependabot-proxy` container images from the `containers.json` file.
 
    Each release of {% data variables.product.product_name %} includes an updated `containers.json` file at: `https://HOSTNAME/github/dependabot-action/blob/ghes-VERSION/docker/containers.json`. You can see the {% data variables.product.prodname_dotcom_the_website %} version of the file at: [containers.json](https://github.com/github/dependabot-action/blob/main/docker/containers.json).
 
@@ -35,7 +35,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
    For example, to support npm and {% data variables.product.prodname_actions %} you could use the following commands, copying details of the images to load from the `containers.json` file to ensure that you have the correct version and SHA for each image.
 
-   ```
+   ```shell
    docker pull ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:VERSION@SHA
    docker pull ghcr.io/dependabot/dependabot-updater-github-actions:VERSION@SHA
    docker pull ghcr.io/dependabot/dependabot-updater-npm:VERSION@SHA

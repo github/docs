@@ -6,7 +6,7 @@ intro: >-
   secrets for an organization or repository.
 topics:
   - API
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '*'

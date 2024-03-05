@@ -18,8 +18,8 @@ shortTitle: Install on GCP
 ## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform Documentation](https://cloud.google.com/docs/).
-- Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)" installation and setup guide in the Google documentation.
+- You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform documentation](https://cloud.google.com/docs/).
+- Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) installation and setup guide in the Google documentation.
 
 ## Hardware considerations
 
@@ -47,13 +47,13 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
 
 GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls) in the Google Cloud Platform documentation.
 
-1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
+1. Using the gcloud compute command-line tool, create the network. For more information, see [gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create) in the Google documentation.
 
    ```shell
    gcloud compute networks create NETWORK-NAME --subnet-mode auto
    ```
 
-1. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
+1. Create a firewall rule for each of the ports in the table below. For more information, see [gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/) in the Google documentation.
 
    ```shell
    $ gcloud compute firewall-rules create RULE-NAME \
@@ -67,7 +67,7 @@ GCE virtual machines are created as a member of a network, which has a firewall.
 
 ## Allocating a static IP and assigning it to the VM
 
-If this is a production appliance, we strongly recommend reserving a static external IP address and assigning it to the {% data variables.product.prodname_ghe_server %} VM. Otherwise, the public IP address of the VM will not be retained after restarts. For more information, see the Google guide "[Reserving a Static External IP Address](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
+If this is a production appliance, we strongly recommend reserving a static external IP address and assigning it to the {% data variables.product.prodname_ghe_server %} VM. Otherwise, the public IP address of the VM will not be retained after restarts. For more information, see the Google guide [Reserving a Static External IP Address](https://cloud.google.com/compute/docs/configure-instance-ip-addresses).
 
 In production High Availability configurations, both primary and replica appliances should be assigned separate static IP addresses.
 
@@ -75,13 +75,13 @@ In production High Availability configurations, both primary and replica applian
 
 To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
-1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
+1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see [gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create) in the Google documentation.
 
    ```shell
    gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
    ```
 
-1. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
+1. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see [gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create) in the Google documentation.
 
    ```shell
    $ gcloud compute instances create INSTANCE-NAME \

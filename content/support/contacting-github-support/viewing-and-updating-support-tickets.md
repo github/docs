@@ -1,6 +1,6 @@
 ---
 title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.landing_page_portal %}.'
 shortTitle: View and update tickets
 versions:
   fpt: '*'
@@ -16,9 +16,9 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
-Your capabilities in the {% data variables.contact.support_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
+Your capabilities in the {% data variables.contact.landing_page_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
@@ -31,7 +31,7 @@ Your capabilities in the {% data variables.contact.support_portal %} depend on t
 
    ![Screenshot of a support ticket with the dropdown menu showing the options for translation highlighted with a dark orange outline.](/assets/images/help/support/support-ticket-translation-options.png)
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Viewing your archived support tickets
 
@@ -42,7 +42,7 @@ You can only view archived tickets for an enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot showing the the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
+   ![Screenshot showing the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
 {% endif %}

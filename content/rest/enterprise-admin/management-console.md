@@ -3,7 +3,7 @@ title: Management Console
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   installation.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API
@@ -24,7 +24,7 @@ You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-
 
 ### Authentication {% ifversion enterprise-management-console-multi-user-auth %}as the root site administrator{% endif %}
 
-You need to pass your [{% ifversion enterprise-management-console-multi-user-auth %}root site administrator{% else %}{% data variables.enterprise.management_console %}{% endif %} password](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console) as an authentication token to every endpoint in this category except ["Create a license"](#create-a-github-enterprise-server-license).
+You need to pass your [{% ifversion enterprise-management-console-multi-user-auth %}root site administrator{% else %}{% data variables.enterprise.management_console %}{% endif %} password](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console) as an authentication token to every endpoint in this category except "[Create a GitHub license](#create-a-github-license)."
 
 Use the `api_key` parameter to send this token with each request. For example:
 

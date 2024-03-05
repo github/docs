@@ -1,8 +1,7 @@
 ---
 title: test accept
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -44,7 +43,9 @@ the `.actual` files from them. Any test that doesn't have an `.actual`
 file will be silently ignored, which makes it easy to accept just the
 results of _failing_ tests from a previous run.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<test|dir>...`
 
@@ -111,3 +112,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

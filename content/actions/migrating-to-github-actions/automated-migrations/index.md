@@ -13,6 +13,7 @@ children:
   - /supplemental-arguments-and-settings
   - /migrating-from-azure-devops-with-github-actions-importer
   - /migrating-from-bamboo-with-github-actions-importer
+  - /migrating-from-bitbucket-pipelines-with-github-actions-importer
   - /migrating-from-circleci-with-github-actions-importer
   - /migrating-from-gitlab-with-github-actions-importer
   - /migrating-from-jenkins-with-github-actions-importer

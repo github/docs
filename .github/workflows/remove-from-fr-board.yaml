@@ -1,6 +1,7 @@
 name: Remove card from FR board
 
-# **What it does**: Removes the triggering issue or PR from the docs-content first responder board. This workflow is expected to trigger from a slash command.
+# **What it does**: Removes the triggering issue or PR from the docs-content first responder board.
+#   Also removes the `docs-content-fr` label. This workflow is expected to trigger from a slash command.
 # **Why we have it**: To help with first responder duties
 # **Who does it impact**: Docs-content team first responders
 
@@ -9,7 +10,7 @@ on:
     types: remove_from_docs_FR_board
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   remove_from_FR_board:
@@ -18,13 +19,13 @@ jobs:
     steps:
       - name: Remove issue from board
         if: ${{ github.event.client_payload.command.resource.type == 'Issue' }}
-        run: gh issue edit "$ISSUE_URL" --remove-project "Docs content first responder"
+        run: gh issue edit "$ISSUE_URL" --remove-project "Docs content first responder (deprecated)" --remove-label "docs-content-fr"
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           ISSUE_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/issues/${{ github.event.client_payload.command.resource.number }}
       - name: Remove PR from board
         if: ${{ github.event.client_payload.command.resource.type == 'PullRequest' }}
-        run: gh pr edit "$PR_URL" --remove-project "Docs content first responder"
+        run: gh pr edit "$PR_URL" --remove-project "Docs content first responder (deprecated)" --remove-label "docs-content-fr"
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           PR_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/pull/${{ github.event.client_payload.command.resource.number }}

@@ -4,7 +4,6 @@ intro: 'You can stream audit and Git events data from {% data variables.product.
 versions:
   feature: audit-log-streaming
   ghec: '*'
-  ghes: '>=3.9'
 type: tutorial
 topics:
   - Auditing
@@ -18,20 +17,19 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
-{% ifversion ghes %}
+
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+{% ifversion ghes %}**Notes:**
+- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
+**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
-{% endif %}
 
 ## About audit log streaming
 
-To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
-
-The benefits of streaming audit data include:
+To help protect your intellectual property and maintain compliance for your company, you can use streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. If you stream audit log data, you can take advantage of the following benefits.
 
 - **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
 - **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
@@ -40,6 +38,26 @@ The benefits of streaming audit data include:
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
 All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} uses an at-least-once delivery method. Due to certain network or system issues, some events may be duplicated.
+
+{% endnote %}
+
+{% ifversion ghes %}
+
+Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+
+{% endif %}
+
+## Events that appear in audit log streams
+
+You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
+
+- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 
 ## Setting up audit log streaming
 
@@ -100,7 +118,7 @@ For information on creating or accessing your access key ID and secret key, see 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
 
-     ```
+     ```json
      "Condition": {
         "StringEquals": {
            "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
@@ -229,6 +247,16 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 
 To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
 
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (such as with [Splunk HEC Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure the endpoint is reachable at this destination.
+
+{% endnote %}
+
+{% ifversion ghec %}
+To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[Meta](/rest/meta/meta#get-github-enterprise-cloud-meta-information)" in the REST API documentation.
+{% endif %}
+
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 
@@ -241,7 +269,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 
    - The port on which the application accepts data.<br>
 
-     If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
+     If you're using Splunk Cloud and haven't changed the port configuration, `Port` should be `443`.
 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
@@ -278,7 +306,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
-{% ifversion ghec %}
+{% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
 
@@ -293,4 +321,6 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
 1. Under "API Requests", select **Enable API Request Events**.
-1. {% endif %}
+1. Click **Save**.
+
+{% endif %}

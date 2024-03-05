@@ -36,7 +36,7 @@ If that worked, great! If not, you may need to [follow our troubleshooting guide
 
 Now, to clone the repository, you can run the following command:
 
-```
+```shell
 git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
@@ -46,7 +46,7 @@ If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}
 
 To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
-```
+```text
 Host {% data variables.command_line.codeblock %}
     Hostname ssh.{% data variables.command_line.codeblock %}
     Port 443
@@ -66,7 +66,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 The first time you interact with {% data variables.product.prodname_dotcom %} after switching to port 443, you may get a warning message
 that the host wasn't found in `known_hosts`, or that it was found by another name.
 
-```ShellSession
+```shell
 > The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
 > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 > This host key is known by the following other names/addresses:

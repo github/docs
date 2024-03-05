@@ -148,7 +148,7 @@ CM | `packages_stats.ecosystems.ruby_gems.registry_enabled` | Whether Rubygems i
 CN | `packages_stats.ecosystems.ruby_gems.published_packages_count` | Number of published Rubygems packages (private, public, and internal)
 CO | `packages_stats.ecosystems.ruby_gems.private_packages_count` | Number of private Rubygems packages
 CP | `packages_stats.ecosystems.ruby_gems.public_packages_count` | Number of public Rubygems packages
-CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packaes
+CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packages
 CR | `packages_stats.ecosystems.ruby_gems.user_packages_count` | Number of Rubygems packages owned by user accounts
 CS | `packages_stats.ecosystems.ruby_gems.organization_packages_count` | Number of Rubygems packages owned by organizations
 CT | `packages_stats.ecosystems.ruby_gems.daily_download_count` | Number of downloads of Rubygems packages
@@ -166,6 +166,10 @@ DE |`packages_stats.ecosystems.containers.daily_download_count` | Number of down
 DF |`packages_stats.ecosystems.containers.daily_update_count` | Number of container images updated
 DG |`packages_stats.ecosystems.containers.daily_delete_count` | Number of container images deleted
 DH | `packages_stats.ecosystems.containers.daily_create_count` | Number of container images created | {% endif %}
+
+{% ifversion ghes = 3.8 %}
+Optionally, you can include additional data about {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/including-data-about-github-actions-in-server-statistics)."
+{% endif %}
 
 ## {% data variables.product.prodname_server_statistics %} data examples
 

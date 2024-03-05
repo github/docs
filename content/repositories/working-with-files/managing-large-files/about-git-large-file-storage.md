@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Git Large File Storage
 ---
@@ -27,12 +26,12 @@ Different maximum size limits for {% data variables.large_files.product_name_sho
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
-Using {% data variables.large_files.product_name_short %}, you can store files up to {% ifversion ghae %}200 MiB{% else %}5 GB{% endif %} in your repository.
+Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
 {% endif %}
 
 {% data reusables.repositories.git-lfs %}
 
-You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -40,7 +39,7 @@ You can also use {% data variables.large_files.product_name_short %} with {% dat
 
 {% data variables.large_files.product_name_short %}'s pointer file looks like this:
 
-```
+```text
 version {% data variables.large_files.version_name %}
 oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
 size 84977953

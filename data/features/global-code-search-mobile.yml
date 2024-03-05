@@ -1,0 +1,7 @@
+# Reference: #12937.
+# Documentation for global code search on GitHub Mobile
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.11'

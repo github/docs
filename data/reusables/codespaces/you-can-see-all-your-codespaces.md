@@ -1,1 +1,1 @@
-You can see every available codespace that you have created at [github.com/codespaces](https://github.com/codespaces).
+You can see every available codespace that you have created on the "Your codespaces" page. To display this page, in the top-left corner of {% data variables.product.prodname_dotcom_the_website %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click {% octicon "codespaces" aria-hidden="true" %} **Codespaces**. This takes you to [github.com/codespaces](https://github.com/codespaces).

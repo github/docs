@@ -1,5 +1,5 @@
 import { Tag, isTruthy, Value, TokenizationError } from 'liquidjs'
-import versionSatisfiesRange from '../../../lib/version-satisfies-range.js'
+import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
 import supportedOperators from './ifversion-supported-operators.js'
 
 const SyntaxHelp =
@@ -29,7 +29,7 @@ export default class extends Tag {
         this.branches.push({
           cond: tagToken.args,
           templates: (p = []),
-        })
+        }),
       )
       .on('tag:elsif', (token) => {
         this.branches.push({
@@ -126,6 +126,21 @@ export default class extends Tag {
 
     if (syntaxError) {
       throw new TokenizationError(SyntaxHelp, this.tagToken)
+    }
+
+    if (!this.currentVersionObj) {
+      console.warn(
+        `
+        If this happens, it means the context prepared for rendering Liquid
+        did not supply an object called 'currentVersionObj'.
+        To fix the error, find the code that prepares the context before
+        calling 'liquid.parseAndRender' and make sure there's an object
+        called 'currentVersionObj' included there.
+      `
+          .replace(/\n\s+/g, ' ')
+          .trim(),
+      )
+      throw new Error('currentVersionObj not found in environment context.')
     }
 
     const currentRelease = this.currentVersionObj.hasNumberedReleases

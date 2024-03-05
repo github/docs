@@ -2,6 +2,7 @@
 title: About Actions Runner Controller
 shortTitle: About ARC
 intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
+layout: inline
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,8 +11,6 @@ type: overview
 topics:
   - Actions Runner Controller
 ---
-
-{% data reusables.actions.actions-runner-controller-beta %}
 
 [Legal notice](#legal-notice)
 
@@ -23,7 +22,7 @@ The following diagram illustrates the architecture of ARC's autoscaling runner s
 
 {% note %}
 
-**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/preview/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
+**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
 
 {% endnote %}
 
@@ -45,7 +44,45 @@ The following diagram illustrates the architecture of ARC's autoscaling runner s
 
 ## {% data variables.product.prodname_actions_runner_controller %} components
 
-ARC consists of a set of custom resources. An ARC deployment applies these custom resources onto a Kubernetes cluster. Once applied, it creates a set of Pods that contain your self-hosted runners' containers. With ARC, {% data variables.product.company_short %} can treat these runner containers as self-hosted runners and allocate jobs to them as needed.
+ARC consists of a set of resources, some of which are created specifically for ARC. An ARC deployment applies these resources onto a Kubernetes cluster. Once applied, it creates a set of Pods that contain your self-hosted runners' containers. With ARC, {% data variables.product.company_short %} can treat these runner containers as self-hosted runners and allocate jobs to them as needed.
+
+Each resource that is deployed by ARC is given a name composed of:
+
+- an installation name, which is the installation name you specify when you install the Helm chart.
+- a resource identification suffix, which is is a string that identifies the resource type. This value is not configurable.
+
+{% note %}
+
+**Note:** Different versions of Kubernetes have different length limits for names of resources. The length limit for the resource name is calculated by adding the length of the installation name and the length of the resource identification suffix. If the resource name is longer than the reserved length, you will receive an error.
+
+{% endnote %}
+
+### Resources deployed by `gha-runner-scale-set-controller`
+
+| Template | Resource Kind | Name | Reserved Length | Description | Notes |
+|-------|---------------|------|-----------------|-------------|-------|
+| `deployment.yaml` | Deployment | INSTALLATION_NAME-gha-rs-controller | 18  | The resource running controller-manager | The pods created by this resource have the ReplicaSet suffix and the Pod suffix. |
+| `serviceaccount.yaml` | ServiceAccount | INSTALLATION_NAME-gha-rs-controller | 18 | This is created if `serviceAccount.create` in `values.yaml` is set to true. | The name can be customized in `values.yaml` |
+| `manager_cluster_role.yaml` | ClusterRole | INSTALLATION_NAME-gha-rs-controller | 18 | ClusterRole for the controller manager | This is created if the value of `flags.watchSingleNamespace` is empty. |
+| `manager_cluster_role_binding.yaml` | ClusterRoleBinding | INSTALLATION_NAME-gha-rs-controller | 18 | ClusterRoleBinding for the controller manager | This is created if the value of `flags.watchSingleNamespace` is empty. |
+| `manager_single_namespace_controller_role.yaml` | Role | INSTALLATION_NAME-gha-rs-controller-single-namespace | 35 | Role for the controller manager | This is created if the value of `flags.watchSingleNamespace` is set. |
+| `manager_single_namespace_controller_role_binding.yaml` | RoleBinding | INSTALLATION_NAME-gha-rs-controller-single-namespace | 35 | RoleBinding for the controller manager | This is created if the value of `flags.watchSingleNamespace` is set. |
+| `manager_single_namespace_watch_role.yaml` | Role | INSTALLATION_NAME-gha-rs-controller-single-namespace-watch | 41 | Role for the controller manager for the namespace configured | This is created if the value of `flags.watchSingleNamespace` is set. |
+| `manager_single_namespace_watch_role_binding.yaml` | RoleBinding | INSTALLATION_NAME-gha-rs-controller-single-namespace-watch | 41 | RoleBinding for the controller manager for the namespace configured | This is created if the value of `flags.watchSingleNamespace` is set. |
+| `manager_listener_role.yaml` | Role | INSTALLATION_NAME-gha-rs-controller-listener | 26 | Role for the listener | This is always created. |
+| `manager_listener_role_binding.yaml `| RoleBinding | INSTALLATION_NAME-gha-rs-controller-listener | 26 | RoleBinding for the listener  | This is always created and binds the listener role with the service account, which is either created by `serviceaccount.yaml` or configured with `values.yaml`. |
+
+### Resources deployed by `gha-runner-scale-set`
+
+| Template | Resource Kind | Name | Reserved Length | Description | Notes |
+|-------|---------------|------|-----------------|-------------|-------|
+| `autoscalingrunnerset.yaml` | AutoscalingRunnerSet | INSTALLATION_NAME | 0 | Top level resource working with scale sets | The name is limited to 45 characters in length. |
+| `no_permission_service_account.yaml` | ServiceAccount | INSTALLATION_NAME-gha-rs-no-permission | 21 | Service account mounted to the runner container | This is created if the container mode is not "kubernetes" and `template.spec.serviceAccountName` is not specified. |
+| `githubsecret.yaml` | Secret | INSTALLATION_NAME-gha-rs-github-secret | 20 | Secret containing values needed to authenticate to the GitHub API | This is created if `githubConfigSecret` is an object. If a string is provided, this secret will not be created. |
+| `manager_role.yaml` | Role | INSTALLATION_NAME-gha-rs-manager | 15 | Role provided to the manager to be able to reconcile on resources in the autoscaling runner set's namespace  | This is always created. |
+| `manager_role_binding.yaml` | RoleBinding | INSTALLATION_NAME-gha-rs-manager | 15 | Binding manager_role to the manager service account.  | This is always created. |
+| `kube_mode_role.yaml` | Role | INSTALLATION_NAME-gha-rs-kube-mode | 17 | Role providing necessary permissions for the hook  | This is created when the container mode is set to "kubernetes" and `template.spec.serviceAccount` is not provided. |
+| `kube_mode_serviceaccount.yaml` | ServiceAccount | INSTALLATION_NAME-gha-rs-kube-mode | 17 | Service account bound to the runner pod.  | This is created when the container mode is set to "kubernetes" and `template.spec.serviceAccount` is not provided. |
 
 ### About custom resources
 
@@ -71,12 +108,12 @@ You can find the definition of ARC's runner image in [this Dockerfile](https://g
 You can create your own runner image that meets your requirements. Your runner image must fulfill the following conditions.
 
 - Use a base image that can run the self-hosted runner application. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
-- The [runner binary](https://github.com/actions/runner/releases) must be placed placed under `/home/runner/` and launched using `/home/runner/run.sh`.
+- The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
 - If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
 
 You can use the following example Dockerfile to start creating your own runner image.
 
-```Dockerfile copy
+```dockerfile copy
 FROM mcr.microsoft.com/dotnet/runtime-deps:6.0 as build
 
 # Replace value with the latest runner release version
@@ -136,6 +173,18 @@ The ARC [runner image](https://github.com/actions/runner/pkgs/container/actions-
 - Docker (required for Docker-in-Docker mode)
 
 For more information, see [ARC's runner image Dockerfile](https://github.com/actions/runner/blob/main/images/Dockerfile) in the Actions repository.
+
+## Assets and releases
+
+ARC is released as two Helm charts and one container image. The Helm charts are only published as Open Container Initiative (OCI) packages. ARC does not provide tarballs or Helm repositories via {% data variables.product.prodname_pages %}.
+
+You can find the latest releases of ARC's Helm charts and container image on {% data variables.product.prodname_registry %}:
+
+- [`gha-runner-scale-set-controller` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller)
+- [`gha-runner-scale-set` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set)
+- [`gha-runner-scale-set-controller` container image](https://github.com/actions/actions-runner-controller/pkgs/container/gha-runner-scale-set-controller)
+
+The supported runner image is released as a separate container image, which you can find at [`actions-runner`](https://github.com/actions/runner/pkgs/container/actions-runner) on {% data variables.product.prodname_registry %}.
 
 ## Legal notice
 

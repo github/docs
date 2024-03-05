@@ -25,6 +25,8 @@ You can see the overall state of the last commit to a branch on your repository'
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
+{% data reusables.actions.workflows.skipped-job-status-checks-passing %}
+
 ## Types of status checks on {% data variables.product.product_name %}
 
 There are two types of status checks on {% data variables.product.product_name %}:
@@ -77,6 +79,8 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
   >
   request-checks: true"
   ```
+
+{% data reusables.commits.about-commit-cleanup %}
 
 {% ifversion status-check-retention %}
 

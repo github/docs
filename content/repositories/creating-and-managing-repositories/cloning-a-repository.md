@@ -75,7 +75,7 @@ gh repo clone https://github.com/PATH-TO/REPOSITORY
 {% data reusables.repositories.open-with-github-desktop %}
 1. Follow the prompts in {% data variables.product.prodname_desktop %} to complete the clone.
 
-For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% enddesktop %}
 

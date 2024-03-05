@@ -8,7 +8,7 @@ describe('FailBot', () => {
     delete process.env.HAYSTACK_URL
 
     // Always reset the array to an empty one between tests
-    // so it doesn't intefere across tests.
+    // so it doesn't interfere across tests.
     requestBodiesSent.length = 0
 
     nock('https://haystack.example.com')

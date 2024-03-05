@@ -6,23 +6,18 @@ intro: 'You can use security overview to see which teams and repositories are af
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 type: how_to
-topics: 
+topics:
   - Security overview
   - Advanced Security
   - Alerts
   - Organizations
   - Teams
 versions:
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
-
-{% ifversion ghes < 3.5 or ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
@@ -31,6 +26,10 @@ redirect_from:
 You can use security overview to see which repositories and teams are free from any security alerts and which have unresolved security alerts. The "Security risk" page shows a summary and detailed information on which repositories in an organization {% ifversion security-overview-org-risk-coverage-enterprise %}or enterprise {% endif %}are affected by security alerts, with a breakdown of alert by severity. You can filter the view to show a subset of repositories using the "affected" and "unaffected" links, the links under "Open alerts", the "Teams" dropdown menu, and a search field in the page header. This view is a great way to understand the broader picture for a repository, team, or group of repositories because you can see security alerts of all types in one view.
 
 ![Screenshot of the header section of the "Security risk" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "affected"/"unaffected" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-risk-view-summary.png)
+
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the data displayed on the "Security risk" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+{% endif %}
 
 {% note %}
 
@@ -66,7 +65,7 @@ You can use security overview to see which repositories and teams are free from 
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% data reusables.security-overview.alert-differences %}
 
 ## Viewing enterprise-level code security risks
 
@@ -92,15 +91,4 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% data reusables.organizations.security-overview-feature-specific-page %}{% endif %}
 {% endif %}
 
-{% endif %}
-
-{% ifversion ghes < 3.7 or ghae < 3.7 %}
-
-## Viewing security overview for a team
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
-{% endif %}
+{% data reusables.security-overview.alert-differences %}

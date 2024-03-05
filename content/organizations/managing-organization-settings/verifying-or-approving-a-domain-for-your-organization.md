@@ -22,7 +22,7 @@ shortTitle: Verify or approve a domain
 
 ## About domain verification
 
-After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. {% ifversion ghec %}If your organization has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)" and "[AUTOTITLE](/free-pro-team@latest/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. {% ifversion ghec %}If your organization has agreed to the {% data variables.product.company_short %} Customer Agreement, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)" and "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 
 {% ifversion ghec or ghes %}
 {% ifversion ghec %}If your organization is owned by an enterprise account, a{% else %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
@@ -43,6 +43,10 @@ After verifying ownership of your organization's domain, you can restrict email 
 {% endif %}
 
 {% ifversion ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
+
+{% ifversion fpt or ghec or ghes %}
+If you confirm your organization’s identity by verifying your domain and restricting email notifications to only verified email domains, you can help prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% endif %}
 
 {% ifversion ghec or ghes %}
 

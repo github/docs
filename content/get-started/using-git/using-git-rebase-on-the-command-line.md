@@ -20,7 +20,7 @@ In this example, we will cover all of the `git rebase` commands available, excep
 
 We'll start our rebase by entering `git rebase --interactive HEAD~7` on the terminal. Our favorite text editor will display the following lines:
 
-```
+```text
 pick 1fc6c95 Patch A
 pick 6b2481b Patch B
 pick dd1475d something I want to split
@@ -42,7 +42,7 @@ Phew! This sounds like a lot of work, but by taking it one step at a time, we ca
 
 To start, we'll need to modify the commands in the file to look like this:
 
-```
+```text
 pick 1fc6c95 Patch A
 squash fa39187 something to add to patch A
 pick 7b36971 something to move before patch B
@@ -58,7 +58,7 @@ Now, save and close the editor; this will start the interactive rebase.
 
 Git skips the first rebase command, `pick 1fc6c95`, since it doesn't need to do anything. It goes to the next command, `squash fa39187`. Since this operation requires your input, Git opens your text editor once again. The file it opens up looks something like this:
 
-```
+```text
 # This is a combination of two commits.
 # The first commit's message is:
 
@@ -82,7 +82,7 @@ This file is Git's way of saying, "Hey, here's what I'm about to do with this `s
 
 When the editor is closed, the rebase continues:
 
-```
+```text
 pick 1fc6c95 Patch A
 squash fa39187 something to add to patch A
 pick 7b36971 something to move before patch B
@@ -110,7 +110,7 @@ At this point, you can edit any of the files in your project to make any additio
 
 Git then gets to the `reword 4ca2acc` command.  It opens up your text editor one more time, and presents the following information:
 
-```
+```text
 i cant' typ goods
 
 # Please enter the commit message for your changes. Lines starting

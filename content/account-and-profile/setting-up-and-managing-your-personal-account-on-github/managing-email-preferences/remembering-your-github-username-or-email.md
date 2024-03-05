@@ -73,5 +73,5 @@ Your user name is what immediately follows the `https://{% data variables.comman
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)"
 {% endif %}

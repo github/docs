@@ -20,6 +20,8 @@ This article demonstrates how to use the GraphQL API to manage a project. For mo
 
 In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)."
 
+When using an installation access token for a {% data variables.product.prodname_github_app %}, some GraphQL mutations require additional permissions. For example, when using the `createProjectV2` mutation, if you specify a `repositoryId` input parameter, the `Contents` permission for that repository is also required in order to link the project to the target repository.
+
 {% endcurl %}
 
 {% cli %}
@@ -782,8 +784,8 @@ You can find the node ID of a {% data variables.product.product_name %} user or 
 
 ```shell
 curl --request GET \
-  --url https://api.github.com/users/<em>GITHUB_OWNER</em> \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --url https://api.github.com/users/GITHUB_OWNER \
+  --header 'Authorization: token TOKEN' \
   --header 'Accept: application/vnd.github+json'
 ```
 
@@ -792,7 +794,7 @@ curl --request GET \
 {% cli %}
 
 ```shell
-gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
+gh api -H "Accept: application/vnd.github+json" /users/GITHUB_OWNER
 ```
 
 {% endcli %}
@@ -804,8 +806,8 @@ To create the project, replace `OWNER_ID` with the node ID of the new project ow
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"<em>OWNER_ID</em>\" title: \"<em>PROJECT_NAME</em>\"}) {projectV2 {id}}}"}'
+  --header 'Authorization: token TOKEN' \
+  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"OWNER_ID\" title: \"PROJECT_NAME\"}) {projectV2 {id}}}"}'
 ```
 
 {% endcurl %}
@@ -817,8 +819,8 @@ gh api graphql -f query='
   mutation{
     createProjectV2(
       input: {
-        ownerId: "<em>OWNER_ID</em>",
-        title: "<em>PROJECT_NAME</em>"
+        ownerId: "OWNER_ID",
+        title: "PROJECT_NAME"
       }
     ){
       projectV2 {

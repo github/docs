@@ -5,7 +5,7 @@ intro: >-
   variables.product.prodname_actions %}.
 topics:
   - API
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghec: '*'
   ghes: '*'

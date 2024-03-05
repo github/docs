@@ -26,7 +26,7 @@ You hereby grant the Octernships Partners a non-exclusive, irrevocable, perpetua
 
 ### 2.2 Likeness
 
-GitHub and Octernships Partners reserve all rights, including the right to edit, publish, use, adapt, modify or dispose of any work product/description, likenesses, and photographs for advertising and promotional purposes in all media (including, but not limited to, the internet) without additional compensation, except where prohibited by law. 
+GitHub and Octernships Partners reserve all rights, including the right to edit, publish, use, adapt, modify or dispose of any work product/description, likenesses, and photographs for advertising and promotional purposes in all media (including, but not limited to, the internet) without additional compensation, except where prohibited by law.
 
 ## 3. Confidentiality and non-disclosure
 

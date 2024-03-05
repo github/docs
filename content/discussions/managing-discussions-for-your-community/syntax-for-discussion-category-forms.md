@@ -24,7 +24,7 @@ This example YAML configuration file defines a general discussion category form.
 
 The configuration file for a discussion category form must contain a `body` key, and the `body` must contain at least 1 non-Markdown field.
 
-```YAML copy
+```yaml copy
 body:
 - type: input
   id: suggestion
@@ -39,7 +39,7 @@ body:
 You can set the following top-level keys for each issue form.
 
 | Key | Description | Required | Type |
-| :-- | :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | :-- |
 | `body` | Definition of the input types in the discussion form. | Required | Array |
 | `labels` | Labels that will automatically be added to discussions created with this template. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the discussion submission form. | Optional | String |

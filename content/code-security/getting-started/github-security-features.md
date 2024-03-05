@@ -4,7 +4,6 @@ intro: 'An overview of {% data variables.product.prodname_dotcom %} security fea
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -30,7 +29,7 @@ Make it easy for your users to confidentially report security vulnerabilities th
 
 ### Security advisories
 
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 
 {% endif %}
 {% ifversion fpt or ghec or ghes %}
@@ -41,23 +40,17 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 {% endif %}
 
+{% ifversion dependabot-auto-triage-rules %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
+
 {% data reusables.dependabot.quickstart-link %}
 
-{% ifversion ghae %}
+### {% data variables.product.prodname_dependabot_version_updates %}
 
-### {% data variables.product.prodname_dependabot_alerts %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
-
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-
-### {% data variables.product.prodname_dependabot %} version updates
-
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
-{% endif %}
+Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
 ### Dependency graph
 
@@ -71,7 +64,7 @@ You can find the dependency graph on the **Insights** tab for your repository. F
 
 ### Security overview
 
-Security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 {% else %}
 
@@ -109,7 +102,7 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
@@ -125,12 +118,12 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 
 {% else %}
 
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+### Security overview for organizations{% ifversion ghes %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
 - "[AUTOTITLE](/get-started/learning-about-github/github-language-support)"

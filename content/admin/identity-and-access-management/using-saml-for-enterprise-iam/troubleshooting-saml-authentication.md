@@ -20,7 +20,7 @@ topics:
 
 ## About problems with SAML authentication
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
+{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% elsif ghes < 3.9 %}authentication log at{% endif %} {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}for the `github-unicorn` container{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}this log{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
 
 For more information about SAML response requirements, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
 
@@ -32,7 +32,7 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 
 **Warnings**:
 
-- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the log {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}files increase{% elsif ghes < 3.9 %}file increase{% endif %} much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}file{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
 - Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
@@ -42,12 +42,14 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}.
+1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}. {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server)."{% endif %}
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
 ## Decoding responses
 
-Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
+To decode the output, run the following command, replacing ENCODED_OUTPUT with the encoded output from the log.
 
 ```shell
 base64 --decode ENCODED_OUTPUT
@@ -67,11 +69,11 @@ The message typically indicates that the person's username or email address has 
 
 If the `Recipient` does not match the ACS URL for {% data variables.location.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
-```
+```text
 Recipient in the SAML response must not be blank.
 ```
 
-```
+```text
 Recipient in the SAML response was not valid.
 ```
 
@@ -81,7 +83,7 @@ Ensure that you set the value for `Recipient` on your IdP to the full ACS URL fo
 
 If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
-```
+```text
 SAML Response is not signed or has been modified.
 ```
 
@@ -91,8 +93,8 @@ Ensure that you configure signed assertions for the {% data variables.product.pr
 
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
-```
-Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
+```text
+Audience is invalid. Audience attribute does not match https://YOUR-INSTANCE-URL
 ```
 
 Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.

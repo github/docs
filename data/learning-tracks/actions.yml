@@ -10,7 +10,6 @@ getting_started:
     - /actions/using-workflows/about-workflows
     - /actions/using-workflows/reusing-workflows
     - /actions/security-guides/security-hardening-for-github-actions
-  featured_track: true
 adopting_github_actions_for_your_enterprise_ghec:
   title: Adopt GitHub Actions for your enterprise
   description: >-

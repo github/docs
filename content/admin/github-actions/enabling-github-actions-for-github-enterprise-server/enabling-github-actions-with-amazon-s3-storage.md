@@ -19,8 +19,6 @@ shortTitle: Amazon S3 storage
 
 {% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 {% endif %}
 
 ## Prerequisites
@@ -43,8 +41,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
 ## Enabling {% data variables.product.prodname_actions %} with Amazon S3 using OIDC (recommended)
 
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
-
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with an Amazon S3 bucket, you must first create an Amazon OIDC provider, then create an Identity and Access Management (IAM) role, and finally configure {% data variables.product.prodname_ghe_server %} to use the provider and role to access your S3 bucket.
 
 ### 1. Create an Amazon OIDC provider
@@ -64,7 +60,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
       The command returns a thumbprint in the following format:
 
-      ```
+      ```text
       SHA1 Fingerprint=AB:12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:12:34:56
       ```
 
@@ -72,7 +68,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
       For example, the thumbprint for the value returned in the previous step is:
 
-      ```
+      ```text
       AB1234567890ABCDEF1234567890ABCDEF123456
       ```
 
@@ -163,7 +159,8 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
 ## Enabling {% data variables.product.prodname_actions %} with Amazon S3 storage{% ifversion ghes-actions-storage-oidc %} using access keys{% endif %}
 
-1. Using the AWS Console or CLI, create an access key for your storage bucket. {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=3 %}
+1. Using the AWS Console or CLI, create an access key for your storage bucket.
+   {% data reusables.actions.enterprise-s3-permission %}
 
    For more information on managing AWS access keys, see the "[AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html)."
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -174,11 +171,11 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.actions.enterprise-s3-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-s3-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-s3-storage-credential-fields %}
 {%- else %}
 1. Under "Artifact & Log Storage", select **Amazon S3**, then enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-s3-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-s3-storage-credential-fields %}
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

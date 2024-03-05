@@ -7,13 +7,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
+defaultPlatform: linux
 topics:
   - Action development
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -26,7 +26,7 @@ Once you complete this project, you should understand how to build your own comp
 
 ## Prerequisites
 
-Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.
+Before you begin, you'll create a repository on {% data variables.location.product_location %}.
 
 1. Create a new public repository on {% data variables.location.product_location %}. You can choose any repository name, or use the following `hello-world-composite-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
@@ -38,25 +38,50 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    cd hello-world-composite-action
    ```
 
-1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh` with example code:
 
-   ```bash copy
-   echo "Goodbye"
+   ```shell copy
+   echo "echo Goodbye" > goodbye.sh
    ```
 
 1. From your terminal, make `goodbye.sh` executable.
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endmac %}
+   {% windows %}
 
    ```shell copy
-   chmod +x goodbye.sh
+   git add --chmod=+x -- goodbye.sh
    ```
+
+   {% endwindows %}
 
 1. From your terminal, check in your `goodbye.sh` file.
 
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+   {% endmac %}
+   {% windows %}
+
    ```shell copy
-   git add goodbye.sh
    git commit -m "Add goodbye script"
    git push
    ```
+
+   {% endwindows %}
 
 ## Creating an action metadata file
 
@@ -83,23 +108,24 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+          {%- ifversion actions-save-state-set-output-envs %}
           run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-{%- else %}
+          {%- else %}
           run: echo "::set-output name=random-number::$(echo $RANDOM)"
-{%- endif %}{% raw %}
+          {%- endif %}{% raw %}
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash
         - run: goodbye.sh
           shell: bash
     ```
+
     {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
+    This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 
-  For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+    For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
-  For more information about how to use `github.action_path`, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
+    For more information about how to use `github.action_path`, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
 
 1. From your terminal, check in your `action.yml` file.
 
@@ -142,3 +168,11 @@ jobs:
 ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+
+## Example composite actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [microsoft/action-python](https://github.com/microsoft/action-python)
+- [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
+- [tailscale/github-action](https://github.com/tailscale/github-action)

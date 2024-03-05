@@ -17,7 +17,7 @@ To help you understand your subscriptions and decide whether to unsubscribe, see
 
 {% note %}
 
-**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please contact {% data variables.contact.contact_support %} so we can help. {% data reusables.policies.abuse %}{% endif %}
+**Note:** Instead of unsubscribing, you have the option to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% ifversion fpt or ghec %}If you're experiencing abuse and want to ignore a repository, please visit {% data variables.contact.contact_support_page %} so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -69,7 +69,7 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 
 1. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
 
-   - Unwatch a repository
+   - Unwatch a repository by choosing to only receive notifications when participating or mentioned
    - Ignore all notifications for a repository
    - If enabled, customize the types of event you receive notifications for ({% data reusables.notifications-v2.custom-notification-types %})
 

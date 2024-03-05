@@ -12,11 +12,11 @@ topics:
 
 **Short version:** _We host a wide variety of collaborative projects from all over the world, and that collaboration only works when our users are able to work together in good faith. While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content and conduct on GitHub related to user safety, intellectual property, privacy, authenticity, and other limitations. In short, be excellent to each other._
 
-Capitalized terms used but not defined in these Acceptable Use Policies have the meanings assigned to them in our [Terms of Service](/site-policy/github-terms/github-terms-of-service), [Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service), and [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). For customers subject to the [Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service), "you" and "your" refer to "Customer" or "Users". "We", "us", "our" refer to "GitHub".
+Capitalized terms used but not defined in these Acceptable Use Policies have the meanings assigned to them in your main agreement with us — the [GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service) or GitHub Customer Agreement, or the [GitHub Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service) or other legacy GitHub contract, or a Microsoft volume licensing agreement. For customers subject to the legacy Corporate Terms of Service, "you" and "your" refer to "Customer" or "Users". "We", "us", and "our" refer to "GitHub".
 
 ## 1. Compliance with Laws and Regulations
 
-You are responsible for using the Service in compliance with all applicable laws, regulations, and all of our Acceptable Use Policies. These policies may be updated from time to time and are provided below, as well as in our [Terms of Service](/site-policy/github-terms/github-terms-of-service) and [Corporate Terms of Service](/site-policy/github-terms/github-corporate-terms-of-service).
+You are responsible for using the Service in compliance with all applicable laws, regulations, and all of our Acceptable Use Policies. These policies may be updated from time to time and are provided below.
 
 ## 2. User Safety
 
@@ -55,8 +55,8 @@ We do not allow content or activity on GitHub that:
 ## 4. Spam and Inauthentic Activity on GitHub
 
 We do not allow content or activity on GitHub that is:
-- automated excessive bulk activity and coordinated inauthentic activity, such as 
-   - spamming 
+- automated excessive bulk activity and coordinated inauthentic activity, such as
+   - spamming
    - cryptocurrency mining;
 - bulk distribution of promotions and advertising prohibited by GitHub terms and policies;
 - inauthentic interactions, such as fake accounts and automated inauthentic activity;
@@ -114,7 +114,7 @@ If you decide to post any promotional materials in your Account, you are solely 
 ## 11. User Protection
 
 You must not engage in activity that significantly harms other users.
-  
+
 We will interpret our policies and resolve disputes in favor of protecting users as a whole.
 
 ---

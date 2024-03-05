@@ -2,14 +2,14 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
+    - /get-started/getting-started-with-git/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
+    - /copilot/using-github-copilot/getting-started-with-github-copilot
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -42,7 +42,11 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - search
   - get-started
@@ -63,7 +67,7 @@ children:
   - packages
   - search-github
   - apps
-  - webhooks-and-events
+  - webhooks
   - rest
   - graphql
   - github-cli
@@ -76,6 +80,7 @@ children:
   - early-access
   - support
   - video-transcripts
+  - contributing
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -118,6 +123,8 @@ childGroups:
     octicon: ProjectIcon
     children:
       - issues
+      - issues/planning-and-tracking-with-projects
+      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon
@@ -125,7 +132,7 @@ childGroups:
       - apps
       - rest
       - graphql
-      - webhooks-and-events
+      - webhooks
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -138,6 +145,13 @@ childGroups:
       - sponsors
       - education
       - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - electron
+      - codeql
+      - npm
 externalProducts:
   electron:
     id: electron

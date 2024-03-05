@@ -1,0 +1,1 @@
+Ensure your Azure resources have been configured before adding a network configuration in {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners#configuring-your-azure-resources)."

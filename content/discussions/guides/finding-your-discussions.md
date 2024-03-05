@@ -8,16 +8,12 @@ redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories
 ---
 
-{% ifversion global-nav-update %}
-{% data reusables.navigation.global-nav-beta-note %}
-{% endif %}
-
 ## Finding discussions
 
 {% ifversion global-nav-update %}
 1. In the top-left corner of {% data variables.location.product_location %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click {% octicon "comment-discussion" aria-hidden="true" %} **Discussions**.
 
-  ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
+   ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
 
 {% else %}
 1. In the top-right corner of {% data variables.location.product_location %}, click your profile photo, then click **Your discussions**.

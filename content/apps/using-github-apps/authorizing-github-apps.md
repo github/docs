@@ -16,7 +16,7 @@ redirect_from:
   - /authentication/keeping-your-account-and-data-secure/authorizing-github-apps
 ---
 
-## About authorizing {% data variables.product.prodname_github_app %}s
+## About authorizing {% data variables.product.prodname_github_apps %}
 
 Third-party applications that need to verify your {% data variables.product.company_short %} identity or interact with {% data variables.product.company_short %} on your behalf can ask you to authorize a {% data variables.product.prodname_github_app %} to do so. If a third-party application wants you to authorize a {% data variables.product.prodname_github_app %}, the application will bring you to a {% data variables.product.company_short %} page that prompts you to authorize the app.
 
@@ -24,7 +24,7 @@ When authorizing the {% data variables.product.prodname_github_app %}, you shoul
 
 - Verify your {% data variables.product.company_short %} identity: When authorized, the {% data variables.product.prodname_github_app %} will be able to retrieve your public GitHub profile. The app may also be able to retrieve some private account information. During the authorization process, {% data variables.product.company_short %} will tell you which account information the {% data variables.product.prodname_github_app %} will be able to access.
 - Know which resources you can access: When authorized, the {% data variables.product.prodname_github_app %} will be able to determine which resources you can access that the app can also access. The app may use this, for example, so that it can show you an appropriate list of repositories.
-- Act on your behalf: When authorized, the application may perform tasks on {% data variables.product.company_short %} on your behalf. This might include creating an issue or commenting on a pull request. For more information, see "[About {% data variables.product.prodname_github_app %}s acting on your behalf](#about-github-apps-acting-on-your-behalf)."
+- Act on your behalf: When authorized, the application may perform tasks on {% data variables.product.company_short %} on your behalf. This might include creating an issue or commenting on a pull request. For more information, see "[About {% data variables.product.prodname_github_apps %} acting on your behalf](#about-github-apps-acting-on-your-behalf)."
 
 You can review and revoke your authorization at any time. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
@@ -36,7 +36,7 @@ You can review and revoke your authorization at any time. For more information, 
 {% endnote %}
 {% endif %}
 
-## About {% data variables.product.prodname_github_app %}s acting on your behalf
+## About {% data variables.product.prodname_github_apps %} acting on your behalf
 
 Once you authorize a {% data variables.product.prodname_github_app %}, the app can act on your behalf. The situations in which a {% data variables.product.prodname_github_app %} acts on your behalf vary according to the purpose of the {% data variables.product.prodname_github_app %} and the context in which it is being used. For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.company_short %}.
 

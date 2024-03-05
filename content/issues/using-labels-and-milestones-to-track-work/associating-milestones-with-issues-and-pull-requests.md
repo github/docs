@@ -18,10 +18,10 @@ shortTitle: Add to milestones
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select the checkbox next to the items you want associated with a milestone.
 
-   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues_assign_checkbox.png)
+   ![Screenshot of the first two items in a list of issues. To the left of each issue, a checkbox is checked and outlined in dark orange.](/assets/images/help/issues/issues-assign-checkbox.png)
 1. Above the list of issues or pull requests, select the **Milestone** dropdown menu.
 
-   ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
+   ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues-assigning-milestone-dropdown.png)
 1. In the "Filter milestones" field, start typing the name of an existing milestone, then click the milestone's name to associate it with the item.
 
 {% tip %}

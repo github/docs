@@ -3,7 +3,7 @@ title: Repository traffic
 shortTitle: Traffic
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve information provided in your repository graph.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

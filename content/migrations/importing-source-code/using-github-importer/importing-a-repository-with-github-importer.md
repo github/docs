@@ -23,6 +23,8 @@ If you'd like to match the commits in your repository to the authors' GitHub per
 
 {% data reusables.repositories.repo-size-limit %}
 
+For more information about migration paths to {% data variables.product.prodname_dotcom %} from other products, or between {% data variables.product.prodname_dotcom %} products, see "[AUTOTITLE](/migrations/overview/migration-paths-to-github)."
+
 ## Importing a repository with GitHub Importer
 
 1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Create new..." %}, and then click **Import repository**.

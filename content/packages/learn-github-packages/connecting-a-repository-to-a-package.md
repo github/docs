@@ -26,13 +26,13 @@ When you publish a package that is scoped to a personal account or an organizati
 1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.repository_connection_steps %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Connecting a repository to a container image using the command line
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
@@ -42,7 +42,7 @@ When you publish a package that is scoped to a personal account or an organizati
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPO
    ```
 
-   For example, if you're the user `octocat` and own `my-repo`{% ifversion ghes > 3.4 %}, and your {% data variables.location.product_location %} hostname is `github.companyname.com`,{% endif %} you would add this line to your Dockerfile:
+   For example, if you're the user `octocat` and own `my-repo`{% ifversion ghes %}, and your {% data variables.location.product_location %} hostname is `github.companyname.com`,{% endif %} you would add this line to your Dockerfile:
 
    ```shell
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo
@@ -77,7 +77,7 @@ When you publish a package that is scoped to a personal account or an organizati
    For example:
 
    ```shell
-   docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
+   docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
 1. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
@@ -98,7 +98,7 @@ When you publish a package that is scoped to a personal account or an organizati
    For example:
 
    ```shell
-   docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
+   docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
 {% endif %}

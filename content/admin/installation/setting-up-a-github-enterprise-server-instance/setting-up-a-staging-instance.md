@@ -78,7 +78,7 @@ Optionally, if you use {% data variables.product.prodname_actions %} on your pro
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
 1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
+   {% data reusables.actions.configure-storage-provider-platform-commands %}
 {% data reusables.actions.configure-storage-provider %}
 1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
 

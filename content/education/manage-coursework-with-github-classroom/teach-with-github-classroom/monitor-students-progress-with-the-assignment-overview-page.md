@@ -44,10 +44,10 @@ You can search and sort the assignment overview page to find specific students o
 
 1. To find a specific student or team on the assignment overview page, in the search bar, type the student's {% data variables.product.prodname_dotcom %} handle, the student's identifier, or the team's name, then press <kbd>Enter</kbd> or <kbd>Return</kbd>.
 
-  If the search term you enter matches multiple students or teams, each student or team will be shown in the search results. For example, if you have two students with the {% data variables.product.prodname_dotcom %} handles "@octocat" and "@monacat", and you search for "cat", both "@octocat" and "@monacat" will appear in the search results.
+   If the search term you enter matches multiple students or teams, each student or team will be shown in the search results. For example, if you have two students with the {% data variables.product.prodname_dotcom %} handles "@octocat" and "@monacat", and you search for "cat", both "@octocat" and "@monacat" will appear in the search results.
 1. To sort the students or teams displayed on an assignment overview page, select **Sort by:** {% octicon "triangle-down" aria-hidden="true" %}, then click **Alphabetical A-Z**, **Alphabetical Z-A**, **Newest**, or **Oldest**.
 
-  The **Newest** sort orders the results from the most recently updated assignment to the least recently updated assignment, while the **Oldest** sort does the opposite.
+   The **Newest** sort orders the results from the most recently updated assignment to the least recently updated assignment, while the **Oldest** sort does the opposite.
 {% data reusables.classroom.clear-all-assignment-overview %}
 
 ## Filtering the assignment overview page

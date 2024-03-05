@@ -4,7 +4,6 @@ intro: '{% data variables.product.prodname_dotcom %} provides a variety of tools
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -45,6 +44,8 @@ You can access and search audit logs using the API or the audit log UI. The audi
 - {% data variables.product.prodname_code_scanning_caps %} does not create timeline events in an audit log.
 
 For a list of audit log events, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
+
+For information on how to access the audit log for your enterprise or organization, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
 
 {% ifversion audit-log-streaming %}
 
@@ -88,6 +89,6 @@ For more information, see "[{% data variables.product.prodname_code_scanning_cap
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)
+- [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
 - [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 - [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

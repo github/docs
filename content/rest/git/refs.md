@@ -4,7 +4,7 @@ shortTitle: References
 intro: >-
   Use the REST API to interact with references in your Git database on {% data
   variables.product.product_name %}
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

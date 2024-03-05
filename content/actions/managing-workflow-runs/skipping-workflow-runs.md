@@ -4,7 +4,6 @@ intro: You can skip workflow runs triggered by the `push` and `pull_request` eve
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Skip workflow runs
 ---
@@ -25,9 +24,11 @@ Workflows that would otherwise be triggered using `on: push` or `on: pull_reques
 - `[skip actions]`
 - `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either:
+Alternatively, you can add a `skip-checks` trailer to your commit message. The trailers section should be included at the end of your commit message and be proceeded by two empty lines. If you already have other trailers in your commit message, `skip-checks` should be last. You can use either of the following:
 - `skip-checks:true`
 - `skip-checks: true`
+
+{% data reusables.commits.about-commit-cleanup %}
 
 You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
 

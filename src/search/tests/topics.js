@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import readFrontmatter from '../../../lib/read-frontmatter.js'
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 import walk from 'walk-sync'
 import { difference } from 'lodash-es'
 import allowedTopics from '../../../data/allowed-topics.js'

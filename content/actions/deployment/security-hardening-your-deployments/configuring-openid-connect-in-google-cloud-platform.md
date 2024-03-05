@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with Google Clou
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -44,6 +44,8 @@ Additional guidance for configuring the identity provider:
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
 1. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
+
+{% data reusables.actions.oidc-deployment-protection-rules %}
 
 ### Adding permissions settings
 
@@ -92,3 +94,7 @@ jobs:
 ```
 
 {% endraw %}
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

@@ -3,7 +3,7 @@ title: Pre-receive Environments
 intro: >-
   Use the REST API to create, list, update and delete environments for
   pre-receive hooks.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghes: '*'
 topics:

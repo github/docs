@@ -1,7 +1,7 @@
 ---
 title: About creating GitHub Apps
 shortTitle: About creating apps
-intro: '{% data variables.product.prodname_github_app %}s let you build integrations to automate processes and extend {% data variables.product.company_short %}''s functionality.'
+intro: '{% data variables.product.prodname_github_apps %} let you build integrations to automate processes and extend {% data variables.product.company_short %}''s functionality.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -30,7 +30,7 @@ Common use cases for {% data variables.product.prodname_github_apps %} include:
 - As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your  {% data variables.product.prodname_github_app %}, which can then act on their behalf
 - Integrating your tool or external service with {% data variables.product.company_short %}
 
-Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_app %}s use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_app %}s can also act independently of a user.
+Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
 {% data variables.product.prodname_github_apps %} can be installed directly on organizations and personal accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions.
 
@@ -44,7 +44,7 @@ Then, you need to write code to add functionality to your {% data variables.prod
 
 Once you have written the code for your {% data variables.product.prodname_github_app %}, your app needs to run somewhere. If your app is a website or web app, you might host your app on a server like [Azure App Service](https://azure.microsoft.com/products/app-service/). If your app is a client-side app, it might run on a user's device.
 
-In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, your can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
+In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, you can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
 
 ## Understanding what type of {% data variables.product.prodname_github_app %} to build
 
@@ -67,10 +67,10 @@ Some examples of automations you could create with a {% data variables.product.p
 - A {% data variables.product.prodname_github_app %} that helps repository contributors. For example, the app could post helpful resources after a contributor creates a pull request or makes a comment.
 - A {% data variables.product.prodname_github_app %} that generates short-lived tokens to give to other CI/CD tools, or to pull information from a repository.
 
-### {% data variables.product.prodname_github_app %}s that respond to webhooks
+### {% data variables.product.prodname_github_apps %} that respond to webhooks
 
 If you want your app to respond to events on {% data variables.product.prodname_dotcom %}, your app should subscribe to webhooks. For example, you may want your app to leave a comment when a pull request is opened. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps)."
 
-### {% data variables.product.prodname_github_app %}s that can take certain actions
+### {% data variables.product.prodname_github_apps %} that can take certain actions
 
 When you set up your {% data variables.product.prodname_github_app %}, you can select specific permissions for the app. These permissions determine what the app can do via the {% data variables.product.prodname_dotcom %} API, what they can do on behalf of a signed in user, and what webhooks the app can receive. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app)."

@@ -15,11 +15,11 @@ import { program } from 'commander'
 import { rimraf } from 'rimraf'
 import http from 'http'
 
-import createApp from '../../../lib/app.js'
-import EnterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
-import loadRedirects from '../../../lib/redirects/precompile.js'
-import { loadPageMap } from '../../../lib/page-data.js'
-import { languageKeys } from '../../../lib/languages.js'
+import createApp from '#src/frame/lib/app.js'
+import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
+import { loadPageMap } from '#src/frame/lib/page-data.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
 
 const port = '4001'
 const host = `http://localhost:${port}`
@@ -28,17 +28,17 @@ const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterpri
 
 program
   .description(
-    'Scrape HTML of the oldest supported Enterprise version and add it to a temp output directory.'
+    'Scrape HTML of the oldest supported Enterprise version and add it to a temp output directory.',
   )
   .option(
     '-o, --output <PATH>',
-    `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`
+    `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`,
   )
   .option('-l, --local-dev', 'Do not rewrite asset paths to enable testing scraped content locally')
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .option(
     '-p, --page <PATH>',
-    'Note: this option is only used to re-scrape a page after the version was deprecated. Redirects will not be re-created because most of the deprecated content is already removed. This option scrapes a specific page in all languages. Pass the relative path to the page without a version or language prefix. ex: /admin/release-notes'
+    'Note: this option is only used to re-scrape a page after the version was deprecated. Redirects will not be re-created because most of the deprecated content is already removed. This option scrapes a specific page in all languages. Pass the relative path to the page without a version or language prefix. ex: /admin/release-notes',
   )
   .parse(process.argv)
 
@@ -78,7 +78,7 @@ class RewriteAssetPathsPlugin {
         // Remove nextjs scripts and manifest.json link
         newBody = newBody.replace(
           /<script\ssrc="(\.\.\/)*_next\/static\/[\w]+\/(_buildManifest|_ssgManifest).js?".*?><\/script>/g,
-          ''
+          '',
         )
         newBody = newBody.replace(/<link href=".*manifest.json".*?>/g, '')
 
@@ -89,7 +89,7 @@ class RewriteAssetPathsPlugin {
             (match, attribute, basepath) => {
               const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
               return `${attribute}="${replaced}`
-            }
+            },
           )
         }
       }
@@ -106,7 +106,7 @@ class RewriteAssetPathsPlugin {
             (match, attribute, paren, basepath) => {
               const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
               return `${attribute}${paren}${replaced}`
-            }
+            },
           )
         }
       }
@@ -122,7 +122,7 @@ async function main() {
   console.log('Finish building production assets')
   if (dryRun) {
     console.log(
-      '\nThis is a dry run! Creating HTML for redirects and scraping the first 10 pages only.'
+      '\nThis is a dry run! Creating HTML for redirects and scraping the first 10 pages only.',
     )
   }
   if (singlePage) {
@@ -175,7 +175,7 @@ async function main() {
 
       fs.renameSync(
         path.join(tmpArchivalDirectory, `/localhost_${port}`),
-        path.join(tmpArchivalDirectory, version)
+        path.join(tmpArchivalDirectory, version),
       )
 
       console.log(`\n\ndone scraping! added files to ${tmpArchivalDirectory}\n`)
@@ -184,7 +184,7 @@ async function main() {
         await createRedirectsFile(
           permalinksPerVersion,
           pageMap,
-          path.join(tmpArchivalDirectory, version)
+          path.join(tmpArchivalDirectory, version),
         )
         console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
       } else {
@@ -221,7 +221,7 @@ async function createRedirectsFile(permalinks, pageMap, outputDirectory) {
 
   fs.writeFileSync(
     path.join(outputDirectory, 'redirects.json'),
-    JSON.stringify(redirectsPerVersion, null, 2)
+    JSON.stringify(redirectsPerVersion, null, 2),
   )
   console.log(`Wrote ${outputDirectory}/redirects.json`)
 }

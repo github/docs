@@ -4,7 +4,6 @@ intro: 'An overview of the programming languages supported by {% data variables.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub
@@ -24,7 +23,7 @@ Some {% data variables.product.prodname_dotcom %} products have features that ar
 
 Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 
-Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions).
+Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit {% data variables.contact.community_support_forum %}.
 
 | Language {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}
@@ -44,6 +43,8 @@ Some features are supported for additional languages or package managers. If you
 
 {% note %}
 
-**Note:** PHP{% ifversion ghae %}, Ruby,{% endif %} and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+**Notes:**
+- The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the dependency submission API.
+- PHP and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
 
 {% endnote %}

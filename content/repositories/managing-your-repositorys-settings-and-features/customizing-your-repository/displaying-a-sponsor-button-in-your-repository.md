@@ -45,7 +45,7 @@ C# | `nuget`
 
 Here's an example `FUNDING.yml` file:
 
-```
+```yaml
 github: [octocat, surftocat]
 patreon: octocat
 tidelift: npm/octo-package
@@ -62,7 +62,7 @@ You can create a default sponsor button for your organization or personal accoun
 
 {% note %}
 
-Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please contact {% data variables.contact.contact_support %}.
+Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit {% data variables.contact.contact_support_page %}.
 
 {% endnote %}
 

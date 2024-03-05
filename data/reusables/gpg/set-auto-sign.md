@@ -1,6 +1,6 @@
 1. Optionally, to configure Git to sign all commits by default, enter the following command:
 
-   ```Shell
+   ```shell
    git config --global commit.gpgsign true
    ```
 

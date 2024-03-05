@@ -10,14 +10,14 @@ versions:
 
 ## About locked repositories
 
-When you migrate repositories to or from {% data variables.product.prodname_dotcom %} products, your origin and destination repositories may be “locked” for migration. While a repository is locked, you will cannot make any changes to the repository, such as pushing commits, creating issues, or commenting on pull requests.
+When you migrate repositories to or from {% data variables.product.prodname_dotcom %} products, your origin and destination repositories may be “locked” for migration. While a repository is locked, you cannot make any changes to the repository, such as pushing commits, creating issues, or commenting on pull requests.
 
 Whether your repositories will be locked during migration depends on the tooling you use and the options you choose when you run the migration. When a repository is locked, a banner with the following text is displayed on the repository's page on {% data variables.product.prodname_dotcom %}:
 
 > This repository is currently being migrated. It's locked while the migration is in progress.
 
 {% ifversion ghes %}
-Site administrators may also lock repositories for other reasons besides migrations. 
+Site administrators may also lock repositories for other reasons besides migrations.
 {% endif %}
 
 Often, repositories are unlocked automatically when the migration is complete. In other cases, unlocking a repository is a manual step, and the process required to unlock a repository depends on the migration tool you used.

@@ -29,23 +29,18 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-20.04-xl
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout repository code
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
           repository: github/rest-api-description
           path: rest-api-description
-          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -108,11 +103,8 @@ jobs:
             --repo github/docs-internal \
             --label github-openapi-bot
 
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: ${{ failure() && env.FREEZE != 'true' }}
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: The last Sync OpenAPI schema run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-openapi.yml
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

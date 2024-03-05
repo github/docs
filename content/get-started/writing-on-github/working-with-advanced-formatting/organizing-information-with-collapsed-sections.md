@@ -14,9 +14,9 @@ shortTitle: Collapsed sections
 
 You can temporarily obscure sections of your Markdown by creating a collapsed section that the reader can choose to expand. For example, when you want to include technical details in an issue comment that may not be relevant or interesting to every reader, you can put those details in a collapsed section.
 
-Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %} to expand the details.
+Any Markdown within the `<details>` block will be collapsed until the reader clicks {% octicon "triangle-right" aria-label="The right triangle icon" %} to expand the details.
 
-Within the `<details>` block, use the `<summary>` tag to let readers know what is inside. The label appears to the right of {% octicon "triangle-right" aria-label="The right triange icon" %}.
+Within the `<details>` block, use the `<summary>` tag to let readers know what is inside. The label appears to the right of {% octicon "triangle-right" aria-label="The right triangle icon" %}.
 
 ````markdown
 <details>
@@ -40,7 +40,7 @@ The Markdown inside the `<summary>` label will be collapsed by default:
 
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, showing a right-facing arrow and the header "Tips for collapsed sections."](/assets/images/help/writing/collapsed-section-view.png)
 
-After a reader clicks {% octicon "triangle-right" aria-label="The right triange icon" %}, the details are expanded:
+After a reader clicks {% octicon "triangle-right" aria-label="The right triangle icon" %}, the details are expanded:
 
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
 

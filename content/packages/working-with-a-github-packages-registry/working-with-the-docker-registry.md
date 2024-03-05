@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Docker registry
 ---
@@ -28,7 +27,6 @@ Docker images previously stored in the Docker registry are being automatically m
 <!-- The remainder of this article is displayed for releases that don't support the Container registry -->
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -54,13 +52,13 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 {% raw %}
 
 ```shell
-cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin
 ```
 
 {% endraw %}
 {% endif %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
@@ -85,7 +83,7 @@ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
 
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes or ghae %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% ifversion ghes %}, `HOSTNAME` with the URL for {% data variables.location.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your {% data variables.product.pat_generic %} for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
@@ -112,7 +110,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
    > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
    ```
 
-1. Using the Docker image ID, tag the docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and VERSION with package version at build time.
+1. Using the Docker image ID, tag the docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and VERSION with package version at build time.
    {% ifversion fpt or ghec %}
 
    ```shell
@@ -137,7 +135,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
    {% endif %}
    {% endif %}
-1. If you haven't already built a docker image for the package, build the image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with package version at build time,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and PATH to the image if it isn't in the current working directory.
+1. If you haven't already built a docker image for the package, build the image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with package version at build time,{% ifversion ghes %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and PATH to the image if it isn't in the current working directory.
    {% ifversion fpt or ghec %}
 
    ```shell
@@ -209,7 +207,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -224,7 +222,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -238,7 +236,7 @@ You can publish a new Docker image for the first time and name it `monalisa`.
 {% ifversion fpt or ghec %}
 
 ```shell
-# Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
@@ -249,7 +247,7 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 {% else %}
 
 ```shell
-# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.HOSTNAME/octocat/octo-app/monalisa:1.0 .
 
@@ -263,7 +261,7 @@ $ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the host name of {% data variables.location.product_location %}, {% endif %} and TAG_NAME with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes %} HOSTNAME with the host name of {% data variables.location.product_location %}, {% endif %} and TAG_NAME with tag for the image you want to install.
 
 {% ifversion fpt or ghec %}
 

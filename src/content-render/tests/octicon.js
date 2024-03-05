@@ -31,13 +31,13 @@ describe('octicon tag', () => {
 
   it('throws an error with invalid syntax', async () => {
     await expect(renderContent('{% octicon 123 %}')).rejects.toThrowError(
-      'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<name>" <key="value">'
+      'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<name>" <key="value">',
     )
   })
 
   it('throws an error with a non-existant octicon', async () => {
     await expect(renderContent('{% octicon "pizza-patrol" %}')).rejects.toThrowError(
-      'Octicon pizza-patrol does not exist'
+      'Octicon pizza-patrol does not exist',
     )
   })
 })

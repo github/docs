@@ -1,4 +1,4 @@
-{%- ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{%- ifversion ghec or ghes %}
 1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Authentication security**.
 {%- else %}
 1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Security**.

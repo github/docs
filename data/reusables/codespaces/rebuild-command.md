@@ -2,4 +2,4 @@
 
    ![Screenshot of the Command Palette with "rebuild" entered in the text box and the "Codespace: Rebuild Container" option highlighted in the dropdown.](/assets/images/help/codespaces/codespaces-rebuild.png)
 
-   {% indented_data_reference reusables.codespaces.full-rebuild-tip %}
+   {% indented_data_reference reusables.codespaces.full-rebuild-tip spaces=3 %}

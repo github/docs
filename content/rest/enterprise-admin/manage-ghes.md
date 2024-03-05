@@ -5,7 +5,7 @@ shortTitle: Manage GHES
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   instance.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '>=3.9'
 topics:
   - API
@@ -20,11 +20,25 @@ Specify the port number when making API calls to endpoints for the Manage {% dat
 
 ### Authentication
 
-To authenticate requests to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API, specify the password for the instance's root site administrator account as an authentication token. Use standard HTTP authentication to send the password. The `api_key` user identifies the root site administrator. The following example demonstrates authentication for this API. Replace ROOT-SITE-ADMINISTRATOR-PASSWORD with the password, and ADMINISTRATION-PORT with either 8442 or 8080.
+To authenticate requests to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API, specify the password for the instance's root site administrator account as an authentication token. Use standard HTTP authentication to send the password. The `api_key` user identifies the root site administrator. The following example demonstrates authentication for this API. Replace ROOT-SITE-ADMINISTRATOR-PASSWORD with the password, and ADMINISTRATION-PORT with either 8443 or 8080.
 
 ```shell
 curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
 ```
+
+{% ifversion enterprise-management-console-multi-user-auth %}
+
+### Authentication as a {% data variables.enterprise.management_console %} user
+
+{% data variables.enterprise.management_console %} user accounts can also authenticate to access these endpoints. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user)."
+
+To authenticate with the password for a {% data variables.enterprise.management_console %} user account, use standard HTTP authentication. In the following example, replace YOUR_USER_NAME and YOUR_PASSWORD with the account's user name and password.
+
+```shell
+curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
+```
+
+{% endif %}
 
 ### Query parameters
 

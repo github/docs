@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals'
 
-import { supported } from '../../../lib/enterprise-server-releases.js'
-import { allVersionKeys, allVersions } from '../../../lib/all-versions.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { allVersionKeys, allVersions } from '#src/versions/lib/all-versions.js'
 import { convertVersionsToFrontmatter } from '../lib/update-markdown.js'
 
 describe('frontmatter versions are generated correctly from automated data', () => {
@@ -9,18 +9,15 @@ describe('frontmatter versions are generated correctly from automated data', () 
     const fromVersions = allVersionKeys.filter(
       (version) =>
         version !== `enterprise-server@${supported[0]}` &&
-        version !== `enterprise-server@${supported[2]}`
+        version !== `enterprise-server@${supported[2]}`,
     )
 
-    const expectedEneterpriseServerVersions = fromVersions
+    const expectedEnterpriseServerVersions = fromVersions
       .map(
         (version) =>
-          version.includes('enterprise-server@') && version.replace('enterprise-server@', '')
+          version.includes('enterprise-server@') && version.replace('enterprise-server@', ''),
       )
       .filter(Boolean)
-
-    const expectedEnterpriseServerVersions = expectedEneterpriseServerVersions
-      .sort()
       .map((version) => `=${version}`)
       .join(' || ')
 
@@ -38,10 +35,10 @@ describe('frontmatter versions are generated correctly from automated data', () 
     const fromVersions = Object.values(allVersions)
       .filter(
         (version) =>
-          !(version.currentRelease === version.latestRelease && version.hasNumberedReleases)
+          !(version.currentRelease === version.latestRelease && version.hasNumberedReleases),
       )
       .map((version) => version.version)
-    const nextLatestRelease = [...supported].sort()[supported.length - 2]
+    const nextLatestRelease = supported[1]
     const expectedVersions = {
       fpt: '*',
       ghae: '*',
@@ -53,12 +50,12 @@ describe('frontmatter versions are generated correctly from automated data', () 
   })
 
   test('greater than the oldest enterprise server version', async () => {
-    const oldestRelease = [...supported].sort()[0]
+    const oldestRelease = supported[supported.length - 1]
     const fromVersions = Object.values(allVersions)
       .filter((version) => !(version.version === `enterprise-server@${oldestRelease}`))
       .map((version) => version.version)
 
-    const secondOldestRelease = [...supported].sort()[1]
+    const secondOldestRelease = supported[supported.length - 2]
     const expectedVersions = {
       fpt: '*',
       ghae: '*',

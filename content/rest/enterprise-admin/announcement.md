@@ -1,7 +1,7 @@
 ---
 title: Announcement
 intro: Use the REST API to manage the global announcement banner in your enterprise.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghes: '*'
 topics:

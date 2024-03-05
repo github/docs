@@ -1,0 +1,1 @@
+Administrators cannot set or update the instance's blob storage settings in the Management Console using the "Migrations" settings tab. No matter what values an administrator provides, the following error message will appear: `Unable to connect to migrations provider. Please check the form and try again.`
