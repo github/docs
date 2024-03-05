@@ -1,14 +1,9 @@
-date: '2024-02-13'
-release_candidate: true
-deprecated: true
+date: '2024-03-05'
+release_candidate: false
+deprecated: false
 intro: |
-  {% note %}
-
-  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  {% endnote %}
-
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+
 sections:
   features:
     - heading: Instance administration
