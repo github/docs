@@ -166,6 +166,18 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
+{% ifversion custom-org-roles %}
+
+## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
+
+You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+
+{% data reusables.actions.org-roles-for-gh-actions %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+
+{% endif %}
+
 ## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
