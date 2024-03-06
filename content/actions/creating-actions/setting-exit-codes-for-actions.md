@@ -71,9 +71,9 @@ Set the exit code of a step to a nonzero value and ensure that the step does not
 
 ### Examples of success and failure in composite actions
 
-`maybe-fail/action.yml`:
+`maybe-fail/action.yaml`:
 
-```yml
+```yaml
 name: 'Maybe fail'
 description: 'Conditionally fail based on inputs'
 inputs:
@@ -108,13 +108,13 @@ runs:
       if: success() || failure()
       run: echo "result=$outcome" | tee -a "$GITHUB_OUTPUT"
       env:
-        outcome: ${{ steps.continue-on-error-false.outcome != 'skipped' && steps.continue-on-error-false.outcome || steps.continue-on-error-true.outcome }}
+        outcome: ${{ steps.continue-on-error-false.outcome != 'skipped' {% raw %}&&{% endraw %} steps.continue-on-error-false.outcome || steps.continue-on-error-true.outcome }}
       shell: bash
 ```
 
-`use-maybe-fail/action.yml`:
+`use-maybe-fail/action.yaml`:
 
-```yml
+```yaml
 name: 'Use maybe fail'
 description: 'Call maybe fail to conditionally fail based on inputs'
 inputs:
@@ -146,9 +146,9 @@ runs:
       shell: bash
 ```
 
-`.github/workflows/maybe-fail.yml`:
+`.github/workflows/maybe-fail.yaml`:
 
-```yml
+```yaml
 name: Maybe-fail
 
 on:
@@ -169,7 +169,7 @@ jobs:
       fail-fast: false
     name: Maybe fail
     steps:
-      - uses: actions/checkout@v4
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use maybe-fail action
         id: maybe-fail
         uses: ./use-maybe-fail
@@ -204,7 +204,7 @@ jobs:
       fail-fast: true
     name: Maybe fail fast
     steps:
-      - uses: actions/checkout@v4
+      - uses: {% data reusables.actions.action-checkout %}
       - name: sleep
         if: ${{ matrix.return-code == 0 }}
         run:
