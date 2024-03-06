@@ -1,4 +1,5 @@
-You can only use the `dependabot.yml` file to create groups for {% data variables.product.prodname_dependabot_version_updates %}. Grouped {% data variables.product.prodname_dependabot_security_updates %} are enabled or disabled in your repository or organization settings and do not support customization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+{% ifversion dependabot-grouped-security-updates-config %}You can use the  `dependabot.yml` file to create separate rules to group {% data variables.product.prodname_dependabot_version_updates %} and {% data variables.product.prodname_dependabot_security_updates %}.{% else %}
+You can only use the `dependabot.yml` file to create groups for {% data variables.product.prodname_dependabot_version_updates %}. Grouped {% data variables.product.prodname_dependabot_security_updates %} are enabled or disabled in your repository or organization settings and do not support customization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."{% endif %}
 
 {% note %}
 
