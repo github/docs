@@ -95,7 +95,7 @@ codeql <database> analyze <scope>/<pack> <scope>/<other-pack>
 {% ifversion query-pack-compatibility %}
 {% note %}
 
-**Note:** The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification.  Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[Creating and working with {% data variables.product.prodname_codeql %} packs](#creating-and-working-with-codeql-packs)."
+**Note:** The `codeql pack download` command stores the pack it downloads in an internal location that is not intended for local modification.  Unexpected (and hard to troubleshoot) behavior may result if the pack is modified after downloading. For more information about customizing packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
 
 {% endnote %}
 
