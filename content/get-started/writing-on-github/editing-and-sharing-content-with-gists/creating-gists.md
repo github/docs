@@ -37,11 +37,7 @@ You'll receive a notification when:
 - Someone mentions you in a gist.
 - You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
-{% ifversion fpt or ghes or ghec %}
-
 You can pin gists to your profile so other people can see them easily. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
-
-{% endif %}
 
 You can discover public gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. {% ifversion ghes %}Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).{% endif %}
 

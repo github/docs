@@ -14,11 +14,7 @@ topics:
 shortTitle: Configure
 ---
 
-{% ifversion fpt or ghes or ghec %}
-
 {% data reusables.repositories.default-issue-templates %}
-
-{% endif %}
 
 ## Creating issue templates
 

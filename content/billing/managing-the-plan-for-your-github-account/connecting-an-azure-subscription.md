@@ -44,7 +44,7 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 ## Prerequisites
 
-- You must have {% ifversion ghec %}either an {% endif %} organization {% ifversion ghec %}or an enterprise{% endif %} account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+- You must have {% ifversion ghec %}either {% endif %}an organization {% ifversion ghec %}or an enterprise {% endif %}account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
   {%- ifversion ghec %}
 

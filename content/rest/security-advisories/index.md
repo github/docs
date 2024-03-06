@@ -1,5 +1,6 @@
 ---
-title: Security advisories
+title: REST API endpoints for security advisories
+shortTitle: Security advisories
 intro: Use the REST API to view and manage security advisories.
 versions:
   fpt: '*'

@@ -117,7 +117,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 ## Further reading
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"{% endif %}
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
@@ -206,7 +206,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 ## Further reading
 
 - [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
-- [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement){% endif %}
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 - [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 - [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
@@ -347,7 +347,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) "{% ifversion ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement) "{% endif %}
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endjetbrains_beta %}
