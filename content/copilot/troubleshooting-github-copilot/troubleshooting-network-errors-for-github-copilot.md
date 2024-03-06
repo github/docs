@@ -59,12 +59,6 @@ If you know you are connecting via a proxy, make sure the proxy is configured co
 
 Depending on your proxy setup, you may encounter errors like "certificate signature failure," "custom certificate," or "unable to verify the first certificate." These errors are usually caused by a corporate proxy setup that uses custom certificates to intercept and inspect secure connections.
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_copilot %} only supports custom certificates if you use {% data variables.product.prodname_copilot_for_business %}. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
-
-{% endnote %}
-
 Some possible ways to resolve certificate-related errors are:
 - Configure a different proxy that does not intercept secure connections.
 - If you are using a corporate proxy, contact your IT department to see if they can configure the proxy to not intercept secure connections.

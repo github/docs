@@ -1,7 +1,6 @@
 ---
 title: Using the content linter
 intro: 'You can use content linter to check your contributions for errors.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

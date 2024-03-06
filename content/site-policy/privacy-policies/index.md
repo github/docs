@@ -11,7 +11,6 @@ children:
   - /github-cookies
   - /github-codespaces-privacy-statement
   - /github-candidate-privacy-policy
-  - /github-copilot-business-privacy-statement
   - /github-octernships-terms-of-service
 redirect_from:
   - /github/site-policy/github-data-protection-addendum

@@ -44,11 +44,7 @@ assignees: octocat
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 {% data reusables.repositories.default-issue-templates %}
-
-{% endif %}
 
 ## Adding an issue template
 

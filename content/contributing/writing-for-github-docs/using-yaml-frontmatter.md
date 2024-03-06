@@ -2,7 +2,6 @@
 title: Using YAML frontmatter
 shortTitle: YAML frontmatter # Max 31 characters
 intro: 'You can use YAML frontmatter to define versioning, add metadata, and control the layout for articles.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:

@@ -166,15 +166,11 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% data reusables.actions.oidc-custom-claims-aws-restriction %}
-
-{% endif %}
 
 ## Using third-party actions
 
@@ -202,7 +198,7 @@ The same principles described above for using third-party actions also apply to 
 
 ## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
 
-You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
+{% data reusables.actions.dependabot-version-updates-for-actions %}
 
 {% ifversion internal-actions %}
 
@@ -367,13 +363,9 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
-
-{% endif %}
 
 ## Auditing {% data variables.product.prodname_actions %} events
 

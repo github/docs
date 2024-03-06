@@ -1,5 +1,7 @@
 ---
-title: Social accounts
+title: REST API endpoints for social accounts
+shortTitle: Social accounts
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage social accounts of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

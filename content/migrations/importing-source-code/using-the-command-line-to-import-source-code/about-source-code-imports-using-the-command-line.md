@@ -8,10 +8,11 @@ versions:
 shortTitle: About source code imports
 ---
 
+{% data reusables.repositories.importing-context %}
 
 {% ifversion fpt or ghec %}
 
-If you want to import a Git repository that is stored on a code hosting service that is publicly available on the internet, we recommend using GitHub Importer. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer)."
+If you want to import a Git repository that is stored on a code hosting service that is publicly available on the internet, we recommend using {% data variables.product.prodname_importer %}. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer)."
 
 If your source code is not tracked by Git or is not publicly available, you can use the command line instead.
 

@@ -4,7 +4,6 @@ shortTitle: Create screenshots
 intro: "You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}."
 versions:
   feature: 'contributing'
-product: '{% data reusables.contributing.product-note %}'
 ---
 
 ## About screenshots in {% data variables.product.prodname_docs %}

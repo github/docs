@@ -1,5 +1,5 @@
 ---
-title: Organization migrations
+title: REST API endpoints for organization migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
 intro: >-

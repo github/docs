@@ -1,6 +1,6 @@
 ---
 title: Importing a repository with GitHub Importer
-intro: 'If you have a project hosted on another version control system, you can automatically import it to GitHub using the GitHub Importer tool.'
+intro: 'If you have a project hosted on another version control system, you can automatically import it to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool.'
 redirect_from:
   - /articles/importing-from-other-version-control-systems-to-github
   - /articles/importing-a-repository-with-github-importer
@@ -13,26 +13,29 @@ versions:
 shortTitle: Import a repository
 ---
 
-## About repository imports with GitHub Importer
+## About repository imports with {% data variables.product.prodname_importer %}
 
-GitHub Importer is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/migrations/importing-source-code/using-the-command-line-to-import-source-code) for projects imported from other version control systems.
+{% data variables.product.prodname_importer %} is not suitable for all imports. For example, if your existing code is hosted on a private network, our tool won't be able to access it. In these cases, we recommend [importing using the command line](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line) for Git repositories or an external [source code migration tool](/migrations/importing-source-code/using-the-command-line-to-import-source-code) for projects imported from other version control systems.
 
 {% data reusables.migrations.github-importer-non-git-deprecation %}
 
-If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
+If you'd like to match the commits in your repository to the authors' {% data variables.product.prodname_dotcom %} personal accounts during the import, make sure every contributor to your repository has a {% data variables.product.prodname_dotcom %} account before you begin the import.
 
 {% data reusables.repositories.repo-size-limit %}
 
 For more information about migration paths to {% data variables.product.prodname_dotcom %} from other products, or between {% data variables.product.prodname_dotcom %} products, see "[AUTOTITLE](/migrations/overview/migration-paths-to-github)."
 
-## Importing a repository with GitHub Importer
+## Importing a repository with {% data variables.product.prodname_importer %}
+
+When you import a repository using the {% data variables.product.prodname_importer %}, a new repository will be created. If you already have an existing repository you want to use, you can instead add your local repository to {% data variables.product.prodname_dotcom %} using Git. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)."
 
 1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Create new..." %}, and then click **Import repository**.
 
    ![Screenshot of the top-right corner of any page on {% data variables.product.prodname_dotcom %}. A plus icon is highlighted with an orange outline.](/assets/images/help/importer/import-repository.png)
+
 1. Under "Your old repository's clone URL", type the URL of the project you want to import.
 1. Under "Owner", select the dropdown menu and click your personal account or an organization to own the repository
-1. Under "Name", type a name for the repository on GitHub.
+1. Under "Name", type a name for the repository on {% data variables.product.prodname_dotcom %}.
 1. Under "Privacy", select a visibility for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 1. Review the information you entered, then click **Begin import**.
 1. If your old project requires credentials, type your login information for that project. If SAML SSO or 2FA are enabled for your user account on the old project, enter a {% data variables.product.pat_generic %} with repository read permissions in the "Password" field instead of your password.

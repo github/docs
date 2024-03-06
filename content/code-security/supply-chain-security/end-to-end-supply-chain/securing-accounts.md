@@ -143,5 +143,5 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"{% ifversion fpt or ghec or ghes %}
-- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"{% endif %}
+- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"

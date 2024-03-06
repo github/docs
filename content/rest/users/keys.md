@@ -1,5 +1,6 @@
 ---
-title: Git SSH Keys
+title: REST API endpoints for Git SSH keys
+shortTitle: Git SSH keys
 intro: Use the REST API to manage Git SSH keys of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

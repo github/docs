@@ -37,7 +37,11 @@ To create your enterprise account, start a free 30-day trial of {% data variable
 
 You can add any number of new or existing organizations to manage within your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-### 4. Viewing the subscription and usage for your enterprise account
+### 4. Creating a README for the enterprise
+
+{% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+
+### 5. Viewing the subscription and usage for your enterprise account
 
 You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 

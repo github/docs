@@ -4,6 +4,6 @@
 
 This deprecation does not affect published security advisories on public repositories. {% ifversion ghec %}It also does not affect security advisories on private repositories that have GHAS enabled.{% endif %}
 
-Formerly published advisories in private repositories {% ifversion ghec %}that do not have GHAS enabled{% endif %} will disappear. If you need to save previously published advisories, you can download them using the {% data variables.product.prodname_dotcom %} REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories?apiVersion=2022-11-28)" in the REST API documentation.
+Formerly published advisories in private repositories {% ifversion ghec %}that do not have GHAS enabled{% endif %} will disappear. If you need to save previously published advisories, you can download them using the {% data variables.product.prodname_dotcom %} REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories?apiVersion=2022-11-28)."
 
 {% endwarning %}

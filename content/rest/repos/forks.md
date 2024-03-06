@@ -1,5 +1,7 @@
 ---
-title: Forks
+title: REST API endpoints for forks
+shortTitle: Forks
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage repository forks.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

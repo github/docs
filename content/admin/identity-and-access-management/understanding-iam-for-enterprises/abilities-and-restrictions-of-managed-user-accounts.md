@@ -44,6 +44,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 - Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
 - Outside collaborators are not supported by {% data variables.product.prodname_emus %}, but guest collaborators are. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
 - {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
+- {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_for_individuals %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. For more information, see "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 - {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
   - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
   - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
@@ -52,5 +53,5 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 - {% data variables.enterprise.prodname_managed_users_caps %} can create {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
   {% data reusables.emus.oauth-app-note %}
-
+- {% data reusables.secret-scanning.secret-scanning-user-owned-enablement %}
 - {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
