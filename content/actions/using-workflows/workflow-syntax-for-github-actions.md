@@ -355,11 +355,11 @@ jobs:
 
 ## `jobs.<job_id>.defaults.run.shell`
 
-{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run-shell %}
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-shell %}
 
 ## `jobs.<job_id>.defaults.run.working-directory`
 
-{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run-working-directory %}
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-working-directory %}
 
 ### Example: Setting default `run` step options for a job
 
