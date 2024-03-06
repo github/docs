@@ -264,6 +264,14 @@ env:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
+## `defaults.run.shell`
+
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-shell %}
+
+## `defaults.run.working-directory`
+
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-working-directory %}
+
 ## `concurrency`
 
 {% data reusables.actions.jobs.section-using-concurrency %}
@@ -344,6 +352,14 @@ jobs:
 ## `jobs.<job_id>.defaults.run`
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}
+
+## `jobs.<job_id>.defaults.run.shell`
+
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run-shell %}
+
+## `jobs.<job_id>.defaults.run.working-directory`
+
+{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run-working-directory %}
 
 ### Example: Setting default `run` step options for a job
 
@@ -616,24 +632,17 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)" and "[`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun)."
+Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworkingdirectory)" and "[`jobs.<job_id>.defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworkingdirectory)."
 
 You can also use a `run` step to run a script. For more information, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)."
 
 ## `jobs.<job_id>.steps[*].shell`
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+You can override the default shell settings in the runner's operating system and the job's default using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
-| Supported platform | `shell` parameter | Description                                                                                                                                                                                                                                                                             | Command run internally                          |
-| ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| Linux / macOS      | unspecified       | The default shell on non-Windows platforms. Note that this runs a different command to when `bash` is specified explicitly. If `bash` is not found in the path, this is treated as `sh`.                                                                                                | `bash -e {0}`                                   |
-| All                | `bash`            | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used.                                                                                                                      | `bash --noprofile --norc -eo pipefail {0}`      |
-| All                | `pwsh`            | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                                                                                                                                     | `pwsh -command ". '{0}'"`                       |
-| All                | `python`          | Executes the python command.                                                                                                                                                                                                                                                            | `python {0}`                                    |
-| Linux / macOS      | `sh`              | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path.                                                                                                                                                                            | `sh -e {0}`                                     |
-| Windows            | `cmd`             | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`.                                                                                                                                                                | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows            | `pwsh`            | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
-| Windows            | `powershell`      | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                                                                                                                                  | `powershell -command ". '{0}'"`.                |
+{% data reusables.actions.supported-shells %}
+
+Alternatively, you can specify a default shell for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunshell)" and "[`jobs.<job_id>.defaults.run.shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunshell)."
 
 ### Example: Running a command using Bash
 
