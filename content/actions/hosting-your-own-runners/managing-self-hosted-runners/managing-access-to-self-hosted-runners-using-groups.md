@@ -22,11 +22,7 @@ type: tutorial
 
 ## Creating a self-hosted runner group for an organization
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
@@ -48,11 +44,7 @@ type: tutorial
 
 ## Changing which organizations can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group.
 
@@ -63,11 +55,7 @@ For runner groups in an enterprise, you can change what organizations in the ent
 
 ## Changing which repositories can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 For runner groups in an organization, you can change what repositories in the organization can access a runner group.
 
@@ -78,11 +66,7 @@ For runner groups in an organization, you can change what repositories in the or
 
 ## Changing which workflows can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 {% data reusables.actions.about-restricting-workflow-access-with-runner-groups %}
 

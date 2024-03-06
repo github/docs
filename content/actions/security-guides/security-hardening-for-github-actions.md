@@ -305,7 +305,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 ### Denying access to hosts
 
-{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+{% data reusables.actions.runners-etc-hosts-file %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 ## Hardening for self-hosted runners
 
