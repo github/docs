@@ -30,11 +30,11 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Azure Cognitive Services    | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Cloudflare                  | Content delivery service                                                       | United States                                     | United States      |
 | Fastly                      | Content delivery service                                                       | United States                                     | United States      |
-| GitHub Australia Pty Ltd    | GitHub Subsidiary                                                              | United States                                     | United States      |
-| GitHub BV                   | GitHub Subsidiary                                                              | United States                                     | United States      |
-| GitHub Canada ULC           | GitHub Subsidiary                                                              | United States                                     | United States      |
-| GitHub Germany GmbH         | GitHub Subsidiary                                                              | United States                                     | United States      |
-| GitHub India Pty Ltd        | GitHub Subsidiary                                                              | United States                                     | United States      |
+| GitHub Australia Pty Ltd    | GitHub Subsidiary                                                              | Australia                                         | Australia          |
+| GitHub BV                   | GitHub Subsidiary                                                              | Netherlands                                       | Netherlands        |
+| GitHub Canada ULC           | GitHub Subsidiary                                                              | Canada                                            | Canada             |
+| GitHub Germany GmbH         | GitHub Subsidiary                                                              | Germany                                           | Germany            |
+| GitHub India Pty Ltd        | GitHub Subsidiary                                                              | India                                             | India              |
 | Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Microsoft                   | Technical Services                                                             | United States                                     | United States      |
 | Moveworks                   | Customer support ticketing analysis                                            | United States                                     | United States      |

@@ -1,7 +1,7 @@
 ---
 title: Using secrets in GitHub Actions
 shortTitle: Using secrets
-intro: 'Secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+intro: 'Secrets allow you to store sensitive information in your organization, repository, or repository environments.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -158,7 +158,11 @@ gh secret list --env ENV_NAME
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
 
-   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png)
+
+   {% data reusables.actions.secrets-and-variables-org-permissions %}
+
+   {% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.

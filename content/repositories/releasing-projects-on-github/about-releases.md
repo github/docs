@@ -28,9 +28,7 @@ Anyone with read access to a repository can view and compare releases, but only 
 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 
-{% ifversion fpt or ghec or ghes %}
 When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
-{% endif %}
 
 GitHub will automatically include links to download a zip file and a tarball containing the contents of the repository at the point of the tag's creation.
 

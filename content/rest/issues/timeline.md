@@ -1,5 +1,5 @@
 ---
-title: Timeline events
+title: REST API endpoints for timeline events
 allowTitleToDifferFromFilename: true
 shortTitle: Timeline
 intro: >-

@@ -42,7 +42,7 @@ The following features are not included in the trial of {% data variables.produc
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 - {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 - {% data variables.product.prodname_sponsors %}
 - Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported for new organizations as part of the trial)
 - {% data variables.product.prodname_github_connect %}
@@ -90,5 +90,9 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-1. Follow the prompts.
+1. If your trial is active:
+   1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
+   1. Follow the prompts.
+1. If your trial is expired:
+   1. At the top of the page, click **Delete trial**.
+   1. Follow the prompts.

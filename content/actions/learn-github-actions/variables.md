@@ -154,6 +154,9 @@ The following rules apply to configuration variable names:
 {% data reusables.actions.actions-variables-tab %}
 
    ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
+
+   {% data reusables.actions.secrets-and-variables-org-permissions %}
+
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.

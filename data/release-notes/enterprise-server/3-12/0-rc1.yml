@@ -1,6 +1,6 @@
 date: '2024-02-13'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -24,6 +24,9 @@ sections:
           The REST API's `/manage/v1` endpoints have been expanded to include all the same operations as the `/setup/api` endpoints. The `/setup/api` endpoints will be deprecated in a future release of GitHub Enterprise Server. For more information, see the following articles in the REST API documentation.
           - "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)"
           - "[AUTOTITLE](/rest/enterprise-admin/management-console)"
+        # https://github.com/github/releases/issues/3676
+        - |
+          On an instance in a cluster configuration, administrators can use the `ghe-remove-node` command-line utility to remove a node from a cluster. This command evacuates data from the node's data services, marks the node as offline, and stops traffic being routed to the node, replacing the manual steps previously required to remove a node. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)." [Updated: 2024-02-28]
 
     - heading: Authentication
       notes:

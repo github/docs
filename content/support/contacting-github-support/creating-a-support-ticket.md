@@ -27,6 +27,8 @@ topics:
 
 {% ifversion fpt %}
 {% data reusables.support.free-and-paid-support %}
+
+To share feedback with {% data variables.product.company_short %}, you can use the {% data variables.contact.community_feedback_discussions %}. For more information, see "[AUTOTITLE](/support/sharing-feedback-with-github)."
 {% endif %}
 
 {% ifversion ghes or ghec %}

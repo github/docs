@@ -422,14 +422,11 @@ updates:
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% note %}
 
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 {% endnote %}
-
-{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -1354,8 +1351,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -1370,12 +1365,9 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes %}
-  - package-ecosystem: "beta-ecosystem"{% else %}
-  - package-ecosystem: "pub"{% endif %}
+updates:
+  - package-ecosystem: "beta-ecosystem"
     directory: "/"
     schedule:
       interval: "weekly"
 ```
-
-{% endif %}

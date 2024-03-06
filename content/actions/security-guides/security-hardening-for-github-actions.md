@@ -166,15 +166,23 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghes %}
+{% ifversion custom-org-roles %}
+
+## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
+
+You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+
+{% data reusables.actions.org-roles-for-gh-actions %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+
+{% endif %}
 
 ## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% data reusables.actions.oidc-custom-claims-aws-restriction %}
-
-{% endif %}
 
 ## Using third-party actions
 
@@ -202,7 +210,7 @@ The same principles described above for using third-party actions also apply to 
 
 ## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
 
-You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
+{% data reusables.actions.dependabot-version-updates-for-actions %}
 
 {% ifversion internal-actions %}
 
@@ -309,7 +317,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 ### Denying access to hosts
 
-{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+{% data reusables.actions.runners-etc-hosts-file %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 ## Hardening for self-hosted runners
 
@@ -367,13 +375,9 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
-
-{% endif %}
 
 ## Auditing {% data variables.product.prodname_actions %} events
 

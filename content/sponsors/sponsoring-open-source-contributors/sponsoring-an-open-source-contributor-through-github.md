@@ -31,6 +31,7 @@ Before you can sponsor an account, you must have a verified email address. For m
 {% data reusables.sponsors.sponsor-as-org %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
+1. To choose a sponsorship frequency, to the right of "One-time" or "Monthly," click **Choose**.
 {% data reusables.sponsors.select-sponsorship-billing %}
 {% data reusables.sponsors.setting-an-end-date %}
 {% data reusables.sponsors.who-can-see-your-sponsorship %}

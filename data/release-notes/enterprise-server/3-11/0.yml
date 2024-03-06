@@ -265,10 +265,12 @@ sections:
 
     # https://github.com/github/releases/issues/2603
     - |
-      On an instance with GitHub Actions enabled, workflows that use Node.js 12 will log a warning. Node.js 12 has been end-of-life since [April 2022](https://github.com/nodejs/Release/#end-of-life-releases).
+      On an instance with GitHub Actions enabled, workflows that use Node.js 16 or earlier will log a warning. Node.js 16 has been end-of-life since [September 2023](https://github.com/nodejs/Release/#end-of-life-releases).
       
-      - Workflow authors should update actions to run on Node.js 16 instead of 12. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)."
-      - Users with workflows that use Node.js should specify Node.js 16 or later in the workflows using versioned actions. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions)."
+      - Workflow authors should update actions to run on Node.js 20. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)."
+      - Users with workflows that use Node.js should specify Node.js 20 or later in the workflows using versioned actions. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions)."
+
+      [Updated: 2024-03-05]
 
     # https://github.com/github/releases/issues/3500
     - |
@@ -348,3 +350,6 @@ sections:
           Users will continue to receive Dependabot alerts for dependencies with known vulnerabilities. To resolve these alerts, users can manually upgrade the affected package.
 
            For more information about Python releases, see [Status of Python versions](https://devguide.python.org/versions) on the Python website. For more information about supported package managers for Dependabot, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
+  errata:
+    - 'The "[Changes](/admin/release-notes#3.11.0-changes)" section previously indicated that users should update GitHub Actions workflows and actions to run on Node.js 16. Node.js 16 has reached end of life, and users should instead update actions and workflows to run on Node.js 20 or later. [Updated: 2024-03-05]'

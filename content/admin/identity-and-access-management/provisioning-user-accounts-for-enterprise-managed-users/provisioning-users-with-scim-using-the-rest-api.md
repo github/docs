@@ -39,7 +39,7 @@ Alternatively, you can use a partner IdP for both authentication and provisionin
    - [RFC 7643: Core Schema](https://tools.ietf.org/html/rfc7643)
    - [RFC 7644: Protocol](https://tools.ietf.org/html/rfc7644)
 - {% data variables.product.company_short %} recommends that you only authenticate requests to the REST API endpoints for SCIM using a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **admin:enterprise** scope. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)"
-- The user records for the systems that you use for authentication and provisioning must share a unique identifier and satisfy {% data variables.product.company_short %}'s matching criteria. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)" in the REST API documentation.
+- The user records for the systems that you use for authentication and provisioning must share a unique identifier and satisfy {% data variables.product.company_short %}'s matching criteria. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)."
 - {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 
 ## Configuring audit log streaming
@@ -63,7 +63,7 @@ To make SCIM calls and manage users, you'll use {% data variables.product.compan
 
 The following tables describe the SCIM endpoints offered by the REST API. You can read more information in the REST API documentation. The documentation includes code samples, required headers and path parameters, and HTTP response codes.
 
-For more information about authentication of requests to these endpoints, see "[AUTOTITLE](/rest/enterprise-admin/scim#authentication)" in the REST API documentation.
+For more information about authentication of requests to these endpoints, see "[AUTOTITLE](/rest/enterprise-admin/scim#authentication)."
 
 Requests that don't match the REST API's expectations will return a `400 Bad Request` error.
 
@@ -119,13 +119,13 @@ For example, you can use the `roles` attribute to assign a role in the enterpris
 
 ### About mapping of external identities
 
-After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[SCIM](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)" in the REST API documentation.
+After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)."
 
 You can view this mapping on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
 
 ### Ensuring users have the access you intend
 
-If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)" in the REST API documentation.
+If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
 
 ### About suspension and reprovisioning of users
 

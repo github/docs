@@ -1,5 +1,5 @@
 ---
-title: Rules
+title: REST API endpoints for rules
 shortTitle: Rules
 intro: >-
   Use the REST API to manage rulesets for repositories. Rulesets control how
