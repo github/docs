@@ -266,11 +266,11 @@ env:
 
 ## `defaults.run.shell`
 
-{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-shell %}
+{% data reusables.actions.setting-default-values-for-jobs-defaults-run-shell %}
 
 ## `defaults.run.working-directory`
 
-{% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run-working-directory %}
+{% data reusables.actions.setting-default-values-for-jobs-defaults-run-working-directory %}
 
 ## `concurrency`
 
