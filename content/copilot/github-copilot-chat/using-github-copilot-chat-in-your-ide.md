@@ -140,7 +140,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot %}](https://visualstudio.microsoft.com/github-copilot/) documentation.
+- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.8 or higher. For more information, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot %}](https://visualstudio.microsoft.com/github-copilot/) documentation.
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
