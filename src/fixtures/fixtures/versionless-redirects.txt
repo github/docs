@@ -1,7 +1,7 @@
 # These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
 # Shipped in pull #20947 on 10/15/21
 
-/enterprise-cloud@latest/admin/overview/about-enterprise-accounts
+/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts
 - /articles/about-github-business-accounts
 - /articles/about-enterprise-accounts
 - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts

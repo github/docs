@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
+  - /admin/overview/about-enterprise-accounts
 versions:
   ghec: '*'
   ghes: '*'

@@ -175,7 +175,7 @@ get_started_with_your_enterprise_account:
     ghes: '*'
     ghec: '*'
   guides:
-    - /admin/overview/about-enterprise-accounts
+    - /admin/managing-your-enterprise-account/about-enterprise-accounts
     - >-
       /billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
     - >-
