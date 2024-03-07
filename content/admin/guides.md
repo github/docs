@@ -83,7 +83,7 @@ includeGuides:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
-  - /admin/overview/about-enterprise-accounts
+  - /admin/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/overview/about-upgrades-to-new-releases
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
   - /admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
