@@ -1,5 +1,6 @@
 ---
-title: GitHub Apps
+title: 'REST API endpoints for {% data variables.product.prodname_github_apps %}'
+shortTitle: '{% data variables.product.prodname_github_apps %}'
 allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with {% data
