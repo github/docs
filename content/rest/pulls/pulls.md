@@ -1,5 +1,7 @@
 ---
-title: Pulls
+title: REST API endpoints for pull requests
+shortTitle: Pull requests
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to interact with pull requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

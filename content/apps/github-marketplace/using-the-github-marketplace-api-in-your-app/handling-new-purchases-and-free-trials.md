@@ -75,7 +75,7 @@ After the customer completes the authorization, your app receives an OAuth acces
 
 ## Step 4. Provisioning customer accounts
 
-Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[AUTOTITLE](/rest/apps#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
+Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[`GET /user/marketplace_purchases`](/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
