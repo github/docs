@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} cards'
+title: 'REST API endpoints for {% data variables.product.prodname_project_v1_caps %} cards'
 shortTitle: Cards
 allowTitleToDifferFromFilename: true
 intro: >-
