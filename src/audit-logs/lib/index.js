@@ -82,15 +82,11 @@ export function getAuditLogEvents(page, version, categorized = false) {
 // * currentEvents: events already collected
 // * allowListvalues: allowlist values to filter by
 // * pipelineConfig: audit log pipeline config data
-// * filterConfig: filter config options
 export function filterByAllowlistValues(
   eventsToCheck,
   currentEvents,
   allowListValues,
   pipelineConfig,
-  filterConfig = {
-    filterFn: filterOr,
-  },
 ) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
@@ -99,9 +95,10 @@ export function filterByAllowlistValues(
   const minimalEvents = []
 
   for (const event of eventsToCheck) {
-    if (event._allowlists === null) continue
+    const eventAllowlists = event._allowlists
+    if (eventAllowlists === null) continue
 
-    if (filterConfig.filterFn(event._allowlists, allowListValues)) {
+    if (allowListValues.some((av) => eventAllowlists.includes(av))) {
       if (seen.has(event.action)) continue
       seen.add(event.action)
 
@@ -112,8 +109,8 @@ export function filterByAllowlistValues(
       }
 
       if (
-        event._allowlists.includes('org_api_only') ||
-        event._allowlists.includes('business_api_only')
+        eventAllowlists.includes('org_api_only') ||
+        eventAllowlists.includes('business_api_only')
       ) {
         minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
       }
@@ -211,8 +208,4 @@ export function filterAndUpdateGhesDataByAllowlistValues(
       }
     }
   }
-}
-
-function filterOr(array, conditions) {
-  return conditions.some((condition) => array.includes(condition))
 }

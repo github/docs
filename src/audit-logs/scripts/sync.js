@@ -78,14 +78,8 @@ async function main() {
   const auditLogData = {}
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
-  const filter = (allowListValues, filterConfig = { filterFn: filterOr }, currentEvents = []) =>
-    filterByAllowlistValues(
-      schemaEvents,
-      currentEvents,
-      allowListValues,
-      pipelineConfig,
-      filterConfig,
-    )
+  const filter = (allowListValues, currentEvents = []) =>
+    filterByAllowlistValues(schemaEvents, currentEvents, allowListValues, pipelineConfig)
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filterAndUpdateGhes = (allowListValues, auditLogPage, currentEvents) =>
@@ -102,23 +96,11 @@ async function main() {
   auditLogData.fpt.organization = filter(['organization', 'org_api_only'])
 
   auditLogData.ghec = {}
-  auditLogData.ghec.user = filter(['business', 'user'], {
-    filterFn: filterAnd,
-  })
-  auditLogData.ghec.organization = filter(['business', 'organization'], {
-    filterFn: filterAnd,
-  })
-  auditLogData.ghec.organization = filter(
-    'org_api_only',
-    { filterFn: filterOr },
-    auditLogData.ghec.organization,
-  )
+  auditLogData.ghec.user = filter('user')
+  auditLogData.ghec.organization = filter('organization')
+  auditLogData.ghec.organization = filter('org_api_only', auditLogData.ghec.organization)
   auditLogData.ghec.enterprise = filter('business')
-  auditLogData.ghec.enterprise = filter(
-    'business_api_only',
-    { filterFn: filterOr },
-    auditLogData.ghec.enterprise,
-  )
+  auditLogData.ghec.enterprise = filter('business_api_only', auditLogData.ghec.enterprise)
 
   // GHES versions are numbered (i.e. "3.9", "3.10", etc.) and filterGhes()
   // gives us back an object of GHES versions to page events for each version
@@ -190,14 +172,6 @@ async function main() {
       }
     })
   }
-}
-
-function filterOr(array, conditions) {
-  return conditions.some((condition) => array.includes(condition))
-}
-
-function filterAnd(array, conditions) {
-  return conditions.every((condition) => array.includes(condition))
 }
 
 main()
