@@ -22,12 +22,12 @@ If a license is matched, the license key and name returned conforms to the [SPDX
 
 **Note:** These endpoints will also return a repository's license information:
 
-- [Get a repository](/rest/repos#get-a-repository)
-- [List repositories for a user](/rest/repos#list-repositories-for-a-user)
-- [List organization repositories](/rest/repos#list-organization-repositories)
-- [List forks](/rest/repos#list-forks)
-- [List repositories watched by a user](/rest/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/rest/teams#list-team-repositories)
+- [Get a repository](/rest/repos/repos#get-a-repository)
+- [List repositories for a user](/rest/repos/repos#list-repositories-for-a-user)
+- [List organization repositories](/rest/repos/repos#list-organization-repositories)
+- [List forks](/rest/repos/forks#list-forks)
+- [List repositories watched by a user](/rest/activity/watching#list-repositories-watched-by-a-user)
+- [List team repositories](/rest/teams/teams#list-team-repositories)
 
 {% warning %}
 

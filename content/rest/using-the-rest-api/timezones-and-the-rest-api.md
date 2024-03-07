@@ -39,7 +39,7 @@ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_
 
 This means that we generate a timestamp for the moment your API call is made, in the timezone this header defines.
 
-For example, the API to manage contents generates a git commit for each addition or change, and it uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." The `Time-Zone` header will determine the timezone used for generating that current timestamp.
+For example, the API to manage contents generates a git commit for each addition or change, and it uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos/contents)." The `Time-Zone` header will determine the timezone used for generating that current timestamp.
 
 ### Using the last known timezone for the user
 

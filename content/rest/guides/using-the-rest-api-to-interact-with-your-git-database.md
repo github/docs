@@ -41,14 +41,14 @@ the model and it opens up a ton of things you could potentially do with the API.
 
 {% warning %}
 
-**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
+**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git/refs#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
 
 {% endwarning %}
 
-A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/rest/pulls#get-a-pull-request), [create](/rest/pulls#create-a-pull-request), or [edit](/rest/pulls#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
+A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/rest/pulls/pulls#get-a-pull-request), [create](/rest/pulls/pulls#create-a-pull-request), or [edit](/rest/pulls#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
 
 If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
 
 1. Receive the pull request webhook.
-1. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
-1. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+1. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
+1. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git/refs#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.

@@ -336,7 +336,7 @@ If you use the same configuration as in the example above, bumping the `requests
 
 ### `groups`
 
-{% ifversion dependabot-grouped-security-updates %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+{% ifversion dependabot-grouped-security-updates-config %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
@@ -344,7 +344,9 @@ If you use the same configuration as in the example above, bumping the `requests
 
 {% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+{% ifversion dependabot-grouped-security-updates-config %}
+The `applies-to` key is used to specify whether a set of grouping rules is intended for version updates or security updates. Using the `applies-to` key is optional. If the `applies-to` key is absent from a set of grouping rules, it defaults to `version-updates` for backwards compatibility. You cannot apply a single grouping set of rules to both version updates and security updates. Instead, if you want to group both version updates and security updates using the same criteria, you must define two, separately named, grouping sets of rules. To do this, you can copy the group configuration block for the ecosystem and directory, and name each set of rules differently.
+{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-match-first %}
 
@@ -355,7 +357,9 @@ When a scheduled update runs, {% data variables.product.prodname_dependabot %} w
 - If all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 - If the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
-You can also manage pull requests for grouped version updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."
+You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
+
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
 {% endif %}
 
@@ -378,7 +382,7 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 
 Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} version updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped version updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped {% ifversion dependabot-grouped-security-updates-config %}{% else %}version {% endif %}updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
 
 For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 

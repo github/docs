@@ -171,7 +171,7 @@ To help you gracefully handle these situations, all API responses for requests
 made with valid OAuth app tokens also contain an [`X-OAuth-Scopes` header](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the REST API provides an endpoint to
-[check a token for validity](/rest/apps#check-a-token).
+[check a token for validity](/rest/apps/oauth-applications#check-a-token).
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 

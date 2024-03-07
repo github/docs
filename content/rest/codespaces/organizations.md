@@ -1,5 +1,5 @@
 ---
-title: Codespaces organizations
+title: REST API endpoints for Codespaces organizations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
 intro: Use the REST API to manage your organization members codespaces.

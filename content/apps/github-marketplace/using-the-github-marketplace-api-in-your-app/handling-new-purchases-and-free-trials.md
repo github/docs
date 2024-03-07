@@ -75,7 +75,7 @@ After the customer completes the authorization, your app receives an OAuth acces
 
 ## Step 4. Provisioning customer accounts
 
-Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[AUTOTITLE](/rest/apps#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
+Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[`GET /user/marketplace_purchases`](/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
@@ -83,6 +83,6 @@ If the purchase is for an organization and per-user, you can prompt the customer
 
 You can customize the way that organization members receive access to your app. Here are a few suggestions:
 
-**Flat-rate pricing:** If the purchase is made for an organization using flat-rate pricing, your app can [get all the organization’s members](/rest/orgs#list-organization-members) via the API and prompt the organization owner to choose which members will have paid users on the integrator side.
+**Flat-rate pricing:** If the purchase is made for an organization using flat-rate pricing, your app can [get all the organization’s members](/rest/orgs/members#list-organization-members) via the API and prompt the organization owner to choose which members will have paid users on the integrator side.
 
 **Per-unit pricing:** One method of provisioning per-unit seats is to allow users to occupy a seat as they log in to the app. Once the customer hits the seat count threshold, your app can alert the user that they need to upgrade through {% data variables.product.prodname_marketplace %}.

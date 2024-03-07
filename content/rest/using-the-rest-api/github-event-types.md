@@ -52,7 +52,7 @@ The event objects returned from the Events API endpoints have the same structure
 
 ### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/activity#events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/activity/events).
 
 ```http
 HTTP/2 200
@@ -242,7 +242,7 @@ Key | Type | Description
 `push_id` | `integer` | Unique identifier for the push.
 `size`|`integer` | The number of commits in the push.
 `distinct_size`|`integer` | The number of distinct commits in the push.
-`ref`|`string` | The full [`git ref`](/rest/git#refs) that was pushed. Example: `refs/heads/main`.
+`ref`|`string` | The full [`git ref`](/rest/git/refs) that was pushed. Example: `refs/heads/main`.
 `head`|`string` | The SHA of the most recent commit on `ref` after the push.
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
 `commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
