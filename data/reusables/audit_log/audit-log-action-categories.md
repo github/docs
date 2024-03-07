@@ -137,7 +137,7 @@
 | `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 {%- endif %}
 {%- ifversion secret-scanning-validity-check-audit-log %}
-| `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+| `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_custom_pattern` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
