@@ -47,7 +47,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 {% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
-For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
 {% ifversion actions-disable-repo-runners %}
 
@@ -70,7 +70,7 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 ## Adding a self-hosted runner to an organization
 
-You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner{% ifversion custom-org-roles %} or have the "Manage organization runners and runner groups" permission{% endif %}. For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner{% ifversion custom-org-roles %} or have the "Manage organization runners and runner groups" permission{% endif %}. For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
 {% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
@@ -94,7 +94,7 @@ New runners are assigned to the default group. You can modify the runner's group
 
 {% ifversion ghec or ghes %}
 
-To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions#self-hosted-runners).
+To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API,  see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions/self-hosted-runners).
 
 {% endif %}
 

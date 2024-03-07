@@ -661,7 +661,7 @@ In the code block that starts with `helpers do`, where it says `# ADD CREATE_CHE
     end
 ```
 
-This code calls the `POST /repos/{owner}/{repo}/check-runs` endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method). For more information about the endpoint, see "[AUTOTITLE](/rest/checks#create-a-check-run)."
+This code calls the `POST /repos/{owner}/{repo}/check-runs` endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method). For more information about the endpoint, see "[AUTOTITLE](/rest/checks/runs#create-a-check-run)."
 
 To create a check run, only two input parameters are required: `name` and `head_sha`. In this code, we name the check run "Octo RuboCop," because we'll use RuboCop to implement the CI test later in the tutorial. But you can choose any name you'd like for the check run. For more information about RuboCop, see the [RuboCop documentation](https://docs.rubocop.org/rubocop/index.html).
 
@@ -748,7 +748,7 @@ In the code block that starts with `helpers do`, where it says `# ADD INITIATE_C
     end
 ```
 
-The code above calls the `PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}` endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created. For more information about the endpoint, see "[AUTOTITLE](/rest/checks#update-a-check-run)."
+The code above calls the `PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}` endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created. For more information about the endpoint, see "[AUTOTITLE](/rest/checks/runs#update-a-check-run)."
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In Part 2 of this tutorial, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
@@ -904,7 +904,7 @@ The code above gets the full repository name and the head SHA of the commit from
 
 ## Step 2.3. Run RuboCop
 
-So far, your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run).
+So far, your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks/runs#create-a-check-run).
 
 First, you'll add code to run RuboCop and save the style code errors in JSON format.
 

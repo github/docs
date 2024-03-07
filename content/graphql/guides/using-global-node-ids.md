@@ -31,7 +31,7 @@ Let's walk through an example.
 
 ## 1. Call a REST endpoint that returns an object's node ID
 
-If you [request the authenticated user](/rest/users#get-the-authenticated-user):
+If you [request the authenticated user](/rest/users/users#get-the-authenticated-user):
 
 ```shell
 curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.api_url_pre %}/user
