@@ -60,7 +60,7 @@ shortTitle: Manage secret alerts
 
     {% note %}
 
-     **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+     **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)."
 
      {% endnote %}
    {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
@@ -128,7 +128,7 @@ You can allow {% data variables.product.prodname_secret_scanning %} to check the
 
 You can enable automatic validity checks for supported partner patterns in the code security settings for your repository, organization, or enterprise. {% data variables.product.company_short %} will periodically send the pattern to the relevant partner to check the secret's validity and display the validation status of the secret in the alert view.
 
- For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[Managing Advanced Security features](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+ For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)," "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
 
 If your repository has validity checks enabled, you can also perform an on-demand validity check for a secret by clicking {% octicon "sync" aria-hidden="true" %} **Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
