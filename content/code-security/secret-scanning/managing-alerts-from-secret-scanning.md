@@ -152,7 +152,7 @@ For more information on which partners support validity checks, see "[Supported 
 
 {% endnote %}
 
-In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)."
+In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see {% ifversion secret-scanning-non-provider-patterns %}"[Managing alerts from high confidence patterns](#managing-alerts-from-high-confidence-patterns){% else %}"[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts){% endif %}."
 
 Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
