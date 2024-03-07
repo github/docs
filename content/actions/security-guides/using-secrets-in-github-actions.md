@@ -54,7 +54,7 @@ You can use and read secrets in a workflow file if you have access to edit the f
 
 Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
 
-You can also manage secrets using the REST API. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+You can also manage secrets using the REST API. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
 
 ### Limiting credential permissions
 
@@ -66,7 +66,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 
 {% note %}
 
-**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
 
 {% endnote %}
 

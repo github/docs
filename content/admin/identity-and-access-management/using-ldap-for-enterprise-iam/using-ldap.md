@@ -220,7 +220,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
-You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap).
+You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap).
 
 ## Revoking access to {% data variables.location.product_location %}
 

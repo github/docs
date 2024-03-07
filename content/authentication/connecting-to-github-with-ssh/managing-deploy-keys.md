@@ -51,7 +51,7 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 - Multiple tokens (one for each user) are not needed; one token per server is enough.
 - A token can be revoked at any time, turning it essentially into a one-use password.
 {% ifversion ghes %}
-- Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations#create-a-new-authorization).
+- Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
 ### Cons of HTTPS cloning with OAuth tokens
@@ -147,7 +147,7 @@ Since {% data variables.product.prodname_github_apps %} are a first class actor 
 1. Note your {% data variables.product.prodname_github_app %} `id`.
 1. Generate and download your {% data variables.product.prodname_github_app %}'s private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Install your {% data variables.product.prodname_github_app %} on the repositories it needs to act upon, optionally you may install the {% data variables.product.prodname_github_app %} on all repositories in your organization.
-1. Identify the `installation_id` that represents the connection between your {% data variables.product.prodname_github_app %} and the organization repositories it can access.  Each {% data variables.product.prodname_github_app %} and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a {% data variables.product.prodname_github_app %} using a JWT, for more information see [Authenticating as a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app).
+1. Identify the `installation_id` that represents the connection between your {% data variables.product.prodname_github_app %} and the organization repositories it can access.  Each {% data variables.product.prodname_github_app %} and organization pair have at most a single `installation_id`. You can identify this `installation_id` via [Get an organization installation for the authenticated app](/rest/apps/apps#get-an-organization-installation-for-the-authenticated-app). This requires authenticating as a {% data variables.product.prodname_github_app %} using a JWT, for more information see [Authenticating as a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app).
 1. Generate an installation access token using the corresponding REST API endpoint, [Create an installation access token for an app](/rest/apps#create-an-installation-access-token-for-an-app). This requires authenticating as a {% data variables.product.prodname_github_app %} using a JWT, for more information see [Authenticating as a {% data variables.product.prodname_github_app %}](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app), and [Authenticating as an installation](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation).
 1. Use this installation access token to interact with your repositories, either via the REST or GraphQL APIs, or via a Git client.
 
