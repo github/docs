@@ -60444,6 +60444,16 @@
               }
             },
             {
+              "name": "names",
+              "description": "<p>The names of the environments to be returned.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for the environments.</p>",
               "type": {
