@@ -43647,6 +43647,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
+    The names of the environments to be returned.
+    """
+    names: [String!] = []
+
+    """
     Ordering options for the environments
     """
     orderBy: Environments = {field: NAME, direction: ASC}
