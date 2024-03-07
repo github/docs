@@ -632,7 +632,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworkingdirectory)" and "[`jobs.<job_id>.defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworkingdirectory)."
+Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrunworking-directory)" and "[`jobs.<job_id>.defaults.run.working-directory`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworking-directory)."
 
 You can also use a `run` step to run a script. For more information, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)."
 
