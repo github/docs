@@ -1306,8 +1306,8 @@ Format radio button labels in bold and omit the words “radio button” or any 
 
 ### Repository names
 
-Use a standard format to refer to repositories. Link to repositories when helpful.
-- **Use:** in the `[account-name/repository-name](URL)` repository
+Style repository names in monospace font using backticks. Provide a link to repositories when people are expected to navigate to them.
+- **Use:** See the [`github/docs`](https://github.com/github/docs) repository for more information.
 
 ### Responsive elements
 
