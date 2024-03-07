@@ -49,4 +49,6 @@ Before you generate a new SSH key, you should check your local machine for exist
    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
    - If you see an existing public and private key pair listed (for example, _id_rsa.pub_ and _id_rsa_) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
 
-     For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+     For more information about generation of a new SSH key or addition of an existing key to the ssh-agent, see "[isabelschoeps.github](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+
+![isabelschoeps.github](https://github.com/github/docs/assets/155141998/dea0d591-7ec5-4c34-aa53-aba96d1383ea)
