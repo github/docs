@@ -41,7 +41,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 - [Artifactory](#artifactory)
 - [Azure Artifacts](#azure-artifacts)
-- [{% data variables.product.prodname_registry %} registry](#data-variablesproductprodname_registry--registry)
+- [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 - [Nexus](#nexus)
 - [ProGet](#proget)
 

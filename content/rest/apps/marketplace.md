@@ -1,5 +1,5 @@
 ---
-title: GitHub Marketplace
+title: 'REST API endpoints for {% data variables.product.prodname_marketplace %}'
 allowTitleToDifferFromFilename: true
 shortTitle: Marketplace
 intro: >-

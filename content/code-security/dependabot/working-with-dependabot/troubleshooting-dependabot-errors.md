@@ -172,7 +172,9 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
-{% ifversion dependabot-grouped-security-updates %}The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+{% ifversion dependabot-grouped-security-updates-config %}The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
+
+{% data reusables.dependabot.dependabot-grouped-updates-applies-to %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 When you configure grouped version updates, you must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
 
@@ -198,16 +200,18 @@ You need to ensure that configuration settings don't cancel each other, and upda
 
 For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
 
-{% ifversion dependabot-grouped-security-updates %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}
 
-The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.
+The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
+
+{% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
 For grouped security updates, {% data variables.product.prodname_dependabot %} uses the following guidelines to create grouped pull requests.
 
-- {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories.
-- {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates.
+- {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories. Grouping across directories only occurs for directories not configured in the `dependabot.yml` file.
+- {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates. {% data reusables.dependabot.dependabot-grouped-security-updates-yaml-override %}
 - {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
 - {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.
 
@@ -217,7 +221,7 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-vers
 
 ### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
 
-{% ifversion dependabot-grouped-security-updates %}There are different troubleshooting techniques you can use for failed version updates and failed security updates.
+{% ifversion dependabot-grouped-security-updates-config %}There are different troubleshooting techniques you can use for failed version updates and failed security updates.
 
 #### Handling failures in grouped version updates{% endif %}
 
@@ -229,11 +233,13 @@ If the dependency still fails to update, there may be a problem with the depende
 
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
 
-{% ifversion dependabot-grouped-security-updates %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
 #### Handling failures in grouped security updates
 
 **Security updates only.** If a grouped pull request for security updates fails or is unable to be merged, we recommend you manually open pull requests to bump the versions of breaking changes. When you manually update a package that is included in a grouped pull request, {% data variables.product.prodname_dependabot %} will rebase the pull request so it does not include the manually updated package.
+
+{% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 {% endif %}
 
