@@ -36,4 +36,3 @@ sections:
   errata:
     - |
       "[Known issues](/admin/release-notes#3.11.2-known-issues)" incorrectly indicated that an upgrade to GitHub Enterprise Server 3.11 may fail. This issue does not impact GitHub Enterprise Server instances when upgrading to version 3.11.1 or later. [Updated: 2024-01-26]
-      
