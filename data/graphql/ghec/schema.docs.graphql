@@ -15992,11 +15992,6 @@ enum FundingPlatform {
   OPEN_COLLECTIVE
 
   """
-  Otechie funding platform.
-  """
-  OTECHIE
-
-  """
   Patreon funding platform.
   """
   PATREON

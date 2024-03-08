@@ -205,6 +205,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.content_exclusion_changed",
+    "description": "The excluded paths for GitHub Copilot were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -218,6 +223,36 @@
     "action": "custom_hosted_runner.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_property_definition.create",
+    "description": "A new custom property definition was created.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.destroy",
+    "description": "A custom property definition was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.update",
+    "description": "A custom property definition was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.create",
+    "description": "A repository's custom property value was manually set for the first time.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.destroy",
+    "description": "A repository's custom property value was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.update",
+    "description": "A repository's custom property value was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
   },
   {
     "action": "dependabot_alerts.disable",
@@ -1160,6 +1195,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.recovery_code_failed",
+    "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "org.recovery_code_used",
+    "description": "An organization owner successfully signed into an organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "org.recovery_codes_downloaded",
+    "description": "An organization owner downloaded the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_generated",
+    "description": "An organization owner generated the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_printed",
+    "description": "An organization owner printed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_viewed",
+    "description": "An organization owner viewed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
     "action": "org.register_self_hosted_runner",
     "description": "A new self-hosted runner was registered.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization"
@@ -1570,6 +1635,11 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards"
   },
   {
+    "action": "organization_role.assign",
+    "description": "An organization role was assigned to a user or team.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
+  },
+  {
     "action": "organization_role.create",
     "description": "A custom organization role was created in an organization.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
@@ -1577,6 +1647,11 @@
   {
     "action": "organization_role.destroy",
     "description": "A custom organization role was deleted in an organization.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
+  },
+  {
+    "action": "organization_role.revoke",
+    "description": "A user or team was unassigned an organization role.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
@@ -2220,6 +2295,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete_restore",
+    "description": "A GitHub Pages site that was previously soft-deleted was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.pages_source",
     "description": "A GitHub Pages source was modified.",
     "docs_reference_links": "N/A"
@@ -2820,6 +2905,16 @@
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
   },
   {
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
+  },
+  {
     "action": "sponsors.update_tier_repository",
     "description": "A GitHub Sponsors tier changed access for a repository.",
     "docs_reference_links": "N/A"
@@ -2997,6 +3092,16 @@
   {
     "action": "vulnerability_alert_rule.enable",
     "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "vulnerability_alert_rule.force_disable",
+    "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "vulnerability_alert_rule.force_enable",
+    "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
     "docs_reference_links": "N/A"
   },
   {
