@@ -74,6 +74,7 @@ Set the exit code of a step to a nonzero value and ensure that the step does not
 `maybe-fail/action.yaml`:
 
 ```yaml
+{% raw %}
 name: 'Maybe fail'
 description: 'Conditionally fail based on inputs'
 inputs:
@@ -108,13 +109,15 @@ runs:
       if: success() || failure()
       run: echo "result=$outcome" | tee -a "$GITHUB_OUTPUT"
       env:
-        outcome: ${{ steps.continue-on-error-false.outcome != 'skipped' {% raw %}&&{% endraw %} steps.continue-on-error-false.outcome || steps.continue-on-error-true.outcome }}
+        outcome: ${{ steps.continue-on-error-false.outcome != 'skipped' && steps.continue-on-error-false.outcome || steps.continue-on-error-true.outcome }}
       shell: bash
+{% endraw %}
 ```
 
 `use-maybe-fail/action.yaml`:
 
 ```yaml
+{% raw %}
 name: 'Use maybe fail'
 description: 'Call maybe fail to conditionally fail based on inputs'
 inputs:
@@ -144,11 +147,13 @@ runs:
       run: |
         echo 'Something must be done because maybe-fail failed!' | tee -a "$GITHUB_STEP_SUMMARY"
       shell: bash
+{% endraw %}
 ```
 
 `.github/workflows/maybe-fail.yaml`:
 
 ```yaml
+{% raw %}
 name: Maybe-fail
 
 on:
@@ -231,4 +236,5 @@ jobs:
       - name: Next Step
         run:
           echo Next step | tee -a "$GITHUB_STEP_SUMMARY"
+{% endraw %}
 ```
