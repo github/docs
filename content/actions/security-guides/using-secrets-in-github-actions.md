@@ -54,7 +54,7 @@ You can use and read secrets in a workflow file if you have access to edit the f
 
 Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
 
-You can also manage secrets using the REST API. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+You can also manage secrets using the REST API. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
 
 ### Limiting credential permissions
 
@@ -66,7 +66,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 
 {% note %}
 
-**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions/secrets)."
 
 {% endnote %}
 
@@ -158,7 +158,11 @@ gh secret list --env ENV_NAME
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
 
-   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png)
+
+   {% data reusables.actions.secrets-and-variables-org-permissions %}
+
+   {% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.

@@ -1,12 +1,13 @@
 ---
 title: Disabling or limiting GitHub Actions for your organization
-intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
+intro: 'You can enable, disable, and limit GitHub Actions for an organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+permissions:  Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 topics:
   - Organizations
   - Teams

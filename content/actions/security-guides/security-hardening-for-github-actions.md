@@ -25,7 +25,7 @@ This guide explains how to configure security hardening for certain {% data vari
 Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/security-guides/using-secrets-in-github-actions) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 {% ifversion fpt or ghec %}
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) or through the [REST API](/rest/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
+Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) or through the [REST API](/rest/actions/secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 {% endif %}
 
 To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets used within the job, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. Additionally, the runner can only redact secrets used within the current job. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
@@ -165,6 +165,18 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 ### Restricting permissions for tokens
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
+
+{% ifversion custom-org-roles %}
+
+## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
+
+You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+
+{% data reusables.actions.org-roles-for-gh-actions %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+
+{% endif %}
 
 ## Using OpenID Connect to access cloud resources
 

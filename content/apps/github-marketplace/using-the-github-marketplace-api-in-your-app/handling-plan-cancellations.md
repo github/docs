@@ -35,6 +35,6 @@ When a customer cancels a free or paid plan, your app must perform these steps t
 
 {% note %}
 
-**Note:** We recommend using the [`marketplace_purchase`](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/rest/apps#list-accounts-for-a-plan). For more information on webhooks, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
+**Note:** We recommend using the [`marketplace_purchase`](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api) webhook's `effective_date` to determine when a plan change will occur and periodically synchronizing the [List accounts for a plan](/rest/apps/marketplace#list-accounts-for-a-plan). For more information on webhooks, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
 
 {% endnote %}

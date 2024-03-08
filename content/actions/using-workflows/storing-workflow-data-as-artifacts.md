@@ -139,7 +139,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts)," and "[AUTOTITLE](/rest/actions#artifacts)."
+After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts)," and "[AUTOTITLE](/rest/actions/artifacts)."
 
 ### Downloading artifacts during a workflow run
 

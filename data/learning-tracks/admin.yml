@@ -13,8 +13,6 @@ deploy_an_instance:
     - >-
       /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
     - /admin/identity-and-access-management/using-saml-for-enterprise-iam
-    - >-
-      /admin/administering-your-instance/administering-your-instance-from-the-web-ui
 upgrade_your_instance:
   title: Upgrade your instance
   description: >-
@@ -175,7 +173,7 @@ get_started_with_your_enterprise_account:
     ghes: '*'
     ghec: '*'
   guides:
-    - /admin/overview/about-enterprise-accounts
+    - /admin/managing-your-enterprise-account/about-enterprise-accounts
     - >-
       /billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
     - >-

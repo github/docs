@@ -44,5 +44,9 @@ Manage the organization's custom properties definitions | Access to create and e
 Manage organization ref update rules and rulesets | Access to manage rulesets and view ruleset insights at the organization level. | "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)"
 {%- endif %}
 View organization audit log | Access to the audit log for the organization. The audit log may contain metadata for repositories in the organization. | "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
+Manage organization Actions policies | Access to manage all settings on the "Actions General" settings page, except for self-hosted runners settings. | "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
+Manage organization runners and runner groups | Access to create and manage GitHub-hosted runners, self-hosted runners, and runner groups, and control where self-hosted runners can be created. | "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#overview-of-github-hosted-runners)"<br><br>"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)"
+Manage organization Actions secrets | Access to create and manage Actions organization secrets. | "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization)"
+Manage organization Actions variables | Access to create and manage Actions organization variables. | "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)"
 
 {% endrowheaders %}
