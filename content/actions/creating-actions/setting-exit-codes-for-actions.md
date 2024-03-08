@@ -74,8 +74,7 @@ Set the exit code of a step to a nonzero value and ensure that the step does not
 `maybe-fail/action.yaml`:
 
 ```yaml
-{% raw %}
-name: 'Maybe fail'
+{% raw %}name: 'Maybe fail'
 description: 'Conditionally fail based on inputs'
 inputs:
   return-code:
@@ -110,15 +109,13 @@ runs:
       run: echo "result=$outcome" | tee -a "$GITHUB_OUTPUT"
       env:
         outcome: ${{ steps.continue-on-error-false.outcome != 'skipped' && steps.continue-on-error-false.outcome || steps.continue-on-error-true.outcome }}
-      shell: bash
-{% endraw %}
+      shell: bash{% endraw %}
 ```
 
 `use-maybe-fail/action.yaml`:
 
 ```yaml
-{% raw %}
-name: 'Use maybe fail'
+{% raw %}name: 'Use maybe fail'
 description: 'Call maybe fail to conditionally fail based on inputs'
 inputs:
   return-code:
@@ -146,15 +143,13 @@ runs:
       if: (success() || failure()) && steps.maybe-fail.outcome == 'failure'
       run: |
         echo 'Something must be done because maybe-fail failed!' | tee -a "$GITHUB_STEP_SUMMARY"
-      shell: bash
-{% endraw %}
+      shell: bash{% endraw %}
 ```
 
 `.github/workflows/maybe-fail.yaml`:
 
 ```yaml
-{% raw %}
-name: Maybe-fail
+{% raw %}name: Maybe-fail
 
 on:
   push:
@@ -235,6 +230,5 @@ jobs:
           ) | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Next Step
         run:
-          echo Next step | tee -a "$GITHUB_STEP_SUMMARY"
-{% endraw %}
+          echo Next step | tee -a "$GITHUB_STEP_SUMMARY"{% endraw %}
 ```
