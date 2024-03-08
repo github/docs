@@ -2,7 +2,7 @@ date: '2024-01-30'
 sections:
   bugs:
     - |
-      The instance incorrectly wrote the output for multiple workloads to `/var/log/syslog.log`. 
+      The instance incorrectly wrote the output for multiple workloads to `/var/log/syslog.log`.
     - |
       During periods of high traffic, interruptions in service occurred due to insufficient resource allocations for internal components.
     - |
