@@ -40,7 +40,7 @@
             "repositories": {
                 // allow Codespaces to pull from separate repo when user has access
                 "github/docs-early-access": {
-                    "permissions": {
+                    "permissions": {Write,Execute,Read,Save}
                         "contents": "write"
                     }
                 }
