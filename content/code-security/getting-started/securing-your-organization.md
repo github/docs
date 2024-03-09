@@ -138,8 +138,6 @@ To help users report security vulnerabilities, you can create a default security
 Once your organization's security setup is in place, you may want to prevent users from changing the security settings in a repository. An enterprise owner can prevent repository administrators from enabling or disabling features in a repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 {% endif %}
 
-{% data reusables.security-overview.security-information-about-actions %}
-
 {% ifversion ghec %}
 
 ## Further reading
