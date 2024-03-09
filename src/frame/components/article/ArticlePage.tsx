@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import cx from 'classnames'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
-import { Callout } from 'src/frame/components/ui/Callout'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { useArticleContext } from 'src/frame/components/context/ArticleContext'
@@ -13,6 +12,7 @@ import { Lead } from 'src/frame/components/ui/Lead'
 import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { ArticleInlineLayout } from './ArticleInlineLayout'
+import { MeasureBrokenHashes } from './MeasureBrokenHashes'
 import { PlatformPicker } from 'src/tools/components/PlatformPicker'
 import { ToolPicker } from 'src/tools/components/ToolPicker'
 import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
@@ -57,13 +57,15 @@ export const ArticlePage = () => {
           {intro}
         </Lead>
       )}
+    </>
+  )
 
-      {permissions && <PermissionsStatement permissions={permissions} />}
+  const introCalloutsProp = (
+    <>
+      <PermissionsStatement permissions={permissions} product={product} />
 
       {includesPlatformSpecificContent && <PlatformPicker />}
       {includesToolSpecificContent && <ToolPicker />}
-
-      {product && <Callout className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />}
     </>
   )
 
@@ -101,12 +103,14 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
+      <MeasureBrokenHashes />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       {currentLayout === 'inline' ? (
         <ArticleInlineLayout
           supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={introProp}
+          introCallOuts={introCalloutsProp}
           toc={toc}
           breadcrumbs={<Breadcrumbs />}
         >
@@ -121,7 +125,12 @@ export const ArticlePage = () => {
           <ArticleGridLayout
             supportPortalVaIframeProps={supportPortalVaIframeProps}
             topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
+            intro={
+              <>
+                {introProp}
+                {introCalloutsProp}
+              </>
+            }
             toc={toc}
           >
             {articleContents}

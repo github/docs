@@ -1,0 +1,1 @@
+For information about the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."

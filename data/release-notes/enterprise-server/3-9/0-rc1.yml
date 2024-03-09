@@ -37,7 +37,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3019
         - |
-          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The personal access token (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
+          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The {% data variables.product.pat_generic %} (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
 
     - heading: Authentication
       notes:
@@ -105,11 +105,11 @@ sections:
         # https://github.com/github/releases/issues/2911
         - |
           On an instance with GitHub Actions and the dependency graph enabled, as well as automatic access to GitHub.com actions using GitHub Connect, the web interface will suggest submission actions within a repository with supported languages. For more information, see the following documentation.
-          
+
           - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)"
           - "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
           - "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
-          
+
           For repositories that use a language that has a submission action, when users with write access visit their dependency graph (this page), we will show them a prompt that directs them to the Marketplace to find an action that would help them.
 
         # https://github.com/github/releases/issues/3007
@@ -142,7 +142,7 @@ sections:
 
         # https://github.com/github/releases/issues/3023
         - |
-          Users can use the GraphQL API to review dependencies submitted using the Dependency submission API. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
+          Users can use the GraphQL API to review dependencies submitted using the {% data variables.dependency-submission-api.name %}. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
 
     - heading: GitHub Actions
       notes:
@@ -156,7 +156,7 @@ sections:
 
         # https://github.com/github/releases/issues/2896
         - |
-          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[ AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
+          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
 
         # https://github.com/github/releases/issues/2801
         - |
@@ -287,7 +287,7 @@ sections:
         - |
           Users of the GraphQL API can revert a merged pull request by using the revertPullRequest mutation. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" and "[AUTOTITLE](/graphql/reference/mutations#revertpullrequest)" in the GraphQL API documentation.
 
-  changes: 
+  changes:
     # https://github.com/github/releases/issues/2909
     - |
       Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names will change in upcoming releases. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
@@ -347,7 +347,7 @@ sections:
       - To provide insight into the number of GitHub Advanced Security licenses used, active committers for the repository are visible. For repositories where GitHub Advanced Security is not enabled, the number indicates the number of licenses required to enable the feature.
       - Unsaved changes are now labeled with a "Modified" tag, and the "Save security settings" button now displays the total number of changes to save.
       - While a security feature is being enabled, the "Security coverage" view shows a status of "Updating..." to inform you of the ongoing process.
-      
+
       For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
     # https://github.com/github/releases/issues/2811
@@ -389,7 +389,7 @@ sections:
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 
-      ```
+      ```shell
       Error response from daemon: conflict: unable to delete IMAGE_ID (cannot be forced) - image is being used by running container CONTAINER_ID
       ```
 
@@ -406,7 +406,7 @@ sections:
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
-      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`. 
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."

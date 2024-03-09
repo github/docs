@@ -99,7 +99,14 @@ const GlobalPage = ({
       </ArticleContext.Provider>
     )
   } else {
-    throw new Error('No context provided to page')
+    // In local dev, when Next.js needs the initial compiled version
+    // it will request `/_next/static/webpack/$HASH.webpack.hot-update.json`
+    // or `/_next/webpack-hmr` and then we just let the `content` be undefined.
+    if (
+      !(router.asPath.startsWith('/_next/static/') || router.asPath.startsWith('/_next/webpack'))
+    ) {
+      throw new Error(`No context provided to page (${router.asPath})`)
+    }
   }
 
   return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
@@ -130,7 +137,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     if (props.tocLandingContext.currentLearningTrack?.trackName) {
       additionalUINamespaces.push('learning_track_nav')
     }
-  } else {
+  } else if (props.mainContext.page) {
     // All articles that might have hover cards needs this
     additionalUINamespaces.push('popovers')
 

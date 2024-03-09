@@ -126,53 +126,53 @@
   },
   {
     "action": "integration.create",
-    "description": "An integration was created.",
+    "description": "A GitHub App was created.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "integration.destroy",
-    "description": "An integration was deleted.",
+    "description": "A GitHub App was deleted.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "integration_installation.create",
-    "description": "An integration was installed.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was installed.",
+    "docs_reference_links": "/apps/using-github-apps/authorizing-github-apps"
   },
   {
     "action": "integration_installation.destroy",
-    "description": "An integration was uninstalled.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was uninstalled.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
   {
     "action": "integration_installation.repositories_added",
-    "description": "Repositories were added to an integration.",
-    "docs_reference_links": "N/A"
+    "description": "Repositories were added to a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
   {
     "action": "integration_installation.repositories_removed",
-    "description": "Repositories were removed from an integration.",
-    "docs_reference_links": "N/A"
+    "description": "Repositories were removed from a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
   {
     "action": "integration_installation.version_updated",
-    "description": "Permissions for an integration were updated.",
-    "docs_reference_links": "N/A"
+    "description": "Permissions for a GitHub App were updated.",
+    "docs_reference_links": "/apps/using-github-apps/approving-updated-permissions-for-a-github-app"
   },
   {
     "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
+    "description": "A member of an enterprise or organization was added as a GitHub App manager.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#giving-someone-the-ability-to-manage-all-github-apps-owned-by-the-organization"
   },
   {
     "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
+    "description": "A member of an enterprise or organization was removed from being a GitHub App manager.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#removing-a-github-app-managers-permissions-for-the-entire-organization"
   },
   {
     "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
+    "description": "Ownership of a GitHub App was transferred to another user or organization.",
+    "docs_reference_links": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
   },
   {
     "action": "ip_allow_list.disable",
@@ -283,11 +283,6 @@
     "action": "org.advanced_security_policy_selected_member_enabled",
     "description": "An enterprise owner allowed GitHub Advanced Security features to be enabled for repositories owned by the organization.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
-  },
-  {
-    "action": "org.audit_log_export",
-    "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
   },
   {
     "action": "org.billing_signup_error",
@@ -616,8 +611,8 @@
   },
   {
     "action": "org.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
   {
     "action": "org.set_actions_retention_limit",
@@ -641,8 +636,8 @@
   },
   {
     "action": "org.update_actions_settings",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An organization owner or site administrator updated GitHub Actions policy settings for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization"
   },
   {
     "action": "org.update_default_repository_permission",
@@ -1151,8 +1146,8 @@
   },
   {
     "action": "repo.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
   },
   {
     "action": "repo.set_actions_retention_limit",
@@ -1333,6 +1328,11 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.validate",
+    "description": "A secret scanning alert was validated.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",

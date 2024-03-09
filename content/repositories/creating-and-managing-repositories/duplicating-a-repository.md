@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -18,7 +17,7 @@ topics:
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_dotcom %} Importer tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
+**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
 
 {% endnote %}
 

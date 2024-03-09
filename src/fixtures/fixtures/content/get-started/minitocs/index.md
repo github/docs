@@ -4,7 +4,6 @@ intro: 'Fixtures for testing the mini TOCs'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /no-heading

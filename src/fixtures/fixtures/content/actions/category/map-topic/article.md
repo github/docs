@@ -1,11 +1,10 @@
 ---
 title: Article title
 shortTitle: '<article>'
-intro: 'This page uses < and > in the title and `shortTitle` to demonstrate that that works'
+intro: 'This page uses < and > in the title and `shortTitle` to demonstrate that it works'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---

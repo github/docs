@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -32,7 +31,7 @@ When you delete a {% data variables.product.prodname_github_app %} registration,
 
 {% note %}
 
-**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must contact {% data variables.product.company_short %} Support and ask them to remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
+**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
 
 {% endnote %}
 

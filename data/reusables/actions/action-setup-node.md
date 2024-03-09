@@ -1,1 +1,1 @@
-actions/setup-node@v3
+actions/setup-node@v4

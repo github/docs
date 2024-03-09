@@ -93,7 +93,7 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       '{% unless this %}',
       '{% ifversion ghec %}',
       '{% elseif ghes %}',
-      '{% if ghae %}',
+      '{% if ghec %}',
       '- Three',
       '{% data variables.stuff.foo%}',
     ].join('\n')

@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin#admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
 When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
@@ -148,7 +148,7 @@ CM | `packages_stats.ecosystems.ruby_gems.registry_enabled` | Whether Rubygems i
 CN | `packages_stats.ecosystems.ruby_gems.published_packages_count` | Number of published Rubygems packages (private, public, and internal)
 CO | `packages_stats.ecosystems.ruby_gems.private_packages_count` | Number of private Rubygems packages
 CP | `packages_stats.ecosystems.ruby_gems.public_packages_count` | Number of public Rubygems packages
-CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packaes
+CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packages
 CR | `packages_stats.ecosystems.ruby_gems.user_packages_count` | Number of Rubygems packages owned by user accounts
 CS | `packages_stats.ecosystems.ruby_gems.organization_packages_count` | Number of Rubygems packages owned by organizations
 CT | `packages_stats.ecosystems.ruby_gems.daily_download_count` | Number of downloads of Rubygems packages

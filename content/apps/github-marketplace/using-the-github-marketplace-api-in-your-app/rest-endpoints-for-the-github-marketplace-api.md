@@ -20,10 +20,10 @@ shortTitle: REST API
 
 Here are some useful endpoints available for Marketplace listings:
 
-- [List plans](/rest/apps#list-plans)
-- [List accounts for a plan](/rest/apps#list-accounts-for-a-plan)
-- [Get a subscription plan for an account](/rest/apps#get-a-subscription-plan-for-an-account)
-- [List subscriptions for the authenticated user](/rest/apps#list-subscriptions-for-the-authenticated-user)
+- [List plans](/rest/apps/marketplace#list-plans)
+- [List accounts for a plan](/rest/apps/marketplace#list-accounts-for-a-plan)
+- [Get a subscription plan for an account](/rest/apps/marketplace#get-a-subscription-plan-for-an-account)
+- [List subscriptions for the authenticated user](/rest/apps/marketplace#list-subscriptions-for-the-authenticated-user)
 
 See these pages for details on how to authenticate when using the {% data variables.product.prodname_marketplace %} API:
 

@@ -5,7 +5,6 @@ intro: 'Learn about REST API rate limits, how to avoid exceeding them, and what 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -41,7 +40,7 @@ The primary rate limit for unauthenticated requests is 60 requests per hour.
 
 You can use a {% data variables.product.pat_generic %} to make API requests. Additionally, you can authorize a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, which can then make API requests on your behalf.
 
-All of these requests count towards your personal rate limit of {% ifversion ghae %}15,000{% else %}5,000{% endif %} requests per hour. {% ifversion fpt or ghec %}Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.{% endif %}
+All of these requests count towards your personal rate limit of 5,000 requests per hour. {% ifversion fpt or ghec %}Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.{% endif %}
 
 ### Primary rate limit for {% data variables.product.prodname_github_app %} installations
 
@@ -117,7 +116,7 @@ You can also stream the audit log in order to view API requests. This can help y
 
 If you want a higher primary rate limit, consider making authenticated requests instead of unauthenticated requests. Authenticated requests have a significantly higher rate limit than unauthenticated requests.
 
-If you are using a {% data variables.product.pat_generic %} for automation in your organization, consider whether a {% data variables.product.prodname_github_app %} will work instead. The rate limit for {% data variables.product.prodname_github_apps %} using an installation access token scales with the number of repositories and number of organization users. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
+If you are using a {% data variables.product.pat_generic %} for automation in your organization, consider whether a {% data variables.product.prodname_github_app %} will work instead.{% ifversion fpt %} The rate limit for {% data variables.product.prodname_github_apps %} using an installation access token scales with the number of repositories and number of organization users.{% endif %}{% ifversion ghec %} {% data variables.product.prodname_github_apps %} used by {% data variables.product.prodname_ghe_cloud %} accounts have a higher rate limit than {% data variables.product.pat_generic_plural %}.{% endif %} For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
 
 {% ifversion fpt %}
 

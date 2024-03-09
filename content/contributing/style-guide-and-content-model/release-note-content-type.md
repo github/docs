@@ -1,7 +1,6 @@
 ---
 title: Release note content type
 intro: 'Release notes enable readers to understand and prepare for the user-facing changes in each release of {% data variables.product.prodname_dotcom %}''s versioned enterprise products.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---
@@ -18,4 +17,4 @@ We publish the release notes for [{% data variables.product.prodname_ghe_server 
 
 ## Guidance and example release notes
 
-You can find guidance for the format, style, and tone of release notes, as well as examples of each type of note, in "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide)".
+You can review guidance for the format, style, and tone of release notes, as well as examples of each type of note. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#release-notes)".

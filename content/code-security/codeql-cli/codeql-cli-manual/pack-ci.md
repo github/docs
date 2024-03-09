@@ -2,7 +2,6 @@
 title: pack ci
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,8 @@ codeql pack ci [--force] <options>... -- <dir>
 
 ## Description
 
-\[Experimental] Clean install dependencies for this pack, verifying
-that the existing lock file is up to date.
+Clean install dependencies for this pack, verifying that the existing
+lock file is up to date.
 
 This command installs the dependencies of the pack, using the versions
 specified in the codeql-pack.lock.yml file. If any of the versions

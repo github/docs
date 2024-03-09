@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Migration
@@ -88,7 +87,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    - For "Which CI providers are you configuring?", use the arrow keys to select `Azure DevOps`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes or ghae %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    - For "{% data variables.product.pat_generic_caps %} for Azure DevOps", enter the value for the Azure DevOps {% data variables.product.pat_generic %} that you created earlier, and press <kbd>Enter</kbd>.
    - For "Base url of the Azure DevOps instance", press <kbd>Enter</kbd> to accept the default value (`https://dev.azure.com`).
    - For "Azure DevOps organization name", enter the name for your Azure DevOps organization, and press <kbd>Enter</kbd>.
@@ -313,7 +312,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--azure-devops-organization` and `--azure-devops-project` option. The `path` is then used to pull the specified source file.
 
 ```shell
-gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --config-file-path ./path/to/azure_devops/config.yml 
+gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --config-file-path ./path/to/azure_devops/config.yml
 ```
 
 ##### Specify the repository of converted reusable workflows and composite actions
@@ -495,7 +494,7 @@ variables:
 ```yaml
 parameters:
 - name: template
-  type: string 
+  type: string
   default: simple_step.yml
 
 steps:
@@ -511,7 +510,7 @@ parameters:
   default:
   - build_step
   - release_step
-steps: 
+steps:
 - {% raw %}${{ each step in parameters.steps }}{% endraw %}:
     - template: "${{ step }}-variables.yml"
 ```

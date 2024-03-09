@@ -1,5 +1,14 @@
 #!/usr/bin/env node
 
+/**
+ * Hi there! 👋
+ * To test this code locally, outside of Actions, you need to run
+ * the script src/workflows/content-changes-table-comment-cli.js
+ *
+ * See the instructions in the doc string comment at the
+ * top of src/workflows/content-changes-table-comment-cli.js
+ */
+
 import * as github from '@actions/github'
 import core from '@actions/core'
 
@@ -32,8 +41,8 @@ const PROD_URL = 'https://docs.github.com'
 if (import.meta.url.endsWith(process.argv[1])) {
   const owner = context.repo.owner
   const repo = context.payload.repository.name
-  const baseSHA = context.payload.pull_request.base.sha
-  const headSHA = context.payload.pull_request.head.sha
+  const baseSHA = process.env.BASE_SHA || context.payload.pull_request.base.sha
+  const headSHA = process.env.HEAD_SHA || context.payload.pull_request.head.sha
 
   const isHealthy = await waitUntilUrlIsHealthy(new URL('/healthz', APP_URL).toString())
   if (!isHealthy) {
@@ -54,7 +63,6 @@ async function main(owner, repo, baseSHA, headSHA) {
   })
 
   const { files } = response.data
-
   const markdownTableHead = [
     '| **Source** | **Preview** | **Production** | **What Changed** |',
     '|:----------- |:----------- |:----------- |:----------- |',
@@ -99,7 +107,7 @@ async function main(owner, repo, baseSHA, headSHA) {
       try {
         // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
         // try/catch can be removed if docs-engineering#1821 is resolved
-        // i.e. for feature based versioning, like ghae: 'issue-6337'
+        // i.e. for feature based versioning, like ghec: 'issue-6337'
         const fileVersions = getApplicableVersions(data.versions)
 
         for (const plan in allVersionShortnames) {
@@ -112,7 +120,7 @@ async function main(owner, repo, baseSHA, headSHA) {
           )
 
           if (versions.length === 1) {
-            // for fpt, ghec, and ghae
+            // for fpt and ghec
 
             if (versions.toString() === nonEnterpriseDefaultVersion) {
               // omit version from fpt url
@@ -120,7 +128,7 @@ async function main(owner, repo, baseSHA, headSHA) {
               previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
               prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
             } else {
-              // for non-versioned releases (ghae, ghec) use full url
+              // for non-versioned releases (ghec) use full url
 
               previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
               prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`

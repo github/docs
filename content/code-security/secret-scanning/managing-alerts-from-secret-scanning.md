@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -19,8 +18,6 @@ topics:
   - Repositories
 shortTitle: Manage secret alerts
 ---
-
-{% data reusables.secret-scanning.beta %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
@@ -49,7 +46,10 @@ shortTitle: Manage secret alerts
    {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
 {% endif %}{% ifversion secret-scanning-bypass-filter %}
 1. Optionally, to see which alerts are the result of a user bypassing push protection, select the "Bypassed" dropdown menu, then click **True**.{% endif %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.{% ifversion secret-scanning-non-provider-patterns %}
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view. {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}{% endif %}
+
+   {% ifversion secret-scanning-non-provider-patterns %}
+
    {% note %}
 
    **Note:** The **High confidence** view is the default view for the list of {% data variables.product.prodname_secret_scanning %} alerts. If the detection of non-provider patterns is enabled for your repository or organization, you'll need to use a different view to be able to see non-provider alerts. For more information, see "[Managing alerts from non-provider patterns](#managing-alerts-from-non-provider-patterns)" below.
@@ -60,7 +60,7 @@ shortTitle: Manage secret alerts
 
     {% note %}
 
-     **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+     **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)."
 
      {% endnote %}
    {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
@@ -82,7 +82,7 @@ shortTitle: Manage secret alerts
    {% else %}
 1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
-1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
+1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
 {% endif %}
 
@@ -128,13 +128,13 @@ You can allow {% data variables.product.prodname_secret_scanning %} to check the
 
 You can enable automatic validity checks for supported partner patterns in the code security settings for your repository, organization, or enterprise. {% data variables.product.company_short %} will periodically send the pattern to the relevant partner to check the secret's validity and display the validation status of the secret in the alert view.
 
- For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[Managing Advanced Security features](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+ For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)," "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
 
 If your repository has validity checks enabled, you can also perform an on-demand validity check for a secret by clicking {% octicon "sync" aria-hidden="true" %} **Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 You can filter alerts for supported partner patterns by their validation status, and use the status of a leaked secret to help prioritize the secrets needing remediation steps.
 
-You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation.
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in "[AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert)."
 
 {% data reusables.secret-scanning.validity-check-table %}
 
@@ -152,7 +152,7 @@ For more information on which partners support validity checks, see "[Supported 
 
 {% endnote %}
 
-In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)."
+In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see {% ifversion secret-scanning-non-provider-patterns %}"[Managing alerts from high confidence patterns](#managing-alerts-from-high-confidence-patterns){% else %}"[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts){% endif %}."
 
 Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
@@ -168,6 +168,8 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 |Expired on| Date the token expired|
 |Last used on| Date the token was last used|
 |Access| Whether the token has organization access|
+
+{% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
 
 {% endif %}
 

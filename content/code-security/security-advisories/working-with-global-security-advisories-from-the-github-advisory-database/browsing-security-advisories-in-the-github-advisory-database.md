@@ -13,7 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Security advisories
@@ -42,7 +41,7 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."
 
 {% ifversion security-advisories-rest-api %}
-Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)" in the REST API documentation.{% endif %}
+Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)."{% endif %}
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
 
@@ -59,7 +58,7 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | Qualifier  | Example |
 | ------------- | ------------- |
 | `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
-{% ifversion GH-advisory-db-supports-malware %}| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show {% data variables.product.company_short %}-reviewed advisories for malware. |
+{% ifversion GH-advisory-db-supports-malware %}| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
 {% endif %}| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
 | `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
 | `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
@@ -89,7 +88,7 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 1. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
 1. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
-{% ifversion security-advisories-ghes-ghae %}
+{% ifversion security-advisories-ghes %}
 
 ## Accessing the local advisory database on {% data variables.location.product_location %}
 

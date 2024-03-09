@@ -4,7 +4,6 @@ shortTitle: Create screenshots
 intro: "You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}."
 versions:
   feature: 'contributing'
-product: '{% data reusables.contributing.product-note %}'
 ---
 
 ## About screenshots in {% data variables.product.prodname_docs %}
@@ -13,7 +12,7 @@ There are positives and negatives to adding a screenshot. Screenshots make artic
 
 On the other hand, screenshots privilege sighted users, add length and load time to articles, and increase the volume of content that needs to be maintained. When captured at different pixel dimensions and degrees of zoom than the reader is using, screenshots can be confusing.
 
-Therefore, we only add screenshots to {% data variables.product.prodname_docs %} when they they meet our criteria for inclusion.
+Therefore, we only add screenshots to {% data variables.product.prodname_docs %} when they meet our criteria for inclusion.
 
 ## Criteria for including a screenshot
 

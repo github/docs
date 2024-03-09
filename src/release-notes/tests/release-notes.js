@@ -28,7 +28,9 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test.each(page.applicableVersions)('version %s that has release-notes', async (version) => {
+  const { applicableVersions } = page
+
+  test.each(applicableVersions)('version %s that has release-notes', async (version) => {
     const url = `/en/${version}/admin/release-notes`
     const res = await get(url)
     expect(res.statusCode).toBe(200)

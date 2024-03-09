@@ -22,7 +22,7 @@ describe('redirect exceptions', () => {
       `/enterprise-server@${latest}`,
     )}`
     const { statusCode, headers } = await get(oldPath, { followRedirects: false })
-    expect(statusCode).toBe(302)
+    expect(statusCode, `Did not get a 302 from loading ${oldPath}`).toBe(302)
     expect(headers.location).toBe(englishNewPath)
   })
 })

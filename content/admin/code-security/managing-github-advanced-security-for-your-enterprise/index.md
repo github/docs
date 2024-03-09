@@ -10,7 +10,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '> 3.6'
 topics:
   - Enterprise
 children:
@@ -20,4 +19,3 @@ children:
   - /configuring-dependency-review-for-your-appliance
   - /configuring-secret-scanning-for-your-appliance
 ---
-

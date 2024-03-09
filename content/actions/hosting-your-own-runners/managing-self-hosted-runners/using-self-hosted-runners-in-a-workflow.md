@@ -8,12 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 shortTitle: Use runners in a workflow
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
@@ -30,7 +29,7 @@ For information on creating custom and default labels, see "[AUTOTITLE](/actions
 
 ## About self-hosted runner groups
 
-For self-hosted runners defined at the organization {% ifversion ghec or ghes or ghae %}or enterprise levels{% else %}level{% endif %}, you can group your runners with shared characteristics into a single runner group and then configure your job to target the runner group.
+For self-hosted runners defined at the organization {% ifversion ghec or ghes %}or enterprise levels{% else %}level{% endif %}, you can group your runners with shared characteristics into a single runner group and then configure your job to target the runner group.
 
 To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
 
@@ -41,12 +40,6 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 {% ifversion repository-actions-runners %}
 
 ## Viewing available runners for a repository
-
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
 
 {% data reusables.actions.about-viewing-runner-list %}
 

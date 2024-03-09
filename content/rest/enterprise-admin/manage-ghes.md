@@ -1,5 +1,5 @@
 ---
-title: Manage GitHub Enterprise Server
+title: REST API endpoints for managing GitHub Enterprise Server
 allowTitleToDifferFromFilename: true
 shortTitle: Manage GHES
 intro: >-

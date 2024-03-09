@@ -1,6 +1,6 @@
 You can turn off Settings Sync to stop syncing settings to and from an instance of {% data variables.product.prodname_vscode_shortname %}.
 
-When you turn off Settings Sync in a codespace, new codespaces continue to use the settings cached from the last time your settings were pushed to the cloud. If you use the {% data variables.product.prodname_vscode_shortname %} web client for codespaces, and want codespaces to use the default settings instead of your cached settings, you can disable Settings Sync. For more information, see "[Managing your preferences for Settings Sync](#managing-your-preferences-for-settings-sync)."
+When you turn off Settings Sync in a codespace, new codespaces continue to use the settings cached from the last time your settings were pushed to the cloud. If you use the {% data variables.product.prodname_vscode_shortname %} web client for codespaces, and want codespaces to use the default settings instead of your cached settings, you can disable Settings Sync. For more information, see "[Managing your preferences for Settings Sync](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#managing-your-preferences-for-settings-sync)."
 
 If you want to return to using the default {% data variables.product.prodname_vscode_shortname %} settings in all instances of {% data variables.product.prodname_vscode_shortname %}, including the desktop application, you can clear the cache in the cloud when you turn off Settings Sync.
 

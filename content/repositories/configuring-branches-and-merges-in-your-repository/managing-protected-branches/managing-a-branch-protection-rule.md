@@ -22,7 +22,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 permissions: 'People with admin permissions {% ifversion edit-repository-rules %}or a custom role with the "edit repository rules" permission{% endif %} to a repository can manage branch protection rules.'
 topics:
@@ -74,7 +73,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 
       Select the **Required number of approvals before merging** dropdown menu, then click the number of approving reviews you would like to require on the branch.
    - Optionally, to dismiss a pull request approval review when a code-modifying commit is pushed to the branch, select **Dismiss stale pull request approvals when new commits are pushed**.
-   - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+   - Optionally, to require review from a code owner when the pull request affects code that has a designated owner, select **Require review from Code Owners**. Note that if code has multiple owners, an approval from _any_ of the code owners will be sufficient to meet this requirement. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
    - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
    - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, in the search field, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 {% ifversion last-pusher-require-approval %}

@@ -4,11 +4,11 @@ intro: 'Learn more about the {% data variables.product.prodname_dotcom %} REST A
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
 children:
+  - /about-the-rest-api
   - /comparing-githubs-rest-api-and-graphql-api
   - /api-versions
   - /breaking-changes

@@ -8,16 +8,15 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About self-hosted runners
 
-A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghae or ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes or ghae %}" and "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% ifversion ghec %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes %}" and "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
@@ -40,24 +39,22 @@ You can add self-hosted runners at various levels in the management hierarchy:
 
 For more information about installing and using self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 
-## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
+## Differences between {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners
 
-{% ifversion fpt or ghec or ghes %}
-{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
+{% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted runners are a highly configurable way to run workflows in your own custom environment.
 
-{% ifversion fpt or ghec or ghes %}
 **{% data variables.product.prodname_dotcom %}-hosted runners:**
 - Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
 - Are managed and maintained by {% data variables.product.prodname_dotcom %}.
 - Provide a clean instance for every job execution.
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
-**Self-hosted runners:**{% endif %}
+**Self-hosted runners:**
 - Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
-- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes or ghae %}
+- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes %}
 - Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
 
 ## Requirements for self-hosted runner machines
@@ -109,7 +106,7 @@ The following operating systems are supported for the self-hosted runner applica
 - Windows 7 64-bit
 - Windows 8.1 64-bit
 - Windows 10 64-bit
-- Windows Server 2012 R2 64-bit
+- Windows 11 64-bit
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 - Windows Server 2022 64-bit
@@ -144,7 +141,7 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 
 {% ifversion fpt or ghec %}
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
 For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
 {%- endif %}
@@ -153,17 +150,13 @@ For caching to work, the runner must be able to communicate with the blob storag
 
 {% data variables.product.product_name %} must accept inbound connections from your runners over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} at {% data variables.location.product_location %}'s hostname and API subdomain, and your runners must allow outbound connections over {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} to {% data variables.location.product_location %}'s hostname and API subdomain.
 
-{% elsif ghae %}
-
-You must ensure that the self-hosted runner has appropriate network access to communicate with your {% data variables.product.product_name %} URL and its subdomains. For example, if your subdomain for {% data variables.product.product_name %} is `octoghae`, then you will need to allow the self-hosted runner to access `octoghae.githubenterprise.com`, `api.octoghae.githubenterprise.com`, and `codeload.octoghae.githubenterprise.com`.
-
-If you use an IP address allow list, you must add your self-hosted runner's IP address to the allow list. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
-
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
 You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+
+You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
 {% note %}
 
@@ -214,6 +207,13 @@ github-registry-files.githubusercontent.com
 ghcr.io
 ```
 
+**Needed for {% data variables.large_files.product_name_long %}**
+
+```shell copy
+github-cloud.githubusercontent.com
+github-cloud.s3.amazonaws.com
+```
+
 In addition, your workflow may require access to other network resources.
 
 If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" or "[Enforcing policies for security settings in your enterprise](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
@@ -224,15 +224,11 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 {% endif %}
 
-{% ifversion ghae %}
-If you use an IP address allow list for your {% data variables.product.prodname_dotcom %} organization or enterprise account, you must add your self-hosted runner's IP address to the allow list. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)."
-{% endif %}
-
 You can also use self-hosted runners with a proxy server. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners)."
 
 For more information about troubleshooting common network connectivity issues, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
 
@@ -285,7 +281,7 @@ For more information about security hardening for self-hosted runners, see "[AUT
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Further reading
 

@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 topics:

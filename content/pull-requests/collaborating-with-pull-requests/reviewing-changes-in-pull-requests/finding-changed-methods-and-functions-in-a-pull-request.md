@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -19,7 +18,7 @@ Anyone with read access to a repository can see a summary list of the functions 
 
 The summary list of methods and functions is created from these supported file types:
 - Go
-- JavaScript (includes Typescript, Flow, and other types of JavaScript)
+- JavaScript (includes TypeScript, Flow, and other types of JavaScript)
 - PHP
 - Python
 - Ruby

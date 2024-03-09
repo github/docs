@@ -77,17 +77,17 @@ Codespaces are designed to be security hardened by default. To help maintain thi
 - As with any development tool, remember that you should only open and work within repositories you know and trust.
 - Before you add new dependencies to the codespace, check whether they are well-maintained, and if they release updates to fix any security vulnerabilities found in their code.
 
-### Using secrets to access sensitive information
+### Using development environment secrets to access sensitive information
 
-Always use secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a secret.
+Always use development environment secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a development environment secret.
 
 The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
 
-Secrets are not copied into the environment if you don't have write access to the codespace's repository.
+Development environment secrets are not copied into the environment if you don't have write access to the codespace's repository.
 
 For more information on secrets, see:
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)"
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)"
 
 ### Working with other people's contributions and repositories
 
@@ -95,7 +95,7 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 - For a private repository, the codespace is granted access to both the fork and parent.
 - For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
 
-We also further protect you in these scenarios by not injecting any of your codespace secrets into the environment. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
+We also further protect you in these scenarios by not injecting any of your codespace secrets into the environment. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)."
 
 {% note %}
 

@@ -139,7 +139,7 @@ You can unpin a discussion pinned to a specific category. This will not delete t
 
 ## Transferring a discussion
 
-To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository.
+To transfer a discussion, you must have permissions to create discussions in the repository where you want to transfer the discussion. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. You can only transfer discussions between repositories owned by the same user or organization account. You can't transfer a discussion from a private{% ifversion ghec or ghes %} or internal{% endif %} repository to a public repository. Additionally, you can't transfer discussions if they are announcements. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)."
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

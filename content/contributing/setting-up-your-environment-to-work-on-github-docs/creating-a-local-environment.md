@@ -2,7 +2,6 @@
 title: Creating a local environment
 shortTitle: Create a local environment
 intro: 'You can run the {% data variables.product.prodname_docs %} application locally on your computer.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---
@@ -47,7 +46,6 @@ Once you've installed Node.js (which includes the popular `npm` package manager)
 git clone https://github.com/github/docs
 cd docs
 npm ci
-npm run build
 npm start
 ```
 

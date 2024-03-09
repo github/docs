@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for GitHub Actions in your enterprise
 intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
-permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
+permissions: 'Enterprise owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" permission{% endif %} can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
   - /admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
@@ -16,7 +16,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -30,7 +29,9 @@ shortTitle: GitHub Actions policies
 
 {% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" permission{% endif %} can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+
+{% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
 ## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
@@ -43,7 +44,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
    {% data reusables.actions.actions-use-policy-settings %}
 
-   {%- ifversion ghes or ghae %}
+   {%- ifversion ghes %}
    {% note %}
 
    **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
@@ -65,7 +66,9 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 {% data reusables.actions.disable-selfhosted-runners-overview %} For more information on creating self-hosted runners at the repository level, see "[AUTOTITLE](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
 
-By default anyone with admin access to a repository can add a self-hosted runner for the repository. The enterprise settings allow you to disable the use of repository-level self-hosted runners across all repositories in your enterprise. If you allow repository-level self-hosted runners for your enterprise, organization owners can choose to allow or prevent creation of repository-level self-hosted runners for some or all repositories in their organization. For more information see, "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+By default anyone with admin access to a repository can add a self-hosted runner for the repository. The enterprise settings allow you to disable the use of repository-level self-hosted runners across all repositories in your enterprise. If you allow repository-level self-hosted runners for your enterprise, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can choose to allow or prevent creation of repository-level self-hosted runners for some or all repositories in their organization. For more information see, "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+
+{% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
 
@@ -128,7 +131,7 @@ If a policy is enabled for an enterprise, the policy can be selectively disabled
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 
@@ -187,15 +190,5 @@ However, you can set an enterprise policy to customize both the default total ca
 1. In the "Artifact, log, and cache settings" section, under **Maximum cache size limit**, enter a value, then click **Save** to apply the setting.
 1. In the "Artifact, log, and cache settings" section, under **Default cache size limit**, enter a value, then click **Save** to apply the setting.
 
-{% elsif ghes < 3.8 %}
-
-The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
-
-- To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-- To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-
-{% data reusables.actions.cache-no-org-policy %}
-
 {% endif %}
-
 {% endif %}

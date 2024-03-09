@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file
@@ -273,7 +272,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
+**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
 
 {% endnote %}
 
@@ -337,7 +336,7 @@ If you use the same configuration as in the example above, bumping the `requests
 
 ### `groups`
 
-{% ifversion dependabot-grouped-security-updates %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+{% ifversion dependabot-grouped-security-updates-config %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
@@ -345,7 +344,9 @@ If you use the same configuration as in the example above, bumping the `requests
 
 {% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+{% ifversion dependabot-grouped-security-updates-config %}
+The `applies-to` key is used to specify whether a set of grouping rules is intended for version updates or security updates. Using the `applies-to` key is optional. If the `applies-to` key is absent from a set of grouping rules, it defaults to `version-updates` for backwards compatibility. You cannot apply a single grouping set of rules to both version updates and security updates. Instead, if you want to group both version updates and security updates using the same criteria, you must define two, separately named, grouping sets of rules. To do this, you can copy the group configuration block for the ecosystem and directory, and name each set of rules differently.
+{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-match-first %}
 
@@ -356,7 +357,9 @@ When a scheduled update runs, {% data variables.product.prodname_dependabot %} w
 - If all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 - If the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
-You can also manage pull requests for grouped version updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."
+You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
+
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
 {% endif %}
 
@@ -366,11 +369,20 @@ You can also manage pull requests for grouped version updates using comment comm
 
 Dependencies can be ignored either by adding them to `ignore` or by using the `@dependabot ignore` command on a pull request opened by {% data variables.product.prodname_dependabot %}.
 
+{% warning %}
+
+**Warning**:
+- We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+
+- For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
+
+{% endwarning %}
+
 #### Creating `ignore` conditions from `@dependabot ignore`
 
 Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} version updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped version updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped {% ifversion dependabot-grouped-security-updates-config %}{% else %}version {% endif %}updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
 
 For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
@@ -414,14 +426,11 @@ updates:
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% note %}
 
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 {% endnote %}
-
-{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -877,7 +886,7 @@ updates:
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
 
 You can give {% data variables.product.prodname_dependabot %} access to private package registries hosted by GitLab or Bitbucket by specifying a `type` of `git`. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
-{% ifversion ghes > 3.7 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
@@ -886,8 +895,9 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Docker
 - Gradle
 - Maven
-- Npm
-- Nuget
+- npm
+- Nuget{% ifversion dependabot-updates-pub-private-registry %}
+- pub{% endif %}
 - Python
 - Yarn
 
@@ -1209,6 +1219,33 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### `pub-repository`
+
+The `pub-repository` type supports a URL and a token.
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+{% endif %}
+
 ### `python-index`
 
 The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
@@ -1318,8 +1355,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -1334,12 +1369,9 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes %}
-  - package-ecosystem: "beta-ecosystem"{% else %}
-  - package-ecosystem: "pub"{% endif %}
+updates:
+  - package-ecosystem: "beta-ecosystem"
     directory: "/"
     schedule:
       interval: "weekly"
 ```
-
-{% endif %}

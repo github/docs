@@ -349,6 +349,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -784,61 +790,61 @@
       "slug": "list-environment-secrets",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets"
     },
     {
       "slug": "get-an-environment-public-key",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key"
     },
     {
       "slug": "get-an-environment-secret",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "create-or-update-an-environment-secret",
       "subcategory": "secrets",
       "verb": "put",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "delete-an-environment-secret",
       "subcategory": "secrets",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "list-environment-variables",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "create-an-environment-variable",
       "subcategory": "variables",
       "verb": "post",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "get-an-environment-variable",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "update-an-environment-variable",
       "subcategory": "variables",
       "verb": "patch",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "delete-an-environment-variable",
       "subcategory": "variables",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     }
   ],
   "activity": [
@@ -953,6 +959,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "billing": [
@@ -1347,6 +1359,12 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
+    },
+    {
       "slug": "update-a-code-scanning-default-setup-configuration",
       "subcategory": "code-scanning",
       "verb": "patch",
@@ -1657,22 +1675,46 @@
   ],
   "copilot": [
     {
-      "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
-      "subcategory": "copilot-business",
+      "slug": "get-copilot-seat-information-and-settings-for-an-organization",
+      "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing"
     },
     {
-      "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
-      "subcategory": "copilot-business",
+      "slug": "list-all-copilot-seat-assignments-for-an-organization",
+      "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing/seats"
     },
     {
-      "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
-      "subcategory": "copilot-business",
+      "slug": "add-teams-to-the-copilot-subscription-for-an-organization",
+      "subcategory": "copilot-user-management",
       "verb": "post",
       "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "remove-teams-from-the-copilot-subscription-for-an-organization",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "add-users-to-the-copilot-subscription-for-an-organization",
+      "subcategory": "copilot-user-management",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "remove-users-from-the-copilot-subscription-for-an-organization",
+      "subcategory": "copilot-user-management",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-seat-assignment-details-for-a-user",
+      "subcategory": "copilot-user-management",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/members/{username}/copilot"
     }
   ],
   "dependabot": [
@@ -1945,6 +1987,12 @@
       "subcategory": "protection-rules",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "get-a-custom-deployment-protection-rule",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     },
     {
       "slug": "disable-a-custom-protection-rule-for-an-environment",
@@ -3043,6 +3091,12 @@
       "requestPath": "/orgs/{org}/public_members/{username}"
     },
     {
+      "slug": "list-repository-fine-grained-permissions-for-an-organization",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/repository-fine-grained-permissions"
+    },
+    {
       "slug": "get-all-organization-repository-rulesets",
       "subcategory": "rules",
       "verb": "get",
@@ -3326,7 +3380,19 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
+    },
+    {
+      "slug": "get-the-status-of-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}"
+    },
+    {
+      "slug": "cancel-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel"
     },
     {
       "slug": "get-a-dns-health-check-for-github-pages",
@@ -3639,6 +3705,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3855,7 +3929,7 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -4023,6 +4097,12 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
       "slug": "enable-private-vulnerability-reporting-for-a-repository",
       "subcategory": "repos",
       "verb": "put",
@@ -4038,6 +4118,12 @@
       "slug": "get-all-custom-property-values-for-a-repository",
       "subcategory": "custom-properties",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {

@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -21,7 +20,6 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
@@ -42,8 +40,6 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 {% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
 
 For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)."
-
-{% ifversion fpt or ghec or ghes %}
 
 ### Changing `GITHUB_TOKEN` permissions
 
@@ -103,8 +99,6 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 ```
-
-{% endif %}
 
 ### Manually re-running a workflow
 
@@ -222,7 +216,7 @@ jobs:
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 
 {% endraw %}
@@ -266,7 +260,7 @@ jobs:
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 ```
 
 {% endraw %}

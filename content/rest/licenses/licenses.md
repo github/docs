@@ -1,11 +1,12 @@
 ---
-title: Licenses
+title: REST API endpoints for licenses
+shortTitle: Licenses
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to retrieve popular open source licenses and information
   about a particular project's license file.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -23,12 +24,12 @@ If a license is matched, the license key and name returned conforms to the [SPDX
 
 **Note:** These endpoints will also return a repository's license information:
 
-- [Get a repository](/rest/repos#get-a-repository)
-- [List repositories for a user](/rest/repos#list-repositories-for-a-user)
-- [List organization repositories](/rest/repos#list-organization-repositories)
-- [List forks](/rest/repos#list-forks)
-- [List repositories watched by a user](/rest/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/rest/teams#list-team-repositories)
+- [Get a repository](/rest/repos/repos#get-a-repository)
+- [List repositories for a user](/rest/repos/repos#list-repositories-for-a-user)
+- [List organization repositories](/rest/repos/repos#list-organization-repositories)
+- [List forks](/rest/repos/forks#list-forks)
+- [List repositories watched by a user](/rest/activity/watching#list-repositories-watched-by-a-user)
+- [List team repositories](/rest/teams/teams#list-team-repositories)
 
 {% warning %}
 

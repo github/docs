@@ -22,7 +22,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% note %}
 
-**Note:** Certain products, such as {% data variables.product.prodname_copilot_for_business %}, {% data variables.product.prodname_actions %}, or {% data variables.product.prodname_registry %}, only offer monthly billing.
+**Note:** Certain products, such as {% data variables.product.prodname_copilot_for_business %} and {% data variables.product.prodname_copilot_enterprise %}, {% data variables.product.prodname_actions %}, and {% data variables.product.prodname_registry %}, only offer monthly billing.
 
 {% endnote %}
 

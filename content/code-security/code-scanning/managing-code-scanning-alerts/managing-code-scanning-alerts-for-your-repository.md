@@ -1,13 +1,12 @@
 ---
 title: Managing code scanning alerts for your repository
 shortTitle: Manage alerts
-intro: 'From the security view, {% ifversion delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your project''s code.'
+intro: 'From the security view, you can view, fix, or dismiss alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning
@@ -25,23 +24,25 @@ topics:
   - Repositories
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## Viewing the alerts for a repository
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
 
 You need write permission to view a summary of all the alerts for a repository on the **Security** tab.
 
-By default, the code scanning alerts page is filtered to show alerts for the default branch of the repository only.
+By default, the {% data variables.product.prodname_code_scanning %} alerts page is filtered to show alerts for the default branch of the repository only.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
-1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+1. Optionally, use the free text search box or the dropdown menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
+
+   ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page. The search box and filter dropdown menus are outlined in dark orange.](/assets/images/help/repository/filter-code-scanning-alerts.png)
+
 {% data reusables.code-scanning.explore-alert %}
    {% data reusables.code-scanning.alert-default-branch %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
+
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Show paths" link is highlighted with a dark orange outline. The "Show more" link, described in the next step, is also highlighted.](/assets/images/help/repository/code-scanning-alert-details.png)
 
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
@@ -76,17 +77,11 @@ If you enter multiple filters, the view will show alerts matching _all_ these fi
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 
-{% ifversion fpt or ghes or ghec %}
-
 You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag.
-
-{% endif %}
 
 ### Restricting results to application code only
 
 You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code)."
-
-{% ifversion fpt or ghes or ghec %}
 
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
@@ -117,14 +112,16 @@ You can search the list of alerts. This is useful if there is a large number of 
    ![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %} alerts view. The field includes the pre-defined filters "is: open branch:main". The free text of "sql or injection" is outlined in dark orange.](/assets/images/help/repository/code-scanning-search-alerts.png)
 1. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
 
-{% endif %}
-
 {% ifversion code-scanning-task-lists %}
 
 ## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-{% data reusables.code-scanning.github-issues-integration %}
+
+To quickly create an issue to track the status of a specific {% data variables.product.prodname_code_scanning %} alert, on the {% data variables.product.prodname_code_scanning %} alerts page, click the alert you would like to track. On the detailed page for that alert, click **Create issue**. Customize the autogenerated issue as desired, then click **Submit new issue**.
+
+Alternatively, to track a {% data variables.product.prodname_code_scanning %} alert in an existing issue, add the URL for the alert as a task list item in the issue. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+
 {% data reusables.code-scanning.alert-tracking-link %}
 
 {% endif %}
@@ -153,9 +150,9 @@ If you run {% data variables.product.prodname_code_scanning %} using multiple co
 {% endif %}
 {% endnote %}
 
-## Dismissing {% ifversion delete-code-scanning-alerts %}or deleting{% endif %} alerts
+## Dismissing alerts
 
-There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. {% ifversion delete-code-scanning-alerts %}Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.{% endif %}
+There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert.
 
 Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
 
@@ -168,26 +165,15 @@ When you dismiss an alert:
 - Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
 - Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
-{% ifversion delete-code-scanning-alerts %}When you delete an alert:
-
-- It's deleted in all branches.
-- The alert is removed from the number of current alerts for your project.
-- It is _not_ added to the "Closed" list in the summary of alerts.
-- If the code that generated the alert stays the same, and the same {% data variables.product.prodname_code_scanning %} tool runs again without any configuration changes, the alert will be shown again in your analysis results.{% endif %}
-
-To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alerts:
+To dismiss alerts:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}{% ifversion delete-code-scanning-alerts %}
-1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
-
-   Optionally, you can use the free text search or the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
-{% endif %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
 {%- ifversion comment-dismissed-code-scanning-alert %}
 1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert.
-   ![Screenshot of the check failure for a code scanning alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed. ](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
+   ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed. ](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {%- else %}
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
    ![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)

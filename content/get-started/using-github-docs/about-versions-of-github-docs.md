@@ -4,7 +4,6 @@ intro: 'You can read documentation that reflects the {% data variables.product.c
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Docs versions
 redirect_from:
@@ -54,19 +53,8 @@ If you access {% data variables.product.prodname_dotcom %} at a URL other than h
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
-![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "{% data variables.product.prodname_ghe_managed %}" are highlighted with an orange outline.](/assets/images/help/docs/header-ghes.png)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "Enterprise" are highlighted with an orange outline.](/assets/images/help/docs/header-ghes.png)
 
 You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
 
 ![Screenshot of the footer of {% data variables.product.prodname_ghe_server %}. "{% data variables.product.prodname_ghe_server %} 3.7.5" is highlighted with an orange outline.](/assets/images/help/docs/ghes-version-in-footer.png)
-
-{% ifversion ghae %}
-
-### {% data variables.product.prodname_ghe_managed %}
-
-If you access {% data variables.product.prodname_dotcom %} at `https://*.ghe.com` or `https://*.github.us`, you're using {% data variables.product.prodname_ghe_managed %}.
-
-In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
-
-![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "Enterprise" are highlighted with an orange outline.](/assets/images/help/docs/header-ghae.png)
-{% endif %}

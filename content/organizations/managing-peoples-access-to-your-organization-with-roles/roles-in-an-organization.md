@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -45,7 +44,7 @@ Organization owners have complete administrative access to your organization. Th
 
 ### Organization members
 
-The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
+The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and projects.
 
 {% ifversion fpt or ghec %}
 
@@ -112,7 +111,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Delete the organization account, including all repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Create teams (see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Create project boards (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
+| Create projects (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | See all organization members and teams | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | @mention any visible team | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% ifversion ghec %}
@@ -156,8 +155,8 @@ Some of the features listed below are limited to organizations using {% data var
 
 {% endrowheaders %}
 
-{% elsif ghes or ghae %}
-<!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
+{% elsif ghes %}
+<!-- GHES 3.3+ doesn't have the extra columns for Moderators and Billing managers. -->
 
 {% rowheaders %}
 
@@ -186,7 +185,7 @@ Some of the features listed below are limited to organizations using {% data var
 | View the security overview for the organization (see "[AUTOTITLE](/code-security/security-overview/about-the-security-overview)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion ghes %}
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
 | Manage an organization's SSH certificate authorities (see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Create project boards (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |{% ifversion team-discussions %}
+| Create {% data variables.projects.projects_v1_boards %} (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |{% ifversion team-discussions %}
 | View and post public team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
 | View and post private team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Edit and delete team discussions in **all teams** (for more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% endif %}
@@ -202,12 +201,11 @@ Some of the features listed below are limited to organizations using {% data var
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% endif %}
-{% ifversion ghae %}| Manage IP allow lists (see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% endif %}
 
 {% endrowheaders %}
 
 {% else %}
-<!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
+<!-- Older versions of GHES don't have columns for Moderators, Billing managers or Security managers. -->
 
 {% rowheaders %}
 
@@ -233,7 +231,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Transfer repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Manage an organization's SSH certificate authorities (see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Create project boards (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% ifversion team-discussions %}
+| Create {% data variables.projects.projects_v1_boards %} (see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% ifversion team-discussions %}
 | View and post public team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | View and post private team discussions to **all teams** (see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Edit and delete team discussions in **all teams** (for more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% endif %}
@@ -247,7 +245,6 @@ Some of the features listed below are limited to organizations using {% data var
 | [View people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-{% ifversion ghae %}| Manage IP allow lists (see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% endif %}
 
 {% endrowheaders %}
 

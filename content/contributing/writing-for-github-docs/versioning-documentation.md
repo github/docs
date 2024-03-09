@@ -1,7 +1,6 @@
 ---
 title: Versioning documentation
 intro: '{% data variables.product.prodname_docs %} uses YAML frontmatter and liquid operators to support multiple versions of {% data variables.product.company_short %} with a single-source approach.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
@@ -111,7 +110,7 @@ If you define multiple products in the `versions` key within a page's YAML front
 
 **Notes:**
 
-- Use `ifversion` for product-based versioning and [feature-based versioning](#feature-based-versioning).
+- Use `ifversion` for product-based versioning and [feature-based versioning](#about-feature-based-versioning).
 - Do not use `if` or `unless`.
 - Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 
@@ -241,10 +240,6 @@ versions:
   fpt: '*'
   feature: 'some-new-feature'
 ```
-
-### Schema enforcement
-
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/src/content-linter/tests/lint-versioning.js).
 
 ## Best practices
 

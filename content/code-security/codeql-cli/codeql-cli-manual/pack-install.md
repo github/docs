@@ -2,7 +2,6 @@
 title: pack install
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -30,7 +29,7 @@ codeql pack install [--force] <options>... -- <dir>
 
 ## Description
 
-\[Experimental] Install dependencies for this pack.
+Install dependencies for this pack.
 
 This command installs the dependencies of the pack. If a
 codeql-pack.lock.yml exists, the versions specified in that lock file

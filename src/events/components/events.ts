@@ -370,14 +370,12 @@ function initLinkEvent() {
     const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
     const sameSite = link.origin === location.origin
-    const container = ['header', 'nav', 'article', 'toc', 'footer'].find((name) =>
-      target.closest(`[data-container="${name}"]`),
-    )
+    const container = target.closest(`[data-container]`) as HTMLElement | null
     sendEvent({
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
-      link_container: container,
+      link_container: container?.dataset.container,
     })
   })
 }
@@ -412,7 +410,7 @@ function initHoverEvent() {
   })
 
   // Doesn't matter which link you hovered on that triggered a timer,
-  // you're clearly not hovering over it any more.
+  // you're clearly not hovering over it anymore.
   document.documentElement.addEventListener('mouseout', () => {
     if (timer) {
       window.clearTimeout(timer)

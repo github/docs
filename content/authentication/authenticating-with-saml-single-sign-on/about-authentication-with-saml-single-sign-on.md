@@ -1,28 +1,17 @@
 ---
 title: About authentication with SAML single sign-on
-intro: 'You can access {% ifversion ghae %}{% data variables.location.product_location %}{% elsif ghec %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% ifversion ghae %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).'
+intro: 'You can access {% ifversion ghec %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating through an identity provider (IdP).'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on
 versions:
-  ghae: '*'
   ghec: '*'
 topics:
   - SSO
 shortTitle: SAML single sign-on
 ---
 ## About authentication with SAML SSO
-
-{% ifversion ghae %}
-
-SAML SSO allows an enterprise owner to centrally control and secure access to {% data variables.product.product_name %} from a SAML IdP. When you visit {% data variables.location.product_location %} in a browser, {% data variables.product.product_name %} will redirect you to your IdP to authenticate. After you successfully authenticate with an account on the IdP, the IdP redirects you back to {% data variables.location.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access.
-
-{% data reusables.saml.you-must-periodically-authenticate %}
-
-If you can't access {% data variables.product.product_name %}, contact your local enterprise owner or administrator for {% data variables.product.product_name %}. You may be able to locate contact information for your enterprise by clicking **Support** at the bottom of any page on {% data variables.product.product_name %}. {% data variables.product.company_short %} and {% data variables.contact.github_support %} do not have access to your IdP, and cannot troubleshoot authentication problems.
-
-{% endif %}
 
 {% ifversion ghec %}
 
@@ -71,4 +60,3 @@ For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-a
 ## Further reading
 
 {% ifversion ghec %}- "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
-{% ifversion ghae %}- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)"{% endif %}

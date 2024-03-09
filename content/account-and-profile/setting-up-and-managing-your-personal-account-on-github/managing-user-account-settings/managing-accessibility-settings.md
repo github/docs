@@ -12,9 +12,9 @@ type: how_to
 
 ## About accessibility settings
 
-To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
+To create an experience on {% data variables.location.product_location %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
 
-You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes or ghae %}the website for {% data variables.location.product_location %}{% endif %} and you can also control the display of animated images{% ifversion link-underlines %} and how links are displayed{% endif %}.
+You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes %}the website for {% data variables.location.product_location %}{% endif %} and you can also control the display of animated images{% ifversion link-underlines %} and how links are displayed{% endif %}.
 
 {% ifversion link-underlines %}
 
@@ -31,10 +31,10 @@ You can control whether links in text blocks on {% data variables.location.produ
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Content", manage settings for link appearance.
-  
+
     - To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
     - To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
-  
+
 {% endif %}
 
 ## Managing keyboard shortcuts

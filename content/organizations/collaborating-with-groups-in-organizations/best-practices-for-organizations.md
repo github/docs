@@ -5,7 +5,6 @@ intro: 'Learn {% data variables.product.prodname_dotcom %}-recommended practices
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -28,7 +27,7 @@ We highly recommend managing team membership through your identity provider (IdP
 
 We recommend keeping teams visible whenever possible and reserving secret teams for sensitive situations. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/changing-team-visibility)."
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Use security overview
 

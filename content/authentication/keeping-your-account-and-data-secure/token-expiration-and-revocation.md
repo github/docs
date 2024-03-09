@@ -4,7 +4,6 @@ intro: 'Your tokens can expire and can also be revoked by you, applications you 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -47,11 +46,11 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 
 You can revoke your authorization of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} from your account settings which will revoke any tokens associated with the app. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" and "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)."
 
-Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} again.
+Once an authorization is revoked, any tokens associated with the authorization will be revoked as well. To reauthorize an application, follow the instructions from the third-party application or website to connect your account on {% data variables.location.product_location %} again.
 
 ## Token revoked by the {% data variables.product.prodname_oauth_app %}
 
-The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps#delete-an-app-authorization)."
+The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-authorization)."
 
 {% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your {% data variables.product.prodname_oauth_app %}, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)".
 
@@ -59,6 +58,6 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 
 {% data reusables.apps.oauth-token-limit %}
 
-## User token revoked due to {% data variables.product.prodname_github_app %} configuration
+## User token expired due to {% data variables.product.prodname_github_app %} configuration
 
-User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default. Owners of {% data variables.product.prodname_github_apps %} can optionally change the default expiration period for their user access tokens, or configure the tokens to never expire. For more information about configuring your {% data variables.product.prodname_dotcom %} App's user access tokens, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default, and then must be regenerated using the included refresh token. Owners of {% data variables.product.prodname_github_apps %} can optionally configure these tokens to never expire instead, but this is not recommended due to the security implications. For more information about configuring your {% data variables.product.prodname_github_app %}'s user access tokens, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."

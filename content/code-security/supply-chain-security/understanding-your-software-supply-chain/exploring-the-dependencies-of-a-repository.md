@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -50,17 +49,17 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 For each dependency, you can see its ecosystem, the manifest file in which it was found, and the license (where detected). Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
 {% endif %}
 
-{% ifversion ghes or ghae %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes > 3.9 or ghae > 3.9%}.{% else %}, grouped by ecosystem.{% endif %}
+{% ifversion ghes %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes > 3.9 %}.{% else %}, grouped by ecosystem.{% endif %}
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the Dependency submission API (beta) will show which detector was used for their submission and when they were submitted.{% elsif ghes or ghae > 3.6 %}Dependencies submitted to a project using the Dependency submission API (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %}{% ifversion dependency-submission-api %} For more information on using the dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} (beta) will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %}{% ifversion dependency-submission-api %} For more information on using the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 {% endif %}
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** {% data variables.product.product_name %} does not populate the **Dependents** view.

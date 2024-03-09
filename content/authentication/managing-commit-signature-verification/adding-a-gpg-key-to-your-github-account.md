@@ -1,6 +1,6 @@
 ---
 title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
+intro: 'To configure your account on {% data variables.location.product_location %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity

@@ -41,12 +41,12 @@ includeGuides:
   - /codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces
   - /codespaces/setting-your-user-preferences/setting-your-default-region-for-github-codespaces
   - /codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces
-  - /codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces
+  - /codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces
   - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
   - /codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization
-  - /codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces
+  - /codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization
   - /codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period

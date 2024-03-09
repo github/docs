@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -24,7 +23,7 @@ You can remove the file from the latest commit with `git rm`. For information on
 
 {% warning %}
 
-**Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}. {% ifversion fpt or ghec %}{% data variables.contact.github_support %} only assists in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
+**Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% data variables.location.product_location %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}. {% ifversion fpt or ghec %}{% data variables.contact.github_support %} only assists in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
 
 Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository.
 
@@ -148,7 +147,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    git remote add origin https://github.com/OWNER/REPOSITORY.git
    ```
 
-1. Once you're happy with the state of your repository, and you have set the appropriate remote, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
+1. Once you're happy with the state of your repository, and you have set the appropriate remote, force-push your local changes to overwrite your repository on {% data variables.location.product_location %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
 
    ```shell
    $ git push origin --force --all
@@ -209,9 +208,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 ## Avoiding accidental commits in the future
 
-{% ifversion fpt or ghec or ghes %}
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
-{% endif %}
 
 There are a few simple tricks to avoid committing things you don't want committed:
 

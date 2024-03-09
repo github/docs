@@ -3,18 +3,16 @@ title: GitHub REST API documentation
 shortTitle: REST API
 intro: 'Create integrations, retrieve data, and automate your workflows with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
+  overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
-  overview: /rest/using-the-rest-api/getting-started-with-the-rest-api
 featuredLinks:
   startHere:
+    - /rest/about-the-rest-api/about-the-rest-api
     - /rest/using-the-rest-api/getting-started-with-the-rest-api
     - /rest/authentication/authenticating-to-the-rest-api
     - /rest/using-the-rest-api/best-practices-for-using-the-rest-api
-    - /rest/using-the-rest-api/using-pagination-in-the-rest-api
   popular:
     - /rest/using-the-rest-api/rate-limits-for-the-rest-api
-    - /rest/about-the-rest-api/api-versions
-    - /rest/authentication/authenticating-to-the-rest-api
     - /rest/using-the-rest-api/troubleshooting-the-rest-api
     - /rest/guides/scripting-with-the-rest-api-and-javascript
     - /rest/authentication/keeping-your-api-credentials-secure
@@ -33,7 +31,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /quickstart

@@ -11,9 +11,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -56,7 +55,7 @@ To support the developer process in the next section, add two {% data variables.
 
 Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec%} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
 
-1. Do feature work in branches per GitHub flow. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
+1. Do feature work in branches per GitHub flow. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow)."
    - Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
 
 1. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
@@ -84,7 +83,8 @@ Using semantic releases means that the users of your actions can pin their workf
 - Maintain a `README` with plenty of usage examples and guidance. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 - Include a workflow status badge in your `README` file. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
 - Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types)."{% endif %}
-- Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
+- Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).{% ifversion fpt or ghec %}
+- Use {% data variables.product.product_name %}'s security features to communicate about vulnerabilities and how to fix them. For more information, see "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#protecting-actions-youve-created)."{% endif %}
 
 ## Further reading
 

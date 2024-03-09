@@ -1,0 +1,1 @@
+For more information, see the "[Deprecations](/admin/release-notes#{{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %}-deprecations)" section in the release notes.

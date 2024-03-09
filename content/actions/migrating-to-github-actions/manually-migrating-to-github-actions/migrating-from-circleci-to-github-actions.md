@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -37,9 +36,7 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 When migrating from CircleCI, consider the following differences:
 
 - CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your _Dockerfile_. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
-{% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
-{% endif %}
+- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your _Dockerfile_. For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 
 ## Migrating workflows and jobs
 
@@ -61,15 +58,9 @@ CircleCI provides a set of pre-built images with common dependencies. These imag
 
 We recommend that you move away from CircleCI's pre-built images when you migrate to {% data variables.product.prodname_actions %}. In many cases, you can use actions to install the additional dependencies you need.
 
-{% ifversion ghae %}
-For more information about the Docker filesystem, see "[AUTOTITLE](/actions/hosting-your-own-runners#docker-container-filesystem)."
-
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}
 For more information about the Docker filesystem, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 
 For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted runner images, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
-{% endif %}
 
 ## Using variables and secrets
 
@@ -210,7 +201,6 @@ jobs:
 
       # Run the tests
       - run: bundle exec rake
-
 
 workflows:
   version: 2
@@ -358,7 +348,6 @@ jobs:
           POSTGRES_USER: administrate
           POSTGRES_DB: ruby26
           POSTGRES_PASSWORD: ""
-
 
 workflows:
   version: 2

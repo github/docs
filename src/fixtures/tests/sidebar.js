@@ -14,7 +14,7 @@ describe('sidebar', () => {
   })
 
   test('leaf-node article marked as aria-current=page', async () => {
-    const $ = await getDOM('/get-started/quickstart/hello-world')
+    const $ = await getDOM('/get-started/start-your-journey/hello-world')
     expect(
       $(
         '[data-testid=sidebar] [data-testid=product-sidebar] a[aria-current="page"] div span',

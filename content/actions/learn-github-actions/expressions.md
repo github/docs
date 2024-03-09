@@ -5,10 +5,9 @@ intro: You can evaluate expressions in workflows and actions.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
@@ -52,6 +51,8 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `null`    | `null` |
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+
+Note that in conditionals, falsy values (`false`, `0`, `-0`, `""`, `''`, `null`) are coerced to `false` and truthy (`true` and other non-falsy values) are coerced to `true`.
 
 ### Example of literals
 
@@ -126,7 +127,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
+It is important to note that the first value after the `&&` must be truthy. Otherwise, the value after the `||` will always be returned.
 
 ## Functions
 
@@ -236,7 +237,7 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert any data type that can be represented in JSON or JavaScript, such as strings, booleans, null values, arrays, and objects.
 
 #### Example returning a JSON object
 
@@ -274,8 +275,6 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-{% raw %}
-
 ```yaml
 name: print
 on: push
@@ -286,12 +285,14 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - continue-on-error: ${{ fromJSON(env.continue) }}
-        timeout-minutes: ${{ fromJSON(env.time) }}
+      - continue-on-error: {% raw %}${{ fromJSON(env.continue) }}{% endraw %}
+        timeout-minutes: {% raw %}${{ fromJSON(env.time) }}{% endraw %}
         run: echo ...
 ```
 
-{% endraw %}
+This example workflow sets environment variables: `continue` is set to a boolean value `true`, `time` is set to an integer value `3`.
+
+The workflow uses the `fromJSON()` function to convert the environment variable `continue` from a string to a boolean, allowing it to determine whether to continue-on-error or not. Similarly, it converts the `time` environment variable from a string to an integer, setting the timeout for the job in minutes.
 
 ### hashFiles
 

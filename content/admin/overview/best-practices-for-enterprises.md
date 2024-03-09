@@ -5,7 +5,6 @@ intro: 'Learn {% data variables.product.company_short %}-recommended practices f
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -47,6 +46,14 @@ We recommend collaborating in organization-owned repositories whenever possible 
 {% ifversion ghec %}If you control the usernames for enterprise members, use{% else %}Use{% endif %} human-readable usernames, and avoid machine-generated IDs that are difficult for humans to read.
 
 You can manage the display of usernames within your enterprise's private repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
+
+{% ifversion enterprise-readme %}
+
+## Create a README
+
+{% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+
+{% endif %}
 
 ## Further reading
 

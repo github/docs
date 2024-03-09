@@ -330,6 +330,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         core.setFailed(
           `${flaws.length} broken links found. See action artifact uploads for details`,
         )
+        process.exit(1)
       }
     }
   } else {

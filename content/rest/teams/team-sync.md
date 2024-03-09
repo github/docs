@@ -1,5 +1,6 @@
 ---
-title: Team synchronization
+title: REST API endpoints for team synchronization
+shortTitle: Team synchronization
 intro: >-
   Use the REST API to manage connections between {% data
   variables.product.product_name %} teams and external identity provider (IdP)
