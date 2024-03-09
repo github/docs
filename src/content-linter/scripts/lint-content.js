@@ -14,6 +14,7 @@ import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
 import { prettyPrintResults } from './pretty-print-results.js'
+import { getLintableYml } from '#src/content-linter/lib/helpers/get-lintable-yml.js'
 import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
 
 program
@@ -101,10 +102,38 @@ async function main() {
     config: config.frontMatter,
     customRules: configuredRules.frontMatter,
   })
+
+  // Run Markdownlint on "lintable" Markdown strings in a YML file
+  const resultYml = {}
+  for (const ymlFile of files.yml) {
+    const lintableYml = await getLintableYml(ymlFile)
+    if (!lintableYml) continue
+
+    const resultYmlFile = await markdownlint.promises.markdownlint({
+      strings: lintableYml,
+      config: config.yml,
+      customRules: configuredRules.yml,
+    })
+
+    Object.entries(resultYmlFile).forEach(([key, value]) => {
+      if (value.length) {
+        const errors = value.map((error) => {
+          // Autofixing would require us to write the changes back to the YML
+          // file which Markdownlint doesn't support. So we don't support
+          // autofixing for YML files at this time.
+          if (error.fixInfo) delete error.fixInfo
+          error.isYamlFile = true
+          return error
+        })
+        resultYml[key] = errors
+      }
+    })
+  }
+
   // There are no collisions when assigning the results to the new object
   // because the keys are filepaths and the individual runs of Markdownlint
   // are in separate directories (content and data).
-  const results = Object.assign({}, resultContent, resultData)
+  const results = Object.assign({}, resultContent, resultData, resultYml)
 
   // Merge in the results for frontmatter tests, which could be
   // in a file that already exists as a key in the `results` object.
@@ -165,6 +194,13 @@ async function main() {
         // many files and is not always a problem. And besides, when it
         // does warn, it's usually a very long one.
         'code-fence-line-length', // a.k.a. GHD030
+      ],
+      skippableFlawProperties: [
+        // As of Feb 2024, we don't support reporting flaws for lines
+        // and columns numbers of YAML files. YAML files consist of one
+        // or more Markdown strings that can themselves constitute an
+        // entire "file."
+        'isYamlFile',
       ],
     })
   }
@@ -250,16 +286,18 @@ function pluralize(things, word, pluralForm = null) {
 
 // Parse filepaths and directories, only allowing
 // Markdown file types for now. Snippets of Markdown
-// in .yml files may be added later.
-// Certain rules cannot run on data files (e.g., heading
-// linters) so we need to separate the list of data files
-// from all other files to run through markdownlint
-// individually
+// in .yml files that are defined as `lintable` in
+// their associated JSON schema are also linted.
+// Certain rules cannot run on data files or yml
+// (e.g., heading linters) so we need to separate the
+// list of data files from all other files to run
+// through markdownlint individually
 function getFilesToLint(paths) {
   const fileList = {
     length: 0,
     content: [],
     data: [],
+    yml: [],
   }
 
   // The path passed to Markdownlint is what is displayed
@@ -269,30 +307,39 @@ function getFilesToLint(paths) {
     // Normalizes a path like './data/foo/bar.md' to 'data/foo/bar.md'
     const lintPath = path.normalize(rawPath)
     const extension = path.extname(lintPath)
-    // We currently only lint Markdown files but will add
-    // YAML files soon.
-    const isMdFile = extension === '.md' && path.basename(lintPath) !== 'README.md'
+    const isFileLintable =
+      (extension === '.md' && path.basename(lintPath) !== 'README.md') || extension === '.yml'
     const isDirectory = extension === ''
-    if (!isMdFile && !isDirectory) continue
+    if (!isFileLintable && !isDirectory) continue
     // The path can be relative or absolute. All paths get
     // resolved to the path relative to the current working directory.
     const cwd = path.resolve()
     const relPath = path.isAbsolute(lintPath) ? path.relative(cwd, lintPath) : lintPath
     const isDataDir = relPath.startsWith('data')
 
-    if (isMdFile) {
-      // Add each file to the relevant fileList group
-      isDataDir ? fileList.data.push(relPath) : fileList.content.push(relPath)
+    if (isFileLintable) {
+      if (extension === '.yml') fileList.yml.push(relPath)
+      // A .md file in the data directory
+      else if (relPath.startsWith('data')) fileList.data.push(relPath)
+      // A .md file in the content directory
+      else fileList.content.push(relPath)
     } else {
       // It's a directory, walk the files in the directory and
       // add them to the relevant fileList group
       isDataDir
         ? fileList.data.push(...walkFiles(relPath, ['.md']))
         : fileList.content.push(...walkFiles(relPath, ['.md']))
+
+      if (relPath.startsWith('data')) {
+        fileList.data.push(...walkFiles(relPath, ['.md']))
+        fileList.yml.push(...walkFiles(relPath, ['.yml', '.yaml']))
+      } else {
+        fileList.content.push(...walkFiles(relPath, ['.md']))
+      }
     }
   }
   // Add a total fileList length property
-  fileList.length = fileList.content.length + fileList.data.length
+  fileList.length = fileList.content.length + fileList.data.length + fileList.yml.length
 
   return fileList
 }
@@ -440,11 +487,13 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     content: structuredClone(defaultConfig),
     data: structuredClone(defaultConfig),
     frontMatter: structuredClone(defaultConfig),
+    yml: structuredClone(defaultConfig),
   }
   const configuredRules = {
     content: [],
     data: [],
     frontMatter: [],
+    yml: [],
   }
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
@@ -473,6 +522,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     if (ruleName === 'search-replace') {
       const searchReplaceRules = []
       const dataSearchReplaceRules = []
+      const ymlSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
@@ -480,6 +530,9 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
         searchReplaceRules.push(searchRule)
         if (searchRule['partial-markdown-files']) {
           dataSearchReplaceRules.push(searchRule)
+        }
+        if (searchRule['yml-files']) {
+          ymlSearchReplaceRules.push(searchRule)
         }
       }
 
@@ -491,6 +544,10 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
         config.data[ruleName] = { ...ruleConfig, rules: dataSearchReplaceRules }
         if (customRule) configuredRules.data.push(customRule)
       }
+      if (ymlSearchReplaceRules.length > 0) {
+        config.yml[ruleName] = { ...ruleConfig, rules: ymlSearchReplaceRules }
+        if (customRule) configuredRules.yml.push(customRule)
+      }
       continue
     }
 
@@ -499,6 +556,10 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     if (ruleConfig['partial-markdown-files'] === true) {
       config.data[ruleName] = ruleConfig
       if (customRule) configuredRules.data.push(customRule)
+    }
+    if (ruleConfig['yml-files']) {
+      config.yml[ruleName] = ruleConfig
+      if (customRule) configuredRules.yml.push(customRule)
     }
   }
 

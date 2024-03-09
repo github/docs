@@ -710,6 +710,16 @@
     "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
   },
   {
+    "action": "members_can_create_private_pages.disable",
+    "description": "The ability for members to publish private GitHub Pages was disabled  Members cannot publish private GitHub Pages in an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
+  },
+  {
+    "action": "members_can_create_private_pages.enable",
+    "description": "The ability for members to publish private GitHub Pages was enabled  Members can publish private GitHub Pages in an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
+  },
+  {
     "action": "members_can_create_public_pages.disable",
     "description": "The ability for members to publish public GitHub Pages was disabled  Members cannot publish public GitHub Pages in an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
@@ -895,6 +905,21 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
+    "action": "org.allow_third_party_access_requests_from_outside_collaborators_disabled",
+    "description": "Third-party application access for outside collaborators was disabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+  },
+  {
+    "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
+    "description": "Third-party application access for outside collaborators was enabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
+  },
+  {
+    "action": "org.archive",
+    "description": "The organization was archived.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.audit_log_export",
     "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
@@ -1020,6 +1045,11 @@
     "docs_reference_links": "/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account"
   },
   {
+    "action": "org.connect_usage_metrics_export",
+    "description": "Server statistics were exported for the organization.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
+  },
+  {
     "action": "org.create",
     "description": "An organization was created.",
     "docs_reference_links": "/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch"
@@ -1075,6 +1105,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.disable_source_ip_disclosure",
+    "description": "Display of IP addresses within audit log events for the organization was disabled.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
+  },
+  {
     "action": "org.disable_two_factor_requirement",
     "description": "A two-factor authentication requirement was disabled for the organization.",
     "docs_reference_links": "N/A"
@@ -1108,6 +1143,11 @@
     "action": "org.enable_saml",
     "description": "SAML single sign-on was enabled for the organization.",
     "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization"
+  },
+  {
+    "action": "org.enable_source_ip_disclosure",
+    "description": "Display of IP addresses within audit log events for the organization was enabled.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
   },
   {
     "action": "org.enable_two_factor_requirement",
@@ -1273,6 +1313,16 @@
     "action": "org.restore_member",
     "description": "An organization member was restored.",
     "docs_reference_links": "/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization"
+  },
+  {
+    "action": "org.revoke_external_identity",
+    "description": "A member's linked identity was revoked.",
+    "docs_reference_links": "/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity"
+  },
+  {
+    "action": "org.revoke_sso_session",
+    "description": "A member's SAML session was revoked.",
+    "docs_reference_links": "/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity"
   },
   {
     "action": "org.runner_group_created",
@@ -1465,6 +1515,11 @@
     "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
   },
   {
+    "action": "org.unarchive",
+    "description": "The organization was unarchived.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.unblock_user",
     "description": "A user was unblocked from an organization.",
     "docs_reference_links": "/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization"
@@ -1513,6 +1568,11 @@
     "action": "org.update_new_repository_default_branch_setting",
     "description": "The name of the default branch was changed for new repositories in the organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization"
+  },
+  {
+    "action": "org.update_repo_self_hosted_runners_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.update_saml_provider_settings",
@@ -1890,6 +1950,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "protected_branch.update_allow_deletions_enforcement_level",
+    "description": "Branch deletion was enabled or disabled for a protected branch.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "protected_branch.update_allow_force_pushes_enforcement_level",
     "description": "Force pushes were enabled or disabled for a branch.",
     "docs_reference_links": "N/A"
@@ -1898,6 +1963,11 @@
     "action": "protected_branch.update_ignore_approvals_from_contributors",
     "description": "Ignoring of approvals from contributors to a pull request was enabled or disabled for a branch.",
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
+  },
+  {
+    "action": "protected_branch.update_linear_history_requirement_enforcement_level",
+    "description": "Required linear commit history was enabled or disabled for a branch.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "protected_branch.update_lock_allows_fetch_and_merge",
@@ -2790,6 +2860,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "sponsors.invoiced_agreement_sign",
+    "description": "An agreement for invoiced billing for GitHub Sponsors was signed.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice"
+  },
+  {
     "action": "sponsors.repo_funding_links_file_action",
     "description": "The FUNDING file in a repository was changed.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository"
@@ -2900,6 +2975,11 @@
     "docs_reference_links": "/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise"
   },
   {
+    "action": "staff.dependabot_debug_credentials_generated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "staff.set_domain_token_expiration",
     "description": "The verification code expiry time for an organization or enterprise domain was set.",
     "docs_reference_links": "N/A"
@@ -2962,6 +3042,21 @@
   {
     "action": "team_discussions.enable",
     "description": "Team discussions were enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_group_mapping.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_group_mapping.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_group_mapping.update",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {

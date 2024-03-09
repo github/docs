@@ -4237,6 +4237,12 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
       "slug": "enable-private-vulnerability-reporting-for-a-repository",
       "subcategory": "repos",
       "verb": "put",

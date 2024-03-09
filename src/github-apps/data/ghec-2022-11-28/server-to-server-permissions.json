@@ -7295,6 +7295,17 @@
       },
       {
         "category": "repos",
+        "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
         "slug": "get-all-custom-property-values-for-a-repository",
         "subcategory": "custom-properties",
         "verb": "get",

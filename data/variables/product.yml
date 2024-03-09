@@ -111,6 +111,7 @@ pat_generic_caps_plural: 'Personal access tokens'
 pat_generic_title_case: 'Personal Access Token'
 pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
+pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v1: >-
   {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
@@ -287,7 +288,7 @@ current-340-version: '11.10.354'
 # Developer site product variables
 # Use this inside command-line and other code blocks
 doc_url_pre: >-
-  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}
+  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}<!-- markdownlint-disable-line search-replace -->
 # Use this inside command-line code blocks
 api_url_pre: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% endif %}
