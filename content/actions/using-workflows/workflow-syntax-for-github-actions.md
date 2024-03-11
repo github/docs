@@ -961,17 +961,13 @@ services:
 
 The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a registry name.
 
-You may specify an empty image by passing `''` . This will result in the service not being started, and is useful to have _conditional_ services. For example,
-
-{% raw %}
+If `jobs.<job_id>.services.<service_id>.image` is assigned an empty string, the service will not start. You can use this to set up conditional services, similar to the following example.
 
 ```yaml
 services:
   nginx:
-    image: ${{ options.nginx == true && 'nginx' || '' }}
+    image: {% raw %}${{ options.nginx == true && 'nginx' || '' }}{% endraw %}
 ```
-
-{% endraw %}
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
