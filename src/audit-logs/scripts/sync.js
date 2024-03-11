@@ -79,14 +79,14 @@ async function main() {
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filter = (allowListValues, currentEvents = []) =>
-    filterByAllowlistValues(schemaEvents, currentEvents, allowListValues, pipelineConfig)
+    filterByAllowlistValues(schemaEvents, allowListValues, currentEvents, pipelineConfig)
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filterAndUpdateGhes = (allowListValues, auditLogPage, currentEvents) =>
     filterAndUpdateGhesDataByAllowlistValues(
       schemaEvents,
-      currentEvents,
       allowListValues,
+      currentEvents,
       pipelineConfig,
       auditLogPage,
     )
@@ -124,8 +124,8 @@ async function main() {
   // We don't maintain the order of events as we process them so after filtering
   // all the events based on their allowlist values, we sort them so they're in
   // order for display on the audit log pages.
-  for (const pageType of Object.values(auditLogData)) {
-    for (const events of Object.values(pageType)) {
+  for (const pageEventData of Object.values(auditLogData)) {
+    for (const events of Object.values(pageEventData)) {
       events.sort((e1, e2) => {
         // Event actions have underscores and periods (e.g.
         // `enterprise.runner_group_runners_updated`) and we ignore them both
