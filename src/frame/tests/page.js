@@ -315,7 +315,6 @@ describe('Page class', () => {
       })
       expect(page.versions.fpt).toBe('*')
       expect(page.versions.ghes).toBe('>3.0')
-      expect(page.versions.ghae).toBeUndefined()
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
     })
@@ -352,7 +351,6 @@ describe('Page class', () => {
       //
       // versions:
       //   ghes: '<3.0'
-      //   ghae: '*'
       //
       // So we expect to get the versioning from both.
       const page = await Page.init({

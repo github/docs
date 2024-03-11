@@ -24,9 +24,7 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} can also res
 Enterprise owners can restrict the options you have available for your organization's repository creation policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes %}
 Organization owners can restrict the type of repositories members can create to private {% ifversion ghec or ghes %}or internal{% endif %} to help prevent sensitive information from being exposed. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
-{% endif %}
 
 {% warning %}
 

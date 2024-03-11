@@ -1,7 +1,6 @@
 ---
 title: Templates
 intro: 'This article contains starter templates for the different content types used in {% data variables.product.prodname_docs %}.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

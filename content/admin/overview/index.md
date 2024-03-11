@@ -13,7 +13,6 @@ children:
   - /about-github-enterprise-server
   - /setting-up-a-trial-of-github-enterprise-server
   - /about-upgrades-to-new-releases
-  - /about-enterprise-accounts
   - /system-overview
   - /about-the-github-enterprise-api
   - /best-practices-for-enterprises

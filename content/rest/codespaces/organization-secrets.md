@@ -1,5 +1,5 @@
 ---
-title: Codespaces organization secrets
+title: REST API endpoints for Codespaces organization secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Organization secrets
 intro: >-

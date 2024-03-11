@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_project_v1_caps %} columns'
+title: 'REST API endpoints for {% data variables.product.prodname_project_v1_caps %} columns'
 shortTitle: Columns
 allowTitleToDifferFromFilename: true
 intro: >-

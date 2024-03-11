@@ -16,6 +16,7 @@ redirect_from:
 children:
   - learning-about-github-support
   - contacting-github-support
+  - sharing-feedback-with-github
 topics:
   - Support
 introLinks:

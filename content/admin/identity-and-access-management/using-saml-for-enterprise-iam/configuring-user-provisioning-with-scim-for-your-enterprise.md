@@ -32,7 +32,7 @@ To configure provisioning for your enterprise, you must enable provisioning on {
 
 {% ifversion scim-for-ghes %}
 
-The provisioning application on your IdP communicates with {% data variables.product.product_name %} using the SCIM API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim)" in the REST API documentation.
+The provisioning application on your IdP communicates with {% data variables.product.product_name %} using the SCIM API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim)."
 
 {% endif %}
 

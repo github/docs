@@ -14,8 +14,8 @@ describe(earlyAccessReferences.names.join(' - '), () => {
     const errors = result[FIXTURE_FILEPATH_NON_EA]
     expect(errors.length).toBe(8)
     const lineNumbers = errors.map((error) => error.lineNumber)
-    expect(lineNumbers.includes(13)).toBe(true)
-    expect(lineNumbers.includes(14)).toBe(false)
+    expect(lineNumbers.includes(12)).toBe(true)
+    expect(lineNumbers.includes(13)).toBe(false)
     expect(errors[0].errorRange).toEqual([1, 12])
   })
   test('early access file with early access references passes', async () => {

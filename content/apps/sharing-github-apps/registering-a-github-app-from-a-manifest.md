@@ -168,7 +168,7 @@ If you provided a `state` parameter, you will also see that parameter in the `re
 
 ### 3. You exchange the temporary code to retrieve the app configuration
 
-To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/rest/apps#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
+To complete the handshake, send the temporary `code` in a `POST` request to the [Create a GitHub App from a manifest](/rest/apps/apps#create-a-github-app-from-a-manifest) endpoint. The response will include the `id` (GitHub App ID), `pem` (private key), and `webhook_secret`. GitHub creates a webhook secret for the app automatically. You can store these values in environment variables on the app's server. For example, if your app uses [dotenv](https://github.com/bkeepers/dotenv) to store environment variables, you would store the variables in your app's `.env` file.
 
 You must complete this step of the GitHub App Manifest flow within one hour.
 
@@ -180,7 +180,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
     POST /app-manifests/{code}/conversions
 
-For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/apps#create-a-github-app-from-a-manifest).
+For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/apps/apps#create-a-github-app-from-a-manifest).
 
 When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered GitHub App that they can install on any of their personal repositories. They can choose to extend the app using the GitHub APIs, transfer ownership to someone else, or delete it at any time.
 

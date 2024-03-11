@@ -82,7 +82,7 @@ When you use a user access token, you should track which organizations the token
 
 {% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to re-enable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
 
-Installation access tokens expire after one hour, expiring user access tokens expire after eight hours, and refresh tokens expire after six months. However, you can also revoke tokens as soon as you no longer need them. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
+Installation access tokens expire after one hour, expiring user access tokens expire after eight hours, and refresh tokens expire after six months. However, you can also revoke tokens as soon as you no longer need them. For more information, see "[`DELETE /installation/token`](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[`DELETE /applications/{client_id}/token`](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
 
 ## Cache tokens
 
@@ -94,7 +94,7 @@ You should have a plan in place so that you can handle any security breaches in 
 
 In the event that your app's private key or secret is compromised, you will need to generate a new key or secret, update your app to use the new key or secret, and delete your old key or secret.
 
-In the event that installation access tokens, user access tokens, or refresh tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
+In the event that installation access tokens, user access tokens, or refresh tokens are compromised, you should immediately revoke these tokens. For more information, see "[`DELETE /installation/token`](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[`DELETE /applications/{client_id}/token`](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
 
 ## Conduct regular vulnerability scans
 

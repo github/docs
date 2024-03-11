@@ -1,7 +1,6 @@
 ---
 title: Configuring redirects
 intro: "If an article's title, version, or location changes, you can create a redirect to the current content."
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:

@@ -62,13 +62,20 @@ When you merge a pull request that contains a security update, the corresponding
 
 {% data reusables.dependabot.automated-tests-note %}
 
-{% ifversion dependabot-grouped-security-updates %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
 ## About grouped security updates
 
 {% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
 
-To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time. For security updates, {% data variables.product.prodname_dependabot %} **will** group dependencies from different directories. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
+To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time.
+
+For security updates, {% data variables.product.prodname_dependabot %} will only group dependencies from different directories per ecosystem under certain conditions and configurations. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates.
+
+{% data reusables.dependabot.dependabot-grouped-security-updates-how-enable %}
+{% data reusables.dependabot.dependabot-grouped-security-updates-order %}
+
+ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request)."
 
 {% endif %}
 

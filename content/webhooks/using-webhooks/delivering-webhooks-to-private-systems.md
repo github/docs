@@ -30,7 +30,7 @@ When deploying a reverse proxy, you should follow all practices recommended by y
 
 You should configure your reverse proxy to only allow HTTPS POST requests from the subset of {% data variables.product.prodname_dotcom %} IP ranges that are used to deliver webhooks. This ensures that your reverse proxy does not process or forward other requests.
 
-The [`/meta` endpoint](/rest/meta#get-github-meta-information) returns a JSON object listing GitHub's IP ranges. IP ranges used to deliver webhooks are listed in the `hooks` element.
+The [`/meta` endpoint](/rest/meta/meta#get-github-meta-information) returns a JSON object listing GitHub's IP ranges. IP ranges used to deliver webhooks are listed in the `hooks` element.
 
 ### Validating webhook payloads
 

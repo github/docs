@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting content type
 intro: 'Troubleshooting content includes built-in errors we expect people to encounter, common problems reported to support, and situations people might encounter while completing tasks.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

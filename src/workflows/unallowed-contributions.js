@@ -3,6 +3,7 @@
 import coreLib from '@actions/core'
 import { readFileSync } from 'fs'
 import yaml from 'js-yaml'
+import { difference } from 'lodash-es'
 
 import { checkContentType } from '#src/workflows/fm-utils.js'
 import github from '#src/workflows/github.js'
@@ -10,8 +11,13 @@ import github from '#src/workflows/github.js'
 const core = coreLib
 const octokit = github()
 
-const { PR_NUMBER, REPO_OWNER_AND_NAME, FILE_PATHS_NOT_ALLOWED, FILE_PATHS_CONTENT_TYPES } =
-  process.env
+const {
+  PR_NUMBER,
+  REPO_OWNER_AND_NAME,
+  FILE_PATHS_NOT_ALLOWED,
+  CHANGED_FILE_PATHS,
+  ADDED_CONTENT_FILES,
+} = process.env
 const [owner, repo] = REPO_OWNER_AND_NAME.split('/')
 const filters = yaml.load(readFileSync('src/workflows/unallowed-contribution-filters.yml', 'utf8'))
 
@@ -20,12 +26,19 @@ main()
 async function main() {
   // Files in the diff that match specific paths we don't allow
   const unallowedChangedFiles = [...JSON.parse(FILE_PATHS_NOT_ALLOWED)]
-  // Any changes to a file in the content directory could potentially
-  // have `type: rai` so each changed content file's frontmatter needs
-  // to be checked.
-  unallowedChangedFiles.push(
-    ...(await checkContentType(JSON.parse(FILE_PATHS_CONTENT_TYPES), 'rai')),
+
+  // Content files that are added in a forked repo won't be in the
+  // `github/docs` repo, so we don't need to check them. They will be
+  // reviewed manually by a content writer.
+  const contentFilesToCheck = difference(
+    JSON.parse(CHANGED_FILE_PATHS),
+    JSON.parse(ADDED_CONTENT_FILES),
   )
+
+  // Any modifications or deletions to a file in the content directory
+  // could potentially have `type: rai` so each changed content file's
+  // frontmatter needs to be checked.
+  unallowedChangedFiles.push(...(await checkContentType(contentFilesToCheck, 'rai')))
 
   if (unallowedChangedFiles.length === 0) return
 

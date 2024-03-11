@@ -47,7 +47,7 @@ Check the README.md in the subject folder for questions specific to a subject.
 
 For internal folks, please ask in the Docs Engineering Slack or repository.
 
-For open source folks, please ask on the [discussion board](https://github.com/github/docs/discussions).
+For open source folks, please open an issue in the repository.
 
 ## A note on tests and required checks
 

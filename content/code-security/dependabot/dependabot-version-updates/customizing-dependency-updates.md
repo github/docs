@@ -45,9 +45,9 @@ If you customize the `dependabot.yml` file, you may notice some changes to the p
 
 For an example, see "[Setting custom labels](#setting-custom-labels)" below.
 
-{% ifversion dependabot-grouped-security-updates %}{% note %}
+{% ifversion dependabot-grouped-security-updates-config %}{% note %}
 
-**Note:** If you use grouped security updates, the grouped pull requests will also inherit relevant configuration settings from the `dependabot.yml` file. However, they will not inherit any customizations made with the `groups` option, which only applies to version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+**Note:** If you use grouped security updates, the grouped pull requests will also inherit non-group configuration settings from the `dependabot.yml` file, and any group rules specified with `applies-to: security-updates` will apply. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
 
 {% endnote %}{% endif %}
 
@@ -147,7 +147,11 @@ updates:
 
 {% ifversion dependabot-version-updates-groups %}
 
-## Grouping {% data variables.product.prodname_dependabot_version_updates %} into one pull request
+## Grouping {% data variables.product.prodname_dependabot_updates %} into one pull request
+
+{% ifversion dependabot-grouped-security-updates-config %}
+{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
+{% endif %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
@@ -155,7 +159,7 @@ updates:
 
 {% data reusables.dependabot.dependabot-version-updates-groups-match-first %}
 
-{% ifversion dependabot-grouped-security-updates %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+{% ifversion dependabot-grouped-security-updates-config %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 You must configure groups per package ecosystem.
 
@@ -167,28 +171,30 @@ For more information about configuring dependency groups in the `dependabot.yml`
 
 {% endif %}
 
-## Ignoring specific dependencies for {% data variables.product.prodname_dependabot_version_updates %}
+## Ignoring specific dependencies for {% ifversion dependabot-grouped-security-updates-config %}{% data variables.product.prodname_dependabot_updates %}{% else %}{% data variables.product.prodname_dependabot_version_updates %}{% endif %}
 
-If you are not ready to adopt changes from dependencies in your project, you can configure {% data variables.product.prodname_dependabot %} to ignore those dependencies when it opens pull requests for version updates. You can do this using one of the following methods.
+If you are not ready to adopt changes from dependencies in your project, you can configure {% data variables.product.prodname_dependabot %} to ignore those dependencies when it opens pull requests for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can do this using one of the following methods.
 
 - Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
-- Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+- Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 If you would like to un-ignore a dependency or ignore condition, you can delete the ignore conditions from the `dependabot.yml` file or reopen the pull request.
 
-{% ifversion dependabot-version-updates-groups %}For pull requests for grouped version updates, you can also use `@dependabot unignore` comment commands. The `@dependabot unignore` comment commands enable you to do the following by commenting on a {% data variables.product.prodname_dependabot %} pull request:
+{% ifversion dependabot-version-updates-groups %}For pull requests for grouped {% ifversion dependabot-grouped-security-updates-config %}{% else %}version {% endif %}updates, you can also use `@dependabot unignore` comment commands. The `@dependabot unignore` comment commands enable you to do the following by commenting on a {% data variables.product.prodname_dependabot %} pull request:
 
 - Un-ignore a specific ignore condition
 - Un-ignore a specific dependency
-- Un-ignore all ignore conditions for all dependencies in a  {% data variables.product.prodname_dependabot %} pull request
+- Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
+{% ifversion dependabot-grouped-security-updates-config %}{% else %}
 {% note %}
 
 **Note:** The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
 
 {% endnote %}
+{% endif %}
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."{% endif %}
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."{% endif %}
 
 ## More examples
 

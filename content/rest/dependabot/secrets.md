@@ -1,5 +1,5 @@
 ---
-title: Dependabot secrets
+title: REST API endpoints for Dependabot secrets
 shortTitle: Secrets
 intro: >-
   Use the REST API to manage {% data variables.product.prodname_dependabot %}

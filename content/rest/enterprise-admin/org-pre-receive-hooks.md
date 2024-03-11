@@ -1,5 +1,6 @@
 ---
-title: Organization Pre-receive Hooks
+title: REST API endpoints for organization pre-receive hooks
+shortTitle: Organization pre-receive hooks
 intro: >-
   Use the REST API to view and modify enforcement of the pre-receive hooks that
   are available to an organization.

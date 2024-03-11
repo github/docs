@@ -1,5 +1,5 @@
 ---
-title: Codespaces machines
+title: REST API endpoints for Codespaces machines
 allowTitleToDifferFromFilename: true
 shortTitle: Machines
 intro: Use the REST API to manage availability of machine types for a codespace.

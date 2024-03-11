@@ -5,7 +5,7 @@ intro: 'You can configure a runner machine for your enterprise so your developer
 versions:
   ghec: '*'
   ghes: '*'
-permissions: 'Enterprise owners can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
+permissions: 'Enterprise owners{% ifversion custom-org-roles %} and users with permissions{% endif %} can configure policies for {% data variables.product.prodname_actions %} and add self-hosted runners to the enterprise.'
 type: quick_start
 topics:
   - Actions
@@ -101,9 +101,11 @@ You've now deployed a self-hosted runner that can run jobs from {% data variable
 
 ## 4. Further restrict access to the self-hosted runner
 
-Optionally, organization owners can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
+Optionally, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can further restrict the access policy of the runner group that you created. For example, an organization owner could allow only certain repositories in the organization to use the runner group.
 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
+
+{% ifversion custom-org-roles %}For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
 ## 5. Automatically scale your self-hosted runners
 

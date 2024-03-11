@@ -1,5 +1,7 @@
 ---
-title: Users
+title: REST API endpoints for enterprise users
+shortTitle: Users
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to suspend{% ifversion ghes %}, unsuspend, promote, and
   demote{% endif %} users on your enterprise.
