@@ -3259,7 +3259,7 @@
       "kind": "mutations",
       "id": "createsponsorships",
       "href": "/graphql/reference/mutations#createsponsorships",
-      "description": "<p>Make many one-time sponsorships for different sponsorable users or\norganizations at once. Can only sponsor those who have a public GitHub\nSponsors profile.</p>",
+      "description": "<p>Make many sponsorships for different sponsorable users or organizations at\nonce. Can only sponsor those who have a public GitHub Sponsors profile.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -94660,6 +94660,14 @@
         {
           "name": "receiveEmails",
           "description": "<p>Whether the sponsor should receive email updates from the sponsorables.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "recurring",
+          "description": "<p>Whether the sponsorships created should continue each billing cycle for the\nsponsor (monthly or annually), versus lasting only a single month. Defaults to\none-time sponsorships.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
