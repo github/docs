@@ -30,7 +30,7 @@ export default function GQLExplorer({
   return (
     <MainContext.Provider value={mainContext}>
       <AutomatedPageContext.Provider value={automatedPageContext}>
-        <AutomatedPage>
+        <AutomatedPage fullWidth={true}>
           <div>
             {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
             <iframe
