@@ -10,8 +10,8 @@ type Props = {
 }
 
 export const LearningTrack = ({ track }: Props) => {
-  if (!track) return <div />
   const { t, tObject } = useTranslation('product_guides')
+  if (!track) return <div />
 
   return (
     <div data-testid="learning-track" className="col-12 col-md-6 my-3 px-4">
