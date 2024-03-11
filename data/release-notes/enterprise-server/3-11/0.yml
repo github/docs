@@ -353,5 +353,11 @@ sections:
 
            For more information about Python releases, see [Status of Python versions](https://devguide.python.org/versions) on the Python website. For more information about supported package managers for Dependabot, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
 
+    # https://github.com/github/releases/issues/2605
+    - heading: Upcoming deprecation of team discussions
+      notes:
+        - |
+          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.11, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]
+
   errata:
     - 'The "[Changes](/admin/release-notes#3.11.0-changes)" section previously indicated that users should update GitHub Actions workflows and actions to run on Node.js 16. Node.js 16 has reached end of life, and users should instead update actions and workflows to run on Node.js 20 or later. [Updated: 2024-03-05]'

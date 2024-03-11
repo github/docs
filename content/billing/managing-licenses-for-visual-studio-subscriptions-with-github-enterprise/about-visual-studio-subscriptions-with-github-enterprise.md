@@ -51,6 +51,12 @@ You can view the number of {% data variables.product.prodname_enterprise %} lice
 
 You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
 
+## About licenses for {% data variables.product.prodname_ghe_server %}
+
+{% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options)."
+
+If you use {% data variables.product.prodname_ghe_server %}, you can ensure that each {% data variables.product.prodname_vs %} subscriber consumes only one license seat, regardless of whether the subscriber uses {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_ghe_cloud %}, or both. If a subscriber only uses {% data variables.product.prodname_ghe_server %}, the subscriber does not also need a user account for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+
 ## Further reading
 
 - [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/visualstudio/subscriptions/access-github) in Microsoft Docs
