@@ -16,6 +16,7 @@ import { defaultConfig } from '../lib/default-markdownlint-options.js'
 import { prettyPrintResults } from './pretty-print-results.js'
 import { getLintableYml } from '#src/content-linter/lib/helpers/get-lintable-yml.js'
 import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
+import languages from '#src/languages/lib/languages.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -69,13 +70,18 @@ main()
 async function main() {
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
-  const spinner = ora({ text: 'Running content linter\n\n', spinner: 'simpleDots' })
+
+  if (new Set(files.data).size !== files.data.length) throw new Error('Duplicate data files')
+  if (new Set(files.content).size !== files.content.length)
+    throw new Error('Duplicate content files')
+  if (new Set(files.yml).size !== files.yml.length) throw new Error('Duplicate yml files')
 
   if (!files.length) {
-    spinner.succeed('No files to lint')
-    process.exit(0)
+    console.log('No files to lint')
+    return
   }
 
+  const spinner = ora({ text: 'Running content linter\n\n', spinner: 'simpleDots' })
   spinner.start()
   const start = Date.now()
 
@@ -300,48 +306,78 @@ function getFilesToLint(paths) {
     yml: [],
   }
 
+  const root = path.resolve(languages.en.dir)
+  const contentDir = path.join(root, 'content')
+  const dataDir = path.join(root, 'data')
   // The path passed to Markdownlint is what is displayed
   // in the error report, so we want to normalize it and
   // and make it relative if it's absolute.
   for (const rawPath of paths) {
-    // Normalizes a path like './data/foo/bar.md' to 'data/foo/bar.md'
-    const lintPath = path.normalize(rawPath)
-    const extension = path.extname(lintPath)
-    const isFileLintable =
-      (extension === '.md' && path.basename(lintPath) !== 'README.md') || extension === '.yml'
-    const isDirectory = extension === ''
-    if (!isFileLintable && !isDirectory) continue
-    // The path can be relative or absolute. All paths get
-    // resolved to the path relative to the current working directory.
-    const cwd = path.resolve()
-    const relPath = path.isAbsolute(lintPath) ? path.relative(cwd, lintPath) : lintPath
-    const isDataDir = relPath.startsWith('data')
-
-    if (isFileLintable) {
-      if (extension === '.yml') fileList.yml.push(relPath)
-      // A .md file in the data directory
-      else if (relPath.startsWith('data')) fileList.data.push(relPath)
-      // A .md file in the content directory
-      else fileList.content.push(relPath)
-    } else {
-      // It's a directory, walk the files in the directory and
-      // add them to the relevant fileList group
-      isDataDir
-        ? fileList.data.push(...walkFiles(relPath, ['.md']))
-        : fileList.content.push(...walkFiles(relPath, ['.md']))
-
-      if (relPath.startsWith('data')) {
-        fileList.data.push(...walkFiles(relPath, ['.md']))
-        fileList.yml.push(...walkFiles(relPath, ['.yml', '.yaml']))
-      } else {
-        fileList.content.push(...walkFiles(relPath, ['.md']))
+    const absPath = path.resolve(rawPath)
+    if (fs.statSync(rawPath).isDirectory()) {
+      if (isInDir(absPath, contentDir)) {
+        fileList.content.push(...walkFiles(absPath, ['.md']))
+      } else if (isInDir(absPath, dataDir)) {
+        fileList.data.push(...walkFiles(absPath, ['.md']))
+        fileList.yml.push(...walkFiles(absPath, ['.yml']))
       }
+    } else {
+      if (isInDir(absPath, contentDir)) {
+        fileList.content.push(absPath)
+      } else if (isInDir(absPath, dataDir)) {
+        if (absPath.endsWith('.yml')) {
+          fileList.yml.push(absPath)
+        } else {
+          fileList.data.push(absPath)
+        }
+      }
+      // If it's a file but it's not part of the content or the data
+      // directory, it's probably file passed in by computing changed files
+      // from the git diff.
     }
   }
+
+  const seen = new Set()
+
+  function cleanPaths(filePaths) {
+    const clean = []
+    for (const filePath of filePaths) {
+      if (path.basename(filePath) === 'README.md') continue
+      const relPath = path.relative(root, filePath)
+      if (seen.has(relPath)) continue
+      seen.add(relPath)
+      clean.push(relPath)
+    }
+    return clean
+  }
+
+  fileList.content = cleanPaths(fileList.content)
+  fileList.data = cleanPaths(fileList.data)
+  fileList.yml = cleanPaths(fileList.yml)
+
   // Add a total fileList length property
   fileList.length = fileList.content.length + fileList.data.length + fileList.yml.length
 
   return fileList
+}
+
+/**
+ * Return true if a directory is or is a sub-directory of a parent.
+ * For example:
+ *
+ *   isInDir('/foo/bar', '/foo') => true
+ *   isInDir('/foo/some-sub-directory', '/foo') => true
+ *   isInDir('/foo/some-file.txt', '/foo') => true
+ *   isInDir('/foo', '/foo') => true
+ *   isInDir('/foo/barring', '/foo/bar') => false
+ */
+function isInDir(child, parent) {
+  // The simple reason why you can't use `parent.startsWith(child)`
+  // is because the parent might be `/path/to/data` and the child
+  // might be `/path/to/data-files`.
+  const parentSplit = parent.split(path.sep)
+  const childSplit = child.split(path.sep)
+  return parentSplit.every((dir, i) => dir === childSplit[i])
 }
 
 // This is a function used during development to
