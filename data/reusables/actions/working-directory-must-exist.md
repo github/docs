@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** If the `working-directory` does not exist, the step will probably fail to run the `shell`.
+**Tip:** Ensure the `working-directory` you assign exists on the runner before you run your shell in it.
 
 {% endnote %}
