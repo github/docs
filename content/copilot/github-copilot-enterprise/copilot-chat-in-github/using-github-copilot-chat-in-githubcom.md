@@ -30,7 +30,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 ### Limitations
 
-- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking a question with a specific context](#asking-a-question-with-a-specific-context)."
+- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking a question about a specific repository, file or symbol](#asking-a-question-about-a-specific-repository-file-or-symbol)."
 - The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
