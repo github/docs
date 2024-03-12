@@ -220,7 +220,7 @@ The following properties are supported in `qlpack.yml` files.
   version: 0.0.0
   ```
 
-{% ifversion codeql-model-packs-java %}
+{% ifversion codeql-model-packs %}
 
 #### `dataExtensions`
 
@@ -230,7 +230,7 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `dependencies`
 
-- Required by query and library packs that define {% data variables.product.prodname_codeql %} package dependencies on other packs. Model packs cannot define any dependencies and use `extensionTargets` instead.
+- Required by query and library packs that define {% data variables.product.prodname_codeql %} package dependencies on other packs. {% ifversion codeql-model-packs %}Model packs cannot define any dependencies and use `extensionTargets` instead.{% endif %}
 - Defines a map from pack references to the semantic version range that is compatible with this pack. Supported for {% data variables.product.prodname_codeql_cli %} versions v2.6.0 and later. For example:
 
   ```yaml
@@ -263,7 +263,7 @@ The following properties are supported in `qlpack.yml` files.
       precision: medium
   ```
 
-{% ifversion codeql-model-packs-java %}
+{% ifversion codeql-model-packs %}
 
 #### `extensionTargets`
 
