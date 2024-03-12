@@ -116,4 +116,4 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 ## Further reading
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
