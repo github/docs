@@ -30,7 +30,7 @@ matrix:
     - macos-latest
   node:
     - version: 14
-    - version: 20
+    - version: {% ifversion actions-node20-support %}20{% else %}16{% endif %}
       env: NODE_OPTIONS=--openssl-legacy-provider
 ```
 
