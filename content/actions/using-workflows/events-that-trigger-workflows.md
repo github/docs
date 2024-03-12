@@ -1174,6 +1174,7 @@ jobs:
 
 - {% data reusables.actions.schedule-delay %}
 - In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
+- When the last user to commit to a scheduled workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository commits to the scheduled workflow file, the scheduled workflow will be re-activated.
 
 {% endnote %}
 

@@ -1,4 +1,4 @@
-# Reference: #11599
+# Reference: #11599 Java and #13332 Java and C#
 versions:
   fpt: '*'
   ghec: '*'

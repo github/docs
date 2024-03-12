@@ -78,21 +78,15 @@ async function main() {
   const auditLogData = {}
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
-  const filter = (allowListValues, filterConfig = { filterFn: filterOr }, currentEvents = []) =>
-    filterByAllowlistValues(
-      schemaEvents,
-      currentEvents,
-      allowListValues,
-      pipelineConfig,
-      filterConfig,
-    )
+  const filter = (allowListValues, currentEvents = []) =>
+    filterByAllowlistValues(schemaEvents, allowListValues, currentEvents, pipelineConfig)
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filterAndUpdateGhes = (allowListValues, auditLogPage, currentEvents) =>
     filterAndUpdateGhesDataByAllowlistValues(
       schemaEvents,
-      currentEvents,
       allowListValues,
+      currentEvents,
       pipelineConfig,
       auditLogPage,
     )
@@ -102,23 +96,11 @@ async function main() {
   auditLogData.fpt.organization = filter(['organization', 'org_api_only'])
 
   auditLogData.ghec = {}
-  auditLogData.ghec.user = filter(['business', 'user'], {
-    filterFn: filterAnd,
-  })
-  auditLogData.ghec.organization = filter(['business', 'organization'], {
-    filterFn: filterAnd,
-  })
-  auditLogData.ghec.organization = filter(
-    'org_api_only',
-    { filterFn: filterOr },
-    auditLogData.ghec.organization,
-  )
+  auditLogData.ghec.user = filter('user')
+  auditLogData.ghec.organization = filter('organization')
+  auditLogData.ghec.organization = filter('org_api_only', auditLogData.ghec.organization)
   auditLogData.ghec.enterprise = filter('business')
-  auditLogData.ghec.enterprise = filter(
-    'business_api_only',
-    { filterFn: filterOr },
-    auditLogData.ghec.enterprise,
-  )
+  auditLogData.ghec.enterprise = filter('business_api_only', auditLogData.ghec.enterprise)
 
   // GHES versions are numbered (i.e. "3.9", "3.10", etc.) and filterGhes()
   // gives us back an object of GHES versions to page events for each version
@@ -142,8 +124,8 @@ async function main() {
   // We don't maintain the order of events as we process them so after filtering
   // all the events based on their allowlist values, we sort them so they're in
   // order for display on the audit log pages.
-  for (const pageType of Object.values(auditLogData)) {
-    for (const events of Object.values(pageType)) {
+  for (const pageEventData of Object.values(auditLogData)) {
+    for (const events of Object.values(pageEventData)) {
       events.sort((e1, e2) => {
         // Event actions have underscores and periods (e.g.
         // `enterprise.runner_group_runners_updated`) and we ignore them both
@@ -190,14 +172,6 @@ async function main() {
       }
     })
   }
-}
-
-function filterOr(array, conditions) {
-  return conditions.some((condition) => array.includes(condition))
-}
-
-function filterAnd(array, conditions) {
-  return conditions.every((condition) => array.includes(condition))
 }
 
 main()

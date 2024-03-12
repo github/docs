@@ -17,7 +17,7 @@ sections:
         # https://github.com/github/releases/issues/3320
         - |
           To help users discover the required permissions for calls to a REST API endpoint, GitHub Enterprise Server returns the `X-Accepted-GitHub-Permissions` header for requests to endpoints that use fine-grained permissions, including requests from GitHub Apps. For more information, see the following articles.
-          
+
           - "[AUTOTITLE](/rest/overview/troubleshooting#insufficient-permissions-errors)"
           - "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)"
           - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)
@@ -72,7 +72,7 @@ sections:
 
         # https://github.com/github/releases/issues/3110
         - |
-          For instances with GitHub Connect configured, code scanning with CodeQL supports Java codebases that use [Project Lombok](https://projectlombok.org/). Previously, code scanning users were able to scan Java applications that contained Lombok code, but all the contents of files containing Lombok code were either skipped or users had to apply a workaround to prepare the applications for scanning. Lombok features will now be automatically scanned without requiring any workaround. 
+          For instances with GitHub Connect configured, code scanning with CodeQL supports Java codebases that use [Project Lombok](https://projectlombok.org/). Previously, code scanning users were able to scan Java applications that contained Lombok code, but all the contents of files containing Lombok code were either skipped or users had to apply a workaround to prepare the applications for scanning. Lombok features will now be automatically scanned without requiring any workaround.
 
           For more information about syncing the required GitHub Actions workflow to scan Lombok code, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)."
 
@@ -119,10 +119,10 @@ sections:
         # https://github.com/github/releases/issues/3271
         - |
           Dependabot can open pull requests for Swift and Gradle dependencies.
-          
+
           - Users can also configure scheduled updates for Swift dependencies using `dependabot.yml`.
           - If users have used the REST API for dependency submission to upload Gradle dependencies to the dependency graph and receive Dependabot alerts for those dependencies, Dependabot will try to open a pull request to resolve security updates enabled for the repository.
-          
+
           For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
         # https://github.com/github/releases/issues/3287
@@ -132,7 +132,7 @@ sections:
         # https://github.com/github/releases/issues/3253
         - |
           When Dependabot is first enabled, GitHub will not send notifications for all vulnerable dependencies found in the repository, only for new vulnerable dependencies ifentified after Dependabot is enabled. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
-         
+
     - heading: Code security
       notes:
         # https://github.com/github/releases/issues/3259
@@ -152,7 +152,7 @@ sections:
         # https://github.com/github/releases/issues/3402
         - |
           Users can improve the security of deployment environments by configuring a branch protection policy to only allow specific branches to deploy to an environment. Additionally, the following security improvements apply to environments.
-          
+
           - GitHub Enterprise Server blocks runs triggered from forks with branch names that match the protected branch's name.
           - Tags with the same name as a protected branch cannot deploy to the environments with a branch protection configuration.
 
@@ -238,7 +238,7 @@ sections:
     # https://github.com/github/releases/issues/3327
     - |
       On an instance with a GitHub Advanced Security license, during analysis of Python projects with code scanning using CodeQL and an advanced setup, GitHub Enterprise Server would automatically install dependencies for the project. Due to improvements to CodeQL, GitHub Enterprise Server no longer needs to fetch these dependencies to analyze a codebase. To improve scan times for Python projects, automatic dependency installation is disabled.
-      
+
       If you configured code scanning with CodeQL via advanced setup to disable dependency installation, GitHub recommends setting `setup-python-dependencies` to `false` for the configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#analyzing-python-dependencies)."
 
     # https://github.com/github/releases/issues/3172
@@ -254,9 +254,9 @@ sections:
       On an instance with Dependabot enabled, the following improvements apply to the repository view for dependency graph, available from the repository's "Insights" tab.
 
       - Users can search by package name from a paginated list of all dependencies.
-      - Dependency licenses are displayed. 
+      - Dependency licenses are displayed.
       - Dependabot alerts appear for dependencies, sorted by severity, and link to the Dependabot alerts and the Dependabot update pull request where applicable.
-       
+
       For more information about the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
     # https://github.com/github/releases/issues/3253
@@ -266,7 +266,7 @@ sections:
     # https://github.com/github/releases/issues/2603
     - |
       On an instance with GitHub Actions enabled, workflows that use Node.js 16 or earlier will log a warning. Node.js 16 has been end-of-life since [September 2023](https://github.com/nodejs/Release/#end-of-life-releases).
-      
+
       - Workflow authors should update actions to run on Node.js 20. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)."
       - Users with workflows that use Node.js should specify Node.js 20 or later in the workflows using versioned actions. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions)."
 
@@ -276,13 +276,13 @@ sections:
     - |
       On an instance with GitHub Actions enabled and runners using GitHub Actions Runner 2.309.0 or later, users can no longer use `GITHUB_ENV` to set the `NODE_OPTIONS` environment variable in workflows. Workflows that set `NODE_OPTIONS` as an environment variable will now log the following error. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)" and the [v2.309.0 release](https://github.com/actions/runner/releases/tag/v2.309.0) in the actions/runner repository on GitHub.com.
 
-      ```
+      ```shell
       Can't store NODE_OPTIONS output parameter using '$GITHUB_ENV' command.
       ```
 
     # https://github.com/github/releases/issues/3205
     - |
-      Users can quickly take action on multiple items in a group, or the group itself, using the `•••` button in a table, board, or roadmap.  
+      Users can quickly take action on multiple items in a group, or the group itself, using the `•••` button in a table, board, or roadmap.
 
     # https://github.com/github/releases/issues/3219
     - |
@@ -290,7 +290,7 @@ sections:
 
     # https://github.com/github/releases/issues/3262
     - |
-      Users can view view the template used to create a project from a project's settings. 
+      Users can view view the template used to create a project from a project's settings.
 
     # https://github.com/github/releases/issues/3262
     - |
@@ -333,6 +333,8 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
 
   deprecations:
     # https://github.com/github/releases/issues/3259
@@ -350,6 +352,12 @@ sections:
           Users will continue to receive Dependabot alerts for dependencies with known vulnerabilities. To resolve these alerts, users can manually upgrade the affected package.
 
            For more information about Python releases, see [Status of Python versions](https://devguide.python.org/versions) on the Python website. For more information about supported package managers for Dependabot, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
+    # https://github.com/github/releases/issues/2605
+    - heading: Upcoming deprecation of team discussions
+      notes:
+        - |
+          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.11, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]
 
   errata:
     - 'The "[Changes](/admin/release-notes#3.11.0-changes)" section previously indicated that users should update GitHub Actions workflows and actions to run on Node.js 16. Node.js 16 has reached end of life, and users should instead update actions and workflows to run on Node.js 20 or later. [Updated: 2024-03-05]'

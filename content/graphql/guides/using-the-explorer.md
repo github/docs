@@ -31,40 +31,9 @@ topics:
 
 {% endif %}
 
-## Using the Altair GraphQL Client IDE
+## Query autocompletion
 
-There are many open source GraphQL client IDEs. For example, you can use Altair to access {% data variables.product.company_short %}'s GraphQL API. To access the GraphQL API with Altair, download and install it from [altair-graphql/altair](https://github.com/altair-graphql/altair). Then, follow the configuration steps below.
-
-### Configuring Altair
-
-1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-1. Launch Altair.
-1. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
-1. In the "Header key" field, enter `Authorization`.
-1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
-1. Click **Save** in the bottom right corner of the window to save your authorization header.
-1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
-1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
-1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
-1. Select the file public schema that you downloaded in an earlier step.
-
-{% note %}
-
-**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
-
-{% endnote %}
-
-You can test your access by querying yourself:
-
-```graphql
-query {
-  viewer {
-    login
-  }
-}
-```
-
-If everything worked correctly, this will display your login. You're all set to start making queries.
+You can use query autocompletion to help you build queries. In the main pane, within the curly brackets of your query, use <kbd>control</kbd>+<kbd>space</kbd> or <kbd>shift</kbd>+<kbd>space</kbd> to display the autocomplete menu.
 
 ## Accessing the sidebar docs
 
@@ -105,6 +74,41 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
    "number_of_repos": 3
 }
 ```
+
+## Using the Altair GraphQL Client IDE
+
+There are many open source GraphQL client IDEs. For example, you can use Altair to access {% data variables.product.company_short %}'s GraphQL API. To access the GraphQL API with Altair, download and install it from [altair-graphql/altair](https://github.com/altair-graphql/altair). Then, follow the configuration steps below.
+
+### Configuring Altair
+
+1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
+1. Launch Altair.
+1. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
+1. In the "Header key" field, enter `Authorization`.
+1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
+1. Click **Save** in the bottom right corner of the window to save your authorization header.
+1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
+1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
+1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
+1. Select the file public schema that you downloaded in an earlier step.
+
+{% note %}
+
+**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
+
+{% endnote %}
+
+You can test your access by querying yourself:
+
+```graphql
+query {
+  viewer {
+    login
+  }
+}
+```
+
+If everything worked correctly, this will display your login. You're all set to start making queries.
 
 ## Requesting support
 

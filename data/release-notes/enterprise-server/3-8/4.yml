@@ -2,21 +2,21 @@ date: '2023-05-30'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
     - Packages have been updated to the latest security versions.
   bugs:
-    - On an instance in a cluster configuration, when upgrading the MySQL master node, the post-upgrade configuration run would take 600 seconds longer than required due to incorrect detection of unhealthy nodes. 
-    - On an instance with a GitHub Advanced Security license and secret scanning enabled, rotation of the key used to encrypt secrets discovered by secret scanning would fail. 
-    - In some situations on an instance with multiple nodes, Git replication failed to fully replicate repositories that had previously been deleted, which resulted in a warning in `ghe-repl-status` output. 
+    - On an instance in a cluster configuration, when upgrading the MySQL master node, the post-upgrade configuration run would take 600 seconds longer than required due to incorrect detection of unhealthy nodes.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, rotation of the key used to encrypt secrets discovered by secret scanning would fail.
+    - In some situations on an instance with multiple nodes, Git replication failed to fully replicate repositories that had previously been deleted, which resulted in a warning in `ghe-repl-status` output.
     - |
-      If a user made a request to the Collaborators API's Add a repository collaborator endpoint specifying a `permission` of `read` or `write`, the instance returned a `500` error. 
-    - On an instance with the dependency graph enabled, the correct path appears for manifests that originate from build-time submission snapshots. 
+      If a user made a request to the Collaborators API's Add a repository collaborator endpoint specifying a `permission` of `read` or `write`, the instance returned a `500` error.
+    - On an instance with the dependency graph enabled, the correct path appears for manifests that originate from build-time submission snapshots.
     - The `spokesctl` command-line utility accepts more input formats.
     - |
       On an instance with a GitHub Advanced Security license and code scanning enabled, CodeQL analysis created a SARIF file that failed processing, which the API showed as pending due to an internal exception. [Updated: 2023-12-12]
-      
+
   changes:
-    - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`. 
+    - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`.
   known_issues:
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
@@ -30,7 +30,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |

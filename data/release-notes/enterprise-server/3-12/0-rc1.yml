@@ -76,14 +76,14 @@ sections:
     - heading: GitHub Actions
       notes:
         # https://github.com/github/releases/issues/3227
-        - |  
+        - |
           Users can set up organization-wide rules to enforce their CI/CD workflows, ensuring workflows pass before pull requests can be merged into target repositories. You can fine-tune your rule by selecting a specific branch, tag, or SHA, and provide maximum control over the version expected to run. To reduce risk, you can "evaluate" workflow rules to validate rules are working correctly. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)".
         # https://github.com/github/releases/issues/3417
         - |
           GitHub Actions developers can use GitHub Actions Importer to plan, forecast, and automate the migration of existing CI/CD pipelines from Bamboo Server, Bamboo Data Center, and Bitbucket. Developers can migrate their Bamboo and Bitbucket pipelines to GitHub Actions using the GitHub CLI or IssueOps. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/migrating-from-bitbucket-pipelines-with-github-actions-importer)" and "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/migrating-from-bamboo-with-github-actions-importer)".
         # https://github.com/github/releases/issues/3508
         - |
-          Actions environments support defining selected tag patterns to restrict deployments. Administrators who want to have more secure and controlled deployments can specify selected tags or tag patterns on their protected environments. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)". 
+          Actions environments support defining selected tag patterns to restrict deployments. Administrators who want to have more secure and controlled deployments can specify selected tags or tag patterns on their protected environments. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)".
 
     - heading: Community experience
       notes:
@@ -98,8 +98,8 @@ sections:
       notes:
          # https://github.com/github/releases/issues/2930
         - |
-          Project templates for organizations are generally available. Users in an organization can create a template to share a pre-configured project with other people in your organization as the base for their projects. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-project-templates-in-your-organization)". 
-        
+          Project templates for organizations are generally available. Users in an organization can create a template to share a pre-configured project with other people in your organization as the base for their projects. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-project-templates-in-your-organization)".
+
         # https://github.com/github/releases/issues/3549
         - |
           Users can access Projects from from the global navigation menu. This page can be used to find projects you've recently viewed or created, regardless of the organization or where they are located. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/finding-your-projects)".
@@ -127,7 +127,7 @@ sections:
         # https://github.com/github/releases/issues/3563
         - |
           The web interface for GitHub Enterprise Server has been redesigned to provide a more intuitive, responsive, and accessible navigation experience. Changes include:
-          
+
           - Breadcrumbs to help users navigate the site more efficiently
           - Menus to quickly access a user's top repositories and teams
           - A more accessible navigation experience, including more consistent keyboard navigation and improvements to code search
@@ -178,3 +178,11 @@ sections:
       {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
     - |
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+
+  deprecations:
+    # https://github.com/github/releases/issues/2605
+    - heading: Upcoming deprecation of team discussions
+      notes:
+        - |
+          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.12, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]
+

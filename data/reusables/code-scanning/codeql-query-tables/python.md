@@ -23,6 +23,7 @@
 | [Jinja2 templating with autoescape=False](https://codeql.github.com/codeql-query-help/python/py-jinja2-autoescape-false/) | 079 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [LDAP query built from user-controlled sources](https://codeql.github.com/codeql-query-help/python/py-ldap-injection/) | 090 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Log Injection](https://codeql.github.com/codeql-query-help/python/py-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [NoSQL Injection](https://codeql.github.com/codeql-query-help/python/py-nosql-injection/) | 943 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Overly permissive file permissions](https://codeql.github.com/codeql-query-help/python/py-overly-permissive-file/) | 732 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Overly permissive regular expression range](https://codeql.github.com/codeql-query-help/python/py-overly-large-range/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [PAM authorization bypass due to incorrect usage](https://codeql.github.com/codeql-query-help/python/py-pam-auth-bypass/) | 285 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
