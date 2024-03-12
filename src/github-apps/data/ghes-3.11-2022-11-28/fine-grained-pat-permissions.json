@@ -53,7 +53,7 @@
         "slug": "list-provisioned-scim-groups-for-an-enterprise",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Groups",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
         "additional-permissions": false,
         "access": "write"
       },
@@ -62,7 +62,7 @@
         "slug": "provision-a-scim-enterprise-group",
         "subcategory": "scim",
         "verb": "post",
-        "requestPath": "/scim/v2/Groups",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
         "additional-permissions": false,
         "access": "write"
       },
@@ -71,7 +71,7 @@
         "slug": "get-scim-provisioning-information-for-an-enterprise-group",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -80,7 +80,7 @@
         "slug": "set-scim-information-for-a-provisioned-enterprise-group",
         "subcategory": "scim",
         "verb": "put",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -89,7 +89,7 @@
         "slug": "update-an-attribute-for-a-scim-enterprise-group",
         "subcategory": "scim",
         "verb": "patch",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -98,7 +98,7 @@
         "slug": "delete-a-scim-group-from-an-enterprise",
         "subcategory": "scim",
         "verb": "delete",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -107,7 +107,7 @@
         "slug": "list-scim-provisioned-identities-for-an-enterprise",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Users",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
         "additional-permissions": false,
         "access": "write"
       },
@@ -116,7 +116,7 @@
         "slug": "provision-a-scim-enterprise-user",
         "subcategory": "scim",
         "verb": "post",
-        "requestPath": "/scim/v2/Users",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
         "additional-permissions": false,
         "access": "write"
       },
@@ -125,7 +125,7 @@
         "slug": "get-scim-provisioning-information-for-an-enterprise-user",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -134,7 +134,7 @@
         "slug": "set-scim-information-for-a-provisioned-enterprise-user",
         "subcategory": "scim",
         "verb": "put",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -143,7 +143,7 @@
         "slug": "delete-a-scim-user-from-an-enterprise",
         "subcategory": "scim",
         "verb": "delete",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       }
