@@ -1,5 +1,7 @@
 ---
-title: Review requests
+title: REST API endpoints for review requests
+shortTitle: Review requests
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to interact with review requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

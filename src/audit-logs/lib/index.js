@@ -31,14 +31,7 @@ const auditLogEventsCache = new Map()
 //   user: [ [Object], [Object] ]
 // }
 export function getAuditLogEvents(page, version, categorized = false) {
-  let openApiVersion = getOpenApiVersion(version)
-
-  // Specific ghes versioning isn't available yet, just strip the
-  // ghes version number for now
-  if (version.includes('-')) {
-    openApiVersion = openApiVersion.split('-')[0]
-  }
-
+  const openApiVersion = getOpenApiVersion(version)
   const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
   // If the data isn't cached for an entire version or a particular page, read
@@ -81,4 +74,138 @@ export function getAuditLogEvents(page, version, categorized = false) {
   })
 
   return categorizedEvents
+}
+
+// Filters audit log events based on allowlist values.
+//
+// * eventsToCheck: events to consider
+// * allowListvalues: allowlist values to filter by
+// * currentEvents: events already collected
+// * pipelineConfig: audit log pipeline config data
+export function filterByAllowlistValues(
+  eventsToCheck,
+  allowListValues,
+  currentEvents,
+  pipelineConfig,
+) {
+  if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
+  if (!currentEvents) currentEvents = []
+
+  const seen = new Set(currentEvents.map((event) => event.action))
+  const minimalEvents = []
+
+  for (const event of eventsToCheck) {
+    const eventAllowlists = event._allowlists
+    if (eventAllowlists === null) continue
+
+    if (allowListValues.some((av) => eventAllowlists.includes(av))) {
+      if (seen.has(event.action)) continue
+      seen.add(event.action)
+
+      const minimal = {
+        action: event.action,
+        description: event.description,
+        docs_reference_links: event.docs_reference_links,
+      }
+
+      if (
+        eventAllowlists.includes('org_api_only') ||
+        eventAllowlists.includes('business_api_only')
+      ) {
+        minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
+      }
+
+      minimalEvents.push(minimal)
+    }
+  }
+  return [...minimalEvents, ...currentEvents]
+}
+
+// Filters audit log events based on allowlist values and processes an
+// event's supported GHES versions.
+//
+// * eventsToCheck: events to consider
+// * allowListvalue: allowlist value to filter by
+// * currentEvents: events already collected
+// * pipelineConfig: audit log pipeline config data
+// * auditLogPage: the audit log page the event belongs to
+//
+// Mutates `currentGhesEvents` and updates it with any new filtered for audit
+// log events, the object maps GHES versions to page events for that version e.g.:
+//
+// {
+//   ghes-3.10': {
+//     organization: [...],
+//     enterprise: [...],
+//     user: [...],
+//   },
+//   ghes-3.11': {
+//     organization: [...],
+//     enterprise: [...],
+//     user: [...],
+//   },
+// }
+export function filterAndUpdateGhesDataByAllowlistValues(
+  eventsToCheck,
+  allowListValue,
+  currentGhesEvents,
+  pipelineConfig,
+  auditLogPage,
+) {
+  if (!currentGhesEvents) currentGhesEvents = {}
+
+  const seenByGhesVersion = new Map()
+  for (const [ghesVersion, events] of Object.entries(currentGhesEvents)) {
+    if (!events[auditLogPage]) continue
+    const pageEvents = new Set(events[auditLogPage].map((e) => e.action))
+    seenByGhesVersion.set(ghesVersion, pageEvents)
+  }
+
+  for (const event of eventsToCheck) {
+    for (const ghesVersion of Object.keys(event.ghes)) {
+      const ghesVersionAllowlists = event.ghes[ghesVersion]._allowlists
+      const fullGhesVersion = `ghes-${ghesVersion}`
+
+      if (ghesVersionAllowlists === null) continue
+      if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
+
+      const minimal = {
+        action: event.action,
+        description: event.description,
+        docs_reference_links: event.docs_reference_links,
+      }
+
+      if (ghesVersionAllowlists.includes(allowListValue)) {
+        if (
+          ghesVersionAllowlists.includes('org_api_only') ||
+          ghesVersionAllowlists.includes('business_api_only')
+        ) {
+          minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
+        }
+
+        // we need to initialize as we go to build up the `minimalEvents`
+        // object that we'll return which will contain the GHES events for
+        // each versions + page type combos e.g. when processing GHES events
+        // for the organization events page we'll end up with something like
+        // this:
+        //
+        // {
+        //   'ghes-3.10': { organization: [Array] },
+        //   'ghes-3.11': { organization: [Array] },
+        //   'ghes-3.8': { organization: [Array] },
+        //   'ghes-3.9': { organization: [Array] }
+        // }
+        if (!currentGhesEvents[fullGhesVersion]) {
+          currentGhesEvents[fullGhesVersion] = {}
+          currentGhesEvents[fullGhesVersion][auditLogPage] = []
+        } else {
+          if (!currentGhesEvents[fullGhesVersion][auditLogPage]) {
+            currentGhesEvents[fullGhesVersion][auditLogPage] = []
+          }
+        }
+
+        currentGhesEvents[fullGhesVersion][auditLogPage].push(minimal)
+      }
+    }
+  }
 }

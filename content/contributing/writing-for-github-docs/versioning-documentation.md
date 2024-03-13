@@ -110,7 +110,7 @@ If you define multiple products in the `versions` key within a page's YAML front
 
 **Notes:**
 
-- Use `ifversion` for product-based versioning and [feature-based versioning](#feature-based-versioning).
+- Use `ifversion` for product-based versioning and [feature-based versioning](#about-feature-based-versioning).
 - Do not use `if` or `unless`.
 - Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 

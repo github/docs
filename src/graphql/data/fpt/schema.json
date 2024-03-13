@@ -3259,7 +3259,7 @@
       "kind": "mutations",
       "id": "createsponsorships",
       "href": "/graphql/reference/mutations#createsponsorships",
-      "description": "<p>Make many one-time sponsorships for different sponsorable users or\norganizations at once. Can only sponsor those who have a public GitHub\nSponsors profile.</p>",
+      "description": "<p>Make many sponsorships for different sponsorable users or organizations at\nonce. Can only sponsor those who have a public GitHub Sponsors profile.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -60444,6 +60444,16 @@
               }
             },
             {
+              "name": "names",
+              "description": "<p>The names of the environments to be returned.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for the environments.</p>",
               "type": {
@@ -83227,6 +83237,10 @@
       "description": "<p>The possible funding platforms for repository funding links.</p>",
       "values": [
         {
+          "name": "BUY_ME_A_COFFEE",
+          "description": "<p>Buy Me a Coffee funding platform.</p>"
+        },
+        {
           "name": "COMMUNITY_BRIDGE",
           "description": "<p>Community Bridge funding platform.</p>"
         },
@@ -83257,10 +83271,6 @@
         {
           "name": "OPEN_COLLECTIVE",
           "description": "<p>Open Collective funding platform.</p>"
-        },
-        {
-          "name": "OTECHIE",
-          "description": "<p>Otechie funding platform.</p>"
         },
         {
           "name": "PATREON",
@@ -94654,6 +94664,14 @@
         {
           "name": "receiveEmails",
           "description": "<p>Whether the sponsor should receive email updates from the sponsorables.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "recurring",
+          "description": "<p>Whether the sponsorships created should continue each billing cycle for the\nsponsor (monthly or annually), versus lasting only a single month. Defaults to\none-time sponsorships.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

@@ -1,5 +1,5 @@
 ---
-title: Issue events
+title: REST API endpoints for issue events
 allowTitleToDifferFromFilename: true
 shortTitle: Events
 intro: >-

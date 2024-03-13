@@ -58,7 +58,6 @@ includeGuides:
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
   - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
-  - /admin/overview/initializing-github-ae
   - /admin/configuration/configuring-network-settings/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
@@ -84,8 +83,7 @@ includeGuides:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
-  - /admin/overview/about-enterprise-accounts
-  - /admin/overview/about-github-ae
+  - /admin/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/overview/about-upgrades-to-new-releases
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
   - /admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
@@ -138,4 +136,3 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
-

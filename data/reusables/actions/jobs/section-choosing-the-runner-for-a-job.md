@@ -48,7 +48,6 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
@@ -113,13 +112,8 @@ runs-on: ubuntu-latest
 ```
 
 For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
 
 ### Choosing self-hosted runners
-
-{% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 

@@ -1,5 +1,7 @@
 ---
-title: Deployments
+title: REST API endpoints for deployments
+shortTitle: Deployments
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to create and delete deployments and deployment environments.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
