@@ -83237,6 +83237,10 @@
       "description": "<p>The possible funding platforms for repository funding links.</p>",
       "values": [
         {
+          "name": "BUY_ME_A_COFFEE",
+          "description": "<p>Buy Me a Coffee funding platform.</p>"
+        },
+        {
           "name": "COMMUNITY_BRIDGE",
           "description": "<p>Community Bridge funding platform.</p>"
         },
