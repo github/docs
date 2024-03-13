@@ -61,12 +61,6 @@ For more information about provisioning for {% data variables.product.prodname_e
 
 - {% data reusables.scim.use-pat-from-setup-user %}
 
-{% ifversion emu-public-scim-schema %}
-
-- {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
-
-{% endif %}
-
 ## Setting your enterprise name
 
 After your {% data variables.enterprise.prodname_emu_enterprise %} has been created, you can begin to configure provisioning by setting your enterprise name in Okta.
