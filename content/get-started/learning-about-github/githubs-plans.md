@@ -42,6 +42,7 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 - {% data variables.product.prodname_actions %} features:
   - 2,000 minutes per month
   - Deployment protection rules for public repositories
+- GitHub Pages in public repositories
 
 ## {% data variables.product.prodname_pro %}
 
