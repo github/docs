@@ -233,6 +233,10 @@ However, you cannot use runner environment variables in parts of a workflow that
 {% raw %}
 
 ```yaml copy
+name: Conditional env variable
+
+on: workflow_dispatch
+
 env:
   DAY_OF_WEEK: Monday
 
@@ -369,6 +373,8 @@ You can write a single workflow file that can be used for different operating sy
 {% raw %}
 
 ```yaml copy
+on: workflow_dispatch
+
 jobs:
   if-Windows-else:
     runs-on: macos-latest
