@@ -17,31 +17,33 @@ The main difference between the products is that {% data variables.product.prodn
 
 {% data variables.product.prodname_ghe_cloud %} includes an enterprise account, which allows you to manage multiple organizations. You can choose to let enterprise members create and manage their own personal accounts, or you can use {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_ghe_cloud %}, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
 
-{% data reusables.enterprise-accounts.emu-short-summary %}
-
 ## Part 1: Setting up your enterprise account
 
-To get started with {% data variables.product.prodname_ghe_cloud %}, create an enterprise account and add one or more organizations.
+To get started with {% data variables.product.prodname_ghe_cloud %}, decide which type of enterprise to create, create an enterprise account, and add one or more organizations.
 
-### 1. About enterprise accounts
+### 1. Choosing an enterprise type
+
+{% data reusables.enterprise-accounts.about-enterprise-types %} Before you begin using {% data variables.product.prodname_ghe_cloud %}, you must decide which type of enterprise to use. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)."
+
+### 2. About enterprise accounts
 
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
-### 2. Creating an enterprise account
+### 3. Creating an enterprise account
 
 To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 <a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=getting+started+with+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
-### 3. Adding organizations to your enterprise account
+### 4. Adding organizations to your enterprise account
 
 You can add any number of new or existing organizations to manage within your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-### 4. Creating a README for the enterprise
+### 5. Creating a README for the enterprise
 
 {% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
 
-### 5. Viewing the subscription and usage for your enterprise account
+### 6. Viewing the subscription and usage for your enterprise account
 
 You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
