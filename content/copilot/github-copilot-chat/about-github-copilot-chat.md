@@ -4,7 +4,7 @@ intro: '{% data variables.product.prodname_copilot_chat %} can help you by provi
 redirect_from:
   - /early-access/copilot/github-copilot-chat-transparency-note
   - /early-access/copilot/github-copilot-chat-technical-preview-license-terms
-product: '{% data reusables.gated-features.copilot-chat-callout-with-jetbrains %}'
+product: '{% data reusables.gated-features.copilot-chat-callout %}'
 versions:
   feature: copilot
 topics:

@@ -1,5 +1,5 @@
 ---
-title: GitHub App installations
+title: 'REST API endpoints for {% data variables.product.prodname_github_app %} installations'
 allowTitleToDifferFromFilename: true
 shortTitle: Installations
 intro: >-

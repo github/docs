@@ -26,6 +26,8 @@ If you have access to {% data variables.product.prodname_copilot %} through an o
 
 Before you can start using {% data variables.product.prodname_copilot_for_individuals %}, you will need to set up a free trial or subscription.
 
+{% data reusables.copilot.copilot-individual-emus %}
+
 {% data reusables.copilot.tp-users-trial-eligibility %}
 
 {% data reusables.copilot.signup-procedure %}

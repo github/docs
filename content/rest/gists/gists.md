@@ -32,13 +32,4 @@ If you need the full contents of the file, you can make a `GET` request to the U
 
 In addition to a specific file's contents being truncated, the entire files list may be truncated if the total number exceeds 300 files. If the top level `truncated` key is `true`, only the first 300 files have been returned in the files list. If you need to fetch all of the gist's files, you'll need to clone the gist via the URL provided by `git_pull_url`.
 
-### Custom media types for gists
-
-These are the supported media types for fetching gist contents.
-
-    application/vnd.github.raw
-    application/vnd.github.base64
-
-For more information, see "[AUTOTITLE](/rest/overview/media-types)."
-
 <!-- Content after this section is automatically generated -->

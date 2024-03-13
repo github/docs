@@ -28,7 +28,7 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
 - [Rename a codespace](#rename-a-codespace)
 - [Rebuild a codespace](#rebuild-a-codespace)
 - [SSH into a codespace](#ssh-into-a-codespace)
-- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
 - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
 - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
 - [Modify ports in a codespace](#modify-ports-in-a-codespace)

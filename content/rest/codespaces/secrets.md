@@ -1,5 +1,5 @@
 ---
-title: Codespaces user secrets
+title: REST API endpoints for Codespaces user secrets
 allowTitleToDifferFromFilename: true
 shortTitle: User secrets
 intro: Use the REST API manage secrets that the user has access to in a codespace.

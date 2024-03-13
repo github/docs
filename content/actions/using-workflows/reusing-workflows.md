@@ -59,15 +59,11 @@ A reusable workflow can be used by another workflow if any of the following is t
 
 ## Using runners
 
-{% ifversion fpt or ghes or ghec %}
-
 ### Using GitHub-hosted runners
 
 The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. Billing for {% data variables.product.prodname_dotcom %}-hosted runners is always associated with the caller. The caller workflow cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 ### Using self-hosted runners
-
-{% endif %}
 
 Called workflows that are owned by the same user or organization{% ifversion ghes or ghec %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
 - In the caller repository

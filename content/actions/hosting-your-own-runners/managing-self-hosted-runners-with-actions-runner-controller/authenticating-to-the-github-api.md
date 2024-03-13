@@ -32,6 +32,11 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
 
    1. Under "Permissions," click **Repository permissions**. Then use the dropdown menus to select the following access permissions.
       - **Administration**: Read and write
+        {% note %}
+
+        **Note**: `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
+
+        {% endnote %}
       - **Metadata**: Read-only
 
    1. Under "Permissions," click **Organization permissions**. Then use the dropdown menus to select the following access permissions.

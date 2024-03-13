@@ -137,7 +137,7 @@ You can retrieve {% data variables.product.prodname_advanced_security %} usage i
 
 {% ifversion ghec %}
 
-For organization-level data, use the `/orgs/{org}/settings/billing/advanced-security` endpoint. For more information, see "[AUTOTITLE](/rest/billing#get-github-advanced-security-active-committers-for-an-organization)."
+For organization-level data, use the `/orgs/{org}/settings/billing/advanced-security` endpoint. For more information, see "[AUTOTITLE](/rest/billing/billing#get-github-advanced-security-active-committers-for-an-organization)."
 
 {% endif %}
 

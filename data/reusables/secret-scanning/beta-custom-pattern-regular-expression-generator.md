@@ -3,7 +3,7 @@
 
 {% note %}
 
-**Note:** The {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is in beta. Functionality and documentation are subject to change. If you have an enterprise account and use {% data variables.product.prodname_GH_advanced_security %}, you can join the [waitlist for {% data variables.product.prodname_GH_advanced_security %} AI features](https://github.com/features/preview/security).
+**Note:** The {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is in beta. Functionality and documentation are subject to change.
 
 {% endnote %}
 

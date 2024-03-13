@@ -18,7 +18,7 @@ sections:
     - When running the `ghe-saml-mapping-csv` CLI command in dry run mode, the operation failed with errors.
     - When uploading migration archives to blob storage, the GitHub Enterprise Server instance's outbound web proxy server was not used.
     - On an enterprise with the policy setting that disallows repository admins from enabling/disabling secret scanning, transferring a repository to a new organization that automatically enabled secret scanning wouldn't result in the transferred repository being automatically enabled for secret scanning.
-    - When viewing fine-grained personal access tokens, the permissions text for pre-receive hooks was not visible for selection when filtering by permission.
+    - When viewing {% data variables.product.pat_v2_plural %}, the permissions text for pre-receive hooks was not visible for selection when filtering by permission.
     - When migrating a repository from a GitHub Enterprise Server instance to another location, the `ghe-migrator target_url` command allows you to record the repository's new location. The new URL is displayed when you visit the main page of the repository in the web interface.
     - On an instance with subdomain isolation disabled, a notebook could not be loaded due to incorrect asset paths.
     - On an instance with subdomain isolation disabled, a notebook could not be loaded due to an extra `/` character in the URL path.
@@ -26,7 +26,7 @@ sections:
     - On an instance with GitHub Actions enabled, the software on ephemeral runners would not automatically update to the latest version.
     - '{% data reusables.release-notes.mermaid-rendering-known-issue %}'
   changes:
-    - When listing the node metadata for all nodes using the [Manage GitHub Enterprise Server REST API](https://docs.github.com/enterprise-server/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28#get-all-ghes-node-metadata-for-all-nodes), information about whether a given node is a replica is included.
+    - When listing the node metadata for all nodes using the [Manage GitHub Enterprise Server REST API](/enterprise-server/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28#get-all-ghes-node-metadata-for-all-nodes), information about whether a given node is a replica is included.
     - When GitHub Enterprise checks for a new upgrade or hotpatch package, if the check fails the failure details are output to the `ghe-update-check` log, and the Management Console UI provides a "Check Again" button to rerun the check.
     - When providing data to GitHub Support, GitHub Enterprise Server displays a notice describing how support data is used before uploading the support files.
     - When running async repository repairs, the output message about scheduling a repair job is more accurate.
@@ -39,7 +39,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
@@ -74,3 +74,5 @@ sections:
       {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
     - |
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]

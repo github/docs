@@ -78,8 +78,6 @@ For more information on reviewing pull requests in {% data variables.product.pro
 {% endcodespaces %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Reviewing dependency changes
 
 If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
@@ -91,7 +89,6 @@ If the pull request contains changes to dependencies you can use the dependency 
    ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
 {% data reusables.repositories.return-to-source-diff %}
-{% endif %}
 
 ## Marking a file as viewed
 

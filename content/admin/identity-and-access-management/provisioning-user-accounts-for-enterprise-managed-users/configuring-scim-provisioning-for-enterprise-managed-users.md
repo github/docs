@@ -38,8 +38,6 @@ To configure team and organization membership, repository access, and permission
 
 {%- ifversion emu-public-scim-schema %}
 - {% data reusables.scim.emu-understand-types-and-support %}
-
-- {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 {%- endif %}
 
 ## Creating a {% data variables.product.pat_generic %}
@@ -69,9 +67,12 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your IdP. {% ifversion emu-public-scim-schema %} The instructions you should follow differ depending on whether you use a partner IdP for provisioning.
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your IdP. {% ifversion emu-public-scim-schema %} The instructions you should follow differ depending on whether you use a partner IdP's application for both authentication and provisioning.
 
-### Configuring provisioning if you use a partner IdP
+- [Configuring provisioning if you use a partner IdP's application](#configuring-provisioning-if-you-use-a-partner-idps-application)
+- [Configuring provisioning for other identity management systems](#configuring-provisioning-for-other-identity-management-systems)
+
+### Configuring provisioning if you use a partner IdP's application
 
 To use a partner IdP's application both authentication and provisioning, review the partner's instructions for configuring provisioning in the links in the following table. {% else %} For instructions about the configuration of provisioning on your IdP, click a link in the following table.
 
@@ -87,18 +88,29 @@ To use a partner IdP's application both authentication and provisioning, review 
 | Entra ID | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) on Microsoft Learn |
 | Okta | SAML | "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)" |
 | PingFederate | SAML | [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) and [Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate) in the PingFederate documentation |
-{%- ifversion emu-public-scim-schema %}
-{%- endif %}
 
 {% endrowheaders %}
 
 {% ifversion emu-public-scim-schema %}
 
-Alternatively, if you configured authentication on a partner IdP, but you would like to provision users from a different IdP, you can have your IdP make calls to {% data variables.product.company_short %}'s REST API for SCIM.
+Alternatively, if you configured authentication on a partner IdP, but you would like to provision users from a different identity management system, you can have your IdP make calls to {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning.
 
-### Configuring provisioning if don't use a partner IdP
+### Configuring provisioning for other identity management systems
 
-If you don't use a partner IdP, you can integrate with {% data variables.product.company_short %}'s REST API for SCIM. The API is in beta and subject to change. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)."
+If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. These endpoints are in beta and subject to change. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
+
+{% data reusables.emus.sign-in-as-setup-user %}
+
+   {% note %}
+
+   **Note**: {% data reusables.enterprise-accounts.emu-password-reset-session %}
+
+   {% endnote %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "Open SCIM Configuration", select "Enable open SCIM configuration".
+1. Manage the lifecycle of your users by making calls to the REST API endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api)."
 
 {% endif %}
 

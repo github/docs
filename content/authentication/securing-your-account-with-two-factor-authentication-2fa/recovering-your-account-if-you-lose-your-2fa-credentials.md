@@ -91,9 +91,8 @@ You can use your two-factor authentication credentials or two-factor authenticat
     **Warning**: {% data reusables.accounts.you-must-know-your-password %}
 
     {% endwarning %}
-1. Under "Having problems?", click **Use a recovery code or request a reset**.
+1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
 
-   ![Screenshot of the 2FA page at sign in. A link with the text "Use a recovery code or request a reset" is outlined in orange.](/assets/images/help/2fa/use-recovery-code-or-reset-link.png)
 {% ifversion 2fa-reconfiguration-inline-update %}
 1. Under "Locked out?", click **Recover your account or unlink an email address**.
 {% else %}

@@ -45,7 +45,7 @@ Next, we'll pass in our application's [OAuth token for a given user](/apps/oauth
 client = Octokit::Client.new :access_token => ENV["OAUTH_ACCESS_TOKEN"]
 ```
 
-Then, we're ready to fetch the [repositories that our application can access for the user](/rest/repos#list-repositories-for-the-authenticated-user):
+Then, we're ready to fetch the [repositories that our application can access for the user](/rest/repos/repos#list-repositories-for-the-authenticated-user):
 
 ``` ruby
 client.repositories.each do |repository|
@@ -64,7 +64,7 @@ end
 
 ## Discover the organizations that your app can access for a user
 
-Applications can perform all sorts of organization-related tasks for a user. To perform these tasks, the app needs an [OAuth authorization](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) with sufficient permission. For example, the `read:org` scope allows you to [list teams](/rest/teams#list-teams), and the `user` scope lets you [publicize the user’s organization membership](/rest/orgs#set-public-organization-membership-for-the-authenticated-user). Once a user has granted one or more of these scopes to your app, you're ready to fetch the user’s organizations.
+Applications can perform all sorts of organization-related tasks for a user. To perform these tasks, the app needs an [OAuth authorization](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) with sufficient permission. For example, the `read:org` scope allows you to [list teams](/rest/teams/teams#list-teams), and the `user` scope lets you [publicize the user’s organization membership](/rest/orgs/members#set-public-organization-membership-for-the-authenticated-user). Once a user has granted one or more of these scopes to your app, you're ready to fetch the user’s organizations.
 
 Just as we did when discovering repositories above, we'll start by requiring [GitHub's Octokit.rb](https://github.com/octokit/octokit.rb) Ruby library and configuring it to take care of pagination for us. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
@@ -82,7 +82,7 @@ Next, we'll pass in our application's [OAuth token for a given user](/apps/oauth
 client = Octokit::Client.new :access_token => ENV["OAUTH_ACCESS_TOKEN"]
 ```
 
-Then, we can [list the organizations that our application can access for the user](/rest/orgs#list-organizations-for-the-authenticated-user):
+Then, we can [list the organizations that our application can access for the user](/rest/orgs/orgs#list-organizations-for-the-authenticated-user):
 
 ``` ruby
 client.organizations.each do |organization|
@@ -92,6 +92,6 @@ end
 
 ### Return all of the user's organization memberships
 
-If you've read the docs from cover to cover, you may have noticed an [API method for listing a user's public organization memberships](/rest/orgs#list-organizations-for-a-user). Most applications should avoid this API method. This method only returns the user's public organization memberships, not their private organization memberships.
+If you've read the docs from cover to cover, you may have noticed an [API method for listing a user's public organization memberships](/rest/orgs/orgs#list-organizations-for-a-user). Most applications should avoid this API method. This method only returns the user's public organization memberships, not their private organization memberships.
 
 As an application, you typically want all of the user's organizations that your app is authorized to access. The workflow above will give you exactly that.
