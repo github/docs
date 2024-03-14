@@ -8,7 +8,6 @@ intro: >-
   variables.product.product_name %} services.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

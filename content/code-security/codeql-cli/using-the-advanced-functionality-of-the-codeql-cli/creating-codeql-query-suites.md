@@ -374,27 +374,10 @@ instruction:
 - description: <name-of-query-suite>
 ```
 
-This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries), if the suite is added to a "well-known"
-directory. For more information, see "[Specifying well-known query suites](#specifying-well-known-query-suites)."
-
-{% ifversion codeql-packs %}
-
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a {% data variables.product.prodname_codeql %}
 pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs)."
-
-## Specifying well-known query suites
-
-You can use {% data variables.product.prodname_codeql %} packs to declare directories that contain "well-known" query
-suites. You can use "well-known" query suites on the command line by referring
-to their file name,
-without providing their full path. This gives you a simple way of specifying a
-set of queries, without needing to search inside {% data variables.product.prodname_codeql %} packs and distributions.
-To declare a directory that contains "well-known" query suites, add the directory
-to the `suites` property in the `qlpack.yml` file at the root of your {% data variables.product.prodname_codeql %} pack.
-For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties)."
-{% endif %}
 
 ## Using query suites with {% data variables.product.prodname_codeql %}
 

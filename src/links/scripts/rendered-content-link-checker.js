@@ -330,9 +330,9 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         core.setFailed(
           `${flaws.length} broken links found. See action artifact uploads for details`,
         )
+        process.exit(1)
       }
     }
-    process.exit(1)
   } else {
     // It might be that the PR got a comment about >0 flaws before,
     // and now it can update that comment to say all is well again.

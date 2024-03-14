@@ -67,7 +67,7 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title or ask any questions in [discussions](https://github.com/github/docs/discussions)!`
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
             });
 
             // Add the issue to the Done column on the triage board

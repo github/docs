@@ -62,4 +62,8 @@ The method you choose depends upon your needs, but if you're unsure, we recommen
 
 ## Further reading
 
-- [About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)"
+{%- ifversion enterprise-readme %}
+- "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)"
+{%- endif %}

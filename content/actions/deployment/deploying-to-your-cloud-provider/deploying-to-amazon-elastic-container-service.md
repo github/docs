@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -16,7 +15,7 @@ topics:
   - Amazon ECS
 shortTitle: Deploy to Amazon ECS
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -25,15 +24,11 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
-{% ifversion fpt or ghec or ghes %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)."
 
 {% endnote %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -71,7 +66,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
    {% raw %}
 
    ```bash copy
-   
+
    aws ecs register-task-definition --generate-cli-skeleton
 
    ```

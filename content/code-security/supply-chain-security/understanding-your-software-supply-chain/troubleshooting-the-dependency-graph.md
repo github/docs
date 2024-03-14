@@ -25,7 +25,7 @@ The dependency graph {% ifversion dependency-submission-api %}automatically{% en
 
 The dependency graph doesn't {% ifversion dependency-submission-api %}automatically{% endif %} include "loose" dependencies. "Loose" dependencies are individual files that are copied from another source and checked into the repository directly or within an archive (such as a ZIP or JAR file), rather than being referenced by in a package manager’s manifest or lockfile.
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %} {% ifversion dependency-submission-api %}For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}However, you can use the {% data variables.dependency-submission-api.name %} (beta) to add dependencies to a project's dependency graph, even if the dependencies are not declared in a manifest or lock file, such as dependencies resolved when a project is built.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %} {% ifversion dependency-submission-api %}For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 
 **Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
 
@@ -33,7 +33,7 @@ The dependency graph doesn't {% ifversion dependency-submission-api %}automatica
 
 The dependency graph analyzes manifests as they’re pushed to {% data variables.product.prodname_dotcom %}. The dependency graph doesn't, therefore, have access to the build environment of the project, so it can't resolve variables used within manifests. If you use variables within a manifest to specify the name, or more commonly the version of a dependency, then that dependency will not {% ifversion dependency-submission-api %}automatically{% endif %} be included in the dependency graph.
 
-{% ifversion dependency-submission-api %}However, you can use the Dependency submission API (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% ifversion dependency-submission-api %}However, you can use the {% data variables.dependency-submission-api.name %} (beta) to add dependencies to a project's dependency graph, even if the dependencies are only resolved when a project is built. For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 
 **Check**: Is the missing dependency declared in the manifest by using a variable for its name or version?
 
@@ -61,7 +61,7 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
       - third-party/dependencies/dependency1
       - vendors/dependency1
       - /externals/vendor1/dependency1
-{% ifversion ghes < 3.10 or ghae < 3.10 %}
+{% ifversion ghes < 3.10 %}
 1. **Visualization limits**
 
     These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
@@ -75,5 +75,5 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
 
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
-- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes %}
-- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors)"{% endif %}
+- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"
+- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors)"

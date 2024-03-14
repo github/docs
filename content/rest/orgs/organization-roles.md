@@ -1,5 +1,5 @@
 ---
-title: Organization roles
+title: REST API endpoints for organization roles
 shortTitle: Organization roles
 intro: 'Use the REST API to interact with organization roles.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

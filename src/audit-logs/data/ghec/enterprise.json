@@ -245,6 +245,11 @@
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
   },
   {
+    "action": "business.disable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was disabled for the enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.disable_saml",
     "description": "SAML single sign-on was disabled for an enterprise.",
     "docs_reference_links": "N/A"
@@ -263,6 +268,11 @@
     "action": "business.enable_oidc",
     "description": "OIDC single sign-on was enabled for an enterprise.",
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
+  },
+  {
+    "action": "business.enable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was enabled for the enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.enable_saml",
@@ -665,6 +675,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.access_revoked",
+    "description": "The user's Copilot access was revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "copilot.cfb_enterprise_org_enablement_changed",
     "description": "The Copilot Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
     "docs_reference_links": "N/A"
@@ -727,6 +742,11 @@
   {
     "action": "copilot.content_exclusion_changed",
     "description": "The excluded paths for GitHub Copilot were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.enterprise_enablement_changed",
+    "description": "The Copilot Business enablement policy changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
@@ -893,6 +913,11 @@
     "action": "enterprise_announcement.update",
     "description": "A global announcement banner was updated for the enterprise.",
     "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise"
+  },
+  {
+    "action": "enterprise.configure_self_hosted_jit_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "enterprise_domain.approve",
@@ -1166,12 +1191,12 @@
   },
   {
     "action": "integration.create",
-    "description": "An integration was created.",
+    "description": "A GitHub App was created.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "integration.destroy",
-    "description": "An integration was deleted.",
+    "description": "A GitHub App was deleted.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1181,78 +1206,88 @@
   },
   {
     "action": "integration_installation.create",
-    "description": "An integration was installed.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was installed.",
+    "docs_reference_links": "/apps/using-github-apps/authorizing-github-apps"
   },
   {
     "action": "integration_installation.destroy",
-    "description": "An integration was uninstalled.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was uninstalled.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
   {
     "action": "integration_installation.repositories_added",
-    "description": "Repositories were added to an integration.",
-    "docs_reference_links": "N/A"
+    "description": "Repositories were added to a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
   {
     "action": "integration_installation.repositories_removed",
-    "description": "Repositories were removed from an integration.",
-    "docs_reference_links": "N/A"
+    "description": "Repositories were removed from a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
   {
     "action": "integration_installation_request.close",
-    "description": "A request to install an integration was either approved or denied by an owner, or canceled by the member who opened the request.",
-    "docs_reference_links": "N/A"
+    "description": "A request to install a GitHub App was either approved or denied by an owner, or canceled by the member who opened the request.",
+    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
   },
   {
     "action": "integration_installation_request.create",
-    "description": "An member requested that an owner install an integration.",
-    "docs_reference_links": "N/A"
+    "description": "A member requested that an owner install a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
   },
   {
     "action": "integration_installation.suspend",
-    "description": "An integration was suspended.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was suspended.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
   {
     "action": "integration_installation.unsuspend",
-    "description": "An integration was unsuspended.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub App was unsuspended.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
   },
   {
     "action": "integration_installation.version_updated",
-    "description": "Permissions for an integration were updated.",
-    "docs_reference_links": "N/A"
+    "description": "Permissions for a GitHub App were updated.",
+    "docs_reference_links": "/apps/using-github-apps/approving-updated-permissions-for-a-github-app"
   },
   {
     "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
+    "description": "A member of an enterprise or organization was added as a GitHub App manager.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#giving-someone-the-ability-to-manage-all-github-apps-owned-by-the-organization"
   },
   {
     "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
+    "description": "A member of an enterprise or organization was removed from being a GitHub App manager.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization#removing-a-github-app-managers-permissions-for-the-entire-organization"
   },
   {
     "action": "integration.remove_client_secret",
-    "description": "A client secret for an integration was removed.",
+    "description": "A client secret for a GitHub App was removed.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "integration.revoke_all_tokens",
-    "description": "All user tokens for an integration were requested to be revoked.",
+    "description": "All user tokens for a GitHub App were requested to be revoked.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "integration.revoke_tokens",
-    "description": "Token(s) for an integration were revoked.",
+    "description": "Token(s) for a GitHub App were revoked.",
     "docs_reference_links": "N/A"
   },
   {
+    "action": "integration.suspend",
+    "description": "A GitHub App was suspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+  },
+  {
     "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
+    "description": "Ownership of a GitHub App was transferred to another user or organization.",
+    "docs_reference_links": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
+  },
+  {
+    "action": "integration.unsuspend",
+    "description": "A GitHub App was unsuspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
   {
     "action": "ip_allow_list.disable",
@@ -1736,12 +1771,12 @@
   },
   {
     "action": "org_credential_authorization.deauthorize",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A member removed the SSO (SAML or OIDC) authorization from a credential that had access to your organization.",
+    "docs_reference_links": "/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on"
   },
   {
     "action": "org_credential_authorization.grant",
-    "description": "A member authorized credentials for use with SAML single sign-on.",
+    "description": "A member authorized credentials for use with SAML or OIDC single sign-on.",
     "docs_reference_links": "/authentication/authenticating-with-saml-single-sign-on"
   },
   {
@@ -3443,6 +3478,11 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.validate",
+    "description": "A secret scanning alert was validated.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",

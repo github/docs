@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -41,8 +40,8 @@ For instance, the organization news feed shows updates when someone in the organ
 - Submits a pull request review comment.
 - Forks a repository.
 - Creates a wiki page.
-- Pushes commits.{% ifversion fpt or ghes or ghec %}
-- Creates a public repository.{% endif %}
+- Pushes commits.
+- Creates a public repository.
 
 ## Further information
 

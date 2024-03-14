@@ -5,7 +5,6 @@ intro: 'You can automatically build and test your projects with {% data variable
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration

@@ -3,7 +3,6 @@ title: Sample page
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

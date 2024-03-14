@@ -4,7 +4,6 @@ intro: 'You can use the tools in {% data variables.product.prodname_actions %} t
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
 ---

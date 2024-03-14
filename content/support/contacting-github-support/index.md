@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
@@ -14,6 +13,7 @@ redirect_from:
 children:
   - getting-your-enterprise-started-with-the-github-support-portal
   - creating-a-support-ticket
+  - using-copilot-in-github-support
   - viewing-and-updating-support-tickets
   - providing-data-to-github-support
 ---

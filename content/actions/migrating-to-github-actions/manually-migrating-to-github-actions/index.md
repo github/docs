@@ -5,7 +5,6 @@ intro: 'Learn how to manually migrate your existing CI/CD workflows to {% data v
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /migrating-from-azure-pipelines-to-github-actions

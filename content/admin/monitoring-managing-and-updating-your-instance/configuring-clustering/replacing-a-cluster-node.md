@@ -36,19 +36,119 @@ You can replace an existing, functional node in your cluster. For example, you m
 
 To replace a functional node, install the {% data variables.product.product_name %} appliance on a new VM, configure an IP address, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, then take the node you replaced offline.
 
+{% note %}
+
+**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
+
+{% endnote %}
+
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-modify-cluster-conf %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
+{% ifversion cluster-node-removal %}
+1. To take the node you're replacing offline, from the primary MySQL node of your cluster, run the following command.
+
+   ```shell
+   ghe-remove-node NODE-HOSTNAME
+   ```
+
+   This command will evacuate data from any data services running on the node, mark the node as offline in your configuration, and stop traffic being routed to the node. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)."
+{% else %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-mark-offline %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-validate-config %}
-{% data reusables.enterprise_clustering.replacing-a-cluster-node-replacement-name %}
+{% endif %}
 
 ## Replacing a node in an emergency
 
 You can replace a failed node in your cluster. For example, a software or hardware issue may affect a node's availability.
+
+{% note %}
+
+**Note:** If you're replacing the primary MySQL node, see "[Replacing the primary MySQL node](#replacing-the-primary-mysql-node)."
+
+{% endnote %}
+
+{% ifversion cluster-node-removal %}
+
+To replace a node in an emergency, you'll take the failed node offline, add your replacement node to the cluster, then run commands to remove references to data services on the removed node.
+
+1. To remove the node that is experiencing issues from the cluster, from the primary MySQL node of your cluster, run the following command. Replace NODE-HOSTNAME with the hostname of the node you're taking offline.
+
+   ```shell
+   ghe-remove-node --no-evacuate NODE-HOSTNAME 
+   ```
+
+   This command will mark the node as offline in your configuration and stop traffic being routed to the node. You can run this command in `no-evacuate` mode now because, later in this procedure, you'll run commands that instruct data services on the node to copy any replicas onto the other available nodes in the cluster. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)."
+1. Add your replacement node to the cluster.
+   {% data reusables.enterprise_clustering.replacing-a-cluster-node-provision %}
+   {% data reusables.enterprise_clustering.replacing-a-cluster-node-admin-configure-ip %}
+   1. To add the newly provisioned replacement node, on any node, modify the `cluster.conf` file to add the replacement node. For example, this modified `cluster.conf` file adds the newly provisioned node `ghe-replacement-data-node-3`:
+
+      <pre>
+      [cluster "<em>ghe-replacement-data-node-3</em>"]
+        hostname = <em>ghe-replacement-data-node-3</em>
+        ipv4 = <em>192.168.0.7</em>
+        # ipv6 = fd12:3456:789a:1::7
+        git-server = true
+        pages-server = true
+        mysql-server = true
+        elasticsearch-server = true
+        redis-server = true
+        memcache-server = true
+        metrics-server = true
+        storage-server = true
+      </pre>
+
+   {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
+   {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
+1. Remove references to data services on the node you removed.
+   1. Find the UUID of the node you removed. To find the UUID, run the following command, replacing `HOSTNAME` with the hostname of the node. You will use this UUID in the next step.
+
+      ```shell
+      ghe-config cluster.HOSTNAME.uuid
+      ```
+
+   1. To remove references to data services, run the following commands. Replace `UUID` with the UUID of the node.
+
+      These commands indicate to each service that the node is permanently removed. The services will recreate any replicas contained within the node on the available nodes within the cluster.
+
+      {% note %}
+
+      **Note:** These commands may cause increased load on the server while data is rebalanced across replicas.
+
+      {% endnote %}
+
+      For the `git-server` service (used for repository data):
+
+      ```shell
+      ghe-spokesctl server destroy git-server-UUID
+      ```
+
+      For the `pages-server` service (used for {% data variables.product.prodname_pages %} site builds):
+
+      ```shell
+      ghe-dpages remove pages-server-UUID
+      ```
+
+      For the `storage-server` service (used for Git LFS data, avatar images, file attachments, and release archives):
+
+      ```shell
+      ghe-storage destroy-host storage-server-UUID --force
+      ```
+
+1. Optionally, delete the entry for the removed node in your `cluster.conf` file. Doing so will keep your `cluster.conf` file organized and save time during future `config-apply` runs.
+   1. To remove the entry from the file, run the following command, replacing `HOSTNAME` with the hostname of the removed node.
+
+      ```shell
+      ghe-config --remove-section "cluster.HOSTNAME"
+      ```
+
+   1. To copy the configuration to other nodes in the cluster, from the administrative shell of the node where you modified `cluster.conf`, run `ghe-cluster-config-apply`.
+
+{% else %}
 
 To replace a node in an emergency, install the {% data variables.product.product_name %} appliance on a new VM, configure an IP address, take the failed node offline, apply the configuration, add the new node to the cluster configuration file, initialize the cluster and apply the configuration, and optionally, evacuate the failed node.
 
@@ -61,6 +161,8 @@ To replace a node in an emergency, install the {% data variables.product.product
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-initialize-new-node %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-config-node %}
 {% data reusables.enterprise_clustering.replacing-a-cluster-node-need-three-nodes %}
+
+{% endif %}
 
 ## Replacing the primary MySQL node
 

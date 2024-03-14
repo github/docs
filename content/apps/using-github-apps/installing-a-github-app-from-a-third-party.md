@@ -4,7 +4,6 @@ intro: 'You can install {% data variables.product.prodname_github_apps %} direct
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: '*'
   ghes: '*'
 shortTitle: Install from third party
 ---
@@ -37,7 +36,7 @@ Anyone can install {% data variables.product.prodname_github_apps %} on their pe
 
 Organization owners can install {% data variables.product.prodname_github_apps %} on their organization.
 
-Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization resources. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
+Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization permissions or the "repository administration" permission. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
 
 Organization members who are not organization owners or repository admins can still select the organization during the install process. Instead of installing the app, {% data variables.product.company_short %} will send a notification to the organization owner to request the organization owner to install the app.
 

@@ -4,7 +4,6 @@ intro: When Liquid is used to generate a Markdown link
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

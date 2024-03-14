@@ -73,9 +73,7 @@ You can contact {% data variables.contact.github_support %} in English.
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.support.support-ticket-translation-option %}
-{% endif %}
 
 {% ifversion ghes or ghec %}
 
@@ -110,6 +108,10 @@ Enterprise owners and billing managers automatically have a support entitlement,
 Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
 {% endif %}
+
+## About {% data variables.product.prodname_copilot_in_support %}
+
+You can receive answers to questions relating to {% data variables.product.prodname_dotcom %}'s products and features before submitting a support ticket by using {% data variables.product.prodname_copilot_in_support %}. {% data variables.product.prodname_copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.product.prodname_copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support)."
 
 {% ifversion fpt or ghec %}
 

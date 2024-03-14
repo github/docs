@@ -6,7 +6,6 @@ intro: 'You can build security into your developers'' workflow with features tha
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

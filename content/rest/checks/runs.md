@@ -4,7 +4,6 @@ shortTitle: Check runs
 intro: Use the REST API to manage check runs.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

@@ -10,7 +10,7 @@ redirect_from:
   - /admin/enterprise-management/configuring-clustering/evacuating-a-cluster-node
   - /admin/enterprise-management/configuring-clustering/evacuating-a-cluster-node-running-data-services
 versions:
-  ghes: '*'
+  ghes: '<=3.11'
 type: how_to
 topics:
   - Clustering

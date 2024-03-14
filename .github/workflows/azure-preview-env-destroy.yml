@@ -36,12 +36,12 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
+        uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin @v2
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Get preview app info
         env:
@@ -66,7 +66,7 @@ jobs:
           az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
-      - uses: strumwolf/delete-deployment-environment@3cb547f8ec03ee6c0473d90cce57c74c688c2510
+      - uses: strumwolf/delete-deployment-environment@a4825dd9648c57da8437a4885c3fcad58beac69c
         with:
           # The token provided by the workflow does not have the permissions to delete created environments
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}

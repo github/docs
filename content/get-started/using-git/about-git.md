@@ -4,7 +4,6 @@ intro: 'Learn about the version control system, Git, and how it works with {% da
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:

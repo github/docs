@@ -77,17 +77,11 @@ If you enter multiple filters, the view will show alerts matching _all_ these fi
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 
-{% ifversion fpt or ghes or ghec %}
-
 You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag.
-
-{% endif %}
 
 ### Restricting results to application code only
 
 You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code)."
-
-{% ifversion fpt or ghes or ghec %}
 
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
@@ -117,8 +111,6 @@ You can search the list of alerts. This is useful if there is a large number of 
 1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box.
    ![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %} alerts view. The field includes the pre-defined filters "is: open branch:main". The free text of "sql or injection" is outlined in dark orange.](/assets/images/help/repository/code-scanning-search-alerts.png)
 1. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
-
-{% endif %}
 
 {% ifversion code-scanning-task-lists %}
 

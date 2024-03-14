@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -16,7 +15,7 @@ topics:
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -25,15 +24,11 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
-{% ifversion fpt or ghec or ghes %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
-
-{% endif %}
 
 ## Prerequisites
 

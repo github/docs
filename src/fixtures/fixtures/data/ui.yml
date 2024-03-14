@@ -4,7 +4,6 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    ghae_silent_launch: GitHub AE is currently under limited release.
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
@@ -48,7 +47,7 @@ pages:
   miniToc: In this article
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
-  permissions_statement: Who can use this feature
+  permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
 support:
   still_need_help: Still need help?
@@ -133,6 +132,7 @@ rest:
       additionalPermissions: Additional permissions
       uat: UAT
       iat: IAT
+  screen_reader_text_checkmark_icon: Multiple permissions are required, or a different permission may be used. For more information about the permissions, see the documentation for this endpoint.
 rest_reference:
   in: In
   description: Description
@@ -148,9 +148,9 @@ rest_reference:
   code_samples: Code samples for "{{ RESTOperationTitle }}"
   preview_notice: Preview notice for "{{ RESTOperationTitle }}"
   preview_notices: Preview notices for "{{ RESTOperationTitle }}"
+  fine_grained_access: Fine-grained access tokens for "{{ RESTOperationTitle }}"
   preview_header_is_required: This header is <strong>required</strong>
   preview_notice_to_change: This API is under preview and subject to change
-  works_with: Works with
   api_reference: REST API reference
   enum_description_title: Can be one of
   required: Required
@@ -168,6 +168,16 @@ rest_reference:
   button_text:
     copy_to_clipboard: Copy to clipboard
     copied: Copied!
+  works_with_tokens: 'This endpoint works with the following token types'
+  permission_sets: 'The token must have at least one of the following permission sets'
+  permission_set: 'The token must have the following permission set'
+  no_permission_sets: 'The token does not require any permissions.'
+  allows_public_read_access: This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
+  allows_public_read_access_no_permissions: This endpoint can be used without authentication if only public resources are requested.
+  user_access_token_name: GitHub App user access tokens
+  installation_access_token_name: GitHub App installation access tokens
+  fine_grained_access_token_name: Fine-grained personal access tokens
+  no_fine_grained_access: This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type
@@ -196,6 +206,7 @@ product_landing:
   reference: Reference
   overview: Overview
   try_ghec_for_free: Try Enterprise Cloud for free
+  try_ghas_for_free: Try GitHub Advanced Security for free
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides

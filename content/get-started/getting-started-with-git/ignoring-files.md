@@ -11,7 +11,6 @@ intro: 'You can configure Git to ignore files you don''t want to check in to {% 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## Configuring ignored files for a single repository

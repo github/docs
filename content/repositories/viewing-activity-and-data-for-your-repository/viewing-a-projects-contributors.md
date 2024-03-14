@@ -18,6 +18,8 @@ shortTitle: View project contributors
 ---
 ## About contributors
 
+{% data reusables.repositories.repo-insights-commit-limit %}
+
 You can view the top 100 contributors to a repository{% ifversion ghes %}, including commit co-authors,{% endif %} in the contributors graph. Merge commits and empty commits aren't counted as contributions for this graph.
 
 {% ifversion fpt or ghec %}

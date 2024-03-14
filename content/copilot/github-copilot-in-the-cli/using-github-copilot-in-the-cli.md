@@ -14,7 +14,7 @@ shortTitle: Using Copilot in the CLI
 
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-{% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal that allows you to ask questions about the command line. You can ask {% data variables.product.prodname_copilot_cli_short %} to suggest a command for your use case, with `gh copilot suggest`, or to explain a command you're curious about, with `gh copilot explain`.
+{% data reusables.copilot.copilot-cli-about %} You can ask {% data variables.product.prodname_copilot_cli_short %} to suggest a command for your use case, with `gh copilot suggest`, or to explain a command you're curious about, with `gh copilot explain`.
 
 ## Prerequisites
 

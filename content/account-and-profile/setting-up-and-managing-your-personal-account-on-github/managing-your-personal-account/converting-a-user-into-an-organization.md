@@ -12,7 +12,6 @@ intro: You can convert your personal account into an organization. This allows m
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -36,15 +35,13 @@ shortTitle: User into an organization
 {% ifversion projects-v2 %}- Any existing collaborators on your projects will still have access to those projects in the new organization.{% endif %}
 {% endwarning %}
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Keep your personal account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
 
 1. To retain your current personal account name for your personal use, [change the name of your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username) to something new and wonderful.
 1. [Create a new organization](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) with the original name of your personal account.
-1. [Transfer your repositories](/repositories/creating-and-managing-repositories/transferring-a-repository) to your new organization account.{% endif %}
+1. [Transfer your repositories](/repositories/creating-and-managing-repositories/transferring-a-repository) to your new organization account.
 
 ## Convert your personal account into an organization automatically
 

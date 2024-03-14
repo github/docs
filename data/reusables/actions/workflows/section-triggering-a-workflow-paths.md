@@ -27,13 +27,9 @@ on:
       - '**.js'
 ```
 
-{% note %}
+{% data reusables.pull_requests.path-filtering-required-workflows %}
 
-**Note:** {% ifversion required-workflows %}You should not use path filtering to skip workflow runs if the workflow has been configured to be required. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
-
-{% endif %}If a workflow is skipped due to path filtering, [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore), or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
-
-{% endnote %}
+If a workflow is skipped due to path filtering, [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore), or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
 
 #### Example: Excluding paths
 

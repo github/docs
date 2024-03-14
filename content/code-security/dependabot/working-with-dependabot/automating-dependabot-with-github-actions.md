@@ -41,8 +41,6 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 
 For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)."
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Changing `GITHUB_TOKEN` permissions
 
 By default, {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} get a `GITHUB_TOKEN` with read-only permissions. You can use the `permissions` key in your workflow to increase the access for the token:
@@ -101,8 +99,6 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 ```
-
-{% endif %}
 
 ### Manually re-running a workflow
 

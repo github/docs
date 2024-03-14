@@ -4,7 +4,6 @@ intro: The `data` Liquid tag can understand where it was used
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

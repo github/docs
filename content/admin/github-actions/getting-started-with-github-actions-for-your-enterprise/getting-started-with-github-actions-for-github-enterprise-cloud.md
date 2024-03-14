@@ -2,7 +2,7 @@
 title: Getting started with GitHub Actions for GitHub Enterprise Cloud
 shortTitle: Get started
 intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Enterprise owners can configure {% data variables.product.prodname_actions %}.'
+permissions: 'Enterprise owners can configure {% data variables.product.prodname_actions %}.{% ifversion custom-org-roles %}<br><br>Users with the "Manage organization Actions policies" permission manage all settings on the "Actions General" settings page, except for self-hosted runners settings.<br><br>Users with the "Manage organization runners and runner groups" permission can manage GitHub-hosted runners, self-hosted runners, and runner groups, and control where self-hosted runners can be created.{% endif %}'
 versions:
   ghec: '*'
 type: how_to
@@ -30,5 +30,17 @@ To run {% data variables.product.prodname_actions %} workflows, you need to use 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
 If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
+
+{% ifversion custom-org-roles %}
+
+## Provisioning fine-grained permissions for {% data variables.product.prodname_actions %}
+
+Organization owners and users with the "Manage custom organization roles" permission can provision fine-grained permissions for users and teams in your organization. Provisioning fine-grained permissions for {% data variables.product.prodname_actions %} allows you to practice the principal of least privilege to secure settings in your {% data variables.product.prodname_actions %} CI/CD pipeline.
+
+{% data reusables.actions.org-roles-for-gh-actions %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)."
+
+{% endif %}
 
 {% data reusables.actions.general-security-hardening %}

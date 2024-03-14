@@ -16,7 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -24,6 +23,8 @@ shortTitle: Analyze changes
 ---
 
 ## Visualizing commits in a repository
+
+{% data reusables.repositories.repo-insights-commit-limit %}
 
 You can see all commits made to a repository in the past year (excluding merge commits) in the Commit graph.
 
@@ -39,6 +40,8 @@ The top graph shows commits for the entire year by week. The bottom graph shows 
 ![Screenshot of the left sidebar. The "Commits" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/commits-tab.png)
 
 ## Visualizing additions and deletion to content in a repository
+
+{% data reusables.repositories.repo-insights-commit-limit %}
 
 The code frequency graph displays the content additions and deletions for each week in a repository's history.
 

@@ -21,7 +21,7 @@ topics:
 
 {% ifversion ghec %}
 
-You can allow people to use a personal account on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources and optionally configure additional SAML access restriction, or you can provision and control the accounts for your enterprise using your identity provider (IdP) with {% data variables.product.prodname_emus %}.
+{% data reusables.enterprise-accounts.about-enterprise-types %}
 
 After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
 

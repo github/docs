@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-internal
           token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
@@ -52,13 +52,3 @@ jobs:
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}
           REPO: ${{ github.event.pull_request.base.repo.full_name }}
-
-        # Since the projects API is still in beta, use the old workflow if something fails
-        # so that we don't miss these PRs
-      - name: Backup action (Add pull request to FR project board)
-        if: ${{ failure() }}
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
-          project-url: 'https://github.com/orgs/github/projects/1367'
-          column-name: 'Docs-internal external contributor PRs'

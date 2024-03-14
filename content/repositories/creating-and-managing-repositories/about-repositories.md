@@ -65,25 +65,15 @@ Each person and organization can own unlimited repositories and invite an unlimi
 
 ## About repository visibility
 
-You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% elsif ghae %}private or internal{% else %} public or private{% endif %}.
+You can restrict who has access to a repository by choosing a repository's visibility: {% ifversion ghes or ghec %}public, internal, or private{% else %}public or private{% endif %}.
 
-{% ifversion fpt or ghec or ghes %}
-
-When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
-
-{% elsif ghae %}
-
-When you create a repository owned by your personal account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
-
-{% endif %}
+When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).{% endif %}
 
 {%- ifversion fpt or ghec %}
 - {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
 - If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
-- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
-{%- elsif ghae %}
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
 {%- ifversion ghec or ghes %}
@@ -120,15 +110,8 @@ All enterprise members have read permissions to the internal repository, but int
 
 {% data reusables.repositories.internal-repo-default %}
 
-{% ifversion ghec %}Unless your enterprise uses {% data variables.product.prodname_emus %}, members{% else %}Members{% endif %} of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+By default, enterprise members can fork an internal repository into any organization where the user can create repositories. Organization owners can also allow users to create a fork owned by a user account, and can manage the forking policy for an organization. Enterprise owners can manage the forking policy for some or all organizations within an enterprise. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
 
-{% ifversion ghec %}
-{% note %}
-
-**Note:** {% data variables.enterprise.prodname_managed_users_caps %} cannot fork internal repositories. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
-
-{% endnote %}
-{% endif %}
 {% endif %}
 
 ## Next steps

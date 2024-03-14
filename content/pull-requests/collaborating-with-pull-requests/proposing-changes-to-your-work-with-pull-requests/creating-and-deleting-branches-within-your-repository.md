@@ -66,12 +66,9 @@ You can create a branch in different ways on {% data variables.product.product_n
 
    ![Screenshot of the branch selector dropdown menu. "Create branch: new-branch" is highlighted with an orange outline.](/assets/images/help/branches/create-branch-text.png)
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Creating a branch for an issue
 
 You can create a branch to work on an issue directly from the issue page and get started right away. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
-{% endif %}
 
 ## Deleting a branch
 

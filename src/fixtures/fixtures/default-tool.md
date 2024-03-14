@@ -3,7 +3,6 @@ title: Default tool
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 defaultTool: cli
 ---
 
