@@ -1,11 +1,11 @@
 ---
-title: Releases
+title: REST API endpoints for releases and release assets
+shortTitle: Releases
 intro: 'Use the REST API to create, modify, and delete releases and release assets.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

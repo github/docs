@@ -17,11 +17,9 @@ versions:
 
 ## Introduction
 
-By default, {% data variables.product.prodname_copilot %} connects to {% data variables.product.prodname_dotcom %}'s server directly from your environment, via a secure HTTPS connection. You don't necessarily need to configure any additional network settings to use {% data variables.product.prodname_copilot_short %}.
+By default, {% data variables.product.prodname_copilot %} connects to {% data variables.product.prodname_dotcom %}'s server directly from your environment via a secure HTTPS connection. You don't necessarily need to configure any additional network settings to use {% data variables.product.prodname_copilot_short %}.
 
 Some networks use an HTTP proxy server to intercept Internet traffic before sending it to its intended location. Companies often use an HTTP proxy to detect suspicious traffic or restrict the content entering their networks. If you're working on a corporate network, you may need to configure {% data variables.product.prodname_copilot_short %} to connect via an HTTP proxy.
-
-If you have a license for {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection so network traffic can be inspected. Without a custom certificate, a company can use an HTTP proxy to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but cannot inspect the contents of the traffic.
 
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
@@ -38,7 +36,7 @@ If you don't configure a proxy directly in your editor, {% data variables.produc
 
 {% note %}
 
-**Note:** You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention, and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
+**Note:** You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
 
 {% endnote %}
 
@@ -105,7 +103,7 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 Kerberos is an authentication protocol that allows users and services to prove their identity to each other. When a user successfully authenticates, an authentication service grants the user a ticket that gives them access to a service for a period of time. Network administrators may prefer Kerberos to basic authentication because it is more secure and doesn't require sending unencrypted credentials.
 
-{% data variables.product.prodname_copilot %} supports authentication to a proxy with Kerberos. To use Kerberos, you must have the appropriate krb5 library for your operating system installed on your machine, and an active ticket for the proxy service (either created manually with the `kinit` command, or by another application). You can use the `klist` command to check if you have a ticket for the proxy service.
+{% data variables.product.prodname_copilot %} supports authentication to a proxy with Kerberos. To use Kerberos, you must have the appropriate krb5 library for your operating system installed on your machine and an active ticket for the proxy service (either created manually with the `kinit` command or by another application). You can use the `klist` command to check if you have a ticket for the proxy service.
 
 Kerberos uses a service principal name (SPN) to uniquely identify a service instance. By default, the SPN is derived from the proxy URL. For example, if the proxy URL is `http://proxy.example.com:3128`, the SPN is `HTTP/proxy.example.com`.
 
@@ -137,7 +135,7 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
 
 ## Allowing {% data variables.product.prodname_copilot %} to use custom certificates
 
-If your organization uses {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine.
+{% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection, so network traffic can be inspected. Without a custom certificate, an HTTP proxy can be used to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but not to inspect the contents of the traffic.
 
 {% data variables.product.prodname_copilot_short %} reads certificates from the operating system's trust store. It also reads extra certificates from the file specified by the standard Node.js environment variable `NODE_EXTRA_CA_CERTS`. For more information, see the [Node.js documentation](https://nodejs.org/docs/latest-v18.x/api/cli.html#node_extra_ca_certsfile).
 

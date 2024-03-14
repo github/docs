@@ -5,7 +5,6 @@ intro: You can make API requests across domains using cross-origin resource shar
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

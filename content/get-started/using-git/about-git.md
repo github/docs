@@ -4,7 +4,6 @@ intro: 'Learn about the version control system, Git, and how it works with {% da
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -103,7 +102,7 @@ git push --set-upstream origin my-branch
 
 ### Example: Start a new repository and publish it to {% data variables.product.product_name %}
 
-First, you will need to create a new repository on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/quickstart/hello-world)." **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
+First, you will need to create a new repository on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)." **Do not** initialize the repository with a README, .gitignore or License file. This empty repository will await your code.
 
 ```bash
 # create a new directory, and initialize it with git-specific functions

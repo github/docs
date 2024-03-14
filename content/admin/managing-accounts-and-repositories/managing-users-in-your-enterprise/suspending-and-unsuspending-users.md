@@ -104,4 +104,4 @@ You can create a custom message that suspended users will see when attempting to
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/enterprise-admin#suspend-a-user)"
+- "[AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)"

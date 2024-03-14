@@ -102,4 +102,4 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"

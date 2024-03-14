@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: reference
 topics:
@@ -16,7 +15,6 @@ redirect_from:
 layout: inline
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
@@ -54,7 +52,7 @@ Partner alerts are alerts that are sent to the secret providers whenever a secre
 - High confidence alerts, which relate to supported patterns and specified custom patterns.
 - Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys.
 
-{% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[Managing alerts from non-provider patterns](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-alerts-from-non-provider-patterns)."
+{% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
@@ -66,7 +64,7 @@ You can see these alerts on the **Security** tab of the repository. {% ifversion
 
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 {% note %}
 
 **Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."

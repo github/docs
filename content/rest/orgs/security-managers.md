@@ -1,5 +1,7 @@
 ---
-title: Security Managers
+title: REST API endpoints for security managers
+shortTitle: Security managers
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage security managers in an organization.
 versions:
   fpt: '*'

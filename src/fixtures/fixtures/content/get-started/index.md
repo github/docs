@@ -5,20 +5,19 @@ intro: 'This is the intro'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /get-started/quickstart
+  quickstart: /get-started/start-your-journey
 featuredLinks:
   guides:
-    - /get-started/quickstart/hello-world
+    - /get-started/start-your-journey/hello-world
   popular:
     - /get-started/foo/bar
   guideCards:
     - /get-started/foo/autotitling
 children:
-  - /quickstart
+  - /start-your-journey
   - /foo
   - /video-transcripts
   - /minitocs
@@ -26,6 +25,7 @@ children:
   - /markdown
   - /images
   - /versioning
+  - /learning-about-github
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

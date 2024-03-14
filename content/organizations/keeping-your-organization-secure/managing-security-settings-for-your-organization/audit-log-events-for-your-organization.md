@@ -4,7 +4,6 @@ intro: Learn about audit log events recorded for your organization.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

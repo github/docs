@@ -5,7 +5,6 @@ intro: Note that this page's `shortTitle` needs HTML escaping
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

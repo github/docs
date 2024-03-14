@@ -20,7 +20,7 @@ import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirec
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
-// That magical string that can be turned into th actual title when
+// That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
 const AUTOTITLE = 'AUTOTITLE'
 
@@ -195,8 +195,8 @@ async function updateFile(file, context, opts) {
       // In that case, for this link node, the title is the combined
       // serialization of `node.children`. But `toMarkdown()` always appends
       // `\n` to the serialized output.
-      // Now the title, of the above-mentioned example becomes 'This *is* cool'
-      // which is unlikely to attempt to be the documents title, that
+      // Now the title of the above-mentioned example becomes 'This *is* cool'
+      // which is unlikely to attempt to be the document's title, that
       // it links to.
       const title = node.children.map((child) => toMarkdown(child).slice(0, -1)).join('')
 
@@ -216,9 +216,9 @@ async function updateFile(file, context, opts) {
            *     1. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
            *     1. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
            *
-           * Perhaps we could recognize them as such an consider them
-           * matches anyway. In particular if the title is make up
-           * a leading capital letter any most rest in lower case.
+           * Perhaps we could recognize them as such and consider them
+           * matches anyway. In particular if the title consists of
+           * a leading capital letter and most of the rest lower case.
            */
 
           if (title !== AUTOTITLE) {
@@ -454,7 +454,7 @@ function getNewHref(href, context, opts, file) {
   const pure = parsed.pathname
   let newHref = pure.replace(patterns.trailingSlash, '$1')
 
-  // Before testing if it redirects takes it somewhere, we temporarily
+  // Before testing if it redirects somewhere, we temporarily
   // pretend it's already prefixed for English (/en)
   const [language, withoutLanguage] = splitPathByLanguage(newHref, currentLanguage)
   if (withoutLanguage !== newHref) {
@@ -495,7 +495,7 @@ function getNewHref(href, context, opts, file) {
     // bother but perhaps it adds unnecessarily complexity to a function that
     // has to work perfectly for runtime.
     const redirectedWithoutLanguage = getPathWithoutLanguage(redirected)
-    // Some paths can't be viewed in fre-pro-team so the getRedirect()
+    // Some paths can't be viewed in free-pro-team so the getRedirect()
     // function will inject the version that you're supposed to go to.
     // For example `/enterprise/admin/guides/installation/configuring-a-hostname`
     // redirects to `/enterprise-server@3.7/admin/configuration/configuring-...`
@@ -515,7 +515,7 @@ function getNewHref(href, context, opts, file) {
       newHref = `/${nonEnterpriseDefaultVersion}${redirectedWithoutLanguage}`
     } else if (withoutLanguage.startsWith('/enterprise-server/')) {
       const msg =
-        "Old /enterprise-server/ links that don't include a @version is no longer supported. " +
+        "Old /enterprise-server/ links that don't include a @version are no longer supported. " +
         'If you see this, manually fix that link to use enterprise-server@latest.'
       if (opts.strict) {
         throw new Error(msg)

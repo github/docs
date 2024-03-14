@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 ---
 
 ## About migration paths to GitHub
@@ -43,7 +42,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 - **Scope**: Source, history, and metadata
 - **Tooling**: {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
-  - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
+  - "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 - **Caveats**:
   - {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -54,7 +53,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 - **Scope**: Source, history, and metadata
 - **Tooling**: {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
-  - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
+  - "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 - **Caveats**:
   - {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -67,7 +66,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **Scope**: Source, history, and metadata
 - **Tooling**: {% data variables.product.prodname_importer_proper_name %} or {% data variables.product.prodname_expert_services %}
 - **More information**:
-  - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
+  - "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 - **Caveats**:
   - {% data reusables.migrations.large-repositories-require-expert-services %}
@@ -77,7 +76,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 - **Scope**: Source, history, and metadata
 - **Tooling**: {% data variables.product.prodname_importer_proper_name %}
-- **More information**: "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
+- **More information**: "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
 
 ### Azure DevOps Server to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -85,13 +84,13 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **Tooling**: Migration to Azure DevOps Services, then {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
   - [Migrate data from Azure DevOps Server to Azure DevOps Services](https://learn.microsoft.com/en-us/azure/devops/migrate/migration-overview?view=azure-devops) in the Microsoft Docs
-  - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
-- **Caveats**: If you can't migrate to Azure DevOps Services first, you must  perform a "source and history" migration instead. For more information, "[Migrations from any Git repository to {% data variables.product.prodname_dotcom_the_website %}](#migrations-from-any-git-repository)."
+  - "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
+- **Caveats**: If you can't migrate to Azure DevOps Services first, you must  perform a "source and history" migration instead. For more information, "[Migrations from any Git repository to {% data variables.product.prodname_dotcom_the_website %}](#any-git-repository-to-githubcom)."
 
 ### Bitbucket Cloud (Bitbucket.org) to {% data variables.product.prodname_dotcom_the_website %}
 
 - **Scope**: Source and history
-- **Tooling**: Git CLI or GitHub Importer
+- **Tooling**: Git CLI or {% data variables.product.prodname_importer %}
 - **More information**:
   - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
   - "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
@@ -101,7 +100,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **Scope**: Source, history, and metadata
 - **Tooling**: {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
-  - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
+  - "[AUTOTITLE](/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 - **Caveats**:
   - For complex repositories larger than around 5 GB, you may need to use `bbs-exporter` and Enterprise Cloud Importer instead. Enterprise Cloud Importer is only available for expert-led migrations.
@@ -119,7 +118,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 ### Any Git repository to {% data variables.product.prodname_dotcom_the_website %}
 
 - **Scope**: Source and history
-- **Tooling**: Git CLI or GitHub Importer if the repository is accessible over the public internet
+- **Tooling**: Git CLI or {% data variables.product.prodname_importer %} if the repository is accessible over the public internet
 - **More information**:
   - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
   - "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"

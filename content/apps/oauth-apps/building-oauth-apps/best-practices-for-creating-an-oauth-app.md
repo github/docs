@@ -5,7 +5,6 @@ intro: 'Follow these best practices to improve the security and performance of y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - OAuth apps
@@ -59,7 +58,7 @@ In the event that user access tokens are compromised, you should immediately rev
 
 Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
 
-To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)" in the REST API documentation.
+To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)."
 
 {% data reusables.emus.oauth-app-note %}
 

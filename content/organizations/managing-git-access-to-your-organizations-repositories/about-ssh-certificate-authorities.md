@@ -6,7 +6,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

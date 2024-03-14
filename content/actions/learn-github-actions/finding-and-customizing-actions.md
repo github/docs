@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -103,6 +102,10 @@ jobs:
 
 For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
 
+### Security hardening for using actions in your workflows
+
+{% data reusables.actions.about-security-hardening-for-worklows %}
+
 ## Using release management for your custom actions
 
 The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
@@ -164,13 +167,6 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
-
-{% ifversion ghae %}
-
-## Using the actions included with {% data variables.product.prodname_ghe_managed %}
-
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[AUTOTITLE](/admin/github-actions/using-github-actions-in-github-ae/using-actions-in-github-ae)."
-{% endif %}
 
 ## Next steps
 

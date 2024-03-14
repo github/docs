@@ -7,14 +7,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - Workflows
   - Project management
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -67,7 +66,11 @@ In the tutorial, you will first make a workflow file that uses the [`actions/sta
 
 Based on the `schedule` parameter (for example, every day at 1:30 UTC), your workflow will find issues that have been inactive for the specified period of time and will add the specified comment and label. Additionally, your workflow will close any previously labeled issues if no additional activity has occurred for the specified period of time.
 
-{% data reusables.actions.schedule-delay %}
+{% note %}
+
+**Note:** {% data reusables.actions.schedule-delay %}
+
+{% endnote %}
 
 You can view the history of your workflow runs to see this workflow run periodically. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 

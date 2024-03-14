@@ -1,8 +1,9 @@
 ---
-title: License
+title: REST API endpoints for enterprise licenses
+shortTitle: License
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve information about your Enterprise license.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

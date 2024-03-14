@@ -2,7 +2,6 @@
 title: About contributing to GitHub Docs
 shortTitle: About contributing
 intro: 'You can contribute to GitHub Docs content in several ways.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---
@@ -10,22 +9,6 @@ versions:
 {% data variables.product.prodname_dotcom %} documentation is open source. Anyone can contribute to the docs in the public `docs` repository: https://github.com/github/docs. {% data variables.product.prodname_dotcom %} employees work on the documentation in a copy of this repository called `docs-internal`. The two repositories are automatically synced to keep them both up to date with changes merged into the `main` branch of either repository. For simplicity, we'll refer to "the documentation repository" in the articles about contributing to {% data variables.product.prodname_docs %}.
 
 The documentation repository is the place to discuss and collaborate on the documentation that is published here on [docs.github.com](/).<!-- markdownlint-disable-line search-replace -->
-
-{% ifversion discussions %}
-
-## Discussions
-
-[Discussions](/discussions/quickstart) are where we have conversations.
-
-If you'd like help troubleshooting a documentation issue or pull request you're working on, have a great new idea for documentation, or want to share something amazing you've learned in our docs, join us in the [`docs` repository discussions](https://github.com/github/docs/discussions).
-
-{% note %}
-
-**Note**: To preserve the bandwidth of the Docs team, off-topic conversations will be closed.
-
-{% endnote %}
-
-{% endif %}
 
 ## Issues
 
@@ -63,7 +46,7 @@ For content changes, make sure that you:
 
 ## Support
 
-We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with {% data variables.product.prodname_dotcom %}, unrelated to our documentation, please [contact {% data variables.product.prodname_dotcom %} Support directly](https://support.github.com/contact). Any issues{% ifversion discussions %}, discussions,{% endif %} or pull requests opened in the documentation repository requesting support will be given information about how to contact {% data variables.product.prodname_dotcom %} Support, then closed and locked.
+We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with {% data variables.product.prodname_dotcom %}, unrelated to our documentation, please [contact {% data variables.product.prodname_dotcom %} Support directly](https://support.github.com/contact). Any issues or pull requests opened in the documentation repository requesting support will be given information about how to contact {% data variables.product.prodname_dotcom %} Support, then closed and locked.
 
 If you're having trouble with your {% data variables.product.prodname_dotcom %} account, contact [Support](https://support.github.com/contact?tags=docs-contributing-guide).
 

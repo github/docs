@@ -13,6 +13,11 @@ redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
+  - /early-access/github/migrating-with-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer
+  - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
+  - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer
 ---
 
 ## About {% data variables.product.prodname_importer_proper_name %}

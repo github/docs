@@ -5,7 +5,6 @@ intro: 'Follow these best practices to improve security and performance when usi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

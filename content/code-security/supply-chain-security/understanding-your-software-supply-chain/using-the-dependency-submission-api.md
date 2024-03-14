@@ -1,6 +1,6 @@
 ---
-title: Using the Dependency submission API
-intro: 'You can use the Dependency submission API to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
+title: Using the dependency submission API
+intro: 'You can use the {% data variables.dependency-submission-api.name %} to submit dependencies for projects, such as the dependencies resolved when a project is built or compiled.'
 shortTitle: Dependency submission API
 topics:
   - API
@@ -13,29 +13,36 @@ versions:
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
 
-## About the Dependency submission API
+## About the {% data variables.dependency-submission-api.name %}
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the dependency submission API in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the Dependency submission API, see the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/rest/dependency-graph/dependency-submission)."
 
 ## Submitting dependencies at build-time
 
-You can use the Dependency submission API in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built.
+You can use the {% data variables.dependency-submission-api.name %} in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built.
 
 ### Using pre-made actions
 
-The simplest way to use the Dependency submission API is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. Some of these actions are provided by third parties. You can find links to the currently available actions in the table below.
+The simplest way to use the {% data variables.dependency-submission-api.name %} is by adding a pre-made action to your repository that will gather and convert the list of dependencies to the required snapshot format and submit the list to the API. Actions that complete these steps for various ecosystems are available on {% data variables.product.prodname_marketplace %}. Some of these actions are provided by third parties. You can find links to the currently available actions in the table below.
 
 Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
 --- | --- | --- |
 Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
-Gradle | [Gradle Build Action](https://github.com/marketplace/actions/gradle-build-action) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
+Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
+NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency submission API.
+{% note %}
+
+**Note:** For the Component Detection dependency submission action, other supported ecosystems include Vcpkg, Conan, Conda, Crates, as well as NuGet.
+
+{% endnote %}
+
+For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the {% data variables.dependency-submission-api.name %}.
 
 ```yaml
 name: Go Dependency Submission
@@ -83,10 +90,10 @@ jobs:
 Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
 
   1. Generate a list of dependencies for your project.
-  1. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
-  1. Submit the formatted list of dependencies to the Dependency submission API.
+  1. Translate the list of dependencies into the snapshot format accepted by the {% data variables.dependency-submission-api.name %}. For more information about the format, see the body parameters for the "Create a repository snapshot" API endpoint in "[AUTOTITLE](/rest/dependency-graph/dependency-submission)."
+  1. Submit the formatted list of dependencies to the {% data variables.dependency-submission-api.name %}.
 
-{% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[AUTOTITLE](/actions/creating-actions)".
+{% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the {% data variables.dependency-submission-api.name %}. For more information about writing an action, see "[AUTOTITLE](/actions/creating-actions)".
 
 ## Generating and submitting a software bill of materials (SBOM)
 
@@ -107,15 +114,15 @@ Action | Details | <span style="white-space: nowrap;">Maintained by {% data vari
 [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 [sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-You can then upload and submit the SBOM to the dependency submission API using one of the following actions so that you can receive {% data variables.product.prodname_dependabot_alerts %} on any dependencies that have known vulnerabilities. Actions that appear in both tables can be configured to both generate and submit an SBOM.
+You can then upload and submit the SBOM to the {% data variables.dependency-submission-api.name %} using one of the following actions so that you can receive {% data variables.product.prodname_dependabot_alerts %} on any dependencies that have known vulnerabilities. Actions that appear in both tables can be configured to both generate and submit an SBOM.
 
 Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 ---  | --- | ---
 [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
 [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the dependency submission API | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
+[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the {% data variables.dependency-submission-api.name %} | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-For example, the following [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) workflow calculates the dependencies for a repository, generates an exportable SBOM in SPDX 2.2 format, and submits it to the dependency submission API.
+For example, the following [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) workflow calculates the dependencies for a repository, generates an exportable SBOM in SPDX 2.2 format, and submits it to the {% data variables.dependency-submission-api.name %}.
 
 ```yaml
 

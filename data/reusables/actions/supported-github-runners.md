@@ -27,7 +27,7 @@ Linux
 16 GB
 </td>
 <td>
-150 GB
+14 GB
 </td>
 <td>
 <code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
@@ -46,7 +46,7 @@ Windows
 <td>16 GB
 </td>
 <td>
-150 GB
+14 GB
 </td>
 <td>
 <code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
@@ -89,7 +89,28 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-13</code>[Beta]
+<code>macos-13</code>
+</td>
+<td>
+N/A
+</td>
+</tr>
+<tr>
+<td>
+macOS
+</td>
+<td>
+3 (M1)
+</td>
+<td>
+7 GB
+</td>
+N/A
+<td>
+14 GB
+</td>
+<td>
+<code>macos-14</code> [Beta]
 </td>
 <td>
 N/A
@@ -186,7 +207,28 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-13</code>[Beta]
+<code>macos-13</code>
+</td>
+<td>
+N/A
+</td>
+</tr>
+<tr>
+<td>
+macOS
+</td>
+<td>
+3 (M1)
+</td>
+<td>
+7 GB
+</td>
+N/A
+<td>
+14 GB
+</td>
+<td>
+<code>macos-14</code> [Beta]
 </td>
 <td>
 N/A

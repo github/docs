@@ -13,7 +13,6 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/auditing-activity-in-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:

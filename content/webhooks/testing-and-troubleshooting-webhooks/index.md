@@ -4,7 +4,6 @@ intro: Learn how to test your webhooks and troubleshoot problems.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

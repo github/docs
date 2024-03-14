@@ -4,7 +4,6 @@ intro: 'You can download a snapshot of the code in your repository.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

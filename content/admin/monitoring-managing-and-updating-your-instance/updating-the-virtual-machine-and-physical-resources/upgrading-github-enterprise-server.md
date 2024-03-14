@@ -79,7 +79,7 @@ There are two types of snapshots:
 | Platform | Snapshot method | Documentation |
 |---|---|---|
 | Amazon AWS | Disk | [Create Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html) in the AWS documentation
-| Azure | VM | [Back up an Azure VM from the VM settings](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm) in Microsoft Learn
+| Azure | VM | [Create a snaphot of a virtual hard disk on an Azure VM](https://learn.microsoft.com/azure/virtual-machines/snapshot-copy-managed-disk) in Microsoft Learn
 | Hyper-V | VM | [Enable or disable checkpoints in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v) in Microsoft Learn
 | Google Compute Engine | Disk | [Create and manage disk snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots) in the Google Cloud documentation
 | VMware | VM | [Taking Snapshots of a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html) in VMware Docs
@@ -216,7 +216,14 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 {%- ifversion ghe-migrations-cli-utility %}
 1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations)."
 {%- endif %}
-1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
+1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes.
+
+   {% ifversion ghes-upgrade-complete-indicator %}
+   To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
+
+   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %}{%- endif %} For more information{% ifversion ghes < 3.12 %} about the utility{% endif %}, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs)."
+
+   To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 
    ```shell
    tail -f /data/user/common/ghe-config.log

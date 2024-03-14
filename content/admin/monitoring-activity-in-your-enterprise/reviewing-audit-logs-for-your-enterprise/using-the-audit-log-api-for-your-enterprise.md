@@ -6,7 +6,6 @@ permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% e
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Auditing
@@ -37,7 +36,7 @@ Timestamps and date fields in the API response are measured in [UTC epoch millis
 
 {% ifversion ghec %}Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators)."{% endif %}
 
-For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterprise-admin#audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
+For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterprise-admin/audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination
 
@@ -91,4 +90,16 @@ The query below searches for audit log events for pull requests, where the event
 curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
+```
+
+## Example 3: Events for Git activity in an enterprise, for a specific date and actor
+
+You can search for Git events in an enterprise, such as cloning, fetching, and pushing, by adding `include=git` as a parameter in the URL. Alternatively, you can use `include=all` to search for both web events and Git events.
+
+The query below searches for audit log events for Git activity, where the event occurred after Jan 1st, 2024, in the `avocado-corp` enterprise, and the action was performed by the `octocat` user.
+
+```shell
+curl -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:>=2024-01-01+actor:octocat&include=git"
 ```

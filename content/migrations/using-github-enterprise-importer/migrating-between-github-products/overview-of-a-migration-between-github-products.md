@@ -202,13 +202,13 @@ There are additional post-migration steps for each feature.
 
 When secret scanning is enabled for the destination repository, a scan of the entire repository will be performed. After the scan is complete, all alerts will be populated, but without remediation states.
 
-You can use the REST API to update the alerts to mirror any remediations in the source repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)" in the REST API documentation.
+You can use the REST API to update the alerts to mirror any remediations in the source repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
 
 The user associated with these updated remediations will be the user who owns the {% data variables.product.pat_generic %} that was used for the API calls, not the user who remediated the alert in the source repository, and the date associated with the remediation will be the date of the API call, not the date the alert was remediated in the source repository.
 
 #### {% data variables.product.prodname_code_scanning_caps %}
 
-{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[Code Scanning](/enterprise-cloud@latest/rest/code-scanning)" in the REST API documentation.
+{% data variables.product.prodname_code_scanning_caps %} alerts are not migrated by {% data variables.product.prodname_importer_proper_name %}. However, the alerts are available as SARIF data in the source repository. You can use the REST API to upload this data to the destination repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/code-scanning)."
 
 {% data variables.product.prodname_code_scanning_caps %} alerts that are populated this way will differ from the original alerts in the source repository.
 

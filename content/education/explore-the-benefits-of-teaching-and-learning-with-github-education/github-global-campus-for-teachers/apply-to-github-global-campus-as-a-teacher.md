@@ -21,7 +21,7 @@ shortTitle: Apply to Global Campus
 
 {% data reusables.education.educator-requirements %}
 
-For more information about personal accounts on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."
+For more information about personal accounts on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 

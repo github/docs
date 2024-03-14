@@ -23,7 +23,7 @@ topics:
 
 ## Prerequisites
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. {% ifversion fpt or ghec %}For information on how to create an account, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% elsif ghes %}For more information, contact your site administrator.{% endif %} For information on how to create a repository, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. {% ifversion fpt or ghec %}For information on how to create an account, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% elsif ghes %}For more information, contact your site administrator.{% endif %} For information on how to create a repository, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 

@@ -1,5 +1,5 @@
 ---
-title: Custom properties
+title: REST API endpoints for custom properties
 shortTitle: Custom properties
 intro: 'Use the REST API to create and manage custom properties for an organization.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
@@ -16,11 +16,5 @@ redirect_from:
 ## About custom properties
 
 You can use the REST API to create and manage custom properties for an organization. You can use custom properties to add metadata to repositories in your organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
-
-{% note %}
-
-**Note:** The API endpoints for custom properties are in public beta and subject to change.
-
-{% endnote %}
 
 <!-- Content after this section is automatically generated -->

@@ -4,7 +4,6 @@ intro: Create an organization to apply fine-grained access permissions to reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /articles/creating-a-new-organization-from-scratch

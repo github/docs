@@ -30,7 +30,7 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct } = useMainContext()
+  const { isHomepageVersion, currentProduct, currentProductName } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
@@ -371,7 +371,7 @@ export const Header = () => {
                         href={currentProduct.href}
                         className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                       >
-                        {currentProduct.nameRendered}
+                        {currentProductName || currentProduct.name}
                       </Link>
                     </div>
                   )}

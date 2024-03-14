@@ -5,7 +5,6 @@ intro: 'How to use advanced {% data variables.product.prodname_actions %} featur
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

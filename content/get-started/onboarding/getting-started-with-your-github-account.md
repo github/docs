@@ -15,8 +15,6 @@ This guide will walk you through setting up your {% data variables.product.compa
 The first steps in starting with {% data variables.product.product_name %} are to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile.
 {% elsif ghes %}
 The first steps in starting with {% data variables.product.product_name %} are to access your account, set up two-factor authentication, and view your profile.
-{% elsif ghae %}
-The first steps in starting with {% data variables.product.product_name %} are to access your account and view your profile.
 {% endif %}
 
 {% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own personal account, which can be part of multiple organizations and teams. Your personal account is your identity on {% data variables.location.product_location %} and represents you as an individual.
@@ -50,17 +48,11 @@ To ensure you can use all the features in your {% data variables.product.product
 The administrator of your {% data variables.product.product_name %} instance will notify you about how to authenticate and access your account. The process varies depending on the authentication mode they have configured for the instance.
 {% endif %}
 
-{% ifversion ghae %}
-You will receive an email notification once your enterprise owner for {% data variables.product.product_name %} has set up your account, allowing you to authenticate with SAML single sign-on (SSO) and access your account.
-{% endif %}
-
-{% ifversion fpt or ghes or ghec %}
-
 ### {% ifversion fpt or ghec %}4.{% else %}2.{% endif %} Configuring two-factor authentication
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
 
-{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}{% endif %}
+{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.prodname_dotcom %} profile and contribution graph
 
@@ -126,7 +118,7 @@ A fork is a copy of a repository that you manage, where any changes you make wil
 
 ### 2. Importing your projects
 
-If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_dotcom %} Importer, the command line, or external migration tools. For more information, see "[AUTOTITLE](/migrations/importing-source-code)."
+If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_importer %}, the command line, or external migration tools. For more information, see "[AUTOTITLE](/migrations/importing-source-code)."
 
 ### 3. Managing collaborators and permissions
 

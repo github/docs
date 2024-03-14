@@ -5,7 +5,6 @@ intro: View current and previous deployments for your repository.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

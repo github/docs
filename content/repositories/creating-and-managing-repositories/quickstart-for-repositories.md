@@ -11,7 +11,6 @@ intro: 'Learn how to create a new repository and commit your first change in 5 m
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -53,7 +52,7 @@ Congratulations! You've successfully created your first repository, and initiali
 
 {% webui %}
 
-A [commit](/get-started/quickstart/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
+A [commit](/get-started/learning-about-github/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
 
 When you created your new repository, you initialized it with a _README_ file. _README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository.
 

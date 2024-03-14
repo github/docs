@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /creating-and-editing-commits
@@ -17,4 +16,3 @@ children:
   - /troubleshooting-commits
 shortTitle: Commit changes to your project
 ---
-

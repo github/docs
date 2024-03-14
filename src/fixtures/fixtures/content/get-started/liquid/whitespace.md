@@ -4,7 +4,6 @@ intro: Demonstrates use of `-` in Liquid tags
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

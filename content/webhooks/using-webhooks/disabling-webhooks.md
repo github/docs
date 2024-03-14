@@ -5,7 +5,6 @@ intro: 'You can disable a webhook to unsubscribe from events that occur on {% da
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

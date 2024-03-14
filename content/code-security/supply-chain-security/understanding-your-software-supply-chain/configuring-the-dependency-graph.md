@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -35,7 +34,7 @@ To generate a dependency graph, {% data variables.product.product_name %} needs 
 
 ## Enabling the dependency graph
 
-{% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}
+{% data reusables.dependabot.ghes-enabling-dependency-graph %}{% endif %}
 
 {% ifversion ghec %}
 

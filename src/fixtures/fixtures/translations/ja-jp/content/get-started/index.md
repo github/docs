@@ -5,6 +5,5 @@ intro: '{% data variables.product.prodname_dotcom %} を使用してソフトウ
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---

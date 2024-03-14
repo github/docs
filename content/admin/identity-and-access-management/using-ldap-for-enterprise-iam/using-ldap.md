@@ -78,8 +78,8 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 | `Domain search user`     | {% octicon "x" aria-label="Optional" %} | The LDAP user that looks up other users that sign in, to allow authentication. This is typically a service account created specifically for third-party integrations. Use a fully qualified name, such as `cn=Administrator,cn=Users,dc=Example,dc=com`. With Active Directory, you can also use the `[DOMAIN]\[USERNAME]` syntax (e.g. `WINDOWS\Administrator`) for the domain search user with Active Directory. |
 | `Domain search password` | {% octicon "x" aria-label="Optional" %} | The password for the domain search user. |
 | `Administrators group`   | {% octicon "x" aria-label="Optional" %} | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
-| `Domain base`            | {% octicon "check" aria-label="Required" %} | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
-| `Restricted user groups` | {% octicon "x" aria-label="Optional" %} | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, _all_ users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
+| `Domain base`            | {% octicon "check" aria-label="Required" %} | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. Each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. You can configure multiple domain bases. However, {% data variables.product.product_name %} searches for users and group membership against each configured domain base sequentially, so configuring multiple domain bases can increase the number of LDAP queries that are performed. To ensure the performance and stability of your instance, we recommend that you configure no more than three domain bases. |
+| `Restricted user groups` | {% octicon "x" aria-label="Optional" %} | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups. If no groups are specified, _all_ users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. You can configure multiple restricted user groups. However, each group increases the number of group membership LDAP queries that {% data variables.product.product_name %} performs for each user. To prevent authentication timeouts and sync performance issues, we recommend that you configure no more than three groups. |
 | `User ID`                | {% octicon "check" aria-label="Required" %} | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
 | `Profile name`           | {% octicon "x" aria-label="Optional" %} | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
 | `Emails`                 | {% octicon "x" aria-label="Optional" %} | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
@@ -126,7 +126,11 @@ If you need help determining if modifying the `MaxValRange` is the right approac
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
+To enable LDAP Sync, in your LDAP settings, select **Synchronization**.
+
+To pick a synchronization interval for all users and all teams, click the dropdown menus. Then select **every 1 hour**, **every 4 hours**, or **every 24 hours**.
+
+To automatically synchronize certain attributes from LDAP, under "Synchronize User Emails, SSH & GPG Keys," click **Synchronize Emails**, **Synchronize SSH Keys**, and/or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
@@ -216,7 +220,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 1. Under "LDAP," click **Sync now** to manually update the account with data from your LDAP server.
 
-You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap).
+You can also [use the API to trigger a manual sync](/rest/enterprise-admin/ldap).
 
 ## Revoking access to {% data variables.location.product_location %}
 
@@ -227,3 +231,7 @@ If LDAP Sync is **not** enabled, you must manually suspend the {% data variables
 ## About logging for LDAP
 
 Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %})."
+
+## Limitations for LDAP on {% data variables.product.product_name %}
+
+The {% data variables.product.product_name %} LDAP authentication timeout setting is 10 seconds. This means that all LDAP queries required for user authentication and group membership queries (when Administrators and Restricted User Groups are configured in the management console) must successfully complete within 10 seconds for an LDAP user who is logging into {% data variables.product.product_name %}. {% data variables.product.product_name %} does not currently support extending this 10 second LDAP authentication timeout as this can have a negative impact on other services on the appliance and lead to poor performance or unexpected outages. We recommend limiting the network latency between {% data variables.product.product_name %} and LDAP server(s) to help prevent authentication timeouts.

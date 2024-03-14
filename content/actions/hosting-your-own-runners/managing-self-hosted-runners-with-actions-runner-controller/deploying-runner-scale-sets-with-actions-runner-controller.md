@@ -333,6 +333,8 @@ ARC observes values set in the runner pod template and does not overwrite them.
 
 ### Using a private container registry
 
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
+
 To use a private container registry, you can copy the controller image and runner image to your private container registry. Then configure the links to those images and set the `imagePullPolicy` and `imagePullSecrets` values.
 
 #### Configuring the controller image
@@ -370,6 +372,8 @@ template:
 
 ### Updating the pod specification for the runner pod
 
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
+
 You can fully customize the PodSpec of the runner pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
 ```yaml
@@ -394,6 +398,8 @@ template:
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
 ### Updating the pod specification for the listener pod
+
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
 
 You can customize the PodSpec of the listener pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
@@ -424,6 +430,8 @@ listenerTemplate:
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
 ## Using Docker-in-Docker or Kubernetes mode for containers
+
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
 
 If you are using container jobs and services or container actions, the `containerMode` value must be set to `dind` or `kubernetes`.
 

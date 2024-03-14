@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -42,7 +41,7 @@ We recommend reviewing the following caveats before you change the visibility of
 
 - Wait for a period of reduced activity on {% data variables.location.product_location %}.
 
-- Contact your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} before proceeding. Your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
+- Contact your site administrator before proceeding. Your site administrator can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 
@@ -50,10 +49,9 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Making a repository private
 
-{% ifversion fpt or ghes or ghec %}
-- {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
-{%- ifversion ghes or ghec or ghae %}
-- If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+- {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.
+{%- ifversion ghes or ghec %}
+- If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. The visibility of any forks will also change to private. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 {%- endif %}
 {%- ifversion fpt %}
 - If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
@@ -66,15 +64,13 @@ We recommend reviewing the following caveats before you change the visibility of
 - Anonymous Git read access is no longer available. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
 {%- endif %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ### Making a repository internal
 
 - Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 
 {% endif %}
-
-{% ifversion fpt or ghes or ghec %}
 
 ### Making a repository public
 
@@ -83,8 +79,6 @@ We recommend reviewing the following caveats before you change the visibility of
 - The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
 
 For information about improving repository security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."{% endif %}
-
-{% endif %}
 
 ## Changing a repository's visibility
 

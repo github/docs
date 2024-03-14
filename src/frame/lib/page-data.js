@@ -274,11 +274,17 @@ export async function loadSiteTree(unversionedTree) {
 
 export async function versionPages(obj, version, langCode) {
   // Add a versioned href as a convenience for use in layouts.
-  obj.href = obj.page.permalinks.find(
+  const permalink = obj.page.permalinks.find(
     (pl) =>
       pl.pageVersion === version ||
       (pl.pageVersion === 'homepage' && version === nonEnterpriseDefaultVersion),
-  ).href
+  )
+  if (!permalink) {
+    throw new Error(
+      `No permalink for ${obj.page.fullPath} in language ${langCode} for version ${version}`,
+    )
+  }
+  obj.href = permalink.href
 
   if (!obj.childPages) return obj
   const versionedChildPages = await Promise.all(

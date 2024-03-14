@@ -7,14 +7,12 @@ layout: product-guides
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 learningTracks:
   - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
-  - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
   - adopting_github_actions_for_your_enterprise_ghec
-  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
+  - adopting_github_actions_for_your_enterprise_ghes
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes %}configure_github_actions{% endif %}'
@@ -22,7 +20,7 @@ learningTracks:
 includeGuides:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/changing-authentication-methods
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
+  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
@@ -38,7 +36,6 @@ includeGuides:
   - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam
   - /admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh
-  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
   - /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
   - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
   - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
@@ -61,10 +58,9 @@ includeGuides:
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
   - /admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise
   - /admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise
-  - /admin/overview/initializing-github-ae
   - /admin/configuration/configuring-network-settings/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
-  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/site-admin-dashboard
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
   - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
@@ -87,8 +83,7 @@ includeGuides:
   - /admin/github-actions/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
   - /admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
-  - /admin/overview/about-enterprise-accounts
-  - /admin/overview/about-github-ae
+  - /admin/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/overview/about-upgrades-to-new-releases
   - /admin/packages/configuring-package-ecosystem-support-for-your-enterprise
   - /admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages

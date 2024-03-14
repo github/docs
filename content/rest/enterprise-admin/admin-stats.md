@@ -1,8 +1,9 @@
 ---
-title: Admin stats
+title: REST API endpoints for admin stats
+shortTitle: Admin stats
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve a variety of metrics about your installation.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
