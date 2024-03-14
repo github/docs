@@ -34,11 +34,6 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 {% ifversion emu-public-scim-schema %}-{% endif %} To configure your IdP for SAML SSO with {% data variables.product.prodname_emus %}, you must have a tenant and administrative access on your IdP.
 
-{%- ifversion emu-public-scim-schema %}
-
-- {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
-{%- endif %}
-
 ## Configuring SAML SSO for {% data variables.product.prodname_emus %}
 
 To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP, then configure your enterprise on {% data variables.location.product_location %}. After you configure SAML SSO, you can configure user provisioning.

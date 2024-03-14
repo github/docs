@@ -5,6 +5,7 @@ import { setOutput } from '@actions/core'
 
 import github from './github.js'
 import { getActionContext } from './action-context.js'
+import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry.js'
 
 async function main() {
   const sha = await getBuiltSHA()
@@ -17,9 +18,10 @@ async function main() {
   let number = ''
 
   const q = `${sha} repo:"${owner}/${repo}"`
-  const { data } = await octokit.rest.search.issuesAndPullRequests({ q })
+  const { data } = await octoSecondaryRatelimitRetry(() =>
+    octokit.rest.search.issuesAndPullRequests({ q }),
+  )
   for (const issue of data.items) {
-    // console.log(issue)
     console.log('ID:', issue.id)
     console.log('Number:', issue.number)
     console.log('URL:', issue.html_url)

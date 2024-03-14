@@ -13,5 +13,5 @@ children:
   - /configuring-saml-single-sign-on-for-enterprise-managed-users
   - /configuring-oidc-for-enterprise-managed-users
   - /about-support-for-your-idps-conditional-access-policy
-  - /disabling-authentication-for-enterprise-managed-users
+  - /disabling-authentication-and-provisioning-for-enterprise-managed-users
 ---
