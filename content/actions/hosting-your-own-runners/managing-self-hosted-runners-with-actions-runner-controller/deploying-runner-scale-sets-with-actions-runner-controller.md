@@ -366,6 +366,8 @@ template:
         image: "custom-registry.io/actions-runner:latest"
         imagePullPolicy: Always
         command: ["/home/runner/run.sh"]
+    imagePullSecrets:
+      - name: <registry-secret-name>
 ```
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
