@@ -154,7 +154,7 @@ For caching to work, the runner must be able to communicate with the blob storag
 
 {% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+You must ensure that the machine has the appropriate network access with at least 70 kilobits per second upload and download speed to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
