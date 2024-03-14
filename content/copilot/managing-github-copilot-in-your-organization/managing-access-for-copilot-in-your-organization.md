@@ -32,9 +32,13 @@ Organization{% ifversion ghec %} and enterprise{% endif %} owners can manage var
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. Under "{% data variables.product.prodname_copilot_short %} in your organization," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Enabled For: All members of the organization**.
-1. In the "Confirm seat assignment" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Confirm**.
-1. To save your changes, click **Save**.
+1. If the **Allow this organization to assign seats** button is displayed, click this button.
+1. If you see the message "Configure code policies to start adding seats":
+   1. Click **Go to policies**.
+   1. Set any policies that are currently set to "Unconfigured".
+   1. In the left sidebar, click **Access**.
+1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Enabled For: All members of the organization**.
+1. In the "Confirm seats purchase" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Purchase seats**.
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
@@ -49,28 +53,37 @@ Organization{% ifversion ghec %} and enterprise{% endif %} owners can manage var
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. Under "{% data variables.product.prodname_copilot_short %} in your organization," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Enabled For: Selected members**.
-1. If you are updating user access from the **Enabled For: All members of the organization** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
+1. If the **Allow this organization to assign seats** button is displayed, click this button.
+1. If you see the message "Configure code policies to start adding seats":
+   1. Click **Go to policies**.
+   1. Set any policies that are currently set to "Unconfigured".
+   1. In the left sidebar, click **Access**.
+1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Enabled For: Selected members**.
+1. If you are updating user access from the **Enabled For: All members of the organization** setting, in the "Confirm policy update" dialog, select how you want to start assigning access.
     - To unassign all members and then select those who should have access, select **Start from scratch**.
-    - To keep all members who currently have access and then select those who should not have access, select **Keep all users**.
-1. If you selected **Start from scratch**, click **Add seats**.
-1. If you selected **Add seats**, in the "Enable {% data variables.product.prodname_copilot %} access to users and teams" dialog, you can either search for and add individual users or teams, or you can click **Upload CSV** to add members in bulk by uploading a CSV file.
+    - To keep all members who currently have access and then select those who should not have access, select **Renew seats**.
+1. Click **Assign {% data variables.product.prodname_copilot_short %} seats**.
+1. In the "Enable Copilot access for users and teams" dialog, click one of the two tabs.
 
    ![Screenshot of the "enable access for selected members" dialog.](/assets/images/help/copilot/enable-access-for-selected-members.png)
 
-    - To search for users, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
-    - To add members in bulk, click **Upload CSV**, and then upload a CSV file including either the username or email address for each member you want to add, separated by a comma. The file can contain a mixture of usernames and email addresses.
+   - Click **Users and teams** to search for and add individual users or teams.
 
-        {% warning %}
+     To search for users, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
 
-      **Warning:** When you upload a CSV file, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
+   - Click **Upload CSV** to add users in bulk by uploading a CSV file.
 
-      {% endwarning %}
+     To add members in bulk, click **Choose CSV to upload**, and then upload a CSV file including either the username or email address for each member you want to add, separated by a comma. The file can contain a mixture of usernames and email addresses.
 
-    - Review the list of users generated from your CSV file. To confirm that you want to grant access to the listed users, click **Continue to purchase** followed by **Purchase seats**. To reject the list, click **Cancel**.
+     {% warning %}
 
-1. If you selected **Keep all users**, review the full list of your organization members and select the individuals whose {% data variables.product.prodname_copilot %} you want to revoke.
-1. To confirm the revocation of access for the selected members, at the top of the list of members, click **Cancel seat**.
+     **Warning:** When you upload a CSV file, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
+
+     {% endwarning %}
+
+     Review the list of users generated from your CSV file. Clear the selection of any users you do not want to add.
+
+1. Click **Continue to purchase**, then click **Purchase seats**.
 
 ### Revoking access to {% data variables.product.prodname_copilot %} for your whole organization
 
@@ -83,12 +96,15 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. Under "{% data variables.product.prodname_copilot_short %} in your organization," select **Enabled For: selected members**.
+1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," select **Enabled For: selected members**.
 
-    - In the "Confirm seat assignment" dialog, click **Keep all users**.
+    - In the "Confirm policy update" dialog, click **Renew seats**.
 
-1. Under "Access for users and teams," in the search bar, type the member's username or full name.
+1. Under "Access management," in the search bar, type the member's username or full name.
 1. To remove the member from the list of users who have access to {% data variables.product.prodname_copilot %}, select the checkbox to the left of their username, then click **Cancel seat**.
+
+   ![Screenshot of the Access management section, with a user selected and the 'Cancel seat' button highlighted.](/assets/images/help/copilot/cancel-copilot-seat.png)
+
 1. In the "Confirm seat removal" dialog, click **Remove seats**.
 
 ## Reviewing usage data for {% data variables.product.prodname_copilot %} in your organization
@@ -106,9 +122,9 @@ You can review usage data for {% data variables.product.prodname_copilot %} in y
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview.png)
    {% endif %}
 
-1. For more detailed information, next to "Access for users and teams," click **Get report**.
+1. For more detailed information, next to "Access management," click **Get report**.
     - {% data variables.product.prodname_dotcom %} will generate a report for you, which you can download as a CSV file.
-1. Alternatively, under "Access for users and teams," you can use the **Sort** options to sort the list of users by when they last used {% data variables.product.prodname_copilot %}.
+1. Alternatively, under "Access management," you can use the **Sort** options to sort the list of users by when they last used {% data variables.product.prodname_copilot %}.
 
 ## Further reading
 
