@@ -135,6 +135,16 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'expired-content': {
+    // GHD038
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'expiring-soon': {
+    // GHD039
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {

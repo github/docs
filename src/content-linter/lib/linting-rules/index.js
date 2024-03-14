@@ -28,6 +28,7 @@ import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
 import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
 import { raiReusableUsage } from './rai-reusable-usage.js'
 import { imageNoGif } from './image-no-gif.js'
+import { expiredContent, expiringSoon } from './expired-content.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -69,5 +70,7 @@ export const gitHubDocsMarkdownlint = {
     liquidIfVersionTags,
     raiReusableUsage,
     imageNoGif,
+    expiredContent,
+    expiringSoon,
   ],
 }
