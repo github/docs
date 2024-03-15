@@ -16,7 +16,7 @@ topics:
 
 **Tips:**
 
-- By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-code-view %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
+- By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-code-view %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
 - You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% endtip %}
@@ -38,8 +38,6 @@ topics:
    ![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange.](/assets/images/help/search/find-file-search-field.png)
 1. In the list of results, click the file you wanted to find.
 {% endif %}
-
-{% ifversion file-finder-exclusion-controls %}
 
 ## Customizing excluded files
 
@@ -67,10 +65,8 @@ build/** linguist-generated=false
 
 Note that this override requires the use of the recursive glob pattern (`**`). For more information, see "[pattern format](https://git-scm.com/docs/gitignore#_pattern_format)" in the Git documentation. More complex overrides of subdirectories within excluded-by-default directories are not supported.
 
-{% endif %}
-
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
 - "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
-- [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation{% endif %}
+- [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation

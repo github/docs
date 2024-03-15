@@ -83,8 +83,6 @@ You can also use the `is` qualifier to find pull requests that are queued to mer
 
 {% endif %}
 
-{% ifversion issue-close-reasons %}
-
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
@@ -93,8 +91,6 @@ You can filter issues based on the reason given when the issue was closed, using
 | ------------- | -------------
 | `reason:completed` | [**libraries is:closed reason:completed**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."
 | `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned."
-
-{% endif %}
 
 ## Filter by repository visibility
 
