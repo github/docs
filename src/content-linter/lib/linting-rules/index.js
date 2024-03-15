@@ -25,7 +25,7 @@ import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-
 import { frontmatterSchema } from './frontmatter-schema.js'
 import { codeAnnotations } from './code-annotations.js'
 import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
-import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
+import { liquidIfTags, liquidIfVersionTags, liquidIfVersionVersions } from './liquid-versioning.js'
 import { raiReusableUsage } from './rai-reusable-usage.js'
 import { imageNoGif } from './image-no-gif.js'
 import { expiredContent, expiringSoon } from './expired-content.js'
@@ -68,6 +68,7 @@ export const gitHubDocsMarkdownlint = {
     liquidSyntax,
     liquidIfTags,
     liquidIfVersionTags,
+    liquidIfVersionVersions,
     raiReusableUsage,
     imageNoGif,
     expiredContent,
