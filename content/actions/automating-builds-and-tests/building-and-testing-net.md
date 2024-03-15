@@ -173,7 +173,6 @@ steps:
 
 {% endnote %}
 
-
 {% endif %}
 
 ## Building and testing your code
