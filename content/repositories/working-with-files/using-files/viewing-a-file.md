@@ -61,8 +61,6 @@ Within the blame view, you can view the line-by-line revision history for an ent
    ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/enterprise/repository/git-blame.png)
 {% endif %}
 
-{% ifversion blame-ignore-revs %}
-
 ## Ignore commits in the blame view
 
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
@@ -101,8 +99,6 @@ You can also configure your local git so it always ignores the revs in that file
 ```shell
 git config blame.ignoreRevsFile .git-blame-ignore-revs
 ```
-
-{% endif %}
 
 ## Bypassing `.git-blame-ignore-revs` in the blame view
 
