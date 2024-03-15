@@ -71,7 +71,7 @@ Your repository may be configured to automatically request a review from specifi
 
 If your repository has checks configured to run on pull requests, you will see any checks that failed on your pull request. This helps you catch errors before merging your branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 
-### Address review comments
+### Address reviewer comments
 
 Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines{% ifversion pull-request-comment-on-file %} or files{% endif %}. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
 
