@@ -167,6 +167,13 @@ steps:
 
 {% endnote %}
 
+{% note %}
+
+**Note-2:** Since [Version 3.2](https://github.com/actions/setup-dotnet/releases/tag/v3.2.0) of the setup-dotnet action, caching can be set up more concisely. See [Caching NuGet Packages](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) for more information.
+
+{% endnote %}
+
+
 {% endif %}
 
 ## Building and testing your code
