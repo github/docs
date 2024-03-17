@@ -27,7 +27,7 @@ The features and functionality available to your users depend on which type of e
 | Type of enterprise | User identity | Authentication | Provisioning |
 | :- | :- | :- | :- |
 | Enterprise with personal accounts on {% data variables.product.prodname_dotcom_the_website %} | Existing personal account on {% data variables.product.prodname_dotcom_the_website %} | <ul><li>Username and password for {% data variables.product.prodname_dotcom_the_website %}</li><li>Optionally, additional Security Assertion Markup Language (SAML) authentication through your external identity management system</li></ul> | <ul><li>None; users own accounts, and enterprise and organization owners grant membership manually</li><li>Optionally, use System for Cross-domain Identity Management (SCIM) from your identity management system to provision access to individual organizations that use SAML authentication</li></ul> |
-| Enterprise with managed users | Managed by your external identity management system | <ul><li>SAML</li><li>OpenID Connect (OIDC), if you use Microsoft Entra ID (previously known as Azure AD)</li></ul> | SCIM from your identity management system |
+| Enterprise with managed users | Managed by your external identity management system | <ul><li>SAML</li><li>OpenID Connect (OIDC), if you use Microsoft Entra ID (previously known as Azure AD)</li></ul> | <ul><li>SCIM from your identity management system</li></ul> |
 
 If your company is new to {% data variables.product.product_name %}, enterprises with personal accounts and {% data variables.product.prodname_emus %} are equally easy to adopt.
 

@@ -53,7 +53,7 @@ Don't share your {% data variables.product.pat_generic %} with others. Instead o
 
 If you need to share credentials with a team, store the credentials in a secure shared system. For example, you could store and share passwords securely using [1Password](https://1password.com/), or you could store keys in [Azure KeyVault](https://azure.microsoft.com/en-gb/products/key-vault) and manage access with your IAM (Identity and access management).
 
-If you're creating a {% data variables.product.prodname_actions %} workflow that needs to access the API, you can store your credentials in an encrypted secret, and access the encrypted secret from the workflow. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"{% ifversion projects-v2 %} and "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)"{% endif %}.
+If you're creating a {% data variables.product.prodname_actions %} workflow that needs to access the API, you can store your credentials in an encrypted secret, and access the encrypted secret from the workflow. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" and "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)".
 
 ## Use authentication credentials securely in your code
 
