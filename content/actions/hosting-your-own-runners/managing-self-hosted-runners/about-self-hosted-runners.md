@@ -91,20 +91,18 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### Linux
 
-- Red Hat Enterprise Linux 7 or later
-- CentOS 7 or later
-- Oracle Linux 7 or later
+- Red Hat Enterprise Linux 8 or later
+- CentOS 8 or later
+- Oracle Linux 8 or later
 - Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Debian 10 or later
+- Ubuntu 20.04 or later
+- Linux Mint 20 or later
+- openSUSE 15.2 or later
+- SUSE Enterprise Linux (SLES) 15 SP2 or later
 
 ### Windows
 
-- Windows 7 64-bit
-- Windows 8.1 64-bit
 - Windows 10 64-bit
 - Windows 11 64-bit
 - Windows Server 2016 64-bit
