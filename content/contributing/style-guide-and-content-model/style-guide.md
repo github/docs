@@ -296,7 +296,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, such as names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
+- Put multi-word titles, such as names of menu items, in double quotation marks ("").
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -505,7 +505,11 @@ Usage examples:
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
-For links to external documentation, type out the full article name: `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+For links to an external page (any website that isn't managed by {% data variables.product.prodname_dotcom %}), type out the full page title and destination site.
+
+- **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+- **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
+- **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
 
 Do not include quotation marks within a hyperlink.
 
@@ -786,10 +790,7 @@ For more information about {% data variables.product.prodname_dotcom %}'s {% dat
 
 ## Punctuation
 
-When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
-- **Use:** Under "User licenses", view your total licenses.
-
-Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Release notes
 
