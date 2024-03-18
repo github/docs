@@ -15,14 +15,17 @@ const dog = {
 // For multiple-triggered Promise sharing
 let promisedWarmServer
 
-async function warmServer() {
+async function warmServer(languagesOnly = []) {
   const startTime = Date.now()
 
   if (process.env.NODE_ENV !== 'test') {
-    console.log('Priming context information...')
+    console.log(
+      'Priming context information...',
+      languagesOnly && languagesOnly.length ? `${languagesOnly.join(',')} only` : '',
+    )
   }
 
-  const unversionedTree = await dog.loadUnversionedTree()
+  const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
   const siteTree = await dog.loadSiteTree(unversionedTree)
   const pageList = await dog.loadPages(unversionedTree)
   const pageMap = await dog.loadPageMap(pageList)
