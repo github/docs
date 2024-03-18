@@ -85,7 +85,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "enterprise": "avocado-corp",{% endif %}{% ifversion actions-OIDC-enterprise_id-claim %}
   "enterprise_id": "2",{% endif %}
   "ref_type": "branch",
-  "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
+  "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@main",
   "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
   "nbf": 1632492967,
   "exp": 1632493867,
