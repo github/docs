@@ -930,7 +930,6 @@ A release note for a known issue describes an issue that GitHub has identified, 
 A release note for a known issue answers the following questions.
 
 1. Does the behavior affect me, with my role or access?
-1. If the change solves or avoids a problem, what's that problem?
 1. What are any error messages or other recognizable UI elements that appear?
 1. Do I need to act? If so, what should I do?
 
