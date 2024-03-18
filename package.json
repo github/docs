@@ -69,6 +69,7 @@
     "update-data-and-image-paths": "node src/early-access/scripts/update-data-and-image-paths.js",
     "update-internal-links": "node src/links/scripts/update-internal-links.js",
     "validate-asset-images": "node src/assets/scripts/validate-asset-images.js",
+    "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "node src/archives/scripts/warmup-remotejson.js"
   },
   "lint-staged": {
