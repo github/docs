@@ -46,6 +46,10 @@ The {% data variables.product.prodname_copilot_for_business %} and {% data varia
 
 Billing is processed at the end of each billing cycle. Billed users are calculated based on the number of assigned {% data variables.product.prodname_copilot %} seats. Any seat assigned part way through the billing cycle will be prorated based on the number of days remaining in the cycle. Any seat assignment removed during a billing cycle will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle. If a user's access to the organization itself is removed, they will lose access immediately.
 
+{% ifversion ghec %}
+For a {% data variables.product.prodname_copilot_enterprise %} subscription, the enterprise account is the central point for all billing, which means that all {% data variables.product.prodname_copilot_short %} usage is billed to the enterprise account. For more general information about billing information for your enterprise account, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
+{% endif %}
+
 Seat assignment is managed by owners of organizations{% ifversion ghec %} which have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level{% endif %}. {% ifversion ghec %}If you are a member of multiple organizations under the same enterprise, you can be assigned {% data variables.product.prodname_copilot %} seats in more than one organization, but your enterprise will only be billed once.{% endif %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)" or{% ifversion fpt %}, in the {% data variables.product.prodname_ghe_cloud %} documentation,{% endif %} "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
 
 {% ifversion ghec %}

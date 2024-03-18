@@ -20,7 +20,10 @@
     "baseUrl": ".",
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
     "node_modules"

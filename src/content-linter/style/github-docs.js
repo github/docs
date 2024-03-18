@@ -89,6 +89,11 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
   'yaml-scheduled-jobs': {
     // GHD021
     severity: 'error',
@@ -135,6 +140,16 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'expired-content': {
+    // GHD038
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'expiring-soon': {
+    // GHD039
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -171,6 +186,11 @@ export const githubDocsFrontmatterConfig = {
   'liquid-ifversion-tags': {
     // GHD020
     severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'warning',
     'partial-markdown-files': false,
   },
 }

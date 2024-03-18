@@ -245,6 +245,11 @@
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
   },
   {
+    "action": "business.disable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was disabled for the enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.disable_saml",
     "description": "SAML single sign-on was disabled for an enterprise.",
     "docs_reference_links": "N/A"
@@ -263,6 +268,11 @@
     "action": "business.enable_oidc",
     "description": "OIDC single sign-on was enabled for an enterprise.",
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
+  },
+  {
+    "action": "business.enable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was enabled for the enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.enable_saml",
