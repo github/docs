@@ -142,6 +142,18 @@ You can add up to four links to social accounts on your profile. These are visib
 
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## Adding your ORCID iD to your profile
+
+If you're a researcher with an ORCID iD, you can identify yourself by adding your ORCID iD to your profile.
+
+{% data reusables.user-settings.access_settings %}
+1. Under "ORCID iD", click **Connect your ORCID iD**.
+1. Follow the steps to sign in to your ORCID account and then return to {% data variables.location.product_location %}.
+
+{% endif %}
+
 ## Setting a status
 
 You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
