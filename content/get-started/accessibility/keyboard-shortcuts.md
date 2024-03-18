@@ -77,13 +77,13 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>T</kbd> | Activates the file finder
-|<kbd>L</kbd> | Jump to a line in your code
-|<kbd>W</kbd> | Switch to a new branch or tag
-|<kbd>Y</kbd> | Expand a URL to its canonical form. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
-|<kbd>I</kbd> | Show or hide comments on diffs. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
-|<kbd>A</kbd> | Show or hide annotations on diffs
-|<kbd>B</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
+|<kbd>t</kbd> | Activates the file finder
+|<kbd>l</kbd> | Jump to a line in your code
+|<kbd>w</kbd> | Switch to a new branch or tag
+|<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
+|<kbd>i</kbd> | Show or hide comments on diffs. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
+|<kbd>a</kbd> | Show or hide annotations on diffs
+|<kbd>b</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
 
 {% ifversion code-search-code-view %}
 
