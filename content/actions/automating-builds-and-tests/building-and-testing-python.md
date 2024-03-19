@@ -420,13 +420,13 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: build release distributions
+      - name: Build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
           python -m pip install build
           python -m build
 
-      - name: upload windows dists
+      - name: Upload distributions
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: release-dists
