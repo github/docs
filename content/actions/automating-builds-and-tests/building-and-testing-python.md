@@ -409,6 +409,9 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: read
+
 jobs:
   release-build:
     runs-on: ubuntu-latest
@@ -434,10 +437,20 @@ jobs:
 
   pypi-publish:
     runs-on: ubuntu-latest
+
     needs:
       - release-build
+
     permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
       id-token: write
+
+    # Dedicated environments with protections for publishing are strongly recommended.
+    # For more information, see: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules
+    environment:
+      name: pypi
+      # OPTIONAL: uncomment and update to include your PyPI project URL in the deployment status:
+      # url: https://pypi.org/p/YOURPROJECT
 
     steps:
       - name: Retrieve release distributions
