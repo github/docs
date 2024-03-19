@@ -451,4 +451,4 @@ jobs:
 ```
 
 For more information about this workflow, including the PyPI settings
-needed, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi.md).
+needed, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi).
