@@ -480,18 +480,17 @@ template:
         command: ["/home/runner/run.sh"]
         env:
           - name: DOCKER_HOST
-            value: unix:///run/docker/docker.sock
+            value: unix:///var/run/docker.sock
         volumeMounts:
           - name: work
             mountPath: /home/runner/_work
           - name: dind-sock
-            mountPath: /run/docker
-            readOnly: true
+            mountPath: /var/run
       - name: dind
         image: docker:dind
         args:
           - dockerd
-          - --host=unix:///run/docker/docker.sock
+          - --host=unix:///var/run/docker.sock
           - --group=$(DOCKER_GROUP_GID)
         env:
           - name: DOCKER_GROUP_GID
@@ -502,7 +501,7 @@ template:
           - name: work
             mountPath: /home/runner/_work
           - name: dind-sock
-            mountPath: /run/docker
+            mountPath: /var/run
           - name: dind-externals
             mountPath: /home/runner/externals
     volumes:
@@ -650,18 +649,17 @@ template:
       command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: unix:///run/docker/docker.sock
+          value: unix:///var/run/docker.sock
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /run/docker
-          readOnly: true
+          mountPath: /var/run
     - name: dind
       image: docker:dind-rootless
       args:
         - dockerd
-        - --host=unix:///run/docker/docker.sock
+        - --host=unix:///var/run/docker.sock
       securityContext:
         privileged: true
         runAsUser: 1001
@@ -670,7 +668,7 @@ template:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /run/docker
+          mountPath: /var/run
         - name: dind-externals
           mountPath: /home/runner/externals
         - name: dind-etc
