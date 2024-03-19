@@ -398,7 +398,6 @@ You can configure your workflow to publish your Python package to PyPI once your
 
 The example workflow below uses [Trusted Publishing](https://docs.pypi.org/trusted-publishers/) to authenticate with PyPI, eliminating the need for a manually configured API token.
 
-
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
