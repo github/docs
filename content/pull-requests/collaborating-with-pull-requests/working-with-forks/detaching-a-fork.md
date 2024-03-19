@@ -58,6 +58,7 @@ You can delete a fork and recreate the same repository, without the connection t
 1. Mirror-push the repository back to the same remote URL.
 
    ```shell
+   cd FORK-NAME.git
    git push --mirror https://github.com/EXAMPLE-USER/FORK-NAME.git
    ```
 
