@@ -5,7 +5,7 @@ import { setOutput } from '@actions/core'
 
 import github from './github.js'
 import { getActionContext } from './action-context.js'
-import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry.js'
+import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 
 async function main() {
   const sha = await getBuiltSHA()

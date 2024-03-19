@@ -1,14 +1,14 @@
 import { RequestError } from '@octokit/request-error'
 
-const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME, 10) || 30_000
-const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS, 10) || 5
+const DEFAULT_SLEEPTIME = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_SLEEPTIME || '30000', 10)
+const DEFAULT_ATTEMPTS = parseInt(process.env.SECONDARY_RATELIMIT_RETRY_ATTEMPTS || '5', 10)
 
 // Secondary rate limits are responded with a 403. The message will contain
 // "You have exceeded a secondary rate limit".
 // More info about what they are here:
 // https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#about-secondary-rate-limits
 export async function octoSecondaryRatelimitRetry(
-  fn,
+  fn: Function,
   { attempts = DEFAULT_ATTEMPTS, sleepTime = DEFAULT_SLEEPTIME } = {},
 ) {
   let tries = 0
@@ -37,7 +37,7 @@ export async function octoSecondaryRatelimitRetry(
   }
 }
 
-async function sleep(ms) {
+async function sleep(ms: number) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
