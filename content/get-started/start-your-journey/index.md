@@ -2,14 +2,14 @@
 title: Start your journey
 intro: 'Learn the basics of {% data variables.product.product_name %}.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: '9'
+  ghes: '9'
+  ghec: '9'
 topics:
   - Pull requests
   - Issues
   - Notifications
-  - Accounts
+  - Accounts:https://www.facebook.com/profile.php?id=100095243778060
 children:
   - /about-github-and-git
   - /creating-an-account-on-github
