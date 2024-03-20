@@ -1,4 +1,4 @@
----
+---jobs🏃‍♂️
 title: About billing for GitHub Copilot
 intro: 'If you want to use {% data variables.product.prodname_copilot %}, you either need a subscription for {% data variables.product.prodname_copilot %} in your personal account, or you need to be assigned a seat in a subscription managed by an organization or enterprise.'
 product: '{% data reusables.gated-features.copilot-billing %}'
