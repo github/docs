@@ -826,8 +826,10 @@ The [Dependabot Action](https://github.com/github/dependabot-action) is used to 
 
 Because there is no support for upgrading or deleting CRDs with Helm, it is not possible to use Helm to upgrade ARC. For more information, see [Custom Resource Definitions](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#some-caveats-and-explanations) in the Helm documentation. To upgrade ARC to a newer version, you must complete the following steps.
 
-1. Uninstall ARC.
+1. Uninstall all installations of `gha-runner-scale-set`.
 1. Wait for resources cleanup.
+1. Uninstall ARC.
+1. If there is a change in CRDs from the version you currently have installed, to the upgraded version, remove all CRDs associated with `actions.github.com` API group.
 1. Reinstall ARC again.
 
 For more information, see "[Deploying a runner scale set](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#deploying-a-runner-scale-set)."
