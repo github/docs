@@ -43,6 +43,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
       <button
         onClick={onClick}
         className={cx(
+          'ghd-scroll-to-top', // for data tracking, see events.ts
           'tooltipped tooltipped-n tooltipped-no-delay color-bg-accent-emphasis color-fg-on-emphasis circle border-0',
           'd-flex flex-items-center flex-justify-center',
         )}
