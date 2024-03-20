@@ -19,9 +19,19 @@ topics:
 
 ## About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
-Autofix is an AI-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts in pull requests so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_code_scanning_caps %} autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts in pull requests so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
-{% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. The autofix system uses the OpenAI GPT-4 large language model, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% note %}
+
+**Note:** While {% data variables.product.prodname_code_scanning %} autofix is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use autofix. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to autofix.
+
+{% endnote %}
+
+{% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. Autofix uses internal {% data variables.product.prodname_copilot %} APIs and private instances of OpenAI large language models such as GPT-4, which have sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+
+{% ifversion code-scanning-autofix %}While {% data variables.product.prodname_code_scanning %} autofix is allowed by default in an enterprise and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable autofix. To learn how to disable autofix at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."{% endif %}
+
+In an organization's security overview dashboard, you can view the total number of autofix suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights-for-your-organization#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Developer experience
 
@@ -120,10 +130,11 @@ It is important to remember that the author of a pull request retains responsibi
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)"
 
 {% elsif fpt %}
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-- [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts)
+- [AUTOTITLE](/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts) in the {% data variables.product.prodname_ghe_cloud %} documentation
 
 {% endif %}
