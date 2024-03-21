@@ -35,6 +35,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 - {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
 - {% data reusables.actions.actions-runner-controller-security-practices-secret %}
 - We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
+- Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
 
 {% endnote %}
 
