@@ -33,7 +33,7 @@ After you assign a license for {% data variables.visual_studio.prodname_vss_ghe 
 
 {% note %}
 
-**Note:** To make sure that a {% data variables.product.prodname_emus %} account consumes a {% data variables.product.prodname_vs %} license, either the email address associated with the {% data variables.product.prodname_dotcom %}  account or the SCIM `userName` attribute value from the linked identity must match the UPN.
+**Note:** For {% data variables.product.prodname_emu %} only, to make sure a user account consumes a {% data variables.product.prodname_vs %} license, ensure the {% data variables.product.prodname_vs %} UPN matches the SCIM `userName` attribute or the email address from the linked identity on the {% data variables.product.prodname_dotcom %} account.
 
 {% endnote %}
 
