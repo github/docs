@@ -418,6 +418,14 @@ updates:
         # For AWS SDK, ignore all patch updates for version updates only
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    ignore:
+      - dependency-name: 'actions/checkout'
+        # For GitHub Actions, ignore all updates greater than or equal to version 3
+        versions: '>= 3'
 ```
 
 {% note %}
