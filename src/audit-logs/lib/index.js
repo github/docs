@@ -67,10 +67,7 @@ export function getAuditLogEvents(page, version, categorized = false) {
       categorizedEvents[category] = []
     }
 
-    categorizedEvents[category].push({
-      action: event.action,
-      description: event.description,
-    })
+    categorizedEvents[category].push(event)
   })
 
   return categorizedEvents
@@ -106,6 +103,7 @@ export function filterByAllowlistValues(
         action: event.action,
         description: event.description,
         docs_reference_links: event.docs_reference_links,
+        fields: event.fields,
       }
 
       if (
@@ -173,6 +171,7 @@ export function filterAndUpdateGhesDataByAllowlistValues(
         action: event.action,
         description: event.description,
         docs_reference_links: event.docs_reference_links,
+        fields: event.ghes[ghesVersion].fields,
       }
 
       if (ghesVersionAllowlists.includes(allowListValue)) {

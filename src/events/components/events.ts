@@ -378,6 +378,17 @@ function initLinkEvent() {
       link_container: container?.dataset.container,
     })
   })
+
+  // Add tracking for scroll to top button
+  document.documentElement.addEventListener('click', (evt) => {
+    const target = evt.target as HTMLElement
+    if (!target.closest('.ghd-scroll-to-top')) return
+    const url = window.location.href.split('#')[0] // Remove hash
+    sendEvent({
+      type: EventType.link,
+      link_url: `${url}#scroll-to-top`,
+    })
+  })
 }
 
 function initHoverEvent() {

@@ -32,7 +32,7 @@ If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML au
    - If the application registration does not display the roles, proceed to the next step.
 1. In the Azure portal, click **App registrations**.
 1. Click **All applications**, then use the search bar to find your application for {% data variables.product.prodname_emus %}.
-1. Click your SAML application.
+1. Click your SAML or OIDC application.
 1. In the left sidebar, click **Manifest**.
 1. Under "appRoles", add the following:
 

@@ -4,7 +4,7 @@ import {
 } from '../../lib/index.js'
 
 describe('audit log event fitering', () => {
-  it('match single allowlist value', () => {
+  it('matches single allowlist value', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -17,7 +17,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents[0].action).toEqual('repo.create')
   })
 
-  it('match multiple allowlist values', () => {
+  it('matches multiple allowlist values', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -36,7 +36,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents.length).toEqual(2)
   })
 
-  it('non-match allowlist value', () => {
+  it('does not match non-matching allowlist value', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -49,7 +49,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents.length).toBe(0)
   })
 
-  it('ghes filter and update multiple ghes versions', () => {
+  it('ghes filters and updates multiple ghes versions', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -99,5 +99,35 @@ describe('audit log event fitering', () => {
     expect(getActions('ghes-3.10').includes('repo.create')).toBe(true)
     expect(getActions('ghes-3.11').includes('repo.create')).toBe(true)
     expect(auditLogPage in currentEvents['ghes-3.12']).toBeFalsy()
+  })
+
+  it('gets the correct event fields data', () => {
+    const eventsToProcess = [
+      {
+        action: 'repo.create',
+        _allowlists: ['user'],
+        description: 'repo was created',
+        fields: ['beep'],
+        ghes: {
+          '3.10': {
+            _allowlists: ['user'],
+            fields: ['boop'],
+          },
+        },
+      },
+    ]
+    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'user')
+    expect(filteredEvents[0].fields).toContain('beep')
+
+    const currentEvents = {}
+    const auditLogPage = 'user'
+    filterAndUpdateGhesDataByAllowlistValues(
+      eventsToProcess,
+      'user',
+      currentEvents,
+      {},
+      auditLogPage,
+    )
+    expect(currentEvents['ghes-3.10'].user[0].fields).toContain('boop')
   })
 })
