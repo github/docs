@@ -6,8 +6,6 @@ sections:
     - |
       **HIGH:** An attacker with an editor role in the Management Console could gain SSH access to the instance by command injection when configuring GeoJSON settings. GitHub has requested CVE ID [CVE-2024-2443](https://www.cve.org/cverecord?id=CVE-2024-2443) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      **MEDIUM:** An attacker could maintain admin access to a detached repository in a race condition by making a GraphQL mutation to alter repository permissions while the repository is detached. GitHub has requested CVE ID [CVE-2024-2440](https://nvd.nist.gov/vuln/detail/CVE-2024-2440) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
-    - |
       **MEDIUM**: An attacker could execute CSRF attacks to perform unauthorized actions on behalf of an unsuspecting user, using the GraphQL mutations. A mitigating factor is that user interaction is required. GitHub has requested CVE ID [CVE-2024-2748](https://nvd.nist.gov/vuln/detail/CVE-2024-2748) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       Packages have been updated to the latest security versions.
