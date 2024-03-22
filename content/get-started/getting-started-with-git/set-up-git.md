@@ -17,7 +17,6 @@ intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open-
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

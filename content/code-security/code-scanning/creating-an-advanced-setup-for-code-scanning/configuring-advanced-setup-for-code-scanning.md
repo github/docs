@@ -19,7 +19,6 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ## About {% ifversion code-scanning-without-workflow %}advanced setup for {% endif %}{% data variables.product.prodname_code_scanning %}
@@ -31,7 +30,15 @@ Advanced setup for {% data variables.product.prodname_code_scanning %} is helpfu
 {% data variables.product.prodname_code_scanning_caps %} helps you catch vulnerabilities in the code in your repository. With {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can select custom or built-in query suites for use in your analysis, set a specific scan schedule, choose which events trigger a scan, and more.
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
 You can also configure {% data variables.product.prodname_code_scanning %} with third-party tools. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} using third-party actions](#configuring-code-scanning-using-third-party-actions)."
+
+{% else %}
+
+Your site administrator can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)."
+
+{% endif %}
 
 {% data reusables.code-scanning.about-multiple-configurations-link %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
@@ -48,12 +55,6 @@ Your repository is eligible for {% ifversion code-scanning-without-workflow %}ad
 - it is publicly visible.{%- elsif ghec %}
 - it is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
 - {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
-
-{% ifversion ghae %}
-Before configuring {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
-
-Enterprise owners, organization and repository administrators can add self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-{% endif %}
 
 {% ifversion ghes %}
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, your site administrator can enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} by making the {% data variables.product.prodname_codeql %} analysis bundle available on the server. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."

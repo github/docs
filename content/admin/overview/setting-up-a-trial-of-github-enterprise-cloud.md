@@ -14,7 +14,7 @@ topics:
 shortTitle: Enterprise Cloud trial
 ---
 
-{% data reusables.enterprise.ghec-cta-button %}
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_ghe_cloud %}
 
@@ -26,7 +26,7 @@ You can set up a trial to evaluate the additional features that come with {% dat
 
 You can set up a {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 
-During the trial, you can add up to three new organizations to your enterprise. There are no limitations on the number of existing organizations you can transfer to your enterprise. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_enterprise_sales %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
+During the trial, you can add up to three new organizations to your enterprise. You can transfer any number of existing organizations to your enterprise as part of the trial, so long as those organizations do not have any free or paid {% data variables.product.prodname_marketplace %} apps. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
 
 Your trial also includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats, up to 1,000.
 
@@ -42,9 +42,9 @@ The following features are not included in the trial of {% data variables.produc
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 - {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 - {% data variables.product.prodname_sponsors %}
-- Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported as part of the trial)
+- Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported for new organizations as part of the trial)
 - {% data variables.product.prodname_github_connect %}
 - For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 - If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
@@ -53,7 +53,7 @@ If you invite an existing organization into your trial enterprise, all of these 
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/quickstart/creating-an-account-on-github)."
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github)."
 
 {% note %}
 
@@ -90,5 +90,9 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-1. Follow the prompts.
+1. If your trial is active:
+   1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
+   1. Follow the prompts.
+1. If your trial is expired:
+   1. At the top of the page, click **Delete trial**.
+   1. Follow the prompts.

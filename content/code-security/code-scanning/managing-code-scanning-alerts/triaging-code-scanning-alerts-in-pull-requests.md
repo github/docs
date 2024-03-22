@@ -24,15 +24,23 @@ topics:
 ---
 
 
-{% data reusables.code-scanning.beta %}
-
 ## About {% data variables.product.prodname_code_scanning %} results on pull requests
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system. {% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
+In repositories where {% data variables.product.prodname_code_scanning %} is configured as a pull request check, {% data variables.product.prodname_code_scanning %} checks the code in the pull request. By default, this is limited to pull requests that target the default branch, but you can change this configuration within {% data variables.product.prodname_actions %} or in a third-party CI/CD system.
+
+{% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
 
 - Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
 - The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
 - The **Files changed** tab of the pull request
+
+{% ifversion code-scanning-alerts-in-pr-diff %}
+{% note %}
+
+**Note:** {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
+
+{% endnote %}
+{% endif %}
 
 If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
 
@@ -112,13 +120,13 @@ You can choose to require all conversations in a pull request, including those o
 
 Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
 
-{% ifversion code-scanning-autofix-js-ts %}
+{% ifversion code-scanning-autofix %}
 
 ## Working with autofix suggestions for alerts
 
-{% data reusables.rai.code-scanning.beta-autofix-js-ts %}
+{% data reusables.rai.code-scanning.beta-autofix %}
 
-Autofix is an AI-powered expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
 ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. The first paragraph of the "autofix" suggestion for the alert is highlighted in dark orange.](/assets/images/help/code-scanning/alert+autofix.png)
 

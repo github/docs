@@ -4,6 +4,187 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'BUY_ME_A_COFFEE<code>was added to enum</code>FundingPlatform'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>recurring</code> of type <code>Boolean</code> was added to input object type <code>CreateSponsorshipsInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>OTECHIE</code> was removed from enum <code>FundingPlatform</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument 'names: [String!]' (with default value) added to field <code>Repository.environments</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'RULESET_REQUIRED_SIGNATURES<code>was removed from enum</code>RepositoryRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-03-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type 'ProjectV2Item'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MarkNotificationAsDoneInput</code> was added</p>",
+          "<p>Type <code>MarkNotificationAsDonePayload</code> was added</p>",
+          "<p>Field <code>markNotificationAsDone</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>POLAR</code> was added to enum <code>FundingPlatform</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>PullRequest.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>PullRequestReview.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2024-07-01</strong>.</p>",
+          "<p>On member <code>PullRequestReviewComment.databaseId</code>:<code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead. <strong>Effective 2024-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-02-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>hasSponsorshipsEnabled</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>hasSponsorshipsEnabled</code> was added to interface <code>RepositoryInfo</code></p>",
+          "<p>Input field <code>hasSponsorshipsEnabled</code> of type <code>Boolean</code> was added to input object type <code>UpdateRepositoryInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>isInMergeQueue</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>isMergeQueueEnabled</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>mergeQueue</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Input field <code>countMembersAlreadyRequested</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>",
+          "<p>Input field <code>includeChildTeamMembers</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>",
+          "<p>Input field <code>removeTeamRequest</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PropertyTargetDefinition</code> was added</p>",
+          "<p>Type <code>PropertyTargetDefinitionInput</code> was added</p>",
+          "<p>Type <code>RepositoryPropertyConditionTarget</code> was added</p>",
+          "<p>Type <code>RepositoryPropertyConditionTargetInput</code> was added</p>",
+          "<p>Field <code>repositoryProperty</code> was added to object type <code>RepositoryRuleConditions</code></p>",
+          "<p>Input field <code>repositoryProperty</code> of type <code>RepositoryPropertyConditionTargetInput</code> was added to input object type <code>RepositoryRuleConditionsInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>billingEmail</code> was added to object type <code>Enterprise</code></p>"
         ]
       }

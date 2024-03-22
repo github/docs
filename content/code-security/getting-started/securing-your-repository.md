@@ -67,7 +67,6 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 1. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
 
-{% data reusables.dependabot.dependabot-alerts-beta %}
 {% ifversion dependabot-alerts-ghes-enablement %}
 {% data reusables.dependabot.dependabot-alerts-enterprise-server-repo-org-enablement %}
 {% else %}
@@ -88,8 +87,6 @@ Dependency review is a {% data variables.product.prodname_GH_advanced_security %
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
 
 {% endif %}
-
-{% ifversion fpt or ghec or ghes %}
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %}
 
@@ -115,8 +112,6 @@ You can enable {% data variables.product.prodname_dependabot %} to automatically
 To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a `dependabot.yml` configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 {% endif %}
 
-{% endif %}
-
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool.{% ifversion code-scanning-without-workflow %} Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.prodname_dotcom %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."{% else %} For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."{% endif %}
@@ -132,7 +127,7 @@ Alternatively, you can use advanced setup, which generates a workflow file you c
 
 {% endif %}
 
-{% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}.
+{% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
 
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
@@ -157,9 +152,11 @@ For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-s
 
 ## Next steps
 
-You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
+You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)," "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
 
 You can also use {% data variables.product.prodname_dotcom %}'s tools to audit responses to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
 
 {% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)" and "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
 {% endif %}
+
+{% data reusables.security-overview.security-information-about-actions %}

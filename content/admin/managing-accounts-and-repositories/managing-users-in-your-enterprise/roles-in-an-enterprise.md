@@ -11,7 +11,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -43,7 +42,7 @@ For more information about adding people to your enterprise, see "[AUTOTITLE](/a
 Enterprise owners have complete control over the enterprise and can take every action, including:
 
 - Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
+- {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
 - Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Managing enterprise settings
 - Enforcing policy across organizations
@@ -90,12 +89,14 @@ People with outside collaborator access to repositories owned by your organizati
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can use the role of guest collaborator to grant limited access to vendors and contractors. Like all {% data variables.enterprise.prodname_managed_users %}, guest collaborators are provisioned by your IdP. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member. Guest collaborators will never see internal repositories in an organization they are not a member of.
 
-The base permission policy for an organization controls whether or not the guest collaborator has access to private repositories in an organization they are a member of, just like it will for other enterprise members. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+The base permission policy for an organization controls whether or not the guest collaborator has access to internal and private repositories in an organization they are a member of. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+
+When you add a guest collaborator to an organization with the base permissions set to "No permission", the guest collaborator will not have access to internal and private repositories unless added directly to one of the repositories as a collaborator, or through an authorized team. For more information about granting users and teams access to a repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
 
 Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
 When provisioning your guest collaborators, make sure that the only role assigned to the user in your IdP is guest collaborator. This applies to both direct assignment, and group memberships. If the same user is assigned multiple roles, the more privileged role will override the less privileged role. For example, if you assign the guest collaborator role directly to a user, but the user is also a member of a group that's assigned the enterprise owner role, the user will have the full privileges of an enterprise owner.
 
-If you use Azure AD or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#enabling-guest-collaborators)."
+If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML authentication, or if you use Entra ID for OIDC authentication, you may need to update your IdP application to use guest collaborators. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."
 
 {% endif %}

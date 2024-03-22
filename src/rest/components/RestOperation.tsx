@@ -1,16 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
-import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
 import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { Link } from 'src/frame/components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
+import { RestAuth } from './RestAuth'
 import { Operation } from './types'
 
 import styles from './RestOperation.module.scss'
@@ -58,22 +57,17 @@ export function RestOperation({ operation }: Props) {
       <HeadingLink as="h2" slug={titleSlug}>
         {operation.title}
       </HeadingLink>
-      {operation.enabledForGitHubApps && (
-        <div className="d-flex">
-          <span className="mr-2 d-flex flex-items-center">
-            <CheckCircleFillIcon size={16} />
-          </span>
-          <span>
-            {t('works_with') + ' '}
-            <Link href={`/${router.locale}/developers/apps`}>GitHub Apps</Link>
-          </span>
-        </div>
-      )}
       <div className="d-flex flex-wrap gutter mt-4">
         <div className="col-md-12 col-lg-6">
           <div
             className={cx(styles.codeBlock)}
             dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }}
+          />
+
+          <RestAuth
+            progAccess={operation.progAccess}
+            slug={titleSlug}
+            heading={t('fine_grained_access').replace('{{ RESTOperationTitle }}', operation.title)}
           />
 
           {hasParameters && (

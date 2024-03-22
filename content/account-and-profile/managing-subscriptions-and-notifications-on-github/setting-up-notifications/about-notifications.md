@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications
@@ -50,7 +49,7 @@ To unsubscribe from conversations you're automatically subscribed to, you can ch
 
 ## Customizing notifications and subscriptions
 
-You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications){% ifversion fpt or ghes or ghec %} and in the {% data variables.product.prodname_mobile %} app{% endif %}, through your email, or some combination of these options.
+You can choose to view your notifications through the notifications inbox at [https://github.com/notifications](https://github.com/notifications) and in the {% data variables.product.prodname_mobile %} app, through your email, or some combination of these options.
 
 To customize the types of updates you'd like to receive and where to send those updates, configure your notification settings. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
@@ -58,9 +57,7 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request)."
 
-{% ifversion fpt or ghes or ghec %}
 You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#managing-your-notification-settings-with-github-mobile)."
-{% endif %}
 
 ## Reasons for receiving notifications
 
@@ -84,7 +81,7 @@ From your inbox you can also triage multiple notifications at once. For more inf
 
 ## Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} or {% data variables.product.prodname_mobile %}{% endif %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox on {% data variables.location.product_location %} or {% data variables.product.prodname_mobile %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
 
 ## Notification retention policy
 

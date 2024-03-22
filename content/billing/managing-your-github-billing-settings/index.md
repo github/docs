@@ -15,7 +15,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /about-billing-on-github
   - /about-billing-for-your-enterprise

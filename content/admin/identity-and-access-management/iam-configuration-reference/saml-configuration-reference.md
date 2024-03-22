@@ -73,7 +73,7 @@ The following SAML attributes are available for {% data variables.product.produc
 | `NameID` | {% octicon "check" aria-label="Required" %} | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."<br><br>{% note %}**Note:** It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.{% endnote %}  |
 | `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Session duration and timeout](#session-duration-and-timeout)." |
 {%- ifversion ghes %}
-| `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
+| `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
 | `username` | {% octicon "x" aria-label="Optional" %} | The username for {% data variables.location.product_location %}. |
 {%- endif %}
 | `full_name` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. |
@@ -95,7 +95,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 {% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
 
 - Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-- Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as {% ifversion ghes %}`http(s)://HOSTNAME`{% elsif ghae %}`https://SUBDOMAIN.githubenterprise.com`, `https://SUBDOMAIN.github.us`, or `https://SUBDOMAIN.ghe.com`{% endif %}.{% endif %}
+- Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as `http(s)://HOSTNAME`.{% endif %}
 
   {%- ifversion ghec %}
   - If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
@@ -111,7 +111,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
          <saml:Subject>
            <saml:NameID ...>...</saml:NameID>
            <saml:SubjectConfirmation ...>
-             <saml:SubjectConfirmationData Recipient="https://{% ifversion ghec %}github.com/enterprises/ENTERPRISE{% elsif ghes %}HOSTNAME{% elsif ghae %}SUBDOMAIN.ghe.com{% endif %}/saml/consume" .../>
+             <saml:SubjectConfirmationData Recipient="https://{% ifversion ghec %}github.com/enterprises/ENTERPRISE{% elsif ghes %}HOSTNAME{% endif %}/saml/consume" .../>
            </saml:SubjectConfirmation>
          </saml:Subject>
          <saml:AttributeStatement>
@@ -143,7 +143,7 @@ To prevent authentication errors, we recommend a minimum session duration of 4 h
 
 **Notes**:
 
-- For Azure AD, the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
+- For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
 - Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
 
 {% endnote %}

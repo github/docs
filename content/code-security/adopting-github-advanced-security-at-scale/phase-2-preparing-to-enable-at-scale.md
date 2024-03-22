@@ -158,14 +158,6 @@ If you are enabling {% data variables.product.prodname_secret_scanning %} on a l
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion ghae %}
-{% note %}
-
-**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
-
-{% endnote %}
-{% endif %}
-
 {% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 
 As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."

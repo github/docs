@@ -41,10 +41,6 @@ If you use an enterprise with {% data variables.product.prodname_emus %}, member
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
 
-{% elsif ghae %}
-
-{% data variables.product.product_name %} uses SAML SSO for authentication, and automatically creates a username for each person when the person signs in through your identity provider (IdP) for the first time.
-
 {% endif %}
 
 {% ifversion ghec %}
@@ -57,10 +53,10 @@ When you provision a new user from your identity provider, the new {% data varia
 
 | Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
+| Microsoft Entra ID (previously known as Azure AD) | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
 | Okta                              | IDP-USERNAME is the normalized username attribute provided by the IdP.               |
 
-These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
+These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Entra ID, the following UPNs will result in the same username:
 
 - `bob@contoso.com`
 - `bob@fabrikam.com`
@@ -81,8 +77,6 @@ Usernames for user accounts on {% ifversion ghes %}{% data variables.product.pro
 When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom_the_website %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 {% elsif ghes %}
 When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
-{% elsif ghae %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your IdP to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 {% endif %}
 
 1. {% data variables.product.product_name %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
@@ -119,7 +113,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 
 {% data variables.product.product_name %} requires the `NameID` element even if other attributes are present. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)."
 
-{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username {% ifversion ghae %}in{% else %}on{% endif %} {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
+{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% ifversion ghes %}
 {% note %}
@@ -150,18 +144,18 @@ When you change the attribute mapping, usernames of existing {% data variables.e
 
 {% endnote %}
 
-### Resolving username problems with Azure AD
+### Resolving username problems with Entra ID
 
-To resolve username problems in Azure AD, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
+To resolve username problems in Entra ID, either modify the User Principal Name value for the conflicting user or modify the attribute mapping for the `userName` attribute. If you modify the attribute mapping, you can choose an existing attribute or use an expression to ensure that all provisioned users have a unique normalized alias.
 
-1. In Azure AD, open the {% data variables.product.prodname_emu_idp_application %} application.
+1. In Entra ID, open the {% data variables.product.prodname_emu_idp_application %} application.
 1. In the left sidebar, click **Provisioning**.
 1. Click **Edit Provisioning**.
-1. Expand **Mappings**, then click **Provision Azure Active Directory Users**.
+1. Expand **Mappings**, then click **Provision Entra ID Users**.
 1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping.
 1. Change the attribute mapping.
-   - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
-   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
+   - To map an existing attribute in Entra ID to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
+   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/app-provisioning/functions-for-customizing-application-data) on Microsoft Learn.
 
 ### Resolving username problems with Okta
 

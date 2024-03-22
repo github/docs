@@ -4,7 +4,6 @@ intro: 'Learn to identify how many organizations to create within your enterpris
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Administrator

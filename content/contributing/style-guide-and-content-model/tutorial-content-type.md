@@ -1,7 +1,6 @@
 ---
 title: Tutorial content type
 intro: 'Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

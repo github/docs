@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -6,14 +6,30 @@ import { defineConfig, devices } from '@playwright/test'
  */
 // require('dotenv').config();
 
+const CI = Boolean(JSON.parse(process.env.CI || 'false'))
+
 const PLAYWRIGHT_START_SERVER_COMMAND =
   process.env.PLAYWRIGHT_START_SERVER_COMMAND || 'npm run start-for-playwright'
 
-const RETRIES = process.env.PLAYWRIGHT_RETRIES
-  ? Number(process.env.PLAYWRIGHT_RETRIES)
-  : process.env.CI
-    ? 2
-    : 0
+// All of these "patience" related settings follow a simple pattern;
+// If the env var are explicitly set, use that value, otherwise, if
+// we're in CI, be very patient, otherwise, be much less patient.
+// The reasoning is that most engineer laptops are faster than CI
+// and most importantly, if a test gets stuck it's probably not because
+// of a slow CPU, but because the test is plainly wrong. The engineer
+// working on it doesn't want to have to wait half a minute to find out
+// they have a bug in a test action or an assertion.
+const RETRIES = process.env.PLAYWRIGHT_RETRIES ? Number(process.env.PLAYWRIGHT_RETRIES) : CI ? 2 : 0
+const TIMEOUT = process.env.PLAYWRIGHT_TIMEOUT
+  ? Number(process.env.PLAYWRIGHT_TIMEOUT)
+  : CI
+    ? 30 * 1000
+    : 5 * 1000
+const EXPECT_TIMEOUT = process.env.PLAYWRIGHT_EXPECT_TIMEOUT
+  ? Number(process.env.PLAYWRIGHT_EXPECT_TIMEOUT)
+  : CI
+    ? 5 * 1000
+    : 2 * 1000
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -21,13 +37,13 @@ const RETRIES = process.env.PLAYWRIGHT_RETRIES
 export default defineConfig({
   testDir: './tests',
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: TIMEOUT,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 5000,
+    timeout: EXPECT_TIMEOUT,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -38,7 +54,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.PLAYWRIGHT_WORKERS
     ? JSON.parse(process.env.PLAYWRIGHT_WORKERS)
-    : process.env.CI
+    : CI
       ? 1
       : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -56,28 +72,28 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        // need this wider width because of our slightly wider than normal xl
-        // breakpoint that helps prevent overlapping main content with the minitoc
-        viewport: {
-          width: 1400,
-          height: 720,
-        },
-      },
-    },
+    // {
+    //   name: 'chromium',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     // need this wider width because of our slightly wider than normal xl
+    //     // breakpoint that helps prevent overlapping main content with the minitoc
+    //     viewport: {
+    //       width: 1400,
+    //       height: 720,
+    //     },
+    //   },
+    // },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

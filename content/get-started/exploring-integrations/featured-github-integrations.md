@@ -19,7 +19,7 @@ shortTitle: Featured integrations
 
 ## Editor tools
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as Unity and {% data variables.product.prodname_vs %}.
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools such as {% data variables.product.prodname_vs %}.
 
 {% ifversion fpt %}
 {% note %}
@@ -28,10 +28,6 @@ You can connect to {% data variables.product.product_name %} repositories within
 
 {% endnote %}
 {% endif %}
-
-### {% data variables.product.product_name %} for Unity
-
-With the {% data variables.product.product_name %} for Unity editor extension, you can develop on Unity, the open source game development platform, and see your work on {% data variables.product.product_name %}. For more information, see the official Unity editor extension [site](https://unity.github.com/) or the [documentation](https://github.com/github-for-unity/Unity/tree/master/docs).
 
 ### {% data variables.product.product_name %} for {% data variables.product.prodname_vs %}
 

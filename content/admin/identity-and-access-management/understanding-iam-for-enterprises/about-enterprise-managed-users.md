@@ -60,7 +60,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 With {% data variables.product.prodname_emus %}, your IdP creates and updates user accounts on {% data variables.location.product_location %}. Users must authenticate on your IdP to access your enterprise's resources on {% data variables.location.product_location %}. {% data variables.product.product_name %} maintains a record of the external identity on your IdP that corresponds with the user account.
 
-{% data reusables.enterprise_user_management.emu-paved-path-iam-integrations %} These IdPs mostly provide authentication using SAML. Azure AD also offers OIDC for authentication. The IdP applications provision users with System for Cross-domain Identity Management (SCIM).
+{% data reusables.enterprise_user_management.emu-paved-path-iam-integrations %} These IdPs mostly provide authentication using SAML. Microsoft Entra ID (previously known as Azure AD) also offers OIDC for authentication. The IdP applications provision users with System for Cross-domain Identity Management (SCIM).
 
 {% endif %}
 
@@ -68,7 +68,7 @@ With {% data variables.product.prodname_emus %}, your IdP creates and updates us
 
 | Partner IdP | SAML | OIDC | SCIM |
 | :- | :- | :- | :- |
-| Azure Active Directory | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Entra ID | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 | PingFederate | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |
 
@@ -80,18 +80,20 @@ With {% data variables.product.prodname_emus %}, your IdP creates and updates us
 
 Other IdPs must adhere to the SAML 2.0 specification for authentication. You can configure provisioning with IdPs that adhere to {% data variables.product.company_short %}'s integration guidelines. The IdP must adhere to the SCIM 2.0 specification and communicate with {% data variables.product.company_short %}'s REST API. For example, the IdP could be a commercial identity management system that {% data variables.product.company_short %} has not tested, or a custom identity system that your company builds.
 
-{% data reusables.scim.ghec-open-scim-beta-note %}
+{% note %}
+
+**Note**: {% data reusables.scim.ghec-open-scim-release-phase %}
+
+{% endnote %}
 
 For more information about authentication and provisioning, see the following articles.
 
 - "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)"
 - "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)"
 
-Some customers have reported success using a partner IdP's application only for authentication, in combination with a different IdP for provisioning. For example, a combination of Okta for authentication and a custom SCIM solution for provisioning, or a combination of Keycloak for authentication and SailPoint for provisioning. {% data variables.product.company_short %} has not tested all IdPs, and does not test partner IdPs in combination with other IdPs.
+If you don't use a partner IdP's application for both authentication and provisioning, you can configure authentication using SAML, and provision users using {% data variables.product.company_short %}'s REST API. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
 
-For more information about provisioning users from your IdP using the private beta of {% data variables.product.company_short %}'s SCIM schema, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
-
-{% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
+Some customers have reported success using a partner IdP's application only for authentication, in combination with a different identity management system for provisioning. For example, you could use Okta for SAML SSO and a custom SCIM implementation for user provisioning. {% data variables.product.company_short %} does not expressly support mixing and matching partner IdPs for authentication and provisioning, does not test partner IdPs in combination with other IdPs, and has not tested all identity management systems.
 
 {% endif %}
 
@@ -115,7 +117,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 1. After you log in as the setup user, we recommend enabling two-factor authentication. The setup user's password and two-factor credentials can also be used to enter sudo mode, which is required to take sensitive actions. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
 
-1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your IdP, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another IdP, like Okta or PingFederate, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Entra ID as your IdP, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another IdP, like Okta or PingFederate, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
    {%- ifversion oidc-for-emu %}
 

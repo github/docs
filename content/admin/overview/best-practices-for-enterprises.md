@@ -12,18 +12,19 @@ topics:
   - Fundamentals
 ---
 
+{% ifversion ghec %}
+
+## Choose an enterprise type
+
+Before you start using {% data variables.product.product_name %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
+
+For help identifying the type of enterprise that will best meet your needs, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)."
+
+{% endif %}
+
 ## Assign multiple owners
 
 {% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."{% endif %}
-
-{% ifversion ghec %}
-
-## Identify the best authentication method for your enterprise
-
-{% data reusables.enterprise.ghec-authentication-options %}
-
-For help identifying the authentication method that will best meet your needs, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
-{% endif %}
 
 ## Use policies
 
@@ -46,6 +47,14 @@ We recommend collaborating in organization-owned repositories whenever possible 
 {% ifversion ghec %}If you control the usernames for enterprise members, use{% else %}Use{% endif %} human-readable usernames, and avoid machine-generated IDs that are difficult for humans to read.
 
 You can manage the display of usernames within your enterprise's private repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
+
+{% ifversion enterprise-readme %}
+
+## Create a README
+
+{% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+
+{% endif %}
 
 ## Further reading
 

@@ -9,14 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
 layout: inline
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
@@ -172,7 +170,7 @@ jobs:
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
-          registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: docker.pkg.github.com
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
@@ -182,7 +180,7 @@ jobs:
         with:
           push: true
           tags: |
-            {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+            docker.pkg.github.com/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
 ```
 
 {% endif %}

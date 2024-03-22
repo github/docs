@@ -4,7 +4,6 @@ intro: 'When a workflow is configured to run on the `workflow_dispatch` event, y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Manually run a workflow
 redirect_from:
@@ -94,4 +93,4 @@ When using the REST API, you configure the `inputs` and `ref` as request body pa
 
 {% endnote %}
 
-For more information about using the REST API, see the "[AUTOTITLE](/rest/actions#create-a-workflow-dispatch-event)."
+For more information about using the REST API, see "[AUTOTITLE](/rest/actions/workflows#create-a-workflow-dispatch-event)."

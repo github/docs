@@ -20,12 +20,9 @@ shortTitle: Add a security policy
 
 ## About security policies
 
-To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a `SECURITY.md` file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a `SECURITY.md` file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+To give people instructions for reporting security vulnerabilities in your project, you can add a `SECURITY.md` file to your repository's root, `docs`, or `.github` folder. When someone creates an issue in your repository, they will see a link to your project's security policy.
 
-{% ifversion not ghae %}
-<!-- no public repositories in GHAE -->
 You can create a default security policy for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-{% endif %}
 
 {% tip %}
 
@@ -59,6 +56,6 @@ For an example of a real `SECURITY.md` file, see [https://github.com/electron/el
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

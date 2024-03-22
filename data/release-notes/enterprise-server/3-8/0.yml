@@ -44,7 +44,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2665
         - |
-          Enterprise and organization owners can support adherance to the principle of least privilege by granting access to audit log endpoints without providing full administrative privileges. To provide this access, personal access tokens and OAuth apps now support the `read:audit_log` scope. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+          Enterprise and organization owners can support adherance to the principle of least privilege by granting access to audit log endpoints without providing full administrative privileges. To provide this access, {% data variables.product.pat_generic_plural %} and OAuth apps now support the `read:audit_log` scope. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
         # https://github.com/github/releases/issues/2676
         - |
@@ -455,7 +455,7 @@ sections:
     - |
       After upgrading to GitHub Enterprise Server 3.8.0, commands run via SSH on any of the instance's nodes will not be logged in `/var/log/ssh-console-audit.log`. To resolve this issue, SSH into the affected node and run the following command.
 
-      ```
+      ```shell
       source /etc/bash.bashrc
       ```
     - '{% data reusables.release-notes.git-push-known-issue %} [Updated: 2023-03-17]'
@@ -463,7 +463,7 @@ sections:
     - |
       Use of the search API may cause subsequent requests to other interfaces to fail. When this issue occurs, impacted API or web UI users will receive HTTP 5xx responses and this `NoMethodError` exception will be logged:
 
-      ```
+      ```shell
       NoMethodError (undefined method `starts_with?' for [:ok, "refs/heads/main"]:Array):
       ```
     - |

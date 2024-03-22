@@ -1,6 +1,6 @@
 ---
 title: About GitHub Importer
-intro: "If your source code is stored on a code hosting service using Git, Subversion, Mercurial, or Team Foundation Version Control (TFVC) and is accessible from the public internet, you can move the code to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_dotcom %} Importer."
+intro: "If your source code is stored on a code hosting service using Git, Subversion, Mercurial, or Team Foundation Version Control (TFVC) and is accessible from the public internet, you can move the code to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_importer %}."
 redirect_from:
   - /articles/about-github-importer
   - /github/importing-your-projects-to-github/about-github-importer
@@ -11,9 +11,9 @@ versions:
   ghec: '*'
 ---
 
-## About {% data variables.product.prodname_dotcom %} Importer
+## About {% data variables.product.prodname_importer %}
 
-{% data variables.product.prodname_dotcom %} Importer is a tool that quickly imports source code repositories, including commits and revision history, to {% data variables.product.prodname_dotcom_the_website %} for you.
+{% data variables.product.prodname_importer %} is a tool that quickly imports source code repositories, including commits and revision history, to {% data variables.product.prodname_dotcom_the_website %} for you.
 
 During an import, depending on the version control system you're importing from, you can authenticate with your remote repository, update commit author attribution, and either import repositories with large files or, if you don't want to use {% data variables.large_files.product_name_long %}, remove large files.
 

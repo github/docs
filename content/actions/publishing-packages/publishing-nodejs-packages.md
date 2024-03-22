@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -18,7 +17,7 @@ topics:
   - Node
   - JavaScript
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -73,7 +72,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '20.x'
+          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
@@ -136,7 +135,7 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '20.x'
+          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
@@ -154,7 +153,7 @@ The `setup-node` action creates an `.npmrc` file on the runner. When you use the
 always-auth=true
 ```
 
-## Publishing packages using yarn
+## Publishing packages using Yarn
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
@@ -171,7 +170,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '20.x'
+          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
@@ -180,3 +179,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
+
+To authenticate with the registry during publishing, ensure your authentication token is also defined in your `yarnrc.yml` file. For more information, see the [Settings](https://yarnpkg.com/configuration/yarnrc#npmAuthToken) article in the Yarn documentation.

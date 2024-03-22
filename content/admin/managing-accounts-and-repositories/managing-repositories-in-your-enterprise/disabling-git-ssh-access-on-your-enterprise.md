@@ -18,7 +18,6 @@ redirect_from:
 intro: You can prevent people from using Git over SSH for certain or all repositories on your enterprise.
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise

@@ -1,9 +1,10 @@
 ---
-title: Secret scanning
+title: REST API endpoints for secret scanning
+shortTitle: Secret scanning
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve and update secret alerts from a repository.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

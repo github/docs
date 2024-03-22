@@ -33,7 +33,7 @@ You can enforce policies to control the security settings for organizations owne
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-{% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
+{% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.{% ifversion ghec %} This policy is not available for enterprises with managed users.{% endif %}
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
 
@@ -95,6 +95,20 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+{% ifversion ssh-ca-expires %}
+
+## Upgrading an SSH certificate authority
+
+CAs uploaded to your enterprise {% ifversion ghec %}prior to March 27th, 2024,{% elsif ghes %}before {% data variables.product.prodname_ghe_server %} version 3.13{% endif %} allow the use of non-expiring certificates. To learn more about why expirations are now required for new CAs, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#issuing-certificates)." You can upgrade an existing CA to prevent it from issuing non-expiring certificates. For best security, we strongly recommend upgrading all your CAs once you validate you're not reliant on non-expiring certificates.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "SSH Certificate Authorities", to the right of the CA you want to upgrade, click **Upgrade**.
+1. Read the warning, then click **Upgrade**.
+
+After upgrading the CA, non-expiring certificates signed by that CA will be rejected.
+{% endif %}
 
 {% ifversion sso-redirect %}
 

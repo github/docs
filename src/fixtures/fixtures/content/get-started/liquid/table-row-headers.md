@@ -4,7 +4,6 @@ intro: A table with a Liquid tag that turns the first column into `<th>` cells
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

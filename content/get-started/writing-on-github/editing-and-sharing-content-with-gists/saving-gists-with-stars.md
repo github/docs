@@ -4,7 +4,6 @@ intro: 'You can star gists to keep track of projects you find interesting.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## Starring a gist

@@ -8,8 +8,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## About this error
 
 ```text

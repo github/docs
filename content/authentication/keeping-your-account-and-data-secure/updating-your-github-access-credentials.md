@@ -1,6 +1,6 @@
 ---
 title: Updating your GitHub access credentials
-intro: '{% data variables.product.product_name %} credentials include{% ifversion not ghae %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
+intro: '{% data variables.product.product_name %} credentials include not only your password, but also the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -10,15 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
   - Access management
 shortTitle: Update access credentials
 ---
-{% ifversion not ghae %}
-
 ## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
@@ -61,17 +58,12 @@ To avoid losing your password in the future, we suggest using a secure password 
 For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication) for more details.
 
 {% endtip %}
-{% endif %}
 
 ## Updating your access tokens
 
 See "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-{% ifversion not ghae %}
-
 If you have reset your account password and would also like to trigger a sign-out from the {% data variables.product.prodname_mobile %} app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" {% data variables.product.prodname_oauth_app %}. This will sign out all instances of the {% data variables.product.prodname_mobile %} app associated with your account. For additional information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
-
-{% endif %}
 
 ## Updating your SSH keys
 
@@ -79,11 +71,8 @@ See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-
 
 ## Resetting API tokens
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[AUTOTITLE](/rest/apps#reset-an-authorization)" endpoint.
-
-{% ifversion not ghae %}
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in "[AUTOTITLE](/rest/apps/oauth-applications#reset-a-token)."
 
 ## Preventing unauthorized access
 
 For more tips on securing your account and preventing unauthorized access, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access)."
-{% endif %}

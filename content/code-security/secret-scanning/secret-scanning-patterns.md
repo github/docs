@@ -15,7 +15,6 @@ redirect_from:
 layout: inline
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
@@ -53,7 +52,7 @@ Partner alerts are alerts that are sent to the secret providers whenever a secre
 - High confidence alerts, which relate to supported patterns and specified custom patterns.
 - Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys.
 
-{% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[Managing alerts from non-provider patterns](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-alerts-from-non-provider-patterns)."
+{% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 

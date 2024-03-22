@@ -19,13 +19,9 @@ topics:
 
 ## About IAM for {% data variables.product.product_name %}
 
-{% ifversion ghae %}
+{% ifversion ghec %}
 
-On {% data variables.product.product_name %}, you provision user accounts from a SAML identity provider (IdP). You must configure SAML single sign-on (SSO) so people can authenticate to access your enterprise on {% data variables.product.product_name %}.
-
-{% elsif ghec %}
-
-You can allow people to use a personal account on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources and optionally configure additional SAML access restriction, or you can provision and control the accounts for your enterprise using your identity provider (IdP) with {% data variables.product.prodname_emus %}.
+{% data reusables.enterprise-accounts.about-enterprise-types %}
 
 After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
 
@@ -86,10 +82,6 @@ If you use an external directory or identity provider (IdP) to centralize access
 
 If you choose to use external authentication, you can also configure fallback authentication for people who don't have an account on your external authentication provider. For example, you may want to grant access to a contractor or machine user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
 
-{% elsif ghae %}
-
-{% data variables.product.product_name %} uses SAML SSO for authentication. Enterprise owners must configure SAML SSO with a SAML identity provider (IdP) during initialization. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
-
 {% endif %}
 
 {% ifversion ghec or ghes %}
@@ -98,11 +90,7 @@ If you choose to use external authentication, you can also configure fallback au
 
 {% endif %}
 
-{% ifversion ghae %}
-
-To provision user accounts on {% data variables.product.product_name %}, you must configure provisioning on your IdP using System for Cross-domain Identity Management (SCIM). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
-
-{% elsif ghec %}
+{% ifversion ghec %}
 
 If you use [authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction), people create personal accounts on {% data variables.product.prodname_dotcom_the_website %}, and you can grant those personal accounts access to resources in your enterprise. You do not provision accounts.
 

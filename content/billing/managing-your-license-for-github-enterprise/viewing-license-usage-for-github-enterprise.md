@@ -24,7 +24,7 @@ For more information about viewing license usage on {% data variables.product.pr
 
 {% endif %}
 
-You can also use the REST API to return consumed licenses data and the status of the license sync job. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/license)" in the REST API documentation.
+You can also use the REST API to return consumed licenses data and the status of the license sync job. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/license)."
 
 To learn more about the license data associated with your enterprise account and how the number of consumed user {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} are calculated, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
 

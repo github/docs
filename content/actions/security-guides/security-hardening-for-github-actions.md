@@ -25,7 +25,7 @@ This guide explains how to configure security hardening for certain {% data vari
 Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/security-guides/using-secrets-in-github-actions) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 {% ifversion fpt or ghec %}
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) or through the [REST API](/rest/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
+Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) or through the [REST API](/rest/actions/secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 {% endif %}
 
 To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets used within the job, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. Additionally, the runner can only redact secrets used within the current job. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
@@ -113,17 +113,13 @@ There are a number of different approaches available to help you mitigate the ri
 
 ### Using an action instead of an inline script (recommended)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
-
-{% raw %}
+The recommended approach is to create a JavaScript action that processes the context value as an argument. This approach is not vulnerable to the injection attack, since the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 ```yaml
 uses: fakeaction/checktitle@v3
 with:
-    title: ${{ github.event.pull_request.title }}
+    title: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
 ```
-
-{% endraw %}
 
 ### Using an intermediate environment variable
 
@@ -131,12 +127,10 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
-{% raw %}
-
 ```yaml
       - name: Check PR title
         env:
-          TITLE: ${{ github.event.pull_request.title }}
+          TITLE: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
         run: |
           if [[ "$TITLE" =~ ^octocat ]]; then
           echo "PR title starts with 'octocat'"
@@ -146,8 +140,6 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
-
-{% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
 
@@ -174,15 +166,23 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghes %}
+{% ifversion custom-org-roles %}
+
+## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
+
+You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+
+{% data reusables.actions.org-roles-for-gh-actions %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+
+{% endif %}
 
 ## Using OpenID Connect to access cloud resources
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% data reusables.actions.oidc-custom-claims-aws-restriction %}
-
-{% endif %}
 
 ## Using third-party actions
 
@@ -210,7 +210,7 @@ The same principles described above for using third-party actions also apply to 
 
 ## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
 
-You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
+{% data reusables.actions.dependabot-version-updates-for-actions %}
 
 {% ifversion internal-actions %}
 
@@ -317,7 +317,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 ### Denying access to hosts
 
-{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+{% data reusables.actions.runners-etc-hosts-file %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 ## Hardening for self-hosted runners
 
@@ -375,13 +375,9 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
-
-{% endif %}
 
 ## Auditing {% data variables.product.prodname_actions %} events
 

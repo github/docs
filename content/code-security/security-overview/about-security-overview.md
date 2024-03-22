@@ -22,8 +22,6 @@ topics:
   - Teams
 ---
 
-{% data reusables.security-overview.beta %}
-
 ## About security overview
 
 {% data reusables.security-overview.about-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-security-overview).{% endif %}
@@ -114,16 +112,6 @@ For information about permissions, see "[Permission to view data in security ove
 
 {% endif %}
 
-{% ifversion ghae < 3.8 %}
-
-## About security overview for teams
-
-You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
-
-At the team level, security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
-
-{% endif %}
-
 {% ifversion security-overview-org-risk-coverage %}
 
 ## Permission to view data in security overview
@@ -179,7 +167,7 @@ For more information about access to security alerts and related views, see "[AU
 {% ifversion ghec or ghes %}
 {% note %}
 
-**Note:** If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+**Note:** If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview.{% ifversion secret-scanning-user-owned-repos %} {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}{% endif %} For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 
 {% endnote %}
 {% endif %}

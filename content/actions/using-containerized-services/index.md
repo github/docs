@@ -5,7 +5,6 @@ intro: 'You can use containerized services in your {% data variables.product.pro
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-databases-and-services

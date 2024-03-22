@@ -5,7 +5,6 @@ intro: 'You can manage security settings and review the audit log{% ifversion gh
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

@@ -778,61 +778,61 @@
       "slug": "list-environment-secrets",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets"
     },
     {
       "slug": "get-an-environment-public-key",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key"
     },
     {
       "slug": "get-an-environment-secret",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "create-or-update-an-environment-secret",
       "subcategory": "secrets",
       "verb": "put",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "delete-an-environment-secret",
       "subcategory": "secrets",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "list-environment-variables",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "create-an-environment-variable",
       "subcategory": "variables",
       "verb": "post",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "get-an-environment-variable",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "update-an-environment-variable",
       "subcategory": "variables",
       "verb": "patch",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "delete-an-environment-variable",
       "subcategory": "variables",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     }
   ],
   "activity": [
@@ -853,6 +853,12 @@
       "subcategory": "events",
       "verb": "get",
       "requestPath": "/networks/{owner}/{repo}/events"
+    },
+    {
+      "slug": "list-notifications-for-the-authenticated-user",
+      "subcategory": "notifications",
+      "verb": "get",
+      "requestPath": "/notifications"
     },
     {
       "slug": "list-public-organization-events",
@@ -977,6 +983,18 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
+    },
+    {
+      "slug": "list-app-installations-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations"
+    },
+    {
+      "slug": "list-repositories-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations/{installation_id}/repositories"
     }
   ],
   "billing": [
@@ -1435,6 +1453,12 @@
       "requestPath": "/user/repository_invitations"
     },
     {
+      "slug": "accept-a-repository-invitation",
+      "subcategory": "invitations",
+      "verb": "patch",
+      "requestPath": "/user/repository_invitations/{invitation_id}"
+    },
+    {
       "slug": "decline-a-repository-invitation",
       "subcategory": "invitations",
       "verb": "delete",
@@ -1872,73 +1896,73 @@
       "slug": "list-provisioned-scim-groups-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "provision-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-group",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-group",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "delete-a-scim-group-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "list-scim-provisioned-identities-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "provision-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-user",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-user",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "delete-a-scim-user-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     }
   ],
   "gists": [
@@ -2683,6 +2707,54 @@
       "subcategory": "outside-collaborators",
       "verb": "delete",
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
+    },
+    {
+      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
+    },
+    {
+      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories"
+    },
+    {
+      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}"
+    },
+    {
+      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
     },
     {
       "slug": "list-public-organization-members",
@@ -3493,7 +3565,7 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"

@@ -4,7 +4,6 @@ intro: 'You can import a repository from Subversion by converting the repository
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Subversion
 ---

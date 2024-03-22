@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -116,6 +115,36 @@ jobs:
         ports:
           # Opens tcp port 6379 on the host and service container
           - 6379:6379
+```
+
+{% endraw %}
+
+## Authenticating with image registries
+
+You can specify credentials for your service containers in case you need to authenticate with an image registry. This allows you to use images from private registries or to [increase your DockerHub rate limit](https://www.docker.com/increase-rate-limits/).
+
+Here’s an example of authenticating with Docker Hub and the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}:
+
+{% raw %}
+
+```yaml copy
+jobs:
+  build:
+    services:
+      redis:
+        # Docker Hub image
+        image: redis
+        ports:
+          - 6379:6379
+        credentials:
+          username: ${{ secrets.dockerhub_username }}
+          password: ${{ secrets.dockerhub_password }}
+      db:
+        # Private registry image
+        image:  ghcr.io/octocat/testdb:latest
+        credentials:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.ghcr_password }}
 ```
 
 {% endraw %}

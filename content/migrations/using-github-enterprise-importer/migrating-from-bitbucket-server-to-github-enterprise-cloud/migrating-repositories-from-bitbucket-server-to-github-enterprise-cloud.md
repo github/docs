@@ -20,7 +20,9 @@ At this time, migrating from Bitbucket Server with the {% data variables.product
 
 ## Prerequisites
 
-{% data reusables.enterprise-migration-tool.migration-prerequisites %}
+- We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud#running-your-migrations)."
+- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)."
+- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
 - For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
 - You need the username and password for a Bitbucket Server account with admin or super admin permissions.
 

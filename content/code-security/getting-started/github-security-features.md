@@ -32,37 +32,23 @@ Make it easy for your users to confidentially report security vulnerabilities th
 Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 
 {% endif %}
-{% ifversion fpt or ghec or ghes %}
 
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
 View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
-{% endif %}
 
 {% ifversion dependabot-auto-triage-rules %}
 
-{% data reusables.dependabot.dependabot-alert-rules %}
+You can use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.prodname_dotcom %} to automatically filter out a substantial amount of false positives. {% data reusables.dependabot.dismiss-low-impact-rule %}
 
 {% endif %}
 
 {% data reusables.dependabot.quickstart-link %}
 
-{% ifversion ghae %}
-
-### {% data variables.product.prodname_dependabot_alerts %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
-
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-
 ### {% data variables.product.prodname_dependabot_version_updates %}
 
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
-{% endif %}
 
 ### Dependency graph
 
@@ -89,6 +75,18 @@ Security overview shows which security features are enabled for the repository, 
 
 ## Available for free public repositories
 
+### {% data variables.secret-scanning.user_alerts_caps %}
+
+Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+### Push protection for users
+
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."
+
+{% endif %}
+
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
 Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
@@ -103,14 +101,12 @@ The following {% data variables.product.prodname_GH_advanced_security %} feature
 {% elsif ghec %}
 Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
 
-{% data reusables.advanced-security.ghas-trial %}
-
 {% elsif ghes %}
 {% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghae %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
+
+{% data reusables.advanced-security.ghas-trial %}
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 
@@ -118,7 +114,15 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
+
+{% ifversion dependabot-auto-triage-rules %}
+
+### {% data variables.dependabot.custom_rules_caps %}
+
+{% data reusables.dependabot.dependabot-custom-rules-ghas %}
+
+{% endif %}
 
 ### Dependency review
 

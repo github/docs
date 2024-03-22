@@ -6,6 +6,7 @@ import { mkdirp } from 'mkdirp'
 import { updateRestFiles } from './update-markdown.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { createOperations, processOperations } from './get-operations.js'
+import { getProgAccessData } from '#src/github-apps/scripts/sync.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 
 // All of the schema releases that we store in allVersions
@@ -15,23 +16,31 @@ const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
   (elem) => allVersions[elem].openApiVersionName,
 )
 
-export async function syncRestData(sourceDirectory, restSchemas) {
+export async function syncRestData(sourceDirectory, restSchemas, progAccessSource) {
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
       const schema = JSON.parse(await readFile(file, 'utf-8'))
 
       const operations = []
+      console.log('Instantiating operation instances from schema ', schemaName)
       try {
-        console.log('Proccessing operations for version ', schemaName)
         const newOperations = await createOperations(schema)
         operations.push(...newOperations)
-        await processOperations(operations)
       } catch (error) {
         throw new Error(
           `${error}\n\n🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
         )
       }
+      try {
+        const { progAccessData } = await getProgAccessData(progAccessSource)
+        await processOperations(operations, progAccessData)
+      } catch (error) {
+        throw new Error(
+          `${error}\n\n🐛 Whoops! It looks like some Markdown in the dereferenced schema wasn't able to be rendered. Please reach out in the #docs-engineering slack channel for help.`,
+        )
+      }
+
       const formattedOperations = await formatRestData(operations)
       const versionDirectoryName = schemaName.replace('.json', '')
       const targetDirectoryPath = path.join(REST_DATA_DIR, versionDirectoryName)

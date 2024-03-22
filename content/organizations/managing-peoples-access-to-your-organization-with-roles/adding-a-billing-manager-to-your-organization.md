@@ -41,7 +41,7 @@ Billing managers **are not** able to:
 - See private members of your organization
 - Be seen in the list of organization members
 - Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %}
+- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 
 {% tip %}
 

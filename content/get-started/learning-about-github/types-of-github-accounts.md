@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -76,12 +75,12 @@ For more information about all the features of organizations, see "[AUTOTITLE](/
 {% elsif ghec %}
 Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 {% elsif ghes %}
-Your enterprise account is a collection of all the organizations {% ifversion ghae %}owned by{% elsif ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+Your enterprise account is a collection of all the organizations {% ifversion ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 {% endif %}
 
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)"{% endif %}
+- "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"{% endif %}
 - "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
 - [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
