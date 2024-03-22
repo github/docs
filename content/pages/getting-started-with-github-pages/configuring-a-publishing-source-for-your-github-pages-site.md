@@ -64,8 +64,6 @@ To find potential errors with either the build or deployment, you can check the 
 
 ## Publishing with a custom {% data variables.product.prodname_actions %} workflow
 
-{% data reusables.pages.pages-custom-workflow-beta %}
-
 To configure your site to publish with {% data variables.product.prodname_actions %}:
 
 {% data reusables.pages.navigate-site-repo %}
