@@ -40,15 +40,28 @@ An enterprise owner can choose whether to enable {% data variables.product.prodn
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 
-If your organization's parent enterprise has selected **No policy**, {% data variables.product.prodname_copilot_enterprise %} will be disabled by default for your organization. An organization owner can choose to enable or disable the additional features provided by {% data variables.product.prodname_copilot_enterprise %} for all of the organization's members who have access to {% data variables.product.prodname_copilot_short %}.
+To give people or teams within your organization access to {% data variables.product.prodname_copilot_enterprise %}, you need to assign them a {% data variables.product.prodname_copilot %} seat. Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_enterprise_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization. To enable access for all current and future users in your organization, or specific users in your organization, follow the steps in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization#configuring-access-to-github-copilot-in-your-organization)."
+
+If your organization's parent enterprise has selected **No policy** for "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" in the enterprise settings, {% data variables.product.prodname_copilot_enterprise %} will be disabled by default for your organization. If you are an owner of the organization, you can choose to enable or disable the additional features provided by {% data variables.product.prodname_copilot_enterprise %} for all of the organization's members who have access to {% data variables.product.prodname_copilot_short %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies and features**.
+{% data reusables.copilot.policy-settings %}
+
+   {% note %}
+
+   **Note:** If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, you need to allow the organization to assign {% data variables.product.prodname_copilot_short %} seats. Complete the steps for configuring {% data variables.product.prodname_copilot_short %} access in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization#configuring-access-to-github-copilot-in-your-organization)" and then return to this procedure.
+
+   {% endnote %}
+
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
    - **Disabled**: The feature is disabled for all members of the organization.
+
+1. If you select **Enabled**, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed.
+
+   Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
 
 ## Further reading
 

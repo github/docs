@@ -6,6 +6,7 @@ versions:
 topics:
   - Copilot
 shortTitle: Copilot Individual feature set
+product: '{% data reusables.copilot.copilot-individual-emus %}'
 ---
 
 ## About {% data variables.product.prodname_copilot_for_individuals %}

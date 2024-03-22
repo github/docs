@@ -26,7 +26,7 @@ shortTitle: Create repository advisories
 ## Creating a security advisory
 
 {% ifversion repository-security-advisories-API %}
-You can also use the REST API to create repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)" in the REST API documentation.
+You can also use the REST API to create repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)."
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

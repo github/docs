@@ -1,5 +1,5 @@
 ---
-title: Custom properties
+title: REST API endpoints for custom properties
 shortTitle: Custom properties
 intro: 'Use the REST API to create and manage custom properties for an organization.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

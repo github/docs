@@ -108,36 +108,32 @@ You can use security overview to find a set of repositories and enable or disabl
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
 
-{% ifversion fpt or ghec or ghes %}
-
-## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
+## Allowing {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
-By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private repositories or private package registries. However, if a dependency is in a private {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
+By default, {% data variables.product.prodname_dependabot %} can't update dependencies that are located in private{% ifversion ghec or ghes %} or internal{% endif %} repositories, or private{% ifversion ghec or ghes %} or internal{% endif %} package registries. However, if a dependency is in a private{% ifversion ghec or ghes %} or internal{% endif %} {% data variables.product.prodname_dotcom %} repository within the same organization as the project that uses that dependency, you can allow {% data variables.product.prodname_dependabot %} to update the version successfully by giving it access to the host repository.
 
-If your code depends on packages in a private registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the `dependabot.yml` file for the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
+If your code depends on packages in a private{% ifversion ghec or ghes %} or internal{% endif %} registry, you can allow {% data variables.product.prodname_dependabot %} to update the versions of these dependencies by configuring this at the repository level. You do this by adding authentication details to the `dependabot.yml` file for the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** For the option to grant  {% data variables.product.prodname_dependabot %} access to private repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
+**Note:** For the option to grant  {% data variables.product.prodname_dependabot %} access to private or internal repositories to be available, you need {% data variables.product.prodname_dependabot_version_updates %} or {% data variables.product.prodname_dependabot_security_updates %} to be enabled on at least one repository within the organization.
 
 {% endnote %}
 {% endif %}
 
-To allow {% data variables.product.prodname_dependabot %} to access a private {% data variables.product.prodname_dotcom %} repository:
+To allow {% data variables.product.prodname_dependabot %} to access a private{% ifversion ghec or ghes %} or internal{% endif %} {% data variables.product.prodname_dotcom %} repository:
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click **Add private repositories** or **Add internal and private repositories** to display a repository search field.
+1. Under "Grant {% data variables.product.prodname_dependabot %} private repository access", click {% ifversion fpt %}**Add private repositories**{% else %}**Add internal and private repositories**{% endif %} to display a repository search field.
 
    ![Screenshot of the dropdown that you can use to search for repositories. As you type, repositories whose name matches your search criteria will appear in the list. The search text field is highlighted with a dark orange outline.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 
 1. Start typing the name of the repository you want to grant {% data variables.product.prodname_dependabot %} access to.
 1. A list of matching repositories in the organization is displayed, click the repository you want to to allow access to and this adds the repository to the allowed list.
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
-
-{% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
@@ -146,9 +142,9 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
 {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret by sending it to the relevant partner. When you select the checkbox in the organization settings, the feature is enabled for all repositories in the organization. Alternatively, you can enable the validity check for a single repository, or at the enterprise level. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret by sending it to the relevant partner. When you select the checkbox in the organization settings, the feature is enabled for all repositories in the organization. Alternatively, you can enable the validity check for a single repository, or at the enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
-You can also use the REST API to enable validity checks for partner patterns for your organization. For more information, see "[AUTOTITLE](/rest/orgs/orgs#update-an-organization)" in the REST API documentation.
+You can also use the REST API to enable validity checks for partner patterns for your organization. For more information, see "[AUTOTITLE](/rest/orgs/orgs#update-an-organization)."
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 {% data reusables.secret-scanning.validity-check-auto-enable %}

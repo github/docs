@@ -5,8 +5,7 @@
 - term: access token
   description: >-
     A token that is used in place of a password when performing Git operations
-    over HTTPS with Git on the command line or the API. Also called a personal
-    access token.
+    over HTTPS with Git on the command line or the API. Also called a {% data variables.product.pat_generic %}.
 - term: API preview
   description: >-
     A way to try out new APIs and changes to existing API methods before they
@@ -96,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see ["dirty"](#dirty).
+    current HEAD. Also see "[dirty](#dirty)".
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
@@ -554,7 +553,7 @@
     Pull refers to when you are fetching in changes and merging them. For
     instance, if someone has edited the remote file you're both working on,
     you'll want to pull in those changes to your local copy so that it's up to
-    date. See also ["fetch"](#fetch).
+    date. See also "[fetch](#fetch)".
 - term: pull access
   description: A synonym for read access.
 - term: pull request

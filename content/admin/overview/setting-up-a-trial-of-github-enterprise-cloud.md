@@ -26,7 +26,7 @@ You can set up a trial to evaluate the additional features that come with {% dat
 
 You can set up a {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 
-During the trial, you can add up to three new organizations to your enterprise. You can transfer any number of existing organizations to your enterprise as part of the trial, so long as those organizations do not have any free or paid {% data variables.product.prodname_marketplace %} apps. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_enterprise_sales %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
+During the trial, you can add up to three new organizations to your enterprise. You can transfer any number of existing organizations to your enterprise as part of the trial, so long as those organizations do not have any free or paid {% data variables.product.prodname_marketplace %} apps. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
 
 Your trial also includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats, up to 1,000.
 
@@ -90,5 +90,9 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-1. Follow the prompts.
+1. If your trial is active:
+   1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
+   1. Follow the prompts.
+1. If your trial is expired:
+   1. At the top of the page, click **Delete trial**.
+   1. Follow the prompts.

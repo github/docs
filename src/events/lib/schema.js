@@ -395,7 +395,6 @@ const experiment = {
     },
     experiment_variation: {
       type: 'string',
-      enum: ['control', 'treatment'],
       description: 'The variation this user we bucketed in, such as control or treatment.',
     },
     experiment_success: {

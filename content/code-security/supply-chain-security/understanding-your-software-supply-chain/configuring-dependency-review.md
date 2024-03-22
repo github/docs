@@ -21,11 +21,7 @@ topics:
 
 For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-{% ifversion fpt or ghec or ghes %}
-
 ## About configuring dependency review
-
-{% endif %}
 
 {% ifversion fpt %}
 Dependency review is available in all public repositories in all products and cannot be disabled. Dependency review is available in private repositories owned by organizations that use GitHub Enterprise Cloud and have a license for [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security). For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review).
@@ -57,7 +53,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
-The following configuration options are available.
+Here is a list of common configuration options.  For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
 
 | Option | Required | Usage |
 |------------------|-------------------------------|--------|
@@ -67,6 +63,7 @@ The following configuration options are available.
 {%- ifversion dependency-review-action-licenses %}
 | `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
 | `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|{% endif %}
+| `comment-summary-in-pr` | {% octicon "x" aria-label="Optional" %} | Enable or disable the reporting of the review summary as a comment in the pull request. If enabled, you must give the workflow or job the `pull-requests: write` permission. |
 | `allow-ghsas` | {% octicon "x" aria-label="Optional" %} | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
 | `config-file` | {% octicon "x" aria-label="Optional" %} | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
 | `external-repo-token` | {% octicon "x" aria-label="Optional" %} | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
@@ -107,7 +104,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
         - name: 'Checkout Repository'
           uses: {% data reusables.actions.action-checkout %}
         - name: Dependency Review
-          uses: actions/dependency-review-action@v3
+          uses: actions/dependency-review-action@v4
    ```
 
 1. Specify your settings.
@@ -130,7 +127,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review
-         uses: actions/dependency-review-action@v3
+         uses: actions/dependency-review-action@v4
          with:
            # Possible values: "critical", "high", "moderate", "low"
            fail-on-severity: critical
@@ -176,7 +173,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review
-         uses: actions/dependency-review-action@v3
+         uses: actions/dependency-review-action@v4
          with:
           # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
           # Possible values: An absolute path to a local file or an external file.

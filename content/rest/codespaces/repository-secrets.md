@@ -1,5 +1,5 @@
 ---
-title: Codespaces repository secrets
+title: REST API endpoints for Codespaces repository secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Repository secrets
 intro: >-

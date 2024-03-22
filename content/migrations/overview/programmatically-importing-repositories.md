@@ -17,9 +17,9 @@ The term "source repository" refers to the repository you're importing, and "imp
 
 ### About the deprecation of the Source imports REST API
 
-The REST API endpoints to manage source imports allowed the programmatic import of a repositories that are accessible over the internet to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/rest/migrations/source-imports)" in the REST API documentation.
+The REST API endpoints to manage source imports allowed the programmatic import of a repositories that are accessible over the internet to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/rest/migrations/source-imports)."
 
-On April 12, 2024, {% data variables.product.company_short %} will deprecate all of the endpoints listed within "[AUTOTITLE](/rest/migrations/source-imports)" in the REST API documentation. If you currently use these operations, you'll need to make changes to your code or your application will stop working on April 12, 2024.
+On April 12, 2024, {% data variables.product.company_short %} will deprecate all of the endpoints listed within "[AUTOTITLE](/rest/migrations/source-imports)." If you currently use these operations, you'll need to make changes to your code or your application will stop working on April 12, 2024.
 
 ## Using forks
 

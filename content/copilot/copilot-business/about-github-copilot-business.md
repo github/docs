@@ -23,8 +23,6 @@ With {% data variables.product.prodname_copilot_business_short %}, you can manag
 
 {% data reusables.copilot.supported-tools %}
 
-{% data reusables.copilot.telemetry-setting-org %}
-
 ### Understanding the differences between {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_individuals_short %}, and {% data variables.product.prodname_copilot_enterprise_short %}
 
 {% data reusables.copilot.differences-cfi-cfb-table %}
@@ -69,3 +67,4 @@ All requests for {% data variables.product.prodname_copilot_for_business %} are 
 ## Further reading
 
 - "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"

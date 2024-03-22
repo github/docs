@@ -48,7 +48,7 @@ If you publish a package in a registry that only supports repository-scoped perm
 
 ## Configuring access to packages for your personal account
 
-If you have admin permissions to a package that's scoped to a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for packages](#visibility-and-access-permissions-for-packages)."
+If you have admin permissions to a package that's scoped to a personal account, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)."
 
 If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
 
@@ -60,7 +60,7 @@ The selected users will automatically be given access and don't need to accept a
 
 ## Configuring access to packages for an organization
 
-If you have admin permissions to a package that is scoped to an organization, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[Visibility and access permissions for packages](#visibility-and-access-permissions-for-packages)."
+If you have admin permissions to a package that is scoped to an organization, you can assign read, write, or admin roles to other users and teams. For more information about these permission roles, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)."
 
 If your package is private or internal and scoped to an organization, then you can only give access to other organization members or teams.
 
@@ -134,7 +134,7 @@ For packages scoped to a personal account or an organization, to ensure that a {
 The specified repository does not need to be the repository where the source code for the package is kept. You can give multiple repositories workflow access to a package.
 
 {% ifversion packages-inherit-permissions %}
-If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see "[About inheritance of access permissions and visibility](#about-inheritance-of-access-permissions-and-visibility)" above.
+If you publish a package that is linked to a repository, {% data variables.product.prodname_actions %} workflows in the linked repository automatically get access to the package, unless your organization has disabled the automatic inheritance of access permissions. For more information, see "[About inheritance of access permissions](#about-inheritance-of-access-permissions)" above.
 {% endif %}
 
 {% note %}

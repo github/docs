@@ -51,7 +51,7 @@ For more information about the different types of versioning, see "[Versioning d
 - The `*` is used to denote all releases for the version.
 - Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
 
-This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](#permalinks).
+This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
 Example that applies to {% data variables.product.prodname_dotcom_the_website %} and recent versions of {% data variables.product.prodname_ghe_server %}:
 

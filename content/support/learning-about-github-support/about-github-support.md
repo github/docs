@@ -73,9 +73,7 @@ You can contact {% data variables.contact.github_support %} in English.
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.support.support-ticket-translation-option %}
-{% endif %}
 
 {% ifversion ghes or ghec %}
 

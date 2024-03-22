@@ -12,7 +12,7 @@ shortTitle: Verify a custom domain
 
 ## About domain verification for GitHub Pages
 
-When you verify your custom domain for your personal account or organization, only repositories owned by your personal account or organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
+When you verify a custom domain for your personal account, only repositories owned by your personal account may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains. Similarly, when you verify a custom domain for your organization, only repositories owned by that organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
 
 Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
 

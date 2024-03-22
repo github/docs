@@ -8223,6 +8223,13 @@ input CreateSponsorshipsInput {
   receiveEmails: Boolean = false
 
   """
+  Whether the sponsorships created should continue each billing cycle for the
+  sponsor (monthly or annually), versus lasting only a single month. Defaults to
+  one-time sponsorships.
+  """
+  recurring: Boolean = false
+
+  """
   The username of the user or organization who is acting as the sponsor, paying for the sponsorships.
   """
   sponsorLogin: String!
@@ -15952,6 +15959,11 @@ The possible funding platforms for repository funding links.
 """
 enum FundingPlatform {
   """
+  Buy Me a Coffee funding platform.
+  """
+  BUY_ME_A_COFFEE
+
+  """
   Community Bridge funding platform.
   """
   COMMUNITY_BRIDGE
@@ -15990,11 +16002,6 @@ enum FundingPlatform {
   Open Collective funding platform.
   """
   OPEN_COLLECTIVE
-
-  """
-  Otechie funding platform.
-  """
-  OTECHIE
 
   """
   Patreon funding platform.
@@ -22705,9 +22712,8 @@ type Mutation {
   ): CreateSponsorshipPayload
 
   """
-  Make many one-time sponsorships for different sponsorable users or
-  organizations at once. Can only sponsor those who have a public GitHub
-  Sponsors profile.
+  Make many sponsorships for different sponsorable users or organizations at
+  once. Can only sponsor those who have a public GitHub Sponsors profile.
   """
   createSponsorships(
     """
@@ -33248,6 +33254,11 @@ type ProjectV2Item implements Node {
   ): ProjectV2ItemFieldValueConnection!
 
   """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
+
+  """
   The Node ID of the ProjectV2Item object
   """
   id: ID!
@@ -43642,6 +43653,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
+    The names of the environments to be returned.
+    """
+    names: [String!] = []
+
+    """
     Ordering options for the environments
     """
     orderBy: Environments = {field: NAME, direction: ASC}
@@ -46346,11 +46362,6 @@ enum RepositoryRuleType {
   request and required workflow checks to pass before they can be merged.
   """
   REQUIRED_WORKFLOW_STATUS_CHECKS
-
-  """
-  Commits pushed to matching refs must have verified signatures.
-  """
-  RULESET_REQUIRED_SIGNATURES
 
   """
   Secret scanning

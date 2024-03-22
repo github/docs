@@ -61,7 +61,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 ### Wait timer
 
-Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
 
 {% ifversion fpt %}{% note %}
 
@@ -207,7 +207,7 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
 {%- endif %}
-1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches](#deployment-branches)."
+1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
    {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-label="The branch icon" %} Branch** or **{% octicon "tag" aria-label="The tag icon" %} Tag**.{% endif %}

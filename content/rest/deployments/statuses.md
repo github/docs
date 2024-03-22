@@ -1,5 +1,6 @@
 ---
-title: Deployment statuses
+title: REST API endpoints for deployment statuses
+shortTitle: Deployment statuses
 intro: Use the REST API to manage deployment statuses.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

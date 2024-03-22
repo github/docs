@@ -35,7 +35,7 @@ shortTitle: Managing policies
 {% ifversion ghec %}If your enterprise admin has selected **No policy** for the following features, you can enable or disable these for your organization.{% else %}You can enable or disable the following features for {% data variables.product.prodname_copilot %}.{% endif %}
 
 - Suggestions matching public code{% ifversion ghec %}
-- {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}{% endif %}
+- {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} (if your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription){% endif %}
 - {% data variables.product.prodname_copilot_chat_short %} in the IDE
 - {% data variables.product.prodname_copilot_cli_short %}
 
@@ -43,10 +43,13 @@ shortTitle: Managing policies
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
 1. Use the dropdown options to the right of each feature to enable or disable that feature for your organization.
+{% ifversion ghec %}
+1. If your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription and you enable {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed. Depending on your enterprise settings, you may be able to enable this option. When this option is enabled, {% data variables.product.prodname_copilot_chat_short %} will use search results from Bing to answer some questions.
+{% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 - "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"
 {% ifversion ghec %}- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)"{% endif %}
 - "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"

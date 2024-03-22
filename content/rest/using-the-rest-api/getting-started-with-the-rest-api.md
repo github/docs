@@ -718,6 +718,6 @@ You can then expand these templates using something like the [uri_template](http
 
 ## Next steps
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues/comments#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
 
 For more information about other endpoints that you can use, see the [REST reference documentation](/rest).

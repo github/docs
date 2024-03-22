@@ -1,5 +1,7 @@
 ---
-title: LDAP
+title: REST API endpoints for LDAP
+shortTitle: LDAP
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to update account relationships between a {% data
   variables.product.product_name %} user or team and its linked LDAP entry or

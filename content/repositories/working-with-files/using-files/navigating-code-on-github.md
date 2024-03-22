@@ -32,10 +32,10 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 | Java       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
 | JavaScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
 | PHP        | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Python     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                      |
+| Python     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                         |
 | Ruby       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
 | Rust       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| TypeScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
+| TypeScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                         |
 
 {% endrowheaders %}
 
