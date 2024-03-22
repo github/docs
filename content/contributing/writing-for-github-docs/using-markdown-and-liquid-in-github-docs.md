@@ -2,7 +2,6 @@
 title: Using Markdown and Liquid in GitHub Docs
 shortTitle: Markdown and Liquid # Max 31 characters
 intro: 'You can use Markdown and Liquid to format content, create reusable content, and write content for different versions on {% data variables.product.prodname_docs %}.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:

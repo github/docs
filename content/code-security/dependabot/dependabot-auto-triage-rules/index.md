@@ -13,7 +13,7 @@ topics:
   - Dependencies
 children:
   - /about-dependabot-auto-triage-rules
-  - /using-github-curated-default-rules-to-prioritize-dependabot-alerts
+  - /using-github-preset-rules-to-prioritize-dependabot-alerts
   - /customizing-auto-triage-rules-to-prioritize-dependabot-alerts
   - /managing-automatically-dismissed-alerts
 redirect_from:

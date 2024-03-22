@@ -52,7 +52,7 @@ shortTitle: Migrate data
    ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
    ```
 
-   - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
+   - If no conflicts are reported, you can safely import the data.
 
 1. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
 
@@ -98,7 +98,7 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
 | `merge`       | Data from the source is combined with existing data on the target. | Teams, projects
 
-**We strongly suggest you review the _conflicts.csv_ file and use [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
+**We strongly suggest you review the _conflicts.csv_ file and use `ghe-migrator audit` to ensure that the proper actions are being taken.** If everything looks good, you can continue.
 
 ## Resolving migration conflicts or setting up custom mappings
 
@@ -128,7 +128,7 @@ A common scenario during a migration is for migrated users to have different use
 
 Given a list of usernames from the source and a list of usernames on the target, you can build a CSV file with custom mappings and then apply it to ensure each user's username and content is correctly attributed to them at the end of a migration.
 
-You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) command:
+You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the `ghe-migrator audit` command:
 
 ```shell
 ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
@@ -285,7 +285,7 @@ curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
 
 ### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos#delete-a-repository). You'll need your access token for authentication:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos/repos#delete-a-repository). You'll need your access token for authentication:
 
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \

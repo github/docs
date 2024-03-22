@@ -39,12 +39,7 @@ You can test query help files by running the following command:
 codeql generate query-help <qhelp|query|dir|suite> --format=<format> [--output=<dir|file>]
 ```
 
-where `<qhelp|query|dir|suite>` is one of:
-
-- the path to a `.qhelp` file.
-- the path to a `.ql` file.
-- the path to a directory containing queries and query help files.
-- the path to a query suite, or the name of a well-known query suite for a {% data variables.product.prodname_codeql %} pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
+For this command `<qhelp|query|dir|suite>` must be the path to a `.qhelp` file, the path to a `.ql` file, the path to a directory containing queries and query help files, or the path to a query suite.
 
 You must specify a `--format` option, which defines how the query help is rendered. Currently, you must specify `markdown` to render the query help as markdown.
 

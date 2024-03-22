@@ -82,6 +82,14 @@ As an enterprise owner or administrator, you can manage settings on user, reposi
 
 {% data reusables.getting-started.enforcing-repo-management-policies %}
 
+{% ifversion enterprise-readme %}
+
+### 7. Creating a README for the enterprise
+
+{% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+
+{% endif %}
+
 ## Part 3: Building securely
 
 To increase the security of {% data variables.location.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.

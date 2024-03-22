@@ -140,7 +140,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin#management-console).
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console).
 
 You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.
 
@@ -663,6 +663,41 @@ $ ghe-cluster-maintenance -m "MESSAGE"
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
+
+{% ifversion cluster-node-removal %}
+
+### ghe-remove-node
+
+This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
+
+You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+
+```shell
+ghe-remove-node HOSTNAME
+```
+
+The command does the following things:
+- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
+- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+
+You can run the command with the following flags.
+
+Flag | Description
+---- | ----------
+`-ne/--no-evacuate` | Skips evacuation of data services (warning: may result in data loss).
+`-v/--verbose` | Prints additional information to the console.
+`-h/--help` | Displays help text for the command.
+
+{% note %}
+
+**Notes:**
+
+- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
+
+{% endnote %}
+
+{% endif %}
 
 ### ghe-cluster-status
 

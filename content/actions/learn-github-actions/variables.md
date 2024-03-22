@@ -154,6 +154,9 @@ The following rules apply to configuration variable names:
 {% data reusables.actions.actions-variables-tab %}
 
    ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
+
+   {% data reusables.actions.secrets-and-variables-org-permissions %}
+
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.
@@ -230,6 +233,10 @@ However, you cannot use runner environment variables in parts of a workflow that
 {% raw %}
 
 ```yaml copy
+name: Conditional env variable
+
+on: workflow_dispatch
+
 env:
   DAY_OF_WEEK: Monday
 
@@ -366,6 +373,8 @@ You can write a single workflow file that can be used for different operating sy
 {% raw %}
 
 ```yaml copy
+on: workflow_dispatch
+
 jobs:
   if-Windows-else:
     runs-on: macos-latest

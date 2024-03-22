@@ -270,7 +270,7 @@ something like this:
 ```
 
 Since we already have a list of repositories above, let's inspect each one, and
-call the [GET /repos/{owner}/{repo}/languages endpoint](/rest/repos#list-repository-languages):
+call the [GET /repos/{owner}/{repo}/languages endpoint](/rest/repos/repos#list-repository-languages):
 
 ``` ruby
 repos.each do |repo|
@@ -302,7 +302,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial](/rest/repos#list-repository-languages).)
+(For more information on D3 tree map magic, check out [this simple tutorial](/rest/repos/repos#list-repository-languages).)
 
 To wrap up, we pass this JSON information over to the same ERB template:
 

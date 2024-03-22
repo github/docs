@@ -2,19 +2,19 @@ date: '2023-06-20'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
     - |
-      If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log. 
-    - Packages have been updated to the latest security versions. 
+      If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log.
+    - Packages have been updated to the latest security versions.
   bugs:
     - |
       If an administrator updated the instance's TLS certificate using the Management Console API's [Set settings](/rest/enterprise-admin/management-console) endpoint, sending the certificate and key data as a URL query parameter resulted in the data appearing unmasked in system logs.
-    - Determining suggested reviewers on a pull request could time out or be very slow. 
-    - After an enterprise owner set a permanent rate limit for a users GitHub App at `http(s)://HOSTNAME/stafftools/users/USERNAME/installations`, the instance did not respect the rate limit. 
-    - On an instance with multiple nodes, when using the `spokesctl` command-line utility to manage repositories with replicas that failed to fully create, the utility would spuriously attempt to repair healthy replicas. 
-    - On an instance with a GitHub Advanced Security license and code scanning enabled, code scanning could not process some SARIF files produced by newer versions of CodeQL. 
+    - Determining suggested reviewers on a pull request could time out or be very slow.
+    - After an enterprise owner set a permanent rate limit for a users GitHub App at `http(s)://HOSTNAME/stafftools/users/USERNAME/installations`, the instance did not respect the rate limit.
+    - On an instance with multiple nodes, when using the `spokesctl` command-line utility to manage repositories with replicas that failed to fully create, the utility would spuriously attempt to repair healthy replicas.
+    - On an instance with a GitHub Advanced Security license and code scanning enabled, code scanning could not process some SARIF files produced by newer versions of CodeQL.
   changes:
-    - If a configuration runs fails due to Elasticsearch errors, `ghe-config-apply` displays a more actionable error message. 
+    - If a configuration runs fails due to Elasticsearch errors, `ghe-config-apply` displays a more actionable error message.
   known_issues:
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
@@ -28,7 +28,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |

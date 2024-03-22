@@ -1,5 +1,7 @@
 ---
-title: Billing
+title: REST API endpoints for enterprise billing
+shortTitle: Billing
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to retrieve the billing information for a {% data
   variables.product.prodname_ghe_server %} instance.

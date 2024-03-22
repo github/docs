@@ -50,7 +50,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/2665
         - |
-          Enterprise and organization owners can support adherance to the principle of least privilege by granting access to audit log endpoints without providing full administrative privileges. To provide this access, personal access tokens and OAuth apps now support the `read:audit_log` scope. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+          Enterprise and organization owners can support adherance to the principle of least privilege by granting access to audit log endpoints without providing full administrative privileges. To provide this access, {% data variables.product.pat_generic_plural %} and OAuth apps now support the `read:audit_log` scope. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
         # https://github.com/github/releases/issues/2676
         - |
@@ -450,7 +450,7 @@ sections:
     - |
       During configuration of high availability, after you run `ghe-maintenance -s` in step 12 of [this documentation](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica#creating-a-high-availability-replica), the following error appears and maintenance mode is not enabled.
 
-      ```
+      ```shell
       unable to access '/data/user/common/cluster.conf': Permission denied
       ```
 

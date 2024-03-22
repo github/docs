@@ -1,5 +1,5 @@
 ---
-title: GitHub App webhooks
+title: 'REST API endpoints for {% data variables.product.prodname_github_app %} webhooks'
 allowTitleToDifferFromFilename: true
 shortTitle: Webhooks
 intro: >-

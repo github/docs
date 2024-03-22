@@ -1,6 +1,6 @@
 ---
-title: Rule Suites
-shortTitle: Rule Suites
+title: REST API endpoints for rule suites
+shortTitle: Rule suites
 intro: Use the REST API to manage rule suites for repositories.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

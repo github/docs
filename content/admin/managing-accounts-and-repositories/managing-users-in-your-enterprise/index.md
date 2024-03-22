@@ -22,6 +22,7 @@ children:
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
   - /managing-organization-members-in-your-enterprise
+  - /about-reserved-usernames-for-github-enterprise-server
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise

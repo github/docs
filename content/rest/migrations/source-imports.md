@@ -1,5 +1,7 @@
 ---
-title: Source imports
+title: REST API endpoints for source imports
+shortTitle: Source endpoints
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to start an import from a Git, Subversion, Mercurial, or Team
   Foundation Version Control source repository.

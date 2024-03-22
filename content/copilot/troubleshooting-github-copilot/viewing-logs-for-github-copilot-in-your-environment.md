@@ -49,7 +49,7 @@ For more information, see the [Locating IDE log files](https://intellij-support.
 
 ## Enabling debug mode
 
-If you find the log file doesn't contain enough information to resolve an issue, it may help to temporarily enable debug logging. This can be especially helpful for debugging network-related issues.
+If you find the log file doesn't contain enough information to resolve an issue, it may help to enable debug logging temporarily. This can be especially helpful for debugging network-related issues.
 
 1. In the menu bar, click **Help**, select **Diagnostic Tools**, and click **Debug Log Settings...**.
 
@@ -73,12 +73,6 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can access the necessary services.
 
 ## Troubleshooting certificate-related errors
-
-{% note %}
-
-**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
-
-{% endnote %}
 
 If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)". Then use the following troubleshooting steps.
 
@@ -132,12 +126,6 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
       - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
 1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot%}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
 1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can actually access the necessary services.
-
-{% note %}
-
-**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
-
-{% endnote %}
 
 ## Viewing Electron logs
 

@@ -24,7 +24,7 @@ import { allVersions } from '#src/versions/lib/all-versions.js'
 dotenv.config()
 
 // Create an object that maps the "short name" of a version to
-// all information about it. E.g
+// all information about it. E.g.
 //
 //   {
 //    'ghes-3.5': {

@@ -1,5 +1,7 @@
 ---
-title: Milestones
+title: REST API endpoints for milestones
+shortTitle: Milestones
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage milestones.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

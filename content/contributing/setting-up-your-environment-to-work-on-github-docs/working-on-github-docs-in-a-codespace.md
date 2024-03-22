@@ -2,7 +2,6 @@
 title: Working on GitHub Docs in a codespace
 shortTitle: Working in a codespace
 intro: 'You can use {% data variables.product.prodname_github_codespaces %} to work on documentation for {% data variables.product.prodname_docs %}.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

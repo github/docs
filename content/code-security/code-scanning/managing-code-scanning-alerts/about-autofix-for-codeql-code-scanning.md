@@ -4,7 +4,7 @@ shortTitle: Autofix for code scanning
 intro: Learn how GitHub uses AI to suggest potential fixes for {% data variables.product.prodname_code_scanning %} alerts found by {% data variables.product.prodname_codeql %} in your pull request.
 product: '{% data reusables.rai.code-scanning.gated-feature-autofix %}'
 versions:
-  feature: code-scanning-autofix-js-ts
+  feature: code-scanning-autofix
   fpt: '*'
 type: rai
 topics:
@@ -15,13 +15,23 @@ topics:
 ---
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
 
-{% data reusables.rai.code-scanning.beta-autofix-js-ts %}
+{% data reusables.rai.code-scanning.beta-autofix %}
 
 ## About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
-Autofix is an AI-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts in pull requests so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_code_scanning_caps %} autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts in pull requests so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
-{% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. The autofix system uses the OpenAI GPT-4 large language model, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% note %}
+
+**Note:** While {% data variables.product.prodname_code_scanning %} autofix is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use autofix. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to autofix.
+
+{% endnote %}
+
+{% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. Autofix uses internal {% data variables.product.prodname_copilot %} APIs and private instances of OpenAI large language models such as GPT-4, which have sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+
+{% ifversion code-scanning-autofix %}While {% data variables.product.prodname_code_scanning %} autofix is allowed by default in an enterprise and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable autofix. To learn how to disable autofix at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."{% endif %}
+
+In an organization's security overview dashboard, you can view the total number of autofix suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights-for-your-organization#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Developer experience
 
@@ -30,6 +40,10 @@ Autofix is an AI-powered expansion of {% data variables.product.prodname_code_sc
 {% data variables.product.prodname_code_scanning_caps %} autofix lowers the barrier of entry to developers by combining information on best practices with details of the codebase and alert to suggest a potential fix to the developer. Instead of starting with a search for information about the vulnerability, the developer starts with a code suggestion that demonstrates a potential solution for their codebase. The developer evaluates the potential fix to determine whether it is the best solution for their codebase and to ensure that it maintains the intended behavior.
 
 After committing a suggested fix or modified fix, the developer should always verify that continuous integration testing (CI) for the codebase continues to pass and that the alert is shown as resolved before they merge their pull request.
+
+## Supported languages
+
+{% data variables.product.prodname_code_scanning_caps %} autofix supports fix generation for a subset of queries included in the default query suite for JavaScript, TypeScript, Python, and Java. For more information on the default query suite, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 
 ## Autofix generation process
 
@@ -45,11 +59,13 @@ When autofix is enabled for a repository, {% data variables.product.prodname_cod
 
 Any autofix suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestion comments in the pull request. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating the pull request.
 
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_code_scanning %} autofix is strictly not employed for LLM training purposes. For more information on  {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}."{% else %} in the Free, Pro, & Team documentation.{% endif %}
+
 ## Quality of autofix suggestions
 
 {% data variables.product.prodname_dotcom %} uses an automated test harness to continuously monitor the quality of autofix suggestions. This allows us to understand how the autofix suggestions generated by the LLM change as the model develops.
 
-The test harness includes a set of over 700 JavaScript/TypeScript alerts from a diverse set of public repositories where the highlighted code has test coverage. Autofix suggestions for these alerts are tested to see how good they are, that is, how much a developer would need to edit them before committing them to the codebase. For many of the test alerts, autofixes generated by the LLM could be committed as-is to fix the alert while continuing to successfully pass all the existing CI tests.
+The test harness includes a set of over 1,400 alerts from a diverse set of public repositories where the highlighted code has test coverage. Autofix suggestions for these alerts are tested to see how good they are, that is, how much a developer would need to edit them before committing them to the codebase. For many of the test alerts, autofixes generated by the LLM could be committed as-is to fix the alert while continuing to successfully pass all the existing CI tests.
 
 In addition, the system is stress-tested to check for any potential harm (often referred to as red teaming), and a filtering system on the LLM helps prevent potentially harmful suggestions being displayed to users.
 
@@ -64,11 +80,11 @@ We test the effectiveness of autofix suggestions by merging all suggested change
 
 In addition, we spot check many of the successful suggestions and verify that they fix the alert without introducing new problems. When one or more of these checks failed, our manual triage showed that in many cases the proposed fix was nearly correct but needed some minor modifications that a user could identify and manually perform.
 
-### Effectiveness on other JavaScript/TypeScript projects
+### Effectiveness on other projects
 
-The test set contains a broad range of different types of projects and alerts. We predict that autofixes for other JavaScript/TypeScript projects should follow a similar pattern.
+The test set contains a broad range of different types of projects and alerts. We predict that autofixes for other projects using languages supported by autofix should follow a similar pattern.
 
-- Autofix is likely to add a code suggestion to the majority of alerts for JavaScript/TypeScript projects.
+- Autofix is likely to add a code suggestion to the majority of alerts.
 - When developers evaluate the autofix suggestions we expect that the majority of fixes can be committed without editing or with minor updates to reflect the wider context of the code.
 - A small percentage of suggested fixes will reflect a significant misunderstanding of the codebase or the vulnerability.
 
@@ -76,7 +92,7 @@ However, each project and codebase is unique, so developers may need to edit a l
 
 {% note %}
 
-**Note:** The system does not suggest fixes for all types of {% data variables.product.prodname_code_scanning %} alerts identified by {% data variables.product.prodname_codeql %}. Autofix is supported for a subset of the default {% data variables.product.prodname_codeql %} JavaScript/TypeScript queries and the LLM is limited in its operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
+**Note:** Fix generation for supported languages is subject to LLM operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
 
 {% endnote %}
 
@@ -86,7 +102,7 @@ When you review an autofix suggestion, you must always consider the limitations 
 
 ### Limitations of autofix code suggestions
 
-- _Programming languages:_ A subset of programming languages is supported, initially only JavaScript and TypeScript. Support for additional languages will be added, but there is no intention to provide support for all {% data variables.product.prodname_codeql %} languages.
+- _Programming languages:_ A subset of programming languages is supported. Support for additional languages will be added, but there is no intention to provide support for all {% data variables.product.prodname_codeql %} languages.
 - _Human languages:_ The system primarily uses English data, including the prompts sent to the system, the code seen by the LLMs in their datasets, and the test cases used for internal evaluation. Suggestions generated by the LLM may have a lower success rate for source code and comments written in other languages and using other character sets.
 - _Syntax errors:_ The system may suggest fixes that are not syntactically correct code changes, so it is important to run syntax checks on pull requests.
 - _Location errors:_ The system may suggest fixes that are syntactically correct code but are suggested at the incorrect location, which means that if a user accepts a fix without editing the location they will introduce a syntax error.
@@ -110,14 +126,15 @@ It is important to remember that the author of a pull request retains responsibi
 
 ## Next steps
 
-{% ifversion code-scanning-autofix-js-ts %}
+{% ifversion code-scanning-autofix %}
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)"
 
 {% elsif fpt %}
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-- [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts)
+- [AUTOTITLE](/enterprise-cloud@latest/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts) in the {% data variables.product.prodname_ghe_cloud %} documentation
 
 {% endif %}

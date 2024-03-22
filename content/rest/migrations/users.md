@@ -1,5 +1,5 @@
 ---
-title: User migrations
+title: REST API endpoints for user migrations
 allowTitleToDifferFromFilename: true
 shortTitle: Users
 intro: >-

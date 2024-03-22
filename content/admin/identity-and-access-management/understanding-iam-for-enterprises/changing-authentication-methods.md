@@ -20,7 +20,7 @@ shortTitle: Change authentication methods
 ---
 User accounts on {% data variables.location.product_location %} are preserved when you change the authentication method and users will continue to log into the same account as long as their username doesn't change.
 
-If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/enterprise-admin#update-the-username-for-a-user).
+If the new method of authentication changes usernames, new accounts will be created. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/enterprise-admin/users#update-the-username-for-a-user).
 
 Other issues you should take into consideration include:
 

@@ -68,7 +68,7 @@ If you're an enterprise owner, you may be able to configure a policy to require 
 {% endif %}
 
 {% ifversion ghes %}
-If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize user authentication](#centralize-user-authentication)."
+If you're the site administrator for {% data variables.location.product_location %}, you may be able to configure 2FA for all users of your instance. The availability of 2FA on {% data variables.product.product_name %} depends on the authentication method that you use. For more information, see "[Centralize authentication](#centralize-authentication)."
 {% endif %}
 
 If you're an organization owner, then you {% ifversion fpt %}can{% else %}may be able to{% endif %} require that all members of the organization enable 2FA.
@@ -143,5 +143,5 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"{% ifversion fpt or ghec or ghes %}
-- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"{% endif %}
+- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"

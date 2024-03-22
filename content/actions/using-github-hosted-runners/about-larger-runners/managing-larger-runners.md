@@ -2,7 +2,7 @@
 title: Managing larger runners
 shortTitle: Manage larger runners
 intro: 'You can configure {% data variables.actions.hosted_runner %}s for your organization or enterprise.'
-permissions: '{% data reusables.actions.larger-runner-permissions %}'
+permissions: '{% data reusables.actions.larger-runner-permissions %}<br><br> Enterprise or organization owners can manage larger runners.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" permission can manage larger runners at the organization level.{% endif %}'
 versions:
   feature: actions-hosted-runners
 redirect_from:
@@ -30,7 +30,7 @@ Enterprise owners can add {% data variables.actions.hosted_runner %}s to an ente
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
-You can add a {% data variables.actions.hosted_runner %} to an organization, where organization owners can control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see "[Allowing repositories to access a runner group](#allowing-repositories-to-access-a-runner-group)."
+Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see "[Allowing repositories to access a runner group](#allowing-repositories-to-access-a-runner-group)."
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
@@ -42,7 +42,9 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Allowing repositories to access {% data variables.actions.hosted_runner %}s
 
-Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization owners control repository-level access to all {% data variables.actions.hosted_runner %}s. Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.
+Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} control repository-level access to all {% data variables.actions.hosted_runner %}s.
+
+Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
 - **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
 - **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}

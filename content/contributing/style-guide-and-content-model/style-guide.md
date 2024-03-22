@@ -1,7 +1,6 @@
 ---
 title: Style guide
 intro: 'Follow this guide to make sure {% data variables.product.company_short %}''s documentation stays consistent and follows clear patterns that our readers can understand.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
@@ -66,7 +65,7 @@ For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](
 
 Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
-If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in the `docs-strategy` repository to share your use case for approval by the Content Strategy team.
+If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
 
 ## Call to action (CTA) buttons
 
@@ -297,7 +296,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, such as names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
+- Put multi-word titles, such as names of menu items, in double quotation marks ("").
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -485,19 +484,32 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we're linking.
+Links must be consistent, accessible to as many people as possible, translatable, and clear. People need to know where a link leads to and how it relates to what they want to accomplish.
 
-For any link that points to another {% data variables.product.prodname_docs %} page, use the special keyword `AUTOTITLE`. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
+Before adding a link, decide if someone must visit the link to understand the content. If the link is not necessary, consider removing it or including it at the end of the article as further reading.
+
+You can introduce links with just the verb "see" if the context makes it clear what the link is for. If the context is not clear, use a phrase or sentence to introduce the link such as "For more information, see" or "To learn more about X, see Y."
+
+Use the title of the documentation article, or external web page, as the link text. For any link that points to another article on the {% data variables.product.prodname_docs %} site, use the special keyword `AUTOTITLE` for the link text. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
+
+Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and can be harder to read.
+
+- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+- **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 Usage examples:
 
-- For links to other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE)."`
+- For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
 - For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
 - For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
-For links to external documentation, type out the full article name: `For more information, see [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+For links to an external page (any website that isn't managed by {% data variables.product.prodname_dotcom %}), type out the full page title and destination site.
+
+- **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+- **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
+- **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
 
 Do not include quotation marks within a hyperlink.
 
@@ -507,15 +519,9 @@ Some best practices for using links:
 - Do not repeat the same link more than once in the same article or under the same H2 header.
 - Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
-For accessibility and readability, avoid inline or midsentence links.
-- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
-- **Avoid:** `Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
-
-For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
-
 ### Links between versions
 
-Sometimes, you need to link from one version of GitHub Docs to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
+Sometimes, you need to link from one version of {% data variables.product.prodname_docs %} to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
 
 For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the {% data variables.product.prodname_ghe_cloud %} version of the same article like this:
 
@@ -784,10 +790,7 @@ For more information about {% data variables.product.prodname_dotcom %}'s {% dat
 
 ## Punctuation
 
-When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
-- **Use:** Under "User licenses", view your total licenses.
-
-Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Release notes
 
@@ -928,7 +931,6 @@ A release note for a known issue describes an issue that GitHub has identified, 
 A release note for a known issue answers the following questions.
 
 1. Does the behavior affect me, with my role or access?
-1. If the change solves or avoids a problem, what's that problem?
 1. What are any error messages or other recognizable UI elements that appear?
 1. Do I need to act? If so, what should I do?
 
@@ -1304,8 +1306,8 @@ Format radio button labels in bold and omit the words “radio button” or any 
 
 ### Repository names
 
-Use a standard format to refer to repositories. Link to repositories when helpful.
-- **Use:** in the `[account-name/repository-name](URL)` repository
+Style repository names in monospace font using backticks. Provide a link to repositories when people are expected to navigate to them.
+- **Use:** See the [`github/docs`](https://github.com/github/docs) repository for more information.
 
 ### Responsive elements
 
@@ -1477,8 +1479,8 @@ A **permission** is the ability to perform a specific action. For example, the a
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
 - Accounts (e.g., organization owner, billing manager for an enterprise account)
-- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
-- Teams (e.g., "team maintainer")
+- Resources (e.g., write for a repository, admin for a security advisory)
+- Teams (e.g., team maintainer)
 
 A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
 
@@ -1488,6 +1490,7 @@ Only use **permission** or **role** when the distinction between the two is impo
 - **Use:** Managing a team's access to your organization's repository
 - **Use:** If your team membership gives you a different level of access than your role as organization owner…
 - **Use:** People with write access can…
+- **Avoid:** People with the write access can...
 - **Avoid:** People with the write role can…
 - **Avoid:** People with write permissions can…
 - **Avoid:** People with write privileges can…
