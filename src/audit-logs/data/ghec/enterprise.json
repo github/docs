@@ -819,6 +819,26 @@
     ]
   },
   {
+    "action": "business.code_scanning_autofix_policy_update",
+    "description": "The policy for Code scanning autofix was updated for an enterprise.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "name",
+      "new_policy",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "business.connect_usage_metrics_export",
     "description": "Server statistics were exported for the enterprise.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics",
@@ -6673,6 +6693,48 @@
       "_document_id",
       "business",
       "business_id"
+    ]
+  },
+  {
+    "action": "org.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
