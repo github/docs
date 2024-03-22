@@ -3923,6 +3923,48 @@
     ]
   },
   {
+    "action": "org.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale",
