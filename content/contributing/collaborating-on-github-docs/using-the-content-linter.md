@@ -110,6 +110,22 @@ Errors must be addressed before merging your changes to the `main` branch. Warni
 
 {% data reusables.contributing.content-linter-rules %}
 
+### Syntax for linting rules
+
+Some linting rules return warnings or errors based on HTML comments that you can add to articles.
+
+#### Syntax for expiring and expired content
+
+Rules `GHD038` and `GHD039` check for content that has been manually given an expiration date. Fourteen days before the specified date, the content linter will return a warning that the content is expiring soon. Starting on the specified date, the content linter will return an error and flag the content for remediation.
+
+You can add an expiration date to content by wrapping it in HTML tags that contain an expiration date in the format: <pre>&lt;!-- expires yyyy-mm-dd --&gt; &lt;!-- end expires yyyy-mm-dd --&gt;</pre>
+
+**Use:**
+
+```markdown
+This content does not expire. {% raw %}<{% endraw %}!-- expires 2022-01-28 -->This content expires on January 28, 2022. {% raw %}<{% endraw %}!-- end expires 2022-01-28 -->This content also does not expire.
+```
+
 ## Suppressing linter rules
 
 Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible. You can disable a rule for an entire file, for a section of a Markdown file, a specific line, or the next line.
