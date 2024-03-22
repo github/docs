@@ -326,4 +326,4 @@ If code search guesses wrong, you can always get the search you wanted by using 
 
 ## Case sensitivity
 
-Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive (and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`).
+Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive, and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`.
