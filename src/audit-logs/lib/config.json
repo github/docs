@@ -1,4 +1,4 @@
 {
   "apiOnlyEventsAdditionalDescription": "This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-  "sha": "958a43bea9460b86ba03ee6e2e5bb066cdbc7198"
+  "sha": "b8691c04d2e53841481b77b51418a20dcfc7df6e"
 }
