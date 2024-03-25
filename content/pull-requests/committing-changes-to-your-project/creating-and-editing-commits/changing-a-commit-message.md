@@ -114,7 +114,7 @@ For more information on interactive rebase, see "[Interactive mode](https://git-
 
 {% tip %}
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the id of its parent.
+As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
 
 {% endtip %}
 
