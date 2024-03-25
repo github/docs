@@ -42,12 +42,12 @@ If Jekyll encounters an error building your {% data variables.product.prodname_p
 If you received a generic error message, check for common issues.
 - You're using unsupported plugins. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
 - Your repository has exceeded our repository size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"{% endif %}
-- You changed the `source` setting in your __config.yml_ file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
+- You changed the `source` setting in your __config.yml_ file. If you publish your site from a branch, {% data variables.product.prodname_pages %} overrides this setting during the build process.
 - A filename in your published files contains a colon (`:`) which is not supported.
 
 If you received a specific error message, review the troubleshooting information for the error message below.
 
-{% ifversion pages-custom-workflow %}After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).{% else %}After you've fixed any errors, push the changes to your site's publishing source to trigger another build on {% data variables.product.product_name %}.{% endif %}
+After you've fixed any errors, trigger another build by pushing the changes to your site's source branch (if you are publishing from a branch) or by triggering your custom {% data variables.product.prodname_actions %} workflow (if you are publishing with {% data variables.product.prodname_actions %}).
 
 ## Config file error
 
@@ -59,11 +59,7 @@ To troubleshoot, make sure that your __config.yml_ file follows these rules:
 
 {% data reusables.pages.yaml-linter %}
 
-{% ifversion pages-disable-symlinks-on-legacy-pages %}
-
 {% data reusables.pages.symlink-removal %}
-
-{% endif %}
 
 ## Date is not a valid datetime
 

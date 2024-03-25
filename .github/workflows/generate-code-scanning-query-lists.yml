@@ -60,6 +60,10 @@ jobs:
           sleep 3
           codeql --version
 
+      - uses: ./.github/actions/install-cocofix
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+
       - name: Build code scanning query list
         run: |
           for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
