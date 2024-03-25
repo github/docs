@@ -246,7 +246,7 @@ On the "Notification settings" page, select "Email" or "Web" notifications. Opti
 
 ## Organization alerts notification options
 
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**.
+If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", deselect **Email**.
 
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
