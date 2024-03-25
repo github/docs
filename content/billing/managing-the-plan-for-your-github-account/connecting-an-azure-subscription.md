@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription
-intro: "If you use {% data variables.product.product_name %} through a Microsoft Enterprise Agreement, you can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
+intro: "You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise

@@ -25,7 +25,7 @@ When you disable {% data variables.projects.projects_v2 %} in a repository, link
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Features," unselect the **Projects** checkbox.
+1. Under "Features," deselect the **Projects** checkbox.
 
 {% ifversion projects-v1 %}## Disabling {% data variables.projects.projects_v1_boards %} in a repository{% endif %}
 
