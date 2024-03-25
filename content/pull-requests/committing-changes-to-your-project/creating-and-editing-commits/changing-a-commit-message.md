@@ -15,7 +15,7 @@ versions:
 
 You can change the most recent commit message using the `git commit --amend` command.
 
-In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
+In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID—i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
 ## Commit has not been pushed online
 

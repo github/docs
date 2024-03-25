@@ -16,7 +16,7 @@ shortTitle: Change access permissions
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under Features, unselect **Restrict editing to collaborators only**.
+1. Under Features, deselect **Restrict editing to collaborators only**.
 
 ## Further reading
 

@@ -20,11 +20,22 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[AUTOTITLE"을 참조하세요.](', '[AUTOTITLE](')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
 
   if (context.code === 'ru') {
-    // We've seen a lot of these in the Russian translations:
+    // Low-hanging fruit for the data tag
     content = content.replaceAll('{% данных variables', '{% data variables')
+    content = content.replaceAll('{% данными variables', '{% data variables')
+    content = content.replaceAll('{% данных организации variables', '{% data variables')
+    content = content.replaceAll('{% данным variables', '{% data variables')
+    content = content.replaceAll('{% данных reusables', '{% data reusables')
+    content = content.replaceAll('{% данными reusables', '{% data reusables')
     content = content.replaceAll('{% variables.', '{% data variables.')
+    content = content.replaceAll('{% необработанного %}', '{% raw %}')
+    content = content.replaceAll('{%- ifversion fpt или ghec %}', '{%- ifversion fpt or ghec %}')
+    content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
+    content = content.replaceAll('{% endif _%}', '{% endif %}')
+    content = content.replaceAll('{% конечным %}', '{% endif %}')
 
     // For the rather custom Russian translation of
     // the content/get-started/learning-about-github/github-glossary.md page
@@ -37,7 +48,22 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{{ глоссарий.description }}', '{{ glossary.description }}')
   }
 
+  if (context.code === 'ja') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% データ variables', '{% data variables')
+    content = content.replaceAll('{% データvariables', '{% data variables')
+  }
+
+  if (context.code === 'zh') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 数据variables', '{% data variables')
+  }
+
   if (context.code === 'ko') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 데이터 variables', '{% data variables')
+    content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
+
     // For the rather custom Korean translation of github-glossary.md
     // Let's try to salvage based on what's in
     // docs-internal.ko-kr/content/get-started/learning-about-github/github-glossary.md
