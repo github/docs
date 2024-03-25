@@ -24,6 +24,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
   if (context.code === 'ru') {
     // We've seen a lot of these in the Russian translations:
     content = content.replaceAll('{% данных variables', '{% data variables')
+    content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% variables.', '{% data variables.')
 
     // For the rather custom Russian translation of
