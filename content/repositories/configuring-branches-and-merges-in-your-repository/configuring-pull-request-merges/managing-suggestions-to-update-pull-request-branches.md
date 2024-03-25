@@ -19,4 +19,4 @@ If you enable the setting to always suggest updating pull request branches in yo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Pull Requests", select or unselect **Always suggest updating pull request branches**.
+1. Under "Pull Requests", select or deselect **Always suggest updating pull request branches**.
