@@ -37,7 +37,7 @@ If the repository includes {% data variables.large_files.product_name_long %} ob
 git lfs fetch --all
 ```
 
-Once you have cloned the Git repository, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it a location for safe-keeping.
+Once you have cloned the Git repository, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it to a location for safe-keeping.
 
 You can restore your backup by decompressing the archive and then pushing the Git repository to a Git remote.
 
@@ -45,7 +45,7 @@ You can restore your backup by decompressing the archive and then pushing the Gi
 
 Wikis in {% data variables.product.prodname_dotcom %} are stored as Git repositories. This means that you can back up a wiki by cloning it. For more details on how to clone a wiki using Git, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages#cloning-wikis-to-your-computer)."
 
-Once you have cloned the wiki, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it a location for safe-keeping.
+Once you have cloned the wiki, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it to a location for safe-keeping.
 
 You can restore your backup by decompressing the archive and then pushing the wiki repository to a Git remote.
 
