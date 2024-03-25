@@ -13,4 +13,6 @@ Your link text should be on a single line. The example below will not work.
 ```markdown
 [Contribution 
 guidelines for this project](docs/CONTRIBUTING.md)
+```
+
 Relative links are easier for users who clone your repository. Absolute links may not work in clones of your repository - we recommend using relative links to refer to other files within your repository.
