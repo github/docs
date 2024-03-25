@@ -8,4 +8,11 @@ A relative link is a link that is relative to the current file. For example, if 
 
 {% data variables.product.product_name %} will automatically transform your relative link or image path based on whatever branch you're currently on, so that the link or path always works. The path of the link will be relative to the current file. Links starting with `/` will be relative to the repository root. You can use all relative link operands, such as `./` and `../`.
 
+Your link text should be on a single line. The example below will not work.
+
+```markdown
+[Contribution 
+guidelines for this project](docs/CONTRIBUTING.md)
+```
+
 Relative links are easier for users who clone your repository. Absolute links may not work in clones of your repository - we recommend using relative links to refer to other files within your repository.

@@ -43,7 +43,7 @@ An administrator needs to register your LMS instance with classroom before you c
 
 1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
 1. Select the Canvas course to integrate with {% data variables.product.prodname_classroom %}.
-1. Click "Settings" in the left sidebar, then click the "Apps" tab.
+1. Click **Setting** in the left sidebar, then click the **Apps** tab.
 1. Click the **+ App** button.
 1. Under "Configuration Type", select **By Client ID** from the dropdown menu.
 1. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.

@@ -203,6 +203,27 @@ async function translateTree(dir, langObj, enTree) {
     code: langObj.code,
   })
 
+  translatedData.title = correctTranslatedContentStrings(translatedData.title, enPage.title, {
+    relativePath,
+    code: langObj.code,
+  })
+  if (translatedData.shortTitle) {
+    translatedData.shortTitle = correctTranslatedContentStrings(
+      translatedData.shortTitle,
+      enPage.shortTitle,
+      {
+        relativePath,
+        code: langObj.code,
+      },
+    )
+  }
+  if (translatedData.intro) {
+    translatedData.intro = correctTranslatedContentStrings(translatedData.intro, enPage.intro, {
+      relativePath,
+      code: langObj.code,
+    })
+  }
+
   item.page = new Page(
     Object.assign(
       {},
