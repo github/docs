@@ -54,9 +54,9 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
 {% data reusables.emus.use-enterprise-recovery-code %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.
-1. Read the warning, then click "I understand, begin migrating to OpenID Connect".
+1. Read the warning, then click **I understand, begin migrating to OpenID Connect**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
-1. After you grant consent, a new browser window will open to {% data variables.location.product_location %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click "Enable OIDC authentication".
+1. After you grant consent, a new browser window will open to {% data variables.location.product_location %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click **Enable OIDC authentication**.
 1. Wait for the migration to complete, which can take up to an hour. To check the status of the migration, navigate to your enterprise's authentication security settings page. If "Require SAML authentication" is selected, the migration is still in progress.
 
    {% warning %}
