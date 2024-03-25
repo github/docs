@@ -25,7 +25,7 @@ If your support request is outside of the scope of what our team can help you wi
 
 - The legacy community-maintained version of ARC
 - Template spec customization
-- Container orchestration, such as Kubernetes setup, networking, etc.
+- Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
 - Applying Kubernetes policies
 - Managed Kubernetes providers or provider-specific configurations
 - [Runner Container Hooks](https://github.com/actions/runner-container-hooks) in conjunction with ARC's `kubernetes` mode
