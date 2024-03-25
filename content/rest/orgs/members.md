@@ -1,5 +1,5 @@
 ---
-title: Organization members
+title: REST API endpoints for organization members
 allowTitleToDifferFromFilename: true
 shortTitle: Members
 intro: Use the REST API to manage memberships in your organization.

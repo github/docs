@@ -1,5 +1,5 @@
 ---
-title: Deployment branch policies
+title: REST API endpoints for deployment branch policies
 allowTitleToDifferFromFilename: true
 shortTitle: Deployment branch policies
 intro: Use the REST API to manage custom deployment branch policies.

@@ -5,10 +5,16 @@
  *
  */
 
-export function printAnnotationResults(results, { skippableRules = [] } = {}) {
+export function printAnnotationResults(
+  results,
+  { skippableRules = [], skippableFlawProperties = [] } = {},
+) {
   for (const [file, flaws] of Object.entries(results)) {
     for (const flaw of flaws) {
       if (intersection(flaw.ruleNames, skippableRules)) {
+        continue
+      }
+      if (skippableFlawProperties.some((prop) => flaw[prop])) {
         continue
       }
 

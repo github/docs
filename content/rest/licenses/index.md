@@ -7,7 +7,6 @@ intro: >-
   about a particular project's license file.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

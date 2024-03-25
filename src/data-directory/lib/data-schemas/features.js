@@ -14,9 +14,6 @@ delete featureVersions.properties.versions.properties.feature
 // Call it invalid if any properties other than version properties are found.
 featureVersions.additionalProperties = false
 
-// TODO - UNCOMMENT THE FOLLOWING LINE WHEN GHAE IS UPDATED WITH SEMVER VERSIONING
-// featureVersions.properties.versions.additionalProperties = false
-
 // avoid ajv strict warning
 featureVersions.type = 'object'
 

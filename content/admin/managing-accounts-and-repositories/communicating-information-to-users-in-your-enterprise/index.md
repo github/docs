@@ -5,7 +5,6 @@ intro: 'You can communicate information to users in your enterprise by customizi
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

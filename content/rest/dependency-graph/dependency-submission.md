@@ -1,5 +1,7 @@
 ---
-title: Dependency submission
+title: REST API endpoints for dependency submission
+shortTitle: Dependency submission
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to submit dependencies.
 versions:
   fpt: '*'

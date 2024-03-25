@@ -14,7 +14,13 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
+import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index.js'
 import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
+import {
+  latest,
+  latestStable,
+  releaseCandidate,
+} from '#src/versions/lib/enterprise-server-releases.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -22,20 +28,12 @@ if (!process.env.GITHUB_TOKEN) {
 
 const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 
-// the 3 different audit log types which correspond to audit log event pages
-const auditLogTypes = ['user', 'organization', 'enterprise']
+const AUDIT_LOG_PAGES = {
+  USER: 'user',
+  ORGANIZATION: 'organization',
+  ENTERPRISE: 'enterprise',
+}
 
-// store an array of audit log event data keyed by version and audit log type,
-// array will look like:
-//
-// [
-//  {
-//    "action": "repo.create",
-//    "description": "description",
-//    "docs_reference_link": "reference link",
-//  },
-//  ...
-// ]
 async function main() {
   // get latest audit log data
   //
@@ -60,105 +58,74 @@ async function main() {
   pipelineConfig.sha = mainSha
   await writeFile(configFilepath, JSON.stringify(pipelineConfig, null, 2))
 
+  // store an array of audit log event data keyed by version and audit log page,
+  // will look like this (depends on supported GHES versions):
+  //
+  // {
+  //   fpt: { user: [Array], organization: [Array] },
+  //   ghec: { user: [Array], organization: [Array], enterprise: [Array] },
+  //   'ghes-3.10': { organization: [Array], user: [Array], enterprise: [Array] },
+  //   'ghes-3.11': { organization: [Array], user: [Array], enterprise: [Array] },
+  //   'ghes-3.8': { organization: [Array], user: [Array], enterprise: [Array] },
+  //   'ghes-3.9': { organization: [Array], user: [Array], enterprise: [Array] },
+  //   'ghes-3.12': { organization: [Array], user: [Array], enterprise: [Array] }
+  // }
+  //
+  // audit log data is updated for new GHES releases so we should always have
+  // data for every supported GHES version including RC releases.  Just to be
+  // extra careful, we also fallback to the latest stable GHES version if
+  // there's an RC release in the docs site but no audit log data for that version.
   const auditLogData = {}
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
-  const filter = (
-    allowListValues,
-    filterConfig = { filterFn: filterOr, ghesOnly: false },
-    currentEvents = [],
-  ) =>
-    filterByAllowlistValues(
+  const filter = (allowListValues, currentEvents = []) =>
+    filterByAllowlistValues(schemaEvents, allowListValues, currentEvents, pipelineConfig)
+  // Wrapper around filterGhesByAllowlistValues() because we always need all the
+  // schema events and pipeline config data.
+  const filterAndUpdateGhes = (allowListValues, auditLogPage, currentEvents) =>
+    filterAndUpdateGhesDataByAllowlistValues(
       schemaEvents,
-      currentEvents,
       allowListValues,
+      currentEvents,
       pipelineConfig,
-      filterConfig,
+      auditLogPage,
     )
 
-  // translate allowLists values into the versions and audit log page the event
-  // belongs to -- for versions:
-  //
-  // * user => fpt
-  // * business => ghec
-  // * business_server => ghes
-  // * organization => fpt
-  //
-  // for audit log pages:
-  //
-  // * user => user page
-  // * business_server => enterprise page
-  // * organization => organization page
-  //
-  // API only events have either `business_api_only` or `org_api_only`
-  // allowlist values.
-  //
-  // * business_api_only: goes to the enterprise events page and is versioned
-  // for GHEC.  If the event has any `ghes` versions, also verisoned for GHES.
-  // * org_api_only: goes to the organzation events page and is versioned
-  // for fpt and GHEC.  If the event has any `ghes` versions, also versioned
-  // for GHES.
-  //
-  // There's currently one case (`org.sso_response`) where an event is an
-  // api only event but also has a non-api-only allowlist value so that's
-  // why we have the checks to prevent adding the event twice.
   auditLogData.fpt = {}
   auditLogData.fpt.user = filter('user')
   auditLogData.fpt.organization = filter(['organization', 'org_api_only'])
 
-  auditLogData.ghes = {}
-  auditLogData.ghes.enterprise = filter('business_server')
-  auditLogData.ghes.enterprise = filter(
-    'business_api_only',
-    {
-      filterFn: filterOr,
-      ghesOnly: true,
-    },
-    auditLogData.ghes.enterprise,
-  )
-  auditLogData.ghes.user = filter(['business_server', 'user'], {
-    filterFn: filterAnd,
-    ghesOnly: false,
-  })
-  auditLogData.ghes.organization = filter(['business_server', 'organization'], {
-    filterFn: filterAnd,
-    ghesOnly: false,
-  })
-  auditLogData.ghes.organization = filter(
-    'org_api_only',
-    {
-      filterFn: filterOr,
-      ghesOnly: true,
-    },
-    auditLogData.ghes.organization,
-  )
-
   auditLogData.ghec = {}
-  auditLogData.ghec.user = filter(['business', 'user'], {
-    filterFn: filterAnd,
-    ghesOnly: false,
-  })
-  auditLogData.ghec.organization = filter(['business', 'organization'], {
-    filterFn: filterAnd,
-    ghesOnly: false,
-  })
-  auditLogData.ghec.organization = filter(
-    'org_api_only',
-    { filterFn: filterOr, ghesOnly: false },
-    auditLogData.ghec.organization,
-  )
+  auditLogData.ghec.user = filter('user')
+  auditLogData.ghec.organization = filter('organization')
+  auditLogData.ghec.organization = filter('org_api_only', auditLogData.ghec.organization)
   auditLogData.ghec.enterprise = filter('business')
-  auditLogData.ghec.enterprise = filter(
-    'business_api_only',
-    { filterFn: filterOr, ghesOnly: false },
-    auditLogData.ghec.enterprise,
-  )
+  auditLogData.ghec.enterprise = filter('business_api_only', auditLogData.ghec.enterprise)
+
+  // GHES versions are numbered (i.e. "3.9", "3.10", etc.) and filterGhes()
+  // gives us back an object of GHES versions to page events for each version
+  // that looks like this:
+  //
+  // {
+  //   ghes-3.10': { // org, enterprise, user page events },
+  //   ghes-3.11': { // org, enterprise, user page events },
+  // }
+  //
+  // so there's no single auditLogData.ghes like the other versions.
+  const ghesVersionsAuditLogData = {}
+
+  filterAndUpdateGhes('business', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
+  filterAndUpdateGhes('business_api_only', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
+  filterAndUpdateGhes('user', AUDIT_LOG_PAGES.USER, ghesVersionsAuditLogData)
+  filterAndUpdateGhes('organization', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
+  filterAndUpdateGhes('org_api_only', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
+  Object.assign(auditLogData, ghesVersionsAuditLogData)
 
   // We don't maintain the order of events as we process them so after filtering
   // all the events based on their allowlist values, we sort them so they're in
   // order for display on the audit log pages.
-  for (const pageType of Object.values(auditLogData)) {
-    for (const events of Object.values(pageType)) {
+  for (const pageEventData of Object.values(auditLogData)) {
+    for (const events of Object.values(pageEventData)) {
       events.sort((e1, e2) => {
         // Event actions have underscores and periods (e.g.
         // `enterprise.runner_group_runners_updated`) and we ignore them both
@@ -170,6 +137,12 @@ async function main() {
         return a1.localeCompare(a2)
       })
     }
+  }
+
+  // as of February 2024 we don't get audit log event data for GHES RC releases
+  // so we re-use the latest GHES events for the RC release if we need to
+  if (latest === releaseCandidate && !auditLogData[`ghes-${releaseCandidate}`]) {
+    auditLogData[`ghes-${releaseCandidate}`] = structuredClone(auditLogData[`ghes-${latestStable}`])
   }
 
   console.log(`\n▶️  Generating audit log data files...\n`)
@@ -187,83 +160,18 @@ async function main() {
       await mkdirp(auditLogVersionDirPath)
     }
 
-    auditLogTypes.forEach(async (type) => {
-      const auditLogSchemaFilePath = path.join(auditLogVersionDirPath, `${type}.json`)
+    Object.values(AUDIT_LOG_PAGES).forEach(async (page) => {
+      const auditLogSchemaFilePath = path.join(auditLogVersionDirPath, `${page}.json`)
 
-      if (auditLogData[version][type]) {
+      if (auditLogData[version][page]) {
         await writeFile(
           auditLogSchemaFilePath,
-          JSON.stringify(auditLogData[version][type], null, 2),
+          JSON.stringify(auditLogData[version][page], null, 2),
         )
         console.log(`✅ Wrote ${auditLogSchemaFilePath}`)
       }
     })
   }
-}
-
-// Filters audit log events based on allowlist values.
-//
-// * eventsToCheck: events to consider
-// * currentEvents: events already collected
-// * allowListvalues: allowlist values to filter by
-// * pipelineConfig: audit log pipeline config data
-// * filterFn: callback to filter an event by allowlist values
-// * ghesOnly: whether or not we should check an event is versioned for ghes
-//   as an additional filter check
-function filterByAllowlistValues(
-  eventsToCheck,
-  currentEvents,
-  allowListValues,
-  pipelineConfig,
-  filterConfig = {
-    filterFn: filterOr,
-    ghesOnly: false,
-  },
-) {
-  if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
-  if (!currentEvents) currentEvents = []
-
-  const seen = new Set(currentEvents.map((event) => event.action))
-  const minimalEvents = []
-
-  for (const event of eventsToCheck) {
-    if (event._allowlists === null) continue
-
-    if (filterConfig.filterFn(event._allowlists, allowListValues)) {
-      if (seen.has(event.action)) continue
-      seen.add(event.action)
-
-      const minimal = {
-        action: event.action,
-        description: event.description,
-        docs_reference_links: event.docs_reference_links,
-      }
-
-      if (
-        event._allowlists.includes('org_api_only') ||
-        event._allowlists.includes('business_api_only')
-      ) {
-        minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
-      }
-
-      if (filterConfig.ghesOnly) {
-        if (Object.keys(event.ghes).length > 0) {
-          minimalEvents.push(minimal)
-        }
-      } else {
-        minimalEvents.push(minimal)
-      }
-    }
-  }
-  return [...minimalEvents, ...currentEvents]
-}
-
-function filterOr(array, conditions) {
-  return conditions.some((condition) => array.includes(condition))
-}
-
-function filterAnd(array, conditions) {
-  return conditions.every((condition) => array.includes(condition))
 }
 
 main()

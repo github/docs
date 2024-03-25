@@ -36,6 +36,7 @@ In order to use ARC, ensure you have the following.
 
 - Helm 3
   - For more information, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
+- While it is not required for ARC to be deployed, we recommend ensuring you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners before deploying ARC in production workflows.
 
 ## Installing Actions Runner Controller
 

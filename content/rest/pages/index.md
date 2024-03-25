@@ -7,7 +7,6 @@ intro: >-
   sites and builds.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

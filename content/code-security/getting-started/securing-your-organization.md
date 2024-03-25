@@ -1,11 +1,11 @@
 ---
 title: Securing your organization
-intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.'
+intro: "You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure."
 permissions: Organization owners and security managers can manage security features for an organization.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 type: how_to
 topics:
   - Organizations
@@ -43,11 +43,7 @@ Some features are {% ifversion fpt or ghec %}enabled by default in public reposi
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 There are some features you must configure for each repository individually. For example, to enable {% data variables.product.prodname_dependabot_version_updates %} in a repository, you must add a `dependabot.yml` file specifying where to find information about the project's dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
-
-{% endif %}
 
 ## Enabling security features in your organization
 
@@ -56,7 +52,7 @@ When you have decided to enable a security feature, the next step is to decide h
 - If you want to roll out a feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
 - If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
 
-When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-future-repositories)."
+When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-new-repositories)."
 
 {% ifversion ghec or ghes %}
 For more information about creating a strategy for rolling out security features across a large organization or enterprise, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
@@ -76,6 +72,7 @@ When you're ready to proceed, follow these steps to enable a feature for all rep
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
+
 1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
 1. Locate the feature that you want to enable and use any associated check boxes to fine-tune the options.
 1. When you are ready to enable the feature for all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
@@ -92,6 +89,7 @@ If you're not sure about the impact a feature will have, you may want to test th
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
+
 1. In the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
 
 On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
@@ -114,6 +112,7 @@ You can choose to enable a security feature automatically in all new repositorie
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
+
 1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
 1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
@@ -133,13 +132,13 @@ You can use various tools to monitor the actions that your organization's member
 
 ## Next steps
 
-{% ifversion fpt or ghes or ghec %}
 To help users report security vulnerabilities, you can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-{% endif %}
 
 {% ifversion ghec or ghes %}
 Once your organization's security setup is in place, you may want to prevent users from changing the security settings in a repository. An enterprise owner can prevent repository administrators from enabling or disabling features in a repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 {% endif %}
+
+{% data reusables.security-overview.security-information-about-actions %}
 
 {% ifversion ghec %}
 

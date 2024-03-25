@@ -65,9 +65,9 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Repository rule insights**.
+1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Rule insights**.
 
-   ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Repository rule insights" is outlined in orange.](/assets/images/help/organizations/repository-rule-insights.png)
+   ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Rule insights" is outlined in orange.](/assets/images/help/organizations/sidebar-repository-rule-insights.png)
 
-1. On the "Rule Insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
+1. On the "Rule insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
 {% data reusables.repositories.rulesets-view-rule-runs %}

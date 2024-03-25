@@ -34,6 +34,7 @@ Parts of your system that may be affected by changing the slug include, but are 
   Before changing the slug, to ensure you will have access to your enterprise even if SSO is not working, we recommend you download the recovery codes for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 - Many {% data variables.product.company_short %} API endpoints for managing an enterprise take the enterprise slug as a parameter. If you use these endpoints in automations, you will need to update the API calls to use the new slug. API calls that use the old slug will stop working immediately. The enterprise ID, which can be used as an alternative to the slug in many cases, is not affected by a slug change.
 - If you use OpenID Connect (OIDC) in {% data variables.product.prodname_actions %} workflows, and have configured your cloud provider to only accept tokens from a unique URL that includes your enterprise slug, you will need to update the settings in your cloud provider. To prevent workflows from failing, the most robust option is to configure your provider to accept tokens from both the old and new slug just before you change the slug. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-issuer-value-for-an-enterprise)."
+- If your enterprise is linked to one or more {% data variables.product.prodname_ghe_server %} instances via {% data variables.product.prodname_github_connect %}, after changing the slug, you'll need to reset the connection by disabling and then reenabling {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
 
 ## Changing the enterprise slug
 
@@ -45,5 +46,6 @@ Parts of your system that may be affected by changing the slug include, but are 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
+
 1. At the bottom of the page, in the "Danger zone" section, click **Change enterprise URL slug**.
 1. In the "Change enterprise URL slug" dialog, follow the instructions, then click **Change enterprise slug URL**.

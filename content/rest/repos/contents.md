@@ -1,5 +1,5 @@
 ---
-title: Repository contents
+title: REST API endpoints for repository contents
 allowTitleToDifferFromFilename: true
 shortTitle: Contents
 intro: >-

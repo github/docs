@@ -4,6 +4,7 @@ featuredLinks:
   gettingStarted:
     - /get-started/start-your-journey/hello-world
     - /rest
+    - /webhooks
   popular:
     - /get-started
     - /get-started/foo/bar
@@ -16,7 +17,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 children:
   # The list of children in the fixtures has to be the same names
   # as we use in the real content. It can have fewer but can't include
@@ -31,6 +31,7 @@ children:
   - code-security
   - actions
   - rest
+  - webhooks
   # - account-and-profile
   # - authentication
   # - repositories

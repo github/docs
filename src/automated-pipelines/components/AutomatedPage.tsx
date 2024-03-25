@@ -7,13 +7,14 @@ import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayou
 import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { ClientSideHighlight } from 'src/frame/components/ClientSideHighlight'
-import { Alert } from 'src/frame/components/ui/Alert'
+import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 
 type Props = {
   children: React.ReactNode
+  fullWidth?: boolean
 }
 
-export const AutomatedPage = ({ children }: Props) => {
+export const AutomatedPage = ({ children, fullWidth }: Props) => {
   const { title, intro, renderedPage, miniTocItems, product, permissions } =
     useAutomatedPageContext()
 
@@ -23,7 +24,15 @@ export const AutomatedPage = ({ children }: Props) => {
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
-          topper={<ArticleTitle>{title}</ArticleTitle>}
+          fullWidth={fullWidth}
+          topper={
+            <>
+              <div className="d-none d-xl-block my-3 mr-auto width-full">
+                <Breadcrumbs />
+              </div>
+              <ArticleTitle>{title}</ArticleTitle>
+            </>
+          }
           intro={
             <>
               {intro && (
@@ -32,9 +41,7 @@ export const AutomatedPage = ({ children }: Props) => {
                 </Lead>
               )}
 
-              {permissions && <PermissionsStatement permissions={permissions} />}
-
-              {product && <Alert className="mb-4" html={product} />}
+              <PermissionsStatement permissions={permissions} product={product} />
             </>
           }
           toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

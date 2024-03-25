@@ -35,15 +35,15 @@ sections:
 
         # https://github.com/github/releases/issues/3251
         - |
-          Site administrators can use the Manage GitHub Enterprise Server API to change the `site admin` password and to make changes to [management console users](https://docs.github.com/en/enterprise-server@3.10/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user). For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
+          Site administrators can use the Manage GitHub Enterprise Server API to change the `site admin` password and to make changes to [management console users](/enterprise-server@3.10/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user). For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
 
     - heading: Authentication
       notes:
         # https://github.com/github/releases/issues/2998
         - |
-          To help users access resources more securely, fine-grained personal access tokens are available in public beta. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens)."
-          - Users can create fine-grained personal access tokens with access to their personal repositories or, if permitted, organization-owned repositories.
-          - Organization and enterprise owners can enable or disable the use of fine-grained personal access tokens in organization-owned repositories, and can use the REST API or GraphQL API to manage tokens in their organizations.
+          To help users access resources more securely, {% data variables.product.pat_v2_plural %} are available in public beta. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens)."
+          - Users can create {% data variables.product.pat_v2_plural %} with access to their personal repositories or, if permitted, organization-owned repositories.
+          - Organization and enterprise owners can enable or disable the use of {% data variables.product.pat_v2_plural %} in organization-owned repositories, and can use the REST API or GraphQL API to manage tokens in their organizations.
           - Users creating fine-grained tokens for an organization can add the `pre-receive hooks` permission to allow managing pre-receive hooks. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)."
 
     - heading: GitHub Advanced Security
@@ -260,7 +260,7 @@ sections:
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 
-      ```
+      ```shell
       Error response from daemon: conflict: unable to delete IMAGE_ID (cannot be forced) - image is being used by running container CONTAINER_ID
       ```
 
@@ -308,10 +308,12 @@ sections:
       {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
     - |
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
 
   deprecations:
     # https://github.com/github/releases/issues/2605
     - heading: Upcoming deprecation of team discussions
       notes:
         - |
-          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.12. In GitHub Enterprise Server 3.10, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+          GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.10, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]

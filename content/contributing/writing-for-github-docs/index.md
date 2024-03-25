@@ -2,7 +2,6 @@
 title: Writing for GitHub Docs
 shortTitle: Writing for GitHub Docs
 intro: 'Learn about writing for {% data variables.product.prodname_docs %}.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 children:
