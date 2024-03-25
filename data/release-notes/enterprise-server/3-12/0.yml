@@ -22,6 +22,14 @@ sections:
         # https://github.com/github/releases/issues/3676
         - |
           On an instance in a cluster configuration, administrators can use the `ghe-remove-node` command-line utility to remove a node from a cluster. This command evacuates data from the node's data services, marks the node as offline, and stops traffic being routed to the node, replacing the manual steps previously required to remove a node. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)." [Updated: 2024-02-28]
+        # https://github.com/github/releases/issues/3802
+        - |
+          On an instance in a cluster configuration, administrators can more easily configure or tear down a high availability replica of the cluster. For more information, see the documentation for the following utilities in the "Command-line utilities" article:
+          
+          - [`ghe-cluster-repl-bootstrap`](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-repl-bootstrap)
+          - [`ghe-cluster-repl-teardown`](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-repl-teardown)
+
+          [Updated: 2024-03-25]
 
     - heading: Authentication
       notes:
