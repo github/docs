@@ -39,15 +39,15 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - uses: ./.github/actions/install-cocofix
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+
       - name: Run linter
         run: npm run lint
 
       - name: Run Prettier
         run: npm run prettier-check
-
-      - uses: ./.github/actions/install-cocofix
-        with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
 
       - name: Run TypeScript
         run: npm run tsc
