@@ -35,4 +35,5 @@ children:
   - /two-codeql-workflows
   - /unclear-what-triggered-a-workflow
   - /unnecessary-step-found
+  - /kotlin-detected-in-no-build
 ---
