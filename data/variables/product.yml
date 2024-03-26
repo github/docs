@@ -218,6 +218,8 @@ prodname_code_scanning_caps: 'Code scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
+
+# Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
