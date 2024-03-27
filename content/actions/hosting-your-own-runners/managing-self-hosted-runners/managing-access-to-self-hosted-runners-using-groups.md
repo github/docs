@@ -112,6 +112,8 @@ You can edit the name of your runner groups at the enterprise and organization l
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
 
+<span id="moving-a-runner-to-a-group"></a>
+
 ## Moving a self-hosted runner to a group
 
 {% data reusables.actions.about-moving-a-runner-to-a-group %}
