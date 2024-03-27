@@ -11,6 +11,13 @@ type PostPRCommentOptions = {
   repository: string
   dryRun: boolean
   failOnError?: boolean
+  // If someone uses ` ... --changed-files`, Commander will set this to
+  // boolean `true`.
+  // If someone uses ` ... --changed-files foo bar`, the value
+  // becomes `['foo', 'bar']`.
+  // And since it defaults to an env var called `CHANGED_FILES`,
+  // it could be a string like `'foo bar'`.
+  changedFiles?: string | string[] | true
 }
 
 // This function is designed to be able to run and potentially do nothing.
@@ -19,25 +26,59 @@ export async function postPRComment(filePath: string, options: PostPRCommentOpti
   if (!options.dryRun) {
     if (!options.issueNumber) {
       throw new Error(
-        'You must provide an issue number. Either set ISSUE_NUMBER env var or pass the --issue-number flag. Remember, a PR is an issue actually.',
+        'If not in dry-run mode, you must provide an issue number. Either set ISSUE_NUMBER env var or pass the --issue-number flag. Remember, a PR is an issue actually.',
       )
     }
     if (!options.repository) {
       throw new Error(
-        'You must provide a repository name. Either set REPOSITORY env var or pass the --repository flag.',
+        'If not in dry-run mode, you must provide a repository name. Either set REPOSITORY env var or pass the --repository flag.',
       )
     }
+  }
+
+  // See note on `PostPRCommentOptions` type about this
+  if (options.changedFiles === true) {
+    throw new Error(
+      'If you use --changed-files, you must provide at least one file path. For example, --changed-files foo.md bar.md',
+    )
   }
 
   // Exit early if there's absolutely nothing to "complain" about
   const checks: Check[] = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
+  const changedFiles: string[] = []
+  if (options.changedFiles) {
+    if (Array.isArray(options.changedFiles)) {
+      changedFiles.push(...options.changedFiles)
+    } else if (typeof options.changedFiles === 'string') {
+      changedFiles.push(...options.changedFiles.split(/\s+/g))
+    } else {
+      throw new Error('Unexpected type for changedFiles')
+    }
+  }
+
+  const checksFiltered = checks.filter((check: Check) => {
+    return (
+      !changedFiles.length ||
+      changedFiles.some((changedFile) => contentFileMatchesURL(changedFile, check.url))
+    )
+  })
+
+  if (checksFiltered.length !== checks.length && checks.length > 0) {
+    console.warn(
+      boxen(
+        `Due to filtering by changed files (${changedFiles.length}) there are now ${checksFiltered.length} checks to process instead of ${checks.length}.`,
+        { padding: 1 },
+      ),
+    )
+  }
+
   // Really bad. This could lead to a 404 from links in GitHub.
-  const failedChecks = checks.filter((check) => !check.found)
+  const failedChecks = checksFiltered.filter((check) => !check.found)
 
   // Bad. This could lead to the fragment not finding the right
   // heading in the found page.
-  const failedFragmentChecks = checks.filter(
+  const failedFragmentChecks = checksFiltered.filter(
     (check) => check.found && check.fragment && !check.fragmentFound,
   )
 
@@ -141,6 +182,16 @@ Remember, this workflow check is not required because it's not guaranteed to be 
     )
     process.exit(failedChecks.length + failedFragmentChecks.length)
   }
+}
+
+function contentFileMatchesURL(filePath: string, url: string) {
+  if (!filePath.startsWith('content/')) return false
+
+  // This strips and omits any query string or hash
+  const pathname = new URL(url, 'https://docs.github.com').pathname
+
+  const fileUrl = filePath.replace('content', '').replace('/index.md', '').replace(/\.md$/, '')
+  return pathname === fileUrl
 }
 
 function makeAbsoluteDocsURL(check: Check) {
