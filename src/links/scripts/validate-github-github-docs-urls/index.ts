@@ -32,6 +32,11 @@ program
   )
   .option('--dry-run', "Don't post any comment. Only print what it would post.")
   .option('--fail-on-error', 'Any error will make the process exit with a non-zero code')
+  .option(
+    '--changed-files [paths...]',
+    'Content files that we can map to URLs for inclusion',
+    process.env.CHANGED_FILES || '',
+  )
   .argument('<checks-json-filepath>', 'JSON file that has all checks')
   .action(postPRComment)
 
