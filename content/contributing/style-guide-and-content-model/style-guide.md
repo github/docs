@@ -89,16 +89,29 @@ Danger callouts will generally only be necessary when describing processes that 
 
 We use standard formatting and colors for different types of callouts across doc sets.
 
-Callouts are rendered using Markdown. Specify the type of callout (note, warning, or danger) by placing it in brackets, preceded by an exclamation mark.
+Callouts are rendered using Markdown.
+Tip:
+```[!TIP] Here's a suggestion. ```
 
+```markdown
+>[!TIP] Here's a suggestion.```
 Note:
-```[!NOTE] Keep this in mind.```
+
+```markdown
+>[!NOTE] Keep this in mind.
+```
 
 Warning:
-```[!WARNING] Be careful.```
+
+```markdown
+>[!WARNING] Be careful.
+```
 
 Danger:
-```[!DANGER] Be extremely careful.```
+
+```markdown
+>[!DANGER] Be extremely careful.
+```
 
 Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
 
