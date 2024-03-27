@@ -136,7 +136,9 @@ When autofix is enabled for a repository, alerts are displayed in pull requests 
 
 {% note %}
 
-**Note:** Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+**Notes:**
+- Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+- When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
 
 {% endnote %}
 
