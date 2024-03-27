@@ -90,6 +90,12 @@ type Query = {
   autofixSupport: 'none' | 'default'
 }
 
+type QueryExtended = Query & {
+  inDefault: boolean
+  inExtended: boolean
+  inAutofix: boolean
+}
+
 const opts = program.opts()
 main(
   {
@@ -162,8 +168,28 @@ async function main(options: Options, language: string) {
     }
   }
 
-  const entries = Object.values(queries)
-  entries.sort((a, b) => a.name.localeCompare(b.name))
+  function decorate(query: Query): QueryExtended {
+    return {
+      ...query,
+      inDefault: query.packs.includes('code-scanning'),
+      inExtended: query.packs.includes('security-extended'),
+      inAutofix: query.autofixSupport === 'default',
+    }
+  }
+
+  const entries = Object.values(queries).map(decorate)
+
+  // Spec: "Queries that are both in Default and Extended should come first,
+  // in alphabetical order. Followed by the queries that are in Extended only."
+  entries.sort((a, b) => {
+    if (a.inDefault && !b.inDefault) return -1
+    else if (!a.inDefault && b.inDefault) return 1
+
+    if (a.inExtended && !b.inExtended) return -1
+    else if (!a.inExtended && b.inExtended) return 1
+
+    return a.name.localeCompare(b.name)
+  })
 
   // At the moment, our chosen business logic is that we omit the Autofix
   // column if there are no queries that support it.
@@ -174,7 +200,7 @@ async function main(options: Options, language: string) {
   printQueries(options, entries, includeAutofix)
 }
 
-function printQueries(options: Options, queries: Query[], includeAutofix: boolean) {
+function printQueries(options: Options, queries: QueryExtended[], includeAutofix: boolean) {
   const markdown = []
   markdown.push('{% rowheaders %}')
   markdown.push('') // blank line
@@ -190,18 +216,9 @@ function printQueries(options: Options, queries: Query[], includeAutofix: boolea
 
   for (const query of queries) {
     const markdownLink = `[${query.name}](${query.url})`
-    let defaultIcon = notIncludedOcticon
-    let extendedIcon = notIncludedOcticon
-    let autofixIcon = notIncludedOcticon
-    if (query.packs.includes('code-scanning')) {
-      defaultIcon = includedOcticon
-    }
-    if (query.packs.includes('security-extended')) {
-      extendedIcon = includedOcticon
-    }
-    if (query.autofixSupport === 'default') {
-      autofixIcon = includedOcticon
-    }
+    const defaultIcon = query.inDefault ? includedOcticon : notIncludedOcticon
+    const extendedIcon = query.inExtended ? includedOcticon : notIncludedOcticon
+    const autofixIcon = query.inAutofix ? includedOcticon : notIncludedOcticon
     const row = [markdownLink, query.cwes.join(', '), defaultIcon, extendedIcon]
     if (includeAutofix) {
       row.push(autofixIcon)
