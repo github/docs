@@ -37,10 +37,6 @@ You need to enable GHAS for each pilot project, either by enabling the GHAS feat
 
 To enable {% data variables.product.prodname_code_scanning %} on your {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
 
-{% elsif ghae %}
-
-To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
-
 {% endif %}
 {% ifversion default-setup-ghas-enablement %}
 You can quickly configure default setup for {% data variables.product.prodname_code_scanning %} across multiple repositories in an organization using security overview. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization)."

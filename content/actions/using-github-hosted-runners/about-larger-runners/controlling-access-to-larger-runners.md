@@ -112,7 +112,7 @@ If you have configured your enterprise to connect to an Azure VNET, you can give
 You can rename runner groups at the enterprise and organization levels.
 
 - [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
-- [Changing the name of an enterprise runner group](##changing-the-name-of-an-enterprise-runner-group)
+- [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
 

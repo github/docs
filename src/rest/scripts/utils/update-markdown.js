@@ -82,7 +82,6 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
       "artifacts": {
         "versions": {
           "free-pro-team@latest",
-          "github-ae@latest",
           "enterprise-cloud@latest",
           "enterprise-server@3.4",
           "enterprise-server@3.5",

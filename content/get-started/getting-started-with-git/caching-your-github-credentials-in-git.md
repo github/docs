@@ -11,7 +11,6 @@ intro: 'If you''re [cloning {% data variables.product.product_name %} repositori
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Caching credentials
 ---

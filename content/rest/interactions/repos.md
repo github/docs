@@ -1,5 +1,5 @@
 ---
-title: Repository interactions
+title: REST API endpoints for repository interactions
 shortTitle: Repository
 intro: >-
   Use the REST API to temporarily restrict which type of user can comment, open

@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -209,9 +208,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 ## Avoiding accidental commits in the future
 
-{% ifversion fpt or ghec or ghes %}
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
-{% endif %}
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -219,6 +216,7 @@ There are a few simple tricks to avoid committing things you don't want committe
 - Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 - Use `git add --interactive` to individually review and stage changes within each file.
 - Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
+- Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#about-push-protection-for-repositories-and-organizations)."
 
 ## Further reading
 

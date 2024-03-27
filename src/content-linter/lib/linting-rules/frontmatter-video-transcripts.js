@@ -4,7 +4,7 @@ import path from 'path'
 import { getFrontmatter } from '../helpers/utils.js'
 
 export const frontmatterVideoTranscripts = {
-  names: ['GH011', 'frontmatter-video-transcripts'],
+  names: ['GHD011', 'frontmatter-video-transcripts'],
   description: 'Video transcript must be configured correctly',
   tags: ['frontmatter', 'feature', 'video-transcripts'],
   function: (params, onError) => {

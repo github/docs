@@ -20,3 +20,31 @@ jobs:
         with:
           node-version: {% raw %}${{ matrix.version }}{% endraw %}
 ```
+
+A variable configuration in a matrix can be an `array` of `object`s.
+
+```yaml
+matrix:
+  os:
+    - ubuntu-latest
+    - macos-latest
+  node:
+    - version: 14
+    - version: {% ifversion actions-node20-support %}20{% else %}16{% endif %}
+      env: NODE_OPTIONS=--openssl-legacy-provider
+```
+
+This matrix produces 4 jobs with corresponding contexts.
+
+```yaml
+- matrix.os: ubuntu-latest
+  matrix.node.version: 14
+- matrix.os: ubuntu-latest
+  matrix.node.version: {% ifversion actions-node20-support %}20{% else %}16{% endif %}
+  matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
+- matrix.os: macos-latest
+  matrix.node.version: 14
+- matrix.os: macos-latest
+  matrix.node.version: {% ifversion actions-node20-support %}20{% else %}16{% endif %}
+  matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
+```

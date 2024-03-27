@@ -11,8 +11,6 @@ versions:
 
 <!-- CodeQL CLI depends on a short URL generated from this article's URL. If this article's URL ever changes, make sure to update the short URL https://gh.io/troubleshooting-code-scanning/out-of-disk-or-memory. https://thehub.github.com/it/how-to/url-shortening -->
 
-{% data reusables.code-scanning.beta %}
-
 ## About these errors
 
 ```text

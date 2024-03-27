@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -45,11 +44,7 @@ assignees: octocat
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 {% data reusables.repositories.default-issue-templates %}
-
-{% endif %}
 
 ## Adding an issue template
 

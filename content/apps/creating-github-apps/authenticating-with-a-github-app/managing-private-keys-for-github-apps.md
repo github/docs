@@ -5,7 +5,6 @@ intro: 'You can manage private keys to authenticate with your {% data variables.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

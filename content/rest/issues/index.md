@@ -1,5 +1,7 @@
 ---
-title: Issues
+title: REST API endpoints for issues
+shortTitle: Issues
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to view and manage issues, including issue assignees, comments, labels, and milestones.'
 redirect_from:
   - /v3/issues
@@ -7,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

@@ -4,7 +4,6 @@ intro: 'With enterprise policies, you can manage the policies for all the organi
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Enterprise

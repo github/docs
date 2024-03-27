@@ -9,17 +9,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Community
 shortTitle: Configure
 ---
 
-{% ifversion fpt or ghes or ghec %}
-
 {% data reusables.repositories.default-issue-templates %}
-
-{% endif %}
 
 ## Creating issue templates
 
@@ -72,7 +67,7 @@ You can encourage contributors to use issue templates by setting `blank_issues_e
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
+**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people choose to open a blank issue. If you disable blank issues, the template will never be used.
 
 {% endnote %}
 

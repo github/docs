@@ -5,7 +5,6 @@ intro: 'Automatically deploy projects with {% data variables.product.prodname_ac
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-deployments

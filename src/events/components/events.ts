@@ -370,14 +370,23 @@ function initLinkEvent() {
     const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
     const sameSite = link.origin === location.origin
-    const container = ['header', 'nav', 'article', 'toc', 'footer'].find((name) =>
-      target.closest(`[data-container="${name}"]`),
-    )
+    const container = target.closest(`[data-container]`) as HTMLElement | null
     sendEvent({
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
-      link_container: container,
+      link_container: container?.dataset.container,
+    })
+  })
+
+  // Add tracking for scroll to top button
+  document.documentElement.addEventListener('click', (evt) => {
+    const target = evt.target as HTMLElement
+    if (!target.closest('.ghd-scroll-to-top')) return
+    const url = window.location.href.split('#')[0] // Remove hash
+    sendEvent({
+      type: EventType.link,
+      link_url: `${url}#scroll-to-top`,
     })
   })
 }

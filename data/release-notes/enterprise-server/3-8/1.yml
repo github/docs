@@ -16,7 +16,7 @@ sections:
     - On an instance in a high availability configuration, if an administrator tore down replication from a replica node using `ghe-repl-teardown` immediately after running `ghe-repl-setup`, but before `ghe-repl-start`, an error indicated that the script `cannot launch /usr/local/bin/ghe-single-config-apply - run is locked`. `ghe-repl-teardown` now displays an informational alert and continues the teardown.
     - During configuration of high availability, if a site administrator interrupted the `ghe-repl-start` utility, the utility erroneously reported that replication was configured, and the instance would not perform expected clean-up operations.
     - Commands that site administrators ran via SSH on any of the instances nodes were not logged in `/var/log/ssh-console-audit.log`.
-    - "On instances configured to use the private beta of SCIM for GitHub Enterprise Server, users' authentication with SSH keys and personal access tokens failed due to an erroneous requirement for authorization."
+    - "On instances configured to use the private beta of SCIM for GitHub Enterprise Server, users' authentication with SSH keys and {% data variables.product.pat_generic_plural %} failed due to an erroneous requirement for authorization."
     - |
       After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
     - Responses from the `/repositories` REST API endpoint erroneously included deleted repositories.
@@ -53,11 +53,11 @@ sections:
     - |
       {% data reusables.release-notes.ghe-cluster-config-apply-error %}
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       Use of the search API may cause subsequent requests to other interfaces to fail. When this issue occurs, impacted API or web UI users will receive HTTP 5xx responses and this `NoMethodError` exception will be logged:
 
-      ```
+      ```shell
       NoMethodError (undefined method `starts_with?' for [:ok, "refs/heads/main"]:Array):
       ```
     - |

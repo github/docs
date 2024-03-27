@@ -7,15 +7,15 @@ describe('featuredLinks', () => {
   jest.setTimeout(60 * 1000)
 
   test('non-TOC pages do not have intro links', async () => {
-    const $ = await getDOM('/en/get-started/quickstart')
+    const $ = await getDOM('/en/get-started/start-your-journey')
     expect($('[data-testid=article-list]')).toHaveLength(0)
   })
 
   test('landing page intro links have expected properties', async () => {
     const $ = await getDOM('/en')
     const $featuredLinks = $('[data-testid=article-list] a')
-    expect($featuredLinks).toHaveLength(6)
-    expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/hello-world')
+    expect($featuredLinks).toHaveLength(7)
+    expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/start-your-journey/hello-world')
     expect($featuredLinks.eq(0).children('h3').text()).toMatch('Hello World')
     expect($featuredLinks.eq(0).children('p').text()).toMatch('Follow this Hello World exercise')
   })

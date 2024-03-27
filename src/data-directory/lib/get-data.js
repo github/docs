@@ -97,7 +97,7 @@ export const getDataByLanguage = memoize((dottedPath, langCode) => {
   const { dir } = languages[langCode]
 
   try {
-    const value = getDataByDir(dottedPath, dir, languages.en.dir)
+    const value = getDataByDir(dottedPath, dir, languages.en.dir, langCode)
 
     // What could happens is that a new key has only been added to
     // the English data/ui.yml but hasn't been added to Japanese, but
@@ -133,7 +133,7 @@ export const getDataByLanguage = memoize((dottedPath, langCode) => {
   }
 })
 
-function getDataByDir(dottedPath, dir, englishRoot) {
+function getDataByDir(dottedPath, dir, englishRoot, langCode) {
   const fullPath = ['data']
 
   // Using English here because it doesn't matter. We just want to
@@ -209,7 +209,10 @@ function getDataByDir(dottedPath, dir, englishRoot) {
           throw error
         }
       }
-      content = correctTranslatedContentStrings(content, englishContent, { dottedPath })
+      content = correctTranslatedContentStrings(content, englishContent, {
+        dottedPath,
+        code: langCode,
+      })
     }
     return content
   }

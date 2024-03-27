@@ -103,6 +103,18 @@ The rate is calculated by dividing the number of alerts that were closed and rem
 
 Alerts that are reopened and re-closed during the chosen time period are ignored.
 
+{% ifversion code-scanning-autofix %}
+
+### Autofix suggestions
+
+{% data reusables.rai.code-scanning.beta-autofix %}
+
+Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+
+The "Autofix suggestions" metric is the total number of Autofix suggestions generated in open and closed pull requests during the chosen time period.
+
+{% endif %}
+
 ### Alert activity graph
 
 Expanding on the alert trends graph, the alert activity graph shows you alert inflows and outflows over your chosen time period.

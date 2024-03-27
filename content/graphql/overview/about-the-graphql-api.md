@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -24,9 +23,9 @@ For more information about {% data variables.product.company_short %}'s APIs, se
 
 ## About GraphQL
 
-The [GraphQL](https://graphql.github.io/) data query language is:
+The [GraphQL](https://graphql.org/) data query language is:
 
-- **A [specification](https://graphql.github.io/graphql-spec/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
+- **A [specification](https://spec.graphql.org/June2018/).** The spec determines the validity of the [schema](/graphql/guides/introduction-to-graphql#schema) on the API server. The schema determines the validity of client calls.
 
 - **[Strongly typed](#about-the-graphql-schema-reference).** The schema defines an API's type system and all object relationships.
 

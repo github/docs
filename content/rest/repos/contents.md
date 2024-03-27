@@ -1,5 +1,5 @@
 ---
-title: Repository contents
+title: REST API endpoints for repository contents
 allowTitleToDifferFromFilename: true
 shortTitle: Contents
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

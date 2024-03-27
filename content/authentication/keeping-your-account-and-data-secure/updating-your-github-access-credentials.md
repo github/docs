@@ -71,7 +71,7 @@ See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-
 
 ## Resetting API tokens
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[AUTOTITLE](/rest/apps#reset-an-authorization)" endpoint.
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in "[AUTOTITLE](/rest/apps/oauth-applications#reset-a-token)."
 
 ## Preventing unauthorized access
 

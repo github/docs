@@ -16,7 +16,6 @@ redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Git

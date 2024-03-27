@@ -56,8 +56,10 @@ Enterprise owners who create an organization owned by the enterprise account aut
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-
-1. On the **Organizations** tab, above the list of organizations, click **New organization**.
+{%- ifversion enterprise-readme %}
+1. In the left sidebar, click **Organizations**.
+{%- endif %}
+1. On the "Organizations" tab, above the list of organizations, click **New organization**.
 1. Under "Organization name", type a name for your organization.
 1. Click **Create organization**.
 1. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
@@ -72,7 +74,10 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invit
 When you invite an organization to join your enterprise account, at least one owner needs to accept the invitation. Then, you must give a final approval for the transfer. After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. On the **Organizations** tab, above the list of organizations, click **Invite organization**.
+{%- ifversion enterprise-readme %}
+{% data reusables.enterprise-accounts.click-organizations-tab %}
+{%- endif %}
+1. On the "Organizations" tab, above the list of organizations, click **Invite organization**.
 1. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.
 1. After an organization owner has approved the invitation, navigate back to the **Organizations** tab of the enterprise settings.
@@ -90,6 +95,9 @@ Enterprise owners can transfer existing organizations between enterprise account
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
+{%- ifversion enterprise-readme %}
+{% data reusables.enterprise-accounts.click-organizations-tab %}
+{%- endif %}
 1. Next to the organization you want to transfer, select the {% octicon "gear" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
 
    {% data reusables.enterprise-accounts.organization-settings-dropdown %}

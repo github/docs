@@ -5,7 +5,6 @@ intro: Use workflows to run multiple jobs.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  

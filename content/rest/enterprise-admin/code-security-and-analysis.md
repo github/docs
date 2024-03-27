@@ -1,5 +1,7 @@
 ---
-title: Code security and analysis
+title: REST API endpoints for enterprise code security and analysis
+shortTitle: Code security and analysis
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage code security and analysis features for your enterprise.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'

@@ -12,13 +12,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - Workflows
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow artifacts
@@ -140,7 +139,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[AUTOTITLE](/rest/actions#artifacts)."
+After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts)," and "[AUTOTITLE](/rest/actions/artifacts)."
 
 ### Downloading artifacts during a workflow run
 
@@ -180,15 +179,15 @@ Jobs that are dependent on a previous job's artifacts must wait for the dependen
 
 Job 1 performs these steps:
 - Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework_pre`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %}.
 
 Job 2 uses the result in the previous job:
-- Downloads the `homework_pre` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
+- Downloads the {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %} artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
 - Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.
+- Uploads the `math-homework.txt` file. {% ifversion artifacts-v3-deprecation %}As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.{% else %}This upload overwrites the previously uploaded artifact because they share the same name.{% endif %}
 
 Job 3 displays the result uploaded in the previous job:
-- Downloads the `homework_final` artifact from Job 2.
+- Downloads the {% ifversion artifacts-v3-deprecation %}`homework_final` artifact from Job 2.{% else %}`homework` artifact.{% endif %}
 - Prints the result of the math equation to the log.
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
@@ -209,7 +208,7 @@ jobs:
       - name: Upload math result for job 1
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: homework_pre
+          name: {% ifversion artifacts-v3-deprecation %}homework_pre{% else %}homework{% endif %}
           path: math-homework.txt
 
   job_2:
@@ -220,7 +219,7 @@ jobs:
       - name: Download math result for job 1
         uses: {% data reusables.actions.action-download-artifact %}
         with:
-          name: homework_pre
+          name: {% ifversion artifacts-v3-deprecation %}homework_pre{% else %}homework{% endif %}
       - shell: bash
         run: |
           value=`cat math-homework.txt`
@@ -228,7 +227,7 @@ jobs:
       - name: Upload math result for job 2
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: homework_final
+          name: {% ifversion artifacts-v3-deprecation %}homework_final{% else %}homework{% endif %}
           path: math-homework.txt
 
   job_3:
@@ -239,7 +238,7 @@ jobs:
       - name: Download math result for job 2
         uses: {% data reusables.actions.action-download-artifact %}
         with:
-          name: homework_final
+          name: {% ifversion artifacts-v3-deprecation %}homework_final{% else %}homework{% endif %}
       - name: Print the final result
         shell: bash
         run: |

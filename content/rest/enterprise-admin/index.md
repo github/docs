@@ -1,5 +1,5 @@
 ---
-title: GitHub Enterprise administration
+title: REST API endpoints for GitHub Enterprise administration
 intro: Use the REST API to administer your enterprise.
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -8,7 +8,6 @@ redirect_from:
   - /rest/reference/enterprise-admin
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -72,9 +71,11 @@ http(s)://HOSTNAME/
 
 Your {% data variables.product.product_name %} installation's API endpoints accept the same authentication methods as the {% data variables.product.prodname_dotcom %} API. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
 
-{% ifversion ghes %}OAuth tokens must have the `site_admin` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+OAuth tokens must have the `site_admin` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes) when used with these endpoints.
 
-These endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% ifversion ghes %}, except for the [Management Console](/rest/enterprise-admin/management-console) endpoints, which requires the [Management Console password](/admin/configuration/administering-your-instance-from-the-management-console){% endif %}.
+These endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators, except for the [Management Console](/rest/enterprise-admin/management-console) endpoints, which requires the [Management Console password](/admin/configuration/administering-your-instance-from-the-management-console).
+
+{% data reusables.enterprise_management_console.api-deprecation %}
 
 {% endif %}
 
@@ -84,7 +85,7 @@ These endpoints are only accessible to authenticated {% data variables.product.p
 
 The current version of your enterprise is returned in the REST API response header:
 `X-GitHub-Enterprise-Version: {{currentVersion}}.0`
-You can also read the current version by calling the [meta endpoint](/rest/meta).
+You can also read the current version by calling `GET /meta`. For more information, see "[AUTOTITLE](/rest/meta)."
 
 {% endif %}
 

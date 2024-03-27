@@ -22,7 +22,6 @@ topics:
   - SARIF
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ## About using {% data variables.product.prodname_code_scanning %} with your existing CI system
@@ -55,7 +54,7 @@ If you are using the {% data variables.product.prodname_codeql_cli %}, you will 
 
 ## Generating a token for authentication with {% data variables.product.product_name %}
 
-Each CI server needs a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to use to upload results to {% data variables.product.product_name %}, whether you are using the {% data variables.product.prodname_codeql_cli %}, the REST API, or another method. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[AUTOTITLE](/apps/creating-github-apps)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Each CI server needs a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to use to upload results to {% data variables.product.product_name %}, whether you are using the {% data variables.product.prodname_codeql_cli %}, the REST API, or another method. You must use an access token or a {% data variables.product.prodname_github_app %} with the `security_events` write permission. If CI servers already use a token with this scope to checkout repositories from {% data variables.product.product_name %}, you could potentially use the same token. Otherwise, you should create a new token with the `security_events` write permission and add this to the CI system's secret store. For information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For more information on the different methods for uploading results to {% data variables.product.product_name %}, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 

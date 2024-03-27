@@ -107,14 +107,8 @@ async function main(owner, repo, baseSHA, headSHA) {
       try {
         // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
         // try/catch can be removed if docs-engineering#1821 is resolved
-        // i.e. for feature based versioning, like ghae: 'issue-6337'
-        const fileVersions = getApplicableVersions(data.versions, undefined, {
-          // Here we explictly "opt-out" of GHAE versions. We're confident,
-          // at this point, that we don't want github-ae to appear in the
-          // content changes table, but we're not yet ready to entirely
-          // delete it from all code. The deprecation is careful.
-          excludeGHAE: true,
-        })
+        // i.e. for feature based versioning, like ghec: 'issue-6337'
+        const fileVersions = getApplicableVersions(data.versions)
 
         for (const plan in allVersionShortnames) {
           // plan is the shortName (i.e., fpt)
@@ -126,7 +120,7 @@ async function main(owner, repo, baseSHA, headSHA) {
           )
 
           if (versions.length === 1) {
-            // for fpt, ghec, and ghae
+            // for fpt and ghec
 
             if (versions.toString() === nonEnterpriseDefaultVersion) {
               // omit version from fpt url
@@ -134,7 +128,7 @@ async function main(owner, repo, baseSHA, headSHA) {
               previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
               prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
             } else {
-              // for non-versioned releases (ghae, ghec) use full url
+              // for non-versioned releases (ghec) use full url
 
               previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
               prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`

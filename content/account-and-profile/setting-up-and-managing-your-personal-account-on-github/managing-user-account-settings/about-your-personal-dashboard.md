@@ -12,7 +12,6 @@ intro: 'You can visit your personal dashboard to keep track of issues and pull r
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts

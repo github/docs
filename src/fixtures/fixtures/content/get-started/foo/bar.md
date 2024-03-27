@@ -5,7 +5,6 @@ intro: This page doesn't really have an intro
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

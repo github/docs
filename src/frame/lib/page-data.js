@@ -203,6 +203,27 @@ async function translateTree(dir, langObj, enTree) {
     code: langObj.code,
   })
 
+  translatedData.title = correctTranslatedContentStrings(translatedData.title, enPage.title, {
+    relativePath,
+    code: langObj.code,
+  })
+  if (translatedData.shortTitle) {
+    translatedData.shortTitle = correctTranslatedContentStrings(
+      translatedData.shortTitle,
+      enPage.shortTitle,
+      {
+        relativePath,
+        code: langObj.code,
+      },
+    )
+  }
+  if (translatedData.intro) {
+    translatedData.intro = correctTranslatedContentStrings(translatedData.intro, enPage.intro, {
+      relativePath,
+      code: langObj.code,
+    })
+  }
+
   item.page = new Page(
     Object.assign(
       {},
@@ -245,13 +266,17 @@ async function translateTree(dir, langObj, enTree) {
  *
  * Order of languages and versions doesn't matter, but order of child page arrays DOES matter (for navigation).
 */
-export async function loadSiteTree(unversionedTree) {
-  const rawTree = Object.assign({}, unversionedTree || (await loadUnversionedTree()))
+export async function loadSiteTree(unversionedTree, languagesOnly = []) {
+  const rawTree = Object.assign({}, unversionedTree || (await loadUnversionedTree(languagesOnly)))
   const siteTree = {}
 
+  const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   // For every language...
   await Promise.all(
-    Object.keys(languages).map(async (langCode) => {
+    langCodes.map(async (langCode) => {
+      if (!(langCode in rawTree)) {
+        throw new Error(`No tree for language ${langCode}`)
+      }
       const treePerVersion = {}
       // in every version...
       await Promise.all(
@@ -274,11 +299,17 @@ export async function loadSiteTree(unversionedTree) {
 
 export async function versionPages(obj, version, langCode) {
   // Add a versioned href as a convenience for use in layouts.
-  obj.href = obj.page.permalinks.find(
+  const permalink = obj.page.permalinks.find(
     (pl) =>
       pl.pageVersion === version ||
       (pl.pageVersion === 'homepage' && version === nonEnterpriseDefaultVersion),
-  ).href
+  )
+  if (!permalink) {
+    throw new Error(
+      `No permalink for ${obj.page.fullPath} in language ${langCode} for version ${version}`,
+    )
+  }
+  obj.href = permalink.href
 
   if (!obj.childPages) return obj
   const versionedChildPages = await Promise.all(
@@ -302,8 +333,12 @@ export async function loadPageList(unversionedTree, languagesOnly = []) {
   const rawTree = unversionedTree || (await loadUnversionedTree(languagesOnly))
   const pageList = []
 
+  const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   await Promise.all(
-    ((languagesOnly.length && languagesOnly) || Object.keys(languages)).map(async (langCode) => {
+    langCodes.map(async (langCode) => {
+      if (!(langCode in rawTree)) {
+        throw new Error(`No tree for language ${langCode}`)
+      }
       await addToCollection(rawTree[langCode], pageList)
     }),
   )

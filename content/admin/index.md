@@ -64,13 +64,14 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
+  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
-  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
+  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=enterprise+administrators+landing+page&ref_page=docs{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
   startHere:
+    - '{% ifversion ghec %}/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
     - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
@@ -97,7 +98,6 @@ layout: product-landing
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /managing-your-enterprise-account

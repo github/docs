@@ -53,7 +53,7 @@ If you access {% data variables.product.prodname_dotcom %} at a URL other than h
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
-![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "{% data variables.product.prodname_ghe_managed %}" are highlighted with an orange outline.](/assets/images/help/docs/header-ghes.png)
+![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The {% data variables.product.prodname_dotcom %} logo and "Enterprise" are highlighted with an orange outline.](/assets/images/help/docs/header-ghes.png)
 
 You can view the version of {% data variables.product.prodname_ghe_server %} that you're using in the footer of any page.
 

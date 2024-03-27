@@ -1,5 +1,5 @@
 ---
-title: Timeline events
+title: REST API endpoints for timeline events
 allowTitleToDifferFromFilename: true
 shortTitle: Timeline
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   and pull requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

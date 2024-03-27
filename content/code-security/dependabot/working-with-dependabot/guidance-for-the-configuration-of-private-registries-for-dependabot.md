@@ -25,19 +25,23 @@ This article contains recommendations and advice to help you configure {% data v
 - Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set).
 - Advice about configuring registry hosts.
 
-You'll find detailed guidance for the setup of the following package managers and registry hosts:
+You'll find detailed guidance for the setup of the following package managers:
 
 - [Bundler](#bundler)
 - [Docker](#docker)
 - [Gradle](#gradle)
 - [Maven](#maven)
 - [npm](#npm)
-- [Nuget](#nuget)
+- [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
+- [pub](#pub){% endif %}
 - [Python](#python)
 - [Yarn](#yarn)
+
+You'll also find recommendations for the setup of the following registry hosts:
+
 - [Artifactory](#artifactory)
 - [Azure Artifacts](#azure-artifacts)
-- [{% data variables.product.prodname_registry %} registry](#data-variablesproductprodname_registry--registry)
+- [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 - [Nexus](#nexus)
 - [ProGet](#proget)
 
@@ -126,8 +130,8 @@ registries:
 
 - Image names may not always be detected in Containerfiles, Helm files, or yaml files.
 - Dockerfiles may only receive a version update to the first `FROM` directive.
-- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `github/dependabot/dependabot-core` repository.
-- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `github/dependabot/dependabot-core` repository.
+- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `dependabot/dependabot-core` repository.
+- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `dependabot/dependabot-core` repository.
 
 ### Gradle
 
@@ -350,6 +354,41 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### pub
+
+You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#pub-repository)."
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+#### Notes
+
+{% data reusables.dependabot.access-private-dependencies-link %}
+
+pub supports URL and token authentication. The URL used for the registry should match the pub-hosted URL. For more information, see [Hosted Pub Repository Specification Version 2](https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md#hosted-url) in the `github/dart-lang/pub` repository.
+
+{% data variables.product.prodname_dependabot %} doesn't support overrides to the default package registry. For more information about overrides and why some users may implement them, see [Overriding the default package repository](https://dart.dev/tools/pub/custom-package-repositories#default-override) in the Dart documentation.
+
+{% endif %}
+
 ### Python
 
 Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
@@ -397,7 +436,7 @@ registries:
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-'url' should contain the URL, organization, and the "feed" or repository.
+`url` should contain the URL, organization, and the "feed" or repository.
 
 ### Yarn
 
@@ -537,10 +576,13 @@ If you use the `replace-base` setting, you should also configure a remote reposi
 
 You can use a virtual registry to group together all private and public dependencies under a single domain. For more information, see [npm Registry](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry) in the JFrog Artifactory documentation.
 
+{% ifversion dependabot-updates-reference-private-registries %}{% else %}
+
 #### Limitations and workarounds
 
 The `target branch` setting does not work with {% data variables.product.prodname_dependabot_security_updates %}
  on Artifactory. If you get a 401 authentication error, you need to remove the `target-branch` property from your `dependabot.yml` file. For more information, see [ARTIFACTORY: Why GitHub Dependabot security updates are failing with 401 Authentication error, when it initiates a connection with Artifactory npm private registry for security updates](https://jfrog.com/help/r/artifactory-why-github-dependabot-security-updates-are-failing-with-401-authentication-error-when-it-initiates-a-connection-with-artifactory-npm-private-registry-for-security-updates/issue-description) in the JFrog Artifactory documentation.
+{% endif %}
 
 ### Azure Artifacts
 
@@ -620,7 +662,7 @@ registries:
 If you are running Nexus behind a reverse proxy, you need to ensure that the server is accessible using an Auth token by using `curl -v -H 'Authorization: Bearer <token>' 'https://<nexus-repo-url>/repository/<repo-name>/@<scope>%2<package>'`. For more information, see [Run Behind a Reverse Proxy](https://help.sonatype.com/repomanager3/planning-your-implementation/run-behind-a-reverse-proxy) in the Sonatype documentation.
 
 If you are restricting which IPs can reach your Nexus host, you need to add the {% data variables.product.prodname_dependabot %} IPs to the allowlist.
-  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[Meta](/rest/meta)" in the Meta API documentation.
+  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
   - These are the current IPs:
       - "18.213.123.130/32"
       - "3.217.79.163/32"

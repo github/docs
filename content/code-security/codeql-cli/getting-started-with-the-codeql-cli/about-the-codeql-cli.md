@@ -41,7 +41,7 @@ You can use the {% data variables.product.prodname_codeql_cli %} to:
 The {% data variables.product.prodname_codeql_cli %} can analyze:
 
 - Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java.
+- Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
 - Codebases written in a mixture of languages.
 
 For information about setting up the {% data variables.product.prodname_codeql_cli %}, see
@@ -126,4 +126,6 @@ If you are working with an Open Source Codebase (that is, a codebase that is rel
 - To perform analysis of the Open Source Codebase.
 - If the Open Source Codebase is hosted and maintained on {% data variables.product.prodname_dotcom_the_website %}, to generate {% data variables.product.prodname_codeql %} databases for or during automated analysis, continuous integration, or continuous delivery.
 
-{% data variables.product.prodname_codeql %} can’t be used for automated analysis, continuous integration or continuous delivery, whether as part of normal software engineering processes or otherwise, except in the express cases set forth herein. For these uses, contact the [sales team](https://enterprise.github.com/contact).
+{% data variables.product.prodname_codeql %} can’t be used for automated analysis, continuous integration or continuous delivery, whether as part of normal software engineering processes or otherwise, except in the express cases set forth herein unless you have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{% data reusables.advanced-security.ghas-trial %}

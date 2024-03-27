@@ -4,7 +4,6 @@ intro: Testing various fancy Liquid rendering functionality
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /warnings

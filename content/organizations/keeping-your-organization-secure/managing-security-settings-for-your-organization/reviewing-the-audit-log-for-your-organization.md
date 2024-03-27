@@ -23,7 +23,7 @@ shortTitle: Review audit log
 
 {% endnote %}
 
-The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
+The audit log lists events triggered by activities that affect your organization within the last 180 days. Only owners can access an organization's audit log.
 
 {% data reusables.audit_log.only-three-months-displayed %}
 
@@ -47,16 +47,16 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
-| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-| `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
+| `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
-| `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.{% endif %}{% ifversion fpt or ghec %}
+| `dependabot_security_updates_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.{% ifversion fpt or ghec %}
 | `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 | `dependency_graph_new_repos` | Contains organization-level configuration activities for new repositories created in the organization.{% endif %}
 | `discussion_post` | Contains all activities related to discussions posted to a team page.
-| `discussion_post_reply` | Contains all activities related to replies to discussions posted to a team page.{% ifversion fpt or ghes or ghec %}
-| `enterprise` | Contains activities related to enterprise settings. |{% endif %}
+| `discussion_post_reply` | Contains all activities related to replies to discussions posted to a team page.
+| `enterprise` | Contains activities related to enterprise settings. |
 | `hook` | Contains all activities related to webhooks.
 | `integration_installation` | Contains activities related to integrations installed in an account. |
 | `integration_installation_request` | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |{% ifversion ghec %}
@@ -64,8 +64,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `ip_allow_list_entry` | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
 | `issue` | Contains activities related to deleting an issue. {% ifversion fpt or ghec %}
 | `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| `marketplace_listing` | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes or ghec %}
-| `members_can_create_pages` | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
+| `marketplace_listing` | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
+| `members_can_create_pages` | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." |
 | `org` | Contains activities related to organization membership.{% ifversion ghec %}
 | `org_credential_authorization` | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
 | `org_secret_scanning_automatic_validity_checks` | Contains organization-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
@@ -83,7 +83,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `repository_content_analysis` | Contains all activities related to enabling or disabling data use for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."{% endif %}{% ifversion fpt or ghec %}
 | `repository_dependency_graph` | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghec %}
 | `repository_secret_scanning` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." {% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
-| `repository_secret_scanning_automatic_validity_checks` | Contains repository-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
+| `repository_secret_scanning_automatic_validity_checks` | Contains repository-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_custom_pattern` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
 | `repository_secret_scanning_custom_pattern_push_protection`| Contains repository-level activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_push_protection` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}
@@ -123,7 +123,7 @@ For example:
 
 {% note %}
 
-**Note**: The audit log contains data for the current month and every day of the previous six months.
+**Note**: The audit log contains data for the last 180 days.
 
 {% endnote %}
 

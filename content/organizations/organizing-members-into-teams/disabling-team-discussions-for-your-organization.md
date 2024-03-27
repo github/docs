@@ -21,5 +21,5 @@ shortTitle: Disable team discussions
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.teams_sidebar %}
-1. Under "Team discussions", unselect **Enable team discussions for this organization**.
+1. Under "Team discussions", deselect **Enable team discussions for this organization**.
 1. Click **Save**.

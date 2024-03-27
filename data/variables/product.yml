@@ -21,7 +21,6 @@ prodname_dotcom_the_website: 'GitHub.com'
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
 prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
-prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 prodname_free_user: 'GitHub Free'
@@ -91,7 +90,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% endif %}
+  {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.6{% endif %}
 
 # Projects v2
 prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
@@ -112,6 +111,7 @@ pat_generic_caps_plural: 'Personal access tokens'
 pat_generic_title_case: 'Personal Access Token'
 pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
+pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v1: >-
   {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
@@ -218,6 +218,8 @@ prodname_code_scanning_caps: 'Code scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
+
+# Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
@@ -251,17 +253,19 @@ prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
 prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
-prodname_copilot_for_docs: 'Copilot docset management'
-prodname_copilot_docs_short: 'docset management'
 prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
+prodname_copilot_in_support: 'Copilot in GitHub Support'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'
 
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
+
+# GitHub Importer
+prodname_importer: 'GitHub Importer'
 
 # GitHub Actions Importer
 prodname_actions_importer: 'GitHub Actions Importer'
@@ -286,7 +290,7 @@ current-340-version: '11.10.354'
 # Developer site product variables
 # Use this inside command-line and other code blocks
 doc_url_pre: >-
-  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}
+  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}<!-- markdownlint-disable-line search-replace -->
 # Use this inside command-line code blocks
 api_url_pre: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% endif %}

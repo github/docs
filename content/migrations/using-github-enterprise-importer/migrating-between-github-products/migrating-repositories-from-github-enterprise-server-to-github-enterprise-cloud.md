@@ -185,7 +185,7 @@ HTTP/1.1 201 Created
 }
 ```
 
-For more information, see "[Start an organization migration](/rest/migrations/orgs#start-an-organization-migration)" in the REST API documentation.
+For more information, see "[Start an organization migration](/rest/migrations/orgs#start-an-organization-migration)."
 
 Generating the archives can take a while, depending on the amount of data. You can regularly check the status of the two migrations with the "Get an organization migration status" API until the `state` of the migration changes to `exported`.
 
@@ -205,7 +205,7 @@ Content-Type: application/json
 }
 ```
 
-For more information, see "[Get an organization migration status](/rest/migrations/orgs#get-an-organization-migration-status)" in the REST API documentation.
+For more information, see "[Get an organization migration status](/rest/migrations/orgs#get-an-organization-migration-status)".
 
 {% note %}
 
@@ -229,7 +229,7 @@ Location: https://media.github.acmecorp.net/migrations/123/archive/cca2ebe9-7403
 
 The API will return a `302 Found` response with a `Location` header redirecting to the URL where the downloadable archive is located. Download the two files: one for the Git source, and one for the metadata.
 
-For more information, see "[Download an organization migration archive](/rest/migrations/orgs#download-an-organization-migration-archive)" in the REST API documentation.
+For more information, see "[Download an organization migration archive](/rest/migrations/orgs#download-an-organization-migration-archive)."
 
 After both migrations have completed and you have downloaded the archives, you can move to the next step.
 

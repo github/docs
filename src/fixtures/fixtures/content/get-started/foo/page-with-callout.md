@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.not-for-ghes %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

@@ -24,9 +24,6 @@ topics:
   - Java
 ---
 
-
-{% data reusables.code-scanning.beta %}
-
 ## About {% data variables.product.prodname_code_scanning %} with a containerized build
 
 If you're configuring {% data variables.product.prodname_code_scanning %} for a compiled language, and you're building the code in a containerized environment, the analysis may fail with the error message "No source code was seen during the build." This indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code as it was compiled.

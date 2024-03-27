@@ -1,5 +1,7 @@
 ---
-title: Gists
+title: REST API endpoints for gists and gist comments
+shortTitle: Gists
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to list, create, update and delete the public gists on {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/gists
@@ -7,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

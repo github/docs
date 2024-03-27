@@ -140,7 +140,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin#management-console).
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console).
 
 You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.
 
@@ -664,6 +664,26 @@ $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
 
+{% ifversion cluster-ha-tooling-improvements %}
+
+### ghe-cluster-repl-bootstrap
+
+This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
+
+```shell
+ghe-cluster-repl-bootstrap
+```
+
+### ghe-cluster-repl-teardown
+
+This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
+
+```shell
+ghe-cluster-repl-teardown
+```
+
+{% endif %}
+
 ### ghe-cluster-status
 
 Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
@@ -727,6 +747,41 @@ To evacuate a {% data variables.product.prodname_pages %} storage service before
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
+
+{% ifversion cluster-node-removal %}
+
+### ghe-remove-node
+
+This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
+
+You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+
+```shell
+ghe-remove-node HOSTNAME
+```
+
+The command does the following things:
+- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
+- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+
+You can run the command with the following flags.
+
+Flag | Description
+---- | ----------
+`-ne/--no-evacuate` | Skips evacuation of data services (warning: may result in data loss).
+`-v/--verbose` | Prints additional information to the console.
+`-h/--help` | Displays help text for the command.
+
+{% note %}
+
+**Notes:**
+
+- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
+
+{% endnote %}
+
+{% endif %}
 
 {% ifversion ghe-spokes-deprecation-phase-1 %}
 
@@ -1080,7 +1135,7 @@ git-import-svn-raw
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 
 ```shell
 git-import-tfs-raw
@@ -1172,6 +1227,26 @@ ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication St
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
+
+{% ifversion ghes-upgrade-complete-indicator %}
+
+### ghe-check-background-upgrade-jobs
+
+During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
+
+{% ifversion ghes < 3.12 %}
+{% note %}
+
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+
+{% endnote %}
+{% endif %}
+
+```shell
+ghe-check-background-upgrade-jobs
+```
+
+{% endif %}
 
 {% ifversion ghe-migrations-cli-utility %}
 
@@ -1274,7 +1349,7 @@ This utility will enforce the default organization membership visibility setting
 ghe-org-membership-update --visibility=SETTING
 ```
 
-### `ghe-user-csv`
+### ghe-user-csv
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 

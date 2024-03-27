@@ -1,5 +1,5 @@
 ---
-title: Personal access tokens
+title: REST API endpoints for personal access tokens
 shortTitle: Personal access tokens
 intro: 'Use the REST API to manage {% data variables.product.pat_v2 %}s.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

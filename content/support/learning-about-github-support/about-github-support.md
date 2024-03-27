@@ -26,8 +26,6 @@ topics:
 
 The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
 
-{% ifversion not ghae %}
-
 {% rowheaders %}
 
 |  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
@@ -39,8 +37,6 @@ The support options available to {% data variables.product.prodname_dotcom %} us
 | {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
 
 {% endrowheaders %}
-
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -77,23 +73,15 @@ You can contact {% data variables.contact.github_support %} in English.
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.support.support-ticket-translation-option %}
-{% endif %}
 
 {% ifversion ghes or ghec %}
 
 To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 
-{% elsif ghae %}
-
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.ae_azure_portal %} to report issues in writing. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
-
 {% endif %}
 
-{% ifversion not ghae %}
 Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
-{% endif %}
 
 ## Scope of support
 
@@ -120,6 +108,10 @@ Enterprise owners and billing managers automatically have a support entitlement,
 Enterprise owners can also add support entitlements to members of organizations owned by their enterprise account, allowing those members to create, view, and comment on support tickets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
 {% endif %}
+
+## About {% data variables.product.prodname_copilot_in_support %}
+
+You can receive answers to questions relating to {% data variables.product.prodname_dotcom %}'s products and features before submitting a support ticket by using {% data variables.product.prodname_copilot_in_support %}. {% data variables.product.prodname_copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.product.prodname_copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support)."
 
 {% ifversion fpt or ghec %}
 
@@ -200,6 +192,4 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 - Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
 {%- endif %}
 - "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
-{%- ifversion not ghae %}
 - "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)"
-{%- endif %}

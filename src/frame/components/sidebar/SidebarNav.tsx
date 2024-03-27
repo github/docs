@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const SidebarNav = ({ variant = 'full' }: Props) => {
-  const { currentProduct } = useMainContext()
+  const { currentProduct, currentProductName } = useMainContext()
   const router = useRouter()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   // we need to roughly account for the site header height plus the height of
@@ -39,7 +39,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
                   // when it needs this text for in-page links.
                   className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
                 >
-                  {currentProduct.nameRendered}
+                  {currentProductName || currentProduct.name}
                 </Link>
               </div>
             )}

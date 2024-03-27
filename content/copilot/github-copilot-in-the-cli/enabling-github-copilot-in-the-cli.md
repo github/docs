@@ -11,17 +11,13 @@ shortTitle: Enabling Copilot in the CLI
 
 {% note %}
 
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to the {% data variables.product.prodname_copilot_cli %} beta.
+**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can install the {% data variables.product.prodname_copilot_cli %} extension without needing to enable it for your organization.
 
 {% endnote %}
 
-The {% data variables.product.prodname_copilot_cli %} public beta is available to all organizations{% ifversion ghec %} and enterprises{% endif %} that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_cli_short %} for your organization{% ifversion ghec %} or enterprise{% endif %} in the {% data variables.product.prodname_copilot_short %} settings.
+You can enable or disable {% data variables.product.prodname_copilot_cli_short %} for your organization{% ifversion ghec %} or enterprise{% endif %} in the {% data variables.product.prodname_copilot_short %} settings.
 
-{% note %}
-
-**Note:** To use {% data variables.product.prodname_copilot_cli %}, after it has been enabled, users must install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
-
-{% endnote %}
+To use {% data variables.product.prodname_copilot_cli %}, after it has been enabled, users must install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_cli_short %} at the organization level
 
@@ -29,8 +25,8 @@ An organization owner can enable or disable {% data variables.product.prodname_c
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies and features**.
-1. To the right of "{% data variables.product.prodname_copilot_cli %}", select the dropdown menu, then click **Enabled** or **Disabled**.
+{% data reusables.copilot.policy-settings %}
+1. To the right of "{% data variables.product.prodname_copilot_cli_short %}", select the dropdown menu, then click **Enabled** or **Disabled**.
 
 {% ifversion ghec %}
 
@@ -38,13 +34,6 @@ An organization owner can enable or disable {% data variables.product.prodname_c
 
 An enterprise owner can choose whether to enable a feature for all organizations, disable for all organizations, or allow each organization to choose its own policy for the feature.
 
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Click the **Technical preview features** tab.
-1. To the right of "{% data variables.product.prodname_copilot_cli %}", select the dropdown menu, then choose the appropriate option.
-
-    - Click **Allowed** to enable the {% data variables.product.prodname_copilot_cli_short %} beta for all organizations under your enterprise.
-    - Click **Blocked** to disable the {% data variables.product.prodname_copilot_cli_short %} beta for all organizations under your enterprise.
-    - Click **No policy** to allow each organization under your enterprise to set its own policy.
+{% data reusables.copilot.copilot-cli-enable %}
 
 {% endif %}

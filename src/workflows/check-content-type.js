@@ -4,18 +4,19 @@ import coreLib from '@actions/core'
 
 import { checkContentType } from '#src/workflows/fm-utils.js'
 
-const { FILE_PATHS_CONTENT_TYPES, CONTENT_TYPE } = process.env
+const { CHANGED_FILE_PATHS, CONTENT_TYPE } = process.env
 
 main()
 
 async function main() {
-  const filePaths = JSON.parse(FILE_PATHS_CONTENT_TYPES)
+  // CHANGED_FILE_PATHS is a string of space-separated
+  // file paths. For example:
+  // 'content/path/foo.md content/path/bar.md'
+  const filePaths = CHANGED_FILE_PATHS.split(' ')
   const containsRai = checkContentType(filePaths, CONTENT_TYPE)
-  console.log('filePaths', filePaths)
-  console.log('containsRai', containsRai)
   if (containsRai.length === 0) {
-    coreLib.setOutput('contentType', false)
+    coreLib.setOutput('containsContentType', false)
   } else {
-    coreLib.setOutput('contentType', true)
+    coreLib.setOutput('containsContentType', true)
   }
 }

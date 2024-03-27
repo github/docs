@@ -43,6 +43,10 @@ You can choose what information to include in your organization profile README. 
 
 You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
 
+{% ifversion enterprise-readme %}
+If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+{% endif %}
+
 ## Adding a public organization profile README
 
 The content of public `README.md` will appear on your organization's public profile.
@@ -102,3 +106,8 @@ You can replace the identicon with an image that represents your organization. T
 {% data reusables.profile.org_settings %}
 1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
 1. Click **Update profile**.
+
+## Further reading
+
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)"
