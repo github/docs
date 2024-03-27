@@ -22,6 +22,7 @@
     "check-content-type": "node src/workflows/check-content-type.js",
     "check-github-github-links": "node src/links/scripts/check-github-github-links.js",
     "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
+    "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.js",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "dev": "cross-env npm start",

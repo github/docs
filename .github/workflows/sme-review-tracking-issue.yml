@@ -13,10 +13,6 @@ on:
     types:
       - labeled
 
-  pull_request:
-    types:
-      - labeled
-
 permissions:
   contents: read
 
