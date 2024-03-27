@@ -122,10 +122,10 @@ Due to the volume of events in this log, {% data variables.product.company_short
 
 To provision, list, or manage users, make requests to the following REST API endpoints. You can read about the associated API endpoints in the REST API documentation and see code examples, and you can review audit log events associated with each request.
 
-Before a person with an identity on your identity management system can sign into your enterprise, you must create the corresponding user. Your enterprise doesn't require an available license to provision a new user account.
+Before a person with an identity on your identity management system can sign in to your enterprise, you must create the corresponding user. Your enterprise doesn't require an available license to provision a new user account.
 
 - For an overview of the supported attributes for users, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-user-attributes)" in the REST API documentation.
-- You can view provisioned users in the web interface for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+- You can view provisioned users in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 | Action | Method | Endpoint and more information |  Events in the audit log |
 | :- | :- | :- | :- |
@@ -179,9 +179,9 @@ To control access to repositories in your enterprise, you can use groups on your
 
 While your enterprise doesn't require an available license to provision a new user account, if you provision a group that results in the addition of users to an organization, you must have available licenses for those users. If your enterprise only uses {% data variables.visual_studio.prodname_vss_ghe %}, the associated user must be assigned to a subscriber. For more information, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise)."
 
-- For an overview of the supported attributes for users, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-group-attributes)" in the REST API documentation.
+- For an overview of the supported attributes for groups, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-group-attributes)" in the REST API documentation.
 - For an overview of audit log events related to groups, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_group)."
-- You can view provisioned groups in the web interface for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams)."
+- You can view provisioned groups in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams)."
 
 | Action | Method | Endpoint and more information | Related events in the audit log |
 | :- | :- | :- | :- |
@@ -223,9 +223,9 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 - After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)." You can also view this mapping on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
 
-- If you manage access using groups on your identity management system, you can troubleshoot using the REST API or web interface for {% data variables.product.product_name %}.
+- If you manage access using groups on your identity management system, you can troubleshoot using the REST API or web UI for {% data variables.product.product_name %}.
 
    - You can use the REST API to compare your identity management system's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. See "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
-   - For more information about troubleshooting using the web interface, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)."
+   - For more information about troubleshooting using the web UI, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)."
 
 For additional troubleshooting suggestions, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise#scim-provisioning-errors)."
