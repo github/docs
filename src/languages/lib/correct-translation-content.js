@@ -106,6 +106,16 @@ export function correctTranslatedContentStrings(content, englishContent, context
     )
   }
 
+  // These are common mistakes made by translations that are specific.
+  // It's prevalent in all translations so that's why it's not per-language.
+  // It's important though that this happens after the other per-language
+  // specific fixes above. For example `{{% данных variables...`
+  content = content.replaceAll('{{% data variables.', '{% data variables.')
+  content = content.replaceAll('{%%data variables.', '{% data variables.')
+  content = content.replaceAll('{{% data reusables.', '{% data reusables.')
+  content = content.replaceAll('{%%data reusables.', '{% data reusables.')
+  content = content.replaceAll('{{% ifversion ', '{% ifversion ')
+
   // A lot of Liquid tags lose their linebreak after the `}`
   // result in formatting problems, especially around Markdown tables.
   // This code here, compares each Liquid statement, in the translation,
