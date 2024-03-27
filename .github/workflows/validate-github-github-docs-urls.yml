@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
-  pull_request:
+  # pull_request: # Temporarily commented out. See internal issue 4152
 
 permissions:
   contents: read
