@@ -39,6 +39,27 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 {% data reusables.copilot.chat-subscription-prerequisite %}
 - To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."
 
+## Powered by skills
+
+Under the hood, {% data variables.product.prodname_copilot_short %} is powered by a collection of skills that are dynamically selected based on the question you ask. You can tell which skill was selected by {% data variables.product.prodname_copilot_short %} based on the status updates in the chat window.
+
+You can also explicitly ask {% data variables.product.prodname_copilot_chat_dotcom %} to use a particular skill - for example, `Use the Bing skill to find the latest GPT4 model from OpenAI`.
+
+### Currently available skills
+
+{% note %}
+
+**Note**: You can generate this list yourself by asking {% data variables.product.prodname_copilot_short %}: `What skills do you have available?`
+
+{% endnote %}
+
+| Skill | Description | Enabled by default? | Example question |
+| ------- | ----------- | ------------------ | -------------|
+| `codesearch` | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see the note above indexing [below](#repo-indexing-note)). | Yes | _Where is the logic that controls the user session management, and how does it work?_ |
+| `show-symbol-definition` | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
+| `pathsearch` | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ |
+| `bing-search` | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_ |
+
 ## Asking a general question about software development
 
 You can ask a general question about software development that is not focused on a particular context, such as a repository or a knowledge base.
@@ -85,6 +106,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
 {% data reusables.copilot.ask-copilot-not-displayed %}
 
+   <a name="repo-indexing-note"></a>
    {% note %}
 
    **Note**:
