@@ -266,13 +266,17 @@ async function translateTree(dir, langObj, enTree) {
  *
  * Order of languages and versions doesn't matter, but order of child page arrays DOES matter (for navigation).
 */
-export async function loadSiteTree(unversionedTree) {
-  const rawTree = Object.assign({}, unversionedTree || (await loadUnversionedTree()))
+export async function loadSiteTree(unversionedTree, languagesOnly = []) {
+  const rawTree = Object.assign({}, unversionedTree || (await loadUnversionedTree(languagesOnly)))
   const siteTree = {}
 
+  const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   // For every language...
   await Promise.all(
-    Object.keys(languages).map(async (langCode) => {
+    langCodes.map(async (langCode) => {
+      if (!(langCode in rawTree)) {
+        throw new Error(`No tree for language ${langCode}`)
+      }
       const treePerVersion = {}
       // in every version...
       await Promise.all(
@@ -329,8 +333,12 @@ export async function loadPageList(unversionedTree, languagesOnly = []) {
   const rawTree = unversionedTree || (await loadUnversionedTree(languagesOnly))
   const pageList = []
 
+  const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   await Promise.all(
-    ((languagesOnly.length && languagesOnly) || Object.keys(languages)).map(async (langCode) => {
+    langCodes.map(async (langCode) => {
+      if (!(langCode in rawTree)) {
+        throw new Error(`No tree for language ${langCode}`)
+      }
       await addToCollection(rawTree[langCode], pageList)
     }),
   )
