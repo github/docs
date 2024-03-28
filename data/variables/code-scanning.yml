@@ -6,5 +6,11 @@ codeql_workflow: 'CodeQL analysis workflow'
 # The tool status page
 tool_status_page: 'tool status page'
 
+# List of compiled languages supported for `no-build` extraction
+no_build_support: 'Java'
+
 # List of compiled languages
 compiled_languages: 'C/C++, C#, {% ifversion codeql-go-autobuild %} Go,{% endif %} {% ifversion codeql-swift-beta %} Java, and Swift{% else %} and Java{% endif %}'
+
+# List of languages where the libraries support expansion using CodeQL model packs at the repository level.
+codeql_model_packs_support: 'Java/Kotlin{% ifversion fpt or ghec or ghes > 3.12 %} and C#{% endif %}'

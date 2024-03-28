@@ -90,13 +90,11 @@ You can also define custom {% data variables.product.prodname_secret_scanning %}
 
 ### Accessing {% data variables.secret-scanning.alerts %}
 
-When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents for secrets that match patterns defined by service providers{% ifversion ghes or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}.
-
-When {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
+{% data reusables.secret-scanning.secret-scanning-about-alerts %}
 
 - {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository{% ifversion secret-scanning-notification-settings %}, {% else %}, and {% endif %}if you have enabled notifications either for security alerts or for all the activity on the repository{% ifversion secret-scanning-notification-settings %}, and if, in your notification settings, you have selected to receive email notifications for the repositories that you are watching.{% else %}.{% endif %}
 - If the person who introduced the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
-- {% data variables.product.prodname_dotcom %} displays an alert in the **Security** tab of the repository.
+- {% data reusables.secret-scanning.repository-alert-location %}
 
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

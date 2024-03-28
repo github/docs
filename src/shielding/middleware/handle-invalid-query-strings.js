@@ -87,6 +87,11 @@ export default function handleInvalidQuerystrings(req, res, next) {
     const badToolsQuery = keys.some((key) => key.startsWith('tool%') && !query[key])
 
     if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT || badKeylessQuery || badToolsQuery) {
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(
+          'Redirecting because of a questionable query string, see https://github.com/github/docs/blob/main/src/shielding/README.md',
+        )
+      }
       defaultCacheControl(res)
       const sp = new URLSearchParams(query)
       keys.forEach((key) => sp.delete(key))

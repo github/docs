@@ -65,7 +65,7 @@ You can enable the following additional {% data variables.product.prodname_secre
 {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. For more information on validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#validating-partner-patterns)."
+You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. For more information on validity checks, see "Checking a secret's validity" in "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
 
 {% note %}
 
@@ -99,20 +99,21 @@ For more information about non-provider patterns, see "{% ifversion fpt or ghec 
 
 {% endif %}
 
-{% ifversion fpt %}
+{% ifversion secret-scanning-enable-by-default-for-public-repos %}
 
-## Enabling {% data variables.secret-scanning.user_alerts %} for all your public repositories
+## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories
 
-You can enable {% data variables.secret-scanning.user_alerts %} for all of your public repositories through your personal account settings.
+You can enable {% data variables.product.prodname_secret_scanning %} for all of your existing {% ifversion ghec %}user-owned {% endif %}public repositories through your personal account settings.
+{% note %}
+
+**Note**: As of March 11, 2024, {% data variables.product.prodname_secret_scanning %} and push protection will be enabled by default for all new {% ifversion ghec %}user-owned {% endif %}public repositories that you create. You can still choose to disable these features for an individual repository in the repository's "Code security and analysis" settings page. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-public-repositories)".
+
+{% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
 1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Disable all** or **Enable all**.
-
-   ![Screenshot of the setting options for "{% data variables.product.prodname_secret_scanning_caps %}" on the personal account settings page. The options "Enable all" and "Disable all" are highlighted with an orange outline.](/assets/images/help/repository/secret-scanning-personal-account-settings-enable-all.png)
-1. Optionally, to automatically enable {% data variables.product.prodname_secret_scanning %} for any new public repositories that you create, below "{% data variables.product.prodname_secret_scanning_caps %}", select the checkbox for "Automatically enable for new public repositories."
-
-   ![Screenshot of the setting options for "{% data variables.product.prodname_secret_scanning_caps %}" on the personal account settings page. The option "Automatically enable for new public repositories" is highlighted with an orange outline.](/assets/images/help/repository/secret-scanning-personal-account-settings-auto-enable.png)
+{% data reusables.secret-scanning.push-protection-optional-enable %}
 
 {% endif %}
 

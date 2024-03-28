@@ -11,17 +11,13 @@ shortTitle: Enabling Copilot in the CLI
 
 {% note %}
 
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to the {% data variables.product.prodname_copilot_cli %} beta.
+**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can install the {% data variables.product.prodname_copilot_cli %} extension without needing to enable it for your organization.
 
 {% endnote %}
 
-The {% data variables.product.prodname_copilot_cli %} public beta is available to all organizations{% ifversion ghec %} and enterprises{% endif %} that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_cli_short %} for your organization{% ifversion ghec %} or enterprise{% endif %} in the {% data variables.product.prodname_copilot_short %} settings.
+You can enable or disable {% data variables.product.prodname_copilot_cli_short %} for your organization{% ifversion ghec %} or enterprise{% endif %} in the {% data variables.product.prodname_copilot_short %} settings.
 
-{% note %}
-
-**Note:** To use {% data variables.product.prodname_copilot_cli %}, after it has been enabled, users must install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
-
-{% endnote %}
+To use {% data variables.product.prodname_copilot_cli %}, after it has been enabled, users must install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_cli_short %} at the organization level
 

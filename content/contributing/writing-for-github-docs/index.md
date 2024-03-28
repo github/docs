@@ -5,6 +5,7 @@ intro: 'Learn about writing for {% data variables.product.prodname_docs %}.'
 versions:
   feature: 'contributing'
 children:
+  - /best-practices-for-github-docs
   - /about-githubs-documentation-philosophy
   - /writing-content-to-be-translated
   - /content-design-principles

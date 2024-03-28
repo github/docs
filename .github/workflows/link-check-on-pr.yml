@@ -50,10 +50,3 @@ jobs:
           ENABLED_LANGUAGES: en
           FAIL_ON_FLAW: true
         run: node src/links/scripts/rendered-content-link-checker.js
-
-      - name: Upload artifact(s)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
-        with:
-          name: artifacts
-          path: ./artifacts

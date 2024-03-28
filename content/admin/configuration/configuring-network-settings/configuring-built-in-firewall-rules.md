@@ -22,7 +22,7 @@ shortTitle: Configure firewall rules
 
 After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)."
 
-The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213).
+The UFW firewall also opens several other ports that are required for {% data variables.product.prodname_ghe_server %} to operate properly. For more information on the UFW rule set, see [the UFW README](https://github.com/jbq/ufw/blob/master/README#L213).
 
 We do not recommend customizing UFW as it can complicate some troubleshooting issues.
 

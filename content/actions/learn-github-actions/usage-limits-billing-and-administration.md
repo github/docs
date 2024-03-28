@@ -84,6 +84,18 @@ Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#a-actions-usage).
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## {% data variables.product.prodname_actions %} usage metrics
+
+{% data reusables.actions.actions-usage-metrics-beta-note %}
+
+If you are on a {% data variables.product.prodname_ghe_cloud %} plan, organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+
+When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
+
+{% endif %}
+
 ## Billing for reusable workflows
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.

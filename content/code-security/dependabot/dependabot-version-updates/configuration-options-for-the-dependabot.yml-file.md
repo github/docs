@@ -392,7 +392,7 @@ You can use the `ignore` option to customize which dependencies are updated. The
 
 | Option | Description |
 |--------|-------------|
-|<code><span style="white-space: nowrap;">dependency-name</span></code> | Use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters.</br>For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).</br>{% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %} |
+|<code><span style="white-space: nowrap;">dependency-name</span></code> | Use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters.</br>For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).</br> To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`. |
 | `versions` | Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.</br>For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`. |
 | <code><span style="white-space: nowrap;">update-types</span></code> | Use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies.</br>Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. |
 
@@ -418,11 +418,19 @@ updates:
         # For AWS SDK, ignore all patch updates for version updates only
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    ignore:
+      - dependency-name: 'actions/checkout'
+        # For GitHub Actions, ignore all updates greater than or equal to version 3
+        versions: '>= 3'
 ```
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
 
 {% endnote %}
 
@@ -971,7 +979,6 @@ The `docker-registry` type supports username and password. {% data reusables.dep
 
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
-{% ifversion dependabot-private-registries %}
 {% raw %}
 
 ```yaml
@@ -985,23 +992,9 @@ registries:
 ```
 
 {% endraw %}
-{% else %}
-{% raw %}
-
-```yaml
-registries:
-  dockerhub:
-    type: docker-registry
-    url: https://registry.hub.docker.com
-    username: octocat
-    password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
-```
-
-{% endraw %}
-{% endif %}
 
 The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
-{% ifversion dependabot-private-registries %}
+
 {% raw %}
 
 ```yaml
@@ -1015,20 +1008,6 @@ registries:
 ```
 
 {% endraw %}
-{% else %}
-{% raw %}
-
-```yaml
-registries:
-  ecr-docker:
-    type: docker-registry
-    url: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
-    username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
-    password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
-```
-
-{% endraw %}
-{% endif %}
 
 ### `git`
 
@@ -1095,7 +1074,6 @@ The `maven-repository` type supports username and password. {% data reusables.de
 
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
-{% ifversion dependabot-private-registries %}
 {% raw %}
 
 ```yaml
@@ -1108,19 +1086,6 @@ registries:
 ```
 
 {% endraw %}
-{% else %}
-{% raw %}
-
-```yaml
-registries:
-  maven-artifactory:
-    type: maven-repository
-    url: https://acme.jfrog.io/artifactory/my-maven-registry
-    username: octocat
-    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-```
-
-{% endraw %}{% endif %}
 
 ### `npm-registry`
 
@@ -1134,7 +1099,6 @@ When using username and password, your `.npmrc`'s auth token may contain a `base
 
 {% endnote %}
 
-{% ifversion dependabot-private-registries %}
 {% raw %}
 
 ```yaml
@@ -1161,33 +1125,8 @@ registries:
 ```
 
 {% endraw %}
-{% else %}
-{% raw %}
 
-```yaml
-registries:
-  npm-npmjs:
-    type: npm-registry
-    url: https://registry.npmjs.org
-    username: octocat
-    password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
-```
-
-{% endraw %}
-
-{% raw %}
-
-```yaml
-registries:
-  npm-github:
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-
-{% endraw %} {% endif %}
-{% ifversion dependabot-yarn-v3-update %}
-For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
+For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.
 
 ### `nuget-feed`
 
@@ -1286,7 +1225,6 @@ The `rubygems-server` type supports username and password, or token. {% data reu
 
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
-{% ifversion dependabot-private-registries %}
 {% raw %}
 
 ```yaml
@@ -1313,31 +1251,6 @@ registries:
 ```
 
 {% endraw %}
-{% else %}
-{% raw %}
-
-```yaml
-registries:
-  ruby-example:
-    type: rubygems-server
-    url: https://rubygems.example.com
-    username: octocat@example.com
-    password: ${{secrets.MY_RUBYGEMS_PASSWORD}}
-```
-
-{% endraw %}
-
-{% raw %}
-
-```yaml
-registries:
-  ruby-github:
-    type: rubygems-server
-    url: https://rubygems.pkg.github.com/octocat/github_api
-    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-```
-
-{% endraw %}{% endif %}
 
 ### `terraform-registry`
 

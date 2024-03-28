@@ -30,7 +30,7 @@ If selected, only users with bypass permissions can delete branches or tags whos
 
 ## Require linear history
 
-Enforcing a linear commit history prevents collaborators from pushing merge commits to the targeted branches or tags. This means that any pull requests merged into the branch or tag must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+Enforcing a linear commit history prevents collaborators from pushing merge commits to the targeted branches or tags. This means that any pull requests merged into the branch or tag must use a squash merge or a rebase merge. A strictly linear commit history can help teams revert changes more easily. For more information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
@@ -38,14 +38,9 @@ Before you can require a linear commit history, your repository must allow squas
 
 ## Require merge queue
 
-{% note %}
-
-**Notes:**
-
-- Configuring a merge queue via rulesets is in public beta and subject to change.
-- This rule is not available for rulesets created at the organization level. For more information about creating rulesets at the repository level, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
-
-{% endnote %}
+> [!NOTE]
+> - Configuring a merge queue via rulesets is in public beta and subject to change.
+> - This rule is not available for rulesets created at the organization level. For more information about creating rulesets at the repository level, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 You can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues)."
 
@@ -69,11 +64,9 @@ You can configure various settings for your merge queue rule.
 ## Require deployments to succeed before merging
 
 {% ifversion repo-rules-enterprise %}
-{% note %}
 
-**Note:** This rule is not available for rulesets created at the organization level.
+> [!NOTE] This rule is not available for rulesets created at the organization level.
 
-{% endnote %}
 {% endif %}
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
@@ -86,19 +79,17 @@ Branch protection rules and rulesets behave differently when you create a branch
 
 With both methods, we use the `verified_signature?` to confirm if a commit has a valid signature. If not, the update is not accepted.
 
-{% note %}
-
 {% ifversion fpt or ghec %}
-**Notes:**
 
-- If you have enabled vigilant mode in your account settings, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
-- If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+> [!NOTE]
+> - If you have enabled vigilant mode in your account settings, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+> - If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
-**Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
-{% endif %}
 
-{% endnote %}
+> [!NOTE] If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+
+{% endif %}
 
 You can always push local commits to the branch if the commits are signed and verified. {% ifversion fpt or ghec %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% ifversion fpt or ghec %}squash and {% endif %}merge pull requests locally. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
 
@@ -146,11 +137,7 @@ Any person or integration with write permissions to a repository can set the sta
 
 {% ifversion repo-rules-enterprise %}
 
-{% note %}
-
-**Note:** For organization-level status checks, the app must be installed with the `statuses:write` permission. Only apps with this permission are displayed when configuring rulesets at the organization-level.
-
-{% endnote %}
+> [!NOTE] For organization-level status checks, the app must be installed with the `statuses:write` permission. Only apps with this permission are displayed when configuring rulesets at the organization-level.
 
 {% endif %}
 
@@ -180,15 +167,29 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 ## Require workflows to pass before merging
 
-You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
+> [!NOTE] This rule can only be configured in your organization settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+
+You can require all changes made to a targeted branch to pass specified workflows before they can be merged.
 
 To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."
 
 If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see "[Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)" or "[Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."
 
-When you add this rule to a ruleset, you will select the source repository and the workflow you want to enforce. The workflow triggers on the `pull_request`, `pull_request_target`, or `merge_group` events.
+When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
 
-A workflow can also block someone from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
+> [!IMPORTANT]
+>
+> - Workflows run by this rule only support the `pull_request`, `pull_request_target` and `merge_group` events. As a result, you must specify one or more of these events in the `on:` section of the workflow for the workflow to be run by a ruleset. Any filters you specify for the supported events are ignored - for example, `branches`, `branches-ignore`, `paths`, `types` and so on. The workflow is only, and always, triggered by the default activity types of the supported events.
+>
+>   | Event                 | Default activity types              |
+>   | --------------------- | ----------------------------------- |
+>   | `pull_request`        | `opened`, `synchronize`, `reopened` |
+>   | `pull_request_target` | `opened`, `synchronize`, `reopened` |
+>   | `merge_group`         | `checks_requested`                  |
+>
+> - This rule should only be added to rulesets that target branches where all changes to the branch are performed by pull requests. The workflow will run as part of the pull request and merge queue experience. Applying this rule will block direct pushes. For this reason you should not apply this rule to a ruleset that targets all branches in the repository.
+
+A required workflow can block people from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
 
 {% endif %}
 

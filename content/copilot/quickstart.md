@@ -152,6 +152,7 @@ As an enterprise owner, you must decide whether to allow all organizations in yo
 
 {% data reusables.copilot.next-steps %}
 
+- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization)": As an organization owner, learn how to manage access to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} in your organization.
 - "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)": You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}: Find out how to ask {% data variables.product.prodname_copilot %} for information and assistance.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.

@@ -67,10 +67,7 @@ export function getAuditLogEvents(page, version, categorized = false) {
       categorizedEvents[category] = []
     }
 
-    categorizedEvents[category].push({
-      action: event.action,
-      description: event.description,
-    })
+    categorizedEvents[category].push(event)
   })
 
   return categorizedEvents
@@ -79,13 +76,13 @@ export function getAuditLogEvents(page, version, categorized = false) {
 // Filters audit log events based on allowlist values.
 //
 // * eventsToCheck: events to consider
-// * currentEvents: events already collected
 // * allowListvalues: allowlist values to filter by
+// * currentEvents: events already collected
 // * pipelineConfig: audit log pipeline config data
 export function filterByAllowlistValues(
   eventsToCheck,
-  currentEvents,
   allowListValues,
+  currentEvents,
   pipelineConfig,
 ) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
@@ -106,6 +103,7 @@ export function filterByAllowlistValues(
         action: event.action,
         description: event.description,
         docs_reference_links: event.docs_reference_links,
+        fields: event.fields,
       }
 
       if (
@@ -125,8 +123,8 @@ export function filterByAllowlistValues(
 // event's supported GHES versions.
 //
 // * eventsToCheck: events to consider
-// * currentEvents: events already collected
 // * allowListvalue: allowlist value to filter by
+// * currentEvents: events already collected
 // * pipelineConfig: audit log pipeline config data
 // * auditLogPage: the audit log page the event belongs to
 //
@@ -147,8 +145,8 @@ export function filterByAllowlistValues(
 // }
 export function filterAndUpdateGhesDataByAllowlistValues(
   eventsToCheck,
-  currentGhesEvents,
   allowListValue,
+  currentGhesEvents,
   pipelineConfig,
   auditLogPage,
 ) {
@@ -173,6 +171,7 @@ export function filterAndUpdateGhesDataByAllowlistValues(
         action: event.action,
         description: event.description,
         docs_reference_links: event.docs_reference_links,
+        fields: event.ghes[ghesVersion].fields,
       }
 
       if (ghesVersionAllowlists.includes(allowListValue)) {

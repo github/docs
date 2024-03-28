@@ -41,7 +41,9 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 - Relative to the `default` query suite, the `security-extended` suite may return a greater number of false positive {% data variables.product.prodname_code_scanning %} results.
 - This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}, and is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
 
-## Queries included in the `default` and `security-extended` query suites
+## Query lists for the default query suites
+
+For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where autofix is available for a language, details of which queries are supported are also included.{% endif %}
 
 {% data reusables.code-scanning.codeql-query-tables.links-to-all-tables %}
 

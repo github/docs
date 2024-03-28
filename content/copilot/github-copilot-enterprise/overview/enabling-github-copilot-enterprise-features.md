@@ -40,11 +40,20 @@ An enterprise owner can choose whether to enable {% data variables.product.prodn
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 
-If your organization's parent enterprise has selected **No policy**, {% data variables.product.prodname_copilot_enterprise %} will be disabled by default for your organization. An organization owner can choose to enable or disable the additional features provided by {% data variables.product.prodname_copilot_enterprise %} for all of the organization's members who have access to {% data variables.product.prodname_copilot_short %}.
+To give people or teams within your organization access to {% data variables.product.prodname_copilot_enterprise %}, you need to assign them a {% data variables.product.prodname_copilot %} seat. Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_enterprise_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization. To enable access for all current and future users in your organization, or specific users in your organization, follow the steps in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization#configuring-access-to-github-copilot-in-your-organization)."
+
+If your organization's parent enterprise has selected **No policy** for "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" in the enterprise settings, {% data variables.product.prodname_copilot_enterprise %} will be disabled by default for your organization. If you are an owner of the organization, you can choose to enable or disable the additional features provided by {% data variables.product.prodname_copilot_enterprise %} for all of the organization's members who have access to {% data variables.product.prodname_copilot_short %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
+
+   {% note %}
+
+   **Note:** If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, you need to allow the organization to assign {% data variables.product.prodname_copilot_short %} seats. Complete the steps for configuring {% data variables.product.prodname_copilot_short %} access in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization#configuring-access-to-github-copilot-in-your-organization)" and then return to this procedure.
+
+   {% endnote %}
+
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
@@ -53,6 +62,26 @@ If your organization's parent enterprise has selected **No policy**, {% data var
 1. If you select **Enabled**, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed.
 
    Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
+
+## Configuring {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
+
+After {% data variables.product.prodname_copilot_enterprise_short %} has been enabled for an organization, an administrator should spend a few minutes setting up their organization to ensure users have a great onboarding experience.
+
+1. Index your organization's most popular repositories.
+
+   {% data variables.product.prodname_copilot_enterprise_short %} works best when repositories have semantic code indexing enabled. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#repo-indexing-note).
+
+   {% note %}
+
+   **Note:**
+
+   Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
+
+   {% endnote %}
+
+1. Create at least one knowledge base.
+
+   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases)."
 
 ## Further reading
 
