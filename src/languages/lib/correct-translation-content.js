@@ -27,7 +27,8 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{% данных variables', '{% data variables')
     content = content.replaceAll('{% данными variables', '{% data variables')
     content = content.replaceAll('{% данных организации variables', '{% data variables')
-    content = content.replaceAll('{% данным variables', '{% data variables')
+    content = content.replaceAll('{% данным variables.', '{% data variables.')
+    content = content.replaceAll('{% данные variables.', '{% data variables.')
     content = content.replaceAll('{% данных reusables', '{% data reusables')
     content = content.replaceAll('{% данными reusables', '{% data reusables')
     content = content.replaceAll('{% variables.', '{% data variables.')
@@ -36,6 +37,14 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
     content = content.replaceAll('{% endif _%}', '{% endif %}')
     content = content.replaceAll('{% конечным %}', '{% endif %}')
+    content = content.replaceAll('{% переменных данных.', '{% data variables.')
+    content = content.replaceAll('{% повторно используемых данных.', '{% data reusables.')
+    content = content.replaceAll('{% примечание %}', '{% note %}')
+    content = content.replaceAll('{% конечных головщиков %}', '{% endrowheaders %}')
+    content = content.replaceAll('{% данных для повторного использования.', '{% data reusables.')
+    content = content.replaceAll('{% еще %}', '{% else %}')
+    content = content.replaceAll('{% необработанные %}', '{% raw %}')
+    content = content.replaceAll('{% подсказки %}', '{% tip %}')
 
     // For the rather custom Russian translation of
     // the content/get-started/learning-about-github/github-glossary.md page
