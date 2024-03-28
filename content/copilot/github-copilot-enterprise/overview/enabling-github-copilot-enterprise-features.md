@@ -63,6 +63,26 @@ If your organization's parent enterprise has selected **No policy** for "{% data
 
    Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
 
+## Configuring {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
+
+After {% data variables.product.prodname_copilot_enterprise_short %} has been enabled for an organization, an administrator should spend a few minutes setting up their organization to ensure users have a great onboarding experience.
+
+1. Index your organization's most popular repositories.
+
+   {% data variables.product.prodname_copilot_enterprise_short %} works best when repositories have semantic code indexing enabled. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#repo-indexing-note).
+
+   {% note %}
+
+   **Note:**
+
+   Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
+
+   {% endnote %}
+
+1. Create at least one knowledge base.
+
+   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases)."
+
 ## Further reading
 
 - "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"
