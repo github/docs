@@ -343,7 +343,7 @@ This example workflow uses `gh-actions-cache` to delete up to 100 caches created
 ```yaml
 name: cleanup caches by a branch
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
 
