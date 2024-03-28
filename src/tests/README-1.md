@@ -84,7 +84,7 @@ since the server won't need to start and stop every time you run tests.
 In one terminal, type:
 
 ```shell
-NODE_ENV=test PORT=4000 node src/frame/server.js
+NODE_ENV=test PORT=4000 tsx src/frame/server.ts
 ```
 
 In another terminal, type:
