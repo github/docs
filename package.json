@@ -27,6 +27,7 @@
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "dev": "cross-env npm start",
     "find-orphaned-assets": "node src/assets/scripts/find-orphaned-assets.js",
+    "find-orphaned-features": "tsx src/data-directory/scripts/find-orphaned-features/index.ts",
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
