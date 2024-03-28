@@ -24,6 +24,9 @@ You can also create READMEs for organizations in your enterprise, visible either
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. On the "Overview" page, click **Create README**. If a README is already present on the page, click **Edit**.
 1. Write the content for your README. You can use Markdown to format the content, such as adding headings, images, and lists. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+
+   >[!NOTE] You can only link to publicly hosted images in your README. You cannot upload an image to your README, or link to an image from a private repository.
+
 1. Click **Save**.
 
 ## Further reading
