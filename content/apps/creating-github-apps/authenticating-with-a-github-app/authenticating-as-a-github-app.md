@@ -25,8 +25,8 @@ If a REST API endpoint requires you to authenticate as an app, the documentation
    curl --request GET \
    --url "{% data variables.product.api_url_pre %}/app/installations" \
    --header "Accept: application/vnd.github+json" \
-   --header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %} \
-   --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+   --header "Authorization: Bearer YOUR_JWT" \
+   --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
    ```
 
 ## Using the Octokit.js SDK to authenticate as a {% data variables.product.prodname_github_app %}

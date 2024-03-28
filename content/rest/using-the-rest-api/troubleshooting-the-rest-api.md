@@ -136,8 +136,6 @@ Code | Description
 `unprocessable` | The parameters that were provided were invalid.
 `custom` | Refer to the `message` property to diagnose the error.
 
-{% ifversion api-date-versioning %}
-
 ## Not a supported version
 
 You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
@@ -149,8 +147,6 @@ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 If you specify a version that does not exist, you will receive a `400 Bad Request` error and a message about the version not being supported.
 
 For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
-
-{% endif %}
 
 ## User agent required
 

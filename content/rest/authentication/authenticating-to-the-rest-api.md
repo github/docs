@@ -25,8 +25,8 @@ After creating a token, you can authenticate your request by sending the token i
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer YOUR-TOKEN" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% note %}
@@ -78,9 +78,9 @@ For example:
 ```shell
 curl --request POST \
 --url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
---user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"{% ifversion api-date-versioning %} \
+--user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \{% endif %}
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \
 --data '{
   "access_token": "ACCESS_TOKEN_TO_CHECK"
 }'
@@ -159,8 +159,8 @@ For an example of how to authenticate in a {% data variables.product.prodname_ac
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/user" \
---user USERNAME:PASSWORD{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--user USERNAME:PASSWORD \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% else %}
