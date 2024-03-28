@@ -1,4 +1,4 @@
----
+----oauth-apps.md
 title: Internal OAuth apps
 intro: 'Some {% data variables.product.prodname_oauth_apps %} are internal apps, owned by {% data variables.product.company_short %}, that are granted special capabilities.'
 versions:
