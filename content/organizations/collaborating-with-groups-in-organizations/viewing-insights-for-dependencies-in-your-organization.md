@@ -1,15 +1,16 @@
 ---
-title: Viewing insights for your organization
-intro: 'Organization insights provide data about your organization dependencies.'
+title: Viewing insights for dependencies in your organization
+intro: Organization dependency insights provide data about your organization dependencies.
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
+  - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 versions:
   ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: View organization insights
+shortTitle: Dependency insights
 permissions: Organization members can view organization insights.
 ---
 

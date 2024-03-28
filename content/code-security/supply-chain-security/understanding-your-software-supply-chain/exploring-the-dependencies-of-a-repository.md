@@ -113,6 +113,6 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/get-started/privacy-on-github)"
 {% endif %}
