@@ -14,7 +14,7 @@
       "default": "./src/*"
     }
   },
-  "exports": "./src/frame/server.js",
+  "exports": "./src/frame/server.ts",
   "scripts": {
     "analyze-text": "node src/search/scripts/analyze-text.js",
     "archive-version": "node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js",
@@ -23,7 +23,7 @@
     "check-github-github-links": "node src/links/scripts/check-github-github-links.js",
     "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
     "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
-    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.js",
+    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "dev": "cross-env npm start",
     "find-orphaned-assets": "node src/assets/scripts/find-orphaned-assets.js",
@@ -52,15 +52,15 @@
     "rendered-content-link-checker-cli": "node src/links/scripts/rendered-content-link-checker-cli.js",
     "rest-dev": "node src/rest/scripts/update-files.js",
     "show-action-deps": "echo 'Action Dependencies:' && rg '^[\\s|-]*(uses:.*)$' .github -I -N --no-heading -r '$1$2' | sort | uniq | cut -c 7-",
-    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.js",
-    "start-all-languages": "cross-env NODE_ENV=development nodemon src/frame/server.js",
-    "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node src/frame/server.js",
+    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.ts",
+    "start-all-languages": "cross-env NODE_ENV=development tsx src/frame/server.ts",
+    "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test tsx src/frame/server.ts",
     "symlink-from-local-repo": "node src/early-access/scripts/symlink-from-local-repo.js",
     "sync-rest": "node src/rest/scripts/update-files.js",
     "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "node src/search/scripts/sync-search-indices.js",
-    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true node src/frame/server.js",
+    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
     "sync-webhooks": "src/rest/scripts/update-files.js -o webhooks",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=4096 --experimental-vm-modules' jest --logHeapUsage",
     "test-local-dev": "node src/workflows/test-local-dev.js",
@@ -80,7 +80,8 @@
     "{content,data}/**/*.md": "npm run lint-content -- --precommit --paths"
   },
   "nodemonConfig": {
-    "ext": "js,json,yml,md,html,scss",
+    "ext": "ts,js,json,yml,md,html,scss",
+    "exec": "tsx",
     "ignore": [
       "assets",
       "script",
@@ -313,6 +314,7 @@
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
+    "tsx": "4.7.1",
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.0.0",
@@ -378,7 +380,6 @@
     "sass": "^1.52.3",
     "start-server-and-test": "^2.0.3",
     "ts-jest": "29.1.1",
-    "tsx": "4.7.1",
     "typescript": "^5.4.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",

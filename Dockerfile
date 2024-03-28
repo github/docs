@@ -96,7 +96,7 @@ COPY --chown=node:node next.config.js ./
 
 EXPOSE $PORT
 
-CMD ["node", "src/frame/server.js"]
+CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations
