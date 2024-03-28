@@ -159,14 +159,14 @@ When you fork a project in order to propose changes to the upstream repository, 
 1. Change directories to the location of the fork you cloned.
     - To go to your home directory, type just `cd` with no other text.
     - To list the files and folders in your current directory, type `ls`.
-    - To go into one of your listed directories, type `cd your_listed_directory`.
+    - To go into one of your listed directories, type `cd YOUR-LISTED-DIRECTORY`.
     - To go up one directory, type `cd ..`.
 1. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
 
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
    ```
 
 1. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
@@ -179,8 +179,8 @@ When you fork a project in order to propose changes to the upstream repository, 
 
    ```shell
    $ git remote -v
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
    > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
    > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
    ```
