@@ -149,10 +149,6 @@ updates:
 
 ## Grouping {% data variables.product.prodname_dependabot_updates %} into one pull request
 
-{% ifversion dependabot-grouped-security-updates-config %}
-{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
-{% endif %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-semver %}
