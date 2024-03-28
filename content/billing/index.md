@@ -32,7 +32,6 @@ layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Billing

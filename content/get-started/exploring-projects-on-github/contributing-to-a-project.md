@@ -32,7 +32,6 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 1. In the top-right corner of the page, click **Fork**.
 
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork-button.png)
-{%- ifversion fpt or ghec or ghes %}
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
 1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
 1. Optionally, in the "Description" field, type a description of your fork.
@@ -46,7 +45,6 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 **Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
-{% endif %}
 
 ## Cloning a fork
 

@@ -23,7 +23,7 @@ jobs:
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -37,7 +37,7 @@ jobs:
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -53,6 +53,16 @@ jobs:
         with:
           path: external-link-checker-db.json
           key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
+
+      - name: Insight into external link checker DB json file (before)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - name: Run link checker
         env:
@@ -75,14 +85,19 @@ jobs:
           # If we're unable to connect or the server returns a 50x error,
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
+          FAIL_ON_FLAW: false
         timeout-minutes: 30
         run: node src/links/scripts/rendered-content-link-checker.js
 
-      - name: Upload artifact(s)
-        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
-        with:
-          name: artifacts
-          path: ./artifacts
+      - name: Insight into external link checker DB json file (after)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

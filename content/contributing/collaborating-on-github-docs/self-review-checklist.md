@@ -1,7 +1,6 @@
 ---
 title: Self review checklist
 intro: "Before you submit your pull request for review, you should first review it yourself."
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

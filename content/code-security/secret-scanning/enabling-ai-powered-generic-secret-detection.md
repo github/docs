@@ -25,7 +25,7 @@ You can then enable the feature in the "Code security and analysis" settings pag
 {% data reusables.repositories.navigate-to-ghas-settings %}
 1. Under "Secret scanning", select the checkbox next to "Use AI detection to find additional secrets".
 
-For information on how to view alerts for generic secrets that have been detected using AI, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#viewing-alerts-for-generic-secrets-detected-using-ai)."
+For information on how to view alerts for generic secrets that have been detected using AI, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 ## Further reading
 

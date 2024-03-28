@@ -1,5 +1,6 @@
 ---
-title: Deployments
+title: REST API endpoints for deployments
+shortTitle: Deployments
 intro: >-
   Use the REST API to create and delete deploy keys, deployments, and deployment
   environments.
@@ -7,7 +8,6 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

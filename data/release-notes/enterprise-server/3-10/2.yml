@@ -17,7 +17,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
@@ -54,3 +54,5 @@ sections:
       {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
     - |
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]

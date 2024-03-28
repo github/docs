@@ -25,7 +25,7 @@
 | [MD049](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md049.md) | emphasis-style | Emphasis style should be consistent | error | emphasis |
 | [MD050](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md050.md) | strong-style | Strong style should be consistent | error | emphasis |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | todocs-placeholder | Catch occurrences of TODOCS placeholder. | error |  |
-| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.gitub.com domain. | warning |  |
+| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.gitub.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | help-domain | Catch occurrences of help.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | preview-domain | Catch occurrences of preview.ghdocs.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |
@@ -52,10 +52,15 @@
 | GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must have the correct number of arguments and spacing | error | liquid, format |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
-| GH011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
+| GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD007 | code-annotations | Code annotations defined in Markdown must contain a specific layout frontmatter property | error | code, feature, annotate, frontmatter |
 | GHD017 | frontmatter-liquid-syntax | Frontmatter properties must use valid Liquid | error | liquid, frontmatter |
 | GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
 | GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
 | GHD020 | liquid-ifversion-tags | Liquid `ifversion` tags should contain valid version names as arguments | error | liquid, versioning |
+| GHD022 | liquid-ifversion-versions | Liquid `ifversion` (and `elsif`) should not always be true | warning | liquid, versioning |
+| GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
+| GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
+| GHD038 | expired-content | Expired content must be remediated. | error | expired |
+| GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |

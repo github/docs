@@ -32,11 +32,19 @@ shortTitle: GitHub Advanced Security
 
 ## About {% data variables.product.prodname_advanced_security %} features
 
-A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
+A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features{% ifversion fpt %} for private repositories:{% else %}:{% endif %}
 
-- **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
+- **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code using {% data variables.product.prodname_codeql %} or a third-party tool. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %} private repositories{% else %} the repository{% endif %}. {% ifversion fpt%}{% data variables.secret-scanning.user_alerts_caps %} and {% data variables.secret-scanning.partner_alerts %} are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."{% else %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
+- **{% data variables.product.prodname_codeql_cli %}** - Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli)."
+
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %}private repositories{% else %} the repository{% endif %}.{% ifversion secret-scanning-push-protection %} If push protection is enabled, {% data variables.product.prodname_dotcom %} also detects secrets when they are pushed to your repository. {% ifversion secret-scanning-enable-by-default-for-public-repos %}{% data variables.secret-scanning.user_alerts_caps %} and push protection are available and free of charge for all {% ifversion ghec %}user-owned {% endif %}public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."{% else %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
+
+{% ifversion dependabot-auto-triage-rules %}
+
+- **{% data variables.dependabot.custom_rules_caps %}** - {% data reusables.dependabot.dependabot-custom-rules-ghas %}
+
+{% endif %}
 
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
@@ -48,7 +56,9 @@ The table below summarizes the availability of {% data variables.product.prodnam
 | | Public repository | Private repository <br>without {% data variables.product.prodname_advanced_security %} | Private repository <br>with {% data variables.product.prodname_advanced_security %} |
 | --- | --- | --- | --- |
 | Code scanning     | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% data variables.product.prodname_codeql_cli %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% ifversion dependabot-auto-triage-rules %}
+| {% data variables.dependabot.custom_rules_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
 | Dependency review | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}

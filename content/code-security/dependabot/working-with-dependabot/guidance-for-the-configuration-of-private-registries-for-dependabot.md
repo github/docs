@@ -41,7 +41,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 - [Artifactory](#artifactory)
 - [Azure Artifacts](#azure-artifacts)
-- [{% data variables.product.prodname_registry %} registry](#data-variablesproductprodname_registry--registry)
+- [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 - [Nexus](#nexus)
 - [ProGet](#proget)
 
@@ -576,10 +576,13 @@ If you use the `replace-base` setting, you should also configure a remote reposi
 
 You can use a virtual registry to group together all private and public dependencies under a single domain. For more information, see [npm Registry](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry) in the JFrog Artifactory documentation.
 
+{% ifversion dependabot-updates-reference-private-registries %}{% else %}
+
 #### Limitations and workarounds
 
 The `target branch` setting does not work with {% data variables.product.prodname_dependabot_security_updates %}
  on Artifactory. If you get a 401 authentication error, you need to remove the `target-branch` property from your `dependabot.yml` file. For more information, see [ARTIFACTORY: Why GitHub Dependabot security updates are failing with 401 Authentication error, when it initiates a connection with Artifactory npm private registry for security updates](https://jfrog.com/help/r/artifactory-why-github-dependabot-security-updates-are-failing-with-401-authentication-error-when-it-initiates-a-connection-with-artifactory-npm-private-registry-for-security-updates/issue-description) in the JFrog Artifactory documentation.
+{% endif %}
 
 ### Azure Artifacts
 

@@ -607,8 +607,8 @@
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "get-copilot-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
         "access": "write",
@@ -618,8 +618,8 @@
       },
       {
         "category": "copilot",
-        "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "list-all-copilot-seat-assignments-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
         "access": "write",
@@ -629,8 +629,8 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "add-teams-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
         "access": "write",
@@ -640,8 +640,8 @@
       },
       {
         "category": "copilot",
-        "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "remove-teams-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
         "access": "write",
@@ -651,8 +651,8 @@
       },
       {
         "category": "copilot",
-        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "add-users-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "access": "write",
@@ -662,8 +662,8 @@
       },
       {
         "category": "copilot",
-        "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "remove-users-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "access": "write",
@@ -673,8 +673,8 @@
       },
       {
         "category": "copilot",
-        "slug": "get-copilot-business-seat-assignment-details-for-a-user",
-        "subcategory": "copilot-business",
+        "slug": "get-copilot-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
         "access": "write",
@@ -5596,7 +5596,7 @@
         "slug": "list-environment-secrets",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -5607,7 +5607,7 @@
         "slug": "get-an-environment-public-key",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -5618,7 +5618,7 @@
         "slug": "get-an-environment-secret",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -5629,7 +5629,7 @@
         "slug": "create-or-update-an-environment-secret",
         "subcategory": "secrets",
         "verb": "put",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5640,7 +5640,7 @@
         "slug": "delete-an-environment-secret",
         "subcategory": "secrets",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5651,7 +5651,7 @@
         "slug": "list-environment-variables",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -5662,7 +5662,7 @@
         "slug": "create-an-environment-variable",
         "subcategory": "variables",
         "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5673,7 +5673,7 @@
         "slug": "get-an-environment-variable",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -5684,7 +5684,7 @@
         "slug": "update-an-environment-variable",
         "subcategory": "variables",
         "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5695,7 +5695,7 @@
         "slug": "delete-an-environment-variable",
         "subcategory": "variables",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -6187,116 +6187,6 @@
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
       {
-        "category": "gists",
-        "slug": "create-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist",
-        "subcategory": "gists",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "create-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/comments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "get-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "get",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "fork-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/forks",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "star-a-gist",
-        "subcategory": "gists",
-        "verb": "put",
-        "requestPath": "/gists/{gist_id}/star",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "unstar-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/star",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
         "category": "activity",
         "slug": "list-notifications-for-the-authenticated-user",
         "subcategory": "notifications",
@@ -6566,6 +6456,17 @@
         "subcategory": "licenses",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/license",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8119,7 +8020,7 @@
         "slug": "list-environment-secrets",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8130,7 +8031,7 @@
         "slug": "get-an-environment-public-key",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8141,7 +8042,7 @@
         "slug": "get-an-environment-secret",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8152,7 +8053,7 @@
         "slug": "create-or-update-an-environment-secret",
         "subcategory": "secrets",
         "verb": "put",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8163,7 +8064,7 @@
         "slug": "delete-an-environment-secret",
         "subcategory": "secrets",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8246,7 +8147,7 @@
         "slug": "list-environment-variables",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8257,7 +8158,7 @@
         "slug": "create-an-environment-variable",
         "subcategory": "variables",
         "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8268,7 +8169,7 @@
         "slug": "get-an-environment-variable",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -8279,7 +8180,7 @@
         "slug": "update-an-environment-variable",
         "subcategory": "variables",
         "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8290,7 +8191,7 @@
         "slug": "delete-an-environment-variable",
         "subcategory": "variables",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -8815,7 +8716,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8826,7 +8727,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8837,7 +8738,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8848,7 +8749,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8859,7 +8760,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8870,7 +8771,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8881,7 +8782,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8892,7 +8793,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -8903,7 +8804,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },

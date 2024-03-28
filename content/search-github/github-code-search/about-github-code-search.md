@@ -30,6 +30,7 @@ The current limitations on indexed code are:
 - Only UTF-8 encoded files are included
 - Very large repositories may not be indexed
 - Exhaustive search is not supported
+- Files with more than one line over 4096 bytes are excluded
 
 We currently only support searching for code on the default branch of a repository. The query length is limited to 1000 characters.
 

@@ -41,7 +41,7 @@ You can use the {% data variables.product.prodname_codeql_cli %} to:
 The {% data variables.product.prodname_codeql_cli %} can analyze:
 
 - Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java.
+- Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
 - Codebases written in a mixture of languages.
 
 For information about setting up the {% data variables.product.prodname_codeql_cli %}, see

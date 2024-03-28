@@ -5,7 +5,6 @@ intro: 'Learn how to deploy to Azure App Service, Azure Kubernetes, and Azure St
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /deploying-nodejs-to-azure-app-service

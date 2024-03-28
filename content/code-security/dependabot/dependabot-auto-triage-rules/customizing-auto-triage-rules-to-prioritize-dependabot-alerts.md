@@ -2,7 +2,7 @@
 title: Customizing auto-triage rules to prioritize Dependabot alerts
 intro: 'You can create your own {% data variables.dependabot.auto_triage_rules_short %} to control which alerts are dismissed or snoozed, and which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.'
 permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.auto_triage_rules_short %} for the repository, as well as create {% data variables.dependabot.custom_rules %}. Additionally, organization owners and security managers can set {% data variables.dependabot.auto_triage_rules_short %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
-product: '{% data reusables.gated-features.dependabot-auto-triage-rules %}'
+product: '{% data reusables.gated-features.dependabot-custom-auto-triage-rules %}'
 versions:
   feature: dependabot-auto-triage-rules
 type: how_to

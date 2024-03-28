@@ -18,17 +18,19 @@ shortTitle: Disable 2FA
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-We strongly recommend using two-factor authentication to secure your account. If you need to disable 2FA, we recommend re-enabling it as soon as possible.
-
-{% ifversion mandatory-2fa-dotcom-contributors %}
-If you are part of the group that {% data variables.product.prodname_dotcom %} is requiring to enroll in 2FA in 2023, you cannot disable 2FA. A banner will display in your authentication settings to remind you that you are not allowed to disable 2FA. For more information about our 2023 2FA enrollment rollout for contributors to {% data variables.product.prodname_dotcom_the_website %}, see [this blog post](https://github.blog/2023-03-09-raising-the-bar-for-software-security-github-2fa-begins-march-13).
-{% endif %}
-
 {% warning %}
 
 **Warning:** If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. To regain access to the organization, re-enable two-factor authentication and contact an organization owner.
 
 {% endwarning %}
+
+We strongly recommend using two-factor authentication (2FA) to secure your account. If you need to disable 2FA, we recommend re-enabling it as soon as possible.
+
+{% ifversion mandatory-2fa-dotcom-contributors %}
+If you are part of the group that {% data variables.product.prodname_dotcom %} is requiring to enroll in 2FA in 2023, you cannot disable 2FA. A banner will display in your authentication settings to remind you that you are not allowed to disable 2FA. For more information about our 2023 2FA enrollment rollout for contributors to {% data variables.product.prodname_dotcom_the_website %}, see [this blog post](https://github.blog/2023-03-09-raising-the-bar-for-software-security-github-2fa-begins-march-13).
+
+You can modify your existing 2FA configuration instead of disabling it entirely. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-your-two-factor-authentication-method)."
+{% endif %}
 
 If your organization requires two-factor authentication and you're a member, owner, or an outside collaborator on a private repository of your organization, you must first leave your organization before you can disable two-factor authentication.
 

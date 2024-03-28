@@ -1,8 +1,8 @@
 ## Configuring {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
 
-Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a {% ifversion fpt %}free trial or{% endif %} subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account)" or "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
+Before you can start using {% data variables.product.prodname_copilot %}, you will need to set up a free trial or subscription. For more information about setting up a trial or subscription for your personal account, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account)." For more information about setting up a subscription for your organization or enterprise, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)" or{% ifversion fpt %}, in the {% data variables.product.prodname_ghe_cloud %} documentation,{% endif %} "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
 
-Once you have an active {% data variables.product.prodname_copilot %} {% ifversion fpt %}trial or{% endif %} subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
+Once you have an active {% data variables.product.prodname_copilot_for_individuals %} trial or subscription, you can adjust {% data variables.product.prodname_copilot %} settings for your personal account on {% data variables.product.prodname_dotcom %} in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot). The settings apply anywhere that you use {% data variables.product.prodname_copilot %}. You can configure the suggestions that {% data variables.product.prodname_copilot %} offers and how {% data variables.product.company_short %} uses your telemetry data.
 
 ### Enabling or disabling duplication detection
 
@@ -19,15 +19,13 @@ If you choose to allow suggestions matching public code, and you accept a sugges
 
 {% ifversion fpt %}
 
-### Enabling or disabling Prompt and Suggestion collection
+### Enabling or disabling prompt and suggestion collection
 
-{% data reusables.copilot.telemetry-setting-org %}
-
-You can choose whether your Prompts and Suggestions are collected and retained by GitHub and further processed and shared with Microsoft and by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
+You can choose whether your prompts and suggestions from your code editor are collected and retained by {% data variables.product.prodname_dotcom %} and further processed and shared with Microsoft and by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
-1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets for product improvements**.
+1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
 {% data reusables.copilot.save-settings %}{% endif %}
 
 ## Further reading

@@ -17,7 +17,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 introLinks:
   overview: /authentication/keeping-your-account-and-data-secure/about-authentication-to-github

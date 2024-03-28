@@ -1,5 +1,5 @@
 ---
-title: GitHub Enterprise administration
+title: REST API endpoints for GitHub Enterprise administration
 intro: Use the REST API to administer your enterprise.
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -8,7 +8,6 @@ redirect_from:
   - /rest/reference/enterprise-admin
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

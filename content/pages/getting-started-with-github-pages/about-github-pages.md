@@ -33,9 +33,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 
 To get started, see "[AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site)."
 
-{% ifversion fpt or ghes or ghec %}
 Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
-{% endif %}
 
 ## Types of {% data variables.product.prodname_pages %} sites
 
@@ -93,19 +91,9 @@ For more information about {% data variables.product.prodname_emus %}, see "[AUT
 
 {% data variables.product.prodname_pages %} publishes any static files that you push to your repository. You can create your own static files or use a static site generator to build your site for you. You can also customize your own build process locally or on another server.
 
-{% ifversion pages-custom-workflow %}
-
 If you use a custom build process or a static site generator other than Jekyll, you can write a {% data variables.product.prodname_actions %} to build and publish your site. {% data variables.product.product_name %} provides starter workflows for several static site generators. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
 
 If you publish your site from a source branch, {% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, we recommend that you write a {% data variables.product.prodname_actions %} to build and publish your site instead. Otherwise, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
-
-{% else %}
-
-We recommend Jekyll, a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."
-
-{% data variables.product.prodname_pages %} will use Jekyll to build your site by default. If you want to use a static site generator other than Jekyll, disable the Jekyll build process by creating an empty file called `.nojekyll` in the root of your publishing source, then follow your static site generator's instructions to build your site locally.
-
-{% endif %}
 
 {% data variables.product.prodname_pages %} does not support server-side languages such as PHP, Ruby, or Python.
 
@@ -134,7 +122,7 @@ Using {% data variables.product.prodname_pages %} to create a copy of an existin
 - {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}
 - {% data variables.product.prodname_pages %} sites have a _soft_ bandwidth limit of 100 GB per month.
-- {% data variables.product.prodname_pages %} sites have a _soft_ limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+- {% data variables.product.prodname_pages %} sites have a _soft_ limit of 10 builds per hour. This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow.
 - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.github_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.

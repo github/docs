@@ -10,13 +10,12 @@
 | [Database query built from user-controlled sources](https://codeql.github.com/codeql-query-help/go/go-sql-injection/) | 089 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Disabled TLS certificate check](https://codeql.github.com/codeql-query-help/go/go-disabled-certificate-check/) | 295 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Email content injection](https://codeql.github.com/codeql-query-help/go/go-email-injection/) | 640 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/go/go-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incomplete regular expression for hostnames](https://codeql.github.com/codeql-query-help/go/go-incomplete-hostname-regexp/) | 20 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incomplete URL scheme check](https://codeql.github.com/codeql-query-help/go/go-incomplete-url-scheme-check/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incorrect conversion between integer types](https://codeql.github.com/codeql-query-help/go/go-incorrect-integer-conversion/) | 190, 681 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Information exposure through a stack trace](https://codeql.github.com/codeql-query-help/go/go-stack-trace-exposure/) | 209, 497 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insecure TLS configuration](https://codeql.github.com/codeql-query-help/go/go-insecure-tls/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Log entries created from user input](https://codeql.github.com/codeql-query-help/go/go-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [Missing JWT signature check](https://codeql.github.com/codeql-query-help/go/go-missing-jwt-signature-check/) | 347 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing regular expression anchor](https://codeql.github.com/codeql-query-help/go/go-regex-missing-regexp-anchor/) | 20 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Open URL redirect](https://codeql.github.com/codeql-query-help/go/go-unvalidated-url-redirection/) | 601 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Potentially unsafe quoting](https://codeql.github.com/codeql-query-help/go/go-unsafe-quoting/) | 078, 089, 094 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -30,5 +29,7 @@
 | [Use of insecure HostKeyCallback implementation](https://codeql.github.com/codeql-query-help/go/go-insecure-hostkeycallback/) | 322 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of insufficient randomness as the key of a cryptographic algorithm](https://codeql.github.com/codeql-query-help/go/go-insecure-randomness/) | 338 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XPath injection](https://codeql.github.com/codeql-query-help/go/go-xml-xpath-injection/) | 643 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/go/go-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [Log entries created from user input](https://codeql.github.com/codeql-query-help/go/go-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

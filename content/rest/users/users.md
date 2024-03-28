@@ -1,5 +1,7 @@
 ---
-title: Users
+title: REST API endpoints for users
+shortTitle: Users
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to get public and private information about authenticated
   users.

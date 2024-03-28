@@ -115,7 +115,7 @@ To resolve this issue, set the `--bbs-shared-home` argument for `gh bbs2gh migra
 You can identify the shared home directory in Bitbucket Server.
 
 1. Navigate to the Administration area of your Bitbucket Server or Data Center instance.
-1. In the sidebar, under "System," click "Storage."
+1. In the sidebar, under "System," click **Storage**.
 1. Under "Shared directory," view the location of your server's shared home directory.
 
 If you're running Bitbucket Data Center in cluster mode with multiple notes, your shared directory will be shared between cluster nodes and should be mounted in the same location on each node.

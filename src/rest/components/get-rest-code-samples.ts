@@ -139,7 +139,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   const { bodyParameters } = codeSample.request
   if (bodyParameters) {
     if (typeof bodyParameters === 'object') {
-      const bodyParamValues = Object.values(codeSample.request.bodyParameters)
+      const bodyParamValues = Object.values(bodyParameters)
       // GitHub CLI does not support sending Objects using the -F or
       // -f flags. That support may be added in the future. It is possible to
       // use gh api --input to take a JSON object from standard input
@@ -148,23 +148,31 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
       if (bodyParamValues.some((elem) => typeof elem === 'object' && !Array.isArray(elem))) {
         return undefined
       }
-      requestBodyParams = Object.keys(codeSample.request.bodyParameters)
-        .map((key) => {
-          if (typeof codeSample.request.bodyParameters[key] === 'string') {
-            return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
-          } else if (Array.isArray(codeSample.request.bodyParameters[key])) {
+      requestBodyParams = Object.entries(bodyParameters)
+        .map(([key, params]) => {
+          if (typeof params === 'string') {
+            return `-f ${key}='${params}' `
+          } else if (Array.isArray(params)) {
             let cliLine = ''
-            for (const value of codeSample.request.bodyParameters[key]) {
-              cliLine += `${typeof value === 'string' ? '-f' : '-F'} "${key}[]=${value}" `
+            for (const param of params) {
+              if (typeof param === 'string') {
+                cliLine += `-f "${key}[]=${param}" `
+              } else {
+                // When an array of objects is sent, the CLI takes the key and value as two separate arguments
+                // E.g. -F "properties[][property_name]=repo" -F "properties[][value]=docs-internal"
+                for (const [k, v] of Object.entries(param)) {
+                  cliLine += `-F "${key}[][${k}]=${v}" `
+                }
+              }
             }
             return cliLine
           } else {
-            return `-F ${key}=${codeSample.request.bodyParameters[key]} `
+            return `-F ${key}=${params} `
           }
         })
         .join('\\\n ')
     } else {
-      requestBodyParams = `-f '${codeSample.request.bodyParameters}'`
+      requestBodyParams = `-f '${bodyParameters}'`
     }
   }
 

@@ -53,7 +53,7 @@
         "slug": "list-provisioned-scim-groups-for-an-enterprise",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Groups",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
         "additional-permissions": false,
         "access": "write"
       },
@@ -62,7 +62,7 @@
         "slug": "provision-a-scim-enterprise-group",
         "subcategory": "scim",
         "verb": "post",
-        "requestPath": "/scim/v2/Groups",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
         "additional-permissions": false,
         "access": "write"
       },
@@ -71,7 +71,7 @@
         "slug": "get-scim-provisioning-information-for-an-enterprise-group",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -80,7 +80,7 @@
         "slug": "set-scim-information-for-a-provisioned-enterprise-group",
         "subcategory": "scim",
         "verb": "put",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -89,7 +89,7 @@
         "slug": "update-an-attribute-for-a-scim-enterprise-group",
         "subcategory": "scim",
         "verb": "patch",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -98,7 +98,7 @@
         "slug": "delete-a-scim-group-from-an-enterprise",
         "subcategory": "scim",
         "verb": "delete",
-        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -107,7 +107,7 @@
         "slug": "list-scim-provisioned-identities-for-an-enterprise",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Users",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
         "additional-permissions": false,
         "access": "write"
       },
@@ -116,7 +116,7 @@
         "slug": "provision-a-scim-enterprise-user",
         "subcategory": "scim",
         "verb": "post",
-        "requestPath": "/scim/v2/Users",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
         "additional-permissions": false,
         "access": "write"
       },
@@ -125,7 +125,7 @@
         "slug": "get-scim-provisioning-information-for-an-enterprise-user",
         "subcategory": "scim",
         "verb": "get",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -134,7 +134,7 @@
         "slug": "set-scim-information-for-a-provisioned-enterprise-user",
         "subcategory": "scim",
         "verb": "put",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -143,7 +143,7 @@
         "slug": "delete-a-scim-user-from-an-enterprise",
         "subcategory": "scim",
         "verb": "delete",
-        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
         "access": "write"
       }
@@ -3593,7 +3593,7 @@
         "slug": "list-environment-secrets",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
         "additional-permissions": true,
         "access": "read"
       },
@@ -3602,7 +3602,7 @@
         "slug": "get-an-environment-public-key",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
         "additional-permissions": true,
         "access": "read"
       },
@@ -3611,7 +3611,7 @@
         "slug": "get-an-environment-secret",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "read"
       },
@@ -3620,7 +3620,7 @@
         "slug": "create-or-update-an-environment-secret",
         "subcategory": "secrets",
         "verb": "put",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "write"
       },
@@ -3629,7 +3629,7 @@
         "slug": "delete-an-environment-secret",
         "subcategory": "secrets",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "write"
       },
@@ -3638,7 +3638,7 @@
         "slug": "list-environment-variables",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "additional-permissions": true,
         "access": "read"
       },
@@ -3647,7 +3647,7 @@
         "slug": "create-an-environment-variable",
         "subcategory": "variables",
         "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "additional-permissions": true,
         "access": "write"
       },
@@ -3656,7 +3656,7 @@
         "slug": "get-an-environment-variable",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "read"
       },
@@ -3665,7 +3665,7 @@
         "slug": "update-an-environment-variable",
         "subcategory": "variables",
         "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "write"
       },
@@ -3674,7 +3674,7 @@
         "slug": "delete-an-environment-variable",
         "subcategory": "variables",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "write"
       }
@@ -4077,96 +4077,6 @@
     "title": "Metadata",
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
-      {
-        "category": "gists",
-        "slug": "create-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist",
-        "subcategory": "gists",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "create-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/comments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "get-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "get",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "fork-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/forks",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "star-a-gist",
-        "subcategory": "gists",
-        "verb": "put",
-        "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "unstar-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
-        "access": "read"
-      },
       {
         "category": "activity",
         "slug": "list-notifications-for-the-authenticated-user",
@@ -5531,7 +5441,7 @@
         "slug": "list-environment-secrets",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
         "additional-permissions": true,
         "access": "read"
       },
@@ -5540,7 +5450,7 @@
         "slug": "get-an-environment-public-key",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
         "additional-permissions": true,
         "access": "read"
       },
@@ -5549,7 +5459,7 @@
         "slug": "get-an-environment-secret",
         "subcategory": "secrets",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "read"
       },
@@ -5558,7 +5468,7 @@
         "slug": "create-or-update-an-environment-secret",
         "subcategory": "secrets",
         "verb": "put",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "write"
       },
@@ -5567,7 +5477,7 @@
         "slug": "delete-an-environment-secret",
         "subcategory": "secrets",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
         "additional-permissions": true,
         "access": "write"
       }
@@ -5627,7 +5537,7 @@
         "slug": "list-environment-variables",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "additional-permissions": true,
         "access": "read"
       },
@@ -5636,7 +5546,7 @@
         "slug": "create-an-environment-variable",
         "subcategory": "variables",
         "verb": "post",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
         "additional-permissions": true,
         "access": "write"
       },
@@ -5645,7 +5555,7 @@
         "slug": "get-an-environment-variable",
         "subcategory": "variables",
         "verb": "get",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "read"
       },
@@ -5654,7 +5564,7 @@
         "slug": "update-an-environment-variable",
         "subcategory": "variables",
         "verb": "patch",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "write"
       },
@@ -5663,7 +5573,7 @@
         "slug": "delete-an-environment-variable",
         "subcategory": "variables",
         "verb": "delete",
-        "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
         "additional-permissions": true,
         "access": "write"
       }
@@ -5961,7 +5871,7 @@
         "subcategory": "gists",
         "verb": "post",
         "requestPath": "/gists",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5970,7 +5880,7 @@
         "subcategory": "gists",
         "verb": "patch",
         "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5979,7 +5889,7 @@
         "subcategory": "gists",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5988,7 +5898,7 @@
         "subcategory": "comments",
         "verb": "post",
         "requestPath": "/gists/{gist_id}/comments",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -5997,7 +5907,7 @@
         "subcategory": "comments",
         "verb": "patch",
         "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -6006,7 +5916,7 @@
         "subcategory": "comments",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -6015,7 +5925,7 @@
         "subcategory": "gists",
         "verb": "post",
         "requestPath": "/gists/{gist_id}/forks",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -6024,7 +5934,7 @@
         "subcategory": "gists",
         "verb": "put",
         "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -6033,7 +5943,7 @@
         "subcategory": "gists",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]

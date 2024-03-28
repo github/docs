@@ -17,7 +17,7 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the {% data variables.dependency-submission-api.name %}, see the [dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/rest/dependency-graph/dependency-submission)."
 
 ## Submitting dependencies at build-time
 
@@ -90,7 +90,7 @@ jobs:
 Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
 
   1. Generate a list of dependencies for your project.
-  1. Translate the list of dependencies into the snapshot format accepted by the {% data variables.dependency-submission-api.name %}. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+  1. Translate the list of dependencies into the snapshot format accepted by the {% data variables.dependency-submission-api.name %}. For more information about the format, see the body parameters for the "Create a repository snapshot" API endpoint in "[AUTOTITLE](/rest/dependency-graph/dependency-submission)."
   1. Submit the formatted list of dependencies to the {% data variables.dependency-submission-api.name %}.
 
 {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the {% data variables.dependency-submission-api.name %}. For more information about writing an action, see "[AUTOTITLE](/actions/creating-actions)".

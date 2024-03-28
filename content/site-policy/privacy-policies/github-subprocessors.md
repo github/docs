@@ -30,12 +30,19 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Azure Cognitive Services    | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Cloudflare                  | Content delivery service                                                       | United States                                     | United States      |
 | Fastly                      | Content delivery service                                                       | United States                                     | United States      |
+| GitHub Australia Pty Ltd    | GitHub Subsidiary                                                              | Australia                                         | Australia          |
+| GitHub BV                   | GitHub Subsidiary                                                              | Netherlands                                       | Netherlands        |
+| GitHub Canada ULC           | GitHub Subsidiary                                                              | Canada                                            | Canada             |
+| GitHub Germany GmbH         | GitHub Subsidiary                                                              | Germany                                           | Germany            |
+| GitHub India Pty Ltd        | GitHub Subsidiary                                                              | India                                             | India              |
 | Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Microsoft                   | Technical Services                                                             | United States                                     | United States      |
 | Moveworks                   | Customer support ticketing analysis                                            | United States                                     | United States      |
 | NexMo (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
+| Npm, Inc. 	                | GitHub Subsidiary	                                                             | United States	                                   | United States      |
 | Obsidian Security           | Security management                                                            | United States                                     | United States      |
 | Pusher                      | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
+| Semmle Inc.	                | GitHub Subsidiary	                                                             | United States	                                   | United States      |
 | SendGrid                    | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | Splunk                      | Logging pipeline for security log, storage, and search                         | United States                                     | United States      |
 | Twilio                      | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |

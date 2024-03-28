@@ -27,19 +27,17 @@ topics:
 
 You can receive notifications for activity on {% data variables.location.product_location %} in the following locations.
 
-- The notifications inbox in the {% data variables.location.product_location %} web interface{% ifversion fpt or ghes or ghec %}
-- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}{% endif %}
-- An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
+- The notifications inbox in the {% data variables.location.product_location %} web interface
+- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}
+- An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %}
 
-{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
-{% endif %}
 
 {% data reusables.notifications.shared_state %}
 
 ### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
+The notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
 - Triage multiple notifications at once.
 - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
 - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
@@ -49,9 +47,7 @@ The notifications inbox on {% data variables.location.product_location %}{% ifve
 - Create custom filters to focus on different notifications when you want.
 - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
-{% ifversion fpt or ghes or ghec %}
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[AUTOTITLE](/get-started/using-github/github-mobile)."
-{% endif %}
 
 ### Benefits of using an email client for notifications
 
@@ -250,9 +246,7 @@ On the "Notification settings" page, select "Email" or "Web" notifications. Opti
 
 ## Organization alerts notification options
 
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**.
-
-{% ifversion fpt or ghes or ghec %}
+If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", deselect **Email**.
 
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
@@ -287,5 +281,3 @@ You can choose whether to watch or unwatch an individual repository. You can als
 1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
 1. Tap **Watch**.
 1. To choose what activities you receive notifications for, tap your preferred watch settings. For example, choose to only be notified when you are participating or @mentioned, or use the "Custom" option to select specific events that you want to be notified of.
-
-{% endif %}

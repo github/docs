@@ -4,31 +4,31 @@ sections:
     - |
       **LOW:** An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a reopened pull request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2023-23766](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23766). [Updated: 2023-09-22]
     - |
-      Packages have been updated to the latest security versions. 
+      Packages have been updated to the latest security versions.
   bugs:
     - |
-      API results were incomplete, and ordering of results was incorrect if `asc` or `desc` appeared in lowercase within the API query. 
+      API results were incomplete, and ordering of results was incorrect if `asc` or `desc` appeared in lowercase within the API query.
     - |
-      The checks in the merge box for a pull request did not always match the the checks for the most recent commit in the pull request. 
+      The checks in the merge box for a pull request did not always match the the checks for the most recent commit in the pull request.
     - |
-      When a site administrator used GitHub Enterprise Importer on versions 3.7 and below to migrate repositories from GitHub Enterprise Server, the system backup size would increase after running many migrations due to storage files not being cleaned up. 
+      When a site administrator used GitHub Enterprise Importer on versions 3.7 and below to migrate repositories from GitHub Enterprise Server, the system backup size would increase after running many migrations due to storage files not being cleaned up.
     - |
-      A collaborator with the "Set the social preview" permission inherited from the "Read" role couldnt upload the social preview image of a repository. 
+      A collaborator with the "Set the social preview" permission inherited from the "Read" role couldnt upload the social preview image of a repository.
     - |
-      When running the `ghe-migrator`, certain error messages contained an invalid link to import documentation. 
+      When running the `ghe-migrator`, certain error messages contained an invalid link to import documentation.
     - |
-      In some cases, on an instance with GitHub Actions enabled, deployment of GitHub Pages site using a GitHub Actions workflow failed with a status of `deployment_lost`. 
+      In some cases, on an instance with GitHub Actions enabled, deployment of GitHub Pages site using a GitHub Actions workflow failed with a status of `deployment_lost`.
     - |
-      On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories. 
+      On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories.
     - |
-      GitHub Enterprise Server was queuing zip jobs unnecessarily. 
+      GitHub Enterprise Server was queuing zip jobs unnecessarily.
   changes:
     - |
-      The description of the `ghe-cluster-balance` command line utility clarifies that it can be used to balance jobs other than `github-unicorn`. 
+      The description of the `ghe-cluster-balance` command line utility clarifies that it can be used to balance jobs other than `github-unicorn`.
     - |
-      On GitHub Enterprise Server 3.8 and above, a blob storage provider must be configured in the Management Console in order to use the GitHub Enterprise Importer CLI, "startRepositoryMigration" GraphQL API, or "Start an organization migration" REST API. The "Migrations" section in the Management Console was mistakenly removed and has been added back. 
+      On GitHub Enterprise Server 3.8 and above, a blob storage provider must be configured in the Management Console in order to use the GitHub Enterprise Importer CLI, "startRepositoryMigration" GraphQL API, or "Start an organization migration" REST API. The "Migrations" section in the Management Console was mistakenly removed and has been added back.
     - |
-      Administrators can display all repositories in a network with `spokesctl` by using the `repositories` subcommand. 
+      Administrators can display all repositories in a network with `spokesctl` by using the `repositories` subcommand.
     - |
       The secondary abuse rate limits of the GraphQL API are now configurable in the Management Console. [Updated: 2023-09-01]
   known_issues:
@@ -40,7 +40,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
