@@ -61,6 +61,12 @@ export function correctTranslatedContentStrings(content, englishContent, context
     // Low-hanging fruit for the data tag
     content = content.replaceAll('{% データ variables', '{% data variables')
     content = content.replaceAll('{% データvariables', '{% data variables')
+
+    // Internal issue #4160
+    content = content.replaceAll(
+      '- % data variables.product.prodname_copilot_enterprise %}',
+      '- {% data variables.product.prodname_copilot_enterprise %}',
+    )
   }
 
   if (context.code === 'zh') {

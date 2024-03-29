@@ -4189,6 +4189,27 @@
     ]
   },
   {
+    "action": "enterprise_team.rename",
+    "description": "The name of an enterprise team was changed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "name",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "environment.add_protection_rule",
     "description": "A GitHub Actions deployment protection rule was created via the API.",
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules",
