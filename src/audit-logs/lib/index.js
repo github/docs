@@ -101,16 +101,9 @@ export function filterByAllowlistValues(
 
       const minimal = {
         action: event.action,
-        description: event.description,
+        description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
         fields: event.fields,
-      }
-
-      if (
-        eventAllowlists.includes('org_api_only') ||
-        eventAllowlists.includes('business_api_only')
-      ) {
-        minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
       }
 
       minimalEvents.push(minimal)
@@ -167,19 +160,12 @@ export function filterAndUpdateGhesDataByAllowlistValues(
       if (ghesVersionAllowlists === null) continue
       if (seenByGhesVersion.get(fullGhesVersion)?.has(event.action)) continue
 
-      const minimal = {
-        action: event.action,
-        description: event.description,
-        docs_reference_links: event.docs_reference_links,
-        fields: event.ghes[ghesVersion].fields,
-      }
-
       if (ghesVersionAllowlists.includes(allowListValue)) {
-        if (
-          ghesVersionAllowlists.includes('org_api_only') ||
-          ghesVersionAllowlists.includes('business_api_only')
-        ) {
-          minimal.description += ` ${pipelineConfig.apiOnlyEventsAdditionalDescription}`
+        const minimal = {
+          action: event.action,
+          description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
+          docs_reference_links: event.docs_reference_links,
+          fields: event.ghes[ghesVersion].fields,
         }
 
         // we need to initialize as we go to build up the `minimalEvents`
@@ -207,4 +193,25 @@ export function filterAndUpdateGhesDataByAllowlistValues(
       }
     }
   }
+}
+
+function processAndGetEventDescription(event, allowlists, pipelineConfig) {
+  let description = event.description
+
+  // api.request is a unique event because it's an api_only event but is the only
+  // one of these events where the description we append isn't correct so we
+  // have to account for it separately.  There's not yet anything in the schema
+  // we can hook onto to treat it differently.
+  if (
+    (allowlists.includes('org_api_only') || allowlists.includes('business_api_only')) &&
+    event.action !== 'api.request'
+  ) {
+    description += ` ${pipelineConfig.appendedDescriptions.apiOnlyEvents}`
+  }
+
+  if (event.action === 'api.request') {
+    description += ` ${pipelineConfig.appendedDescriptions.apiRequestEvent}`
+  }
+
+  return description
 }
