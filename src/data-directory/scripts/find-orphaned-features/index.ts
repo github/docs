@@ -1,5 +1,6 @@
 import { program } from 'commander'
 import { find } from './find'
+import { deleteOrphans } from './delete'
 
 program
   .name('find-orphaned-features')
@@ -14,5 +15,13 @@ program
   .option('-o, --output <output-file>', 'Output file')
   .option('-v, --verbose', 'Verbose')
   .action(find)
+
+program
+  .command('delete')
+  .description('Delete features based on found orphans')
+  .option('-m, --max <number>', 'Maximum number of files to delete', (val) => parseInt(val), 10)
+  .option('-v, --verbose', 'Verbose')
+  .argument('<orphans-json-filepath>', 'path to the JSON file')
+  .action(deleteOrphans)
 
 program.parse(process.argv)
