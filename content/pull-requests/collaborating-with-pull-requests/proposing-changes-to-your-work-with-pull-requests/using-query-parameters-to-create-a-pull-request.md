@@ -26,7 +26,7 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 Query parameter | Example
 ---  | ---
 `quick_pull` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1` creates a pull request that compares the base branch `main` and head branch `my-branch`. The `quick_pull=1` query brings you directly to the "Open a pull request" page.
-`title` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&labels=bug&title=Bug+fix+report` creates a pull request with the label "bug" and title "Bug fix."
+`title` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&labels=bug&title=Bug+fix` creates a pull request with the label "bug" and title "Bug fix."
 `body` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&title=Bug+fix&body=Describe+the+fix.` creates a pull request with the title "Bug fix" and the comment "Describe the fix" in the pull request body.
 `labels` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&labels=help+wanted,bug` creates a pull request with the labels "help wanted" and "bug".
 `milestone` | `https://github.com/octo-org/octo-repo/compare/main...my-branch?quick_pull=1&milestone=testing+milestones` creates a pull request with the milestone "testing milestones."

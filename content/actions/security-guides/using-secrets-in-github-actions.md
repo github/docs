@@ -79,9 +79,8 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-{%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png)
 1. Click **New repository secret**.
 1. In the **Name** field, type a name for your secret.
 1. In the **Secret** field, enter the value for your secret.
@@ -155,14 +154,12 @@ gh secret list --env ENV_NAME
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-{%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
 
    ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png)
 
    {% data reusables.actions.secrets-and-variables-org-permissions %}
 
-   {% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
