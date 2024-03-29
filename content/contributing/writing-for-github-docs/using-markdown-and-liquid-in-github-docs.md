@@ -79,7 +79,7 @@ To render syntax highlighting in command line instructions and code samples, we 
 ### Example usage of code syntax highlighting
 
     ```bash
-    git init YOUR_REPOSITORY
+    git init YOUR-REPOSITORY
     ```
 
 Within the code sample syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` tags.
