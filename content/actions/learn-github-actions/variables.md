@@ -1,6 +1,6 @@
 ---
 title: Variables
-intro: '{% data variables.product.prodname_dotcom %} sets default variables for each {% data variables.product.prodname_actions %} workflow run. {% ifversion actions-configuration-variables %}You can also set custom variables for use in a single workflow or multiple workflows. {% else %}You can also set custom variables in your workflow file.{% endif %}'
+intro: '{% data variables.product.prodname_dotcom %} sets default variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom variables for use in a single workflow or multiple workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
   - /actions/automating-your-workflow-with-github-actions/using-environment-variables
@@ -17,8 +17,6 @@ versions:
 
 ## About variables
 
-{% ifversion actions-configuration-variables %}
-
 Variables provide a way to store and reuse non-sensitive configuration information. You can store any configuration data such as compiler flags, usernames, or server names as variables. Variables are interpolated on the runner machine that runs your workflow. Commands that run in actions or workflow steps can create, read, and modify variables.
 
 You can set your own custom variables or use the default environment variables that {% data variables.product.prodname_dotcom %} sets automatically. For more information, see "[Default environment variables](#default-environment-variables)".
@@ -34,17 +32,9 @@ You can set a custom variable in two ways.
 
 {% endwarning %}
 
-{% else %}
+## Defining environment variables for a single workflow
 
-You can use variables to store information that you want to reference in your workflow. You reference variables within a workflow step or an action, and the variables are interpolated on the runner machine that runs your workflow. Commands that run in actions or workflow steps can create, read, and modify variables.
-
-You can set your own custom variables, you can use the default variables that {% data variables.product.prodname_dotcom %} sets automatically, and you can also use any other variables that are set in the working environment on the runner. Variables are case-sensitive.
-
-{% endif %}
-
-## Defining environment variables{% ifversion actions-configuration-variables %} for a single workflow{% endif %}
-
-To set a custom environment variable{% ifversion actions-configuration-variables %} for a single workflow{% endif %}, you can define it using the `env` key in the workflow file. The scope of a custom variable set by this method is limited to the element in which it is defined. You can define variables that are scoped for:
+To set a custom environment variable for a single workflow, you can define it using the `env` key in the workflow file. The scope of a custom variable set by this method is limited to the element in which it is defined. You can define variables that are scoped for:
 
 - The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
 - The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
@@ -92,8 +82,6 @@ Any new variables you set that point to a location on the filesystem should have
 **Note**: You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
 
 {% endnote %}
-
-{% ifversion actions-configuration-variables %}
 
 ## Defining configuration variables for multiple workflows
 
@@ -214,13 +202,12 @@ A workflow created in a repository can access the following number of variables:
 {% endnote %}
 
 {% endif %}
-{% endif %}
 
 ## Using contexts to access variable values
 
 {% data reusables.actions.actions-contexts-about-description %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)". There are many other contexts that you can use for a variety of purposes in your workflows. For details of where you can use specific contexts within a workflow, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)."
 
-You can access environment variable values using the `env` context{% ifversion actions-configuration-variables %} and configuration variable values using the `vars` context{% endif %}.
+You can access environment variable values using the `env` context and configuration variable values using the `vars` context.
 
 ### Using the `env` context to access environment variable values
 
@@ -280,15 +267,11 @@ You will commonly use either the `env` or `github` context to access variable va
 
 {% data reusables.actions.context-injection-warning %}
 
-{% ifversion actions-configuration-variables %}
-
 ### Using the `vars` context to access configuration variable values
 
 Configuration variables can be accessed across the workflow using `vars` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#vars-context)".
 
 {% data reusables.actions.actions-vars-context-example-usage %}
-
-{% endif %}
 
 ## Default environment variables
 
