@@ -90,11 +90,13 @@ Danger callouts will generally only be necessary when describing processes that 
 We use standard formatting and colors for different types of callouts across doc sets.
 
 Callouts are rendered using Markdown.
+
 Tip:
-```[!TIP] Here's a suggestion. ```
 
 ```markdown
->[!TIP] Here's a suggestion.```
+>[!TIP] Here's a suggestion.
+```
+
 Note:
 
 ```markdown
