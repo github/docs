@@ -120,7 +120,17 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 
 {% endif %}
 
+{% windows %}
+
 {% data reusables.gpg.x-509-key %}
+
+{% endwindows %}
+
+{% mac %}
+
+{% data reusables.gpg.x-509-key %}
+
+{% endmac %}
 
 ## Further reading
 
