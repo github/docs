@@ -1,4 +1,4 @@
----
+-two-factor-authentication-recovery-methods.md---
 title: Configuring two-factor authentication recovery methods
 intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
 redirect_from:
