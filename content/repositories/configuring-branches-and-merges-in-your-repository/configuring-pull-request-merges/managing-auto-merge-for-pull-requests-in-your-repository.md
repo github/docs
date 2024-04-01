@@ -25,6 +25,6 @@ If you allow auto-merge for pull requests in your repository, people with write 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. On the left side of the page in the navigation bar, click **General**
-2. Toward the bottom of the page under "Pull Requests", select or deselect **Allow auto-merge**.
+1. Toward the bottom of the page under "Pull Requests", select or deselect **Allow auto-merge**.
 
 ![Screenshot of a repository settings showing the auto merge.](/assets/images/help/repository/repo-action-auto-merge.png)
