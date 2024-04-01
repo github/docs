@@ -17,3 +17,20 @@ export const MAX_REQUEST_TIMEOUT = process.env.REQUEST_TIMEOUT
   ? parseInt(process.env.REQUEST_TIMEOUT, 10)
   : DEFAULT_MAX_REQUEST_TIMEOUT
 export const TRANSLATIONS_FIXTURE_ROOT = process.env.TRANSLATIONS_FIXTURE_ROOT
+
+// Minimum required HTML for 404: W3C valid, no external, legal.
+export const minimumNotFoundHtml = `
+<!doctype html>
+<html lang=en>
+<meta charset=utf-8>
+<title>404 - GitHub Docs</title>
+<style>body{font-family:system-ui,sans-serif;margin:3rem}a{color:#0969DA}</style>
+<p style=font-weight:500>GitHub Docs</p>
+<p>Page not found.</p>
+<p><a href=/>Return to home.</a></p>
+<small>
+&copy; ${new Date().getFullYear()} GitHub, Inc.
+ &bull; <a href=https://docs.github.com/site-policy/github-terms/github-terms-of-service>Terms</a>
+ &bull; <a href=https://docs.github.com/site-policy/privacy-policies/github-privacy-statement>Privacy</a>
+</small>
+`.replace(/\n/g, '')

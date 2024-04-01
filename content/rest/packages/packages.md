@@ -2,10 +2,8 @@
 title: REST API endpoints for packages
 shortTitle: Packages
 allowTitleToDifferFromFilename: true
-intro: >-
-  Use the REST API to interact with {% data variables.product.prodname_registry
-  %}.
-versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
+intro: 'Use the REST API to interact with {% data variables.product.prodname_registry %}.'
+versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
