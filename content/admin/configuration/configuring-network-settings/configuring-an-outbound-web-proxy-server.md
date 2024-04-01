@@ -34,7 +34,7 @@ When a proxy server is enabled for {% data variables.location.product_location %
 
 You can configure an outbound proxy server {% data variables.location.product_location %}, and you can configure exceptions for connections to specific domains.
 
-{% ifversion ghes > 3.8 %}
+{% ifversion ghes %}
 
 Your instance validates the hostnames for proxy exclusion using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
 
@@ -47,7 +47,7 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. The following rules apply to top-level domains (TLDs) and IP addresses that you exclude from the proxy.
 
    - When you exclude a TLD, you can exclude all hosts in a domain from requiring proxy access using `.` as a wildcard prefix, such as `.octo-org.tentacle`.
-   - {% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your{% else %}Your{% endif %} instance validates the hostnames you exclude using the list of IANA's registered TLDs. For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
+   - Your instance validates the hostnames you exclude using the list of IANA's registered TLDs. For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
    - You can exclude a full, valid IPv4 or IPv6 address.
    - You cannot exclude an IPv4 or IPv6 address using a preceding or trailing dot as a wildcard.
 
@@ -55,7 +55,7 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 
 ## Excluding additional unregistered TLDs from the proxy
 
-{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
+You can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
 
 When you exclude additional unregistered TLDs, you must use `.` as a wildcard prefix. If the TLD is `tentacle`, you must exclude `.tentacle`. You cannot exclude an unregistered TLD without the preceding `.`.
 

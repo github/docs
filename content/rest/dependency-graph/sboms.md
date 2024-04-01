@@ -1,10 +1,8 @@
 ---
 title: REST API endpoints for software bill of materials (SBOM)
 shortTitle: Software bill of materials (SBOM)
-intro: >-
-  Use the REST API to export the software bill of materials (SBOM) for a
-  repository.
-versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
+intro: Use the REST API to export the software bill of materials (SBOM) for a repository.
+versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
