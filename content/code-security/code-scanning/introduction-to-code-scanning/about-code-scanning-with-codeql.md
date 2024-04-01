@@ -64,7 +64,7 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 ## About {% data variables.product.prodname_codeql %} queries
 
-{% data variables.product.company_short %} experts, security researchers, and community contributors write and maintain the default {% data variables.product.prodname_codeql %} queries used for {% data variables.product.prodname_code_scanning %}. The queries are regularly updated to improve analysis and reduce any false positive results.{% ifversion ghes > 3.8 %} For details of the queries available in the default and extended packs, see "[Queries included in the default and security-extended query suites](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#queries-included-in-the-default-and-security-extended-query-suites)."{% endif %}
+{% data variables.product.company_short %} experts, security researchers, and community contributors write and maintain the default {% data variables.product.prodname_codeql %} queries used for {% data variables.product.prodname_code_scanning %}. The queries are regularly updated to improve analysis and reduce any false positive results.{% ifversion ghes %} For details of the queries available in the default and extended packs, see "[Queries included in the default and security-extended query suites](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#queries-included-in-the-default-and-security-extended-query-suites)."{% endif %}
 
 ### Writing your own queries
 
