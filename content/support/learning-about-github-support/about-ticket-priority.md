@@ -55,7 +55,7 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
 | {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-{% ifversion ghes != 3.8 %}
+{% ifversion ghes %}
 
 ## Ticket priorities for {% data variables.product.prodname_actions_runner_controller %}  (ARC)
 

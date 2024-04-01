@@ -21,9 +21,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 {% data variables.product.prodname_dotcom %} recommends using [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) for autoscaling your runners.
 
-{%- ifversion fpt or ghec or ghes > 3.8 %}
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
-{% endif %}
 
 ## Using ephemeral runners for autoscaling
 

@@ -126,18 +126,28 @@ describe('rate limiting', () => {
 })
 
 describe('404 pages and their content-type', () => {
-  const exampleNonLanguage404s = [
-    '/_next/image/foo',
-    '/wp-content/themes/seotheme/db.php?u',
-    '/enterprise/3.1/_next/static/chunks/616-910d0397bafa52e0.js',
-    '/~root',
-  ]
-  test.each(exampleNonLanguage404s)(
+  const exampleNonLanguage404plain = ['/_next/image/foo']
+  test.each(exampleNonLanguage404plain)(
     'non-language 404 response is plain text and cacheable: %s',
     async (pathname) => {
       const res = await get(pathname)
       expect(res.statusCode).toBe(404)
       expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch('public')
+    },
+  )
+
+  const exampleNonLanguage404s = [
+    '/wp-content/themes/seotheme/db.php?u',
+    '/enterprise/3.1/_next/static/chunks/616-910d0397bafa52e0.js',
+    '/~root',
+  ]
+  test.each(exampleNonLanguage404s)(
+    'non-language 404 response is html text and cacheable: %s',
+    async (pathname) => {
+      const res = await get(pathname)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/html; charset=utf-8')
       expect(res.headers['cache-control']).toMatch('public')
     },
   )

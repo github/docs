@@ -4,7 +4,7 @@ shortTitle: Actions Runner Controller
 intro: You can host your own runners to run workflows in a highly customizable environment.
 versions:
   fpt: '*'
-  ghes: '>=3.9'
+  ghes: '*'
   ghec: '*'
 topics:
   - Actions Runner Controller
