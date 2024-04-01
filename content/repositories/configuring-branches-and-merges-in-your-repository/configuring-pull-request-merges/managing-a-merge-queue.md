@@ -37,7 +37,7 @@ You **must** use the `merge_group` event to trigger your {% data variables.produ
 
 {% note %}
 
-**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported. The `merge_group` event is separate from the `pull_request` and `push` events.
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
