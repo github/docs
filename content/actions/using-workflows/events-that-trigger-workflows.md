@@ -387,7 +387,10 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Notes**:
+
+- {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+- {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
@@ -397,6 +400,8 @@ For example, you can run a workflow when the `checks_requested` activity has occ
 
 ```yaml
 on:
+  pull_request:
+    branches: [ "main" ]
   merge_group:
     types: [checks_requested]
 ```

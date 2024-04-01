@@ -45,9 +45,7 @@ dependabot_alerts:
   guides:
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
     - >-
-      {% ifversion fpt or ghec or ghes
-      %}/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository{%
-      endif %}
+      /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
       /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
     - >-
@@ -71,19 +69,13 @@ dependabot_security_updates:
     - >-
       /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
     - >-
-      {% ifversion fpt or ghec or ghes
-      %}/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts{%
-      endif %}
+      /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
     - >-
-      {% ifversion fpt or ghec or ghes
-      %}/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository{%
-      endif %}
+      /repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository
     - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
-      {% ifversion fpt or ghec or ghes
-      %}/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies{%
-      endif %}
+      /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
 dependency_version_updates:
   title: Keep your dependencies up-to-date
   description: >-
