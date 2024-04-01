@@ -7,9 +7,6 @@ The table below summarizes whether dependency scope is supported for various eco
 | Dart | pub | pubspec.lock |  {% octicon "check" aria-label="Supported" %} |
 {%- endif %}
 | Go | Go modules | go.mod | No, defaults to runtime |
-{%- ifversion ghes < 3.9 %}
-| Go | Go modules | go.sum | No, defaults to runtime |
-{%- endif %}
 | Java | Maven | pom.xml | {% octicon "check" aria-label="Supported" %} `test` maps to development, else scope defaults to runtime |
 | JavaScript | npm | package.json | {% octicon "check" aria-label="Supported" %} |
 | JavaScript | npm | package-lock.json | {% octicon "check" aria-label="Supported" %} |

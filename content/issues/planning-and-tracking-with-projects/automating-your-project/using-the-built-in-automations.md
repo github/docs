@@ -10,7 +10,7 @@ topics:
 ---
 
 
-{% ifversion ghes > 3.8 %}
+{% ifversion ghes %}
 
 {% data reusables.projects.enable_enterprise_workflows %}
 

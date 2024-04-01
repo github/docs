@@ -3,7 +3,7 @@ title: REST API endpoints for SCIM
 shortTitle: SCIM
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to automate user creation and team memberships with SCIM.
-versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
+versions:
   ghec: '*'
   ghes: '*'
 topics:
@@ -126,7 +126,7 @@ To authenticate API requests, the person who configures SCIM on the IdP must use
 
 {% note %}
 
-**Note:** Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% ifversion ghes > 3.8 %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
+**Note:** Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% ifversion ghes %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
 
 {% endnote %}
 
