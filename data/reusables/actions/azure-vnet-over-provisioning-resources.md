@@ -1,0 +1,1 @@
+Multiple NICs may appear for a single job in your subscription because the {% data variables.product.prodname_actions %} service over-provisions resources to run jobs. Once a runner is idle, the {% data variables.product.prodname_actions %} service automatically de-provisions the resource and removes the corresponding NIC.

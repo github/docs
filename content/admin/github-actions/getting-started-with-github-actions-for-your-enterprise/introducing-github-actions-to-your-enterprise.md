@@ -61,9 +61,7 @@ There is significant risk in sourcing actions from third-party repositories on {
 
 ### Private networking with GitHub-hosted runners
 
-{% data reusables.actions.private-networking-actions-azure-vnet-beta-note %}
-
-{% data reusables.actions.azure-vnet-injected-runners-intro %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network)."
+{% data reusables.actions.azure-vnet-network-configuration-intro %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
 
 {% endif %}
 
