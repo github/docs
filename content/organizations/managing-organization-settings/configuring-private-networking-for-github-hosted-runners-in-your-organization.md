@@ -5,7 +5,7 @@ intro: 'Learn how to use {% data variables.product.company_short %}-hosted runne
 versions:
   feature: actions-private-networking-azure-vnet
 type: how_to
-permissions: 'Enterprise-owned organizations and organizations using the {% data variables.product.prodname_team %} plan can configure private networking for GitHub-hosted runners at the organization level.'
+permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 topics:
   - Actions
   - Action development

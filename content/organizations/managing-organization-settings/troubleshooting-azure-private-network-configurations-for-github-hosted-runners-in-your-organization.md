@@ -5,7 +5,7 @@ intro: 'Learn how to fix common issues while creating Azure private network conf
 versions:
   feature: actions-private-networking-azure-vnet
 type: how_to
-permissions: 'Organization owners using the {% data variables.product.prodname_team %} plan can configure private networking for GitHub-hosted runners at the organization level.'
+permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 topics:
   - Actions
   - Action development
