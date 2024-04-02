@@ -68,7 +68,7 @@ You can use any of the following commands on a {% data variables.product.prodnam
 - `@dependabot ignore this dependency` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this dependency (unless you reopen the pull request or upgrade to the suggested version of the dependency yourself).
 - `@dependabot ignore this major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this major version (unless you reopen the pull request or upgrade to this major version yourself).
 - `@dependabot ignore this minor version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this minor version (unless you reopen the pull request or upgrade to this minor version yourself).
-- `@dependabot ignore DEPENDENCY_NAME patch version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency's patch version.
+- `@dependabot ignore this patch version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from creating any more pull requests for this patch version (unless you reopen the pull request or upgrade to this patch version yourself).
 - `@dependabot merge` merges the pull request once your CI tests have passed.
 - `@dependabot rebase` rebases the pull request.
 - `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
