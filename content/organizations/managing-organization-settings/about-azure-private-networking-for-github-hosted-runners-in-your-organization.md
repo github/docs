@@ -5,7 +5,7 @@ intro: 'You can create create a private network configuration for your organizat
 versions:
   feature: actions-private-networking-azure-vnet
 type: overview
-permissions: 'Organizations in an enterprise and organizations using the {% data variables.product.prodname_team %} plan can configure {% data variables.product.company_short %}-hosted runners at the organization level.'
+permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 topics:
   - Actions
   - Action development
