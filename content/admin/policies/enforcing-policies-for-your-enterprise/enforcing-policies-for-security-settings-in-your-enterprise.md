@@ -71,7 +71,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 
 ## Managing SSH certificate authorities for your enterprise
 
-You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+You can use a SSH certificate authority (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% ifversion ssh-user-ca %}{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, enterprise{% elsif ghes %}Enterprise{% endif %} members can also be allowed to use the certificate to access personally-owned repositories.{% endif %} {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -87,6 +87,18 @@ If you require SSH certificates for your enterprise, enterprise members should u
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
+{% ifversion ssh-user-ca %}
+
+### Managing access to user-owned repositories
+
+You can enable or disable access to user-owned repositories with an SSH certificate{% ifversion ghec %} if your enterprise uses {% data variables.enterprise.prodname_managed_users %}. However, if your enterprise uses personal accounts on {% data variables.product.prodname_dotcom_the_website %} members cannot use the certificate to access personally-owned repositories{% endif %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "SSH Certificate Authorities", select the **Access User Owned Repository** checkbox.
+{% endif %}
+
 ### Deleting an SSH certificate authority
 
 Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
@@ -95,6 +107,7 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
 {% ifversion ssh-ca-expires %}
 
 ## Upgrading an SSH certificate authority

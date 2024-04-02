@@ -146,7 +146,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests",
     "fields": [
       "user_agent",
@@ -816,6 +816,26 @@
       "actor",
       "operation_type",
       "@timestamp"
+    ]
+  },
+  {
+    "action": "business.code_scanning_autofix_policy_update",
+    "description": "The policy for Code scanning autofix was updated for an enterprise.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "name",
+      "new_policy",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -4048,6 +4068,148 @@
     ]
   },
   {
+    "action": "enterprise_team.add_member",
+    "description": "A new member was added to the enterprise team or an IdP group linked to an enterprise team, or an IdP group was linked to an enterprise team.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user_id",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "user",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "enterprise_team.copilot_assignment",
+    "description": "A license for GitHub Copilot was assigned to an enterprise team.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "enterprise_team.copilot_unassignment",
+    "description": "A license for GitHub Copilot was unassigned from an enterprise team.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "enterprise_team.create",
+    "description": "A new enterprise team was created.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "enterprise_team.destroy",
+    "description": "An enterprise team was deleted.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "enterprise_team.remove_member",
+    "description": "A member was removed from the enterprise team or an IdP group linked to an enterprise team, or an IdP group was unlinked from an enterprise team.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user_id",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "user",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "enterprise_team.rename",
+    "description": "The name of an enterprise team was changed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "name",
+      "business_id",
+      "enterprise_team_id",
+      "enterprise_team",
+      "business",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "environment.add_protection_rule",
     "description": "A GitHub Actions deployment protection rule was created via the API.",
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules",
@@ -6673,6 +6835,48 @@
       "_document_id",
       "business",
       "business_id"
+    ]
+  },
+  {
+    "action": "org.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -9451,6 +9655,8 @@
       "actor_id",
       "owner",
       "owner_type",
+      "domain",
+      "state",
       "action",
       "_document_id",
       "@timestamp",
@@ -9468,6 +9674,8 @@
       "actor_id",
       "owner",
       "owner_type",
+      "domain",
+      "state",
       "action",
       "_document_id",
       "@timestamp",
@@ -9485,6 +9693,8 @@
       "actor_id",
       "owner",
       "owner_type",
+      "domain",
+      "state",
       "action",
       "_document_id",
       "@timestamp",

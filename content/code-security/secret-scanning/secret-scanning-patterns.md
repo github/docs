@@ -106,7 +106,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
   **Note:** {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
   {% endnote %}{% endif %}{% ifversion secret-scanning-validity-check %}
-- **Validity check**—token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see "[{% data variables.product.prodname_advanced_security %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)" in the Site Policy documentation.{% else %} {% ifversion ghes > 3.8 %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %} {% ifversion fpt %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens, and not shown in the table. For more information about validity check support see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}{% endif %}
+- **Validity check**—token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see "[{% data variables.product.prodname_advanced_security %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)" in the Site Policy documentation.{% else %} {% ifversion ghes %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %} {% ifversion fpt %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens, and not shown in the table. For more information about validity check support see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}{% endif %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
@@ -152,19 +152,8 @@ Push protection and validity checks are not supported for non-provider patterns.
 {%- endfor %}
 {% endif %}
 
-<!-- GHES 3.5 to GHES 3.8 table -->
-{% ifversion ghes = 3.8 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
-|----|:----|:----:|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
 <!-- GHES 3.9+ table -->
-{% ifversion ghes > 3.8 %}
+{% ifversion ghes %}
 
 | Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
 |----|:----|:----:|:----:|:----:|

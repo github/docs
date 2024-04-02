@@ -39,25 +39,83 @@ When writing the description for an audit log event, describe the event that too
 
 ## Callouts
 
-Callouts highlight important information that customers need to know. We use standard formatting and colors for different types of callouts across doc sets.
+Callouts emphasize information within an article that is of special importance and justifies breaking the flow of information.
 
-Use callouts sparingly for high-value information - do not include general information, permissions, or prerequisites in callouts. Do not include more than two bullet points in a callout.
+Use callouts sparingly. Do not use consecutive callouts, or more than one callout per section.
 
-There are three types of in-content callouts: notes, warnings, and danger notices.
+Callouts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
+
+### Callout types
+
+There are four types of callouts: tip, note, warning, and danger.
+
+#### Tip
+
+Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
+
+For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
+
+>[!TIP] When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
+#### Note
+
+Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note callouts, but some users in some contexts may benefit from the note.
+
+Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
+- Caveats that might affect the outcome of a process, such as specific user settings.
+- Products and features that are subject to changes in availability, such as those in beta or being deprecated.
+
+For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+
+>[!NOTE] Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+
+#### Warning
+
+Highlights potential risks that a user should be aware of before starting or continuing with a task.
+
+Warning callouts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+
+For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning callout to alert users that once issued, certificates cannot be revoked:
+
+>[!WARNING] After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+
+#### Danger
+
+Alerts users to dangerous or destructive actions that warrant extreme caution before performing, particularly where there is a security risk or potential for data loss.
+
+Danger callouts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
 ### Formatting callouts
 
-Each callout starts with text indicating the type of callout (e.g. **Warning**:) to orient the reader (whether accessing the site visually or with a screen reader) and helps every user gauge the importance and necessity of the information in the callout.
+We use standard formatting and colors for different types of callouts across doc sets.
 
-Notes are rendered in blue `{% raw %}{% note %}{% endraw %}` tags.
-- Notes provide useful information or reminders for the user, but the information is not required to follow. Notes may not be relevant or necessary to every user.
-- Precede note content with `**Note:**`.
+Callouts are rendered using Markdown.
 
-Warnings and danger notices are rendered in red `{% raw %}{% warning %}{% endraw %}` tags.
-- Warnings are potentially dangerous actions that a user should heed before continuing with a task. They are often non-optional steps.
-  - Precede content with `**Warning:**`.
-- Danger notices are dangerous actions that a user should exercise extreme caution before performing. They often involve the potential for data loss or other destructive actions.
-  - Precede content with `**Danger:**`.
+Tip:
+
+```markdown
+>[!TIP] Here's a suggestion.
+```
+
+Note:
+
+```markdown
+>[!NOTE] Keep this in mind.
+```
+
+Warning:
+
+```markdown
+>[!WARNING] Be careful.
+```
+
+Danger:
+
+```markdown
+>[!DANGER] Be extremely careful.
+```
+
+Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
 
 For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
 

@@ -155,12 +155,9 @@ Secrets stored in an environment are only available to workflow jobs that refere
 {% endnote %}
 {% endif %}
 
-{% ifversion actions-configuration-variables %}
-
 ## Environment variables
 
 Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
-{% endif %}
 
 {% ifversion fpt %}{% note %}
 
@@ -223,15 +220,13 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
-{%- ifversion actions-configuration-variables %}
 1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Environment variables](#environment-variables)."
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
    1. Click **Add variable**.
-{%- endif %}
 
-You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[AUTOTITLE](/rest/actions/variables),"{% endif %} and "[AUTOTITLE](/rest/deployments/branch-policies)."
+You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets)," "[AUTOTITLE](/rest/actions/variables)," and "[AUTOTITLE](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 

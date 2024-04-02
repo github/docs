@@ -65,7 +65,7 @@ For public repositories, only public repositories that depend on it or on packag
 You can use the dependency graph to:
 
 - Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)." {% ifversion ghec %}
-- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization#viewing-organization-dependency-insights)."{% endif %}
+- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization#viewing-organization-dependency-insights)."{% endif %}
 - View and update vulnerable dependencies for your repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 - See information about vulnerable dependencies in pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
@@ -83,7 +83,7 @@ The recommended formats explicitly define which versions are used for all direct
 {%- ifversion github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
-| Go modules | Go | `go.mod`| `go.mod`{% ifversion ghes < 3.9 %}, `go.sum`{% endif %} |
+| Go modules | Go | `go.mod`| `go.mod` |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py` |

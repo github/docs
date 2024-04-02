@@ -15,8 +15,8 @@
    curl --request POST \
    --url "{% data variables.product.api_url_pre %}/app/installations/INSTALLATION_ID/access_tokens" \
    --header "Accept: application/vnd.github+json" \
-   --header "Authorization: Bearer JWT"{% ifversion api-date-versioning %} \
-   --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+   --header "Authorization: Bearer JWT" \
+   --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
    ```
 
    Optionally, you can use the `repositories` or `repository_ids` body parameters to specify individual repositories that the installation access token can access. If you don't use `repositories` or `repository_ids` to grant access to specific repositories, the installation access token will have access to all repositories that the installation was granted access to. The installation access token cannot be granted access to repositories that the installation was not granted access to. You can list up to 500 repositories.

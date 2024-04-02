@@ -12,7 +12,6 @@ import { Lead } from 'src/frame/components/ui/Lead'
 import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { ArticleInlineLayout } from './ArticleInlineLayout'
-import { MeasureBrokenHashes } from './MeasureBrokenHashes'
 import { PlatformPicker } from 'src/tools/components/PlatformPicker'
 import { ToolPicker } from 'src/tools/components/ToolPicker'
 import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
@@ -103,7 +102,6 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
-      <MeasureBrokenHashes />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       {currentLayout === 'inline' ? (
         <ArticleInlineLayout

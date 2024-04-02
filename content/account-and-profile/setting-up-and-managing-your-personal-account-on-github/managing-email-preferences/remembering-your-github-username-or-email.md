@@ -46,7 +46,7 @@ During set up, you may have [set your username in Git](/get-started/getting-star
 ```shell
 $ git config user.name
 # View the setting
-YOUR_USERNAME
+YOUR-USERNAME
 ```
 
 ## Finding your username in the URL of remote repositories
@@ -60,11 +60,11 @@ If you have any local copies of personal repositories you have created or forked
 {% endtip %}
 
 ```shell
-$ cd YOUR_REPOSITORY
+$ cd YOUR-REPOSITORY
 # Change directories to the initialized Git repository
 $ git remote -v
-origin	https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_REPOSITORY.git (fetch)
-origin	https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_REPOSITORY.git (push)
+origin	https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git (fetch)
+origin	https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git (push)
 ```
 
 Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.

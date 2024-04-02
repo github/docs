@@ -44,6 +44,10 @@ If you're unable to use a service account, another option for unblocking actions
 
 {% data variables.product.prodname_github_codespaces %} may not be available if your enterprise uses OIDC SSO with CAP to restrict access by IP addresses. This is because codespaces are created with dynamic IP addresses which it's likely your IdP’s CAP will block. Other CAP policies may also affect {% data variables.product.prodname_github_codespaces %}'s availability, depending on the policy's specific setup.
 
+### The {% data variables.codespaces.serverless %} editor
+
+The {% data variables.codespaces.serverless %} editor may not be available if your enterprise uses OIDC SSO with CAP to restrict access by IP addresses. This is because {% data variables.codespaces.serverless %} relies on dynamic IP addresses which it's likely your IdP’s CAP will block. Other CAP policies may also affect {% data variables.codespaces.serverless %}'s availability, depending on the policy's specific setup.
+
 ### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 
 When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} sign a user in and make requests on that user's behalf, {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail.

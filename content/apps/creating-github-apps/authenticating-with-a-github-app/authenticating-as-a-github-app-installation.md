@@ -48,8 +48,8 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 curl --request GET \
 --url "{% data variables.product.api_url_pre %}/meta" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 ## Using the Octokit.js SDK to authenticate as an app installation
@@ -138,10 +138,9 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
          repo: payload.repository.name,
          issue_number: payload.issue.number,
          body: `This is a bot post in response to this issue being opened.`,
-         {% ifversion api-date-versioning %}
          headers: {
            "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-         },{% endif %}
+         },
        }
      )
    });

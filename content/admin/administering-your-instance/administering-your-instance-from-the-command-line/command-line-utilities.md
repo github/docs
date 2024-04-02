@@ -303,14 +303,7 @@ To output a CSV file containing a list of all user SAML `NameID` mappings on the
 ghe-saml-mapping-csv -d
 ```
 
-{% ifversion ghes < 3.9 %}
-
-After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.7%}3.7{% endif %} your instance is running.
-
-- In version 3.{% ifversion ghes = 3.8 %}8.0{% endif %}, the utility writes the file to `/tmp`.
-- In version 3.{% ifversion ghes = 3.8 %}8.1{% endif %} and later,
-
-{%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
+By default, the utility writes the file to `/data/user/tmp`.
 
 If you plan to update mappings, to ensure that the utility can access the file, we recommend that you keep the file in the default location.
 
@@ -664,38 +657,23 @@ $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
 
-{% ifversion cluster-node-removal %}
+{% ifversion cluster-ha-tooling-improvements %}
 
-### ghe-remove-node
+### ghe-cluster-repl-bootstrap
 
-This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
-
-You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
 
 ```shell
-ghe-remove-node HOSTNAME
+ghe-cluster-repl-bootstrap
 ```
 
-The command does the following things:
-- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
-- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+### ghe-cluster-repl-teardown
 
-You can run the command with the following flags.
+This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
 
-Flag | Description
----- | ----------
-`-ne/--no-evacuate` | Skips evacuation of data services (warning: may result in data loss).
-`-v/--verbose` | Prints additional information to the console.
-`-h/--help` | Displays help text for the command.
-
-{% note %}
-
-**Notes:**
-
-- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
-- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
-
-{% endnote %}
+```shell
+ghe-cluster-repl-teardown
+```
 
 {% endif %}
 
@@ -722,7 +700,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-b
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -762,6 +740,41 @@ To evacuate a {% data variables.product.prodname_pages %} storage service before
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
+
+{% ifversion cluster-node-removal %}
+
+### ghe-remove-node
+
+This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
+
+You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+
+```shell
+ghe-remove-node HOSTNAME
+```
+
+The command does the following things:
+- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
+- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+
+You can run the command with the following flags.
+
+Flag | Description
+---- | ----------
+`-ne/--no-evacuate` | Skips evacuation of data services (warning: may result in data loss).
+`-v/--verbose` | Prints additional information to the console.
+`-h/--help` | Displays help text for the command.
+
+{% note %}
+
+**Notes:**
+
+- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
+
+{% endnote %}
+
+{% endif %}
 
 {% ifversion ghe-spokes-deprecation-phase-1 %}
 
@@ -929,16 +942,6 @@ ghe-repo USERNAME/REPONAME
 This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
 
 You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
-{% ifversion ghes < 3.9 %}
-
-{% warning %}
-
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
-
-{% endwarning %}
-
-{% endif %}
 
 ```shell
 ghe-repo-gc USERNAME/REPONAME
@@ -1167,7 +1170,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -1217,7 +1220,7 @@ During an upgrade to a feature release, this utility displays the status of back
 {% ifversion ghes < 3.12 %}
 {% note %}
 
-**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
 {% endnote %}
 {% endif %}

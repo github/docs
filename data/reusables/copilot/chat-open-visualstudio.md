@@ -1,0 +1,1 @@
+1. In the {% data variables.product.prodname_vs %} menu bar, to launch {% data variables.product.prodname_copilot_chat_short %}, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.

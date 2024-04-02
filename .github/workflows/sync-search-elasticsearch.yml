@@ -58,7 +58,9 @@ jobs:
               if (context.payload.workflow_run.conclusion === "success") {
                 return ["en"]
               }
-              throw new Error(`It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+              console.warn(`NOTE! It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+              console.warn("This means we're not going to index anything in the next dependent step.")
+              return []
             }
 
             if (context.eventName === "workflow_dispatch") {
@@ -95,7 +97,7 @@ jobs:
   updateElasticsearchIndexes:
     needs: figureOutMatrix
     name: Update indexes
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' && needs.figureOutMatrix.outputs.matrix != '[]' }}
     runs-on: ubuntu-20.04-xl
     strategy:
       fail-fast: false

@@ -69,10 +69,10 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
+<code>macos-12</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
+The <code>macos-11</code> label has been deprecated and will no longer be available after 6/28/2024.
 </td>
 </tr>
 <tr>
@@ -110,10 +110,10 @@ N/A
 14 GB
 </td>
 <td>
-<code>macos-14</code> [Beta]
+<code>macos-latest</code> or <code>macos-14</code>
 </td>
 <td>
-N/A
+The <code>macos-latest</code> label currently uses the macOS 14 runner image.
 </td>
 </tr>
 </tbody>
@@ -187,10 +187,10 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
+<code>macos-12</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
+The <code>macos-11</code> label has been deprecated and will no longer be available after 6/28/2024.
 </td>
 </tr>
 <tr>
@@ -228,10 +228,10 @@ N/A
 14 GB
 </td>
 <td>
-<code>macos-14</code> [Beta]
+<code>macos-latest</code> or <code>macos-14</code>
 </td>
 <td>
-N/A
+The <code>macos-latest</code>label currently uses the macOS 14 runner image.
 </td>
 </tr>
 </tbody>

@@ -17,7 +17,7 @@ Anyone with admin permissions to a repository can enable or disable the automati
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. On the "General" settings page, you can find a section called "Pull Requests". Under "Pull Requests", select or unselect **Automatically delete head branches**.
+1. On the "General" settings page, you can find a section called "Pull Requests". Under "Pull Requests", select or deselect **Automatically delete head branches**.
 
 ## Further reading
 
