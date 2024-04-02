@@ -52,7 +52,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    ```shell
    $ git init REPOSITORY-NAME
-   > Initialized empty Git repository in /Users/octocat/my-site/.git/
+   > Initialized empty Git repository in /REPOSITORY-NAME/.git/
    # Creates a new folder on your computer, initialized as a Git repository
    ```
 
@@ -93,7 +93,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
 1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
 
-   ```shell
+   ```ruby
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
