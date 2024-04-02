@@ -31,11 +31,13 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 - When creating or committing to a pull request based against the repository's default branch, or any protected branch.{% ifversion default-setup-scan-on-schedule %}
 - On a weekly schedule.
 
+{% ifversion code-scanning-default-setup-exclude-dormant-repos %}
 {% note %}
 
 **Note:** If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
 
 {% endnote %}
+{% endif %}
 {% endif %}
 
 {% ifversion org-enable-code-scanning %}You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}

@@ -70,7 +70,33 @@ If your account's usage surpasses these limits and you have set a spending limit
 
 ### Per-minute rates
 
-{% data reusables.billing.billing-hosted-runners %}
+#### Per-minute rates for standard runners
+
+| Operating system            | Per-minute rate (USD) |
+|-----------------------------| ----------------------|
+|  Linux 2-core               |   $0.008              |
+|  Windows 2-core             |   $0.016              |
+|  macOS 3 or 4 (M1 or Intel) |   $0.08               |
+
+#### Per-minute rates for {% data variables.actions.hosted_runners %}
+
+| Operating system    | Per-minute rate (USD) |
+|---------------------| -----------|
+|  Linux 2-core       |   $0.008   |
+|  Linux 4-core       |   $0.016   |
+|  Linux 8-core       |   $0.032   |
+|  Linux 16-core      |   $0.064   |
+|  Linux 32-core      |   $0.128   |
+|  Linux 64-core      |   $0.256   |
+|  Linux 4-core GPU   |   $0.07    |
+|  Windows 4-core     |   $0.032   |
+|  Windows 8-core     |   $0.064   |
+|  Windows 16-core    |   $0.128   |
+|  Windows 32-core    |   $0.256   |
+|  Windows 64-core    |   $0.512   |
+|  Windows 4-core GPU |   $0.014   |
+|  macOS 12-core      |   $0.12    |
+|  macOS 6-core (M1)  |   $0.16    |
 
 - The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
 - {% data reusables.user-settings.context_switcher %}

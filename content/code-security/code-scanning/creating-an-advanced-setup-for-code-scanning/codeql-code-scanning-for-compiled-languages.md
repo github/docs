@@ -110,8 +110,8 @@ steps:
     - name: Initialize CodeQL
       uses: {% data reusables.actions.action-codeql-action-init %}
       with:
-        languages: ${{ matrix.language }}
-    - if: ${{ matrix.build-mode == 'manual' }}
+        languages: {% raw %}${{ matrix.language }}{% endraw %}
+    - if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
       name: Build C and C++ code
       run: |
         echo 'If you are using a "manual" build mode for one or more of the' \

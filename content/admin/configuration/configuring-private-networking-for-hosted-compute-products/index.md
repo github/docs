@@ -9,7 +9,8 @@ topics:
   - Networking
   - Actions
 children:
-  - /about-networking-for-hosted-compute-products
-  - /about-using-github-hosted-runners-in-your-azure-virtual-network
-  - /configuring-private-networking-for-github-hosted-runners
+  - /about-networking-for-hosted-compute-products-in-your-enterprise
+  - /about-azure-private-networking-for-github-hosted-runners-in-your-enterprise
+  - /configuring-private-networking-for-github-hosted-runners-in-your-enterprise
+  - /troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-enterprise
 ---
