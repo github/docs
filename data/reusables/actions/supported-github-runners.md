@@ -105,7 +105,6 @@ macOS
 <td>
 7 GB
 </td>
-N/A
 <td>
 14 GB
 </td>
@@ -223,7 +222,6 @@ macOS
 <td>
 7 GB
 </td>
-N/A
 <td>
 14 GB
 </td>

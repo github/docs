@@ -1,7 +1,9 @@
 ---
-title: Securing your organization
+title: Quickstart for securing your organization
 intro: "You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure."
 permissions: Organization owners and security managers can manage security features for an organization.
+redirect_from:
+  - /code-security/getting-started/securing-your-organization
 versions:
   fpt: "*"
   ghes: "*"
@@ -12,7 +14,7 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Advanced Security
-shortTitle: Secure your organization
+shortTitle: Secure organization quickstart
 ---
 
 ## Introduction
@@ -49,7 +51,16 @@ There are some features you must configure for each repository individually. For
 
 When you have decided to enable a security feature, the next step is to decide how to roll out that feature across your organization.
 
-- If you want to roll out a feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
+{% ifversion security-configurations %}
+- If you want to enable multiple security features at scale, you can use the {% data variables.product.prodname_github_security_configuration %}, a collection of security enablement settings you can apply to repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
+
+    {% note %}
+
+    **Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+    {% endnote %}
+{% endif %}
+- If you want to roll out a {% ifversion security-configurations %}single {% endif %}feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
 - If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
 
 When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-new-repositories)."
@@ -94,7 +105,7 @@ If you're not sure about the impact a feature will have, you may want to test th
 
 On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
-{% else %}When you have identified the repositories that require a feature, you can enable the feature for each repository individually. As an organization owner or security manager, you can configure the security settings for each repository in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
+{% else %}When you have identified the repositories that require a feature, you can enable the feature for each repository individually. As an organization owner or security manager, you can configure the security settings for each repository in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)."
 
 {% ifversion fpt %}For organizations on {% data variables.product.prodname_ghe_cloud %}, you can use the "Security coverage" view to identify repositories that require a feature, then enable that feature for those repositories. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/enabling-security-features-for-multiple-repositories)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 

@@ -120,6 +120,8 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data variables.product.prodname_dotcom %}-hosted runners are available for use in both public and private repositories.
 
+{% data variables.product.prodname_dotcom %}-hosted Linux runners support hardware acceleration for Android SDK tools, which makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
+
 {% note %}
 
 **Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
@@ -178,9 +180,7 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 {% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
 
-{% data variables.product.prodname_dotcom %} provides different Linux and Windows runners for public and private repositories.
-- For Linux and Windows runners in **public** repositories, GitHub uses `Standard_D4ads_v5` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
-- For Linux and Windows runners in **private** repositories, GitHub uses `Standard_DS2_v2` virtual machines. For more information, see [Dv2 and DSv2-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series) in the Microsoft Azure documentation.
+For Linux and Windows runners, GitHub uses `Dadsv5-series` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
 
 ## Workflow continuity
 

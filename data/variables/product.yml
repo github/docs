@@ -208,6 +208,18 @@ prodname_security_link: 'https://securitylab.github.com/'
 prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
 
+# Security configurations and organization-level security settings
+prodname_security_configurations: 'security configurations'
+prodname_security_configurations_caps: 'Security configurations'
+prodname_security_configuration: 'security configuration'
+prodname_github_security_configuration: 'GitHub-recommended security configuration'
+prodname_custom_security_configurations: 'custom security configurations'
+prodname_custom_security_configuration: 'custom security configuration'
+prodname_custom_security_configurations_caps: 'Custom security configurations'
+prodname_custom_security_configuration_caps: 'Custom security configuration'
+prodname_global_settings: 'global settings'
+prodname_global_settings_caps: 'Global settings'
+
 # Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES
 prodname_secret_scanning_caps: 'Secret scanning'
