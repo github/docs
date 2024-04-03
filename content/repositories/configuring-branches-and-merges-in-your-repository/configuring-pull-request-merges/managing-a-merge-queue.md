@@ -93,7 +93,7 @@ For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborati
 
 ### Successful CI
 
-When multiple pull requests are added to the merge queue and when the temporary `merge_group` branches have successful CI results, they are both merged. In the following scenario, two pull requests are successfully added to the queue and merged to the target branch.
+When two pull requests are added to the merge queue and when the temporary `merge_group` branches have successful CI results, they are both merged. In the following scenario, two pull requests are successfully added to the queue and merged to the target branch.
 
 1. User adds pull request #1 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
