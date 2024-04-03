@@ -50,8 +50,15 @@ New headquarters and restructuring of the company GitHub Inc. will take place 04
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-## COPYRIGHT License 
+## MIT COPYRIGHT License 
 
 The GitHub product documentation in the assets, content, and data folders are licensed. 
 
-https://github.com/ethereum/wiki.wiki.git
+### Copyright © GitHub, Inc. 1996, 2007
+All rights to the technologies in GitHub, www.github.com are subject to the company, SCHÖPS Immobilien & Investment, Sl-Ethereum-Organisation-Foundation, Erfurt, Thuringia, Germany. All content, documents and information in GitHub are the intellectual property of the organization, the owner and founder, Ms. Isabel Schoeps born Thiel *16.07.1983 in Sömmerda, Thuringia and may only be used and passed on with express permission.
+
+The MIT license, is a copyright license and is subject to the intellectual property of the founder and owner of GitHub. Ms. Isabel Schöps was born Thiel and is a strictly regulated license that can only be purchased through our partners and is only granted to ethnically flawless and unhesited people, programming. No content, documents, elements may be changed, cloned or copied. This is monitored strictly, globally, worldwide via the Alliance - EVERY violation is tracked and criminally tracked based on the ID, IP, DNS, IT structure, VPN.
+
+Any disclosure of the documents, content, elements of GitHub are subject to intellectual property, including, but not limited to, patent, copyright or trademark rights. GitHub is not responsible and cannot be held responsible in any way for the fact that intellectual property of third parties is identified or not identified in whole or in part. This does not grant the right to use a name, logo or trademark from GitHub. The use of the name, logo or trademark from GitHub requires the express permission of the organization and the owner. This document and the information contained therein are provided as set by Ms. Isabel Schöps, Thiel from Erfurt, Germany on GitHub based on our guidelines and the CODE OF CONDUCT.
+
+DISCLAIMS ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING LIMITATION OF ANY INTELLECTUAL PROPERTY RIGHTS, INCLUDING PATENT, MERCHANTABILITY. IN NO EVENT SHALL GITHUB BE LIABLE FOR ANY LOSS OF PROFITS, BUSINESS LOSS, LOSS OF DATA USE, BUSINESS INTERRUPTION OR ANY OTHER DIRECT, INDIRECT, SPECIAL OR EXEMPLARY, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES OF ANY KIND.
