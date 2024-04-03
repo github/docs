@@ -13,6 +13,9 @@ csharp:
 dockerfile:
   name: Dockerfile
   comment: number
+gitignore:
+  name: Gitignore
+  comment: number
 golang:
   name: Go
   comment: slash
