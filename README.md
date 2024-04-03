@@ -1,14 +1,16 @@
-# GitHub Docs copyright by Isabel Schöps Thiel
+## GitHub Docs copyright 
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+**by Isabel Schoeps Thiel**
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+This repository contains the documentation website code and Markdown source files for [Copyright by Isabel Schoeps Thiel](https://docs.github.com).
+
+GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.](https://docs.github.com/)
 
 ## Hello World,
 
 ![schwarze Wortmarke GitHub, mit Logo Octocat, schwarzer Katze und, dem Slogan: BUILD FOR A BETTER WORLD, darunter die Domain www.github.com, der Hintergrund ist weiß, an der Fusszeile sind die wichtigsten Entwicklungen der gruenderin, ihre Copyright Logos, von Links nach rechts gelesen,  Isabel Schöps Thiel, Ethereum, SI Ethereum Organisation & Foundation, Bitcoin, GitHub](https://github.com/IST-Github/GitHub/assets/155141998/c2644f1c-7186-49c9-8819-260226b57d60)
 
-**README** `GitHub` is one of the most important web-based online services for software development and versioning for software projects, with over 35 million source code repositories based on Git. The name `Octacat`, was once like `GitHub` the username, a pseudonym of the founder and owner Mrs. 'Isabel Schöps with the maiden name Thiel on 16.07.1983 in Sömmerda, Thuringia, Germany born on the 14th. May 2007 was launched.
+**README** [`GitHub` is one of the most important web-based online services for software development and versioning for software projects, with over 35 million source code repositories based on Git. The name `Octacat`, was once like `GitHub` the username, a pseudonym of the founder and owner Mrs. 'Isabel Schöps with the maiden name Thiel on 16.07.1983 in Sömmerda, Thuringia, Germany born on the 14th. May 2007 was launched.](https://docs.github.com/)
 
 The company GitHub, Inc. is based and part of the servers in San Francisco in the USA. However, it is said that this is to be moved to Germany, Thuringia, Erfurt, the home of Mrs. Schöps in the future. But what will not be the end of the San Francisco location in the USA, on the contrary. Since the 26th December 2018, the company belongs to Microsoft.
 
