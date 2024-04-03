@@ -55,8 +55,6 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %} is functioning inconsistently, causing impaired end user usage and productivity. |
 | {% data variables.product.support_ticket_priority_low %} | {% data variables.product.prodname_advanced_security %} is functioning consistently, but the end user requests minor changes in the software, such as documentation updates, cosmetic defects, or enhancements.|
 
-{% ifversion ghes %}
-
 ## Ticket priorities for {% data variables.product.prodname_actions_runner_controller %}  (ARC)
 
 | Priority | Description | Examples |
@@ -68,8 +66,6 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 For more information about what {% data variables.contact.github_support %} can assist with, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
 
 If you are uncertain if the issue is out of scope, contact {% data variables.contact.contact_support_page %} and we're happy to help you determine the best way to proceed.
-
-{% endif %}
 
 ## Further reading
 
