@@ -70,6 +70,8 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
 
+Clicking the 'Done' button at the bottom of the confirmation page is necessary to complete the process and enable 2FA on your account.
+
 ### Manually configuring a TOTP app
 
 {% data reusables.two_fa.manual-totp-app-setup %}
