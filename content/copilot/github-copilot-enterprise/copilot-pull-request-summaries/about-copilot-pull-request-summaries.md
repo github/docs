@@ -22,6 +22,8 @@ type: rai
 
 When a user requests a summary, {% data variables.product.prodname_copilot_short %} scans through the pull request and provides an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact.
 
+The only supported language for {% data variables.product.prodname_copilot_for_prs %} is English.
+
 {% data variables.product.prodname_copilot_for_prs %} uses a simple-prompt flow leveraging the {% data variables.product.prodname_copilot_short %} API, with no additional trained models. This utilizes the generic large language model.
 
 ### Response generation
