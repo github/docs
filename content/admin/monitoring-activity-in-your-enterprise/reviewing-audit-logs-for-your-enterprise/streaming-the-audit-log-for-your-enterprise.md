@@ -72,6 +72,14 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 
 ### Setting up streaming to Amazon S3
 
+{% ifversion ghes %}
+{% note %}
+
+**Note**: The Amazon region `us-east-1` must be reachable from your appliance in order for streaming to S3 to work accordingly.
+
+{% endnote %}
+{% endif %}
+
 {% ifversion streaming-oidc-s3 %}
 You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
 

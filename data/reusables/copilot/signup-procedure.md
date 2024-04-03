@@ -2,7 +2,7 @@
 1. On the {% data variables.product.prodname_copilot %} settings page, click **Start free trial**.
 1. Choose whether you want to pay monthly or yearly, and click **Get access to {% data variables.product.prodname_copilot %}**.
 
-   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial or paid subscription, you will automatically be taken to step 6.
+   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial or paid subscription, you will automatically be taken to step 5.
 
 1. Follow the steps to enter and confirm your payment details, then click **Submit**.
 1. Select your preferences, then click **Save and complete setup**.

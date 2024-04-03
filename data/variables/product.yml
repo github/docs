@@ -93,7 +93,7 @@ codeql_cli_ghes_recommended_version: >-
   {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.6{% endif %}
 
 # Projects v2
-prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
+prodname_projects_v2: '{% ifversion ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
 prodname_projects_v1: >-
   projects (classic)
 prodname_projects_v1_caps: >-
@@ -207,6 +207,18 @@ prodname_security_link: 'https://securitylab.github.com/'
 # GitHub Security Advisories
 prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
+
+# Security configurations and organization-level security settings
+prodname_security_configurations: 'security configurations'
+prodname_security_configurations_caps: 'Security configurations'
+prodname_security_configuration: 'security configuration'
+prodname_github_security_configuration: 'GitHub-recommended security configuration'
+prodname_custom_security_configurations: 'custom security configurations'
+prodname_custom_security_configuration: 'custom security configuration'
+prodname_custom_security_configurations_caps: 'Custom security configurations'
+prodname_custom_security_configuration_caps: 'Custom security configuration'
+prodname_global_settings: 'global settings'
+prodname_global_settings_caps: 'Global settings'
 
 # Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES

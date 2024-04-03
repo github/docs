@@ -11,10 +11,10 @@ children:
   - /creating-webhooks
   - /handling-webhook-deliveries
   - /validating-webhook-deliveries
+  - /delivering-webhooks-to-private-systems
   - /editing-webhooks
   - /disabling-webhooks
   - /best-practices-for-using-webhooks
-  - /delivering-webhooks-to-private-systems
   - /handling-failed-webhook-deliveries
   - /automatically-redelivering-failed-deliveries-for-a-repository-webhook
   - /automatically-redelivering-failed-deliveries-for-an-organization-webhook
