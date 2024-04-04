@@ -6,7 +6,7 @@
 #
 # Docs: https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/github-cli.md
 #
-# Syntax: ./github-debian.sh [version]
+# Syntax: ./github-debian.sh [version]\\
 
 CLI_VERSION=${1:-"latest"}
 
