@@ -51,6 +51,8 @@
 | [XML external entity expansion](https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/) | 611 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Array offset used before range check](https://codeql.github.com/codeql-query-help/cpp/cpp-offset-use-before-range-check/) | 120, 125 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Authentication bypass by spoofing](https://codeql.github.com/codeql-query-help/cpp/cpp-user-controlled-bypass/) | 290 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [boost::asio TLS settings misconfiguration](https://codeql.github.com/codeql-query-help/cpp/cpp-boost-tls-settings-misconfiguration/) | 326 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [boost::asio use of deprecated hardcoded protocol](https://codeql.github.com/codeql-query-help/cpp/cpp-boost-use-of-deprecated-hardcoded-security-protocol/) | 327 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Certificate not checked](https://codeql.github.com/codeql-query-help/cpp/cpp-certificate-not-checked/) | 295 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Certificate result conflation](https://codeql.github.com/codeql-query-help/cpp/cpp-certificate-result-conflation/) | 295 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Cleartext storage of sensitive information in an SQLite database](https://codeql.github.com/codeql-query-help/cpp/cpp-cleartext-storage-database/) | 313 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
@@ -77,6 +79,7 @@
 | [Suspicious 'sizeof' use](https://codeql.github.com/codeql-query-help/cpp/cpp-suspicious-sizeof/) | 467 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Suspicious pointer scaling](https://codeql.github.com/codeql-query-help/cpp/cpp-suspicious-pointer-scaling/) | 468 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Suspicious pointer scaling to void](https://codeql.github.com/codeql-query-help/cpp/cpp-suspicious-pointer-scaling-void/) | 468 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [Type confusion](https://codeql.github.com/codeql-query-help/cpp/cpp-type-confusion/) | 843 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Unbounded write](https://codeql.github.com/codeql-query-help/cpp/cpp-unbounded-write/) | 120, 787, 805 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Uncontrolled data used in path expression](https://codeql.github.com/codeql-query-help/cpp/cpp-path-injection/) | 022, 023, 036, 073 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Uncontrolled process operation](https://codeql.github.com/codeql-query-help/cpp/cpp-uncontrolled-process-operation/) | 114 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
