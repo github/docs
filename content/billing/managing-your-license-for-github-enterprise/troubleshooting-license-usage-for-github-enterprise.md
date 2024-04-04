@@ -22,7 +22,13 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 ## About the calculation of consumed licenses
 
-A person consumes a license for {% data variables.product.prodname_enterprise %} depending on specific criteria. If a user has not yet accepted an invitation to join your enterprise, or if the user is an unlinked {% data variables.visual_studio.prodname_vs_subscriber %}, the user still consumes a license. For more information about the people in your enterprise who consume a license, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
+{% note %}
+
+**Note:** For {% data variables.visual_studio.prodname_vs_subscriber %}s, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)."
+
+{% endnote %}
+
+A person consumes a license for {% data variables.product.prodname_enterprise %} depending on specific criteria. If a user has not yet accepted an invitation to join your enterprise, the user still consumes a license. For more information about the people in your enterprise who consume a license, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
 
 For each user to consume a single seat regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
