@@ -27,6 +27,7 @@ The current limitations on indexed code are:
 - Vendored and generated code is excluded
 - Empty files and files over 350 KiB are excluded
 - Lines over 1,024 characters long are truncated
+- Binary files (PDF, etc.) are excluded
 - Only UTF-8 encoded files are included
 - Very large repositories may not be indexed
 - Exhaustive search is not supported
