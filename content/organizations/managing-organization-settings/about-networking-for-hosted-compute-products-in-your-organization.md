@@ -2,9 +2,9 @@
 title: About networking for hosted compute products in your organization
 shortTitle: About private networking
 intro: 'You can manage private networking for {% data variables.product.company_short %}-hosted products using network configurations in your organization.'
-permissions: 'Organization owners for organizations in an enterprise or organizations using the {% data variables.product.prodname_team %} plan can configure private networking for hosted compute products at the organization level.'
+permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 versions:
-  feature: actions-private-networking-azure-vnet
+  fpt: '*'
 type: how_to
 topics:
   - Actions
