@@ -57,7 +57,13 @@ These features can enhance your CI/CD pipelines in the following ways.
 - Autoscaling enables {% data variables.actions.hosted_runners %}  to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
 - Runner groups allow you to control access to {% data variables.actions.hosted_runners %} for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
-For a full list of included tools for each runner operating system (excluding GPU runners), see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository. For GPU runners, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
+### Runner images
+
+{% data variables.actions.hosted_runner_caps %}s run on virtual machines (VMs), and GitHub installs a virtual hard disk (VHD) on this machine during the VM creation process. You can choose from different VM images to install on your runners.
+
+**GitHub-owned images:** These images are maintained by GitHub and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
+
+**Partner Images:** Partner images are not managed by GitHub and are pulled from the Azure Marketplace. For more info on the Windows 11 desktop image see [Microsoft Windows 11 Desktop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview). For more info on the GPU runner compatible images, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
 
 ### Understanding billing
 
@@ -80,11 +86,13 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | 6   | 14 GB         | 14 GB         | macOS                 |
 | 12  | 30 GB         | 14 GB         | macOS                 |
 | 2   | 8 GB          | 14 GB         | Ubuntu                |
-| 4   | 16 GB         | 150 GB        | Ubuntu, Windows                |
+| 4   | 16 GB         | 150 GB        | Ubuntu, Windows               |
 | 8   | 32 GB         | 300 GB        | Ubuntu, Windows       |
 | 16  | 64 GB         | 600 GB        | Ubuntu, Windows       |
 | 32  | 128 GB        | 1200 GB       | Ubuntu, Windows       |
 | 64  | 256 GB        | 2040 GB       | Ubuntu, Windows       |
+
+>[!NOTE] The 4vcpu Windows runner only works with the Windows 11 Desktop image.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 
