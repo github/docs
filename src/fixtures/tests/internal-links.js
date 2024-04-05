@@ -7,7 +7,7 @@ describe('autotitle', () => {
     const $ = await getDOM('/get-started/foo/autotitling')
     const links = $('#article-contents a[href]')
     links.each((i, element) => {
-      if ($(element).attr('href').includes('/get-started/quickstart/hello-world')) {
+      if ($(element).attr('href').includes('/get-started/start-your-journey/hello-world')) {
         expect($(element).text()).toBe('Hello World')
       }
     })
@@ -48,14 +48,14 @@ describe('cross-version-links', () => {
       const firstLink = links.filter(
         (i, element) => $(element).text() === 'Hello world always in free-pro-team',
       )
-      expect(firstLink.attr('href')).toBe('/en/get-started/quickstart/hello-world')
+      expect(firstLink.attr('href')).toBe('/en/get-started/start-your-journey/hello-world')
 
       // Tests that the second link always goes to enterprise-server@X.Y
       const secondLink = links.filter(
         (i, element) => $(element).text() === 'Autotitling page always in enterprise-server latest',
       )
       expect(secondLink.attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/hello-world`,
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/start-your-journey/hello-world`,
       )
     },
   )
@@ -63,7 +63,7 @@ describe('cross-version-links', () => {
 
 describe('link-rewriting', () => {
   test('/en is injected', async () => {
-    const $ = await getDOM('/get-started/quickstart/link-rewriting')
+    const $ = await getDOM('/get-started/start-your-journey/link-rewriting')
     const links = $('#article-contents a[href]')
 
     {
@@ -92,7 +92,7 @@ describe('link-rewriting', () => {
   })
 
   test('/en and current version (latest) is injected', async () => {
-    const $ = await getDOM('/enterprise-cloud@latest/get-started/quickstart/link-rewriting')
+    const $ = await getDOM('/enterprise-cloud@latest/get-started/start-your-journey/link-rewriting')
     const links = $('#article-contents a[href]')
 
     const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
@@ -101,7 +101,9 @@ describe('link-rewriting', () => {
 
   test('/en and current version number is injected', async () => {
     // enterprise-server, unlike enterprise-cloud, use numbers
-    const $ = await getDOM('/enterprise-server@latest/get-started/quickstart/link-rewriting')
+    const $ = await getDOM(
+      '/enterprise-server@latest/get-started/start-your-journey/link-rewriting',
+    )
     const links = $('#article-contents a[href]')
 
     const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')

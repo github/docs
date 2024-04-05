@@ -14,7 +14,7 @@ topics:
   - Legal
 ---
 
-Version Effective Date: September 5, 2023
+Version Effective Date: March 21, 2024
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
@@ -24,8 +24,6 @@ By using the Additional Products and Features, you also agree to the applicable 
 - **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages, and Pages.
 
 - **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
-
-- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
 ## Actions
 
@@ -60,7 +58,7 @@ If you use self-hosted runners, you have the ability to turn off automatic updat
 
 GitHub makes extra security features available to customers under an Advanced Security license. These features include code scanning, secret scanning, and dependency review. The [Advanced Security documentation](/get-started/learning-about-github/about-github-advanced-security) provides more details.
 
-Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
+Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
 
 For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns) provides more details on which partners support the validity check.
 
@@ -99,23 +97,23 @@ If you offer a product or service competitive to any GitHub product or service, 
 
 ## Connect
 
-With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE deployment and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed deployment of GitHub Enterprise Server or GitHub AE. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server deployment and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed deployment of GitHub Enterprise Server. Your use of GitHub Enterprise Cloud or GitHub.com through Connect is governed by the terms under which you license GitHub Enterprise Cloud or GitHub.com. Use of Personal Data is governed by the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
 
 ## GitHub Copilot
 
-To use GitHub Copilot, you need to install an extension to an integrated development environment (IDE) or editor. The code you write using the GitHub Copilot extension in an IDE or editor (“**Your Code**”) is not “Content” under the Agreement until you upload it to GitHub.com.
+For GitHub Copilot Business and Copilot Enterprise users, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
 
-The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not claim any rights in Suggestions, and you retain ownership of and responsibility for Your Code, including Suggestions you include in Your Code.
+To use GitHub Copilot in your code editor, you need to install the GitHub Copilot extension to that editor. To use GitHub Copilot in the CLI (Command Line Interface), you need to install the GitHub Copilot CLI extension. To use GitHub Copilot Chat on GitHub Mobile, you need to install the GitHub Mobile application. The code you write using GitHub Copilot (“**Your Code**”) is not “Content” under the Agreement until you upload it to GitHub.com.
+
+The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not own Suggestions. You retain ownership of Your Code and you retain responsibility for Suggestions you include in Your Code.
 
 _Acceptable Use_
 
-Your Code is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
+Your use of GitHub Copilot is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
 
 _Data_
 
-GitHub Copilot (i) may, depending on your preferred telemetry settings, collect snippets of Your Code, and (ii) will collect additional usage information through the IDE or editor tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy-copilot-for-individuals).
-
-For GitHub Copilot for Business users, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
+GitHub Copilot (i) may, depending on your settings and which GitHub Copilot Service you use, collect snippets of Your Code, and (ii) will collect additional usage information through the GitHub Copilot Service you use tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
 ## GitHub Enterprise Importer
 

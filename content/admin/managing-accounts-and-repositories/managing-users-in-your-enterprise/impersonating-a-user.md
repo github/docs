@@ -4,7 +4,6 @@ intro: 'You can impersonate users and perform actions on their behalf, for troub
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Administrator

@@ -5,7 +5,6 @@ permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
 versions:
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -20,13 +19,9 @@ redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
 ---
 
-{% ifversion ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
-
 ## About filtering security overview
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes or ghae %} and whether you are viewing data at the enterprise or organization level{% endif %}.
+You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes %} and whether you are viewing data at the enterprise or organization level{% endif %}.
 
 {% ifversion security-overview-displayed-alerts %}
 {% note %}
@@ -74,7 +69,7 @@ The organization-level "Security coverage" view includes extra filters.
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
 | Qualifier | Description |
-| -------- | -------- | {% ifversion ghec or ghes > 3.8 %}
+| -------- | -------- | {% ifversion ghec or ghes %}
 | `advanced-security:enabled` | Display repositories that have enabled {% data variables.product.prodname_GH_advanced_security %}. | {% endif %}
 | `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
 | `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_security_updates %}.  |
@@ -152,8 +147,6 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 
 ## Additional filters for security overview dashboard (beta)
 
-{% data reusables.security-overview.beta %}
-
 You can filter the "Overview" dashboard (beta) to narrow the scope of the metrics shown, so that you can view trends for specific repository or alert types. For more information on the overview dashboard, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization)."
 
 | Qualifier | Description |
@@ -175,7 +168,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 
 | Qualifier | Description |
 | -------- | -------- |
-{% ifversion dependabot-alerts-vulnerable-calls or ghes or ghae -%}
+{% ifversion dependabot-alerts-vulnerable-calls or ghes -%}
 |`has:patch`|Displays {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where a secure version is already available.|
 |`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot_alerts %} where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
 {% endif -%}

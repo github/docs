@@ -1,5 +1,6 @@
 ---
-title: Dependabot
+title: REST API endpoints for {% data variables.product.prodname_dependabot %}
+shortTitle: Dependabot
 intro: 'Use the REST API to interact with {% data variables.product.prodname_dependabot %} alerts and secrets for an organization or repository.'
 allowTitleToDifferFromFilename: true
 versions:

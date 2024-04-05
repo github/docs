@@ -43,12 +43,7 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
 ## Adding a profile README
 
-{% data reusables.repositories.create_new %}
-1. Under "Repository name", type a repository name that matches your {% data variables.product.prodname_dotcom %} username. For example, if your username is "octocat", the repository name must be "octocat".
-1. Optionally, in the "Description" field, type a description of your repository. For example, "My personal repository."
-1. Select **Public**.
-{% data reusables.repositories.initialize-with-readme %}
-{% data reusables.repositories.create-repo %}
+{% data reusables.profile.create-profile-readme %}
 1. Above the right sidebar, click **Edit README**.
 
   The generated README file is pre-populated with a template to give you some inspiration for your profile README.
@@ -67,4 +62,8 @@ The method you choose depends upon your needs, but if you're unsure, we recommen
 
 ## Further reading
 
-- [About READMEs](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)"
+{%- ifversion enterprise-readme %}
+- "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)"
+{%- endif %}

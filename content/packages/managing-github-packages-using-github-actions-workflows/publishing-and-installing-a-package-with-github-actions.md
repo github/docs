@@ -9,14 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
 layout: inline
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
@@ -40,7 +38,7 @@ Some {% data variables.product.prodname_registry %} registries support granular 
 
 If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 ## About permissions and package access
 
@@ -159,7 +157,7 @@ jobs:
 # This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes or ghae %}
+    needs: run-npm-test {% ifversion ghes %}
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read
@@ -172,7 +170,7 @@ jobs:
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
-          registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: docker.pkg.github.com
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
@@ -182,14 +180,14 @@ jobs:
         with:
           push: true
           tags: |
-            {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+            docker.pkg.github.com/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
 ```
 
 {% endif %}
 
 This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 
-A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages)."
+A few minutes after the workflow has completed, the new package will be visible in your repository. To find your available packages, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages)."
 
 ## Installing a package using an action
 

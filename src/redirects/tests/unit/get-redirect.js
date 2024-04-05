@@ -1,7 +1,12 @@
 import { describe, expect } from '@jest/globals'
 
 import getRedirect from '../../lib/get-redirect.js'
-import { latest, latestStable, supported } from '#src/versions/lib/enterprise-server-releases.js'
+import {
+  latest,
+  latestStable,
+  supported,
+  oldestSupported,
+} from '#src/versions/lib/enterprise-server-releases.js'
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
@@ -37,7 +42,9 @@ describe('getRedirect basics', () => {
     }
     expect(getRedirect('/enterprise-cloud@latest', ctx)).toBe('/en/enterprise-cloud@latest')
 
-    expect(getRedirect('/enterprise-server@3.8', ctx)).toBe('/en/enterprise-server@3.8')
+    expect(getRedirect(`/enterprise-server@${oldestSupported}`, ctx)).toBe(
+      `/en/enterprise-server@${oldestSupported}`,
+    )
 
     expect(getRedirect('/enterprise-server@latest', ctx)).toBe(
       `/en/enterprise-server@${latestStable}`,

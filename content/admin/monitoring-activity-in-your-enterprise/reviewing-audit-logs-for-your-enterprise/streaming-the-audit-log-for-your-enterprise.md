@@ -72,6 +72,14 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 
 ### Setting up streaming to Amazon S3
 
+{% ifversion ghes %}
+{% note %}
+
+**Note**: The Amazon region `us-east-1` must be reachable from your appliance in order for streaming to S3 to work accordingly.
+
+{% endnote %}
+{% endif %}
+
 {% ifversion streaming-oidc-s3 %}
 You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
 
@@ -254,7 +262,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 {% endnote %}
 
 {% ifversion ghec %}
-To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[Meta](/rest/meta/meta#get-github-enterprise-cloud-meta-information)" in the REST API documentation.
+To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
 {% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}

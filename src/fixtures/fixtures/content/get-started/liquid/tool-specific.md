@@ -1,11 +1,10 @@
 ---
-title: Tool switching Liquid tags 
+title: Tool switching Liquid tags
 intro: Demonstrates the HTML that becomes of a the different tool Liquid tags like `webui`, `cli`, and `codespaces`
 defaultTool: desktop
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---

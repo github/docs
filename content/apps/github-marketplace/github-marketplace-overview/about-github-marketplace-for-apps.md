@@ -34,7 +34,7 @@ To publish apps with free plans, you only need to meet the general requirements 
 
 ### New to apps?
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[AUTOTITLE](/apps/creating-github-apps)" or "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps)."
+If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)" or "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps)."
 
 ### {% data variables.product.prodname_github_apps %} vs. {% data variables.product.prodname_oauth_apps %}
 

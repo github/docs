@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -22,19 +21,13 @@ shortTitle: Deleted or changes visibility
 
 When you delete a private repository, all of its private forks are also deleted.
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Deleting a public repository
 
 When you delete a public repository, one of the existing public forks is chosen to be the new upstream repository. All other repositories are forked off of this new upstream and subsequent pull requests go to this new upstream repository.
 
-{% endif %}
-
 ## Private forks and permissions
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
-
-{% ifversion fpt or ghes or ghec %}
 
 ## Changing a public repository to a private repository
 
@@ -42,7 +35,7 @@ If a public repository is made private, its public forks are split off into a ne
 
 In other words, a public repository's forks will remain public in their own separate repository network even after the upstream repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/get-started/learning-about-github/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) upstream repository—even though they didn't need those permissions before.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
 {% endif %}
 
@@ -58,9 +51,7 @@ When you change a private repository to public, all the commits in that reposito
 
 If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
 
-{% endif %}
-
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## Changing the visibility of an internal repository
 

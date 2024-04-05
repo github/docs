@@ -5,7 +5,6 @@ intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST A
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -14,6 +13,9 @@ redirect_from:
   - /rest/initialize-the-repo
   - /rest/overview/resources-in-the-rest-api
   - /rest/using-the-rest-api/resources-in-the-rest-api
+  - /v3/media
+  - /rest/overview/media-types
+  - /rest/using-the-rest-api/media-types
 ---
 
 ## Introduction
@@ -63,13 +65,9 @@ Headers provide extra information about the request and the desired response. Fo
 
 Most {% data variables.product.prodname_dotcom %} REST API endpoints specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. The value of the `Accept` header is a media type. For more information about media types, see "[Media types](#media-types)."
 
-{% ifversion api-date-versioning %}
-
 #### `X-GitHub-Api-Version`
 
 You should use this header to specify a version of the REST API to use for your request. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -116,7 +114,7 @@ Media types specify the format of the data you want to consume from the API. Med
 
 The most common media types supported by the {% data variables.product.prodname_dotcom %} REST API are `application/vnd.github+json` and `application/json`.
 
-There are other custom media types that you can use with some endpoints. For example, some endpoints support the media types `full`, `raw`, `text`, or `html`. And the REST API to manage [commits](/rest/commits/commits#get-a-commit) and [pull requests](/rest/pulls/pulls) support the media types `diff`, `patch`, and `sha`.
+There are custom media types that you can use with some endpoints. For example, the REST API to manage [commits](/rest/commits/commits#get-a-commit) and [pull requests](/rest/pulls/pulls) support the media types `diff`, `patch`, and `sha`. The media types `full`, `raw`, `text`, or `html` are used by some other endpoints.
 
 All custom media types for {% data variables.product.product_name %} look like this: `application/vnd.github.PARAM+json`, where `PARAM` is the name of the media type. For example, to specify the `raw` media type, you would use `application/vnd.github.raw+json`.
 
@@ -200,9 +198,9 @@ Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. F
 
 ### 2. Authenticate
 
-1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
+1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
 
-   {%- ifversion ghes or ghae %}
+   {%- ifversion ghes %}
 
    ```shell copy
    gh auth login --hostname HOSTNAME
@@ -241,8 +239,8 @@ In your request, specify the following options and values:
 
 - **--method** followed by the HTTP method and the path of the endpoint. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
 - **--header**:
-  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
-  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
 - **`-f`** or **`-F`** followed by any body parameters or query parameters in `key=value` format. Use the `-F` option to pass a parameter that is a number, Boolean, or null. Use the `-f` option to pass string parameters.
 
   Some endpoints use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
@@ -270,10 +268,10 @@ gh api --method GET /events -F per_page=2 -F page=1
 
 #### Example request using body parameters
 
-The following example uses the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) to create a new issue in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes or ghae %} Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} In the response, find the `html_url` of your issue, and navigate to your issue in the browser.
+The following example uses the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) to create a new issue in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes %} Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} In the response, find the `html_url` of your issue, and navigate to your issue in the browser.
 
 ```shell copy
-gh api --method POST /repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
+gh api --method POST /repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
 --header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: 2022-11-28" \
 -f title='Created with the REST API' \
@@ -315,12 +313,12 @@ Use the `curl` command to make your request. For more information, see [the curl
 Specify the following options and values in your request:
 
 - **`--request` or `-X`** followed by the HTTP method as the value. For more information, see "[HTTP method](#http-method)."
-- **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`https://api.github.com`) and the path of the endpoint, like this: `{% data variables.product.api_url_code %}/PATH`.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
+- **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`https://api.github.com`) and the path of the endpoint, like this: `{% data variables.product.api_url_code %}/PATH`.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
 
   To use query parameters, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`. If you need to send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`. For more information, see "[Query parameters](#query-parameters)." For an example, see "[Example request using query parameters](#example-request-using-query-parameters-1)."
 - **`--header` or `-H`**:
-  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
-  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
   - **`Authorization`**: Pass your authentication token in an `Authorization` header. Note that in most cases you can use `Authorization: Bearer` or `Authorization: token` to pass a token. However, if you are passing a JSON web token (JWT), you must use `Authorization: Bearer`. For more information, see "[Authentication](#authentication)." For an example of a request that uses an `Authorization` header, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 - **`--data` or `-d`** followed by any body parameters within a JSON object. If you do not need to specify any body parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)." For an example, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 
@@ -349,13 +347,13 @@ curl --request GET \
 
 #### Example request using body parameters
 
-The following example uses the "[Create an issue](/rest/issues/issues#create-an-issue)" endpoint to create a new issue in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} Replace `YOUR-TOKEN` with the authentication token you created in a previous step.
+The following example uses the "[Create an issue](/rest/issues/issues#create-an-issue)" endpoint to create a new issue in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} Replace `YOUR-TOKEN` with the authentication token you created in a previous step.
 
 {% ifversion pat-v2 %}
 
 {% note %}
 
-**Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes or ghae %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+**Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endnote %}
 
@@ -364,9 +362,9 @@ The following example uses the "[Create an issue](/rest/issues/issues#create-an-
 ```shell copy
 curl \
 --request POST \
---url "{% data variables.product.api_url_code %}/repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
---header "Accept: application/vnd.github+json" \{% ifversion api-date-versioning %}
---header "X-GitHub-Api-Version: 2022-11-28" \{% endif %}
+--url "{% data variables.product.api_url_code %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
+--header "Accept: application/vnd.github+json" \
+--header "X-GitHub-Api-Version: 2022-11-28" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
@@ -404,10 +402,10 @@ Create an access token to authenticate your request. You can save your token and
 ### 4. Make a request with Octokit.js
 
 1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
+1. Create an instance of `Octokit` with your token.{% ifversion ghes %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
 
    ```javascript copy
-   const octokit = new Octokit({ {% ifversion ghes or ghae %}
+   const octokit = new Octokit({ {% ifversion ghes %}
      baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
      auth: 'YOUR-TOKEN'
    });
@@ -418,13 +416,13 @@ Create an access token to authenticate your request. You can save your token and
    - Send the HTTP method and path as the first argument to the `request` method. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
    - Specify all path, query, and body parameters in an object as the second argument to the `request` method. For more information, see "[Parameters](#parameters)."
 
-   In the following example request, the HTTP method is `POST`, the path is `/repos/{owner}/{repo}/issues`, the path parameters are `owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}"` and `repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}"`, and the body parameters are `title: "Created with the REST API"` and `body: "This is a test issue created by the REST API"`.{% ifversion ghes or ghae %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
+   In the following example request, the HTTP method is `POST`, the path is `/repos/{owner}/{repo}/issues`, the path parameters are `owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}"` and `repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}"`, and the body parameters are `title: "Created with the REST API"` and `body: "This is a test issue created by the REST API"`.{% ifversion ghes %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
 
    {% ifversion pat-v2 %}
 
    {% note %}
 
-   **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes or ghae %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    {% endnote %}
 
@@ -432,8 +430,8 @@ Create an access token to authenticate your request. You can save your token and
 
    ```javascript copy
    await octokit.request("POST /repos/{owner}/{repo}/issues", {
-     owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}",
-     repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
+     owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}",
+     repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
      title: "Created with the REST API",
      body: "This is a test issue created by the REST API",
    });
@@ -441,13 +439,13 @@ Create an access token to authenticate your request. You can save your token and
 
    The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument. The value of the `headers` property is an object with the header names as keys and header values as values.
 
-   For example, the following code will send a `content-type` header with a value of `text/plain`{% ifversion api-date-versioning %} and a `X-GitHub-Api-Version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`{% endif %}.
+   For example, the following code will send a `content-type` header with a value of `text/plain` and a `X-GitHub-Api-Version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`.
 
    ```javascript copy
    await octokit.request("GET /octocat", {
      headers: {
-       "content-type": "text/plain",{% ifversion api-date-versioning %}
-       "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
+       "content-type": "text/plain",
+       "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",
      },
    });
    ```
@@ -468,12 +466,12 @@ Additionally, the response will include headers that give more details about the
 
 To view the status code and headers, use the `--include` or `--i` option when you send your request.
 
-For example, this request gets a list of issues in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
+For example, this request gets a list of issues in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
 
 ```shell
 gh api \
 --header 'Accept: application/vnd.github+json' \
---method GET /repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
+--method GET /repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
 -F per_page=2 --include
 ```
 
@@ -542,11 +540,11 @@ try {
 
 To view the status code and headers, use the `--include` or `--i` option when you send your request.
 
-For example, this request gets a list of issues in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
+For example, this request gets a list of issues in {% ifversion ghes %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
 
 ```shell
 curl --request GET \
---url "https://api.github.com/repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues?per_page=2" \
+--url "https://api.github.com/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues?per_page=2" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --include
@@ -651,7 +649,7 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file. In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+For example, you can use `>` to redirect the response to a file. In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```shell copy
 curl --request GET \
@@ -716,6 +714,6 @@ You can then expand these templates using something like the [uri_template](http
 
 ## Next steps
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues/comments#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
 
 For more information about other endpoints that you can use, see the [REST reference documentation](/rest).

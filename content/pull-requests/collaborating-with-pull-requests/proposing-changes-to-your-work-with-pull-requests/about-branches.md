@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -39,7 +38,7 @@ By default, {% data variables.product.product_name %} names the default branch `
 
 Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the _head_ branch) into another branch (the _base_ branch). For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
-After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)"
+After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)."
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 The following diagrams illustrate this.
@@ -78,5 +77,5 @@ When a branch is protected:
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation

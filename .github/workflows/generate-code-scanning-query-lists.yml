@@ -14,6 +14,13 @@ on:
         description: 'Branch to pull the source files from in the codeql repo (for example codeql-cli-2.x.x).'
         type: string
         required: true
+        default: 'main'
+
+  pull_request:
+    paths:
+      - .github/workflows/generate-code-scanning-query-lists.yml
+      - src/code-scanning/scripts/generate-code-scanning-query-list.ts
+      - .github/actions/install-cocofix/action.yml
 
 permissions:
   contents: write
@@ -25,16 +32,16 @@ jobs:
     runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/codeql
           path: codeql
-          ref: ${{ inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH || 'main' }}
 
       - name: Get the codeql SHA being synced
         id: codeql
@@ -60,6 +67,10 @@ jobs:
           sleep 3
           codeql --version
 
+      - uses: ./.github/actions/install-cocofix
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+
       - name: Build code scanning query list
         run: |
           for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
@@ -72,13 +83,14 @@ jobs:
               $lang
           done
 
-      - name: Debug
+      - name: Insight into diff
         run: |
           git diff
 
       - name: Create pull request
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
@@ -97,6 +109,14 @@ jobs:
           # it doesn't "know" about branches locally, so we need to manually list them.
           branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
 
+          # When run on a pull_request, we're just testing the tooling.
+          # Exit before it actually pushes the possible changes.
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry-run mode when run in a pull request"
+            echo "See the 'Insight into diff' step for the changes it would create PR about."
+            exit 0
+          fi
+
           if [ $branchExists -ne 0 ]; then
             echo "Branch $branchname already exists in the remote repository."
             exit 0
@@ -112,7 +132,7 @@ jobs:
           gh pr create \
             --title "Update CodeQL query tables" \
             --repo github/docs-internal \
-            --label "codeql-query-tables,skip FR board" \
+           --label "codeql-query-tables,skip FR board,ready-for-doc-review" \
             --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
 
             No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})

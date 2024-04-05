@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 ---
 
@@ -22,9 +21,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 {% data variables.product.prodname_dotcom %} recommends using [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) for autoscaling your runners.
 
-{%- ifversion fpt or ghec or ghes > 3.8 %}
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
-{% endif %}
 
 ## Using ephemeral runners for autoscaling
 
@@ -48,7 +45,7 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% ifversion actions-single-use-tokens %}
 
-Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
 {% endif %}
 
@@ -83,7 +80,7 @@ You can create your own autoscaling environment by using payloads received from 
 
 ## Authentication requirements
 
-You can register and delete repository and organization self-hosted runners using [the API](/rest/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token or a {% data variables.product.prodname_dotcom %} app.
+You can register and delete repository and organization self-hosted runners using [the API](/rest/actions/self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token or a {% data variables.product.prodname_dotcom %} app.
 
 Your access token will require the following scope:
 
@@ -95,6 +92,6 @@ To  authenticate using a {% data variables.product.prodname_dotcom %} App, it mu
 - For repositories, assign the `administration` permission.
 - For organizations, assign the `organization_self_hosted_runners` permission.
 
-You can register and delete enterprise self-hosted runners using [the API](/rest/actions#self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token.
+You can register and delete enterprise self-hosted runners using [the API](/rest/actions/self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token.
 
 Your access token will require the `manage_runners:enterprise` scope.

@@ -5,7 +5,6 @@ intro: Create a map of outputs for your jobs.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  

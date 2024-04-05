@@ -13,7 +13,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -34,7 +33,7 @@ You can enforce policies to control the security settings for organizations owne
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-{% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
+{% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.{% ifversion ghec %} This policy is not available for enterprises with managed users.{% endif %}
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
 
@@ -72,7 +71,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 
 ## Managing SSH certificate authorities for your enterprise
 
-You can use a SSH certificate authorities (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+You can use a SSH certificate authority (CA) to allow members of any organization owned by your enterprise to access that organization's repositories using SSH certificates you provide. {% ifversion ssh-user-ca %}{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, enterprise{% elsif ghes %}Enterprise{% endif %} members can also be allowed to use the certificate to access personally-owned repositories.{% endif %} {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 
 {% data reusables.organizations.add-extension-to-cert %}
 
@@ -88,6 +87,18 @@ If you require SSH certificates for your enterprise, enterprise members should u
 {% data reusables.organizations.new-ssh-ca %}
 {% data reusables.organizations.require-ssh-cert %}
 
+{% ifversion ssh-user-ca %}
+
+### Managing access to user-owned repositories
+
+You can enable or disable access to user-owned repositories with an SSH certificate{% ifversion ghec %} if your enterprise uses {% data variables.enterprise.prodname_managed_users %}. However, if your enterprise uses personal accounts on {% data variables.product.prodname_dotcom_the_website %} members cannot use the certificate to access personally-owned repositories{% endif %}.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "SSH Certificate Authorities", select the **Access User Owned Repository** checkbox.
+{% endif %}
+
 ### Deleting an SSH certificate authority
 
 Deleting a CA cannot be undone. If you want to use the same CA in the future, you'll need to upload the CA again.
@@ -96,6 +107,21 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 {% data reusables.organizations.delete-ssh-ca %}
+
+{% ifversion ssh-ca-expires %}
+
+## Upgrading an SSH certificate authority
+
+CAs uploaded to your enterprise {% ifversion ghec %}prior to March 27th, 2024,{% elsif ghes %}before {% data variables.product.prodname_ghe_server %} version 3.13{% endif %} allow the use of non-expiring certificates. To learn more about why expirations are now required for new CAs, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#issuing-certificates)." You can upgrade an existing CA to prevent it from issuing non-expiring certificates. For best security, we strongly recommend upgrading all your CAs once you validate you're not reliant on non-expiring certificates.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "SSH Certificate Authorities", to the right of the CA you want to upgrade, click **Upgrade**.
+1. Read the warning, then click **Upgrade**.
+
+After upgrading the CA, non-expiring certificates signed by that CA will be rejected.
+{% endif %}
 
 {% ifversion sso-redirect %}
 
@@ -127,6 +153,6 @@ To prevent confusion from your developers, you can change this behavior so that 
 {%- ifversion ghec %}
 - "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
 {%- endif %}
-{%- ifversion ghec or ghae %}
+{%- ifversion ghec %}
 - "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
 {%- endif %}

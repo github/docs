@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Configure Git LFS
 ---
@@ -17,7 +16,7 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% tip %}
 

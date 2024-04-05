@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -96,17 +95,17 @@ For example, this script gets all of the issues from the `octocat/Spoon-Knife` r
 ```javascript copy
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
+const octokit = new Octokit({ {% ifversion ghes %}
   baseUrl: "{% data variables.product.api_url_code %}",
 {% endif %}});
 
 const data = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "octocat",
   repo: "Spoon-Knife",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 
 console.log(data)
@@ -123,7 +122,7 @@ The `getPaginatedData` function makes a request to an endpoint with `octokit.req
 ```javascript copy
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
+const octokit = new Octokit({ {% ifversion ghes %}
   baseUrl: "{% data variables.product.api_url_code %}",
 {% endif %}});
 
@@ -134,11 +133,11 @@ async function getPaginatedData(url) {
 
   while (pagesRemaining) {
     const response = await octokit.request(`GET ${url}`, {
-      per_page: 100,{% ifversion api-date-versioning %}
+      per_page: 100,
       headers: {
         "X-GitHub-Api-Version":
           "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     });
 
     const parsedData = parseData(response.data)

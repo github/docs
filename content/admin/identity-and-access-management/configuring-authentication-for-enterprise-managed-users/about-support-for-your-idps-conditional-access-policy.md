@@ -24,6 +24,10 @@ redirect_from:
 
 For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
+## About CAP and deploy keys
+
+A deploy key is an SSH key that grants access to an individual repository. Because deploy keys do not perform operations on behalf of a user, CAP IP conditions do not apply to any requests authenticated with a deploy key. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)."
+
 ## Considerations for integrations and automations
 
 {% data variables.product.prodname_dotcom %} sends the originating IP address to your IdP for validation against your CAP. To make sure  actions and apps are not blocked by your IdP's CAP, you will need to make changes to your configuration.
@@ -40,6 +44,10 @@ If you're unable to use a service account, another option for unblocking actions
 
 {% data variables.product.prodname_github_codespaces %} may not be available if your enterprise uses OIDC SSO with CAP to restrict access by IP addresses. This is because codespaces are created with dynamic IP addresses which it's likely your IdP’s CAP will block. Other CAP policies may also affect {% data variables.product.prodname_github_codespaces %}'s availability, depending on the policy's specific setup.
 
+### The {% data variables.codespaces.serverless %} editor
+
+The {% data variables.codespaces.serverless %} editor may not be available if your enterprise uses OIDC SSO with CAP to restrict access by IP addresses. This is because {% data variables.codespaces.serverless %} relies on dynamic IP addresses which it's likely your IdP’s CAP will block. Other CAP policies may also affect {% data variables.codespaces.serverless %}'s availability, depending on the policy's specific setup.
+
 ### {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 
 When {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} sign a user in and make requests on that user's behalf, {% data variables.product.prodname_dotcom %} will send the IP address of the app's server to your IdP for validation. If the IP address of the app's server is not validated by your IdP's CAP, the request will fail.
@@ -49,3 +57,7 @@ When {% data variables.product.prodname_github_apps %} call {% data variables.pr
 You can contact the owners of the apps you want to use, ask for their IP ranges, and configure your IdP's CAP to allow access from those IP ranges. If you're unable to contact the owners, you can review your IdP sign-in logs to review the IP addresses seen in the requests, then allow-list those addresses.
 
 If you do not wish to allow all of the IP ranges for all of your enterprise's apps, you can also exempt installed {% data variables.product.prodname_github_apps %} and authorized {% data variables.product.prodname_oauth_apps %} from the IdP allow list. If you do so, these apps will continue working regardless of the originating IP address. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#allowing-access-by-github-apps)."
+
+## Further reading
+
+- [Using the location condition in a Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/location-condition) on Microsoft Learn

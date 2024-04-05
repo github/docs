@@ -35,6 +35,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 - {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
 - {% data reusables.actions.actions-runner-controller-security-practices-secret %}
 - We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
+- Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
 
 {% endnote %}
 
@@ -333,6 +334,8 @@ ARC observes values set in the runner pod template and does not overwrite them.
 
 ### Using a private container registry
 
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
+
 To use a private container registry, you can copy the controller image and runner image to your private container registry. Then configure the links to those images and set the `imagePullPolicy` and `imagePullSecrets` values.
 
 #### Configuring the controller image
@@ -370,6 +373,8 @@ template:
 
 ### Updating the pod specification for the runner pod
 
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
+
 You can fully customize the PodSpec of the runner pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
 ```yaml
@@ -394,6 +399,8 @@ template:
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
 ### Updating the pod specification for the listener pod
+
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
 
 You can customize the PodSpec of the listener pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
@@ -424,6 +431,8 @@ listenerTemplate:
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
 ## Using Docker-in-Docker or Kubernetes mode for containers
+
+{% data reusables.actions.actions-runner-controller-unsupported-customization %}
 
 If you are using container jobs and services or container actions, the `containerMode` value must be set to `dind` or `kubernetes`.
 
@@ -472,18 +481,17 @@ template:
         command: ["/home/runner/run.sh"]
         env:
           - name: DOCKER_HOST
-            value: unix:///run/docker/docker.sock
+            value: unix:///var/run/docker.sock
         volumeMounts:
           - name: work
             mountPath: /home/runner/_work
           - name: dind-sock
-            mountPath: /run/docker
-            readOnly: true
+            mountPath: /var/run
       - name: dind
         image: docker:dind
         args:
           - dockerd
-          - --host=unix:///run/docker/docker.sock
+          - --host=unix:///var/run/docker.sock
           - --group=$(DOCKER_GROUP_GID)
         env:
           - name: DOCKER_GROUP_GID
@@ -494,7 +502,7 @@ template:
           - name: work
             mountPath: /home/runner/_work
           - name: dind-sock
-            mountPath: /run/docker
+            mountPath: /var/run
           - name: dind-externals
             mountPath: /home/runner/externals
     volumes:
@@ -642,18 +650,17 @@ template:
       command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: unix:///run/docker/docker.sock
+          value: unix:///var/run/docker.sock
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /run/docker
-          readOnly: true
+          mountPath: /var/run
     - name: dind
       image: docker:dind-rootless
       args:
         - dockerd
-        - --host=unix:///run/docker/docker.sock
+        - --host=unix:///var/run/docker.sock
       securityContext:
         privileged: true
         runAsUser: 1001
@@ -662,7 +669,7 @@ template:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /run/docker
+          mountPath: /var/run
         - name: dind-externals
           mountPath: /home/runner/externals
         - name: dind-etc
@@ -774,24 +781,25 @@ The following table shows the metrics emitted by the controller-manager and list
 
 {% endnote %}
 
-| Owner              | Metric                         | Type      | Description                                                                                                 |
-| ------------------ | ------------------------------ | --------- | ----------------------------------------------------------------------------------------------------------- |
-| controller-manager | pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                              |
-| controller-manager | running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                              |
-| controller-manager | failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                               |
-| listener           | assigned_jobs                  | gauge     | Number of jobs assigned to the runner scale set                                                             |
-| listener           | running_jobs                   | gauge     | Number of jobs running or queued to run                                                                     |
-| listener           | registered_runners             | gauge     | Number of runners registered by the runner scale set                                                        |
-| listener           | busy_runners                   | gauge     | Number of registered runners currently running a job                                                        |
-| listener           | min_runners                    | gauge     | Minimum number of runners configured for the runner scale set                                               |
-| listener           | max_runners                    | gauge     | Maximum number of runners configured for the runner scale set                                               |
-| listener           | desired_runners                | gauge     | Number of runners desired (scale up / down target) by the runner scale set                                  |
-| listener           | idle_runners                   | gauge     | Number of registered runners not running a job                                                              |
-| listener           | started_jobs_total             | counter   | Total number of jobs started since the listener became ready [1]                                            |
-| listener           | completed_jobs_total           | counter   | Total number of jobs completed since the listener became ready [1]                                          |
-| listener           | job_queue_duration_seconds     | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing    |
-| listener           | job_startup_duration_seconds   | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
-| listener           | job_execution_duration_seconds | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
+| Owner              | Metric                                        | Type      | Description                                                                                                 |
+| ------------------ | --------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| controller-manager | gha_controller_pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                              |
+| controller-manager | gha_controller_running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                              |
+| controller-manager | gha_controller_failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                               |
+| controller-manager | gha_controller_running_listeners              | gauge     | Number of listeners in a running state                                                                      |
+| listener           | gha_assigned_jobs                             | gauge     | Number of jobs assigned to the runner scale set                                                             |
+| listener           | gha_running_jobs                              | gauge     | Number of jobs running or queued to run                                                                     |
+| listener           | gha_registered_runners                        | gauge     | Number of runners registered by the runner scale set                                                        |
+| listener           | gha_busy_runners                              | gauge     | Number of registered runners currently running a job                                                        |
+| listener           | gha_min_runners                               | gauge     | Minimum number of runners configured for the runner scale set                                               |
+| listener           | gha_max_runners                               | gauge     | Maximum number of runners configured for the runner scale set                                               |
+| listener           | gha_desired_runners                           | gauge     | Number of runners desired (scale up / down target) by the runner scale set                                  |
+| listener           | gha_idle_runners                              | gauge     | Number of registered runners not running a job                                                              |
+| listener           | gha_started_jobs_total                        | counter   | Total number of jobs started since the listener became ready [1]                                            |
+| listener           | gha_completed_jobs_total                      | counter   | Total number of jobs completed since the listener became ready [1]                                          |
+| listener           | gha_job_queue_duration_seconds                | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing    |
+| listener           | gha_job_startup_duration_seconds              | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
+| listener           | gha_job_execution_duration_seconds            | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
 
 [1]: Listener metrics that have the counter type are reset when the listener pod restarts.
 
@@ -819,8 +827,10 @@ The [Dependabot Action](https://github.com/github/dependabot-action) is used to 
 
 Because there is no support for upgrading or deleting CRDs with Helm, it is not possible to use Helm to upgrade ARC. For more information, see [Custom Resource Definitions](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#some-caveats-and-explanations) in the Helm documentation. To upgrade ARC to a newer version, you must complete the following steps.
 
-1. Uninstall ARC.
+1. Uninstall all installations of `gha-runner-scale-set`.
 1. Wait for resources cleanup.
+1. Uninstall ARC.
+1. If there is a change in CRDs from the version you currently have installed, to the upgraded version, remove all CRDs associated with `actions.github.com` API group.
 1. Reinstall ARC again.
 
 For more information, see "[Deploying a runner scale set](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#deploying-a-runner-scale-set)."

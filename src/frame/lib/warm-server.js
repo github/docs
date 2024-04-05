@@ -15,16 +15,19 @@ const dog = {
 // For multiple-triggered Promise sharing
 let promisedWarmServer
 
-async function warmServer() {
+async function warmServer(languagesOnly = []) {
   const startTime = Date.now()
 
   if (process.env.NODE_ENV !== 'test') {
-    console.log('Priming context information...')
+    console.log(
+      'Priming context information...',
+      languagesOnly && languagesOnly.length ? `${languagesOnly.join(',')} only` : '',
+    )
   }
 
-  const unversionedTree = await dog.loadUnversionedTree()
-  const siteTree = await dog.loadSiteTree(unversionedTree)
-  const pageList = await dog.loadPages(unversionedTree)
+  const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
+  const siteTree = await dog.loadSiteTree(unversionedTree, languagesOnly)
+  const pageList = await dog.loadPages(unversionedTree, languagesOnly)
   const pageMap = await dog.loadPageMap(pageList)
   const redirects = await dog.loadRedirects(pageList)
 
@@ -49,12 +52,12 @@ dog.warmServer = statsd.asyncTimer(warmServer, 'warm_server')
 
 // We only want statistics if the priming needs to occur, so let's wrap the
 // real method and return early [without statistics] whenever possible
-export default async function warmServerWrapper() {
+export default async function warmServerWrapper(languagesOnly = []) {
   // Handle receiving multiple calls to this method from multiple page requests
   // by holding the in-progress Promise and returning it instead of allowing
   // the server to actually load all of the files multiple times.
   if (!promisedWarmServer) {
-    promisedWarmServer = dog.warmServer()
+    promisedWarmServer = dog.warmServer(languagesOnly)
   }
   return promisedWarmServer
 }

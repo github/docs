@@ -1,5 +1,5 @@
 ---
-title: Issue events
+title: REST API endpoints for issue events
 allowTitleToDifferFromFilename: true
 shortTitle: Events
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

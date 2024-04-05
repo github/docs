@@ -4,7 +4,7 @@ import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
 import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
 export default async function glossaries(req, res, next) {
-  if (!req.pagePath.endsWith('get-started/quickstart/github-glossary')) return next()
+  if (!req.pagePath.endsWith('/get-started/learning-about-github/github-glossary')) return next()
 
   // If the current version (which is found as part of the URL), does not
   // correspond to a supported version, the Liquid rendering will fail

@@ -5,7 +5,6 @@ intro: 'You can write a script to handle failed deliveries of a {% data variable
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -92,14 +91,14 @@ jobs:
       # - Replace `YOUR_PRIVATE_KEY_SECRET_NAME` with the name of the secret where you stored your private key.
       # - Replace `YOUR_TOKEN_SECRET_NAME` with the name of the secret where you stored your {% data variables.product.pat_generic %}.
       # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
-      {% ifversion ghes or ghae %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+      {% ifversion ghes %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
       - name: Run script
         env:
           APP_ID: {% raw %}${{ secrets.YOUR_APP_ID_SECRET_NAME }}{% endraw %}
           PRIVATE_KEY: {% raw %}${{ secrets.YOUR_PRIVATE_KEY_SECRET_NAME }}{% endraw %}
           TOKEN: {% raw %}${{ secrets.YOUR_TOKEN_SECRET_NAME }}{% endraw %}
           LAST_REDELIVERY_VARIABLE_NAME: 'YOUR_LAST_REDELIVERY_VARIABLE_NAME'
-          {% ifversion ghes or ghae %}HOSTNAME: 'YOUR_HOSTNAME'{% endif %}
+          {% ifversion ghes %}HOSTNAME: 'YOUR_HOSTNAME'{% endif %}
           WORKFLOW_REPO: {% raw %}${{ github.event.repository.name }}{% endraw %}
           WORKFLOW_REPO_OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
         run: |
@@ -123,25 +122,25 @@ async function checkAndRedeliverWebhooks() {
   const PRIVATE_KEY = process.env.PRIVATE_KEY;
   const TOKEN = process.env.TOKEN;
   const LAST_REDELIVERY_VARIABLE_NAME = process.env.LAST_REDELIVERY_VARIABLE_NAME;
-  {% ifversion ghes or ghae %}const HOSTNAME = process.env.HOSTNAME;{% endif %}
+  {% ifversion ghes %}const HOSTNAME = process.env.HOSTNAME;{% endif %}
   const WORKFLOW_REPO_NAME = process.env.WORKFLOW_REPO;
   const WORKFLOW_REPO_OWNER = process.env.WORKFLOW_REPO_OWNER;
 
-  // Create an instance of the octokit `App` using the {% ifversion ghes or ghae %}app ID, private key, and hostname{% else %}app ID and private key{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
+  // Create an instance of the octokit `App` using the {% ifversion ghes %}app ID, private key, and hostname{% else %}app ID and private key{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
   //
   // This will be used to make API requests to the webhook-related endpoints.
   const app = new App({
     appId: APP_ID,
-    privateKey: PRIVATE_KEY,{% ifversion ghes or ghae %}
+    privateKey: PRIVATE_KEY,{% ifversion ghes %}
     Octokit: Octokit.defaults({
       baseUrl: "{% data variables.product.api_url_code %}",
     }),{% endif %}
   });
 
-  // Create an instance of `Octokit` using the token{% ifversion ghes or ghae %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
+  // Create an instance of `Octokit` using the token{% ifversion ghes %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
   //
   // This will be used to update the configuration variable that stores the last time that this script ran.
-  const octokit = new Octokit({ {% ifversion ghes or ghae %}
+  const octokit = new Octokit({ {% ifversion ghes %}
     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
     auth: TOKEN,
   });
@@ -232,10 +231,10 @@ async function fetchWebhookDeliveriesSince({lastWebhookRedeliveryTime, app}) {
   const iterator = app.octokit.paginate.iterator(
     "GET /app/hook/deliveries",
     {
-      per_page: 100,{% ifversion api-date-versioning %}
+      per_page: 100,
       headers: {
         "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     }
   );
 

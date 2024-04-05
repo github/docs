@@ -71,14 +71,14 @@ If you have not configured email notifications for {% data variables.location.pr
 
 ## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
 
-You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If you configure rate limits, the limits apply to both the root site administrator and any {% data variables.enterprise.management_console %} users.
+You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}.
 
-After you configure rate limits and a user exceeds the limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
+After you configure rate limits and a {% data variables.enterprise.management_console %} user exceeds the limit, the {% data variables.enterprise.management_console %} will remain locked for the duration set by the lockout time. {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-1. Optionally, under "Lockout time", type a number of minutes to lock the {% data variables.enterprise.management_console %} after too many failed login attempts.
-1. Optionally, under "Login attempt limit", type a maximum number of failed login attempts to allow before the {% data variables.enterprise.management_console %} is locked.
+1. Optionally, under "Lockout time for Management Console users", type a number of minutes to lock the {% data variables.enterprise.management_console %} after too many failed login attempts. When locked out, the root site administrator must be manually unlocked.
+1. Optionally, under "Login attempt limit for all users", type a maximum number of failed login attempts to allow before the {% data variables.enterprise.management_console %} is locked.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

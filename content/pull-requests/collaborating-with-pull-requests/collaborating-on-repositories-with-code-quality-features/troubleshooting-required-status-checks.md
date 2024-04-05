@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -44,11 +43,15 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
+## Required check needs to succeed against the latest commit SHA
+
+In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks.
+
 ## Conflicts between head commit and test merge commit
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch.
 
-If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls#get-a-pull-request)."
+If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls/pulls#get-a-pull-request)."
 
 ## Handling skipped but required checks
 
@@ -56,7 +59,7 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 **Warning:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
 
-For this reason you should not use path or branch filtering to skip workflow runs if the workflow is required. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/skipping-workflow-runs){% ifversion required-workflows %}" and "[AUTOTITLE](/actions/using-workflows/required-workflows){% endif %}."
+{% data reusables.pull_requests.path-filtering-required-workflows %}
 
 If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
 
@@ -92,7 +95,7 @@ jobs:
 
 Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
-It is recommended that you do not use path filtering (as shown in the previous example), or branch filtering, in a workflow that has been configured to be required. {% ifversion required-workflows %}For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."{% endif %}
+{% data reusables.pull_requests.path-filtering-required-workflows %}
 
 ## Required status checks from unexpected sources
 

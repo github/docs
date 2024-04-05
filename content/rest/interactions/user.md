@@ -1,5 +1,5 @@
 ---
-title: User interactions
+title: REST API endpoints for user interactions
 shortTitle: User
 allowTitleToDifferFromFilename: true
 intro: >-

@@ -74,7 +74,7 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
+        uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin @v2
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
@@ -90,14 +90,14 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: 'main'
           persist-credentials: 'false'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -145,7 +145,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -178,7 +178,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -228,7 +228,7 @@ jobs:
       # Deploy ARM template is idempotent
       # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
       - name: Run ARM deploy
-        uses: azure/arm-deploy@65ae74fb7aec7c680c88ef456811f353adae4d06
+        uses: azure/arm-deploy@a1361c2c2cd398621955b16ca32e01c65ea340f5
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}

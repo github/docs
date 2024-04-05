@@ -10,14 +10,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - Action development
   - JavaScript
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -36,7 +35,7 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 20.x, which includes npm.
+1. Download and install Node.js {% ifversion actions-node20-support %}20.x{% else %}16.x{% endif %}, which includes npm.
 
    https://nodejs.org/en/download/
 1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
@@ -71,7 +70,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node20'
+  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
   main: 'index.js'
 ```
 
@@ -185,11 +184,11 @@ git push --follow-tags
 Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. Install `vercel/ncc` by running this command in your terminal.
-  
+
    `npm i -g @vercel/ncc`
 
 1. Compile your `index.js` file.
-  
+
    `ncc build index.js --license licenses.txt`
 
    You'll see a new `dist/index.js` file with your code and the compiled modules. You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
@@ -215,7 +214,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
 
 Now you're ready to test your action out in a workflow.
 
-Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes or ghae%} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes or ghae %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 

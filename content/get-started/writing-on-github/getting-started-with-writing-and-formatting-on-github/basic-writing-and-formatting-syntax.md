@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Basic formatting syntax
 ---
@@ -200,8 +199,8 @@ To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
-1. James Monroe
-1. John Quincy Adams
+2. James Monroe
+3. John Quincy Adams
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a numbered list of the names of the fourth, fifth, and sixth American presidents.](/assets/images/help/writing/ordered-list-rendered.png)
@@ -298,7 +297,7 @@ For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-wi
 
 You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
 
-## Using emoji
+## Using emojis
 
 You can add emoji to your writing by typing `:EMOJICODE:`, a colon followed by the name of the emoji.
 

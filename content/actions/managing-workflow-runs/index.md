@@ -1,7 +1,7 @@
 ---
 title: Managing workflow runs
 shortTitle: Manage workflow runs
-intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
+intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/managing-a-workflow-run
@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /re-running-workflows-and-jobs
@@ -24,5 +23,5 @@ children:
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}

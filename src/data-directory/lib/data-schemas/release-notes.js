@@ -4,6 +4,7 @@ const section = {
       type: 'array',
       items: {
         type: 'string',
+        lintable: true,
       },
       minItems: 1,
     },
@@ -17,11 +18,13 @@ const section = {
         properties: {
           heading: {
             type: 'string',
+            lintable: true,
           },
           notes: {
             type: 'array',
             items: {
               type: 'string',
+              lintable: true,
             },
             minItems: 1,
           },
@@ -37,6 +40,7 @@ export default {
   properties: {
     intro: {
       type: 'string',
+      lintable: true,
     },
     date: {
       type: 'string',

@@ -3,7 +3,6 @@ title: 'Phase 5: Rollout and scale code scanning'
 intro: 'You can leverage the available APIs to rollout {% data variables.product.prodname_code_scanning %} programmatically by team and by language across your enterprise using the repository data you collected earlier.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -15,6 +14,16 @@ shortTitle: 5. Rollout code scanning
 This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-4-create-internal-documentation)."
 
 {% endnote %}
+
+{% ifversion security-configurations %}
+{% note %}
+
+**Note:** {% data reusables.security-configurations.enable-security-features-with-gh-config %}
+
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+{% endif %}
 
 ## Enabling code scanning
 

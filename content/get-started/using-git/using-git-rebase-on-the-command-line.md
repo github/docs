@@ -10,7 +10,6 @@ intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Git rebase
 ---

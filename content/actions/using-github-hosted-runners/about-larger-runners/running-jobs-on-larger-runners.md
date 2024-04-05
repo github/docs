@@ -38,8 +38,8 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 | Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | OS (YAML workflow label) |
 | --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
-| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large </code>, <code>macos-13-large</code>[Beta] |
-| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>[Beta], <code>macos-13-xlarge</code>[Beta]   |
+| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large </code>, <code>macos-13-large</code> [latest] , <code>macos-14-large</code>[Beta] |
+| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>, <code>macos-13-xlarge</code> [latest], <code>macos-14-xlarge</code>[Beta]  |
 {% note %}
 
 **Note:** For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image

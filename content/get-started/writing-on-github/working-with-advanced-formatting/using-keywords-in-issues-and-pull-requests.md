@@ -4,7 +4,6 @@ intro: Use keywords to link an issue and pull request or to mark an issue or pul
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests

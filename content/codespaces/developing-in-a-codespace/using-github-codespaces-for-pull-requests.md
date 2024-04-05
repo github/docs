@@ -62,6 +62,8 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
 
+{% data reusables.codespaces.reviewing-a-pr %}
+
 1. When you are finished adding review comments, you can add a summary comment for your pull request review in the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. You can then click **Comment and Submit**, or click the dropdown arrow and select **Approve and Submit** or **Request Changes and Submit**.
 
    ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)

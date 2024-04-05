@@ -4,7 +4,6 @@ intro: 'Start using {% data variables.product.prodname_cli %} to work with {% da
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI

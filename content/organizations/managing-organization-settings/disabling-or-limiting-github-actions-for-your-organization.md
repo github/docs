@@ -1,19 +1,19 @@
 ---
 title: Disabling or limiting GitHub Actions for your organization
-intro: 'Organization owners can disable, enable, and limit GitHub Actions for an organization.'
+intro: 'You can enable, disable, and limit GitHub Actions for an organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
+permissions:  Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" and "Manage runners and runner groups" fine-grained permissions{% endif %} can enable, disable, and limit {% data variables.product.prodname_actions %} for an organization. {% ifversion custom-org-roles %}<br><br>For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 topics:
   - Organizations
   - Teams
 shortTitle: Disable or limit actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
@@ -26,7 +26,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes %}enterprise{% else %}organization{% endif %}.
 
 {% note %}
 
@@ -102,7 +102,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion required-workflows %}
+{% ifversion required-workflows-deprecation %}
 
 ## Adding a required workflow to an organization
 
@@ -135,9 +135,7 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.organizations.settings-sidebar-actions-general %}
 1. To the right of "Required Workflows", click **Add workflow**.
 
-1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. {% ifversion actions-required-workflow-improvements %}You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.
-
-1. Optionally, to specify target branches on which to enforce the required workflow, enter the branch or multiple branches in the text field under "Target branches". If you do not enter a target branch, the required workflow will be enforced on the default branch for the repository.{% endif %}
+1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. {% ifversion actions-required-workflow-improvements %}You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.{% endif %}
 
 1. Under "Apply to repositories...", use the drop-down menu to select which repositories the required workflow applies to. Select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
 
@@ -147,13 +145,11 @@ Note the following restrictions and behaviors for the target repositories:
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## Enabling workflows for private repository forks
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-{% ifversion ghec or ghae or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
+{% ifversion ghec or ghes %}If a policy is disabled for an enterprise, it cannot be enabled for organizations.{% endif %} If a policy is disabled for an organization, it cannot be enabled for repositories. If an organization enables a policy, the policy can be disabled for individual repositories.
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -163,7 +159,6 @@ Note the following restrictions and behaviors for the target repositories:
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
-{% endif %}
 
 ## Setting the permissions of the `GITHUB_TOKEN` for your organization
 
@@ -176,7 +171,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 ### Configuring the default `GITHUB_TOKEN` permissions
 
 {% ifversion actions-default-workflow-permissions-restrictive %}
-By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
+By default, when you create a new organization,{% ifversion ghec or ghes %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}

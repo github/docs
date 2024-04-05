@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -26,8 +25,8 @@ After creating a token, you can authenticate your request by sending the token i
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer YOUR-TOKEN" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% note %}
@@ -46,18 +45,25 @@ After detecting several requests with invalid credentials within a short period,
 
 If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}.{% ifversion pat-v2 %} If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}.{% endif %} For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. For more information about the permissions that are required for each endpoint, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)." If you are using a {% data variables.product.pat_v1 %}, your {% else %}Your {% endif %}{% data variables.product.pat_v1 %} requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
+{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."{% endif %}
+
+{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v1 %}, your {% else %}Your {% endif %}{% data variables.product.pat_v1 %} requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
+
+### {% data variables.product.pat_generic_caps_plural %} and SAML SSO
 
 {% ifversion fpt or ghec %}If you use a {% data variables.product.pat_v1 %} to access an organization that enforces SAML single sign-on (SSO) for authentication, you will need to authorize your token after creation.{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.{% endif %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
-If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO before you try to use it to access an organization that enforces SAML SSO, you may receive a `404 Not Found` or a `403 Forbidden` error. If you receive a `403 Forbidden` error, you can follow the URL in the `X-GitHub-SSO` header to authorize your token. The URL expires after one hour. If you requested data that could come from multiple organizations, the API will not return results from the organizations that require SAML SSO. The `X-GitHub-SSO` header will indicate the ID of the organizations that require SAML SSO authorization of your {% data variables.product.pat_v1 %}. For example: `X-GitHub-SSO: partial-results; organizations=21955855,20582480`.
+If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO before you try to use it to access a single organization that enforces SAML SSO, you may receive a `404 Not Found` or a `403 Forbidden` error. If you receive a `403 Forbidden` error, the `X-GitHub-SSO` header will include a URL that you can follow to authorize your token. The URL expires after one hour.
+
+If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO before you try to use it to access multiple organizations, the API will not return results from the organizations that require SAML SSO and the `X-GitHub-SSO` header will indicate the ID of the organizations that require SAML SSO authorization of your {% data variables.product.pat_v1 %}. For example: `X-GitHub-SSO: partial-results; organizations=21955855,20582480`.
+
 {% endif %}
 
 ## Authenticating with a token generated by an app
 
 If you want to use the API for an organization or on behalf of another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-Your {% data variables.product.prodname_github_app %} requires specific permissions in order to access each REST API endpoint. For more information about the permissions that are required for each endpoint, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
+The REST API reference documentation for each endpoint states whether the endpoint works with {% data variables.product.prodname_github_apps %} and states what permissions are required in order for the app to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.prodname_github_app %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
 
 You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_apps %} allow more control over the access and permission that the app has.
 
@@ -72,9 +78,9 @@ For example:
 ```shell
 curl --request POST \
 --url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
---user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"{% ifversion api-date-versioning %} \
+--user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \{% endif %}
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \
 --data '{
   "access_token": "ACCESS_TOKEN_TO_CHECK"
 }'
@@ -106,7 +112,7 @@ If this is not possible, you can store your token as a secret and use the name o
 
 To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using {% data variables.product.prodname_cli %}, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute the {% data variables.product.prodname_cli %} `api` subcommand. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```yaml
 jobs:
@@ -124,7 +130,7 @@ jobs:
 
 To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using `curl`, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute a `curl` request to the API. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```yaml copy
 jobs:
@@ -153,8 +159,8 @@ For an example of how to authenticate in a {% data variables.product.prodname_ac
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/user" \
---user USERNAME:PASSWORD{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--user USERNAME:PASSWORD \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% else %}

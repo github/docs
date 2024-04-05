@@ -20,4 +20,6 @@ topics:
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}
 
+{% data reusables.rai.code-scanning.beta-autofix %}
+
 {% data reusables.code-scanning.codeql-query-tables.swift %}

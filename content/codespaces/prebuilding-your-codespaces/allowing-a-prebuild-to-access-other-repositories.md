@@ -40,7 +40,7 @@ You will need to create a new personal account and then use this account to crea
 
    {% warning %}
 
-   **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
+   **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
 
    {% endwarning %}
 1. Give the new account read access to the required repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)."

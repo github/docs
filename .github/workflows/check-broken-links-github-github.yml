@@ -24,7 +24,7 @@ jobs:
       REPORT_REPOSITORY: github/docs-content
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -45,7 +45,7 @@ jobs:
           ENABLED_LANGUAGES: en
         run: |
 
-          node src/frame/server.js &
+          npm run start &
           sleep 5
           curl --retry-connrefused --retry 3 -I http://localhost:4000/
 
@@ -64,7 +64,7 @@ jobs:
       - name: Create issue from file
         if: ${{ hashFiles('broken_github_github_links.md') != '' }}
         id: github-github-broken-link-report
-        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
+        uses: peter-evans/create-issue-from-file@24452a72d85239eacf1468b0f1982a9f3fec4c94
         with:
           token: ${{ env.GITHUB_TOKEN }}
           title: ${{ steps.check.outputs.title }}

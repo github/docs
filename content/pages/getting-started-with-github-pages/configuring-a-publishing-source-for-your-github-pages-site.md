@@ -1,6 +1,6 @@
 ---
 title: Configuring a publishing source for your GitHub Pages site
-intro: '{% ifversion pages-custom-workflow %}You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.{% else%}If you use the default publishing source for your {% data variables.product.prodname_pages %} site, your site will publish automatically. You can also choose to publish your site from a different branch or folder.{% endif %}'
+intro: 'You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -10,7 +10,6 @@ permissions: 'People with admin or maintainer permissions for a repository can c
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
@@ -29,25 +28,16 @@ shortTitle: Configure publishing source
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-{% ifversion pages-custom-workflow %}
 1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
 1. Under "Build and deployment", use the branch dropdown menu and select a publishing source.
    ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
-{% else %}
-1. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select a publishing source.
-   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
-{% endif %}
 1. Optionally, use the folder dropdown menu to select a folder for your publishing source.
    ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a folder for a publishing source, labeled "/(root)," is outlined in dark orange.](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 1. Click **Save**.
 
 ### Troubleshooting publishing from a branch
 
-{% ifversion pages-disable-symlinks-on-legacy-pages %}
-
 {% data reusables.pages.symlink-removal %}
-
-{% endif %}
 
 {% data reusables.pages.admin-must-push %}
 
@@ -61,11 +51,7 @@ To find potential errors with either the build or deployment, you can check the 
 
 {% endif %}
 
-{% ifversion pages-custom-workflow %}
-
 ## Publishing with a custom {% data variables.product.prodname_actions %} workflow
-
-{% data reusables.pages.pages-custom-workflow-beta %}
 
 To configure your site to publish with {% data variables.product.prodname_actions %}:
 
@@ -94,7 +80,7 @@ The starter workflows use a deployment environment called `github-pages`. If you
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
+**Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and "[AUTOTITLE](/rest/pages#update-information-about-a-github-pages-site)."
 
 {% endnote %}
 {% endif %}
@@ -102,5 +88,3 @@ The starter workflows use a deployment environment called `github-pages`. If you
 ### Troubleshooting publishing with a custom {% data variables.product.prodname_actions %} workflow
 
 For information about how to troubleshoot your {% data variables.product.prodname_actions %} workflow, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)."
-
-{% endif %}

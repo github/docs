@@ -6,7 +6,6 @@ intro: 'Introduction to code security with {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -15,10 +14,9 @@ topics:
 children:
   - /github-security-features
   - /dependabot-quickstart-guide
-  - /securing-your-repository
-  - /securing-your-organization
+  - /quickstart-for-securing-your-repository
+  - /quickstart-for-securing-your-organization
   - /adding-a-security-policy-to-your-repository
   - /auditing-security-alerts
   - /best-practices-for-preventing-data-leaks-in-your-organization
 ---
-

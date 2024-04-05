@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -58,7 +57,8 @@ You can register a {% data variables.product.prodname_github_app %} under your p
 1. If you entered a webhook URL, under "SSL verification", select whether to enable SSL verification. {% data variables.product.company_short %} highly recommends that you enable SSL verification.
 1. Under "Permissions", choose the permissions that your app needs. For each permission, select the dropdown menu and click **Read-only**, **Read & write**, or **No access**. You should select the minimum permissions necessary for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 1. If you selected **Active** in the earlier step to indicate that your app should receive webhook events, under "Subscribe to events", select the webhook events that you want your app to receive. The permissions that you selected in the previous step determine what webhook events are available. For more information about each webhook event, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
-1. Under "Where can this GitHub App be installed?", select  **Only on this account** or **Any account**. For more information on installation options, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private)."
+1. Under "Where can this GitHub App be installed?", select  **Only on this account** or **Any account**.{% ifversion ghec %} If you use {% data variables.product.prodname_emus %}, **Only on this account** will be disabled for user accounts. Instead of **Any account**, the option will read **This enterprise**.{% endif %} For more information on installation options, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private)."
+
 1. Click **Create GitHub App**.
 
 ## Next steps

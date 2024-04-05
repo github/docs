@@ -18,7 +18,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications
@@ -28,19 +27,17 @@ topics:
 
 You can receive notifications for activity on {% data variables.location.product_location %} in the following locations.
 
-- The notifications inbox in the {% data variables.location.product_location %} web interface{% ifversion fpt or ghes or ghec %}
-- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}{% endif %}
-- An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %}
+- The notifications inbox in the {% data variables.location.product_location %} web interface
+- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}
+- An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %}
 
-{% ifversion fpt or ghes or ghec %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
-{% endif %}
 
 {% data reusables.notifications.shared_state %}
 
 ### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.location.product_location %}{% ifversion fpt or ghes or ghec %} and {% data variables.product.prodname_mobile %}{% endif %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
+The notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
 - Triage multiple notifications at once.
 - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
 - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
@@ -50,9 +47,7 @@ The notifications inbox on {% data variables.location.product_location %}{% ifve
 - Create custom filters to focus on different notifications when you want.
 - Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
-{% ifversion fpt or ghes or ghec %}
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[AUTOTITLE](/get-started/using-github/github-mobile)."
-{% endif %}
 
 ### Benefits of using an email client for notifications
 
@@ -68,11 +63,6 @@ When you watch a repository, you're subscribing to updates for activity in that 
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
 
-{% ifversion ghae %}
-
-### Configuring notifications
-
-{% endif %}
 You can configure notifications for a repository on the repository page, or on your watching page.
 
 ### About custom notifications
@@ -138,7 +128,7 @@ Email notifications from {% data variables.location.product_location %} contain 
 | Header | Information |
 | --- | --- |
 | `From` address | This address will always be {% ifversion fpt or ghec %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}. |
-| `To` field | This field connects directly to the thread.{% ifversion not ghae %} If you reply to the email, you'll add a new comment to the conversation.{% endif %} |
+| `To` field | This field connects directly to the thread. If you reply to the email, you'll add a new comment to the conversation. |
 | `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% data variables.notifications.cc_address %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
 | `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.command_line.backticks %}>`. |
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
@@ -187,7 +177,7 @@ If you belong to an organization, you can choose the email account you want noti
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 1. Under "Default notifications email", select the email address you'd like notifications sent to.
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 1. Click **Save**.{% endif %}
 
 ### Customizing email routes per organization
@@ -256,9 +246,7 @@ On the "Notification settings" page, select "Email" or "Web" notifications. Opti
 
 ## Organization alerts notification options
 
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", unselect **Email**.
-
-{% ifversion fpt or ghes or ghec %}
+If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", deselect **Email**.
 
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
@@ -293,5 +281,3 @@ You can choose whether to watch or unwatch an individual repository. You can als
 1. On {% data variables.product.prodname_mobile %}, navigate to the main page of the repository.
 1. Tap **Watch**.
 1. To choose what activities you receive notifications for, tap your preferred watch settings. For example, choose to only be notified when you are participating or @mentioned, or use the "Custom" option to select specific events that you want to be notified of.
-
-{% endif %}

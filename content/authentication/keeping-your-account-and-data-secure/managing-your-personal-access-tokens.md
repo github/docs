@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -43,7 +42,7 @@ Both {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_p
 
 {% ifversion pat-v2 %}
 
-Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes or ghae %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens-classic)."
+Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens-classic)."
 
 {% endif %}
 
@@ -55,7 +54,7 @@ Organization owners can set a policy to restrict the access of {% data variables
 - Each token can only access specific repositories.
 - Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
 - Each token must have an expiration date.
-- Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes or ghae %}
+- Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes %}
 - Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
 
 #### {% data variables.product.pat_v1_caps_plural %}
@@ -100,11 +99,14 @@ For more information about best practices, see "[AUTOTITLE](/rest/overview/keepi
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token.
 1. Optionally, under **Description**, add a note to describe the purpose of the token.
-1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec or ghae %} You may be required to perform SAML single sign-on (SSO) if the selected organization requires it and you do not already have an active SAML session.{% endif %}
+1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% ifversion ghec %} You may be required to perform SAML single sign-on (SSO) if the selected organization requires it and you do not already have an active SAML session.{% endif %}
 1. Optionally, if the resource owner is an organization that requires approval for {% data variables.product.pat_v2 %}s, below the resource owner, in the box, enter a justification for the request.
 1. Under **Repository access**, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on {% data variables.product.prodname_dotcom %}.
 1. If you selected **Only select repositories** in the previous step, under the **Selected repositories** dropdown, select the repositories that you want the token to access.
-1. Under **Permissions**, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs. For more information about what permissions are required for each REST API operation, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."
+1. Under **Permissions**, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs.
+
+   The REST API reference document for each endpoint states whether the endpoint works with {% data variables.product.pat_v2 %}s and states what permissions are required in order for the token to use the endpoint. Some endpoints may require multiple permissions, and some endpoints may require one of multiple permissions. For an overview of which REST API endpoints a {% data variables.product.pat_v2 %} can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."
+
 1. Click **Generate token**.
 
 If you selected an organization as the resource owner and the organization requires approval for {% data variables.product.pat_v2 %}s, then your token will be marked as `pending` until it is reviewed by an organization administrator. Your token will only be able to read public resources until it is approved. If you are an owner of the organization, your request is automatically approved. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)."
@@ -164,8 +166,8 @@ For example, to clone a repository on the command line you would enter the follo
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO.git
-Username: YOUR_USERNAME
-Password: YOUR_PERSONAL_ACCESS_TOKEN
+Username: YOUR-USERNAME
+Password: YOUR-PERSONAL-ACCESS-TOKEN
 ```
 
 {% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).

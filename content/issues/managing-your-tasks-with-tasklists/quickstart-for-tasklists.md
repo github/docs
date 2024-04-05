@@ -10,6 +10,8 @@ topics:
   - Issues
 ---
 
+{% data reusables.projects.tasklists-release-stage %}
+
 ## Introduction
 
 This guide demonstrates how to use tasklists to split up a larger piece of work into multiple tasklists and multiple subtasks. You will learn how to create a tasklist using the UI, how to create a tasklist using Markdown, how to make changes to a tasklist, and how to integrate your new tasklists with a project.

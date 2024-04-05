@@ -2,7 +2,7 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
+    - /get-started/getting-started-with-git/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
@@ -42,10 +42,11 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
+  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - search
@@ -169,4 +170,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

@@ -9,7 +9,6 @@ permissions: 'People with admin permissions for a repository can create a {% dat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
@@ -20,7 +19,7 @@ shortTitle: Create site with Jekyll
 
 ## Prerequisites
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -53,7 +52,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    ```shell
    $ git init REPOSITORY-NAME
-   > Initialized empty Git repository in /Users/octocat/my-site/.git/
+   > Initialized empty Git repository in /REPOSITORY-NAME/.git/
    # Creates a new folder on your computer, initialized as a Git repository
    ```
 
@@ -94,7 +93,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. Add "#" to the beginning of the line that starts with `gem "jekyll"` to comment out this line.
 1. Add the `github-pages` gem by editing the line starting with `# gem "github-pages"`. Change this line to:
 
-   ```shell
+   ```ruby
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
@@ -119,7 +118,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    git commit -m 'Initial GitHub pages site with Jekyll'
    ```
 
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
+1. Add your repository on {% data variables.location.product_location %} as a remote, replacing {% ifversion ghes %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes %},{% endif %} and REPOSITORY with the name of the repository.
 
    ```shell
    {% ifversion fpt or ghec %}

@@ -5,7 +5,6 @@ intro: 'Learn how to create a JSON Web Token (JWT) to authenticate to certain RE
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -30,8 +29,8 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 curl --request GET \
 --url "{% data variables.product.api_url_pre %}/app" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer YOUR_JWT" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% data reusables.getting-started.bearer-vs-token %}
@@ -166,9 +165,9 @@ payload=$( echo -n "${payload_json}" | b64enc )
 
 # Signature
 header_payload="${header}"."${payload}"
-signature=$( 
+signature=$(
     openssl dgst -sha256 -sign <(echo -n "${pem}") \
-    <(echo -n "${header_payload}") | b64enc 
+    <(echo -n "${header_payload}") | b64enc
 )
 
 # Create JWT
@@ -192,9 +191,9 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
-  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()  
+  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  iss = $app_id    
+  iss = $app_id
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

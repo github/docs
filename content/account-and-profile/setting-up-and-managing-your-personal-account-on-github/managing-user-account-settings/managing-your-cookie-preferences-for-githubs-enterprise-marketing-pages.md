@@ -4,7 +4,6 @@ intro: 'You can control how {% data variables.product.company_short %} uses info
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts

@@ -1,7 +1,6 @@
 ---
 title: Using the content linter
 intro: 'You can use content linter to check your contributions for errors.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---
@@ -110,6 +109,22 @@ Each rule is configured in a file in [`src/content-linter/style`](https://github
 Errors must be addressed before merging your changes to the `main` branch. Warnings should be addressed but do not prevent a change from being merged into the `main` branch. Most rules will eventually be promoted to errors, once the content no longer has warning violations.
 
 {% data reusables.contributing.content-linter-rules %}
+
+### Syntax for linting rules
+
+Some linting rules return warnings or errors based on HTML comments that you can add to articles.
+
+#### Syntax for expiring and expired content
+
+Rules `GHD038` and `GHD039` check for content that has been manually given an expiration date. Fourteen days before the specified date, the content linter will return a warning that the content is expiring soon. Starting on the specified date, the content linter will return an error and flag the content for remediation.
+
+You can add an expiration date to content by wrapping it in HTML tags that contain an expiration date in the format: <pre>&lt;!-- expires yyyy-mm-dd --&gt; &lt;!-- end expires yyyy-mm-dd --&gt;</pre>
+
+**Use:**
+
+```markdown
+This content does not expire. {% raw %}<{% endraw %}!-- expires 2022-01-28 -->This content expires on January 28, 2022. {% raw %}<{% endraw %}!-- end expires 2022-01-28 -->This content also does not expire.
+```
 
 ## Suppressing linter rules
 

@@ -2,7 +2,6 @@
 title: About combining multiple content types
 shortTitle: Combining multiple types
 intro: 'You can combine multiple content types in a single article to help people complete complex tasks.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

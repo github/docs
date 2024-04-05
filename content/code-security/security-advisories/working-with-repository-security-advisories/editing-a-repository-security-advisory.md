@@ -22,7 +22,7 @@ shortTitle: Edit repository advisories
 ## Editing a security advisory
 
 {% ifversion repository-security-advisories-API %}
-You can also use the REST API to edit repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)" in the REST API documentation.
+You can also use the REST API to edit repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)".
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -48,4 +48,4 @@ You can also use the REST API to edit repository security advisories. For more i
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"

@@ -27,7 +27,7 @@ For each activity, you can view the exact changes by clicking "Compare changes."
      ![Screenshot of a repository's branches view. To the right of a branch, the pulse icon is highlighted with a dark orange outline.](/assets/images/help/graphs/activity-view-icon.png)
 
 1. Use the dropdown menus to filter the activity view.
-   - To see activity on a particular branch, select the **{% octicon "git-branch" aria-hidden="true" %} BRANCH NAME** dropdown menu, then click a branch name. Alternatively, within the dropdown menu, start typing a branch name into the search field. To view activity across all branches in the repository, click "View activity for all branches".
+   - To see activity on a particular branch, select the **{% octicon "git-branch" aria-hidden="true" %} BRANCH NAME** dropdown menu, then click a branch name. Alternatively, within the dropdown menu, start typing a branch name into the search field. To view activity across all branches in the repository, click **View activity for all branches**.
 
    - To filter by activity type, select the **{% octicon "pulse" aria-hidden="true" %} All activity** dropdown menu, then click an activity type. You can choose to display direct pushes, pull request merges, force pushes, branch creations, and branch deletions.
 

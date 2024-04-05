@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -38,7 +37,7 @@ If the repository includes {% data variables.large_files.product_name_long %} ob
 git lfs fetch --all
 ```
 
-Once you have cloned the Git repository, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it a location for safe-keeping.
+Once you have cloned the Git repository, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it to a location for safe-keeping.
 
 You can restore your backup by decompressing the archive and then pushing the Git repository to a Git remote.
 
@@ -46,21 +45,21 @@ You can restore your backup by decompressing the archive and then pushing the Gi
 
 Wikis in {% data variables.product.prodname_dotcom %} are stored as Git repositories. This means that you can back up a wiki by cloning it. For more details on how to clone a wiki using Git, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages#cloning-wikis-to-your-computer)."
 
-Once you have cloned the wiki, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it a location for safe-keeping.
+Once you have cloned the wiki, you can compress it into an archive (for example a `.zip` or `.tar.gz` file) and move it to a location for safe-keeping.
 
 You can restore your backup by decompressing the archive and then pushing the wiki repository to a Git remote.
 
 ## Backing up a Git repository and selected metadata with migration archives
 
-You can use the REST API to generate a migration archive for a repository. For more information, see "[AUTOTITLE](/rest/migrations/orgs)" in the REST API documentation.
+You can use the REST API to generate a migration archive for a repository. For more information, see "[AUTOTITLE](/rest/migrations/orgs)."
 
-These archives are designed for moving data between {% data variables.product.prodname_dotcom %} products, but they can also be used {% ifversion fpt or ghec %}to back up a repository for archiving purposes{% else %} as backups.{% endif %}{% ifversion fpt or ghec or ghes %}
+These archives are designed for moving data between {% data variables.product.prodname_dotcom %} products, but they can also be used {% ifversion fpt or ghec %}to back up a repository for archiving purposes{% else %} as backups.{% endif %}
 
 {% warning %}
 
 **Warning:** Migration archives do not include all data related to a repository. For example, {% data variables.large_files.product_name_long %} objects, discussions, or packages are not included. For more information on what is included in migration archives, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
 
-{% endwarning %}{% endif %}
+{% endwarning %}
 
 Once you have generated an archive, you can move it to a location of your choice for safe-keeping.
 

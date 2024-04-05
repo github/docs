@@ -13,13 +13,12 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
   - Policies
   - Projects
-shortTitle: Project board policies
+shortTitle: Projects policies
 ---
 
 ## About policies for projects in your enterprise
@@ -31,7 +30,7 @@ Some policies apply to both {% data variables.product.prodname_projects_v2 %}, t
 
 ## Enforcing a policy for organization-wide projects
 
-Across all organizations owned by your enterprise, you can enable or disable organization-wide project boards, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can enable or disable organization-wide {% data variables.projects.projects_v1_boards %}, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

@@ -9,10 +9,10 @@ export const dates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterpr
 // enterprise-releases/docs/supported-versions.md#release-lifecycle-dates
 
 // Some frontmatter may contain the upcoming GHES release number
-export const next = '3.12'
-export const nextNext = '3.13'
+export const next = '3.13'
+export const nextNext = '3.14'
 
-export const supported = ['3.11', '3.10', '3.9', '3.8']
+export const supported = ['3.12', '3.11', '3.10', '3.9']
 
 // Edit this to `null` when it's no longer the release candidate
 export const releaseCandidate = null
@@ -41,6 +41,7 @@ function isValidNext(v1, v2) {
 // array and you should never need to touch the `deprecated` array
 // on the line just below.
 export const deprecatedWithFunctionalRedirects = [
+  '3.8',
   '3.7',
   '3.6',
   '3.5',

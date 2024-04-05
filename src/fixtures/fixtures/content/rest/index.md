@@ -15,7 +15,6 @@ layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-the-rest-api

@@ -21,7 +21,7 @@ allowTitleToDifferFromFilename: true
 
 You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.location.product_location %}, or to add information related to the {% data variables.projects.projects_v1_board %}. You can create a reference card for another {% data variables.projects.projects_v1_board %} by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting notes to issues, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board)."
 
-Types of project boards:
+Types of {% data variables.projects.projects_v1_boards %}:
 
 - **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
 - **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."

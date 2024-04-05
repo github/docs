@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -34,11 +33,11 @@ The version of a file at the head of branch can change as new commits are made, 
 
 ## Press <kbd>Y</kbd> to permalink to a file in a specific commit
 
-For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  This will permanently link to the exact version of the file in that commit.  For example:
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit ID.  This will permanently link to the exact version of the file in that commit.  For example:
 
 - [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-replaces `main` with a specific commit id and the file content will not change.
+replaces `main` with a specific commit ID and the file content will not change.
 
 Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you can type <kbd>y</kbd> to automatically update the URL to the permalink version.  Then you can copy the URL knowing that anyone you share it with will see exactly what you saw.
 

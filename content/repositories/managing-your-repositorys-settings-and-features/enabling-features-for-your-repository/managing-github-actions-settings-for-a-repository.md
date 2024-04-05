@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -33,11 +32,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} in y
 
 You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
 
-{% note %}
-
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
-
-{% endnote %}
+{% data reusables.repositories.settings-permissions-org-policy-note %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -75,7 +70,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+If a policy is disabled for an {% ifversion ghec or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
 
 {% data reusables.actions.private-repository-forks-options %}
 
@@ -123,7 +118,7 @@ By default, when you create a new repository in your personal account, workflows
 1. Click **Save** to apply the settings.
 {% endif %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Allowing access to components in an internal repository
 
@@ -137,8 +132,8 @@ You can use the steps below to configure whether {% ifversion internal-actions%}
 1. Under **Access**, choose one of the access settings:
 
    - **Not accessible** - Workflows in other repositories cannot access this repository.
-   - **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes or ghae or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
-   - **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes or ghae or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
+   - **Accessible from repositories in the 'ORGANIZATION NAME' organization** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ORGANIZATION NAME' organization can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.{% endif %}
+   - **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
 1. Click **Save** to apply the settings.
 {% endif %}
 

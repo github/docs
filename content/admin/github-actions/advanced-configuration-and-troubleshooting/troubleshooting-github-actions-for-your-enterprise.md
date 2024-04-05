@@ -157,11 +157,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
     When running `ghe-config-apply`, if you see output like `Failed to run nomad job '/etc/nomad-jobs/<name>.hcl'`, then the change has likely over-allocated CPU or memory resources. If this happens, edit the configuration files again and lower the allocated CPU or memory, then re-run `ghe-config-apply`.
 1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
 
-{% ifversion fpt or ghec or ghes %}
-
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
-
-{% data reusables.dependabot.beta-security-and-version-updates %}
 
 After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.location.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
 
@@ -189,8 +185,6 @@ There are three ways to resolve this problem:
     ```
 
 1. Return to {% data variables.product.prodname_ghe_server %}.
-
-{% endif %}
 
 <a name="bundled-actions"></a>
 

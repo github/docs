@@ -65,6 +65,22 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(markdown.length)
   })
+
+  test('elsif tags with invalid args fails', async () => {
+    const markdown = [
+      '{% ifversion ghec %}',
+      '{% elsif ghec > 3.7 %}',
+      '{% elsif neverheardof %}',
+      '{% endif %}',
+    ]
+    const result = await runRule(liquidIfVersionTags, {
+      strings: { markdown: markdown.join('\n') },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors.every((error) => error.errorContext.includes('elsif'))).toBe(true)
+  })
+
   test('conditional without quote args pass', async () => {
     const markdown = [
       '{% ifversion fpt %}',

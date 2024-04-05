@@ -4,5 +4,5 @@ When you enable one or more security and analysis features for existing reposito
 - New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.{% ifversion GH-advisory-db-supports-malware %}
 - We use the permissions to scan for manifest files to apply the relevant services.
 - If enabled, you'll see dependency information in the dependency graph.
-- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}{% ifversion fpt or ghec or ghes %}
-- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.{% endif %}
+- If enabled, {% data variables.product.prodname_dotcom %} will generate {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies or malware.{% endif %}
+- If enabled, {% data variables.product.prodname_dependabot %} security updates will create pull requests to upgrade vulnerable dependencies when {% data variables.product.prodname_dependabot_alerts %} are triggered.

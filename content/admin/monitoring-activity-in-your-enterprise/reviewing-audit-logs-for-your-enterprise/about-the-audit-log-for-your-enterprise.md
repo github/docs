@@ -13,7 +13,6 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/auditing-activity-in-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -40,7 +39,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. In the left menu, click **Audit log**.{% endif %}
 
-In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes or ghae %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)." You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
+In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)." You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
 ## Using your audit logs
 

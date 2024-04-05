@@ -1,6 +1,6 @@
 ---
 title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off {% ifversion fpt or ghes or ghec %}your pinned repositories, Achievements, and{% endif %} a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off your pinned repositories, Achievements, and a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions
   - /articles/viewing-contributions-on-your-profile-page
@@ -10,13 +10,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
 shortTitle: View contributions
 ---
-{% ifversion fpt or ghes or ghec %}Your contribution graph and Achievements show activity from public repositories. {% endif %}You can choose to show activity from {% ifversion fpt or ghes or ghec %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
+Your contribution graph and Achievements show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
 
 {% note %}
 
@@ -34,24 +33,20 @@ On your profile page, certain actions count as contributions:
 - Opening a discussion
 - Answering a discussion
 - Proposing a pull request
-- Submitting a pull request review{% ifversion ghes or ghae %}
+- Submitting a pull request review{% ifversion ghes %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ## Popular repositories
 
-This section displays your repositories with the most watchers. {% ifversion fpt or ghes or ghec %}Once you [pin repositories to your profile](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile), this section will change to "Pinned."{% endif %}
-
-{% ifversion fpt or ghes or ghec %}
+This section displays your repositories with the most watchers. Once you [pin repositories to your profile](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile), this section will change to "Pinned."
 
 ## Pinned
 
 This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 
 ![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile-pinned-repositories.png)
-
-{% endif %}
 
 ## Contributions calendar
 
@@ -96,4 +91,4 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 ## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."

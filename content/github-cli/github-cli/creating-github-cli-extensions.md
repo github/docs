@@ -4,7 +4,6 @@ intro: 'Learn how to share new {% data variables.product.prodname_cli %} command
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI

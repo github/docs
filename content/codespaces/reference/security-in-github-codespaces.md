@@ -32,7 +32,7 @@ Every time you restart a codespace, it's deployed to a new VM with the latest av
 
 #### Isolated networking
 
-Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. By default, codespaces are allowed to make outbound connections to the internet.
+Each codespace has its own isolated virtual network. We use firewalls to block incoming connections from the internet and to prevent codespaces from communicating with each other on internal networks. Codespaces are allowed to make outbound connections to the internet.
 
 ### Authentication
 

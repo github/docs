@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -21,8 +20,7 @@ shortTitle: Build & test Swift
 
 This guide shows you how to build and test a Swift package.
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
-{% else %}{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."{% endif %}
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, and the Ubuntu and macOS runners include the dependencies for building Swift packages. For a full list of up-to-date software and the preinstalled versions of Swift and Xcode, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 
 ## Prerequisites
 
@@ -43,7 +41,7 @@ We recommend that you have a basic understanding of Swift packages. For more inf
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Swift" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 
    If you don't find the "Swift" starter workflow, copy the following workflow code to a new file called `swift.yml` in the `.github/workflows` directory of your repository.
 
@@ -94,7 +92,6 @@ You can configure your job to use multiple versions of Swift in a matrix.
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
-
 
 name: Swift
 

@@ -13,7 +13,6 @@ topics:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -62,7 +61,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 ### Wait timer
 
-Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
+Use a wait timer to delay a job for a specific amount of time after the job is initially triggered. The time (in minutes) must be an integer between 1 and 43,200 (30 days).
 
 {% ifversion fpt %}{% note %}
 
@@ -156,12 +155,9 @@ Secrets stored in an environment are only available to workflow jobs that refere
 {% endnote %}
 {% endif %}
 
-{% ifversion actions-configuration-variables %}
-
 ## Environment variables
 
 Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
-{% endif %}
 
 {% ifversion fpt %}{% note %}
 
@@ -208,7 +204,7 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
 {%- endif %}
-1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches](#deployment-branches)."
+1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
    {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-label="The branch icon" %} Branch** or **{% octicon "tag" aria-label="The tag icon" %} Tag**.{% endif %}
@@ -224,15 +220,13 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Enter the secret name.
    1. Enter the secret value.
    1. Click **Add secret**.
-{%- ifversion actions-configuration-variables %}
 1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Environment variables](#environment-variables)."
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
    1. Click **Add variable**.
-{%- endif %}
 
-You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[AUTOTITLE](/rest/actions/variables),"{% endif %} and "[AUTOTITLE](/rest/deployments/branch-policies)."
+You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets)," "[AUTOTITLE](/rest/actions/variables)," and "[AUTOTITLE](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
 
@@ -262,7 +256,7 @@ You can also delete environments through the REST API. For more information, see
 
 {% data reusables.actions.environment-deployment-event %}
 
-You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[AUTOTITLE](/rest/repos#deployments)" (REST API), "[AUTOTITLE](/graphql/reference/objects#deployment)" (GraphQL API), or "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
+You can access these objects through the REST API or GraphQL API. You can also subscribe to these webhook events. For more information, see "[AUTOTITLE](/rest/repos#deployments)," "[AUTOTITLE](/graphql/reference/objects#deployment)" (GraphQL API), or "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment)."
 
 ## Next steps
 

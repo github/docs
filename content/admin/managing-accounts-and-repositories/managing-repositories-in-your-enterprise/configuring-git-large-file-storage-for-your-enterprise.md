@@ -16,7 +16,6 @@ redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Git
@@ -39,7 +38,7 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 ## Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

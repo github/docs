@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '>= 3.4'
 type: how_to
 topics:
   - Workflows
@@ -51,16 +50,14 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter
 A reusable workflow can be used by another workflow if any of the following is true:
 
 - Both workflows are in the same repository.
-- The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
+- The called workflow is stored in a public repository{% ifversion actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec %}
 - The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion internal-actions %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}{% ifversion private-actions %}
-- The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec or ghae %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
+- The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
 {% endif %}
 
 {% data reusables.actions.actions-redirects-workflows %}
 
 ## Using runners
-
-{% ifversion fpt or ghes or ghec %}
 
 ### Using GitHub-hosted runners
 
@@ -68,22 +65,20 @@ The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is
 
 ### Using self-hosted runners
 
-{% endif %}
-
-Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
+Called workflows that are owned by the same user or organization{% ifversion ghes or ghec %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
 - In the caller repository
-- In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
+- In the caller repository's organization{% ifversion ghes or ghec %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
 
 ## Limitations
 
 {% ifversion nested-reusable-workflow %}
 - You can connect up to four levels of workflows. For more information, see "[Nesting reusable workflows](#nesting-reusable-workflows)."
-- You can call a maximum of 20 reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+- You can call a maximum of 20 unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
 
   For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 {% else %}
 - Reusable workflows can't call other reusable workflows.
-- You can call a maximum of 20 reusable workflows from a single workflow file.
+- You can call a maximum of 20 unique reusable workflows from a single workflow file.
 {% endif %}
 {% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 {% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}

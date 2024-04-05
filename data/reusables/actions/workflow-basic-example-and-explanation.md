@@ -20,7 +20,7 @@ You can create an example workflow in your repository that automatically trigger
          - uses: {% data reusables.actions.action-checkout %}
          - uses: {% data reusables.actions.action-setup-node %}
            with:
-             node-version: '14'
+             node-version: '20'
          - run: npm install -g bats
          - run: bats -v
    ```
@@ -46,7 +46,7 @@ run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
 on: [push]
 
 # Groups together all the jobs that run in the `learn-github-actions` workflow.
-  jobs:
+jobs:
 
 # Defines a job named `check-bats-version`. The child keys will define properties of the job.
   check-bats-version:
@@ -63,7 +63,7 @@ on: [push]
 # This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 14.) This puts both the `node` and `npm` commands in your `PATH`.
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '14'
+          node-version: '20'
 
 # The `run` keyword tells the job to execute a command on the runner. In this case, you are using `npm` to install the `bats` software testing package.
       - run: npm install -g bats

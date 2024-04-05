@@ -4,7 +4,6 @@ intro: 'Tests functionality of `ifversion` and its operators {% ifversion not fp
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

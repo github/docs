@@ -2,7 +2,6 @@
 title: Writing content to be translated
 shortTitle: Write content to be translated
 intro: 'Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

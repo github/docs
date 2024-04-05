@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
 ---
@@ -23,7 +22,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 
 However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
 
-`github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
+`github.com/ACCOUNT/REPOSITORY/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
 There are several possible explanations:
 
@@ -64,7 +63,7 @@ the commit.  This might be tracking the branch that was force pushed or deleted
 and they simply haven't updated yet.  To preserve the commit, they can push that
 local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
 let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+to `github.com/ACCOUNT/REPOSITORY`.
 
 The other person runs:
 

@@ -63,7 +63,9 @@ You configure repository permissions for {% data variables.product.prodname_gith
 
    {% note %}
 
-   **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   **Notes:**
+   - You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   - You can use the `*` wildcard to grant permissions to multiple repositories in an organization. For example, to grant permissions to all repositories in the `my_org` organization use `my_org/*`. This syntax is only valid for codespaces. In any `devcontainer.json` files that are used for prebuilds, you must define permissions for each repository separately. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/allowing-a-prebuild-to-access-other-repositories)."
 
    {% endnote %}
 
