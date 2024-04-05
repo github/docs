@@ -33,6 +33,8 @@ That's how you can easily become a member of the GitHub Docs community. :sparkle
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
+- [src/codeql-cli/README.md](src/codeql-cli/README.md)
+- [src/rest/README.md](src/rest/README.md)
 - [content/README.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
@@ -40,6 +42,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
+- [src/pageinfo/README.md](src/pageinfo/README.md)
 - [src/README.md](src/README.md)
 
 ## License
