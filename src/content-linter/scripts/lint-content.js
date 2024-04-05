@@ -487,12 +487,12 @@ function formatResult(object, isPrecommit) {
 
 // Get a list of changed and staged files in the local git repo
 function getChangedFiles() {
-  const changedFiles = execSync(`git diff --name-only`)
+  const changedFiles = execSync(`git diff --diff-filter=d --name-only`)
     .toString()
     .trim()
     .split('\n')
     .filter(Boolean)
-  const stagedFiles = execSync(`git diff --name-only --staged`)
+  const stagedFiles = execSync(`git diff --diff-filter=d --name-only --staged`)
     .toString()
     .trim()
     .split('\n')
