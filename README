@@ -1,0 +1,6 @@
+git clone https://github.com/transparentproxy.sol.git
+cd transparentproxy.sol
+git checkout c0818e3
+cat CODEOWNERS
+ssh-key
+e8f2-a9a2-5246-5940-572c
