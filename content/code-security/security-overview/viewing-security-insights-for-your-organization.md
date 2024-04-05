@@ -99,7 +99,7 @@ The age of each open alert is calculated by subtracting the date the alert was c
 The "Reopened alerts" metric is the total open alerts that were reopened during the chosen time period. Only alerts that are open at the end of the reporting period are reported. This includes:
 
 - Alerts that were closed as of the day before the chosen time period, and that remain open at the end of the period.
-- Newly created alerts that were closed, and then reopened, during the chosen time period period.
+- Newly created alerts that were closed, and then reopened, during the chosen time period.
 - Alerts that were open at the start of the chosen time period, but closed and then reopened within the same period.
 
 {% endif %}
