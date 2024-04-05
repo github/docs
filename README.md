@@ -42,7 +42,6 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
-- [src/pageinfo/README.md](src/pageinfo/README.md)
 - [src/README.md](src/README.md)
 
 ## License
