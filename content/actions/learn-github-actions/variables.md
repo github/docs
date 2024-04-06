@@ -75,7 +75,7 @@ Because runner environment variable interpolation is done after a workflow job i
 
 When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
 
-Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default variables are exceptions to this convention.
+Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_WORKSPACE`, `GITHUB_ENV`, `GITHUB_OUTPUT` and `GITHUB_STEP_SUMMARY` default variables are exceptions to this convention. So is `GITHUB_PATH`, which is coincidentally named with the `_PATH` suffix.
 
 {% note %}
 
