@@ -11,6 +11,8 @@ redirect_from:
 
 {% data reusables.actions.windows-linux-larger-runners-note %}
 
+{% data reusables.actions.gpu-runner-beta-note %}
+
 {% ifversion ghec %}
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise

@@ -31,6 +31,22 @@ To create a ruleset, complete the following procedures:
 - [Adding metadata restrictions](#adding-metadata-restrictions)
 - [Finalizing your ruleset and next steps](#finalizing-your-ruleset-and-next-steps){% endif %}
 
+## About using enforcement statuses
+
+While creating or editing your ruleset, you can use enforcement statuses to configure how your ruleset will be enforced.
+
+{% ifversion repo-rules-enterprise %}
+
+Using "Evaluate" mode is a great option for testing your ruleset without enforcing it. You can use the "Rule Insights" page to see if the action would have violated the rule. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-insights-for-rulesets)."
+
+{% endif %}
+
+You can select any of the following enforcement statuses for your ruleset.
+
+   - {% octicon "play" aria-hidden="true" %} **Active**: your ruleset will be enforced upon creation.{% ifversion repo-rules-enterprise %}
+   - {% octicon "meter" aria-hidden="true" %} **Evaluate**: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.{% endif %}
+   - {% octicon "skip" aria-hidden="true" %} **Disabled**: your ruleset will not be enforced{% ifversion repo-rules-enterprise %} or evaluated{% endif %}.
+
 ## Creating a branch or tag ruleset
 
 {% data reusables.repositories.navigate-to-repo %}

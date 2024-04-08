@@ -15,27 +15,31 @@ versions:
 shortTitle: Local code
 ---
 
-## About adding existing source code to {% data variables.product.product_name %}
+## About importing source code to {% data variables.product.product_name %}
 
 {% data reusables.repositories.importing-context %}
 
-If you have source code stored locally on your computer that is tracked by Git or not tracked by any version control system (VCS), you can add the code to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
+{% data reusables.repositories.sensitive-info-warning %}
+
+### Adding existing source code to {% data variables.product.product_name %}
+
+If you have source code stored locally on your computer that is tracked by Git or not tracked by any version control system (VCS), you can add the code to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly. Alternatively, you can use {% data variables.product.prodname_cli %} or {% data variables.product.prodname_desktop %}.
+
+#### Using {% data variables.product.prodname_cli %}
 
 {% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-{% note %}
+#### Using {% data variables.product.prodname_desktop %}
 
-**Note:** If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
+If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
 
-{% endnote %}
+### Converting repositories from other VCS
 
 If your source code is tracked by a different VCS, such as Mercurial, Subversion, or Team Foundation Version Control, you must convert the repository to Git before you can add the project to {% data variables.product.product_name %}.
 
 - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
 - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
 - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
-
-{% data reusables.repositories.sensitive-info-warning %}
 
 ## Initializing a Git repository
 
@@ -93,6 +97,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 {% mac %}
 
 {% data reusables.migrations.create-empty-repo %}
+
 1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
@@ -125,6 +130,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 {% windows %}
 
 {% data reusables.migrations.create-empty-repo %}
+
 1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
@@ -157,6 +163,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 {% linux %}
 
 {% data reusables.migrations.create-empty-repo %}
+
 1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)

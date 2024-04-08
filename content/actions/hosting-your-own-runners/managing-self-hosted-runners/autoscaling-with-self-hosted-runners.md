@@ -19,11 +19,15 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 ## Supported autoscaling solutions
 
-{% data variables.product.prodname_dotcom %} recommends using [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) for autoscaling your runners.
+{% ifversion fpt or ghec %}
 
-{%- ifversion fpt or ghec or ghes > 3.8 %}
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+{% data variables.product.prodname_dotcom %}-hosted runners inherently autoscale based on your needs. {% data variables.product.prodname_dotcom %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners)."
+
 {% endif %}
+
+The [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) (ARC) project is a Kubernetes-based runner autoscaler. {% data variables.product.prodname_dotcom %} recommends ARC if the team deploying it has expert Kubernetes knowledge and experience.
+
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller)."
 
 ## Using ephemeral runners for autoscaling
 

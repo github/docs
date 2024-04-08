@@ -167,10 +167,6 @@ DF |`packages_stats.ecosystems.containers.daily_update_count` | Number of contai
 DG |`packages_stats.ecosystems.containers.daily_delete_count` | Number of container images deleted
 DH | `packages_stats.ecosystems.containers.daily_create_count` | Number of container images created | {% endif %}
 
-{% ifversion ghes = 3.8 %}
-Optionally, you can include additional data about {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/including-data-about-github-actions-in-server-statistics)."
-{% endif %}
-
 ## {% data variables.product.prodname_server_statistics %} data examples
 
 To see an example of the headings included in the CSV export for {% data variables.product.prodname_server_statistics %}, download the [{% data variables.product.prodname_server_statistics %} CSV example](/assets/server-statistics-csv-example.csv).

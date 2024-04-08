@@ -1,6 +1,6 @@
 ```yaml copy
 name: Bug Report
-description: File a bug report
+description: File a bug report.
 title: "[Bug]: "
 labels: ["bug", "triage"]{% ifversion projects-in-issue-forms %}
 projects: ["octo-org/1", "octo-org/44"]{% endif %}
@@ -59,7 +59,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

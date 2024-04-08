@@ -23,7 +23,7 @@ shortTitle: Advanced Security billing
 
 {% ifversion fpt %}
 
-If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license, available with {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}. {% data reusables.advanced-security.ghas-trial %}
+{% data reusables.advanced-security.ghas-license-info-for-fpt %}
 
 {% note %}
 
@@ -37,6 +37,17 @@ For information about billing for {% data variables.product.prodname_GH_advanced
 
 If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
+{% ifversion security-configurations %}
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+
+{% note %}
+
+**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+
+{% endif %}
+
 {% data reusables.advanced-security.ghas-trial-availability %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 {% data reusables.advanced-security.ghas-trial-invoiced %}
@@ -46,6 +57,17 @@ For other billing-related questions, contact {% data variables.contact.github_su
 {% elsif ghes %}
 
 You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+
+{% ifversion security-configurations %}
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+
+{% note %}
+
+**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+
+{% endif %}
 
 {% endif %}
 

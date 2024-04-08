@@ -15,6 +15,8 @@ shortTitle: About Copilot in the CLI
 
 {% data variables.product.prodname_copilot_cli %} provides a chat-like interface in the terminal that allows you to ask questions about the command line. You can ask {% data variables.product.prodname_copilot %} to provide either command suggestions or explanations of given commands.
 
+The only supported language for {% data variables.product.prodname_copilot_cli %} is English.
+
 {% data variables.product.prodname_copilot_cli %} parses your question and provides an answer using a combination of natural language processing and machine learning. This process can be broken down into a number of steps.
 
 ### Input processing

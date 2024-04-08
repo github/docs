@@ -9,12 +9,6 @@
         "args": { "VARIANT": "20" }
     },
 
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash",
-        "cSpell.language": ",en"
-    },
-
     // Install features. Type 'feature' in the VS Code command palette for a full list.
     "features": {
         "sshd": "latest"
@@ -22,7 +16,11 @@
 
     "customizations": {
         "vscode": {
-            "settings": {},
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "cSpell.language": ",en"
+            },
             // Visual Studio Code extensions which help authoring for docs.github.com.
             "extensions": [
                 "dbaeumer.vscode-eslint",

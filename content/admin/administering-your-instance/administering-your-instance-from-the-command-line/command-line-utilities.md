@@ -303,14 +303,7 @@ To output a CSV file containing a list of all user SAML `NameID` mappings on the
 ghe-saml-mapping-csv -d
 ```
 
-{% ifversion ghes < 3.9 %}
-
-After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.7%}3.7{% endif %} your instance is running.
-
-- In version 3.{% ifversion ghes = 3.8 %}8.0{% endif %}, the utility writes the file to `/tmp`.
-- In version 3.{% ifversion ghes = 3.8 %}8.1{% endif %} and later,
-
-{%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
+By default, the utility writes the file to `/data/user/tmp`.
 
 If you plan to update mappings, to ensure that the utility can access the file, we recommend that you keep the file in the default location.
 
@@ -707,7 +700,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-b
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -950,16 +943,6 @@ This utility manually repackages a repository network to optimize pack storage. 
 
 You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
-{% ifversion ghes < 3.9 %}
-
-{% warning %}
-
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
-
-{% endwarning %}
-
-{% endif %}
-
 ```shell
 ghe-repo-gc USERNAME/REPONAME
 ```
@@ -1149,6 +1132,67 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
+{% ifversion ghes > 3.12 %}
+
+## License
+
+### ghe-license
+
+This utility lets you interact with your current active license, or with new licenses without needing to import them first. You can also directly apply the license to make the changes effective using `--apply`. Applying changes with the `ghe-license` utility avoids a configuration run and only restarts the affected services.
+
+You can review the possible commands and flags using `ghe-license -h`.
+
+Alternatively, you can manage licenses using the REST API or the {% data variables.product.prodname_cli %}. See "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)."
+
+Display license information. Alternatively, use the `-j` flag for JSON formatting.
+
+```shell
+ghe-license info
+# "advanced_security_enabled" : true
+# "advanced_security_seats" : 0
+# "cluster_support" : false
+# "company" : "GitHub"
+# "croquet_support" : true
+# "custom_terms" : true
+# "evaluation" : false
+# "expire_at" : "2025-01-01T23:59:59-08:00"
+# "insights_enabled" : true
+# "insights_expire_at" : "2025-01-01T23:59:59.999-08:00"
+# "learning_lab_evaluation_expires" : "2023-01-01T23:59:59.000-08:00"
+# "learning_lab_seats" : 100
+# "perpetual" : false
+# "reference_number" : "123456"
+# "seats" : 0
+# "ssh_allowed" : true
+# "support_key" : null
+# "unlimited_seating" : true
+```
+
+Check the license.
+
+```shell
+ghe-license check
+# License is valid.
+```
+
+All commands are performed on the existing license. However, you can also provide a license from STDOUT using `--pipe`.
+
+```shell
+cat license | ghe-license import --pipe
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+You can also provide a license by assigning a file path to the `GHE_LICENSE_FILE` environment variable.
+
+```shell
+GHE_LICENSE_FILE=/path/license ghe-license import
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+{% endif %}
+
 ## Security
 
 ### ghe-find-insecure-git-operations
@@ -1187,7 +1231,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -1237,7 +1281,7 @@ During an upgrade to a feature release, this utility displays the status of back
 {% ifversion ghes < 3.12 %}
 {% note %}
 
-**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
 {% endnote %}
 {% endif %}
@@ -1331,14 +1375,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### ghe-license-usage
+### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
+By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
 
 ```shell
-ghe-license-usage
+{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 ```
 
 ### ghe-org-membership-update

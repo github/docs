@@ -58,11 +58,7 @@ For all configurations of {% data variables.product.prodname_code_scanning %}, t
 
 To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
 
-{% ifversion fpt or ghec or ghes > 3.9 %}
 ![Screenshot of the {% data variables.product.prodname_code_scanning_caps %} results check on a pull request. The "View all branch alerts" link is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-results-check.png)
-{% else %}
-![Screenshot of the {% data variables.product.prodname_code_scanning_caps %} results check on a pull request. The "View all branch alerts" link is emphasised.](/assets/images/enterprise/code-security/code-scanning-results-check.png)
-{% endif %}
 
 ### {% data variables.product.prodname_code_scanning_caps %} results check failures
 

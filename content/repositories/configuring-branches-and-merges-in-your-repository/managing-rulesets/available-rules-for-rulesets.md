@@ -167,9 +167,11 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 ## Require workflows to pass before merging
 
-> [!NOTE] This rule can only be configured in your organization settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+{% data reusables.repositories.rulest-workflows-intro-paragraph %}
 
-You can require all changes made to a targeted branch to pass specified workflows before they can be merged.
+For more information about troubleshooting common ruleset workflow configuration settings, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#troubleshooting-ruleset-workflows)."
+
+### Using a workflow file
 
 To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."
 
@@ -177,19 +179,23 @@ If the workflow file is in an internal or private repository and you want to use
 
 When you add this rule to a ruleset, in your organization settings, you specify the source repository and the workflow you want to enforce.
 
-> [!IMPORTANT]
->
-> - Workflows run by this rule only support the `pull_request`, `pull_request_target` and `merge_group` events. As a result, you must specify one or more of these events in the `on:` section of the workflow for the workflow to be run by a ruleset. Any filters you specify for the supported events are ignored - for example, `branches`, `branches-ignore`, `paths`, `types` and so on. The workflow is only, and always, triggered by the default activity types of the supported events.
->
->   | Event                 | Default activity types              |
->   | --------------------- | ----------------------------------- |
->   | `pull_request`        | `opened`, `synchronize`, `reopened` |
->   | `pull_request_target` | `opened`, `synchronize`, `reopened` |
->   | `merge_group`         | `checks_requested`                  |
->
-> - This rule should only be added to rulesets that target branches where all changes to the branch are performed by pull requests. The workflow will run as part of the pull request and merge queue experience. Applying this rule will block direct pushes. For this reason you should not apply this rule to a ruleset that targets all branches in the repository.
+### Using "Evaluate" mode for ruleset workflows
 
-A required workflow can block people from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
+If a ruleset workflow runs in "Evaluate" mode and passes, you can set the ruleset workflow to "Active" mode and merge your pull request without triggering a new workflow run.
+
+If you open a pull request before you create the ruleset in "Evaluate" mode, you can still merge the pull request since the ruleset is not enforced.
+
+For more information about enforcement statuses, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#about-using-enforcement-statuses)."
+
+### Supported event triggers
+
+{% data reusables.repositories.ruleset-workflow-event-triggers %}
+
+### Targeting specific branches with your ruleset workflow
+
+Applying this rule will block direct pushes because the ruleset workflows run as part of the pull request and merge queue experience. For this reason you should not apply this rule to a ruleset that targets all branches in the repository.
+
+This rule should only be added to rulesets that target branches where all changes to the branch are performed by pull requests.
 
 {% endif %}
 
