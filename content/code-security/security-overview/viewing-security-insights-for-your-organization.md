@@ -152,7 +152,7 @@ The impact analysis table has separate tabs showing data for: "Repositories" and
 
 - The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 
-- The "Advisories" tab applies to {% data variables.product.prodname_dependabot %} alerts, and shows the top 10 CVE advisories as of the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
+- The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
 
 {% else %}
 
