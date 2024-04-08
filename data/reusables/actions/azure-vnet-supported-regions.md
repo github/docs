@@ -11,7 +11,6 @@ The {% data variables.product.prodname_actions %} service supports a subset of a
 - `SoutheastAsia`
 - `SwitzerlandNorth`
 - `UkSouth`
-- `WestEurope`
 
 Azure private networking supports GPU runners in the following regions.
 

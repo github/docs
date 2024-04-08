@@ -1,6 +1,21 @@
 import { uniq } from 'lodash-es'
 
 export default function earlyAccessContext(req, res, next) {
+  // Use req.pagePath instead of req.path because req.path is the path
+  // normalized after "converting" that `/_next/data/...` path to the
+  // equivalent path if it had *not* been a client-side routing fetch.
+  const url = req.pagePath.split('/').slice(2)
+  if (
+    !(
+      // Is it `/early-access` or `/enterprise-cloud@latest/early-access`?
+      (
+        (url.length === 2 && url[1] === 'early-access') ||
+        (url.length === 1 && url[0] === 'early-access')
+      )
+    )
+  ) {
+    return next()
+  }
   if (process.env.NODE_ENV !== 'development') {
     return next(404)
   }
