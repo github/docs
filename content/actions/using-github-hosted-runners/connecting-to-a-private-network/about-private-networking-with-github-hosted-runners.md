@@ -49,6 +49,8 @@ Organization owners using the {% data variables.product.prodname_team %} plan ca
 
 Enterprise owners can configure Azure private networking for {% data variables.product.company_short %}-hosted runners at the enterprise level. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
 
+Organization owners for organizations in an enterprise can configure Azure private networking for {% data variables.product.company_short %}-hosted runners at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)."
+
 {% endif %}
 
 {% endif %}

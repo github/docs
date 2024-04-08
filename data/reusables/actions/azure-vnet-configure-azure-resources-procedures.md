@@ -325,7 +325,7 @@ To use the script, fill in the placeholder environment variable values with the 
 # - Resource group
 # - Network Security Group rules
 # - Virtual network (vnet) and subnet
-# - Network Settings with specified subnet and GitHub {% ifversion ghec %}Enterprise{% else %}Organization {% endif %}database ID
+# - Network Settings with specified subnet and GitHub Enterprise database ID
 #
 # It also registers the `GitHub.Network` resource provider with the subscription,
 # delegates the created subnet to the Actions service via the `GitHub.Network/NetworkSettings`

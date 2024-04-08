@@ -31,11 +31,7 @@ Ensure your Azure resources have been configured _before_ adding a network confi
 {% endnote %}
 
 1. Create a new runner group for your{% ifversion ghec %} enterprise. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-enterprise)."{% else %} organization. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-organization)."{% endif %}
-{%- ifversion ghec %}
 {% data reusables.actions.workflows.runner-groups-enterprise-organization-access %}
-{% else %}
-1. To choose a policy for repository access, select the **Repository access** dropdown menu and click a policy. You can configure a runner group to be accessible to a specific list of repositories, or all repositories in the organization.
-{% endif %}
 1. While configuring your runner group, under "Network configurations," use the dropdown menu to select the network configuration you created for the Azure VNET.
 1. To create the group and apply the policy, click **Create group**.
 
