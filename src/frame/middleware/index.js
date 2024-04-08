@@ -251,7 +251,7 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   app.use(robots)
-  app.use(/(\/.*)?\/early-access$/, earlyAccessLinks)
+  app.use(earlyAccessLinks)
   app.use('/categories.json', asyncMiddleware(categoriesForSupport))
   app.get('/_500', asyncMiddleware(triggerError))
 
