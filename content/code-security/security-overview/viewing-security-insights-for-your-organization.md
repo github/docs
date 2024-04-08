@@ -26,7 +26,7 @@ You can view a variety of metrics about the security alerts in your organization
 - The "Remediation" section shows information about how alerts are resolved and alert activity over time.
 - The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization.
 
-You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays only alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}) or all third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
 Enterprise members can access the overview page for organizations in their enterprise. The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
 
@@ -67,7 +67,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 {% ifversion security-overview-additional-tools %}
 {% note %}
 
-**Note:** Some metrics in the security overview dashboard contain a trend indicator, which shows the percentage gain or loss for the chosen time period relative to the one before. This feature is in beta, and is subject to change.
+**Note:** Some metrics in the security overview dashboard contain a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports down 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports up 200%. This feature is in beta, and is subject to change. This feature is in beta, and is subject to change.
 
 {% endnote %}
 {% endif %}
