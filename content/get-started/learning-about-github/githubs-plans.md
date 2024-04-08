@@ -132,6 +132,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 - 50,000 {% data variables.product.prodname_actions %} minutes per month
+  - Included minutes can be used with standard {% data variables.product.prodname_dotcom %}-hosted runners only. For more information about billing for {% data variables.actions.hosted_runners %}, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners#understanding-billing)."
 - 50 GB {% data variables.product.prodname_registry %} storage
 - A service level agreement for 99.9% monthly uptime
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
