@@ -27,6 +27,7 @@
  *
  */
 
+import { strictEqual } from 'node:assert'
 import fs from 'fs'
 import path from 'path'
 
@@ -296,5 +297,9 @@ function escapeRegex(string: string) {
 }
 
 function isFloat(x: any) {
-  return !!(parseFloat(x) + 1)
+  return !!(Number(x) + 1)
 }
+strictEqual(isFloat('1.2'), true)
+strictEqual(isFloat('10'), true)
+strictEqual(isFloat('notatall'), false)
+strictEqual(isFloat('2fa'), false)
