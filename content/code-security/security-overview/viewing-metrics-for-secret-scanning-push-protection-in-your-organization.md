@@ -25,10 +25,10 @@ If you are an organization owner or security manager, the metrics overview for {
 The overview shows you a summary of how many pushes containing secrets have been successfully blocked across your organization by push protection, as well as how many times push protection was bypassed.
 
 You can also find more granular metrics, such as:
-- the secret types that have been blocked or bypassed the most
-- the repositories that have had the most pushes blocked
-- the repositories that are bypassing push protection the most
-- the percentage distribution of reasons that users give when they bypass the protection
+- The secret types that have been blocked or bypassed the most
+- The repositories that have had the most pushes blocked
+- The repositories that are bypassing push protection the most
+- The percentage distribution of reasons that users give when they bypass the protection
 
 {% ifversion security-overview-additional-tools %}Use the date picker to set the time range that you want to view alert activity and metrics for, and click in the search box to add further filters on the alerts and metrics displayed. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#additional-filters-for-secret-scanning-alert-views)."
 
