@@ -193,7 +193,8 @@
       "src/bookmarklets/*",
       "src/open-source/scripts/add-pr-links.js",
       "src/open-source/scripts/pr-link-source.js",
-      "rest-api-description/"
+      "rest-api-description/",
+      "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
     ]
   },
   "jest": {
@@ -313,7 +314,7 @@
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
-    "tsx": "4.7.1",
+    "tsx": "4.7.2",
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.0.0",
@@ -322,13 +323,13 @@
   "devDependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^6.0.0",
-    "@axe-core/playwright": "^4.8.5",
+    "@axe-core/playwright": "^4.9.0",
     "@github/markdownlint-github": "^0.4.1",
     "@graphql-inspector/core": "^5.0.0",
     "@graphql-tools/load": "^8.0.0",
     "@jest/globals": "29.7.0",
     "@octokit/rest": "^20.0.2",
-    "@playwright/test": "1.42.1",
+    "@playwright/test": "1.43.0",
     "@types/imurmurhash": "^0.1.4",
     "@types/js-cookie": "^3.0.6",
     "@types/lodash": "^4.14.202",
@@ -369,7 +370,7 @@
     "micromark-extension-gfm-table": "^2.0.0",
     "mkdirp": "^3.0.0",
     "mockdate": "^3.0.5",
-    "nock": "^13.5.0",
+    "nock": "^13.5.4",
     "nodemon": "3.1.0",
     "npm-merge-driver-install": "^3.0.0",
     "nth-check": "2.1.1",
@@ -378,8 +379,8 @@
     "robots-parser": "^3.0.0",
     "sass": "^1.52.3",
     "start-server-and-test": "^2.0.3",
-    "ts-jest": "29.1.1",
-    "typescript": "^5.4.2",
+    "ts-jest": "29.1.2",
+    "typescript": "^5.4.4",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
     "website-scraper": "^5.3.1"
