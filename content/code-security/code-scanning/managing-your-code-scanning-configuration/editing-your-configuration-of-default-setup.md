@@ -15,8 +15,8 @@ topics:
 
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit{% ifversion code-scanning-without-workflow-310 %}:
 - Which languages default setup will analyze.
-- {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models-java %}
-- The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the beta, threat models are supported only by Java analysis. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
+- {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
+- The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the beta, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
 {% endif %}
 
 {% ifversion codeql-model-packs %}
@@ -37,7 +37,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. In the "{% data variables.product.prodname_codeql %} analysis" row of the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "gear" aria-hidden="true" %} **View {% data variables.product.prodname_codeql %} configuration**.
 1. In the "{% data variables.product.prodname_codeql %} default configuration" window, click {% octicon "pencil" aria-hidden="true" %} **Edit**.
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
-1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models-java %}
+1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models %}
 1. (Beta) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
 {% endif %}
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.
@@ -64,7 +64,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ## Including local sources of tainted data in default setup
 

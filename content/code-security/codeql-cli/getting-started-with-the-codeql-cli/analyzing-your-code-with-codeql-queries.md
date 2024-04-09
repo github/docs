@@ -296,13 +296,13 @@ For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advan
 
 For information about creating custom query suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
 
-{% ifversion codeql-cli-threat-models-java %}
+{% ifversion codeql-cli-threat-models %}
 
 ### Including model packs to add potential sources of tainted data
 
 {% data reusables.code-scanning.beta-threat-models-cli %}
 
-You can configure threat models in a {% data variables.product.prodname_code_scanning %} analysis. For more information, see "[Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin)" in the {% data variables.product.prodname_codeql %} documentation.
+You can configure threat models in a {% data variables.product.prodname_code_scanning %} analysis. For more information, see "[Threat models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin/#threat-models)" and "[Threat models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/#threat-models)" in the {% data variables.product.prodname_codeql %} documentation.
 
 ```shell
 $ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \

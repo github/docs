@@ -285,7 +285,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Using {% data variables.product.prodname_codeql %} model packs
 
@@ -501,7 +501,7 @@ packs:
 {% endraw %}
 {% endif %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
