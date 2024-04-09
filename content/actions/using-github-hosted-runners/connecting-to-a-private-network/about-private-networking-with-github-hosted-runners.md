@@ -9,7 +9,12 @@ versions:
 type: overview
 topics:
   - Actions
+  - Action development
+  - Azure Virtual Network
+  - Administrator
   - Developer
+  - CI
+  - CD
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -18,7 +23,7 @@ topics:
 
 {% data reusables.actions.about-private-networking-github-hosted-runners %}
 
- There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
+There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
 
 ## Using an API Gateway with OIDC
 
@@ -32,8 +37,18 @@ topics:
 
 ## Using an Azure Virtual Network (VNET)
 
-{% data reusables.actions.private-networking-actions-azure-vnet-beta-note %}
+{% data reusables.actions.azure-vnet-network-configuration-intro %}
 
-{% data reusables.actions.azure-vnet-injected-runners-intro %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network)."
+{% ifversion fpt %}
+
+Organization owners using the {% data variables.product.prodname_team %} plan can configure Azure private networking for {% data variables.product.company_short %}-hosted runners at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)."
+
+{% endif %}
+
+{% ifversion ghec %}
+
+Enterprise owners can configure Azure private networking for {% data variables.product.company_short %}-hosted runners at the enterprise level. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
+
+{% endif %}
 
 {% endif %}

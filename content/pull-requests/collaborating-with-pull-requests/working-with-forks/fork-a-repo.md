@@ -172,7 +172,7 @@ When you fork a project in order to propose changes to the upstream repository, 
 1. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
 
    ```shell
-   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
+   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/Spoon-Knife.git
    ```
 
 1. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the upstream repository as `upstream`.
@@ -181,8 +181,8 @@ When you fork a project in order to propose changes to the upstream repository, 
    $ git remote -v
    > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
    > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
    ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."

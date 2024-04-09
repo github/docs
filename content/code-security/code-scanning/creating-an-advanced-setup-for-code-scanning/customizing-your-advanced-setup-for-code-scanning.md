@@ -65,7 +65,7 @@ Scanning code when someone pushes a change, and whenever a pull request is creat
 
 ### Scanning on push
 
-By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#on)."
+By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on:push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#on)."
 
 If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
@@ -285,7 +285,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Using {% data variables.product.prodname_codeql %} model packs
 
@@ -501,7 +501,7 @@ packs:
 {% endraw %}
 {% endif %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 

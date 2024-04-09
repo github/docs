@@ -60,13 +60,17 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 
-  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
-  |---|---|---|
-  | All | 1000 | The limit is based on your {% data variables.product.prodname_dotcom %} plan. |
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs | Maximum concurrent GPU jobs |
+  |---|---|---|---|
+  | Team | 1000 | 5 | 100 |
+  | Enterprise | 1000 | 50 | 100 |
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  **Notes:**
+
+  - If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  - The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
 
   {% endnote %}
 

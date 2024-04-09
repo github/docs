@@ -75,8 +75,6 @@ Because runner environment variable interpolation is done after a workflow job i
 
 When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
 
-Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default variables are exceptions to this convention.
-
 {% note %}
 
 **Note**: You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
@@ -153,7 +151,6 @@ The following rules apply to configuration variable names:
 ### Limits for configuration variables
 
 {% ifversion ghes %}
-{% ifversion ghes > 3.8 %}
 
 Individual variables are limited to 48 KB in size.
 
@@ -170,18 +167,6 @@ A workflow created in a repository can access the following number of variables:
 **Note**: Environment-level variables do not count toward the 10 MB total size limit. If you exceed the combined size limit for repository and organization variables and still need additional variables, you can use an environment and define additional variables in the environment.
 
 {% endnote %}
-{% elsif ghes < 3.9 %}
-
-Individual variables are limited to 48 KB in size.
-
-You can store up to 1,000 organization variables, 100 variables per repository, and 100 variables per environment.
-
-A workflow created in a repository can access the following number of variables:
-
-- All 100 repository variables.
-- If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
-- All 100 environment-level variables.
-{% endif %}
 
 {% else %}
 

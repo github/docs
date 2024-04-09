@@ -24,8 +24,6 @@ Subdomain isolation mitigates cross-site scripting and other related vulnerabili
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
-{% data reusables.enterprise_site_admin_settings.3-7-new-subdomains %}
-
 | Path without subdomain isolation  | Path with subdomain isolation   |
 | --- | --- |
 | `http(s)://HOSTNAME/` | `http(s)://docker.HOSTNAME/` |

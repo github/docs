@@ -31,6 +31,20 @@ If you haven't already enabled GHAS for your {% data variables.product.prodname_
 
 You need to enable GHAS for each pilot project, either by enabling the GHAS features for each repository or for all repositories in any organizations taking part in the pilot. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
 
+{% ifversion security-configurations %}
+
+## Piloting all {% data variables.product.prodname_GH_advanced_security %} features (beta)
+
+{% data reusables.security-configurations.enable-security-features-with-gh-config %}
+
+{% note %}
+
+**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+
+{% endif %}
+
 ## Piloting {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}

@@ -29,6 +29,11 @@ describe('rendering early-access', () => {
     expect(res.statusCode).toBe(404)
   })
 
+  testViaActionsOnly('the enterprise-cloud TOC is always 404', async () => {
+    const res = await get('/en/enterprise-cloud@latest/early-access')
+    expect(res.statusCode).toBe(404)
+  })
+
   testViaActionsOnly('TOCs display on category pages', async () => {
     const $ = await getDOM('/en/early-access/github/enforcing-best-practices-with-github-policies')
     expect($('ul a').length).toBeGreaterThan(5)

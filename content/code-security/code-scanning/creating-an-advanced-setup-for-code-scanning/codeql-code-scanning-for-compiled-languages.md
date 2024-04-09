@@ -50,13 +50,9 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 {% endif %}
 
-{% ifversion ghes < 3.10 and ghes > 3.8 %}
+{% ifversion ghes < 3.10 %}
 
 In {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, default setup does not support any compiled languages, so you must use advanced setup. Advanced setup generates a workflow file you can edit. The starter workflow files use `autobuild` to analyze compiled languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
-
-{% elsif ghes < 3.9 %}
-
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."
 
 {% endif %}
 
@@ -114,8 +110,8 @@ steps:
     - name: Initialize CodeQL
       uses: {% data reusables.actions.action-codeql-action-init %}
       with:
-        languages: ${{ matrix.language }}
-    - if: ${{ matrix.build-mode == 'manual' }}
+        languages: {% raw %}${{ matrix.language }}{% endraw %}
+    - if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
       name: Build C and C++ code
       run: |
         echo 'If you are using a "manual" build mode for one or more of the' \

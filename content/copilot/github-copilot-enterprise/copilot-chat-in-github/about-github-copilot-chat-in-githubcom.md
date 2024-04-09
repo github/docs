@@ -34,6 +34,8 @@ The chat interface provides access to coding information and support without req
 
 {% data variables.product.prodname_copilot_chat %} can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. {% data variables.product.prodname_copilot_chat %} is not designed to answer non-coding questions or provide general information on topics outside of coding.
 
+The primary supported language for {% data variables.product.prodname_copilot_chat %} on {% data variables.product.prodname_dotcom_the_website %} is English.
+
 {% data variables.product.prodname_copilot_chat %} works by using a combination of natural language processing and machine learning to understand your question and provide you with an answer. This process can be broken down into a number of steps.
 
 ### Input processing

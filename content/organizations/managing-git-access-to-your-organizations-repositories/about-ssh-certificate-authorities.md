@@ -19,7 +19,13 @@ An SSH certificate is a mechanism for one SSH key to sign another SSH key. If yo
 
 {% data reusables.organizations.ssh-ca-ghec-only %}
 
-After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members. Organization members can use the signed certificates to access your organization's repositories (and only your organization's repositories) with Git. Optionally, you can require that members use SSH certificates to access organization resources. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members. Organization members can use the signed certificates to access that organization's repositories.
+
+Certificates added to your enterprise grant access to all organizations owned by your enterprise account. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+
+{% data reusables.organizations.can-require-ssh-cert %}
+
+Optionally, you can require that members use SSH certificates to access organization resources. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
 
 For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
 
@@ -29,7 +35,7 @@ Organization members can use their signed certificates for authentication even i
 Unless you make SSH certificates a requirement, organization members can continue to use other means of authentication to access your organization's resources with Git, including their username and password, {% data variables.product.pat_generic %}s, and their own SSH keys.
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
+{% data reusables.emus.ssh-ca-support-for-emu %}
 
 ## About SSH URLs with SSH certificates
 

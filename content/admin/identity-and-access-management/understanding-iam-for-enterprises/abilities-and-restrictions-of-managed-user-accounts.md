@@ -33,6 +33,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
   - Star, watch, or fork the repository
 
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
+- {% data variables.enterprise.prodname_managed_users_caps %} cannot create personalised profiles.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.

@@ -21,6 +21,10 @@ children:
   - /managing-the-forking-policy-for-your-organization
   - /managing-pull-request-reviews-in-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
+  - /about-networking-for-hosted-compute-products-in-your-organization
+  - /about-azure-private-networking-for-github-hosted-runners-in-your-organization
+  - /configuring-private-networking-for-github-hosted-runners-in-your-organization
+  - /troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-organization
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization

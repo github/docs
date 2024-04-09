@@ -23,6 +23,16 @@ shortTitle: Manage security & analysis
 {% ifversion ghec or ghes %}If your organization is owned by an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, then extra options for managing security and analysis settings may be available. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."{% endif %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
+{% ifversion security-configurations %}
+{% data reusables.security-configurations.enable-security-features-with-gh-config %}
+
+{% note %}
+
+**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+
+{% endif %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 ## Displaying the security and analysis settings
