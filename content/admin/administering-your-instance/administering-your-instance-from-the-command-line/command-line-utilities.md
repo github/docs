@@ -966,7 +966,7 @@ For more information about the configuration of {% data variables.product.prodna
 {% ifversion ghes-actions-storage-oidc %}
 {% note %}
 
-**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. It does not work with OpenID Connect (OIDC) configurations.
+**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
 
 {% endnote %}
 {% endif %}
@@ -980,6 +980,24 @@ If your storage system is configured correctly, you'll see the following output.
 ```text
 All Storage tests passed
 ```
+
+{% ifversion ghes-actions-storage-oidc %}
+
+### ghe-actions-test-storage-with-oidc
+
+This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
+
+{% note %}
+
+**Note:** This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
+
+{% endnote %}
+
+```shell
+ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
+```
+
+{% endif %}
 
 ### ghe-actions-stop
 
@@ -1011,6 +1029,28 @@ If your system is configured correctly, you'll see the following output:
 
 ```shell
 Actions was enabled!
+```
+
+## {% data variables.product.prodname_registry %}
+
+### ghe-check-blob-connection
+
+This utility checks that a blob storage provider for {% data variables.product.prodname_registry %} is valid on {% data variables.location.product_location %}.
+
+```shell
+ghe-check-blob-connection --help
+```
+
+If a connection was previously configured, tests may be performed by directly running the command without any parameters.
+
+```shell
+ghe-check-blob-connection
+```
+
+If your system is configured correctly, you'll see the following output:
+
+```shell
+All Storage tests passed
 ```
 
 ## High availability
