@@ -1,4 +1,4 @@
-# Reference: #12431.
+# Reference: #12431 and #13323
 # Documentation for CodeQL threat models
 versions:
   fpt: '*'
