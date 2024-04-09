@@ -30,7 +30,7 @@ Make sure you add your custom domain to your {% data variables.product.prodname_
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
+The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Windows users can use the `Resolve-DnsName` PowerShell command or install [BIND](https://www.isc.org/bind/) to verify DNS records are configured correctly.
 
 {% endwindows %}
 
