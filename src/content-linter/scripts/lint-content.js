@@ -327,7 +327,7 @@ function getFilesToLint(paths) {
       } else if (isInDir(absPath, dataDir)) {
         if (absPath.endsWith('.yml')) {
           fileList.yml.push(absPath)
-        } else {
+        } else if (absPath.endsWith('.md')) {
           fileList.data.push(absPath)
         }
       }
@@ -342,7 +342,12 @@ function getFilesToLint(paths) {
   function cleanPaths(filePaths) {
     const clean = []
     for (const filePath of filePaths) {
-      if (path.basename(filePath) === 'README.md') continue
+      if (
+        path.basename(filePath) === 'README.md' ||
+        (!filePath.endsWith('.md') &&
+        !filePath.endsWith('.yml'))
+      )
+        continue
       const relPath = path.relative(root, filePath)
       if (seen.has(relPath)) continue
       seen.add(relPath)
