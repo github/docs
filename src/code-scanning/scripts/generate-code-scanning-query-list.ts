@@ -201,7 +201,7 @@ async function main(options: Options, language: string) {
 }
 
 function printQueries(options: Options, queries: QueryExtended[], includeAutofix: boolean) {
-  const markdown = []
+  const markdown: string[] = []
   markdown.push('{% rowheaders %}')
   markdown.push('') // blank line
   const header = ['Query name', 'Related CWEs', 'Default', 'Extended']
