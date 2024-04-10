@@ -344,8 +344,7 @@ function getFilesToLint(paths) {
     for (const filePath of filePaths) {
       if (
         path.basename(filePath) === 'README.md' ||
-        (!filePath.endsWith('.md') &&
-        !filePath.endsWith('.yml'))
+        (!filePath.endsWith('.md') && !filePath.endsWith('.yml'))
       )
         continue
       const relPath = path.relative(root, filePath)
