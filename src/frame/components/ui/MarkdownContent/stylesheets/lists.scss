@@ -6,8 +6,15 @@ $ol-circled-reduce-diameter: 2px;
 .markdownBody {
   > :global(.ghd-tool) > ol:not(:global(.no-styling)),
   > ol:not(:global(.no-styling)) {
+    // We will remove the default list style and use contrasting circled counter instead
     list-style: none;
 
+    // So that list items have the same margin regardless of `li > p` or `li > [text]`
+    > li {
+      margin-bottom: 16px;
+    }
+
+    // This is the contrasting circled counter for the list item
     > li::before {
       content: counter(list-item);
       float: left;
@@ -23,6 +30,7 @@ $ol-circled-reduce-diameter: 2px;
       border-radius: 50%;
     }
 
+    // Any list below top level uses plain letters
     ol {
       list-style-type: lower-alpha;
     }
