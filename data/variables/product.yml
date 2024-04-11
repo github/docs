@@ -300,9 +300,6 @@ raw_github_com: >-
 current-340-version: '11.10.354'
 
 # Developer site product variables
-# Use this inside command-line and other code blocks
-doc_url_pre: >-
-  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}<!-- markdownlint-disable-line search-replace -->
 # Use this inside command-line code blocks
 api_url_pre: >-
   {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% endif %}
