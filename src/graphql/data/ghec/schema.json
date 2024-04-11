@@ -50357,6 +50357,14 @@
           "href": "/graphql/reference/enums#pullrequeststate"
         },
         {
+          "name": "statusCheckRollup",
+          "description": "<p>Check and Status rollup information for the PR's head ref.</p>",
+          "type": "StatusCheckRollup",
+          "id": "statuscheckrollup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#statuscheckrollup"
+        },
+        {
           "name": "suggestedReviewers",
           "description": "<p>A list of reviewer suggestions based on commit history and past review comments.</p>",
           "type": "[SuggestedReviewer]!",
