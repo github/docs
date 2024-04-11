@@ -290,10 +290,6 @@ product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}
 pricing_url: 'https://github.com/pricing'
 pricing_link: '[GitHub Pricing](https://github.com/pricing)'
-signin_link: >-
-  {% ifversion fpt or ghec %}[Sign in](https://github.com/login){% else %}Sign in (`https://HOSTNAME/login`){% endif %}
-signout_link: >-
-  {% ifversion fpt or ghec %}[Sign out](https://github.com/logout){% else %}Sign out (`https://HOSTNAME/logout`){% endif %}
 raw_github_com: >-
   {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}HOSTNAME/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
