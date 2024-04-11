@@ -168,7 +168,7 @@ You can also use `..` to filter for an inclusive range. When working with a rang
 | <code>field:<em>VALUE</em>..<em>VALUE</em></code> | **priority:1..3** will show items with a priority of 1, 2, or 3.
 |                                                   | **date:2022-01-01..2022-12-31** will show items from the year 2022.
 |                                                   | **points:\*..10** will show items with an points value of anything up to and including 10.
-|                                                   | **iteration:"Iteration 1".."Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
+|                                                   | **iteration:"Iteration 1..Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
 
 ## Filtering assignees and reviewers using keywords
 
