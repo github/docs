@@ -111,7 +111,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     -X POST \
     -H "Accept: application/vnd.github+json" \
     /repos/OWNER/REPO/deployments \
-    -fref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
+    -f ref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
 */
 export function getGHExample(operation: Operation, codeSample: CodeSample) {
   const defaultAcceptHeader = getAcceptHeader(codeSample)
@@ -132,47 +132,108 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   const requiredQueryParams = getRequiredQueryParamsPath(operation, codeSample)
   requestPath += requiredQueryParams ? `?${requiredQueryParams}` : ''
 
+  type TypedItem = 'string' | 'number' | 'boolean'
+  type NestedObjectParameter =
+    | TypedItem
+    | { [key: string]: NestedObjectParameter }
+    | NestedObjectParameter[]
+
+  const startTransformKey = (currentKey: string): string => currentKey
+
+  function handleSingleParameter(
+    key: string,
+    value: NestedObjectParameter,
+    transformKey = startTransformKey,
+  ): string {
+    let cliLine = ''
+    const keyString = `${transformKey(key)}`
+    // When only a value is passed to bodyParameters we don't show the '=' since there isn't a key
+    let separator = '='
+    if (!key) {
+      separator = ''
+    }
+    if (typeof value === 'string') {
+      cliLine += ` -f "${keyString}${separator}${value}"`
+    } else if (typeof value === 'number' || typeof value === 'boolean' || value === null) {
+      cliLine += ` -F "${keyString}${separator}${value}"`
+    } else if (Array.isArray(value)) {
+      for (const param of value) {
+        if (Array.isArray(param)) {
+          throw new Error('Nested arrays are not valid in the bodyParameters')
+        }
+
+        if (typeof param === 'object' && param !== null) {
+          cliLine += handleObjectParameter(
+            param,
+            (nextKey: string): string => `${keyString}[]${nextKey}`,
+          )
+        } else {
+          // Transform key in this case needs to account for the `key` being passed in
+          cliLine += handleSingleParameter(key, param, (nextKey: string): string => `${nextKey}[]`)
+        }
+      }
+    } else if (typeof value === 'object') {
+      cliLine += handleObjectParameter(value, (nextKey) => `${keyString}[${nextKey}]`)
+    }
+    return cliLine
+  }
+
+  function handleObjectParameter(
+    objectParams: NestedObjectParameter,
+    transformKey = startTransformKey,
+  ): string {
+    let cliLine = ''
+    for (const [key, value] of Object.entries(objectParams)) {
+      if (Array.isArray(value)) {
+        for (const param of value) {
+          // This isn't valid in a REST context, our REST API should not be designed to take
+          // something like { "letterSegments": [["a", "b", "c"], ["d", "e", "f"]] }
+          // If this is a possibility, we can update the code to handle it
+          if (Array.isArray(param)) {
+            throw new Error('Nested arrays are not valid in the bodyParameters')
+          }
+
+          if (typeof param === 'object' && param !== null) {
+            // When an array of objects, we want to display the key and value as two separate parameters
+            // E.g. -F "properties[][property_name]=repo" -F "properties[][value]=docs-internal"
+            for (const [nestedKey, nestedValue] of Object.entries(param)) {
+              cliLine += handleSingleParameter(
+                `${key}[][${nestedKey}]`,
+                nestedValue as NestedObjectParameter,
+                transformKey,
+              )
+            }
+          } else {
+            cliLine += handleSingleParameter(`${key}[]`, param, transformKey)
+          }
+        }
+      } else if (typeof value === 'object' && value !== null) {
+        cliLine += handleObjectParameter(
+          value as NestedObjectParameter,
+          (nextKey: string) => `${key}[${nextKey}]`,
+        )
+      } else {
+        cliLine += handleSingleParameter(key, value, transformKey)
+      }
+    }
+    return cliLine
+  }
+
   let requestBodyParams = ''
   // Most of the time the example body parameters have a name and value
   // and are included in an object. But, some cases are a single value
   // and the type is a string.
   const { bodyParameters } = codeSample.request
   if (bodyParameters) {
+    // There should not be a case in a REST API where only an array is sent
+    if (Array.isArray(bodyParameters)) {
+      throw new Error('Array of arrays found in body parameters')
+    }
+
     if (typeof bodyParameters === 'object') {
-      const bodyParamValues = Object.values(bodyParameters)
-      // GitHub CLI does not support sending Objects using the -F or
-      // -f flags. That support may be added in the future. It is possible to
-      // use gh api --input to take a JSON object from standard input
-      // constructed by jq and piped to gh api. However, we'll hold off on adding
-      // that complexity for now.
-      if (bodyParamValues.some((elem) => typeof elem === 'object' && !Array.isArray(elem))) {
-        return undefined
-      }
-      requestBodyParams = Object.entries(bodyParameters)
-        .map(([key, params]) => {
-          if (typeof params === 'string') {
-            return `-f ${key}='${params}' `
-          } else if (Array.isArray(params)) {
-            let cliLine = ''
-            for (const param of params) {
-              if (typeof param === 'string') {
-                cliLine += `-f "${key}[]=${param}" `
-              } else {
-                // When an array of objects is sent, the CLI takes the key and value as two separate arguments
-                // E.g. -F "properties[][property_name]=repo" -F "properties[][value]=docs-internal"
-                for (const [k, v] of Object.entries(param)) {
-                  cliLine += `-F "${key}[][${k}]=${v}" `
-                }
-              }
-            }
-            return cliLine
-          } else {
-            return `-F ${key}=${params} `
-          }
-        })
-        .join('\\\n ')
+      requestBodyParams += handleObjectParameter(bodyParameters as NestedObjectParameter)
     } else {
-      requestBodyParams = `-f '${bodyParameters}'`
+      requestBodyParams += handleSingleParameter('', bodyParameters)
     }
   }
 
