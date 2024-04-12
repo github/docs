@@ -3550,6 +3550,17 @@
       },
       {
         "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-for-the-authenticated-user",
         "subcategory": "repos",
         "verb": "post",
@@ -5696,17 +5707,6 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "repos",
-        "slug": "create-a-repository-using-a-template",
-        "subcategory": "repos",
-        "verb": "post",
-        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
         "additional-permissions": false
       },
       {
