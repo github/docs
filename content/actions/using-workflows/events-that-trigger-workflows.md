@@ -1184,7 +1184,7 @@ jobs:
 ```yaml
 on:
   schedule:
-    - cron: "0 0,4 * * *"   # <=== Change the value you have here to a different one.
+    - cron: "15 4,5 * * *"   # <=== Change the value you have here to a different one.
 ```
 
 {% endnote %}
