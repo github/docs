@@ -966,7 +966,7 @@ For more information about the configuration of {% data variables.product.prodna
 {% ifversion ghes-actions-storage-oidc %}
 {% note %}
 
-**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. It does not work with OpenID Connect (OIDC) configurations.
+**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
 
 {% endnote %}
 {% endif %}
@@ -980,6 +980,24 @@ If your storage system is configured correctly, you'll see the following output.
 ```text
 All Storage tests passed
 ```
+
+{% ifversion ghes-actions-storage-oidc %}
+
+### ghe-actions-test-storage-with-oidc
+
+This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
+
+{% note %}
+
+**Note:** This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
+
+{% endnote %}
+
+```shell
+ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
+```
+
+{% endif %}
 
 ### ghe-actions-stop
 
@@ -1011,6 +1029,28 @@ If your system is configured correctly, you'll see the following output:
 
 ```shell
 Actions was enabled!
+```
+
+## {% data variables.product.prodname_registry %}
+
+### ghe-check-blob-connection
+
+This utility checks that a blob storage provider for {% data variables.product.prodname_registry %} is valid on {% data variables.location.product_location %}.
+
+```shell
+ghe-check-blob-connection --help
+```
+
+If a connection was previously configured, tests may be performed by directly running the command without any parameters.
+
+```shell
+ghe-check-blob-connection
+```
+
+If your system is configured correctly, you'll see the following output:
+
+```shell
+All Storage tests passed
 ```
 
 ## High availability
@@ -1131,6 +1171,67 @@ This utility rewrites the imported repository. This gives you a chance to rename
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.12 %}
+
+## License
+
+### ghe-license
+
+This utility lets you interact with your current active license, or with new licenses without needing to import them first. You can also directly apply the license to make the changes effective using `--apply`. Applying changes with the `ghe-license` utility avoids a configuration run and only restarts the affected services.
+
+You can review the possible commands and flags using `ghe-license -h`.
+
+Alternatively, you can manage licenses using the REST API or the {% data variables.product.prodname_cli %}. See "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)."
+
+Display license information. Alternatively, use the `-j` flag for JSON formatting.
+
+```shell
+ghe-license info
+# "advanced_security_enabled" : true
+# "advanced_security_seats" : 0
+# "cluster_support" : false
+# "company" : "GitHub"
+# "croquet_support" : true
+# "custom_terms" : true
+# "evaluation" : false
+# "expire_at" : "2025-01-01T23:59:59-08:00"
+# "insights_enabled" : true
+# "insights_expire_at" : "2025-01-01T23:59:59.999-08:00"
+# "learning_lab_evaluation_expires" : "2023-01-01T23:59:59.000-08:00"
+# "learning_lab_seats" : 100
+# "perpetual" : false
+# "reference_number" : "123456"
+# "seats" : 0
+# "ssh_allowed" : true
+# "support_key" : null
+# "unlimited_seating" : true
+```
+
+Check the license.
+
+```shell
+ghe-license check
+# License is valid.
+```
+
+All commands are performed on the existing license. However, you can also provide a license from STDOUT using `--pipe`.
+
+```shell
+cat license | ghe-license import --pipe
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+You can also provide a license by assigning a file path to the `GHE_LICENSE_FILE` environment variable.
+
+```shell
+GHE_LICENSE_FILE=/path/license ghe-license import
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+{% endif %}
 
 ## Security
 
@@ -1314,14 +1415,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### ghe-license-usage
+### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
+By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
 
 ```shell
-ghe-license-usage
+{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 ```
 
 ### ghe-org-membership-update

@@ -50357,6 +50357,14 @@
           "href": "/graphql/reference/enums#pullrequeststate"
         },
         {
+          "name": "statusCheckRollup",
+          "description": "<p>Check and Status rollup information for the PR's head ref.</p>",
+          "type": "StatusCheckRollup",
+          "id": "statuscheckrollup",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#statuscheckrollup"
+        },
+        {
           "name": "suggestedReviewers",
           "description": "<p>A list of reviewer suggestions based on commit history and past review comments.</p>",
           "type": "[SuggestedReviewer]!",
@@ -61562,6 +61570,14 @@
           ]
         },
         {
+          "name": "planFeatures",
+          "description": "<p>Returns information about the availability of certain features and limits based on the repository's billing plan.</p>",
+          "type": "RepositoryPlanFeatures!",
+          "id": "repositoryplanfeatures",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryplanfeatures"
+        },
+        {
           "name": "primaryLanguage",
           "description": "<p>The primary language of the repository's code.</p>",
           "type": "Language",
@@ -63436,6 +63452,55 @@
         {
           "name": "protected",
           "description": "<p>Target changes that match these patterns will be prevented except by those with bypass permissions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryPlanFeatures",
+      "kind": "objects",
+      "id": "repositoryplanfeatures",
+      "href": "/graphql/reference/objects#repositoryplanfeatures",
+      "description": "<p>Information about the availability of features and limits for a repository based on its billing plan.</p>",
+      "fields": [
+        {
+          "name": "codeowners",
+          "description": "<p>Whether reviews can be automatically requested and enforced with a CODEOWNERS file.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "draftPullRequests",
+          "description": "<p>Whether pull requests can be created as or converted to draft.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "maximumAssignees",
+          "description": "<p>Maximum number of users that can be assigned to an issue or pull request.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maximumManualReviewRequests",
+          "description": "<p>Maximum number of manually-requested reviews on a pull request.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "teamReviewRequests",
+          "description": "<p>Whether teams can be requested to review pull requests.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

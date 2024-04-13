@@ -764,6 +764,27 @@
     ]
   },
   {
+    "action": "business.change_seats_plan_type",
+    "description": "The seats plan type was changed for an enterprise.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "name",
+      "seats_plan_type_was",
+      "seats_plan_type",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "business.clear_actions_settings",
     "description": "An enterprise owner or site administrator cleared GitHub Actions policy settings for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",

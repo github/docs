@@ -44,6 +44,7 @@ export const Header = () => {
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const { asPath } = useRouter()
   const isSearchResultsPage = router.route === '/search'
+  const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
@@ -330,56 +331,62 @@ export const Header = () => {
           </div>
         </div>
         {!isHomepageVersion && !isSearchResultsPage && (
-          <div className="d-flex flex-items-center d-xxl-none mt-2">
-            <div className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}>
-              <IconButton
-                data-testid="sidebar-hamburger"
-                className="color-fg-muted"
-                variant="invisible"
-                icon={ThreeBarsIcon}
-                aria-label="Open Sidebar"
-                onClick={openSidebar}
-                ref={returnFocusRef}
-              />
-              <Dialog
-                returnFocusRef={returnFocusRef}
-                isOpen={isSidebarOpen}
-                onDismiss={closeSidebar}
-                aria-labelledby="menu-title"
-                sx={{
-                  position: 'fixed',
-                  top: '0',
-                  left: '0',
-                  marginTop: '0',
-                  maxHeight: '100vh',
-                  width: 'auto !important',
-                  transform: 'none',
-                  borderRadius: '0',
-                  borderRight: '1px solid var(--borderColor-default, var(--color-border-default))',
-                }}
+          <div className="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">
+            {!isEarlyAccessPage && (
+              <div
+                className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}
+                data-testid="header-subnav-hamburger"
               >
-                <Dialog.Header
-                  style={{ paddingTop: '0px', background: 'none' }}
-                  id="sidebar-overlay-header"
-                  sx={{ display: 'block' }}
+                <IconButton
+                  data-testid="sidebar-hamburger"
+                  className="color-fg-muted"
+                  variant="invisible"
+                  icon={ThreeBarsIcon}
+                  aria-label="Open Sidebar"
+                  onClick={openSidebar}
+                  ref={returnFocusRef}
+                />
+                <Dialog
+                  returnFocusRef={returnFocusRef}
+                  isOpen={isSidebarOpen}
+                  onDismiss={closeSidebar}
+                  aria-labelledby="menu-title"
+                  sx={{
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    marginTop: '0',
+                    maxHeight: '100vh',
+                    width: 'auto !important',
+                    transform: 'none',
+                    borderRadius: '0',
+                    borderRight:
+                      '1px solid var(--borderColor-default, var(--color-border-default))',
+                  }}
                 >
-                  <AllProductsLink />
-                  {error === '404' || !currentProduct || isSearchResultsPage ? null : (
-                    <div className="mt-3">
-                      <Link
-                        data-testid="sidebar-product-dialog"
-                        href={currentProduct.href}
-                        className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
-                      >
-                        {currentProductName || currentProduct.name}
-                      </Link>
-                    </div>
-                  )}
-                  {isRestPage && <ApiVersionPicker />}
-                </Dialog.Header>
-                <SidebarNav variant="overlay" />
-              </Dialog>
-            </div>
+                  <Dialog.Header
+                    style={{ paddingTop: '0px', background: 'none' }}
+                    id="sidebar-overlay-header"
+                    sx={{ display: 'block' }}
+                  >
+                    <AllProductsLink />
+                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
+                      <div className="mt-3">
+                        <Link
+                          data-testid="sidebar-product-dialog"
+                          href={currentProduct.href}
+                          className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+                        >
+                          {currentProductName || currentProduct.name}
+                        </Link>
+                      </div>
+                    )}
+                    {isRestPage && <ApiVersionPicker />}
+                  </Dialog.Header>
+                  <SidebarNav variant="overlay" />
+                </Dialog>
+              </div>
+            )}
             <div className="mr-auto width-full" data-search="breadcrumbs">
               <Breadcrumbs inHeader={true} />
             </div>

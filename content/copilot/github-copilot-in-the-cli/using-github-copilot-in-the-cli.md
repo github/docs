@@ -87,7 +87,7 @@ The following examples show how to add the alias configurations to your Bash, Po
 
 **Bash**
 
-Add the following to your Bash configuration file:
+Run the following to add the aliases to your Bash configuration file:
 
 ```shell copy
 echo 'eval "$(gh copilot alias -- bash)"' >> ~/.bashrc
@@ -95,17 +95,17 @@ echo 'eval "$(gh copilot alias -- bash)"' >> ~/.bashrc
 
 **PowerShell**
 
-Add the following to your PowerShell profile:
+Run the following to add the aliases to your PowerShell profile:
 
 ```shell copy
 $GH_COPILOT_PROFILE = Join-Path -Path $(Split-Path -Path $PROFILE -Parent) -ChildPath "gh-copilot.ps1"
 gh copilot alias -- pwsh | Out-File ( New-Item -Path $GH_COPILOT_PROFILE -Force )
-echo ". $GH_COPILOT_PROFILE" >> $PROFILE
+echo ". `"$GH_COPILOT_PROFILE`"" >> $PROFILE
 ```
 
 **Zsh**
 
-Add the following to your Zsh configuration file:
+Run the following to add the aliases to your Zsh configuration file:
 
 ```shell copy
 echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc

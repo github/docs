@@ -35916,6 +35916,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   state: PullRequestState!
 
   """
+  Check and Status rollup information for the PR's head ref.
+  """
+  statusCheckRollup: StatusCheckRollup
+
+  """
   A list of reviewer suggestions based on commit history and past review comments.
   """
   suggestedReviewers: [SuggestedReviewer]!
@@ -44256,6 +44261,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): PinnedIssueConnection
 
   """
+  Returns information about the availability of certain features and limits based on the repository's billing plan.
+  """
+  planFeatures: RepositoryPlanFeatures!
+
+  """
   The primary language of the repository's code.
   """
   primaryLanguage: Language
@@ -46044,6 +46054,36 @@ enum RepositoryPermission {
   Can read, clone, and push to this repository. Can also manage issues and pull requests
   """
   WRITE
+}
+
+"""
+Information about the availability of features and limits for a repository based on its billing plan.
+"""
+type RepositoryPlanFeatures {
+  """
+  Whether reviews can be automatically requested and enforced with a CODEOWNERS file
+  """
+  codeowners: Boolean!
+
+  """
+  Whether pull requests can be created as or converted to draft
+  """
+  draftPullRequests: Boolean!
+
+  """
+  Maximum number of users that can be assigned to an issue or pull request
+  """
+  maximumAssignees: Int!
+
+  """
+  Maximum number of manually-requested reviews on a pull request
+  """
+  maximumManualReviewRequests: Int!
+
+  """
+  Whether teams can be requested to review pull requests
+  """
+  teamReviewRequests: Boolean!
 }
 
 """
