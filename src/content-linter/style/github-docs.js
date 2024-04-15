@@ -228,7 +228,7 @@ export const searchReplaceConfig = {
       },
       {
         name: 'docs-domain',
-        message: 'Catch occurrences of docs.gitub.com domain.',
+        message: 'Catch occurrences of docs.github.com domain.',
         search: 'docs.github.com',
         searchScope: 'all',
         severity: 'error',
