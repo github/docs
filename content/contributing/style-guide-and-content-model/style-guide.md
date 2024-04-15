@@ -55,7 +55,7 @@ Recommendations, best practices or product hints. Tips contain non-essential inf
 
 For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
 
->[!TIP] When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+> [!TIP] When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
 #### Note
 
@@ -67,7 +67,7 @@ Notes are particularly useful for communicating parenthetical information that i
 
 For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
 
->[!NOTE] Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+> [!NOTE] Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
 
 #### Warning
 
@@ -77,7 +77,7 @@ Warning callouts are particularly relevant for processes that occur outside the 
 
 For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning callout to alert users that once issued, certificates cannot be revoked:
 
->[!WARNING] After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+> [!WARNING] After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
 
 #### Danger
 
@@ -94,25 +94,25 @@ Callouts are rendered using Markdown.
 Tip:
 
 ```markdown
->[!TIP] Here's a suggestion.
+> [!TIP] Here's a suggestion.
 ```
 
 Note:
 
 ```markdown
->[!NOTE] Keep this in mind.
+> [!NOTE] Keep this in mind.
 ```
 
 Warning:
 
 ```markdown
->[!WARNING] Be careful.
+> [!WARNING] Be careful.
 ```
 
 Danger:
 
 ```markdown
->[!DANGER] Be extremely careful.
+> [!DANGER] Be extremely careful.
 ```
 
 Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
