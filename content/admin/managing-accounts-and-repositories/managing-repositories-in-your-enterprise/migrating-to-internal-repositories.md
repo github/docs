@@ -8,7 +8,7 @@ redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise//migrating-to-internal-repositories
 permissions: Site administrators can migrate to internal repositories.
 versions:
-  ghes: '*'
+  ghes: '<3.10'
 type: how_to
 topics:
   - Enterprise

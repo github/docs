@@ -98,6 +98,8 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 
 ## Managing whether team sync can re-invite non-members to your organization
 
+{% data reusables.saml.team-sync-pending-invites %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
