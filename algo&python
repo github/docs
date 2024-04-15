@@ -1,0 +1,37 @@
+Algorithme Afficher_Table_Verite_et_Formes_Canoniques(fonction_logique)
+    Fonction Evaluer_Fonction(expression, valeurs):
+        // Évalue une expression logique pour un ensemble donné de valeurs booléennes
+        // Retourne le résultat de l'évaluation de l'expression
+        // Implémentation de la logique d'évaluation de l'expression
+        ...
+    
+    Fonction Table_Verite(expression):
+        // Génère la table de vérité pour une expression logique donnée
+        variables := Variables_Unique_dans_Expression(expression)
+        en-tête := Concaténer(variables, expression)
+        Afficher en-tête
+        Afficher Séparateur
+        Pour chaque combinaison de valeurs booléennes pour les variables:
+            résultat := Evaluer_Fonction(expression, valeurs)
+            Afficher Concaténer(valeurs, résultat)
+    
+    Fonction Premiere_Forme_Canonique(expression):
+        // Génère la première forme canonique pour une expression logique donnée
+        // Implémentation de la logique de génération de la première forme canonique
+        ...
+    
+    Fonction Seconde_Forme_Canonique(expression):
+        // Génère la seconde forme canonique pour une expression logique donnée
+        // Implémentation de la logique de génération de la seconde forme canonique
+        ...
+    
+    // Programme principal
+    Afficher "Table de vérité :"
+    Table_Verite(fonction_logique)
+    
+    Afficher "Première forme canonique :"
+    Afficher Premiere_Forme_Canonique(fonction_logique)
+    
+    Afficher "Seconde forme canonique :"
+    Afficher Seconde_Forme_Canonique(fonction_logique)
+Fin Algorithme
