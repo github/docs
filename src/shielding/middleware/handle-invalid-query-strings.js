@@ -29,6 +29,8 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'query',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
+  // Used by the tracking middleware
+  'ghdomain',
 ])
 
 export default function handleInvalidQuerystrings(req, res, next) {
