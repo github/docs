@@ -27,7 +27,7 @@ To read about how {% data variables.product.prodname_dotcom %} is used by educat
 
 - You must offer {% data variables.product.prodname_dotcom %} to all of your technical and academic departments and your school’s logo will be shared on the GitHub Education website as a {% data variables.product.prodname_campus_program %} Partner.
 
-- New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact {% data variables.contact.contact_support %}. For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support.
+- New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact {% data variables.contact.contact_support %}. For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin).
 
 To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement)."
 
