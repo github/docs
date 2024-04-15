@@ -28,9 +28,7 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next to the branch you want to rename, click {% octicon "pencil" aria-label="Rename branch" %}.
-
-    ![Screenshot of a branch in the branch list. A pencil icon is highlighted with an orange outline.](/assets/images/help/branches/branch-rename-edit.png)
+1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click {% octicon "pencil" aria-label="Rename branch" %} **Rename branch**.
 1. Type a new name for the branch.
 1. Review the information about local environments, then click **Rename branch**.
 
