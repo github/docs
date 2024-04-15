@@ -4,8 +4,6 @@ import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releas
 import { get } from '#src/tests/helpers/e2etest.js'
 import readJsonFile from '#src/frame/lib/read-json-file.js'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
-
 describe('developer redirects', () => {
   jest.setTimeout(10 * 60 * 1000)
 

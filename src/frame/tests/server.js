@@ -11,8 +11,6 @@ import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
-
 describe('server', () => {
   jest.setTimeout(60 * 1000)
 
@@ -269,7 +267,7 @@ describe('server', () => {
 })
 
 describe('static routes', () => {
-  it('serves content from the /assets directory', async () => {
+  test('serves content from the /assets directory', async () => {
     const res = await get('/assets/images/site/be-social.gif')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
@@ -283,7 +281,7 @@ describe('static routes', () => {
     expect(res.headers['last-modified']).toBeTruthy()
   })
 
-  it('rewrites /assets requests from a cache-busting prefix', async () => {
+  test('rewrites /assets requests from a cache-busting prefix', async () => {
     // The rewrite-asset-urls.js Markdown plugin will do this to img tags.
     const res = await get('/assets/cb-123456/images/site/be-social.gif')
     expect(res.statusCode).toBe(200)
@@ -293,7 +291,7 @@ describe('static routes', () => {
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
-  it('no manual surrogate key for /assets requests without caching-busting prefix', async () => {
+  test('no manual surrogate key for /assets requests without caching-busting prefix', async () => {
     const res = await get('/assets/images/site/be-social.gif')
     expect(res.statusCode).toBe(200)
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -305,7 +303,7 @@ describe('static routes', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
-  it('serves schema files from the /data/graphql directory at /public', async () => {
+  test('serves schema files from the /data/graphql directory at /public', async () => {
     const res = await get('/public/schema.docs.graphql')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
