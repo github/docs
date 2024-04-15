@@ -1,14 +1,3 @@
-- title: Access to package version deletion
-  description: >-
-    This preview adds support for the DeletePackageVersion mutation which
-    enables deletion of private package versions.
-  toggled_by: ':package-deletes-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.deletePackageVersion
-  owning_teams:
-    - '@github/pe-package-registry'
 - title: Deployments
   description: >-
     This preview adds support for deployments mutations and new deployments
@@ -118,20 +107,3 @@
     - Mutation.importProject
   owning_teams:
     - '@github/pe-issues-projects'
-- title: Team Review Assignments Preview
-  description: >-
-    This preview adds support for updating the settings for team review
-    assignment.
-  toggled_by: ':stone-crop-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - Mutation.updateTeamReviewAssignment
-    - UpdateTeamReviewAssignmentInput
-    - TeamReviewAssignmentAlgorithm
-    - Team.reviewRequestDelegationEnabled
-    - Team.reviewRequestDelegationAlgorithm
-    - Team.reviewRequestDelegationMemberCount
-    - Team.reviewRequestDelegationNotifyTeam
-  owning_teams:
-    - '@github/pe-pull-requests'

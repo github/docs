@@ -3760,20 +3760,6 @@
       "id": "deletepackageversion",
       "href": "/graphql/reference/mutations#deletepackageversion",
       "description": "<p>Delete a package version.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to package version deletion preview",
-        "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
-        "toggled_by": "package-deletes-preview",
-        "toggled_on": [
-          "Mutation.deletePackageVersion"
-        ],
-        "owning_teams": [
-          "@github/pe-package-registry"
-        ],
-        "accept_header": "application/vnd.github.package-deletes-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-package-version-deletion-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -9130,25 +9116,6 @@
       "id": "updateteamreviewassignment",
       "href": "/graphql/reference/mutations#updateteamreviewassignment",
       "description": "<p>Updates team review assignment.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Team review assignments preview",
-        "description": "This preview adds support for updating the settings for team review assignment.",
-        "toggled_by": "stone-crop-preview",
-        "toggled_on": [
-          "Mutation.updateTeamReviewAssignment",
-          "TeamReviewAssignmentAlgorithm",
-          "Team.reviewRequestDelegationEnabled",
-          "Team.reviewRequestDelegationAlgorithm",
-          "Team.reviewRequestDelegationMemberCount",
-          "Team.reviewRequestDelegationNotifyTeam"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.stone-crop-preview+json",
-        "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -69888,26 +69855,7 @@
           "type": "TeamReviewAssignmentAlgorithm",
           "id": "teamreviewassignmentalgorithm",
           "kind": "enums",
-          "href": "/graphql/reference/enums#teamreviewassignmentalgorithm",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Team review assignments preview",
-            "description": "This preview adds support for updating the settings for team review assignment.",
-            "toggled_by": "stone-crop-preview",
-            "toggled_on": [
-              "Mutation.updateTeamReviewAssignment",
-              "TeamReviewAssignmentAlgorithm",
-              "Team.reviewRequestDelegationEnabled",
-              "Team.reviewRequestDelegationAlgorithm",
-              "Team.reviewRequestDelegationMemberCount",
-              "Team.reviewRequestDelegationNotifyTeam"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.stone-crop-preview+json",
-            "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-          }
+          "href": "/graphql/reference/enums#teamreviewassignmentalgorithm"
         },
         {
           "name": "reviewRequestDelegationEnabled",
@@ -69915,26 +69863,7 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Team review assignments preview",
-            "description": "This preview adds support for updating the settings for team review assignment.",
-            "toggled_by": "stone-crop-preview",
-            "toggled_on": [
-              "Mutation.updateTeamReviewAssignment",
-              "TeamReviewAssignmentAlgorithm",
-              "Team.reviewRequestDelegationEnabled",
-              "Team.reviewRequestDelegationAlgorithm",
-              "Team.reviewRequestDelegationMemberCount",
-              "Team.reviewRequestDelegationNotifyTeam"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.stone-crop-preview+json",
-            "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-          }
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "reviewRequestDelegationMemberCount",
@@ -69942,26 +69871,7 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Team review assignments preview",
-            "description": "This preview adds support for updating the settings for team review assignment.",
-            "toggled_by": "stone-crop-preview",
-            "toggled_on": [
-              "Mutation.updateTeamReviewAssignment",
-              "TeamReviewAssignmentAlgorithm",
-              "Team.reviewRequestDelegationEnabled",
-              "Team.reviewRequestDelegationAlgorithm",
-              "Team.reviewRequestDelegationMemberCount",
-              "Team.reviewRequestDelegationNotifyTeam"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.stone-crop-preview+json",
-            "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-          }
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "reviewRequestDelegationNotifyTeam",
@@ -69969,26 +69879,7 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Team review assignments preview",
-            "description": "This preview adds support for updating the settings for team review assignment.",
-            "toggled_by": "stone-crop-preview",
-            "toggled_on": [
-              "Mutation.updateTeamReviewAssignment",
-              "TeamReviewAssignmentAlgorithm",
-              "Team.reviewRequestDelegationEnabled",
-              "Team.reviewRequestDelegationAlgorithm",
-              "Team.reviewRequestDelegationMemberCount",
-              "Team.reviewRequestDelegationNotifyTeam"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.stone-crop-preview+json",
-            "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-          }
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "slug",
@@ -88358,25 +88249,6 @@
       "id": "teamreviewassignmentalgorithm",
       "href": "/graphql/reference/enums#teamreviewassignmentalgorithm",
       "description": "<p>The possible team review assignment algorithms.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Team review assignments preview",
-        "description": "This preview adds support for updating the settings for team review assignment.",
-        "toggled_by": "stone-crop-preview",
-        "toggled_on": [
-          "Mutation.updateTeamReviewAssignment",
-          "TeamReviewAssignmentAlgorithm",
-          "Team.reviewRequestDelegationEnabled",
-          "Team.reviewRequestDelegationAlgorithm",
-          "Team.reviewRequestDelegationMemberCount",
-          "Team.reviewRequestDelegationNotifyTeam"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.stone-crop-preview+json",
-        "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-      },
       "values": [
         {
           "name": "LOAD_BALANCE",
@@ -103533,25 +103405,6 @@
       "id": "updateteamreviewassignmentinput",
       "href": "/graphql/reference/input-objects#updateteamreviewassignmentinput",
       "description": "<p>Autogenerated input type of UpdateTeamReviewAssignment.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Team review assignments preview",
-        "description": "This preview adds support for updating the settings for team review assignment.",
-        "toggled_by": "stone-crop-preview",
-        "toggled_on": [
-          "Mutation.updateTeamReviewAssignment",
-          "TeamReviewAssignmentAlgorithm",
-          "Team.reviewRequestDelegationEnabled",
-          "Team.reviewRequestDelegationAlgorithm",
-          "Team.reviewRequestDelegationMemberCount",
-          "Team.reviewRequestDelegationNotifyTeam"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.stone-crop-preview+json",
-        "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
-      },
       "inputFields": [
         {
           "name": "algorithm",
