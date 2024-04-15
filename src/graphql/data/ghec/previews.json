@@ -1,18 +1,5 @@
 [
   {
-    "title": "Access to package version deletion preview",
-    "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
-    "toggled_by": "package-deletes-preview",
-    "toggled_on": [
-      "Mutation.deletePackageVersion"
-    ],
-    "owning_teams": [
-      "@github/pe-package-registry"
-    ],
-    "accept_header": "application/vnd.github.package-deletes-preview+json",
-    "href": "/graphql/overview/schema-previews#access-to-package-version-deletion-preview"
-  },
-  {
     "title": "Deployments preview",
     "description": "This preview adds support for deployments mutations and new deployments features.",
     "toggled_by": "flash-preview",
@@ -126,23 +113,5 @@
     ],
     "accept_header": "application/vnd.github.slothette-preview+json",
     "href": "/graphql/overview/schema-previews#import-project-preview"
-  },
-  {
-    "title": "Team review assignments preview",
-    "description": "This preview adds support for updating the settings for team review assignment.",
-    "toggled_by": "stone-crop-preview",
-    "toggled_on": [
-      "Mutation.updateTeamReviewAssignment",
-      "TeamReviewAssignmentAlgorithm",
-      "Team.reviewRequestDelegationEnabled",
-      "Team.reviewRequestDelegationAlgorithm",
-      "Team.reviewRequestDelegationMemberCount",
-      "Team.reviewRequestDelegationNotifyTeam"
-    ],
-    "owning_teams": [
-      "@github/pe-pull-requests"
-    ],
-    "accept_header": "application/vnd.github.stone-crop-preview+json",
-    "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
   }
 ]
