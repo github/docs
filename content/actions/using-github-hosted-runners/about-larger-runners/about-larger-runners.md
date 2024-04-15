@@ -85,7 +85,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | --- | ------------- | ------------- | --------------------- |
 | 6   | 14 GB         | 14 GB         | macOS                 |
 | 12  | 30 GB         | 14 GB         | macOS                 |
-| 2   | 8 GB          | 14 GB         | Ubuntu                |
+| 2   | 8 GB          | 75 GB         | Ubuntu                |
 | 4   | 16 GB         | 150 GB        | Ubuntu, Windows               |
 | 8   | 32 GB         | 300 GB        | Ubuntu, Windows       |
 | 16  | 64 GB         | 600 GB        | Ubuntu, Windows       |
