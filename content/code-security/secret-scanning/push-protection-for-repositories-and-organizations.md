@@ -132,14 +132,14 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 {% data reusables.enterprise-accounts.advanced-security-policies %}
 {% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
-{% ifversion custom-pattern-dry-run-ga %}
-   {% note %}
 
-   **Note**: At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
+   {% ifversion custom-pattern-dry-run-ga %}
+   >[!NOTE] At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
+   {%- endif %}
 
-   {% endnote %}
-{%- endif %}
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
+
+   {% data reusables.secret-scanning.custom-pattern-push-protection-enable-button %}
 
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
@@ -170,6 +170,8 @@ Before enabling push protection for a custom pattern at repository level, you mu
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
+   {% data reusables.secret-scanning.custom-pattern-push-protection-enable-button %}
+
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
 {% endif %}
@@ -180,11 +182,7 @@ Before enabling push protection for a custom pattern at repository level, you mu
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-{% ifversion push-protection-custom-link-orgs %}
-
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain organization-specific resources and advice, such as directions on using a recommended secrets vault or who to contact for questions relating to the blocked secret.
-
-{% endif %}
 
 {% data reusables.secret-scanning.push-protection-remove-secret %} For more information about remediating blocked secrets, see "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-push-on-the-command-line)."
 
@@ -206,18 +204,13 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 1. Click **Allow me to push this secret**.
 1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
-{% ifversion secret-scanning-push-protection-web-ui %}
-
 ## Using secret scanning as a push protection from the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
-{% ifversion push-protection-custom-link-orgs %}
-
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
-{% endif %}
 
 You can remove the secret from the file using the web UI. Once you remove the secret, you will be able to commit your changes.
 
@@ -237,5 +230,3 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
-
-{% endif %}
