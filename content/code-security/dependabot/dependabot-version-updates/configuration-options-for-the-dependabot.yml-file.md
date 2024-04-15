@@ -651,7 +651,11 @@ updates:
 
 ### `registries`
 
-To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. {% data reusables.dependabot.dependabot-updates-registries %} For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration.
+
+{% data reusables.dependabot.dependabot-updates-registries %}
+
+For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 

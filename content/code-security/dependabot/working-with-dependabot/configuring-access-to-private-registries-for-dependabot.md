@@ -33,7 +33,9 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 ## Configuring private registries
 
 You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
-The top-level `registries` key is optional and specifies authentication details. {% data reusables.dependabot.dependabot-updates-registries %}
+The top-level `registries` key is optional and specifies authentication details.
+
+{% data reusables.dependabot.dependabot-updates-registries %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
