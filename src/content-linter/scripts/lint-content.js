@@ -636,7 +636,7 @@ function getCustomRule(ruleName) {
     ruleNames: [ 'search-replace' ],
     ruleDescription: 'Custom rule',
     ruleInformation: 'https://github.com/OnkarRuikar/markdownlint-rule-search-replace',
-    errorDetail: 'docs-domain: Catch occurrences of docs.gitub.com domain.',
+    errorDetail: 'docs-domain: Catch occurrences of docs.github.com domain.',
     errorContext: "column: 21 text:'docs.github.com'",
     errorRange: [ 21, 15 ],
     fixInfo: null
