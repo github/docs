@@ -1,0 +1,120 @@
+1)Algorithme
+Algorithme Afficher_Table_Verite_et_Formes_Canoniques(fonction_logique)
+    Fonction Evaluer_Fonction(expression, valeurs):
+        // Évalue une expression logique pour un ensemble donné de valeurs booléennes
+        // Retourne le résultat de l'évaluation de l'expression
+        // Implémentation de la logique d'évaluation de l'expression
+        ...
+    
+    Fonction Table_Verite(expression):
+        // Génère la table de vérité pour une expression logique donnée
+        variables := Variables_Unique_dans_Expression(expression)
+        en-tête := Concaténer(variables, expression)
+        Afficher en-tête
+        Afficher Séparateur
+        Pour chaque combinaison de valeurs booléennes pour les variables:
+            résultat := Evaluer_Fonction(expression, valeurs)
+            Afficher Concaténer(valeurs, résultat)
+    
+    Fonction Premiere_Forme_Canonique(expression):
+        // Génère la première forme canonique pour une expression logique donnée
+        // Implémentation de la logique de génération de la première forme canonique
+        ...
+    
+    Fonction Seconde_Forme_Canonique(expression):
+        // Génère la seconde forme canonique pour une expression logique donnée
+        // Implémentation de la logique de génération de la seconde forme canonique
+        ...
+    
+    // Programme principal
+    Afficher "Table de vérité :"
+    Table_Verite(fonction_logique)
+    
+    Afficher "Première forme canonique :"
+    Afficher Premiere_Forme_Canonique(fonction_logique)
+    
+    Afficher "Seconde forme canonique :"
+    Afficher Seconde_Forme_Canonique(fonction_logique)
+Fin Algorithme
+
+
+
+2)Python
+from itertools import product
+
+def evaluate_function(expression, inputs):
+    """
+    Évalue une expression logique donnée pour un ensemble d'entrées.
+    """
+    values = {chr(97 + i): inputs[i] for i in range(len(inputs))}
+    return eval(expression, values)
+
+def truth_table(expression):
+    """
+    Génère la table de vérité pour une expression logique donnée.
+    """
+    variables = sorted(set([char for char in expression if char.isalpha()]))
+    header = " | ".join(variables + [expression])
+    separator = "-" * len(header)
+    print(header)
+    print(separator)
+    for inputs in product([0, 1], repeat=len(variables)):
+        outputs = evaluate_function(expression, inputs)
+        row = " | ".join(map(str, inputs + (outputs,)))
+        print(row)
+
+def first_canonical_form(expression):
+    """
+    Génère la première forme canonique pour une expression logique donnée.
+    """
+    terms = []
+    variables = sorted(set([char for char in expression if char.isalpha()]))
+    for inputs in product([0, 1], repeat=len(variables)):
+        outputs = evaluate_function(expression, inputs)
+        if outputs:
+            term = ""
+            for i, value in enumerate(inputs):
+                if value == 0:
+                    term += f"~{variables[i]} & "
+                else:
+                    term += f"{variables[i]} & "
+            term = term[:-2]  # Supprimer le dernier "&"
+            terms.append(term)
+    return " | ".join(terms)
+
+def second_canonical_form(expression):
+    """
+    Génère la seconde forme canonique pour une expression logique donnée.
+    """
+    variables = sorted(set([char for char in expression if char.isalpha()]))
+    terms = []
+    for inputs in product([0, 1], repeat=len(variables)):
+        outputs = evaluate_function(expression, inputs)
+        if not outputs:
+            term = ""
+            for i, value in enumerate(inputs):
+                if value == 0:
+                    term += f"{variables[i]} | "
+                else:
+                    term += f"~{variables[i]} | "
+            term = term[:-2]  # Supprimer le dernier "|"
+            terms.append(term)
+    return " & ".join(terms)
+
+def main():
+    expression = input("Entrez l'expression logique (utilisez 'and', 'or', 'not', '(', ')'): ")
+    
+    # Afficher la table de vérité
+    print("\nTable de vérité :")
+    truth_table(expression)
+    
+    # Afficher la première forme canonique
+    print("\nPremière forme canonique :")
+    print(first_canonical_form(expression))
+    
+    # Afficher la seconde forme canonique
+    print("\nSeconde forme canonique :")
+    print(second_canonical_form(expression))
+
+if __name__ == "__main__":
+    main()
