@@ -304,8 +304,8 @@ describe('static routes', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
-  test('serves schema files from the /data/graphql directory at /public', async () => {
-    const res = await get('/public/schema.docs.graphql')
+  test('serves schema files from the /src/graphql/data directory at /public', async () => {
+    const res = await get('/public/fpt/schema.docs.graphql')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
@@ -314,6 +314,7 @@ describe('static routes', () => {
     expect(res.headers.etag).toBeUndefined()
     expect(res.headers['last-modified']).toBeTruthy()
 
+    expect((await get(`/public/ghec/schema.docs.graphql`)).statusCode).toBe(200)
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode,
