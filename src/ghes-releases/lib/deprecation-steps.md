@@ -144,8 +144,6 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 1. Run `src/ghes-releases/scripts/sync-automated-pipeline-data.js` and commit results.
 
-1. Manually delete the deprecated directory in `data/graphql`. For example, if you are deprecating the 3.5 release, you'd delete the `data/graphql/ghes-3.5` directory.
-
 1. Remove the outdated Liquid markup and frontmatter. **Note:** There are typically a few bugs in the updated Markdown, which will be caught by the content linter or CI. Fix any bugs you find. For example, a liquid end tag may be removed but the start tag still exists. There are typically only a few bugs to fix. The script does a pretty great job of fixing most use cases, so this is typically a lightweight task. If there are several errors, something is likely broken and should be fixed in the script.
 
    ```shell
