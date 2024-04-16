@@ -26,7 +26,7 @@ You can view a variety of metrics about the security alerts in your organization
 - The "Remediation" section shows information about how alerts are resolved and alert activity over time.
 - The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization.
 
-You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
 Enterprise members can access the overview page for organizations in their enterprise. The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
 
@@ -47,7 +47,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
    - Use the date picker to set the time range that you want to view alert activity and metrics for.
    - Click in the search box to add further filters on the alerts and metrics displayed.
 
-    ![Screenshot of the overview page in security overview for an organization. The options for filtering are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters.png)
+    ![Screenshot of the Overview dashboard for an organization. The filters are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters.png)
 
 1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true"  %} Open alerts** or **{% octicon "shield-x" aria-hidden="true"  %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see "[Alert trends graph](#alert-trends-graph)."
 
@@ -58,8 +58,17 @@ Keep in mind that the overview page tracks changes over time for security alert 
 - [Secrets bypassed or blocked](#secrets-bypassed-or-blocked)
 - [Mean time to remediate](#mean-time-to-remediate)
 - [Net resolve rate](#net-resolve-rate)
-- [Alert activity graph](#alert-activity-graph)
+- [Alert activity graph](#alert-activity-graph){% ifversion security-overview-additional-tools %}
+- [Impact analysis table](#impact-analysis-table)
+- [Reopened alerts](#reopened-alerts){% else %}
 - [Impact analysis for repositories](#impact-analysis-for-repositories)
+{% endif %}
+
+{% ifversion security-overview-additional-tools %}
+
+Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%. This feature is in beta, and is subject to change. This feature is in beta, and is subject to change.
+
+{% endif %}
 
 ### Alert trends graph
 
@@ -75,11 +84,31 @@ The "Age of alerts" metric is the average age of all alerts that are still open 
 
 The age of each open alert is calculated by subtracting the date the alert was created from the date that the chosen time period ends. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
 
+{% ifversion security-overview-additional-tools %}
+
+### Reopened alerts
+
+{% note %}
+
+**Note:** The "Reopened alerts" metric is in beta, and is subject to change.
+
+{% endnote %}
+
+The "Reopened alerts" metric is the total open alerts that were reopened during the chosen time period. Only alerts that are open at the end of the reporting period are reported. This includes:
+
+- Alerts that were closed as of the day before the chosen time period, and that remain open at the end of the period.
+- Newly created alerts that were closed, and then reopened, during the chosen time period.
+- Alerts that were open at the start of the chosen time period, but closed and then reopened within the same period.
+
+{% endif %}
+
 ### Secrets bypassed or blocked
 
 The "Secrets bypassed / blocked" metric shows the ratio of secrets bypassed to the total secrets blocked by push protection.
 
 You can also see how many secrets were successfully blocked, which is calculated by subtracting the number of secrets bypassed from the total number of secrets blocked by push protection. A secret is considered to have been successfully blocked when it has been corrected, and not committed to the repository.
+
+{% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected. This feature is in beta, and is subject to change.{% endif %}
 
 For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
 
@@ -121,6 +150,26 @@ Expanding on the alert trends graph, the alert activity graph shows you alert in
 
 Green bars represent the number of new alerts created during the segmented time period. Purple bars represent the number of alerts that were closed during the segmented time period. The blue dotted line represents the net alert activity, which is the difference between new and closed alerts.
 
+{% ifversion security-overview-additional-tools %}
+
+### Impact analysis table
+
+{% note %}
+
+**Note:** The "Impact analysis" table is in beta, and is subject to change.
+
+{% endnote %}
+
+The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
+
+- The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
+
+- The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
+
+{% else %}
+
 ### Impact analysis for repositories
 
 The impact analysis table shows the top 10 repositories with the most open alerts as of the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
+
+{% endif %}

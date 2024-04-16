@@ -25,7 +25,7 @@
 | [MD049](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md049.md) | emphasis-style | Emphasis style should be consistent | error | emphasis |
 | [MD050](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md050.md) | strong-style | Strong style should be consistent | error | emphasis |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | todocs-placeholder | Catch occurrences of TODOCS placeholder. | error |  |
-| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.gitub.com domain. | error |  |
+| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | help-domain | Catch occurrences of help.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | preview-domain | Catch occurrences of preview.ghdocs.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

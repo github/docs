@@ -64,6 +64,7 @@ import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from '#src/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '#src/search/middleware/contextualize.js'
 import shielding from '#src/shielding/middleware/index.js'
+import tracking from '#src/tracking/middleware/index.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -208,6 +209,9 @@ export default function (app) {
   if (process.env.NODE_ENV === 'development') {
     app.use(mockVaPortal) // FOR TESTING.
   }
+
+  // ** Possible early exits after cookies **
+  app.use(tracking)
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired

@@ -1,0 +1,5 @@
+# Reference: #13509
+# Documentation for: Additional data for the overview page [Public Beta]
+versions:
+  ghes: '>3.12'
+  ghec: '*'

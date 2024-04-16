@@ -5,12 +5,9 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
 import fs from 'fs/promises'
-import { jest } from '@jest/globals'
 
 import languages from '#src/languages/lib/languages.js'
 import { getDiffFiles } from '../lib/diff-files.js'
-
-jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

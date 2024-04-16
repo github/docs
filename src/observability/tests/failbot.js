@@ -24,13 +24,13 @@ describe('FailBot', () => {
   })
 
   describe('.report', () => {
-    it('returns early if `HAYSTACK_URL` is not set', async () => {
+    test('returns early if `HAYSTACK_URL` is not set', async () => {
       const result = await FailBot.report()
       expect(result).toBeUndefined()
       expect(requestBodiesSent.length).toBe(0)
     })
 
-    it('sends the expected report', async () => {
+    test('sends the expected report', async () => {
       process.env.HAYSTACK_URL = 'https://haystack.example.com'
       const err = new Error('Kaboom')
       const backendPromises = FailBot.report(err, { foo: 'bar' })
