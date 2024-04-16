@@ -1177,15 +1177,15 @@ jobs:
 - This event will only trigger a workflow run if the workflow file is on the default branch.
 - Scheduled workflows will only run on the default branch.
 - In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
-- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be re-activated. Please, know that rescheduling here does not simply imply making any changes to the workflow, but you have to change the `cron` value and make a new commit, in order for the reschedule to take effect and re-activate the scheduled workflow.
-  
-**Example:**
+- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
 
-```yaml
-on:
-  schedule:
-    - cron: "15 4,5 * * *"   # <=== Change the value you have here to a different one.
-```
+  **Example:**
+
+  ```yaml
+  on:
+    schedule:
+      - cron: "15 4,5 * * *"   # <=== Change this value
+  ```
 
 {% endnote %}
 
