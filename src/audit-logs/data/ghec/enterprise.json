@@ -14385,7 +14385,7 @@
   },
   {
     "action": "secret_scanning_alert.reopen",
-    "description": "A seret scanning alert was reopened.",
+    "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -14407,7 +14407,7 @@
   },
   {
     "action": "secret_scanning_alert.resolve",
-    "description": "A seret scanning alert was resolved.",
+    "description": "A secret scanning alert was resolved.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
