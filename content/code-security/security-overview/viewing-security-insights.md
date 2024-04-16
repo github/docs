@@ -1,7 +1,7 @@
 ---
-title: Viewing security insights for your organization
-shortTitle: Viewing security insights
-intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization.'
+title: Viewing security insights
+shortTitle: View security insights
+intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
@@ -12,19 +12,26 @@ topics:
   - Advanced Security
   - Alerts
   - Organizations
+redirect_from:
+  - /code-security/security-overview/viewing-security-insights-for-your-organization
+allowTitleToDifferFromFilename: true
 ---
 
 {% data reusables.security-overview.beta-overview-dashboard %}
 
-## About organization-level security insights
+## {% ifversion security-overview-dashboard-enterprise %}About security insights{% else %} About organization-level security insights{% endif %}
 
-The overview page in security overview is a consolidated dashboard of insights about your organization's security landscape and progress. You can use the dashboard to monitor the health of your application security program, collaborate with engineering teams, and gather data for benchmarking purposes.
+The overview page in security overview is a consolidated dashboard of insights about your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}'s security landscape and progress. You can use the dashboard to monitor the health of your application security program, collaborate with engineering teams, and gather data for benchmarking purposes.
 
-You can view a variety of metrics about the security alerts in your organization. The dashboard displays trending data that tracks alert counts and activity over time, as well as snapshot data that reflects the current state.
+{% ifversion security-overview-dashboard-enterprise %}
+Both the enterprise and organization-level security overviews have a dashboard. By default, the enterprise-level dashboard shows metrics for all the repositories in your enterprise. You can filter the data shown on the enterprise-level dashboard by owner (for example, by organization). By default, the organization-level dashboard shows metrics for all repositories owned by your organization. Both dashboards also allow you to filter by repository.
+{% endif %}
 
-- The top section of the dashboard shows information about the status and age of alerts in your organization, as well as data about secrets that have been blocked or bypassed.
+You can view a variety of metrics about the security alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}. The dashboard displays trending data that tracks alert counts and activity over time, as well as snapshot data that reflects the current state.
+
+- The top section of the dashboard shows information about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, as well as data about secrets that have been blocked or bypassed.
 - The "Remediation" section shows information about how alerts are resolved and alert activity over time.
-- The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization.
+- The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
 
 You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
@@ -38,18 +45,22 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 {% data reusables.security-overview.alert-differences %}
 
-## Viewing the security overview dashboard
+## Viewing the security overview dashboard{% ifversion security-overview-dashboard-enterprise %} for your organization{% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. The overview page is the primary view that you will see after clicking on the "Security" tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true"  %} Overview**.
-1. Use the options at the top of the overview page to filter the group of alerts you want to see metrics for. All of the data and metrics on the page will change as you adjust the filters.
-   - Use the date picker to set the time range that you want to view alert activity and metrics for.
-   - Click in the search box to add further filters on the alerts and metrics displayed.
+{% data reusables.security-overview.filter-and-toggle %}
 
-    ![Screenshot of the Overview dashboard for an organization. The filters are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters.png)
+{% ifversion security-overview-dashboard-enterprise %}
 
-1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true"  %} Open alerts** or **{% octicon "shield-x" aria-hidden="true"  %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see "[Alert trends graph](#alert-trends-graph)."
+## Viewing the security overview dashboard for your enterprise
+
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.code-scanning.click-code-security-enterprise %}
+{% data reusables.security-overview.filter-and-toggle %}
+
+{% endif %}
 
 ## Understanding the overview dashboard
 
@@ -72,7 +83,7 @@ Some metrics in the security overview dashboard include a trend indicator, which
 
 ### Alert trends graph
 
-The alert trends graph shows the change in the number of alerts in your organization over the time period you have chosen. Alerts are grouped by severity. You can toggle the graph between open and closed alerts.
+The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. Alerts are grouped by severity. You can toggle the graph between open and closed alerts.
 
 Open alerts include both newly created and existing open security alerts. New alerts are represented on their creation date, while alerts that existed before the chosen time period are represented at the start of the period. Once an alert is remediated or dismissed, it is not included in the graph. Instead, the alert will move to the closed alerts graph.
 
