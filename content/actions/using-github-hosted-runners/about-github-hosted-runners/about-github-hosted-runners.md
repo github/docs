@@ -140,6 +140,10 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
+### Limitations for arm64 macOS runners
+
+{% data reusables.actions.macos-runner-limitations %}
+
 ### {% data variables.actions.hosted_runner_caps %}s
 
 {% data reusables.actions.about-larger-runners %}
