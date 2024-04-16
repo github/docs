@@ -1,7 +1,6 @@
 ---
 title: Using GitHub Copilot in the CLI
 intro: 'You can use `gh`, the {% data variables.product.prodname_dotcom %} command line interface, to work with {% data variables.product.prodname_copilot_cli %}.'
-product: '{% data reusables.gated-features.copilot-in-cli %}'
 versions:
   feature: copilot-in-the-cli
 topics:
@@ -16,32 +15,28 @@ shortTitle: Using Copilot in the CLI
 
 {% data reusables.copilot.copilot-cli-about %} You can ask {% data variables.product.prodname_copilot_cli_short %} to suggest a command for your use case, with `gh copilot suggest`, or to explain a command you're curious about, with `gh copilot explain`.
 
+Additionally, you can use `gh copilot --help` for general help or `gh copilot SUBCOMMAND --help` for help with a specific subcommand.
+
 ## Prerequisites
 
-- To use {% data variables.product.prodname_copilot_cli_short %} you must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
-- To use {% data variables.product.prodname_copilot_cli_short %} you must have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
+To access {% data variables.product.prodname_copilot_cli %} you will need the following.
 
-## Installing {% data variables.product.prodname_copilot_cli_short %}
-
-If you have not already done so, run `gh auth login` to authenticate with your {% data variables.product.prodname_dotcom %} account.
-
-To install the {% data variables.product.prodname_copilot_cli_short %} extension, run `gh extension install github/gh-copilot`.
-
-To update {% data variables.product.prodname_copilot_cli_short %}, run `gh extension upgrade gh-copilot`.
-
-To use `gh` to work with {% data variables.product.prodname_copilot %}, type `gh copilot SUBCOMMAND`. Additionally, you can use `gh copilot --help` for general help or `gh copilot SUBCOMMAND --help` for help with a specific subcommand.
+- **Subscription to {% data variables.product.prodname_copilot %}**: You must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+- **Access to {% data variables.product.prodname_copilot_cli_short %}**: If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_cli_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli)."
+- **Install {% data variables.product.prodname_cli %}**: You must have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
+- **Install the {% data variables.product.prodname_copilot_cli_short %} extension**: Additionally, you must have the {% data variables.product.prodname_copilot_cli_short %} extension installed. For more information, see "[Installing {% data variables.product.prodname_copilot_cli_short %}](/copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli)."
 
 ## Asking {% data variables.product.prodname_copilot_cli_short %} to explain a command
 
 You can ask {% data variables.product.prodname_copilot_cli_short %} to explain a command for you by running:
 
-```shell
+```shell copy
 gh copilot explain
 ```
 
 Alternatively, you can add the command you want explained directly to the prompt:
 
-```shell
+```shell copy
 gh copilot explain "sudo apt-get"
 ```
 
@@ -51,7 +46,7 @@ gh copilot explain "sudo apt-get"
 
 You can ask {% data variables.product.prodname_copilot_cli_short %} to suggest a command for you by running:
 
-```shell
+```shell copy
 gh copilot suggest
 ```
 
@@ -59,7 +54,7 @@ This will start an interactive experience to get the command you need. {% data v
 
 If you already know what command you need, you can also include that in the prompt. For example, if you want to install Git, you can ask {% data variables.product.prodname_copilot_cli_short %} to suggest a command for you:
 
-```shell
+```shell copy
 gh copilot suggest "Install git"
 ```
 
