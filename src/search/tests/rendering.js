@@ -11,7 +11,7 @@
  * content again.
  */
 
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
@@ -26,7 +26,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search rendering page', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('happy path', async () => {
     // To see why this will work,

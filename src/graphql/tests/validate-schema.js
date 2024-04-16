@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.js'
 import readJsonFile from '#src/frame/lib/read-json-file.js'
@@ -15,7 +15,7 @@ const previewsValidate = getJsonValidator(previewsValidator)
 const upcomingChangesValidate = getJsonValidator(upcomingChangesValidator)
 
 describe('graphql json files', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   // The typeObj is repeated thousands of times in each .json file
   // so use a cache of which we've already validated to speed this

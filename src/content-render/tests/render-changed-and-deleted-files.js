@@ -31,7 +31,7 @@
 
 import path from 'path'
 
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { head, get } from '#src/tests/helpers/e2etest.js'
 import { loadPages } from '#src/frame/lib/page-data.js'
@@ -62,7 +62,7 @@ function getContentFiles(spaceSeparatedList) {
 // It can also happen if some of the pages involves are infamously slow.
 // For example guide pages because they involved a lot of processing
 // to gather and preview linked data.
-jest.setTimeout(60 * 1000)
+vi.setConfig({ testTimeout: 60 * 1000 })
 
 describe('changed-content', () => {
   const changedContentFiles = getChangedContentFiles()

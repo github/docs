@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'

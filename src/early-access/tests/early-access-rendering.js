@@ -1,7 +1,7 @@
 import { stat } from 'fs/promises'
 import path from 'path'
 
-import { expect } from '@jest/globals'
+import { describe, expect } from 'vitest'
 
 import { testViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'

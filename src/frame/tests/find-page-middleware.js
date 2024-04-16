@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import http from 'http'
 
-import { expect, describe, test } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import Page from '#src/frame/lib/page.js'
 import findPage from '#src/frame/middleware/find-page.js'

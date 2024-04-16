@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
 import { get, head, getDOM } from '#src/tests/helpers/e2etest.js'

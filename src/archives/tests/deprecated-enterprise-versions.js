@@ -1,11 +1,11 @@
-import { describe, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('enterprise deprecation', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('redirects language-prefixed requests for deprecated enterprise content', async () => {
     const res = await get('/en/enterprise/2.12')
