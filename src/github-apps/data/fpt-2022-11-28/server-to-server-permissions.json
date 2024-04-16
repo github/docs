@@ -3424,28 +3424,6 @@
         "additional-permissions": false
       },
       {
-        "category": "codespaces",
-        "slug": "create-or-update-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "codespaces",
-        "slug": "delete-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -4408,7 +4386,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "codespaces",
@@ -4419,7 +4397,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },
