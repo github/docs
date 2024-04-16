@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { loadPages } from '#src/frame/lib/page-data.js'
 import Permalink from '#src/frame/lib/permalink.js'
@@ -8,7 +8,7 @@ import Permalink from '#src/frame/lib/permalink.js'
 describe('redirect orphans', () => {
   // Because calling `loadPages` will trigger a warmup, this can potentially
   // be very slow in CI. So we need a timeout.
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('no page is a redirect in another file', async () => {
     // Only doing English because they're the only files we do PRs for.

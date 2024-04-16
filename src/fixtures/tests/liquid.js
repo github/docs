@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'

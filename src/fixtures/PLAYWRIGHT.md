@@ -2,13 +2,13 @@
 
 There are currently 3 general automated tests:
 
-1. `jest` tests against real English content (and some code)
-1. `jest` tests against fixture content
+1. `vitest` tests against real English content (and some code)
+1. `vitest` tests against fixture content
 1. `playwright` tests against fixture content (What this document is about!)
 
 ## Quickstart
 
-Just like with regular `jest` tests, if you haven't already done so...
+Just like with regular `vitest` tests, if you haven't already done so...
 
 ```shell
 npm run build

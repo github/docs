@@ -1,11 +1,11 @@
-import { jest } from '@jest/globals'
+import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
 
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('release notes', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in

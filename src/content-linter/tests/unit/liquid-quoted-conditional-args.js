@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { liquidQuotedConditionalArg } from '../../lib/linting-rules/liquid-quoted-conditional-arg.js'
 

@@ -1,4 +1,4 @@
-import { jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 import { slug } from 'github-slugger'
 
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
@@ -7,7 +7,7 @@ import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 import getRest from '#src/rest/lib/index.js'
 
 describe('REST references docs', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   // This test ensures that the page component and the Markdown file are
   // in sync. It checks that every version of the /rest/checks

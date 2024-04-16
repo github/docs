@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 import { USER_LANGUAGE_COOKIE_NAME } from '#src/frame/lib/constants.js'

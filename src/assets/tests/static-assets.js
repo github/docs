@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { jest, expect } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
@@ -14,7 +14,7 @@ function getNextStaticAsset(directory) {
 }
 
 describe('static assets', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('should serve /assets/cb-* with optimal headers', async () => {
     const res = await get('/assets/cb-1234/images/site/logo.png')

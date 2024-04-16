@@ -1,9 +1,9 @@
-import { describe, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get, head } from '#src/tests/helpers/e2etest.js'
 
 describe('product-icons', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('happy path', async () => {
     const res = await get('/producticons/react/CommentDiscussionIcon.svg')

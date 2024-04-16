@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 

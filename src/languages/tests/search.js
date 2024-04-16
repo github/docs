@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { languageKeys } from '#src/languages/lib/languages'
 import { get } from '#src/tests/helpers/e2etest.js'
 

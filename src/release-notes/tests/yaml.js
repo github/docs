@@ -1,7 +1,9 @@
-import yaml from 'js-yaml'
 import { readFile } from 'fs/promises'
 import walk from 'walk-sync'
 import path from 'path'
+
+import { beforeAll, describe, expect, test } from 'vitest'
+import yaml from 'js-yaml'
 
 import { liquid } from '#src/content-render/index.js'
 

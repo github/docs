@@ -1,5 +1,6 @@
+import { describe, expect, test } from 'vitest'
+
 import { get } from '#src/tests/helpers/e2etest.js'
-import { expect } from '@jest/globals'
 import {
   DOMAIN_QUERY_PARAM,
   DOMAIN_COOKIE_NAME,
