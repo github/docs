@@ -221,7 +221,7 @@ front: >'matter
 describe('get-data on corrupt translations', () => {
   let dd
   const enDirBefore = languages.en.dir
-  // Only `en` is available in jest tests, so pretend we also have Japanese
+  // Only `en` is available in vitest tests, so pretend we also have Japanese
   languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {

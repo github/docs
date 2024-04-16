@@ -1,6 +1,6 @@
 name: Test changed content
 
-# **What it does**: Runs the jest tests for changed and deleted content files.
+# **What it does**: Runs the vitest tests for changed and deleted content files.
 # **Why we have it**: Use GitHub Actions to run tests on changed content files.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
