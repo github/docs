@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
+import styles from './ScrollButton.module.scss'
+
+const { transition200, opacity0, opacity100 } = styles
 
 export type ScrollButtonPropsT = {
   className?: string
@@ -36,10 +39,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   }
 
   return (
-    <div
-      role="tooltip"
-      className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}
-    >
+    <div role="tooltip" className={cx(className, transition200, show ? opacity100 : opacity0)}>
       <button
         onClick={onClick}
         className={cx(
