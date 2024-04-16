@@ -31,7 +31,7 @@ topics:
 
 {% ifversion code-scanning-autofix %}While {% data variables.product.prodname_code_scanning %} autofix is allowed by default in an enterprise and enabled for every repository using {% data variables.product.prodname_codeql %}, you can choose to opt out and disable autofix. To learn how to disable autofix at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."{% endif %}
 
-In an organization's security overview dashboard, you can view the total number of autofix suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights-for-your-organization#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+In an organization's security overview dashboard, you can view the total number of autofix suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Developer experience
 
