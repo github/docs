@@ -114,7 +114,7 @@ describe('rate limiting', () => {
       const newRemaining = parseInt(res.headers['ratelimit-remaining'])
       expect(newLimit).toBe(limit)
       // Can't rely on `newRemaining == remaining - 1` because of
-      // concurrency of jest-running.
+      // concurrency of test-running.
       expect(newRemaining).toBeLessThan(remaining)
     }
   })

@@ -7,7 +7,7 @@
  *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
  *
  * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on jest tests you need to index real
+ * once you're done working on vitest tests you need to index real
  * content again.
  */
 

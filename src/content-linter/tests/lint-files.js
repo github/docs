@@ -231,9 +231,7 @@ if (diffFiles.length > 0) {
 }
 
 if (ymlToLint.length === 0) {
-  // With this in place, at least one `test()` is called and you don't
-  // get the `Your test suite must contain at least one test.` error
-  // from `jest`.
+  // This is to make sure the file has at least once `describe`.
   describe('deliberately do nothing', () => {
     test('void', () => {})
   })

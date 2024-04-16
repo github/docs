@@ -22,7 +22,7 @@ describe('annotate', () => {
     // but in this case its a short and concise example
     // that won't change regularly.
     // If it fails, study the output and make sure it's correct.
-    // If it is indeed correct, run `jest --updateSnapshot` to update it.
+    // If it is indeed correct, run `vitest --updateSnapshot` to update it.
     expect(await renderContent(example)).toMatchSnapshot()
   })
 

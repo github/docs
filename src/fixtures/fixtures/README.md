@@ -33,7 +33,7 @@ Deeper than the product level, the names and directories can be whatever
 you want it to be.
 
 Once you've found a place to put some fixture content, before writing
-a `jest` test, you can preview your changes using:
+a `vitest` test, you can preview your changes using:
 
 ```shell
 npm run fixture-dev
@@ -53,7 +53,7 @@ about end-to-end testing a new custom Liquid tag called
 To run the tests use:
 
 ```shell
-ROOT=src/fixtures/fixtures jest src/fixtures/tests
+ROOT=src/fixtures/fixtures vitest src/fixtures/tests
 ```
 
 ### Exceptions
@@ -86,6 +86,6 @@ It's less likely now that your tests break because of some other change.
 Similar to unit testing strategies, try to keep things in small units that
 worries about *one thing at a time*.
 
-Don't be afraid to write a `jest` test that is very specific about what it
+Don't be afraid to write a `vitest` test that is very specific about what it
 tests. It might seem strange when someone is only reading the tests directly.
 But the fixtures are part of the tests. It's just in different files.
