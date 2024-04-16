@@ -21,8 +21,8 @@ You can create an example workflow in your repository that automatically trigger
          - uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: '20'
-         - run: npm install -g bats
-         - run: bats -v
+         - run: npm install bats
+         - run: ./node_modules/bats/bin/bats -v
    ```
 
 1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
