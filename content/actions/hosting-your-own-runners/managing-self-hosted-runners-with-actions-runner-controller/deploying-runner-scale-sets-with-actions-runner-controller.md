@@ -47,6 +47,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
    - Update the `NAMESPACE` value to the location you want the runner pods to be created.
    - Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
    - This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
+    {% ifversion not ghes %}
 
      ```bash copy
      INSTALLATION_NAME="arc-runner-set"
@@ -60,6 +61,24 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
          --set githubConfigSecret.github_token="{% raw %}${GITHUB_PAT}{% endraw %}" \
          oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
      ```
+
+     {% endif %}
+     {% ifversion ghes %}
+
+     ```bash copy
+     INSTALLATION_NAME="arc-runner-set"
+     NAMESPACE="arc-runners"
+     GITHUB_CONFIG_URL="http(s)://<HOSTNAME>/<'enterprises/your_enterprise'/'org'/'org/repo'>"
+     GITHUB_PAT="<PAT>"
+     helm install "{% raw %}${INSTALLATION_NAME}{% endraw %}" \
+         --namespace "{% raw %}${NAMESPACE}{% endraw %}" \
+         --create-namespace \
+         --set githubConfigUrl="{% raw %}${GITHUB_CONFIG_URL}{% endraw %}" \
+         --set githubConfigSecret.github_token="{% raw %}${GITHUB_PAT}{% endraw %}" \
+         oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
+     ```
+
+     {% endif %}
 
      {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
@@ -130,9 +149,20 @@ To deploy runner scale sets to a specific level, set the value of `githubConfigU
 
 The following example shows how to configure ARC to add runners to `octo-org/octo-repo`.
 
+{% ifversion not ghes %}
+
 ```yaml
-githubConfigUrl: "https://{% data variables.product.product_url %}/octo-ent/octo-org/octo-repo"
+githubConfigUrl: "https://github.com/octo-ent/octo-org/octo-repo"
 ```
+
+{% endif %}
+{% ifversion ghes %}
+
+```yaml
+githubConfigUrl: "http(s)://<HOSTNAME>/<'enterprises/your_enterprise'/'org'/'org/repo'>"
+```
+
+{% endif %}
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
@@ -589,6 +619,7 @@ To customize the spec, comment out or remove `containerMode`, and append the con
 #### Example: running `dind-rootless`
 
 Before deciding to run `dind-rootless`, make sure you are aware of [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations).
+{% ifversion not ghes %}
 
 ```yaml
 ## githubConfigUrl is the GitHub url for where you want to configure runners
@@ -688,6 +719,110 @@ template:
     - name: dind-home
       emptyDir: {}
 ```
+
+{% endif %}
+{% ifversion ghes %}
+
+```yaml
+## githubConfigUrl is the GitHub url for where you want to configure runners
+## ex: https://<HOSTNAME>/enterprises/my_enterprise or https://<HOSTNAME>/myorg
+githubConfigUrl: "https://<HOSTNAME>/actions/actions-runner-controller"
+
+## githubConfigSecret is the k8s secrets to use when auth with GitHub API.
+## You can choose to use GitHub App or a PAT token
+githubConfigSecret: my-super-safe-secret
+
+## maxRunners is the max number of runners the autoscaling runner set will scale up to.
+maxRunners: 5
+
+## minRunners is the min number of idle runners. The target number of runners created will be
+## calculated as a sum of minRunners and the number of jobs assigned to the scale set.
+minRunners: 0
+
+runnerGroup: "my-custom-runner-group"
+
+## name of the runner scale set to create.  Defaults to the helm release name
+runnerScaleSetName: "my-awesome-scale-set"
+
+## template is the PodSpec for each runner Pod
+## For reference: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec
+template:
+  spec:
+    initContainers:
+    - name: init-dind-externals
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["cp", "-r", "-v", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+      volumeMounts:
+        - name: dind-externals
+          mountPath: /home/runner/tmpDir
+    - name: init-dind-rootless
+      image: docker:dind-rootless
+      command:
+        - sh
+        - -c
+        - |
+          set -x
+          cp -a /etc/. /dind-etc/
+          echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
+          echo 'runner:x:1001:' >> /dind-etc/group
+          echo 'runner:100000:65536' >> /dind-etc/subgid
+          echo 'runner:100000:65536' >>  /dind-etc/subuid
+          chmod 755 /dind-etc;
+          chmod u=rwx,g=rx+s,o=rx /dind-home
+          chown 1001:1001 /dind-home
+      securityContext:
+        runAsUser: 0
+      volumeMounts:
+        - mountPath: /dind-etc
+          name: dind-etc
+        - mountPath: /dind-home
+          name: dind-home
+    containers:
+    - name: runner
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
+      env:
+        - name: DOCKER_HOST
+          value: unix:///var/run/docker.sock
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /var/run
+    - name: dind
+      image: docker:dind-rootless
+      args:
+        - dockerd
+        - --host=unix:///var/run/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /var/run
+        - name: dind-externals
+          mountPath: /home/runner/externals
+        - name: dind-etc
+          mountPath: /etc
+        - name: dind-home
+          mountPath: /home/runner
+    volumes:
+    - name: work
+      emptyDir: {}
+    - name: dind-externals
+      emptyDir: {}
+    - name: dind-sock
+      emptyDir: {}
+    - name: dind-etc
+      emptyDir: {}
+    - name: dind-home
+      emptyDir: {}
+```
+
+{% endif %}
 
 #### Understanding runner-container-hooks
 

@@ -2794,22 +2794,6 @@
       "id": "createlabel",
       "href": "/graphql/reference/mutations#createlabel",
       "description": "<p>Creates a new label.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -3684,22 +3668,6 @@
       "id": "deletelabel",
       "href": "/graphql/reference/mutations#deletelabel",
       "description": "<p>Deletes a label.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -4660,20 +4628,6 @@
       "id": "importproject",
       "href": "/graphql/reference/mutations#importproject",
       "description": "<p>Creates a new project by importing columns and a list of issues/PRs.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Import project preview",
-        "description": "This preview adds support for importing projects.",
-        "toggled_by": "slothette-preview",
-        "toggled_on": [
-          "Mutation.importProject"
-        ],
-        "owning_teams": [
-          "@github/pe-issues-projects"
-        ],
-        "accept_header": "application/vnd.github.slothette-preview+json",
-        "href": "/graphql/overview/schema-previews#import-project-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -5511,7 +5465,7 @@
       "kind": "mutations",
       "id": "removeenterpriseidentityprovider",
       "href": "/graphql/reference/mutations#removeenterpriseidentityprovider",
-      "description": "<p>Removes the identity provider from an enterprise.</p>",
+      "description": "<p>Removes the identity provider from an enterprise. Owners of enterprises both\nwith and without Enterprise Managed Users may use this mutation.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8176,22 +8130,6 @@
       "id": "updatelabel",
       "href": "/graphql/reference/mutations#updatelabel",
       "description": "<p>Updates an existing label.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -9513,32 +9451,7 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#project"
         },
         {
           "name": "projectCard",
@@ -9546,32 +9459,7 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#projectcard"
         },
         {
           "name": "projectColumnName",
@@ -9579,32 +9467,7 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -16203,32 +16066,7 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#project"
         },
         {
           "name": "projectCard",
@@ -16236,32 +16074,7 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#projectcard"
         },
         {
           "name": "projectColumnName",
@@ -16269,32 +16082,7 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -33190,32 +32978,7 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "project",
@@ -33223,32 +32986,7 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#project"
         },
         {
           "name": "projectCard",
@@ -33256,32 +32994,7 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#projectcard"
         },
         {
           "name": "projectColumnName",
@@ -33289,32 +33002,7 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -48997,22 +48685,7 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Merge info preview more detailed information about a pull request's merge state preview",
-            "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
-            "toggled_by": "merge-info-preview",
-            "toggled_on": [
-              "PullRequest.canBeRebased",
-              "PullRequest.mergeStateStatus"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.merge-info-preview+json",
-            "href": "/graphql/overview/schema-previews#merge-info-preview-more-detailed-information-about-a-pull-requests-merge-state-preview"
-          }
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "changedFiles",
@@ -49677,22 +49350,7 @@
           "type": "MergeStateStatus!",
           "id": "mergestatestatus",
           "kind": "enums",
-          "href": "/graphql/reference/enums#mergestatestatus",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Merge info preview more detailed information about a pull request's merge state preview",
-            "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
-            "toggled_by": "merge-info-preview",
-            "toggled_on": [
-              "PullRequest.canBeRebased",
-              "PullRequest.mergeStateStatus"
-            ],
-            "owning_teams": [
-              "@github/pe-pull-requests"
-            ],
-            "accept_header": "application/vnd.github.merge-info-preview+json",
-            "href": "/graphql/overview/schema-previews#merge-info-preview-more-detailed-information-about-a-pull-requests-merge-state-preview"
-          }
+          "href": "/graphql/reference/enums#mergestatestatus"
         },
         {
           "name": "mergeable",
@@ -55289,32 +54947,7 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/objects#project"
         },
         {
           "name": "projectColumnName",
@@ -55322,32 +54955,7 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Project event details preview",
-            "description": "This preview adds project, project card, and project column details to project-related issue events.",
-            "toggled_by": "starfox-preview",
-            "toggled_on": [
-              "AddedToProjectEvent.project",
-              "AddedToProjectEvent.projectCard",
-              "AddedToProjectEvent.projectColumnName",
-              "ConvertedNoteToIssueEvent.project",
-              "ConvertedNoteToIssueEvent.projectCard",
-              "ConvertedNoteToIssueEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.project",
-              "MovedColumnsInProjectEvent.projectCard",
-              "MovedColumnsInProjectEvent.projectColumnName",
-              "MovedColumnsInProjectEvent.previousProjectColumnName",
-              "RemovedFromProjectEvent.project",
-              "RemovedFromProjectEvent.projectColumnName"
-            ],
-            "owning_teams": [
-              "@github/github-projects"
-            ],
-            "accept_header": "application/vnd.github.starfox-preview+json",
-            "href": "/graphql/overview/schema-previews#project-event-details-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -93683,22 +93291,6 @@
       "id": "createlabelinput",
       "href": "/graphql/reference/input-objects#createlabelinput",
       "description": "<p>Autogenerated input type of CreateLabel.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "clientMutationId",
@@ -95013,22 +94605,6 @@
       "id": "deletelabelinput",
       "href": "/graphql/reference/input-objects#deletelabelinput",
       "description": "<p>Autogenerated input type of DeleteLabel.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "clientMutationId",
@@ -99871,7 +99447,7 @@
         {
           "name": "sourceRepositoryUrl",
           "description": "<p>The URL of the source repository.</p>",
-          "type": "URI",
+          "type": "URI!",
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
@@ -102096,22 +101672,6 @@
       "id": "updatelabelinput",
       "href": "/graphql/reference/input-objects#updatelabelinput",
       "description": "<p>Autogenerated input type of UpdateLabel.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Labels preview",
-        "description": "This preview adds support for adding, updating, creating and deleting labels.",
-        "toggled_by": "bane-preview",
-        "toggled_on": [
-          "Mutation.createLabel",
-          "Mutation.deleteLabel",
-          "Mutation.updateLabel"
-        ],
-        "owning_teams": [
-          "@github/pe-pull-requests"
-        ],
-        "accept_header": "application/vnd.github.bane-preview+json",
-        "href": "/graphql/overview/schema-previews#labels-preview"
-      },
       "inputFields": [
         {
           "name": "clientMutationId",

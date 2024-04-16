@@ -4017,7 +4017,8 @@
       "created_at",
       "_document_id",
       "runner_group_restricted_to_workflows",
-      "runner_group_selected_workflow_refs"
+      "runner_group_selected_workflow_refs",
+      "network_configuration_id"
     ]
   },
   {
@@ -4301,8 +4302,8 @@
   },
   {
     "action": "environment.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was created for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "actor",
       "actor_id",
@@ -4376,8 +4377,8 @@
   },
   {
     "action": "environment.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was deleted for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "actor",
       "actor_id",
@@ -4441,8 +4442,8 @@
   },
   {
     "action": "environment.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was updated for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "actor",
       "actor_id",
@@ -6348,6 +6349,68 @@
     ]
   },
   {
+    "action": "network_configuration.create",
+    "description": "A network configuration for a hosted compute service was created.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "selected_service",
+      "network_settings_ids",
+      "previous_settings_ids",
+      "network_configuration_id"
+    ]
+  },
+  {
+    "action": "network_configuration.delete",
+    "description": "A network configuration for a hosted compute service was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "network_configuration_id"
+    ]
+  },
+  {
+    "action": "network_configuration.update",
+    "description": "A network configuration for a hosted compute service was updated.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "selected_service",
+      "network_settings_ids",
+      "previous_settings_ids"
+    ]
+  },
+  {
     "action": "oauth_application.create",
     "description": "An OAuth application was created.",
     "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app",
@@ -7257,7 +7320,7 @@
   {
     "action": "org.create_actions_secret",
     "description": "A GitHub Actions secret was created for an organization.",
-    "docs_reference_links": "/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization",
     "fields": [
       "user_agent",
       "actor",
@@ -7275,8 +7338,8 @@
   },
   {
     "action": "org.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was created for an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization",
     "fields": [
       "actor",
       "actor_id",
@@ -7294,7 +7357,7 @@
   },
   {
     "action": "org.create_integration_secret",
-    "description": "An integration secret was created for an organization.",
+    "description": "A Codespaces or Dependabot secret was created for an organization.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -7956,8 +8019,8 @@
   },
   {
     "action": "org.remove_actions_secret",
-    "description": "A GitHub Actions secret was removed.",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions secret was removed from an organization.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization",
     "fields": [
       "user_agent",
       "actor",
@@ -7975,8 +8038,8 @@
   },
   {
     "action": "org.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was removed from an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization",
     "fields": [
       "actor",
       "actor_id",
@@ -8014,7 +8077,7 @@
   },
   {
     "action": "org.remove_integration_secret",
-    "description": "An integration secret was removed from an organization.",
+    "description": "A Codespaces or Dependabot secret was removed from an organization.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -8217,7 +8280,8 @@
       "_document_id",
       "runner_group_restricted_to_workflows",
       "runner_group_selected_workflow_refs",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "network_configuration_id"
     ]
   },
   {
@@ -8344,7 +8408,8 @@
       "_document_id",
       "runner_group_restricted_to_workflows",
       "runner_group_selected_workflow_refs",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "network_configuration_id"
     ]
   },
   {
@@ -8985,8 +9050,8 @@
   },
   {
     "action": "org.update_actions_secret",
-    "description": "A GitHub Actions secret was updated.",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions secret was updated for an organization.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization",
     "fields": [
       "user_agent",
       "actor",
@@ -9027,8 +9092,8 @@
   },
   {
     "action": "org.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was updated for an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization",
     "fields": [
       "actor",
       "actor_id",
@@ -9066,7 +9131,7 @@
   },
   {
     "action": "org.update_integration_secret",
-    "description": "An integration secret was updated for an organization.",
+    "description": "A Codespaces or Dependabot secret was updated for an organization.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -11963,7 +12028,7 @@
   {
     "action": "repo.create_actions_secret",
     "description": "A GitHub Actions secret was created for a repository.",
-    "docs_reference_links": "/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "user_agent",
       "actor",
@@ -11982,8 +12047,8 @@
   },
   {
     "action": "repo.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was created for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "actor",
       "actor_id",
@@ -12006,7 +12071,7 @@
   },
   {
     "action": "repo.create_integration_secret",
-    "description": "An integration secret was created for a repository.",
+    "description": "A Codespaces or Dependabot secret was created for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -12301,7 +12366,7 @@
   {
     "action": "repo.remove_actions_secret",
     "description": "A GitHub Actions secret was deleted for a repository.",
-    "docs_reference_links": "N/A",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "user_agent",
       "actor",
@@ -12322,8 +12387,8 @@
   },
   {
     "action": "repo.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was deleted for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "actor",
       "actor_id",
@@ -12345,7 +12410,7 @@
   },
   {
     "action": "repo.remove_integration_secret",
-    "description": "An integration secret was deleted for a repository.",
+    "description": "A Codespaces or Dependabot secret was deleted for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -12835,8 +12900,8 @@
   },
   {
     "action": "repo.update_actions_secret",
-    "description": "A GitHub Actions secret was updated.",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions secret was updated for a repository.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "user_agent",
       "actor",
@@ -12885,8 +12950,8 @@
   },
   {
     "action": "repo.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was updated for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "actor",
       "actor_id",
@@ -12932,7 +12997,7 @@
   },
   {
     "action": "repo.update_integration_secret",
-    "description": "An integration secret was updated for a repository.",
+    "description": "A Codespaces or Dependabot secret was updated for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",

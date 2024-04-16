@@ -147,7 +147,7 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 
 ## Additional filters for security overview dashboard (beta)
 
-You can filter the "Overview" dashboard (beta) to narrow the scope of the metrics shown, so that you can view trends for specific repository or alert types. For more information on the overview dashboard, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization)."
+You can filter the "Overview" dashboard (beta) to narrow the scope of the metrics shown, so that you can view trends for specific repository or alert types. For more information on the overview dashboard, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights)."
 
 | Qualifier | Description |
 | -------- | -------- |
