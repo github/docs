@@ -98,7 +98,7 @@ The "Query History" view contains information including the date and time when t
 
 - To customize the information that is displayed, right-click an entry and select **Rename**.
 
-- Optionally, filter the view by language using the language selector. For more information, see "[Filtering databases and queries by language](#filtering-databases-and-queries-by-language)."
+- Optionally, filter the view by language using the language selector. For more information, see "[Filtering databases and queries by language](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#filtering-databases-and-queries-by-language)."
 
 - Click an entry to display the corresponding results, and double-click to display the query itself in the editor (or right-click and select **View Query**).
 

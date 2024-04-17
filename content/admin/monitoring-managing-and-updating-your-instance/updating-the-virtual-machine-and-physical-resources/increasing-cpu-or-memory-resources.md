@@ -31,7 +31,7 @@ To add CPU or memory resources for an instance on AWS, you must change the insta
 You can review resizing considerations, see supported instance types, and learn how to resize an instance on AWS.
 
 - [Resizing considerations for AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-considerations-for-aws)
-- [Supported instance types on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-aws-instance-types)
+- [Supported instance types on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-instance-types-on-aws)
 - [Resizing an instance on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-an-instance-on-aws)
 
 ### Resizing considerations for AWS
