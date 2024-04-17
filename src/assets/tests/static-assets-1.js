@@ -1,5 +1,5 @@
+import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
-import { expect, jest } from '@jest/globals'
 
 import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
 import { setDefaultFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
@@ -57,7 +57,7 @@ describe('archived enterprise static assets', () => {
   // Sometimes static assets are proxied. The URL for the static asset
   // might not indicate it's based on archived enterprise version.
 
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in

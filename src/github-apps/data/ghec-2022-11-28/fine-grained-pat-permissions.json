@@ -3490,24 +3490,6 @@
         "access": "write"
       },
       {
-        "category": "codespaces",
-        "slug": "create-or-update-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "codespaces",
-        "slug": "delete-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -4299,7 +4281,7 @@
         "subcategory": "repository-secrets",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4308,7 +4290,7 @@
         "subcategory": "repository-secrets",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]

@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest'
 import searchReplace from 'markdownlint-rule-search-replace'
 
 import { runRule } from '../../lib/init-test.js'

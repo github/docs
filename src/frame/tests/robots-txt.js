@@ -1,4 +1,4 @@
-import { expect, jest } from '@jest/globals'
+import { beforeAll, describe, expect, test, vi } from 'vitest'
 import robotsParser from 'robots-parser'
 
 import {
@@ -8,7 +8,7 @@ import {
 import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('robots.txt', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   let res, robots
   beforeAll(async () => {

@@ -177,7 +177,7 @@ async function getPageInfoFromCache(page, pathname) {
     // followed by a CDN purge).
     // In development (local preview), the performance doesn't really matter.
     // In CI, we use the caching because the CI runs
-    // `npm run precompute-pageinfo` right before it runs jest tests.
+    // `npm run precompute-pageinfo` right before it runs vitest tests.
   }
   info.cacheInfo = cacheInfo
   return info

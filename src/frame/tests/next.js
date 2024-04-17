@@ -1,9 +1,9 @@
-import { describe, expect, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('bad requests', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('any _next/image request should 404', async () => {
     const res = await get('/_next/image?what=ever')

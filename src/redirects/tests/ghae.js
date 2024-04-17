@@ -10,6 +10,8 @@
  * legacy redirects still work.
  */
 
+import { describe, expect, test } from 'vitest'
+
 import { head } from '#src/tests/helpers/e2etest.js'
 
 describe('ghae redirects', () => {

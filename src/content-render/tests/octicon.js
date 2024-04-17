@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { renderContent } from '#src/content-render/index.js'
 
 describe('octicon tag', () => {

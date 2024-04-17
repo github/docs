@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import parse from '#src/frame/lib/read-frontmatter.js'
 import { schema as frontmatterSchema } from '#src/frame/lib/frontmatter.js'
 

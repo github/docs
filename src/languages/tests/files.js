@@ -1,8 +1,8 @@
 import languages from '#src/languages/lib/languages.js'
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 describe('files', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test.each(Object.entries(languages))('%s matches language schema', async (_, lang) => {
     expect(lang.name).toMatch(/\w+/)

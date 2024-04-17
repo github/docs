@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import productNames from '#src/products/lib/product-names.js'
 
 describe('productNames module', () => {

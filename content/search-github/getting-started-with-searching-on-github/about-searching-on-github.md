@@ -69,7 +69,7 @@ In addition to the search bar, you can search {% data variables.product.product_
 
 The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
 
-![Screenshot of the Advanced search page. The top search bar is filled in with the query "kittens user:octocat" and, under the "Advanced options" section below, the "From these owners" text box contains the term "octocat" and is outlined in dark orange.](/assets/images/help/search/advanced-search.png)
+![Advanced Search page. Top search bar holds "kittens user:octocat" query. Under "Advanced options", "From these owners" text box holds term "octocat".](/assets/images/help/search/advanced-search.png)
 
 ## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 
