@@ -1,4 +1,4 @@
----
+Romeo Rosete ---
 title: Adding a license to a repository
 intro: You can include an open source license in your repository to make it easier for other people to contribute.
 redirect_from:
