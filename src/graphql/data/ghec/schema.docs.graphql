@@ -9828,7 +9828,7 @@ type DependabotUpdateError {
 """
 A dependency manifest entry
 """
-type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphDependency {
   """
   Does the dependency itself have dependencies?
   """
@@ -9866,7 +9866,7 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
 """
 The connection type for DependencyGraphDependency.
 """
-type DependencyGraphDependencyConnection @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphDependencyConnection {
   """
   A list of edges.
   """
@@ -9891,7 +9891,7 @@ type DependencyGraphDependencyConnection @preview(toggledBy: "hawkgirl-preview")
 """
 An edge in a connection.
 """
-type DependencyGraphDependencyEdge @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphDependencyEdge {
   """
   A cursor for use in pagination.
   """
@@ -9966,7 +9966,7 @@ enum DependencyGraphEcosystem {
 """
 Dependency manifest for a repository
 """
-type DependencyGraphManifest implements Node @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphManifest implements Node {
   """
   Path to view the manifest file blob
   """
@@ -10031,7 +10031,7 @@ type DependencyGraphManifest implements Node @preview(toggledBy: "hawkgirl-previ
 """
 The connection type for DependencyGraphManifest.
 """
-type DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphManifestConnection {
   """
   A list of edges.
   """
@@ -10056,7 +10056,7 @@ type DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview") {
 """
 An edge in a connection.
 """
-type DependencyGraphManifestEdge @preview(toggledBy: "hawkgirl-preview") {
+type DependencyGraphManifestEdge {
   """
   A cursor for use in pagination.
   """
@@ -43452,7 +43452,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Flag to scope to only manifests with dependencies
     """
     withDependencies: Boolean
-  ): DependencyGraphManifestConnection @preview(toggledBy: "hawkgirl-preview")
+  ): DependencyGraphManifestConnection
 
   """
   A list of deploy keys that are on this repository.

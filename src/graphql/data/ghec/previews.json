@@ -28,24 +28,5 @@
     ],
     "accept_header": "application/vnd.github.update-refs-preview+json",
     "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
-  },
-  {
-    "title": "Access to a repository's dependency graph preview",
-    "description": "This preview adds support for reading a dependency graph for a repository.",
-    "toggled_by": "hawkgirl-preview",
-    "toggled_on": [
-      "DependencyGraphManifest",
-      "Repository.dependencyGraphManifests",
-      "DependencyGraphManifestEdge",
-      "DependencyGraphManifestConnection",
-      "DependencyGraphDependency",
-      "DependencyGraphDependencyEdge",
-      "DependencyGraphDependencyConnection"
-    ],
-    "owning_teams": [
-      "@github/dependency-graph"
-    ],
-    "accept_header": "application/vnd.github.hawkgirl-preview+json",
-    "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
   }
 ]
