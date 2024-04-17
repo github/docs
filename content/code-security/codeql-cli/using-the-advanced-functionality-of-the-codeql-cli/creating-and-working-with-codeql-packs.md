@@ -78,7 +78,7 @@ The `codeql pack init` command creates the directory structure and configuration
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs use data extensions, which are implemented as YAML and describe how to add data for new dependencies. When a model pack is specified, the data extensions in that pack will be added to the {% data variables.product.prodname_code_scanning %} analysis automatically. For more information about {% data variables.product.prodname_codeql %} model packs and data extensions, see [Using the {% data variables.product.prodname_codeql %} model editor](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor) in the {% data variables.product.prodname_codeql %} documentation.
+Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs use data extensions, which are implemented as YAML and describe how to add data for new dependencies. When a model pack is specified, the data extensions in that pack will be added to the {% data variables.product.prodname_code_scanning %} analysis automatically. For more information about {% data variables.product.prodname_codeql %} model packs and data extensions, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
 
 A model pack is a {% data variables.product.prodname_codeql %} pack with the following characteristics in the `qlpack.yml` file:
 
