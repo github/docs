@@ -17,7 +17,7 @@ import github from '#src/workflows/github.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
-  public: path.resolve(path.join('data', 'graphql')),
+  public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
 Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
