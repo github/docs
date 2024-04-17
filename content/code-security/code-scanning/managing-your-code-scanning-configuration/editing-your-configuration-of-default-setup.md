@@ -86,7 +86,7 @@ If you use frameworks and libraries that are not recognized by the standard libr
 
 For default setup, you need to define the models of your additional dependencies in {% data variables.product.prodname_codeql %} model packs. You can extend coverage in default setup with {% data variables.product.prodname_codeql %} model packs for individual repositories, or at scale for all repositories in an organization.
 
-For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [Using the {% data variables.product.prodname_codeql %} model editor](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor) in the {% data variables.product.prodname_codeql %} documentation.
+For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
 
 ### Extending coverage for a repository
 
