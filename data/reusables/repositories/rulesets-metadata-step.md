@@ -8,6 +8,6 @@
 
    For most requirements, such as "Must start with a matching pattern," the pattern you enter is interpreted literally, and wildcards are not supported. For example, the `*` character only represents the literal `*` character.
 
-   For more complex patterns, you can select "Must match a given regex pattern" or "Must not match a given regex pattern," then use regular expression syntax to define the matching pattern. For more information, see "[Using regular expressions for commit metadata](#using-regular-expressions-for-commit-metadata)."
+   For more complex patterns, you can select "Must match a given regex pattern" or "Must not match a given regex pattern," then use regular expression syntax to define the matching pattern. For more information, see "[About regular expressions for commit metadata](#about-regular-expressions-for-commit-metadata)."
 
    Anyone who views the rulesets for a repository will be able to see the description you provide.

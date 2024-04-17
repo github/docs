@@ -192,7 +192,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
    {% note %}
 
-   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node](#upgrading-the-primary-node)."
+   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)."
 
    {% endnote %}
 

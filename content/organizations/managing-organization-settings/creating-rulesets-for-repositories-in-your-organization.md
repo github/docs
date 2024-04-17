@@ -59,7 +59,7 @@ To target all repositories in your organization, in the "Target repositories" se
 
 1. To target a dynamic list of repositories in your organization by naming convention, in the "Target repositories" section, select {% octicon "goal" aria-hidden="true" %} **Target: REPOSITORIES**, then click **Dynamic list of repositories**.
 1. To begin defining a targeting pattern, in the "Targeting criteria" section, select **Add a target** {% octicon "triangle-down" aria-hidden="true" %}, then click **Include by pattern** or **Exclude by pattern**.
-1. In the modal dialog that appears, enter a repository naming pattern using `fnmatch` syntax, then click **Add Inclusion pattern** or **Add Exclusion pattern**. For more information on `fnmatch` syntax, see "[Using `fnmatch` syntax](#using-fnmatch-syntax)."
+1. In the modal dialog that appears, enter a repository naming pattern using `fnmatch` syntax, then click **Add Inclusion pattern** or **Add Exclusion pattern**. For more information on `fnmatch` syntax, see "[About `fnmatch` patterns for branches, tags, and repositories](#about-fnmatch-patterns-for-branches-tags-and-repositories)."
 
    {% note %}
 

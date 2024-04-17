@@ -22,7 +22,8 @@ topics:
 
 {% warning %}
 
-**Warning**: Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
+**Warning**: Treat your access tokens like passwords. {% ifversion pat-v2 %}
+For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."{% endif %}
 
 {% endwarning %}
 

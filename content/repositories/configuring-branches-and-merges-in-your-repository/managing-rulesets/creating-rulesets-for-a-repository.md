@@ -79,12 +79,12 @@ You can select any of the following enforcement statuses for your ruleset.
 {% data reusables.repositories.rulesets-create-and-insights-step %}
 {% endif %}
 
-## Using `fnmatch` syntax
+## About `fnmatch` patterns for branches, tags, and repositories
 
 {% data reusables.repositories.rulesets-fnmatch %}
 {% ifversion repo-rules-enterprise %}
 
-## Using regular expressions for commit metadata
+## About regular expressions for commit metadata
 
 {% data reusables.repositories.rulesets-commit-regex %}
 

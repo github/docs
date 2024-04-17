@@ -213,7 +213,7 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 ## Troubleshooting SCIM provisioning
 
-- If {% data variables.product.prodname_dotcom %} is rate-limiting your requests to the REST API, you can learn more in "[About rate limits](#about-rate-limits)."
+- If {% data variables.product.prodname_dotcom %} is rate-limiting your requests to the REST API, you can learn more in "[Understand rate limits for {% data variables.product.product_name %}](#understand-rate-limits-for-github-enterprise-cloud)."
 
 - If you enable audit log streaming and stream events for API requests, you can review any requests to the REST API endpoints for SCIM provisioning by filtering for events from the `EnterpriseUsersScim` or `EnterpriseGroupsScim` controllers.
 
