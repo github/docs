@@ -91,6 +91,14 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% else %}
 {% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 {% endif %}
+
+{% ifversion codeql-model-packs-org %}
+
+### Extending {% data variables.product.prodname_codeql %} coverage in default setup
+
+Through the "Code security and analysis" page of your organization's settings, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization)."
+{% endif %}
+
 {% ifversion code-security-multi-repo-enablement %}
 
 ## Configuring default setup for a subset of repositories in an organization
