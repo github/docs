@@ -6,20 +6,8 @@ name: Lint code
 
 on:
   workflow_dispatch:
+  merge_group:
   pull_request:
-    paths:
-      - '**.js'
-      - '**.mjs'
-      - '**.ts'
-      - '**.tsx'
-      - '**.yaml'
-      - '**.yml'
-      - '**.scss'
-      - .eslintrc.cjs
-      # In case something like eslint or tsc or prettier upgrades
-      - 'package-lock.json'
-      # In case one of the script definitions changed
-      - 'package.json'
 
 permissions:
   contents: read
