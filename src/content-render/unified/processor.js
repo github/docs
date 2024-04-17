@@ -21,6 +21,7 @@ import rewriteAssetImgTags from './rewrite-asset-img-tags.js'
 import useEnglishHeadings from './use-english-headings.js'
 import headingLinks from './heading-links.js'
 import rewriteTheadThScope from './rewrite-thead-th-scope.js'
+import rewriteEmptyTableRows from './rewrite-empty-table-rows.js'
 import rewriteForRowheaders from './rewrite-for-rowheaders.js'
 import wrapProceduralImages from './wrap-procedural-images.js'
 import parseInfoString from './parse-info-string.js'
@@ -61,6 +62,7 @@ export function createProcessor(context) {
       })
       .use(raw)
       .use(wrapProceduralImages)
+      .use(rewriteEmptyTableRows)
       .use(rewriteTheadThScope)
       .use(rewriteForRowheaders)
       .use(rewriteImgSources)
