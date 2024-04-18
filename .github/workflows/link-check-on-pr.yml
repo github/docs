@@ -43,6 +43,7 @@ jobs:
           SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
+          CHECK_ANCHORS: true
           # Not strictly necessary bit it makes warmServer() a bit faster
           # because it only bothers with English to begin with, which
           # we're filtering on anyway once the list of all pages has
