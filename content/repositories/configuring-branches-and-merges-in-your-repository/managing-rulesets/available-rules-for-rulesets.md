@@ -10,11 +10,17 @@ topics:
 shortTitle: Available rules
 ---
 
-You can create rulesets to control how users can interact with selected branches and tags in a repository. When you create a ruleset, you can choose to enable or disable the rules described in the following sections.
+You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}
 
-When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain permissions, specific teams, or {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain roles, specific teams, or {% data variables.product.prodname_github_apps %}.
 
-For more information on creating rulesets, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
+{% ifversion push-rulesets %}
+
+For push rulesets, bypass permissions apply to a repository and the repository's entire fork network. {% data reusables.repositories.rulesets-push-rulesets-bypass-permissions %}
+
+{% endif %}
+
+For more information on creating rulesets and bypass permissions, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 ## Restrict creations
 
@@ -221,5 +227,27 @@ Metadata restrictions can increase friction for people contributing to a reposit
 If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
 
 When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag.
+
+{% endif %}
+
+{% ifversion push-rulesets %}
+
+## Restrict file paths
+
+Prevent commits that include changes in specified file paths from being pushed to the repository.
+
+{% data reusables.repositories.rulesets-push-rules-path-example %}
+
+## Restrict file path length
+
+Prevent commits that include file paths that exceed a specified character limit from being pushed to the repository.
+
+## Restrict file extensions
+
+Prevent commits that include files with specified file extensions from being pushed to the repository.
+
+## Restrict file size
+
+Prevent commits that exceed a specified file size limit from being pushed to the repository.
 
 {% endif %}

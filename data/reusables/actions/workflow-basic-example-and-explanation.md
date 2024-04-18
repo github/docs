@@ -9,9 +9,7 @@ You can create an example workflow in your repository that automatically trigger
 
    ```yaml copy
    name: learn-github-actions
-   {%- ifversion actions-run-name %}
    run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-   {%- endif %}
    on: [push]
    jobs:
      check-bats-version:
@@ -37,10 +35,8 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 # Optional - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository. If this field is omitted, the name of the workflow file will be used instead.
 name: learn-github-actions
 
-{%- ifversion actions-run-name %}
 # Optional - The name for workflow runs generated from the workflow, which will appear in the list of workflow runs on your repository's "Actions" tab. This example uses an expression with the `github` context to display the username of the actor that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#run-name)."
 run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
-{%- endif %}
 
 # Specifies the trigger for this workflow. This example uses the `push` event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "[AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
 on: [push]
@@ -60,7 +56,7 @@ jobs:
 # The `uses` keyword specifies that this step will run `v4` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will use the repository's code.
       - uses: {% data reusables.actions.action-checkout %}
 
-# This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 14.) This puts both the `node` and `npm` commands in your `PATH`.
+# This step uses the `{% data reusables.actions.action-setup-node %}` action to install the specified version of the Node.js. (This example uses version 20.) This puts both the `node` and `npm` commands in your `PATH`.
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '20'
