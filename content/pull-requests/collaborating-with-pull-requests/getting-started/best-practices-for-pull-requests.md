@@ -56,6 +56,18 @@ You can define individuals or teams that you consider responsible for code or fi
 
 You can use protected branches to prevent pull requests from being merged into important branches, such as `main`, until certain conditions are met. For example, you can require passing CI tests or an approving review. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
+{% ifversion push-rulesets %}
+
+### Use push rulesets
+
+{% data reusables.repositories.rulesets-push-rules-beta-note %}
+
+{% data reusables.repositories.push-rulesets-overview %}
+
+For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets)."
+
+{% endif %}
+
 ### Use automated tools to review code styling
 
 Use automated tools, such as linters, in your repository's pull requests to maintain consistent styling and make code more understandable. Using automated tools to catch smaller problems like typos or styling leaves more time for reviewers to focus on the substance of a pull request.

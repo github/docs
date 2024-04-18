@@ -23,13 +23,15 @@ shortTitle: Add a file
 
 Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
 
-{% tip %}
+You can upload multiple files to {% data variables.product.product_name %} at the same time.
 
-**Tips:**
-- You can upload multiple files to {% data variables.product.product_name %} at the same time.
-- {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
+{% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-{% endtip %}
+{% ifversion push-rulesets %}
+
+{% data reusables.repositories.rulesets-push-rules-general-info-for-related-articles %}
+
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**. Alternatively, you can drag and drop files into your browser.
