@@ -13,20 +13,5 @@
     ],
     "accept_header": "application/vnd.github.flash-preview+json",
     "href": "/graphql/overview/schema-previews#deployments-preview"
-  },
-  {
-    "title": "Update refs preview update multiple refs in a single operation preview",
-    "description": "This preview adds support for updating multiple refs in a single operation.",
-    "toggled_by": "update-refs-preview",
-    "toggled_on": [
-      "Mutation.updateRefs",
-      "GitRefname",
-      "RefUpdate"
-    ],
-    "owning_teams": [
-      "@github/repos"
-    ],
-    "accept_header": "application/vnd.github.update-refs-preview+json",
-    "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
   }
 ]
