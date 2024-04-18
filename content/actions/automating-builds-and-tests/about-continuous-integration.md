@@ -16,7 +16,7 @@ topics:
   - CI
 shortTitle: Continuous integration
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About continuous integration
@@ -41,11 +41,11 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 
 For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
-## Starter workflow
+## Starter workflows
 
-{% data variables.product.product_name %} offers CI starter workflow for a variety of languages and frameworks.
+{% data variables.product.product_name %} offers CI starter workflows for a variety of languages and frameworks.
 
-Browse the complete list of CI starter workflow offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
+Browse the complete list of CI starter workflows offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
 
 {% ifversion fpt or ghec %}
 
