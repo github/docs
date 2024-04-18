@@ -45,7 +45,7 @@ describe('render Markdown image tags', () => {
   test('image inside a list keeps its span', async () => {
     const $ = await getDOM('/get-started/images/images-in-lists')
 
-    const imageSpan = $('#article-contents > div > ol > li > span.procedural-image-wrapper')
+    const imageSpan = $('#article-contents > div > ol > li > div.procedural-image-wrapper')
     expect(imageSpan.length).toBe(1)
   })
 
