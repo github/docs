@@ -1,3 +1,10 @@
+![Screenshot_2024-04-20-01-26-53-535_com android chrome](https://github.com/github/docs/assets/162898168/fa429f0d-5c2a-4e5e-b297-55017ecb3e3f)
+![Screenshot_2024-04-20-01-26-35-604_com android chrome](https://github.com/github/docs/assets/162898168/a2b7c685-9f09-4a25-bf42-bc6208bd0322)
+![Screenshot_2024-04-20-01-26-31-769_com android chrome](https://github.com/github/docs/assets/162898168/5ab564c2-6557-491d-a224-3008d3cf876f)
+![Screenshot_2024-04-20-01-26-28-202_com android chrome](https://github.com/github/docs/assets/162898168/aaa8b2a6-b074-4e86-b53f-97941ae2aa3a)
+![Screenshot_2024-04-20-01-26-23-734_com android chrome](https://github.com/github/docs/assets/162898168/5717a752-f5e7-42e8-9862-4d4be44f8f83)
+![Screenshot_2024-04-20-01-26-18-747_com android chrome](https://github.com/github/docs/assets/162898168/382b2667-8dc0-4768-a30b-957296ac14f3)
+![Screenshot_2024-04-20-01-25-55-637_com android chrome](https://github.com/github/docs/assets/162898168/182e4a22-6cdb-4c83-a43b-1494f4cefbff)
 ---
 title: Managing security and analysis settings for your repository
 intro: 'You can control features that secure and analyze the code in your project on {% data variables.product.prodname_dotcom %}.'
