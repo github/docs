@@ -32,9 +32,10 @@ Alternatively, if you do not need granular control over the {% data variables.pr
 
 1. Identify a group of repositories that can be analyzed using the same {% data variables.product.prodname_code_scanning %} configuration. For example, all repositories that build Java artifacts using the production environment.
 1. Create and test a {% data variables.product.prodname_actions %} workflow to call the {% data variables.product.prodname_codeql %} action with the appropriate configuration. For more information, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."{% else %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."{% endif %}
-1. Use one of the example scripts create a custom script to add the workflow to each repository in the group.
+1. Use one of the example scripts or create a custom script to add the workflow to each repository in the group.
    - PowerShell example: [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository
    - NodeJS example: [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) repository
+   - Python example: [`Malwarebytes/ghas-cli`](https://github.com/Malwarebytes/ghas-cli) repository
 
 {% ifversion codeql-model-packs-org %}
 
