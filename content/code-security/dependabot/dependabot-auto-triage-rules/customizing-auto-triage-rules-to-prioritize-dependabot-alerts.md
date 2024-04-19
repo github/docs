@@ -90,6 +90,11 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on adding {% data variables.dependabot.auto_triage_rules %} to your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+{% endif %}
+
 {% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
 {% data reusables.dependabot.click-new-alert-rule %}
 {% data reusables.dependabot.dependabot-alert-rule-set-name %}
@@ -118,6 +123,11 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on editing or deleting {% data variables.dependabot.auto_triage_rules %} in your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+{% endif %}
+
 {% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
 1. Under "Organization rules", to the right of the rule that you want to edit or delete, click {% octicon "pencil" aria-label="Edit custom rule" %}.
 {% data reusables.dependabot.custom-alert-rules-edit-rule %}
