@@ -54,5 +54,8 @@ When your profile is private, your {% data variables.product.prodname_dotcom_the
 ## Changing your profile's privacy settings
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Contributions & Activity", select the checkbox next to **Make profile private and hide activity**.
+1. Open settings.
+2. Go to your Profile Page.
+3. Under "Contributions & Activity", select the checkbox next to **Make profile private and hide activity**.
 {% data reusables.user-settings.update-preferences %}
+
