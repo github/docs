@@ -84,8 +84,33 @@ You can edit the threat model used in a default setup configuration. For more in
 
 If you use frameworks and libraries that are not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can model your dependencies and extend {% data variables.product.prodname_code_scanning %} analysis. For more information, see [Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) in the documentation for {% data variables.product.prodname_codeql %}.
 
-For default setup, you need to define the models of your additional dependencies in a {% data variables.product.prodname_codeql %} model pack in your repository. For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see [Using the {% data variables.product.prodname_codeql %} model editor](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor) in the {% data variables.product.prodname_codeql %} documentation.
+For default setup, you need to define the models of your additional dependencies in {% data variables.product.prodname_codeql %} model packs. You can extend coverage in default setup with {% data variables.product.prodname_codeql %} model packs for individual repositories, or at scale for all repositories in an organization.
 
-To use {% data variables.product.prodname_codeql %} model packs with default setup, place them in the `.github/codeql/extensions` directory. They will be automatically detected and used in your {% data variables.product.prodname_code_scanning %} analysis. If you later change your configuration to use advanced setup, any data extensions in the `.github/codeql/extensions` directory will still be recognized and used.
+For more information about {% data variables.product.prodname_codeql %} model packs and writing your own, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
+
+### Extending coverage for a repository
+
+1. In the `.github/codeql/extensions` directory of the repository, copy the model pack directory which should include a `codeql-pack.yml` file and any `.yml` files containing additional models for the libraries or frameworks you wish to include in your analysis.
+1. The model packs will be automatically detected and used in your {% data variables.product.prodname_code_scanning %} analysis.
+1. If you later change your configuration to use advanced setup, any model packs in the `.github/codeql/extensions` directory will still be recognized and used.
+
+### Extending coverage for all repositories in an organization
+
+{% note %}
+
+**Note:** If you extend coverage with {% data variables.product.prodname_codeql %} model packs for all repositories in an organization, the model packs that you specify must be published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} and be accessible to the repositories that run code scanning. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+
+{% endnote %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+1. Click **Code security and analysis**.
+1. Find the "{% data variables.product.prodname_code_scanning_caps %}" section.
+1. Next to "Expand {% data variables.product.prodname_codeql %} analysis", click **Configure**.
+1. Enter references to the published model packs you want to use, one per line, then click **Save**.
+
+    ![Screenshot of the "Expand CodeQL analysis" view" in the settings for an organization.](/assets/images/help/security/enable-codeql-org-model-packs.png)
+
+1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
 
 {% endif %}

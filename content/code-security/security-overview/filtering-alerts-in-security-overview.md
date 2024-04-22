@@ -133,7 +133,7 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 
 | Qualifier | Description |
 | -------- | -------- |
-| `team:TEAM-NAME` | Displays repositories that TEAM-NAME has {% ifversion security-overview-team-write-access -%} write access or {% endif -%} admin access to. |
+| `team:TEAM-NAME` | Displays repositories that TEAM-NAME is assigned to with the {% ifversion security-overview-team-write-access -%} write or {% endif -%} admin role. For more information on repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)". |
 
 ## Filter by topic
 

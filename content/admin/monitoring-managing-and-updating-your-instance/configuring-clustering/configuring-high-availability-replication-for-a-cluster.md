@@ -136,7 +136,7 @@ To configure high availability, you must define a corresponding replica node for
 - Merge the modified copy of the cluster configuration back into your active configuration.
 - Apply the new configuration to start replication.
 
-For an example configuration, see "[Example configuration](#example-configuration)."
+For an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
 1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
@@ -230,7 +230,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
       - `replica` should be configured as `enabled`.
     - Take the opportunity to remove sections for offline nodes that are no longer in use.
 
-    To review an example configuration, see "[Example configuration](#example-configuration)."
+    To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
     {% endwarning %}
 

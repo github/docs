@@ -2508,22 +2508,6 @@
       "id": "createdeployment",
       "href": "/graphql/reference/mutations#createdeployment",
       "description": "<p>Creates a new deployment event.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Deployments preview",
-        "description": "This preview adds support for deployments mutations and new deployments features.",
-        "toggled_by": "flash-preview",
-        "toggled_on": [
-          "DeploymentStatus.environment",
-          "Mutation.createDeploymentStatus",
-          "Mutation.createDeployment"
-        ],
-        "owning_teams": [
-          "@github/pages"
-        ],
-        "accept_header": "application/vnd.github.flash-preview+json",
-        "href": "/graphql/overview/schema-previews#deployments-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -2566,22 +2550,6 @@
       "id": "createdeploymentstatus",
       "href": "/graphql/reference/mutations#createdeploymentstatus",
       "description": "<p>Create a deployment status.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Deployments preview",
-        "description": "This preview adds support for deployments mutations and new deployments features.",
-        "toggled_by": "flash-preview",
-        "toggled_on": [
-          "DeploymentStatus.environment",
-          "Mutation.createDeploymentStatus",
-          "Mutation.createDeployment"
-        ],
-        "owning_teams": [
-          "@github/pages"
-        ],
-        "accept_header": "application/vnd.github.flash-preview+json",
-        "href": "/graphql/overview/schema-previews#deployments-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -8766,22 +8734,6 @@
       "id": "updaterefs",
       "href": "/graphql/reference/mutations#updaterefs",
       "description": "<p>Creates, updates and/or deletes multiple refs in a repository.</p>\n<p>This mutation takes a list of <code>RefUpdate</code>s and performs these updates\non the repository. All updates are performed atomically, meaning that\nif one of them is rejected, no other ref will be modified.</p>\n<p><code>RefUpdate.beforeOid</code> specifies that the given reference needs to point\nto the given value before performing any updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to verify that\nthe references should not exist.</p>\n<p><code>RefUpdate.afterOid</code> specifies the value that the given reference\nwill point to after performing all updates. A value of\n<code>0000000000000000000000000000000000000000</code> can be used to delete a\nreference.</p>\n<p>If <code>RefUpdate.force</code> is set to <code>true</code>, a non-fast-forward updates\nfor the given reference will be allowed.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Update refs preview update multiple refs in a single operation preview",
-        "description": "This preview adds support for updating multiple refs in a single operation.",
-        "toggled_by": "update-refs-preview",
-        "toggled_on": [
-          "Mutation.updateRefs",
-          "GitRefname",
-          "RefUpdate"
-        ],
-        "owning_teams": [
-          "@github/repos"
-        ],
-        "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
-      },
       "inputFields": [
         {
           "name": "input",
@@ -17044,26 +16996,6 @@
       "id": "dependencygraphdependency",
       "href": "/graphql/reference/objects#dependencygraphdependency",
       "description": "<p>A dependency manifest entry.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "fields": [
         {
           "name": "hasDependencies",
@@ -17123,26 +17055,6 @@
       "id": "dependencygraphdependencyconnection",
       "href": "/graphql/reference/objects#dependencygraphdependencyconnection",
       "description": "<p>The connection type for DependencyGraphDependency.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "fields": [
         {
           "name": "edges",
@@ -17184,26 +17096,6 @@
       "id": "dependencygraphdependencyedge",
       "href": "/graphql/reference/objects#dependencygraphdependencyedge",
       "description": "<p>An edge in a connection.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "fields": [
         {
           "name": "cursor",
@@ -17229,26 +17121,6 @@
       "id": "dependencygraphmanifest",
       "href": "/graphql/reference/objects#dependencygraphmanifest",
       "description": "<p>Dependency manifest for a repository.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "implements": [
         {
           "name": "Node",
@@ -17371,26 +17243,6 @@
       "id": "dependencygraphmanifestconnection",
       "href": "/graphql/reference/objects#dependencygraphmanifestconnection",
       "description": "<p>The connection type for DependencyGraphManifest.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "fields": [
         {
           "name": "edges",
@@ -17432,26 +17284,6 @@
       "id": "dependencygraphmanifestedge",
       "href": "/graphql/reference/objects#dependencygraphmanifestedge",
       "description": "<p>An edge in a connection.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Access to a repository's dependency graph preview",
-        "description": "This preview adds support for reading a dependency graph for a repository.",
-        "toggled_by": "hawkgirl-preview",
-        "toggled_on": [
-          "DependencyGraphManifest",
-          "Repository.dependencyGraphManifests",
-          "DependencyGraphManifestEdge",
-          "DependencyGraphManifestConnection",
-          "DependencyGraphDependency",
-          "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection"
-        ],
-        "owning_teams": [
-          "@github/dependency-graph"
-        ],
-        "accept_header": "application/vnd.github.hawkgirl-preview+json",
-        "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-      },
       "fields": [
         {
           "name": "cursor",
@@ -18601,23 +18433,7 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false,
-          "preview": {
-            "title": "Deployments preview",
-            "description": "This preview adds support for deployments mutations and new deployments features.",
-            "toggled_by": "flash-preview",
-            "toggled_on": [
-              "DeploymentStatus.environment",
-              "Mutation.createDeploymentStatus",
-              "Mutation.createDeployment"
-            ],
-            "owning_teams": [
-              "@github/pages"
-            ],
-            "accept_header": "application/vnd.github.flash-preview+json",
-            "href": "/graphql/overview/schema-previews#deployments-preview"
-          }
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "environmentUrl",
@@ -59601,27 +59417,7 @@
                 "href": "/graphql/reference/scalars#boolean"
               }
             }
-          ],
-          "isDeprecated": false,
-          "preview": {
-            "title": "Access to a repository's dependency graph preview",
-            "description": "This preview adds support for reading a dependency graph for a repository.",
-            "toggled_by": "hawkgirl-preview",
-            "toggled_on": [
-              "DependencyGraphManifest",
-              "Repository.dependencyGraphManifests",
-              "DependencyGraphManifestEdge",
-              "DependencyGraphManifestConnection",
-              "DependencyGraphDependency",
-              "DependencyGraphDependencyEdge",
-              "DependencyGraphDependencyConnection"
-            ],
-            "owning_teams": [
-              "@github/dependency-graph"
-            ],
-            "accept_header": "application/vnd.github.hawkgirl-preview+json",
-            "href": "/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview"
-          }
+          ]
         },
         {
           "name": "deployKeys",
@@ -92823,22 +92619,6 @@
       "id": "createdeploymentinput",
       "href": "/graphql/reference/input-objects#createdeploymentinput",
       "description": "<p>Autogenerated input type of CreateDeployment.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Deployments preview",
-        "description": "This preview adds support for deployments mutations and new deployments features.",
-        "toggled_by": "flash-preview",
-        "toggled_on": [
-          "DeploymentStatus.environment",
-          "Mutation.createDeploymentStatus",
-          "Mutation.createDeployment"
-        ],
-        "owning_teams": [
-          "@github/pages"
-        ],
-        "accept_header": "application/vnd.github.flash-preview+json",
-        "href": "/graphql/overview/schema-previews#deployments-preview"
-      },
       "inputFields": [
         {
           "name": "autoMerge",
@@ -92922,22 +92702,6 @@
       "id": "createdeploymentstatusinput",
       "href": "/graphql/reference/input-objects#createdeploymentstatusinput",
       "description": "<p>Autogenerated input type of CreateDeploymentStatus.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Deployments preview",
-        "description": "This preview adds support for deployments mutations and new deployments features.",
-        "toggled_by": "flash-preview",
-        "toggled_on": [
-          "DeploymentStatus.environment",
-          "Mutation.createDeploymentStatus",
-          "Mutation.createDeployment"
-        ],
-        "owning_teams": [
-          "@github/pages"
-        ],
-        "accept_header": "application/vnd.github.flash-preview+json",
-        "href": "/graphql/overview/schema-previews#deployments-preview"
-      },
       "inputFields": [
         {
           "name": "autoInactive",
@@ -97490,22 +97254,6 @@
       "id": "refupdate",
       "href": "/graphql/reference/input-objects#refupdate",
       "description": "<p>A ref update.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Update refs preview update multiple refs in a single operation preview",
-        "description": "This preview adds support for updating multiple refs in a single operation.",
-        "toggled_by": "update-refs-preview",
-        "toggled_on": [
-          "Mutation.updateRefs",
-          "GitRefname",
-          "RefUpdate"
-        ],
-        "owning_teams": [
-          "@github/repos"
-        ],
-        "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
-      },
       "inputFields": [
         {
           "name": "afterOid",
@@ -102508,22 +102256,6 @@
       "id": "updaterefsinput",
       "href": "/graphql/reference/input-objects#updaterefsinput",
       "description": "<p>Autogenerated input type of UpdateRefs.</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Update refs preview update multiple refs in a single operation preview",
-        "description": "This preview adds support for updating multiple refs in a single operation.",
-        "toggled_by": "update-refs-preview",
-        "toggled_on": [
-          "Mutation.updateRefs",
-          "GitRefname",
-          "RefUpdate"
-        ],
-        "owning_teams": [
-          "@github/repos"
-        ],
-        "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
-      },
       "inputFields": [
         {
           "name": "clientMutationId",
@@ -103434,23 +103166,7 @@
       "kind": "scalars",
       "id": "gitrefname",
       "href": "/graphql/reference/scalars#gitrefname",
-      "description": "<p>A fully qualified reference name (e.g. <code>refs/heads/master</code>).</p>",
-      "isDeprecated": false,
-      "preview": {
-        "title": "Update refs preview update multiple refs in a single operation preview",
-        "description": "This preview adds support for updating multiple refs in a single operation.",
-        "toggled_by": "update-refs-preview",
-        "toggled_on": [
-          "Mutation.updateRefs",
-          "GitRefname",
-          "RefUpdate"
-        ],
-        "owning_teams": [
-          "@github/repos"
-        ],
-        "accept_header": "application/vnd.github.update-refs-preview+json",
-        "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
-      }
+      "description": "<p>A fully qualified reference name (e.g. <code>refs/heads/master</code>).</p>"
     },
     {
       "name": "GitSSHRemote",

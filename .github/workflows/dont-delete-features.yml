@@ -1,0 +1,65 @@
+name: Don't delete features
+
+# **What it does**:
+#   If the PR (against main) involves deletion of features, if any of
+#   them are deletions or renames, post a comment, and ultimately
+#   fail the check.
+# **Why we have it**:
+#    If you delete the reference to an image, the English content is fine
+#    because it no longer tries to use the feature that doesn't exist.
+#    But this is not the case for translations.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/features/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dont-delete-features:
+    # It's 'docs-bot' that creates those PR from "Delete orphaned features"
+    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Get comment markdown
+        id: comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run deleted-features-pr-comment
+
+      - name: Find possible previous comment
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        uses: peter-evans/find-comment@d5fe37641ad8451bdd80312415672ba26c86575e
+        id: findComment
+        with:
+          issue-number: ${{ github.event.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- DELETED_FEATURES -->'
+
+      - name: Update comment
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.number }}
+          body: ${{ steps.comment.outputs.markdown }}
+          edit-mode: replace
+
+      - name: Ultimately fail the workflow for attention
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        run: |
+          echo "More than 1 feature was deleted as part of this PR."
+          echo "See posted PR commented about how to get them back."
+          exit 1

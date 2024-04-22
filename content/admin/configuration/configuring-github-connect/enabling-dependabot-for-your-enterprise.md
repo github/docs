@@ -102,7 +102,7 @@ You can now enable {% data variables.product.prodname_dependabot_alerts %} for a
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 
 Before you can enable {% data variables.product.prodname_dependabot_updates %}:
-- You must enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[Enabling {% data variables.product.prodname_dependabot_alerts %}](#enabling--data-variablesproductprodname_dependabot_alerts)" above.
+- You must enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "Enabling {% data variables.product.prodname_dependabot_alerts %}" above.
 - You must enable TLS. {% data variables.product.prodname_dependabot_updates %} run on self-hosted runners, which need to have TLS enabled. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#prerequisites)."
 - You must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 

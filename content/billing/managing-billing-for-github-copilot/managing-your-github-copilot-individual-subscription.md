@@ -20,6 +20,8 @@ This article applies to setting up and managing a {% data variables.product.prod
 
 If you have access to {% data variables.product.prodname_copilot %} through an organization {% ifversion ghec %}or enterprise {% endif %}subscription, you will not be able to make administrative changes.
 
+{% data reusables.copilot.copilot-one-account-short %}
+
 {% data reusables.billing.billing-info %}
 
 ## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
