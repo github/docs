@@ -70,4 +70,5 @@ You can delete a fork and recreate the same repository, without the connection t
    ```
 
 ## See also
+
 * [Detach or extract a fork](https://support.github.com/request/fork)
