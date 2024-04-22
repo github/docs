@@ -57,4 +57,3 @@ When your profile is private, your {% data variables.product.prodname_dotcom_the
 1. Navigate to the "Public profile" section, and scroll down to "Contributions & Activity"
 1. Select the checkbox next to **Make profile private and hide activity**.
 {% data reusables.user-settings.update-preferences %}
-
