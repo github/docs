@@ -21,6 +21,7 @@
     "build": "next build",
     "check-content-type": "node src/workflows/check-content-type.js",
     "check-github-github-links": "node src/links/scripts/check-github-github-links.js",
+    "close-dangling-prs": "tsx src/workflows/close-dangling-prs.ts",
     "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
     "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
@@ -190,7 +191,7 @@
     ]
   },
   "dependencies": {
-    "@elastic/elasticsearch": "8.11.0",
+    "@elastic/elasticsearch": "8.13.1",
     "@github/failbot": "0.8.3",
     "@octokit/plugin-retry": "6.0.1",
     "@octokit/request-error": "6.1.1",
