@@ -1,4 +1,0 @@
-# Reference: Issue #13337 Dependabot on Actions (opt-in) GA
-versions:
-  fpt: '*'
-  ghec: '*'
