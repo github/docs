@@ -318,7 +318,7 @@
     "kill-port": "2.0.1",
     "lint-staged": "^15.0.1",
     "markdownlint": "^0.28.2",
-    "markdownlint-rule-helpers": "^0.19.0",
+    "markdownlint-rule-helpers": "^0.25.0",
     "markdownlint-rule-search-replace": "^1.2.0",
     "mdast-util-gfm-table": "^2.0.0",
     "micromark-extension-gfm-table": "^2.0.0",
