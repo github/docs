@@ -58,7 +58,7 @@ You can set policies for the use of {% data variables.product.prodname_copilot %
 
 ## Downgrading your {% data variables.product.prodname_copilot_enterprise_short %} subscription
 
-To downgrade from a {% data variables.product.prodname_copilot_enterprise_short %} subscription to a {% data variables.product.prodname_copilot_business_short %} subscription, you must contact {% data variables.contact.contact_ent_support %}.
+To downgrade from a {% data variables.product.prodname_copilot_enterprise_short %} subscription to a {% data variables.product.prodname_copilot_business_short %} subscription, you must contact [{% data variables.product.prodname_dotcom %} Billing Support](https://support.github.com).
 
 ## Canceling your {% data variables.product.prodname_copilot_enterprise_short %} subscription
 
