@@ -296,7 +296,7 @@
     "@typescript-eslint/eslint-plugin": "6.17.0",
     "@typescript-eslint/parser": "6.17.0",
     "chalk": "^5.0.1",
-    "change-case": "^5.0.2",
+    "change-case": "^5.4.4",
     "commander": "^12.0.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
