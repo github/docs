@@ -282,7 +282,7 @@
     "@actions/core": "^1.10.0",
     "@actions/github": "^6.0.0",
     "@axe-core/playwright": "^4.9.0",
-    "@github/markdownlint-github": "^0.4.1",
+    "@github/markdownlint-github": "^0.6.2",
     "@graphql-inspector/core": "^5.0.0",
     "@graphql-tools/load": "^8.0.0",
     "@octokit/rest": "^20.0.2",
