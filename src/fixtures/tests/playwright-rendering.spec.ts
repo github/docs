@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test'
 // In GitHub Actions, we rely on setting the environment variable directly
 // but for convenience, for local development, engineers might have a
 // .env file that can set environment variable. E.g. ELASTICSEARCH_URL.
-// The `src/frame/start-server.js` script uses dotenv too, but since Playwright
+// The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
