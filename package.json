@@ -285,7 +285,7 @@
     "@github/markdownlint-github": "^0.6.2",
     "@graphql-inspector/core": "^5.0.0",
     "@graphql-tools/load": "^8.0.0",
-    "@octokit/rest": "^20.0.2",
+    "@octokit/rest": "^20.1.0",
     "@playwright/test": "1.43.0",
     "@types/imurmurhash": "^0.1.4",
     "@types/js-cookie": "^3.0.6",
