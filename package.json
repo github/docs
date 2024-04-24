@@ -33,6 +33,7 @@
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
+    "index": "tsx src/search/scripts/index/index.ts",
     "index-elasticsearch": "node src/search/scripts/index-elasticsearch.js",
     "index-test-fixtures": "npm run index-elasticsearch -- -l en -l ja -V ghec -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
