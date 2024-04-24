@@ -10319,8 +10319,8 @@
   },
   {
     "action": "environment.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was created for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -10871,8 +10871,8 @@
   },
   {
     "action": "environment.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was deleted for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -11423,8 +11423,8 @@
   },
   {
     "action": "environment.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A variable was updated for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -38650,7 +38650,7 @@
   {
     "action": "repo.create_actions_secret",
     "description": "A GitHub Actions secret was created for a repository.",
-    "docs_reference_links": "/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -38833,8 +38833,8 @@
   },
   {
     "action": "repo.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was created for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -39017,7 +39017,7 @@
   },
   {
     "action": "repo.create_integration_secret",
-    "description": "An integration secret was created for a repository.",
+    "description": "A Codespaces or Dependabot secret was created for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -41409,7 +41409,7 @@
   {
     "action": "repo.remove_actions_secret",
     "description": "A GitHub Actions secret was deleted for a repository.",
-    "docs_reference_links": "N/A",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -41592,8 +41592,8 @@
   },
   {
     "action": "repo.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was deleted for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -41776,7 +41776,7 @@
   },
   {
     "action": "repo.remove_integration_secret",
-    "description": "An integration secret was deleted for a repository.",
+    "description": "A Codespaces or Dependabot secret was deleted for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
@@ -45257,8 +45257,8 @@
   },
   {
     "action": "repo.update_actions_secret",
-    "description": "A GitHub Actions secret was updated.",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions secret was updated for a repository.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -45625,8 +45625,8 @@
   },
   {
     "action": "repo.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A GitHub Actions variable was updated for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository",
     "fields": [
       "@timestamp",
       "_document_id",
@@ -45993,7 +45993,7 @@
   },
   {
     "action": "repo.update_integration_secret",
-    "description": "An integration secret was updated for a repository.",
+    "description": "A Codespaces or Dependabot secret was updated for a repository.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",

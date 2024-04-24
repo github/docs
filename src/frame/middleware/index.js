@@ -64,6 +64,7 @@ import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from '#src/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '#src/search/middleware/contextualize.js'
 import shielding from '#src/shielding/middleware/index.js'
+import tracking from '#src/tracking/middleware/index.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -162,7 +163,7 @@ export default function (app) {
   app.use(asyncMiddleware(dynamicAssets))
   app.use(
     '/public/',
-    express.static('data/graphql', {
+    express.static('src/graphql/data', {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
@@ -209,6 +210,9 @@ export default function (app) {
     app.use(mockVaPortal) // FOR TESTING.
   }
 
+  // ** Possible early exits after cookies **
+  app.use(tracking)
+
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
@@ -251,7 +255,7 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   app.use(robots)
-  app.use(/(\/.*)?\/early-access$/, earlyAccessLinks)
+  app.use(earlyAccessLinks)
   app.use('/categories.json', asyncMiddleware(categoriesForSupport))
   app.get('/_500', asyncMiddleware(triggerError))
 

@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'

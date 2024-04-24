@@ -88,6 +88,11 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{{ 용어집.description }}', '{{ glossary.description }}')
   }
 
+  if (context.code === 'es') {
+    // Seen these a few times in the Spanish translations.
+    content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
+  }
+
   // We have seen a lot of Markdown tables, that may have Liquid tags
   // (like `{% ifversion ... %}`) within them lose the linebreak between
   // the heading and the first row marker.

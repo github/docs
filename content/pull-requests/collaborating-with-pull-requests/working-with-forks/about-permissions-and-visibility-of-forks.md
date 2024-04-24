@@ -38,6 +38,18 @@ If you delete a repository or change the repository's visibility settings, you w
 
 Public forks do not inherit the permissions structure of the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
 
+{% ifversion push-rulesets %}
+
+### About push rulesets for forked repositories
+
+{% data reusables.repositories.rulesets-push-rules-beta-note %}
+
+{% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
+
+For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets)."
+
+{% endif %}
+
 ### Important security considerations
 
 If you work with forks, or if you're the owner of a repository or organization that allows forking, it's important to be aware of the following security considerations.

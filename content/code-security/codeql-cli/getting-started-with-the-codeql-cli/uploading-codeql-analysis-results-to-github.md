@@ -82,7 +82,7 @@ The following example uploads results from the SARIF file `temp/example-repo-js.
 codeql github upload-results \
     --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url=https://HOSTNAME \
     {% endif %}
 ```
 
@@ -118,7 +118,7 @@ You can make this diagnostic information available on the {% data variables.code
 codeql github upload-results \
     --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url=https://HOSTNAME \
     {% endif %}
 ```
 

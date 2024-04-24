@@ -1,7 +1,7 @@
 import { stat } from 'fs/promises'
 import path from 'path'
 
-import { expect } from '@jest/globals'
+import { describe, expect } from 'vitest'
 
 import { testViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
@@ -26,6 +26,11 @@ describe('cloning early-access', () => {
 describe('rendering early-access', () => {
   testViaActionsOnly('the top-level TOC is always 404', async () => {
     const res = await get('/en/early-access')
+    expect(res.statusCode).toBe(404)
+  })
+
+  testViaActionsOnly('the enterprise-cloud TOC is always 404', async () => {
+    const res = await get('/en/enterprise-cloud@latest/early-access')
     expect(res.statusCode).toBe(404)
   })
 

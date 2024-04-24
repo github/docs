@@ -28,17 +28,6 @@ if (process.env.ELASTICSEARCH_URL) {
     createProxyMiddleware({
       target: 'https://docs.github.com',
       changeOrigin: true,
-      // By default, http-proxy-middleware will `this.logger.info(...)`
-      // to say the following:
-      //
-      //    [HPM] Proxy created: /  -> https://docs.github.com
-      //
-      // This can be misleading and confusing for anybody starting the
-      // server. Besides, in a sense we aren't particularly interested
-      // in this proxy from a developer point of view. If you don't
-      // have your own ELASTICSEARCH_URL locally, then search functionality
-      // isn't what you're developing/debugging.
-      logLevel: 'warn',
     }),
   )
 }

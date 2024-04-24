@@ -1,7 +1,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+
 import { isPlainObject } from 'lodash-es'
-import { describe, expect, jest, test } from '@jest/globals'
+import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases, {
   deprecatedWithFunctionalRedirects,
@@ -13,7 +14,7 @@ import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('redirects', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   let redirects
   beforeAll(async () => {

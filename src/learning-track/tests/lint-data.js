@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'

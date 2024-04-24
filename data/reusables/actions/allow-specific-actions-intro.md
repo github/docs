@@ -1,5 +1,5 @@
-<a name="allowing-select-actions-to-run"></a>
-<a name="allowing-specific-actions-to-run"></a>
+<span name="allowing-select-actions-to-run"></span>
+<span name="allowing-specific-actions-to-run"></span>
 
 ### Allowing select actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to run
 

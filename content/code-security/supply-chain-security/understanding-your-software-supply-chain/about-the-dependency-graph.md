@@ -75,29 +75,29 @@ The recommended formats explicitly define which versions are used for all direct
 
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
-{%- ifversion dependency-graph-rust-support %}
+| {% ifversion dependency-graph-rust-support %} |
 | Cargo | Rust | `Cargo.lock` | `Cargo.toml`, `Cargo.lock` |
-{%- endif %}
+| {% endif %} |
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
-{%- ifversion github-actions-in-dependency-graph %}
+| {% ifversion github-actions-in-dependency-graph %} |
 | {% data variables.product.prodname_actions %} workflows | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
-{%- endif %}
+| {% endif %} |
 | Go modules | Go | `go.mod`| `go.mod` |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py` |
-{%- ifversion dependabot-dependency-graph-pnpm %}
+| {% ifversion dependabot-dependency-graph-pnpm %} |
 | pnpm             | JavaScript                    | `pnpm-lock.yaml` | `package.json`, `pnpm-lock.yaml` |
-{%- endif %}
-{%- ifversion dependency-graph-dart-support %}
+| {% endif %} |
+| {% ifversion dependency-graph-dart-support %} |
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
-{%- endif %}
+| {% endif %} |
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
-{%- ifversion supply-chain-features-swift-support %}
+| {% ifversion supply-chain-features-swift-support %} |
 | Swift Package Manager | Swift | `Package.resolved` | `Package.resolved` |
-{%- endif %}
+| {% endif %} |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}

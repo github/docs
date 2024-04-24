@@ -12,7 +12,7 @@ import got from 'got'
  * We use this in CI to make sure the local development server works.
  * There are certain things that only work and happen when in
  * local dev, that don't make sense to test in regular end-to-end tests
- * such as `jest` rendering.
+ * such as `vitest` rendering.
  *
  * For engineers to test this locally do the following:
  *

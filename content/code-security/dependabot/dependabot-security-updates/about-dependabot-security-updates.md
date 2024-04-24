@@ -30,6 +30,8 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
+{% data reusables.dependabot.dependabot-updates-signed-commits %}
+
 {% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
 
 {% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
@@ -48,7 +50,9 @@ You can enable a related feature, {% data variables.product.prodname_dependabot_
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
+{% data reusables.dependabot.dependabot-updates-prs-and-actions %}
+
+{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."{% endif %}
 
 {% data reusables.dependabot.dependabot-actions-support %}
 

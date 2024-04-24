@@ -70,7 +70,7 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.product_name %} and the Azure billing portal. This may require coordination between two different people.
 
-To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=DAiIhJKCt8s&ab_channel=GitHub) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see "[Connecting your Azure subscription to your organization account](#connecting-your-azure-subscription-to-your-organization-account)."
+To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=DAiIhJKCt8s&ab_channel=GitHub) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see "[Connecting your Azure subscription to your organization account](/free-pro-team@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-organization-account)."
 
 {% ifversion fpt %}
 

@@ -22,12 +22,6 @@ You can decide whether you want to use some or all keyboard shortcuts on {% ifve
 
 You can control whether links in text blocks on {% data variables.location.product_location %} are underlined and therefore more distinguishable.
 
-{% note %}
-
-**Note:** The option to show link underlines is currently in beta and subject to change.
-
-{% endnote %}
-
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Content", manage settings for link appearance.

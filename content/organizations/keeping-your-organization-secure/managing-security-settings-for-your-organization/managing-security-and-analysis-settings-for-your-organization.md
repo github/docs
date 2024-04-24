@@ -41,6 +41,10 @@ shortTitle: Manage security & analysis
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
+{% ifversion security-configurations %}
+    >[!NOTE] If your organization is enrolled in the {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %} public beta, instead of "Code security and analysis", you will see a **Code security** dropdown menu. You can manage your repository-level security settings with {% data variables.product.prodname_security_configurations %}, and your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
+{% endif %}
+
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
 
 {% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}

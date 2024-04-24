@@ -1,0 +1,1 @@
+>[!NOTE] If your organization is enrolled in the {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %} public beta, instead of "Code security and analysis", you will see a "Code security" dropdown menu. Select {% octicon "codescan" aria-hidden="true" %} **Code security**, then click **Configurations**.
