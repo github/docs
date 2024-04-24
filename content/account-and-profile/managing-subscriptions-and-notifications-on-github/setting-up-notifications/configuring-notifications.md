@@ -25,11 +25,11 @@ topics:
 
 ## Notification delivery options
 
-You can receive notifications for activity on {% data variables.location.product_location %} in the following locations.
+You can receive notifications for activity on {% data variables.product.prodname_dotcom %} in the following locations.
 
-- The notifications inbox in the {% data variables.location.product_location %} web interface
-- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.location.product_location %}
-- An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %}
+- The notifications inbox in the {% data variables.product.prodname_dotcom %} web interface
+- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox in the web interface
+- An email client that uses a verified email address, which can also sync with the notifications inbox in the web interface and {% data variables.product.prodname_mobile %}
 
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 
@@ -37,12 +37,12 @@ You can receive notifications for activity on {% data variables.location.product
 
 ### Benefits of the notifications inbox
 
-The notifications inbox on {% data variables.location.product_location %} and {% data variables.product.prodname_mobile %} includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
+The notifications inbox includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
 - Triage multiple notifications at once.
 - Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
 - Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
 - Unsubscribe and remove a notification from your inbox.
-- Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.location.product_location %} from within the notifications inbox.
+- Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
 - See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
 - Create custom filters to focus on different notifications when you want.
 - Group notifications in your inbox by repository or date to get a quick overview with less context switching
@@ -77,7 +77,7 @@ Anytime you comment in a conversation or when someone @mentions your username, y
 
 {% else %}
 
-For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.location.product_location %}{% ifversion ghes %} and {% data variables.product.prodname_mobile %}{% endif %}. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
+For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox. For more information, see "[Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings)."
 
 ![Screenshot of the "Notification settings" page. The "Participating" and "Watching" settings are shown, each with two checkbox options, titled "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
@@ -93,7 +93,7 @@ If you do not enable watching or participating notifications for web{% ifversion
 
 ## Customizing your email notifications
 
-After enabling email notifications, {% data variables.location.product_location %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.location.product_location %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+After enabling email notifications, {% data variables.product.prodname_dotcom %} will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on {% data variables.product.prodname_dotcom %}. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
 
 {% data reusables.notifications.outbound_email_tip %}
 
@@ -105,7 +105,7 @@ If you're using Gmail, you can click a button beside the notification email to v
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.location.product_location %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
+Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.prodname_dotcom %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
 - Comments on issues and pull requests.
 - Pull request reviews.
 - Pull request pushes.
@@ -119,11 +119,11 @@ You can also send notifications for a specific repository to an email address. F
 
 ## Filtering email notifications
 
-Each email notification that {% data variables.location.product_location %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
+Each email notification that {% data variables.product.prodname_dotcom %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
 
 If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
 
-Email notifications from {% data variables.location.product_location %} contain header information.
+Email notifications from {% data variables.product.prodname_dotcom %} contain header information.
 
 | Header | Information |
 | --- | --- |
