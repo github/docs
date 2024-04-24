@@ -266,7 +266,7 @@
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.5.4",
     "sharp": "0.33.1",
-    "slash": "^5.0.0",
+    "slash": "^5.1.0",
     "strip-ansi": "7.1.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
