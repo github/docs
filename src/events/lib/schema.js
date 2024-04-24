@@ -98,6 +98,10 @@ const context = {
       minimum: 0,
       maximum: 999,
     },
+    is_logged_in: {
+      type: 'boolean',
+      description: 'Anonymous -- whether the user has github.com cookies set.',
+    },
 
     // Device information
     os: {

@@ -5,15 +5,13 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
-    open-pull-requests-limit: 20 # default is 5
     ignore:
       # Because this is so dependent on the remote server we use
       - dependency-name: '@elastic/elasticsearch'
       # Because whatever we have needs to match what @primer/react also uses
       - dependency-name: 'styled-components'
       - dependency-name: '*'
-        update-types:
-          ['version-update:semver-patch', 'version-update:semver-minor']
+        update-types: ['version-update:semver-patch']
 
   - package-ecosystem: 'github-actions'
     directory: '/'

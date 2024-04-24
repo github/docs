@@ -245,7 +245,7 @@ This workflow sets a JSON matrix in one job, and passes it to the next job using
 
 {% raw %}
 
-```yaml
+```yaml copy
 name: build
 on: push
 jobs:
@@ -266,7 +266,7 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
-      - run: build
+      - run: echo "Matrix - Project ${{ matrix.project }}, Config ${{ matrix.config }}"
 ```
 
 {% endraw %}
@@ -275,7 +275,7 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-```yaml
+```yaml copy
 name: print
 on: push
 env:
