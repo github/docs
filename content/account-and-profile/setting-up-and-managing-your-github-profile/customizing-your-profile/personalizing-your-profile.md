@@ -150,7 +150,7 @@ If you're a researcher with an ORCID iD, you can identify yourself by adding you
 
 {% data reusables.user-settings.access_settings %}
 1. Under "ORCID iD", click **Connect your ORCID iD**.
-1. Follow the steps to sign in to your ORCID account and then return to {% data variables.location.product_location %}.
+1. Follow the steps to sign in to your ORCID account and then return to {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 

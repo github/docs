@@ -1,6 +1,6 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.location.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+intro: 'Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
@@ -17,7 +17,7 @@ topics:
 
 ## Notifications and subscriptions
 
-You can choose to receive ongoing updates about specific activity on {% data variables.location.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+You can choose to receive ongoing updates about specific activity on {% data variables.product.prodname_dotcom %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
 
 ### Subscription options
 
@@ -45,7 +45,7 @@ In general, you are automatically subscribed to conversations by default when yo
 
 By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions)."
+To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions)."
 
 ## Customizing notifications and subscriptions
 
@@ -81,7 +81,7 @@ From your inbox you can also triage multiple notifications at once. For more inf
 
 ## Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox on {% data variables.location.product_location %} or {% data variables.product.prodname_mobile %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
 
 ## Notification retention policy
 
