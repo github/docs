@@ -94893,7 +94893,7 @@
   },
   {
     "action": "secret_scanning_alert.reopen",
-    "description": "A seret scanning alert was reopened.",
+    "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A",
     "fields": [
       "@timestamp",
