@@ -9,6 +9,7 @@ versions:
   ghec: '*'
 topics:
   - SSO
+  - https://ssoidportal.org/
 shortTitle: SAML single sign-on
 ---
 ## About authentication with SAML SSO
