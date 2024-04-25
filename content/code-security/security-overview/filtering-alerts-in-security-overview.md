@@ -52,7 +52,7 @@ You can also filter by repository visibility (internal, private, or public) and 
 
 ## Team and topic filters
 
-These qualifiers are available in all views apart from the {% data variables.product.prodname_code_scanning %} alert view.
+These qualifiers are available in all views.
 
 | Qualifier | Description |
 |--------|--------|
@@ -87,7 +87,7 @@ In enterprise-level views, you can limit the data to repositories owned by a sin
 | -------- | -------- | ------ |
 | `owner` | Display data for all repositories owned by one account owner. | Most views
 | `owner-type` | Display data for all repositories owned by an organization or a user account in your enterprise. | "Risk", "Coverage" and {% data variables.secret-scanning.alerts %}
-| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_code_scanning %} alerts and {% data variables.product.prodname_dependabot_alerts %}
+| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts
 
 {% elsif security-overview-org-risk-coverage-enterprise %}
 
