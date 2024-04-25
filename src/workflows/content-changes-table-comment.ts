@@ -25,7 +25,7 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 import { allVersionShortnames } from '@/versions/lib/all-versions.js'
 import { waitUntilUrlIsHealthy } from './wait-until-url-is-healthy.js'
 import readFrontmatter from '@/frame/lib/read-frontmatter.js'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
+import { inLiquid } from './lib/in-liquid'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
@@ -179,29 +179,6 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   }
 
   return markdownTable
-}
-
-type Token = {
-  name?: string
-  args?: string
-}
-
-const parsedLiquidTokensCache = new Map<string, Token[]>()
-
-function inLiquid(filePath: string, fileContents: string, needle: string) {
-  if (!parsedLiquidTokensCache.has(filePath)) {
-    parsedLiquidTokensCache.set(filePath, getLiquidTokens(fileContents))
-  }
-  const tokens = parsedLiquidTokensCache.get(filePath) as Token[]
-  for (const token of tokens) {
-    if (token.name === 'data') {
-      const { args } = token
-      if (args === needle) {
-        return true
-      }
-    }
-  }
-  return false
 }
 
 function makeBlobUrl(owner: string, repo: string, sha: string, filePath: string) {
