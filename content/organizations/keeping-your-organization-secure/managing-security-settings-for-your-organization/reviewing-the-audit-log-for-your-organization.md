@@ -197,6 +197,12 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 
 By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
+{% ifversion ghec %}
+
+When you use the REST API to request Git events, events that were initiated via the web browser or the REST or GraphQL APIs are not included. For example, when you merge a pull request in the web browser, changes are pushed to the base branch, but the Git event for that push is not included in the response.
+
+{% endif %}
+
 For more information about the audit log REST API, see "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
 
 {% endif %}
