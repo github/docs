@@ -15,12 +15,12 @@ import { mkdirp } from 'mkdirp'
 import path from 'path'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index.js'
-import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
+import { getContents, getCommitSha } from '@/workflows/git-utils.js'
 import {
   latest,
   latestStable,
   releaseCandidate,
-} from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -33,6 +33,13 @@ const AUDIT_LOG_PAGES = {
   ORGANIZATION: 'organization',
   ENTERPRISE: 'enterprise',
 }
+
+type AuditLogEventT = {
+  action: string
+  description: string
+}
+
+type AuditLogdata = Record<string, Array<AuditLogEventT>>
 
 async function main() {
   // get latest audit log data
@@ -75,14 +82,19 @@ async function main() {
   // data for every supported GHES version including RC releases.  Just to be
   // extra careful, we also fallback to the latest stable GHES version if
   // there's an RC release in the docs site but no audit log data for that version.
-  const auditLogData = {}
+  const auditLogData: Record<string, AuditLogdata> = {}
+
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
-  const filter = (allowListValues, currentEvents = []) =>
+  const filter = (allowListValues: string | string[], currentEvents: AuditLogEventT[] = []) =>
     filterByAllowlistValues(schemaEvents, allowListValues, currentEvents, pipelineConfig)
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
-  const filterAndUpdateGhes = (allowListValues, auditLogPage, currentEvents) =>
+  const filterAndUpdateGhes = (
+    allowListValues: string | string[],
+    auditLogPage: string,
+    currentEvents: AuditLogdata,
+  ) =>
     filterAndUpdateGhesDataByAllowlistValues(
       schemaEvents,
       allowListValues,
