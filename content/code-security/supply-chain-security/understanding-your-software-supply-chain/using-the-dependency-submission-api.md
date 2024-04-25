@@ -8,7 +8,9 @@ topics:
   - Dependencies
   - REST
 versions:
-  feature: dependency-submission-api
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 {% data reusables.dependency-submission.dependency-submission-api-beta %}
