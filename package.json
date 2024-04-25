@@ -18,6 +18,7 @@
   "scripts": {
     "analyze-text": "node src/search/scripts/analyze-text.js",
     "archive-version": "node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js",
+    "audit-log-sync": "tsx src/audit-logs/scripts/sync.ts",
     "build": "next build",
     "check-content-type": "node src/workflows/check-content-type.js",
     "check-github-github-links": "node src/links/scripts/check-github-github-links.js",

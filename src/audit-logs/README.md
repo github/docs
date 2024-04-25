@@ -34,13 +34,13 @@ A [workflow](.github/workflows/sync-audit-logs.yml) is used to trigger the autom
 
 The workflow creates a pull request with audit log event updates and the label `audit-log-pipeline`.  If there is no updated audit log data, a pull request is not created.
 
-The workflow runs the `src/audit-logs/scripts/sync.js` script.
+The workflow runs the `src/audit-logs/scripts/sync.ts` script.
 
 ## Local development
 
 To run the audit log events pipeline locally:
 
-1. Run `src/audit-logs/scripts/sync.js`
+1. Run `npm run audit-log-sync`
 
 ## About this directory
 
@@ -48,7 +48,7 @@ To run the audit log events pipeline locally:
 - `src/audit-logs/lib` - The source code used in production to display the audit log event docs and configuration files edited by content and engineering team members.
   - `src/audit-logs/lib/config.json` - A configuration file used to specify metadata about the audit logs pipeline.
 - `src/audit-logs/scripts` - The scripts and source code used run the audit logs pipeline, which updates the `src/audit-logs/data` directory.
-  - `src/audit-logs/scripts/sync.js` - The script that runs the audit-logs pipeline.
+  - `src/audit-logs/scripts/sync.ts` - The script that runs the audit-logs pipeline.
 - `src/audit-logs/tests` - The tests used to verify the audit logs pipeline.
 
 ## Content team
