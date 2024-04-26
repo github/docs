@@ -198,7 +198,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
    Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
 
-1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detatch the knowledge base or select a different one.
+1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
