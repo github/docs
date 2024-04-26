@@ -18,7 +18,7 @@ shortTitle: Add a new SSH key
 
 {% data reusables.ssh.about-ssh %} For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
 
-{% ifversion ssh-commit-verification %}You can also use SSH to sign commits and tags. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."{% endif %}
+You can also use SSH to sign commits and tags. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
 
 After you generate an SSH key pair, you must add the public key to {% data variables.location.product_location %} to enable SSH access for your account.
 
@@ -47,9 +47,7 @@ After adding a new SSH authentication key to your account on {% data variables.l
 
 1. Click **New SSH key** or **Add SSH key**.
 1. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
-{% ifversion ssh-commit-verification %}
 1. Select the type of key, either authentication or signing. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
-{% endif %}
 1. In the "Key" field, paste your public key.
 1. Click **Add SSH key**.
 {% data reusables.user-settings.sudo-mode-popup %}

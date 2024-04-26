@@ -1,6 +1,6 @@
 ---
 title: Telling Git about your signing key
-intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or X.509 key you''d like to use.'
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG, SSH, or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -106,7 +106,6 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    ```
 
 {% endlinux %}
-{% ifversion ssh-commit-verification %}
 
 ## Telling Git about your SSH key
 
@@ -117,8 +116,6 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.configure-ssh-signing %}
 {% data reusables.gpg.paste-ssh-public-key %}
-
-{% endif %}
 
 {% windows %}
 
