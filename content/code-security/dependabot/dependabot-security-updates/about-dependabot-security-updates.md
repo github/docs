@@ -30,6 +30,8 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. If you enable this feature, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
+{% data reusables.dependabot.dependabot-updates-signed-commits %}
+
 {% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
 
 {% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
@@ -38,19 +40,19 @@ topics:
 
 The {% data variables.product.prodname_dependabot_security_updates %} feature is available for repositories where you have enabled the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. You will see a {% data variables.product.prodname_dependabot %} alert for every vulnerable dependency identified in your full dependency graph. However, security updates are triggered only for dependencies that are specified in a manifest or lock file. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#dependencies-included)."
 
-{% ifversion dependabot-security-updates-unlock-transitive-dependencies %}
-
 {% note %}
 
-**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies{% ifversion dependabot-security-updates-npm %}, or even removing a sub-dependency that is no longer needed by the parent{% endif %}. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
+**Note**: For npm, {% data variables.product.prodname_dependabot %} will raise a pull request to update an explicitly defined dependency to a secure version, even if it means updating the parent dependency or dependencies, or even removing a sub-dependency that is no longer needed by the parent. For other ecosystems, {% data variables.product.prodname_dependabot %} is unable to update an indirect or transitive dependency if it would also require an update to the parent dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-tries-to-update-dependencies-without-an-alert)."
 
-{% endnote %}{% endif %}
+{% endnote %}
 
 You can enable a related feature, {% data variables.product.prodname_dependabot_version_updates %}, so that {% data variables.product.prodname_dependabot %} raises pull requests to update the manifest to the latest version of the dependency, whenever it detects an outdated dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
+{% data reusables.dependabot.dependabot-updates-prs-and-actions %}
+
+{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."{% endif %}
 
 {% data reusables.dependabot.dependabot-actions-support %}
 
@@ -62,13 +64,18 @@ When you merge a pull request that contains a security update, the corresponding
 
 {% data reusables.dependabot.automated-tests-note %}
 
-{% ifversion dependabot-grouped-security-updates %}
+{% ifversion dependabot-grouped-security-updates-config %}
 
 ## About grouped security updates
 
-{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
+To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time.
 
-To further reduce the number of pull requests you may be seeing, you can enable grouped security updates to group sets of dependencies together (per package ecosystem). {% data variables.product.prodname_dependabot %} then raises a single pull request to update as many vulnerable dependencies as possible in the group to secure versions at the same time. For security updates, {% data variables.product.prodname_dependabot %} **will** group dependencies from different directories. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."
+For security updates, {% data variables.product.prodname_dependabot %} will only group dependencies from different directories per ecosystem under certain conditions and configurations. {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together, and it **will not** group security updates with version updates.
+
+{% data reusables.dependabot.dependabot-grouped-security-updates-how-enable %}
+{% data reusables.dependabot.dependabot-grouped-security-updates-order %}
+
+ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request)."
 
 {% endif %}
 

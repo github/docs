@@ -25,11 +25,11 @@ There are currently two methods of accessing resources on a private network with
 
 ### Using the GitHub CLI extension to access remote resources
 
-{% note %}
+{% warning %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
+**Warning**: The {% data variables.product.prodname_cli %} extension is deprecated and no longer supported.
 
-{% endnote %}
+{% endwarning %}
 
 The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 

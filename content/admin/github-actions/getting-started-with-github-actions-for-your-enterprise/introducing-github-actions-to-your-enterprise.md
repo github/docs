@@ -33,6 +33,8 @@ Consider combining OpenID Connect (OIDC) with reusable workflows to enforce cons
 
 You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."{% else %}{% ifversion audit-log-streaming %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)" and {% endif %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."{% endif %}
 
+{% ifversion custom-org-roles %}You can practice the principal of least privilege by administering custom organization roles for access to settings in your {% data variables.product.prodname_actions %} CI/CD pipeline. For more information about custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
+
 ## Security
 
 You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
@@ -55,13 +57,11 @@ You should consider adding manual approval protection for sensitive environments
 
 There is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. If you do allow any third-party actions, you should create internal guidelines that encourage your team to follow best practices, such as pinning actions to the full commit SHA. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)."
 
-{% ifversion actions-private-networking-azure-vnet %}
+{% ifversion ghec %}
 
 ### Private networking with GitHub-hosted runners
 
-{% data reusables.actions.private-networking-actions-azure-vnet-beta-note %}
-
-{% data reusables.actions.azure-vnet-injected-runners-intro %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network)."
+{% data reusables.actions.azure-vnet-network-configuration-intro %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
 
 {% endif %}
 
@@ -112,15 +112,14 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 
 {% data reusables.actions.about-artifacts %} For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
-{% ifversion actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
-
+{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 {% ifversion ghes %}
-You must configure external blob storage for workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
+You must configure external blob storage for workflow artifacts, caches, and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)."
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% ifversion actions-caching %}, caches,{% endif %} and log retention. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts, caches, and log retention. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 {% endif %}
 

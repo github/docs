@@ -20,7 +20,7 @@ Your JWT must be signed using the `RS256` algorithm and must contain the followi
 |---|---|---|
 |`iat`| Issued At | The time that the JWT was created. To protect against clock drift, we recommend that you set this 60 seconds in the past and ensure that your server's date and time is set accurately (for example, by using the Network Time Protocol). |
 |`exp`| Expires At | The expiration time of the JWT, after which it can't be used to request an installation token. The time must be no more than 10 minutes into the future. |
-|`iss`| Issuer | The ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID with the `GET /app` REST API endpoint. For more information, see "[Apps](/rest/apps/apps)" in the REST API documentation.|
+|`iss`| Issuer | The ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."|
 |`alg`| Message authentication code algorithm | This should be `RS256` since your JWT must be signed using the `RS256` algorithm. |
 
 To use a JWT, pass it in the `Authorization` header of an API request. For example:
@@ -29,8 +29,8 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 curl --request GET \
 --url "{% data variables.product.api_url_pre %}/app" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer YOUR_JWT" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 {% data reusables.getting-started.bearer-vs-token %}
@@ -165,9 +165,9 @@ payload=$( echo -n "${payload_json}" | b64enc )
 
 # Signature
 header_payload="${header}"."${payload}"
-signature=$( 
+signature=$(
     openssl dgst -sha256 -sign <(echo -n "${pem}") \
-    <(echo -n "${header_payload}") | b64enc 
+    <(echo -n "${header_payload}") | b64enc
 )
 
 # Create JWT
@@ -191,9 +191,9 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
-  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()  
+  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  iss = $app_id    
+  iss = $app_id
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

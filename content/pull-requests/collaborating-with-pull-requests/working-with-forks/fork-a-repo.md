@@ -38,13 +38,9 @@ Open source software is based on the idea that by sharing code, we can make bett
 
 For more information about applying open source principles to your organization's development work on {% data variables.location.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
-{% ifversion fpt or ghes or ghec %}
-
 When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -60,20 +56,17 @@ You might fork a project to propose changes to the upstream repository. In this 
 1. In the top-right corner of the page, click **Fork**.
 
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork-button.png)
-{%- ifversion fpt or ghec or ghes %}
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
 1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
 1. Optionally, in the "Description" field, type a description of your fork.
-{%- ifversion fpt or ghec or ghes %}
 1. Optionally, select **Copy the DEFAULT branch only**.
 
    For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.
-{%- endif %}
 1. Click **Create fork**.
 
 {% note %}
 
-**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}{% endif %}
+**Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}
 
 {% endwebui %}
 
@@ -166,30 +159,30 @@ When you fork a project in order to propose changes to the upstream repository, 
 1. Change directories to the location of the fork you cloned.
     - To go to your home directory, type just `cd` with no other text.
     - To list the files and folders in your current directory, type `ls`.
-    - To go into one of your listed directories, type `cd your_listed_directory`.
+    - To go into one of your listed directories, type `cd YOUR-LISTED-DIRECTORY`.
     - To go up one directory, type `cd ..`.
 1. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
 
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
    ```
 
 1. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
 
    ```shell
-   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
+   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/Spoon-Knife.git
    ```
 
 1. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the upstream repository as `upstream`.
 
    ```shell
    $ git remote -v
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
    ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
@@ -235,7 +228,7 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 - For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
-- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
+- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 
 - {% data reusables.getting-started.being-social %}
 

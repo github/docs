@@ -1,1 +1,1 @@
-actions/setup-java@v3
+actions/setup-java@v4

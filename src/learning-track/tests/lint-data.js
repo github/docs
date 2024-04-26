@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
@@ -14,6 +16,23 @@ describe('learning tracks', () => {
   test.each(topLevels)('learning-track in data/learning-tracks/%s.yml', (topLevel) => {
     const learningTracks = allLearningTracks[topLevel]
     const redirectsContext = { redirects, pages }
+
+    for (const learningTrack of Object.values(learningTracks)) {
+      const length = learningTrack.guides.length
+      const size = new Set(learningTrack.guides).size
+      let errorMessage = ''
+      if (length !== size) {
+        errorMessage = `In data/learning-tracks/${topLevel}.yml there are duplicate guides.`
+        const counts = new Map()
+        for (const guide of learningTrack.guides) {
+          counts.set(guide, (counts.get(guide) || 0) + 1)
+        }
+        const dupes = [...counts.entries()].filter(([, count]) => count > 1).map(([entry]) => entry)
+        errorMessage += `\nTo fix this, remove: ${dupes.join(' and ')}`
+      }
+      expect(length, errorMessage).toEqual(size)
+    }
+
     const troubles = Object.entries(learningTracks)
       .map(([learningTrackKey, learningTrack]) => {
         return [

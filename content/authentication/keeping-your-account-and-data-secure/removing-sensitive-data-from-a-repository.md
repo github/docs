@@ -1,6 +1,6 @@
 ---
 title: Removing sensitive data from a repository
-intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history. To entirely remove unwanted files from a repository''s history you can use either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.'
+intro: 'If you commit sensitive data, such as a password or SSH key into a Git repository, you can remove it from the history.'
 redirect_from:
   - /remove-sensitive-data
   - /removing-sensitive-data
@@ -17,31 +17,42 @@ topics:
   - Access management
 shortTitle: Remove sensitive data
 ---
+
+## About removing sensitive data from a repository
+
+When altering your repository's history using tools like `git filter-repo` or the BFG Repo-Cleaner, it's crucial to understand the implications, especially regarding open pull requests and sensitive data.
+
 The `git filter-repo` tool and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
 
 You can remove the file from the latest commit with `git rm`. For information on removing a file that was added with the latest commit, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#removing-files-from-a-repositorys-history)."
 
-{% warning %}
+## About sensitive data exposure
 
-**Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% data variables.location.product_location %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}. {% ifversion fpt or ghec %}{% data variables.contact.github_support %} only assists in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% data variables.location.product_location %}. However, those commits may still be accessible elsewhere:
 
-Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository.
+- In any clones or forks of your repository
+- Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
+- Through any pull requests that reference them.
 
-If the commit that introduced the sensitive data exists in any forks of your repository, it will continue to be accessible unless the fork owner also removes the sensitive data from their fork or deletes the fork entirely. You will need to coordinate with the owners of any forks of your repository, asking them to take the appropriate actions.{% ifversion fpt or ghec %} Please note that {% data variables.product.company_short %} cannot provide contact information for these owners. {% endif %}
+You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+
+{% ifversion fpt or ghec %}
+
+> [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
+
+{% endif %}
+
+Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one.
+
+If the commit that introduced the sensitive data exists in any forks, it will continue to be accessible there. You will need to coordinate with the owners of the forks, asking them to remove the sensitive data or delete the fork entirely. {% ifversion fpt or ghec %}{% data variables.product.company_short %} cannot provide contact information for these owners. {% endif %}
 
 Consider these limitations and challenges in your decision to rewrite your repository's history.
-
-{% endwarning %}
 
 ## Purging a file from your repository's history
 
 You can purge a file from your repository's history using either the `git filter-repo` tool or the BFG Repo-Cleaner open source tool.
 
-{% note %}
-
- **Note:** If sensitive data is located in a file that's identified as a binary file, you'll need to remove the file from the history, as you can't modify it to remove or replace the data.
-
-{% endnote %}
+> [!NOTE] If sensitive data is located in a file that's identified as a binary file, you'll need to remove the file from the history, as you can't modify it to remove or replace the data.
 
 ### Using the BFG
 
@@ -69,11 +80,7 @@ See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documen
 
 ### Using git filter-repo
 
-{% warning %}
-
-**Warning:** If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
-
-{% endwarning %}
+> [!WARNING]  If you run `git filter-repo` after stashing changes, you won't be able to retrieve your changes with other stash commands. Before running `git filter-repo`, we recommend unstashing any changes you've made. To unstash the last set of changes you've stashed, run `git stash show -p | git apply -R`. For more information, see [Git Tools - Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning).
 
 To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
 
@@ -124,11 +131,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
         Completely finished after 0.64 seconds.
         ```
 
-   {% note %}
-
-   **Note:** If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
-
-   {% endnote %}
+      > [!IMPORTANT] If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must run this command on those paths, as well.
 
 1. Add your file with sensitive data to `.gitignore` to ensure that you don't accidentally commit it again.
 
@@ -179,11 +182,9 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 1. Contact {% data variables.contact.contact_support %}, and ask to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}{% ifversion fpt or ghec %}
 
-   {% note %}
+   > [!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
 
-   **Note:** {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.
-
-   {% endnote %}{% endif %}
+   {% endif %}
 
 1. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
@@ -200,17 +201,11 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
    > Total 2437 (delta 1461), reused 1802 (delta 1048)
    ```
 
-   {% note %}
-
-   **Note:** You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
-
-   {% endnote %}
+   > [!NOTE] You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.
 
 ## Avoiding accidental commits in the future
 
-{% ifversion fpt or ghec or ghes %}
 Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
-{% endif %}
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -218,6 +213,7 @@ There are a few simple tricks to avoid committing things you don't want committe
 - Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 - Use `git add --interactive` to individually review and stage changes within each file.
 - Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
+- Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#about-push-protection-for-repositories-and-organizations)."
 
 ## Further reading
 

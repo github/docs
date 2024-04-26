@@ -2,7 +2,7 @@
 title: Customizing {% ifversion code-scanning-without-workflow %}your advanced setup for {% endif %}code scanning
 intro: 'You can customize how {% ifversion code-scanning-without-workflow %}your advanced setup {% else %}{% data variables.product.prodname_dotcom %} {% endif %}scans the code in your project for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can customize {% data variables.product.prodname_code_scanning %} for the repository.'
+permissions: 'People with write permissions to a repository can customize {% ifversion code-scanning-without-workflow %}advanced setup for {% endif %}{% data variables.product.prodname_code_scanning %}.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
   - /code-security/secure-coding/configuring-code-scanning
@@ -65,7 +65,7 @@ Scanning code when someone pushes a change, and whenever a pull request is creat
 
 ### Scanning on push
 
-By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on.push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#on)."
+By default, the {% data variables.code-scanning.codeql_workflow %} uses the `on:push` event to trigger a code scan on every push to the default branch of the repository and any protected branches. For {% data variables.product.prodname_code_scanning %} to be triggered on a specified branch, the workflow must exist in that branch. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#on)."
 
 If you scan on push, then the results appear in the **Security** tab for your repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
@@ -196,7 +196,7 @@ In general, you do not need to worry about where the {% data variables.code-scan
     db-location: {% raw %}'${{ github.runner_temp }}/my_location'{% endraw %}
 ```
 
-The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice. Currently the default value is {% raw %}`${{ github.runner_temp }}/codeql_databases`{% endraw %}.
 
@@ -277,7 +277,7 @@ The `category` value will appear as the `<run>.automationDetails.id` property in
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
 
-{% ifversion codeql-model-packs-java %}
+{% ifversion codeql-model-packs %}
 
 ## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs
 
@@ -285,7 +285,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Using {% data variables.product.prodname_codeql %} model packs
 
@@ -313,9 +313,7 @@ In this example, the default queries will be run for Java, as well as the querie
 
 ### Using query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+To add one or more {% data variables.product.prodname_codeql %} query packs, add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 {% note %}
 
@@ -456,8 +454,6 @@ The settings in the configuration file are written in YAML format.
 
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
 {% raw %}
@@ -501,7 +497,7 @@ packs:
 {% endraw %}
 {% endif %}
 
-{% ifversion codeql-threat-models-java %}
+{% ifversion codeql-threat-models %}
 
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
@@ -567,7 +563,7 @@ For more information about using `exclude` and `include` filters in your custom 
 
 ### Specifying directories to scan
 
-For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python, Ruby, and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
+When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript){% ifversion codeql-no-build %} or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}){% endif %}.
 
 ``` yaml copy
 paths:
@@ -587,7 +583,7 @@ paths-ignore:
 
 {% endnote %}
 
-For compiled languages, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
+For analysis where code is built, if you want to limit {% data variables.product.prodname_code_scanning %} to specific directories in your project, you must specify appropriate build steps in the workflow. The commands you need to use to exclude a directory from the build will depend on your build system. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
 You can quickly analyze small portions of a monorepo when you modify code in specific directories. You'll need to both exclude directories in your build steps and use the `paths-ignore` and `paths` keywords for [`on.<push|pull_request>`](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore) in your workflow.
 
@@ -615,7 +611,7 @@ This step in a {% data variables.product.prodname_actions %} workflow file uses 
         - uses: security-extended
       query-filters:
         - exclude:
-          tags: /cwe-020/
+            tags: /cwe-020/
 ```
 
 You can use the same approach to specify any valid configuration options in the workflow file.
@@ -640,9 +636,15 @@ In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prod
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-{% data reusables.code-scanning.autobuild-compiled-languages %}
+{% ifversion codeql-no-build %}
 
-{% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)."
+For compiled languages, you can decide how the {% data variables.product.prodname_codeql %} action creates a {% data variables.product.prodname_codeql %} database for analysis. For information about the build options available, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)."
+
+{% else %}
+
+For compiled languages, the {% data variables.product.prodname_codeql %} action builds the codebase to create a {% data variables.product.prodname_codeql %} database for analysis. By default, {% data variables.product.prodname_codeql %} uses `autobuild` steps to identify the most likely build method for the codebase. {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)."
+
+{% endif %}
 
 ## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 

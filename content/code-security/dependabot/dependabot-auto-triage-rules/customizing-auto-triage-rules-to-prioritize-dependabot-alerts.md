@@ -2,7 +2,7 @@
 title: Customizing auto-triage rules to prioritize Dependabot alerts
 intro: 'You can create your own {% data variables.dependabot.auto_triage_rules_short %} to control which alerts are dismissed or snoozed, and which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.'
 permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.auto_triage_rules_short %} for the repository, as well as create {% data variables.dependabot.custom_rules %}. Additionally, organization owners and security managers can set {% data variables.dependabot.auto_triage_rules_short %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
-product: '{% data reusables.gated-features.dependabot-auto-triage-rules %}'
+product: '{% data reusables.gated-features.dependabot-custom-auto-triage-rules %}'
 versions:
   feature: dependabot-auto-triage-rules
 type: how_to
@@ -90,6 +90,11 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on adding {% data variables.dependabot.auto_triage_rules %} to your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+{% endif %}
+
 {% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
 {% data reusables.dependabot.click-new-alert-rule %}
 {% data reusables.dependabot.dependabot-alert-rule-set-name %}
@@ -118,6 +123,11 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on editing or deleting {% data variables.dependabot.auto_triage_rules %} in your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+{% endif %}
+
 {% data reusables.dependabot.navigate-to-org-level-dependabot-alert-rules %}
 1. Under "Organization rules", to the right of the rule that you want to edit or delete, click {% octicon "pencil" aria-label="Edit custom rule" %}.
 {% data reusables.dependabot.custom-alert-rules-edit-rule %}

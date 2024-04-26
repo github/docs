@@ -47,7 +47,7 @@ To avoid losing your password in the future, we suggest using a secure password 
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
+1. Sign in to {% data variables.product.product_name %}.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)"
@@ -71,7 +71,7 @@ See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-
 
 ## Resetting API tokens
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[AUTOTITLE](/rest/apps#reset-an-authorization)" endpoint.
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in "[AUTOTITLE](/rest/apps/oauth-applications#reset-a-token)."
 
 ## Preventing unauthorized access
 

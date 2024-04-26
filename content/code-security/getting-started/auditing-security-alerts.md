@@ -57,7 +57,7 @@ You can also stream audit data from {% data variables.product.prodname_dotcom %}
 
 You can set up `code_scanning_alert`, `dependabot_alert`, and `secret_scanning_alert` webhooks to receive payloads whenever there is a response to a security alert in an organization or repository. You can also define which responses to act on, for example, you might want to define a webhook that tracks {% data variables.product.prodname_secret_scanning %} alerts created when someone bypasses push protection using the alert property `"push_protection_bypassed": true`.
 
-You can also integrate webhook payloads into other tools you use to monitor and inform security behaviors. For example, a webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload and integrate it into tools your team uses like Slack, Microsoft Teams, Splunk, or email. For more information, see "[About webhooks](/webhooks-and-events/webhooks/about-webhooks)" and "[Webhook events and payloads](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+You can also integrate webhook payloads into other tools you use to monitor and inform security behaviors. For example, a webhook fires when a secret alert is either created, resolved, {% ifversion secret-scanning-validity-check-partner-patterns %}revoked, reopened, or when a secret's validity status changes{% else %}or reopened{% endif %}. You can then parse the webhook payload and integrate it into tools your team uses like Slack, Microsoft Teams, Splunk, or email. For more information, see "[About webhooks](/webhooks-and-events/webhooks/about-webhooks)" and "[Webhook events and payloads](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
 ## API
 

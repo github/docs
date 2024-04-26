@@ -2,7 +2,9 @@
 title: Exporting a software bill of materials for your repository
 intro: You can export a software bill of materials or SBOM for your repository from the dependency graph. SBOMs allow transparency into your open source usage and help expose supply chain vulnerabilities, reducing supply chain risks.
 versions:
-  feature: dependency-graph-sbom-export
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 permissions: 'Anyone can export the dependency graph of a repository as a software bill of materials. The SBOM export will contain a list of the dependencies that are used in the repository.'
 type: how_to
 topics:
@@ -22,7 +24,7 @@ You can export the current state of the dependency graph for your repository as 
 
 {% data reusables.dependency-graph.sbom-intro %}
 
-If your company provides software to the US federal government per [Executive Order 14028](https://www.gsa.gov/technology/technology-products-services/it-security/executive-order-14028-improving-the-nations-cybersecurity), you will need to provide an SBOM for your product. You can also use SBOMs as part of your audit process and use them to comply with regulatory and legal requirements.
+If your company provides software to the US federal government per [Executive Order 14028](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/executive-order-14028), you will need to provide an SBOM for your product. You can also use SBOMs as part of your audit process and use them to comply with regulatory and legal requirements.
 
 ## Exporting a software bill of material for your repository from the UI
 
@@ -33,4 +35,4 @@ If your company provides software to the US federal government per [Executive Or
 
 ## Exporting a software bill of material for your repository using the REST API
 
-If you want to use the REST API to export an SBOM for your repository, see [AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository) in the REST API documentation for more information.
+If you want to use the REST API to export an SBOM for your repository, see "[AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository)."

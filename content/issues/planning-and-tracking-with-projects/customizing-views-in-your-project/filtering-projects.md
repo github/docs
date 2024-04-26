@@ -29,7 +29,7 @@ The same filters are available for charts you create using insights for {% data 
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
-You can use filters to produce views for very specific purposes. For example, you{% ifversion fpt or ghec or ghes > 3.8 %} could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You{% endif %} could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
+You can use filters to produce views for very specific purposes. For example, you could use `assignee:@me status:todo last-updated:5days` to create a view of all work assigned to the current user, with the "todo" status, that hasn't been updated in the last five days. You could create a triage view by using a negative filter, such as `no:label no:assignee repo:octocat/game`, which would show items without a label and without an assignee that are located in the `octocat/game` repository.
 
 ## Filtering for fields
 
@@ -138,8 +138,6 @@ You can filter for issues that are tracked by another issue in a tasklist. For m
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.8 %}
-
 ## Filtering for when an item was last updated
 
 You can use the `{number}days` syntax to filter for when items were last updated.
@@ -151,8 +149,6 @@ You can use the `{number}days` syntax to filter for when items were last updated
 |                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
 
 {% data reusables.projects.last-updated-explanation %}
-
-{% endif %}
 
 ## Filtering number, date, and iteration fields
 
@@ -172,7 +168,7 @@ You can also use `..` to filter for an inclusive range. When working with a rang
 | <code>field:<em>VALUE</em>..<em>VALUE</em></code> | **priority:1..3** will show items with a priority of 1, 2, or 3.
 |                                                   | **date:2022-01-01..2022-12-31** will show items from the year 2022.
 |                                                   | **points:\*..10** will show items with an points value of anything up to and including 10.
-|                                                   | **iteration:"Iteration 1".."Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
+|                                                   | **iteration:"Iteration 1..Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
 
 ## Filtering assignees and reviewers using keywords
 

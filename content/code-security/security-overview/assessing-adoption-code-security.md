@@ -24,13 +24,25 @@ You can use security overview to see which repositories and teams have already e
 
 ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-coverage-view-summary.png)
 
+{% note %}
+
+**Note:** "Pull request alerts" are reported as enabled only when {% data variables.product.prodname_code_scanning %} has analyzed at least one pull request since alerts were enabled for the repository.
+
+{% endnote %}
+
 {% ifversion security-overview-export-data %}
 You can download a CSV file of the data displayed on the "Security coverage" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
 {% endif %}
 
+{% ifversion security-overview-tool-adoption %}
+
+You can use the "Enablement trends" (beta) view to see enablement status and enablement status trends over time for {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %}, or {% data variables.product.prodname_secret_scanning %} for repositories in an organization. For each of these features, you can view a graph visualizing the percentage of repositories that have the feature enabled, as well as a detailed table with enablement percentages for different points in time. For more information, see "[Viewing enablement trends for an organization (beta)](#viewing-enablement-trends-for-an-organization-beta)."
+
+{% endif %}
+
 ## Viewing the enablement of code security features for an organization
 
-{% data reusables.security-overview.information-varies-GHAS %}
+You can view data to assess the enablement of code security features across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
 
 {% ifversion dependabot-updates-paused-enterprise-orgs %}
 
@@ -71,6 +83,30 @@ In the enterprise-level view, you can view data about the enablement of features
 
    ![Screenshot of the header section of the "Security coverage" view for an enterprise. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights-enterprise.png)
 
+{% endif %}
+
+{% ifversion security-overview-tool-adoption %}
+
+## Viewing enablement trends for an organization (beta)
+
+{% note %}
+
+**Note:** The "Enablement trends" view is currently in beta and is subject to change.
+
+{% endnote %}
+
+You can view data to assess the enablement status and enablement status trends of code security features for an organization.
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. In the sidebar, under "Metrics", click **{% octicon "meter" aria-hidden="true" %} Enablement trends**.
+1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning_caps %}", or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories in your organization with that feature enabled. This data is displayed as a graph and a detailed table.
+1. Optionally, use the options at the top of the "Enablement trends" (beta) view page to filter the group of repositories you want to see enablement trends for.
+    - Use the date picker to set the time range that you want to view enablement trends for.
+    - Click in the search box to add further filters on the enablement trends displayed. The filters you can apply are the same as those for the "Overview" dashboard (beta) view. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+      ![Screenshot of the beta "Enablement trends" view for an organization, showing Dependabot status and trends over 30 days, with a filter applied.](/assets/images/help/security-overview/security-overview-enablement-trends.png)
+  
 {% endif %}
 
 ## Interpreting and acting on the enablement data

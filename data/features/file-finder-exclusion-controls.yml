@@ -1,6 +1,0 @@
-# Reference: Issue #7579 - Improved file finder exclusion controls
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.7'

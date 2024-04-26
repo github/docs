@@ -2,7 +2,7 @@
 title: Managing access to self-hosted runners using groups
 shortTitle: Manage access with runner groups
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization{% ifversion ghec or ghes %} or enterprise{% endif %}.
-permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} can create and manage additional runner groups.'
+permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} can create and manage additional runner groups.<br><br>{% ifversion custom-org-roles %}Users with the "Manage organization runners and runner groups" permission can manage runner groups at the organization level.{% endif %}'
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
@@ -22,11 +22,7 @@ type: tutorial
 
 ## Creating a self-hosted runner group for an organization
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
@@ -48,11 +44,7 @@ type: tutorial
 
 ## Changing which organizations can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group.
 
@@ -63,11 +55,7 @@ For runner groups in an enterprise, you can change what organizations in the ent
 
 ## Changing which repositories can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 For runner groups in an organization, you can change what repositories in the organization can access a runner group.
 
@@ -78,11 +66,7 @@ For runner groups in an organization, you can change what repositories in the or
 
 ## Changing which workflows can access a runner group
 
-{%- ifversion fpt or ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 {% data reusables.actions.about-restricting-workflow-access-with-runner-groups %}
 
@@ -127,6 +111,8 @@ You can edit the name of your runner groups at the enterprise and organization l
 ## Automatically adding a self-hosted runner to a group
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
+
+<span id="moving-a-runner-to-a-group"></a>
 
 ## Moving a self-hosted runner to a group
 

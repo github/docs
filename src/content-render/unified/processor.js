@@ -21,11 +21,13 @@ import rewriteAssetImgTags from './rewrite-asset-img-tags.js'
 import useEnglishHeadings from './use-english-headings.js'
 import headingLinks from './heading-links.js'
 import rewriteTheadThScope from './rewrite-thead-th-scope.js'
+import rewriteEmptyTableRows from './rewrite-empty-table-rows.js'
 import rewriteForRowheaders from './rewrite-for-rowheaders.js'
 import wrapProceduralImages from './wrap-procedural-images.js'
 import parseInfoString from './parse-info-string.js'
 import annotate from './annotate.js'
 import alerts from './alerts.js'
+import replaceDomain from './replace-domain.js'
 
 export function createProcessor(context) {
   return (
@@ -43,6 +45,7 @@ export function createProcessor(context) {
       .use(headingLinks)
       .use(codeHeader)
       .use(annotate)
+      .use(replaceDomain)
       .use(highlight, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
@@ -61,6 +64,7 @@ export function createProcessor(context) {
       })
       .use(raw)
       .use(wrapProceduralImages)
+      .use(rewriteEmptyTableRows)
       .use(rewriteTheadThScope)
       .use(rewriteForRowheaders)
       .use(rewriteImgSources)

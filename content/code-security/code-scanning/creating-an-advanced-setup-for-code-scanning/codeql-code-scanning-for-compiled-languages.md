@@ -1,9 +1,9 @@
 ---
 title: CodeQL code scanning for compiled languages
 shortTitle: CodeQL for compiled languages
-intro: 'Understand the autobuild method {% data variables.product.prodname_codeql %} analysis uses to build code for compiled languages and learn how you can customize the build command if you need to.'
+intro: 'Understand how {% data variables.product.prodname_codeql %} analyzes compiled languages, the build options available, and learn how you can customize the database generation process if you need to.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for that repository by editing a workflow{% ifversion code-scanning-without-workflow %}, when advanced setup is enabled (admin permission is required to change setup){% endif %}.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -34,67 +34,271 @@ topics:
 
 ## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages
 
-{% data variables.product.prodname_code_scanning_caps %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages {% data variables.code-scanning.compiled_languages %}, the process of populating this database involves building the code and extracting data.
+{% data variables.product.prodname_code_scanning_caps %} works by running queries against one or more {% data variables.product.prodname_codeql %} databases. Each database contains a representation of the code in a single language in your repository. For the compiled languages {% data variables.code-scanning.compiled_languages %}, the process of populating this database {% ifversion codeql-no-build %}often{% endif %} involves building the code and extracting data.
 
-{% data reusables.code-scanning.autobuild-compiled-languages %}
+{% ifversion codeql-no-build %}
 
-{% ifversion code-scanning-without-workflow-310 %}
+When you enable {% data variables.product.prodname_code_scanning %}, both default and advanced setup generate a {% data variables.product.prodname_codeql %} database for analysis using the simplest method available. For {% data variables.code-scanning.no_build_support %}, the {% data variables.product.prodname_codeql %} database is generated directly from the codebase without requiring a build (`none` build mode). For other compiled languages, {% data variables.product.prodname_codeql %} builds the codebase using the `autobuild` build mode. Alternatively, you can use the `manual` build mode to specify explicit build commands to analyze only the files that are built by these custom commands.
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. {% ifversion codeql-swift-advanced-setup %}Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}.{% endif %} For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+{% elsif ghes > 3.9 %}
 
-{% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %}
-You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion codeql-swift-advanced-setup %} except Swift{% endif %}. Default setup will always run the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all necessary commands for C/C++, C#, and Java analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.
-{% endif %}
-
-{% elsif code-scanning-without-workflow %}
-
-In {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, default setup does not support any compiled languages, so you must use advanced setup. Advanced setup generates a workflow file you can edit. The starter workflow files use `autobuild` to analyze compiled languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+If you enable default setup, the `autobuild` action will be used to build your code, as part of your automatically configured {% data variables.code-scanning.codeql_workflow %}. If you enable advanced setup, the basic {% data variables.code-scanning.codeql_workflow %} uses `autobuild`. Alternatively, you can disable `autobuild` and instead specify explicit build commands to analyze only the files that are built by these custom commands.
 
 {% else %}
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."
+The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code. Alternatively, you can disable `autobuild` and instead specify explicit build commands to analyze only the files that are built by these custom commands.
+
+{% endif %}
+
+{% ifversion ghes < 3.10 %}
+
+In {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, default setup does not support any compiled languages, so you must use advanced setup. Advanced setup generates a workflow file you can edit. The starter workflow files use `autobuild` to analyze compiled languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+
+{% endif %}
+
+{% ifversion codeql-no-build %}
+
+## {% data variables.product.prodname_codeql %} build modes
+
+{% data reusables.code-scanning.beta-no-build %}
+
+The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
+
+- `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported in beta for {% data variables.code-scanning.no_build_support %}).
+- `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
+- `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
+
+### Comparison of the build modes
+
+{% rowheaders %}
+
+| Build mode characteristic | None | Autobuild | Manual |
+|---------------------------|-------------|-----------|--------|
+| Used by default setup and for organization-level enablement | Yes ({% data variables.code-scanning.no_build_support %}) | Yes, where `none` is not supported | No |
+| Analysis succeeds without user configuration | Yes | Variable | No |
+| Completeness of analysis | Generated code not analyzed | Variable | User controlled |
+| Accuracy of analysis | Good | Good | Best |
+
+{% endrowheaders %}
+
+### Recommendations
+
+When you are setting up {% data variables.product.prodname_code_scanning %} for the first time, or across multiple repositories, it's best to use default setup. Default setup uses the simplest method available to generate a {% data variables.product.prodname_codeql %} database and analyze your code, so that you can start fixing alerts as soon as possible. Once you have resolved the initial alerts, you may want to switch to advanced setup with a manual build process for high risk repositories.
+
+### Using multiple build modes in a multi-language repository
+
+For repositories with multiple compiled languages, you can use different build modes for different languages. For example, if your repository contains C/C++, C# and Java, you might want to provide manual build steps for one language (here C/C++). This workflow specifies a different build mode for each language.
+
+```yaml
+strategy:
+  matrix:
+    include:
+      # Analyzes C and C++ code using the commands in `Build C and C++ code`
+      - language: c-cpp
+        build-mode: manual
+      # Analyzes C# code by automatically detecting a build
+      - language: csharp
+        build-mode: autobuild
+      # Analyzes Java code directly from the codebase without a build
+      - language: java-kotlin
+        build-mode: none # analyzes Java only
+steps:
+- name: Checkout repository
+  uses: {% data reusables.actions.action-checkout %}
+
+    # Initializes CodeQL tools and creates a codebase for analysis.
+    - name: Initialize CodeQL
+      uses: {% data reusables.actions.action-codeql-action-init %}
+      with:
+        languages: {% raw %}${{ matrix.language }}{% endraw %}
+    - if: {% raw %}${{ matrix.build-mode == 'manual' }}{% endraw %}
+      name: Build C and C++ code
+      run: |
+        echo 'If you are using a "manual" build mode for one or more of the' \
+          'languages you are analyzing, replace this with the commands to build' \
+          'your code, for example:'
+        echo '  make bootstrap'
+        echo '  make release'
+        exit 1
+```
 
 {% endif %}
 
 For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks)" in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the {% data variables.product.prodname_codeql %} documentation.
 
-If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
+## About Autobuild for {% data variables.product.prodname_codeql %}
 
-## About `autobuild` for {% data variables.product.prodname_codeql %}
+{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
 
-{% data reusables.code-scanning.autobuild-compiled-languages %}
+The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
-- [`autobuild` for C/C++](#autobuild-for-cc)
-- [`autobuild` for C#](#autobuild-for-c){% ifversion codeql-go-autobuild %}
-- [`autobuild` for Go](#autobuild-for-go){% endif %}{% ifversion codeql-kotlin-beta %}
-- [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin){% else %}
-- [`autobuild` for Java](#autobuild-for-java){% endif %}{% ifversion codeql-swift-beta %}
-- [`autobuild` for Swift](#autobuild-for-swift){% endif %}
+- Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (beta release supported for {% data variables.code-scanning.no_build_support %}).
+- Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
+- Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
+
+{% endif %}
+
+{% ifversion codeql-no-build %}
+
+### Example using the `build-mode` option
+
+```yaml
+# Initializes the CodeQL tools for scanning.
+name: Analyze
+strategy:
+  matrix:
+    include:
+      # Analyze C and C++ code
+      - language: c-cpp
+        build-mode: autobuild
+      # Analyze Go code
+      - language: go
+        build-mode: autobuild
+
+steps:
+  - uses: {% data reusables.actions.action-codeql-action-init %}
+    with:
+      languages: {% raw %}${{ matrix.language }}{% endraw %}
+      build-mode: {% raw %}${{ matrix.build-mode }}{% endraw %}
+```
+
+### Example using the Autobuild step
+
+{% elsif ghes and code-scanning-without-workflow-310 %}
+
+<!--Nothing to display-->
+
+{% elsif ghes %}
+
+The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code.
+
+{% endif %}
+
+```yaml
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: {% data reusables.actions.action-codeql-action-init %}
+      with:
+        languages: {% raw %}${{ matrix.language }}{% endraw %}
+
+    - name: Autobuild
+      uses: {% data reusables.actions.action-codeql-action-autobuild %}
+```
+
+## About specifying build steps manually
+
+{% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
+You can only specify manual build steps if you have enabled advanced setup, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-a-repository)."{% endif %}
+
+{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
+
+{% ifversion codeql-no-build %}
+Update your workflow to define the `build-mode` as `manual`.
+
+```yaml
+# Initializes the CodeQL tools for scanning.
+- name: Initialize CodeQL
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+    build-mode: manual
+- uses: {% data reusables.actions.action-codeql-action-analyze %}
+  with:
+    category: {% raw %}"/language:${{ matrix.language }}"{% endraw %}
+```
+
+Alternatively, update your workflow to comment out the "Autobuild" step.
+
+{% endif %}
+
+```yaml
+    # Autobuild attempts to build any compiled languages.
+    # - name: Autobuild
+    #  uses: {% data reusables.actions.action-codeql-action-autobuild %}
+```
+
+### Specifying build commands
+
+When manual building is enabled, uncomment the `run` step in the workflow and add build commands that are suitable for your repository. The `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process.
+
+``` yaml
+- run: |
+    make bootstrap
+    make release
+```
+
+For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+
+{% ifversion codeql-no-build %}<!-- For "no-build" this is covered earlier in the article under "About CodeQL build modes". -->
+{% elsif ghes %}
+
+### Specifying build commands for multiple languages
+
+For repositories with multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, you might want to provide manual build steps for one language (here Java). This specifies build steps for Java while still using `autobuild` for C/C++ and C#.
+
+```yaml
+- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'c-cpp'{% else %}'cpp'{% endif %} || matrix.language == 'csharp'
+  name: Autobuild
+  uses: {% data reusables.actions.action-codeql-action-autobuild %}
+- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'java-kotlin'{% else %}'java'{% endif %}
+  name: Build Java
+  run: |
+    make bootstrap
+    make release
+```
+
+For more information about the `if` conditional, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
+{% endif %}
+
+If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+
+## Autobuild steps for compiled languages
+
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}
+
+- [Building C/C++](#building-cc)
+- [Building C#](#building-c){% ifversion codeql-go-autobuild %}
+- [Building Go](#building-go){% endif %}{% ifversion codeql-kotlin-beta %}
+- [Building Java and Kotlin](#building-java--and-kotlin){% else %}
+- [Building Java](#building-java){% endif %}{% ifversion codeql-swift-beta %}
+- [Building Swift](#building-swift){% endif %}
 
 {% note %}
 
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %}
+**Note**: If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
 
 {% endnote %}
 
-### `autobuild` for C/C++
+## Building C/C++
+
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C/C++ code.
+
+### Autobuild summary{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
 
-The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+The behavior of the `autobuild` step varies according to the operating system that the extraction runs on.
+
+### Windows autodetection
+
+On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
 
 1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+
+### Linux and macOS autodetection
 
 On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
 
 1. Look for a build system in the root directory.
 1. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 1. Run an appropriate command to configure the system.
+
+#### Runner requirements
 
 {% ifversion codeql-cpp-autoinstall-dependencies %}
 On Ubuntu Linux runners, `autobuild` may try to automatically install dependencies required by the detected configuration and build steps. By default, this behavior is enabled on {% data variables.product.prodname_dotcom %}-hosted runners and disabled on self-hosted runners. You can enable or disable this feature explicitly by setting `CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES` to `true` or `false` in the environment. For more information about defining environment variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow)."
@@ -105,32 +309,59 @@ For self-hosted runners{% ifversion codeql-cpp-autoinstall-dependencies %}, unle
 If you enable automatic installation of dependencies, you must ensure that the runner is using Ubuntu and that it can run `sudo apt-get` without requiring a password.
 {%- endif %}
 
-### `autobuild` for C#
+## Building C#
+
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C# code.
+
+### Autobuild summary{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
+### Windows autodetection
+
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
 
 1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
-1. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
+1. Invoke `MSBuild.exe` on the solution or project file closest to the root.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
-1. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+1. Invoke a script that looks like a build script—`build.bat`, `build.cmd`, and `build.exe` (in that order).
+
+#### Runner requirements
 
 For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
 
-For .NET Framework application development, on Windows, you will need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). On Linux and macOS, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
+For .NET Framework application development, you will need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`).
+
+### Linux and macOS autodetection
+
+1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
+1. Invoke `MSbuild` on the solution or project file closest to the root.
+If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
+1. Invoke a script that looks like a build script—`build` and `build.sh` (in that order).
+
+#### Runner requirements
+
+For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
+
+For .NET Framework application development, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
 
 {% ifversion codeql-go-autobuild %}
 
-### `autobuild` for Go
+## Building Go
+
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Go code.
+
+### Autobuild summary{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | Go modules, `dep` and Glide, as well as build scripts including Makefiles and Ninja scripts |
+
+### Autodetection
 
 The `autobuild` process attempts to autodetect a suitable way to install the dependencies needed by a Go repository before extracting all `.go` files:
 
@@ -150,18 +381,33 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 {% endif %}
 {% endif %}
 
-### `autobuild` for Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
+## Building Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
+
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports the following build modes.
+
+- Java: `none`, `autobuild`, or `manual`
+- Kotlin: `autobuild` or `manual`
+
+When you first enable default setup for a repository, if only Java code is detected then the build mode is set to `none`. If Kotlin or a combination of Java and Kotlin code is detected, then the build mode is set to `autobuild`.
+
+If you later add Kotlin code to a repository that uses the `none` build mode, {% data variables.product.prodname_codeql %} analysis reports a warning message explaining that Kotlin is not supported. You will need to disable default setup and re-enable it. When you re-enable default setup, the build mode will change to `autobuild` so that both languages can be analyzed. Alternatively, you can change to an advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/kotlin-detected-in-no-build)."
+
+### Autobuild summary{% endif %}
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux (no restriction) |
 | Build system | Gradle, Maven and Ant |
 
+### Autodetection
+
 The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
 
 1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
 1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
+
+### Runner requirements
 
 If you're using self-hosted runners, the required version(s) of Java should be present:
 
@@ -179,7 +425,11 @@ You will also need to install the build system (for example `make`, `cmake`, `ba
 
 {% ifversion codeql-swift-beta %}
 
-### `autobuild` for Swift
+## Building Swift
+
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for Swift code.
+
+### Autobuild summary{% endif %}
 
 | Supported system type | System name |
 |----|----|
@@ -198,7 +448,7 @@ Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or g
 
 {% data reusables.code-scanning.default-setup-swift-self-hosted-runners %}
 
-#### Customizing Swift compilation in a {% data variables.code-scanning.codeql_workflow %}
+### Customizing Swift compilation in a {% data variables.code-scanning.codeql_workflow %}
 
 `xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
 
@@ -207,36 +457,3 @@ You can pass the `archive` and `test` options to `xcodebuild`. However, the stan
 For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
 
 {% endif %}
-
-## Adding build steps for a compiled language
-
-{% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
-
-After removing the `autobuild` step, uncomment the `run` step and add build commands that are suitable for your repository. The workflow `run` step runs command-line programs using the operating system's shell. You can modify these commands and add more commands to customize the build process.
-
-``` yaml
-- run: |
-    make bootstrap
-    make release
-```
-
-For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-If your repository contains multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, and `autobuild` correctly builds C/C++ and C# but fails to build Java, you could use the following configuration in your workflow, after the `init` step. This specifies build steps for Java while still using `autobuild` for C/C++ and C#:
-
-```yaml
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'c-cpp'{% else %}'cpp'{% endif %} || matrix.language == 'csharp'
-  name: Autobuild
-  uses: {% data reusables.actions.action-codeql-action-autobuild %}
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'java-kotlin'{% else %}'java'{% endif %}
-  name: Build Java
-  run: |
-    make bootstrap
-    make release
-```
-
-For more information about the `if` conditional, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
-
-For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language)."
-
-If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.

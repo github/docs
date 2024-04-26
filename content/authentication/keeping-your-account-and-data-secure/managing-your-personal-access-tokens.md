@@ -22,7 +22,8 @@ topics:
 
 {% warning %}
 
-**Warning**: Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
+**Warning**: Treat your access tokens like passwords. {% ifversion pat-v2 %}
+For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."{% endif %}
 
 {% endwarning %}
 
@@ -166,8 +167,8 @@ For example, to clone a repository on the command line you would enter the follo
 
 ```shell
 $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO.git
-Username: YOUR_USERNAME
-Password: YOUR_PERSONAL_ACCESS_TOKEN
+Username: YOUR-USERNAME
+Password: YOUR-PERSONAL-ACCESS-TOKEN
 ```
 
 {% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).

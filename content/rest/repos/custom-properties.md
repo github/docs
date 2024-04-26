@@ -1,5 +1,5 @@
 ---
-title: Custom properties
+title: REST API endpoints for custom properties
 shortTitle: Custom properties
 intro: 'Use the REST API to list the custom properties assigned to a repository by the organization.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

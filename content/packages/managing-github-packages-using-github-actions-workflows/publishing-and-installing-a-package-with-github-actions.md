@@ -38,7 +38,7 @@ Some {% data variables.product.prodname_registry %} registries support granular 
 
 If you want your workflow to access a {% data variables.product.prodname_registry %} registry that does not support granular permissions, then{% else %}To authenticate to package registries on {% data variables.product.product_name %},{% endif %} we recommend using the `GITHUB_TOKEN` that {% data variables.product.product_name %} automatically creates for your repository when you enable {% data variables.product.prodname_actions %}. You should set the permissions for this access token in the workflow file to grant read access for the `contents` scope and write access for the `packages` scope. For forks, the `GITHUB_TOKEN` is granted read access for the parent repository. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`{{secrets.GITHUB_TOKEN}}`{% endraw %} context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+You can reference the `GITHUB_TOKEN` in your workflow file using the {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 ## About permissions and package access
 
@@ -72,7 +72,7 @@ These are more examples of how default permissions work for workflows that manag
 
 | {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
 |----|----|
-| Download an existing  | - If the package is public, any workflow running in any repository can download the package. <br> - If the package is internal, then all workflows running in any repository owned by the Enterprise account can download the package. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the package is private, only workflows running in repositories that are given read permission on that package can download the package. <br>
+| Download an existing  | - If the package is public, any workflow running in any repository can download the package. <br> - If the package is internal, then all workflows running in any repository owned by the Enterprise account can download the package. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the package is private, only workflows running in repositories that are given read permission on that package can download the package. {% data reusables.package_registry.public-forks-private-packages %} <br>
 | Upload a new version to an existing package | - If the package is private, internal, or public, only workflows running in repositories that are given write permission on that package can upload new versions to the package.
 | Delete a package or versions of a package | - If the package is private, internal, or public, only workflows running in repositories that are given admin permission can delete existing versions of the package.
 
@@ -187,7 +187,7 @@ jobs:
 
 This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 
-A few minutes after the workflow has completed, the new package will visible in your repository. To find your available packages, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages)."
+A few minutes after the workflow has completed, the new package will be visible in your repository. To find your available packages, see "[AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages)."
 
 ## Installing a package using an action
 
@@ -255,7 +255,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
-        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u {% raw %}${{ github.actor }}{% endraw %} --password-stdin
         #
       - name: Push image
         run: |

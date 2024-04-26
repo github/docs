@@ -1,5 +1,6 @@
 ---
-title: Global security advisories
+title: REST API endpoints for global security advisories
+shortTitle: Global security advisories
 intro: Use the REST API to view global security advisories.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

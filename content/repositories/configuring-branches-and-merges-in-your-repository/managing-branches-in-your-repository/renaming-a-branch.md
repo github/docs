@@ -1,7 +1,7 @@
 ---
 title: Renaming a branch
 intro: You can change the name of a branch in a repository.
-permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch){% ifversion fpt or ghec or ghes %} or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches){% endif %}. People with admin permissions can rename the default branch{% ifversion fpt or ghec or ghes %} and protected branches{% endif %}.'
+permissions: 'People with write permissions to a repository can rename a branch in the repository unless it is the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) or a [protected branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches). People with admin permissions can rename the default branch and protected branches.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -28,9 +28,7 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next to the branch you want to rename, click {% octicon "pencil" aria-label="Rename branch" %}.
-
-    ![Screenshot of a branch in the branch list. A pencil icon is highlighted with an orange outline.](/assets/images/help/branches/branch-rename-edit.png)
+1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click {% octicon "pencil" aria-label="Rename branch" %} **Rename branch**.
 1. Type a new name for the branch.
 1. Review the information about local environments, then click **Rename branch**.
 

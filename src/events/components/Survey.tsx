@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent, EventType, startVisitTime } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
 
@@ -220,5 +220,6 @@ function trackEvent(formData?: FormData) {
     survey_vote: formData.get('survey-vote') === 'Y',
     survey_comment: (formData.get('survey-comment') as string) || undefined,
     survey_email: (formData.get('survey-email') as string) || undefined,
+    survey_visit_duration: (Date.now() - startVisitTime) / 1000,
   })
 }

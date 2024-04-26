@@ -27,15 +27,17 @@ versions:
 ## About default setup
 
 Default setup for {% data variables.product.prodname_code_scanning %} is the quickest, easiest, most low-maintenance way to enable {% data variables.product.prodname_code_scanning %} for your repository. Based on the code in your repository, default setup will automatically create a custom {% data variables.product.prodname_code_scanning %} configuration. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in your repository will be scanned:
-- on each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
-- when creating or committing to a pull request based against the repository's default branch, or any protected branch.{% ifversion default-setup-scan-on-schedule %}
-- on a weekly schedule.
+- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+- On a weekly schedule.
 
+{% ifversion code-scanning-default-setup-exclude-dormant-repos %}
 {% note %}
 
 **Note:** If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
 
 {% endnote %}
+{% endif %}
 {% endif %}
 
 {% ifversion org-enable-code-scanning %}You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}
@@ -45,17 +47,21 @@ If you need more granular control over your {% data variables.product.prodname_c
 ### Requirements for using default setup
 
 Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}{% else %}{% ifversion code-scanning-without-workflow-310 %}
-- it includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% else %}
-- it includes only the following {% data variables.product.prodname_codeql %}-supported languages: {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% endif %}
+- It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% else %}
+- It includes only the following {% data variables.product.prodname_codeql %}-supported languages: {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% endif %}
 - {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-- it is publicly visible.{%- elsif ghec %}
-- it is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
+- It is publicly visible.{%- elsif ghec %}
+- It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
 - {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
 {% else %}
 If your repository includes at least one {% data variables.product.prodname_codeql %}-supported language, you can use default setup even if your repository also includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. Unsupported languages will not be scanned by default setup. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
+{% endif %}
+
+{% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %}
+You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion codeql-swift-advanced-setup %} except Swift{% endif %}. {% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
 {% endif %}
 
 ### Customizing default setup

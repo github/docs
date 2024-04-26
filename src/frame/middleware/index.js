@@ -44,7 +44,7 @@ import currentProductTree from './context/current-product-tree.js'
 import genericToc from './context/generic-toc.js'
 import breadcrumbs from './context/breadcrumbs.js'
 import glossaries from './context/glossaries.js'
-import renderProductMap from './context/render-product-map.js'
+import renderProductName from './context/render-product-name.js'
 import features from '#src/versions/middleware/features.js'
 import productExamples from './context/product-examples.js'
 import productGroups from './context/product-groups.js'
@@ -64,6 +64,7 @@ import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from '#src/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '#src/search/middleware/contextualize.js'
 import shielding from '#src/shielding/middleware/index.js'
+import tracking from '#src/tracking/middleware/index.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -162,7 +163,7 @@ export default function (app) {
   app.use(asyncMiddleware(dynamicAssets))
   app.use(
     '/public/',
-    express.static('data/graphql', {
+    express.static('src/graphql/data', {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
@@ -209,6 +210,9 @@ export default function (app) {
     app.use(mockVaPortal) // FOR TESTING.
   }
 
+  // ** Possible early exits after cookies **
+  app.use(tracking)
+
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
 
@@ -217,6 +221,7 @@ export default function (app) {
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
   app.use(shortVersions) // Support version shorthands
+  app.use(asyncMiddleware(renderProductName)) // Must come after shortVersions
 
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
@@ -250,7 +255,7 @@ export default function (app) {
   app.use(haltOnDroppedConnection)
 
   app.use(robots)
-  app.use(/(\/.*)?\/early-access$/, earlyAccessLinks)
+  app.use(earlyAccessLinks)
   app.use('/categories.json', asyncMiddleware(categoriesForSupport))
   app.get('/_500', asyncMiddleware(triggerError))
 
@@ -276,7 +281,6 @@ export default function (app) {
   app.use(asyncMiddleware(contextualizeSearch))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
-  app.use(asyncMiddleware(renderProductMap))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

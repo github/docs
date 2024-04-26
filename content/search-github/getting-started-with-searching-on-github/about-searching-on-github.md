@@ -38,8 +38,7 @@ After typing a search query, you can press **Enter** to go to the full search re
 
 **Notes:**
 
-{% ifversion fpt or ghes or ghec %}
-- {% data reusables.search.required_login %}{% endif %}
+- {% data reusables.search.required_login %}
 - {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)"
 - Currently our search doesn't support exact matching.{% ifversion ghes %}
 - Whenever you are searching in code files, only the first two results in each file will be returned.{% endif %}
@@ -70,7 +69,7 @@ In addition to the search bar, you can search {% data variables.product.product_
 
 The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
 
-![Screenshot of the Advanced search page. The top search bar is filled in with the query "kittens user:octocat" and, under the "Advanced options" section below, the "From these owners" text box contains the term "octocat" and is outlined in dark orange.](/assets/images/help/search/advanced-search.png)
+![Advanced Search page. Top search bar holds "kittens user:octocat" query. Under "Advanced options", "From these owners" text box holds term "octocat".](/assets/images/help/search/advanced-search.png)
 
 ## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 

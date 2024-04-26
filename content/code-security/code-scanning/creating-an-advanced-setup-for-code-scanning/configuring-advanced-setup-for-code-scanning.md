@@ -3,7 +3,7 @@ title: Configuring {% ifversion code-scanning-without-workflow %}advanced setup 
 shortTitle: Configure {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %}
 intro: 'You can configure {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %} for a repository to find security vulnerabilities in your code{% ifversion code-scanning-without-workflow %} using a highly customizable {% data variables.product.prodname_code_scanning %} configuration{% endif %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can configure {% data variables.product.prodname_code_scanning %} for that repository. People with write permissions to a repository can also configure {% data variables.product.prodname_code_scanning %}, but only by creating a workflow file or manually uploading a SARIF file.'
+permissions: '{% ifversion code-scanning-without-workflow %}People with admin permissions to a repository, or the security manager role for the repository, can enable {% data variables.product.prodname_code_scanning %} for that repository.{% else %}People with write permissions to a repository can enable {% data variables.product.prodname_code_scanning %} for that repository.{% endif %}'
 redirect_from:
    - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
 versions:
@@ -24,13 +24,18 @@ allowTitleToDifferFromFilename: true
 ## About {% ifversion code-scanning-without-workflow %}advanced setup for {% endif %}{% data variables.product.prodname_code_scanning %}
 
 {% ifversion code-scanning-without-workflow %}
-Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration. By creating and editing a {% data variables.product.prodname_codeql %} workflow file, you can change the scan schedule, scan any {% data variables.product.prodname_codeql %}-supported language, use a matrix build, and more.
+Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. By creating and editing a workflow file, you can define how to build compiled languages, choose which queries to run, select the languages to scan, use a matrix build, and more. You also have access to all the options for controlling workflows, for example: changing the scan schedule, defining workflow triggers, specifying specialist runners to use. For more information about {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."
 
 {% else %}
 {% data variables.product.prodname_code_scanning_caps %} helps you catch vulnerabilities in the code in your repository. With {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can select custom or built-in query suites for use in your analysis, set a specific scan schedule, choose which events trigger a scan, and more.
 {% endif %}
 
+{% ifversion fpt or ghec %}
 You can also configure {% data variables.product.prodname_code_scanning %} with third-party tools. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} using third-party actions](#configuring-code-scanning-using-third-party-actions)."
+
+{% else %}
+Your site administrator can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)."
+{% endif %}
 
 {% data reusables.code-scanning.about-multiple-configurations-link %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
@@ -41,11 +46,11 @@ If you do not need a highly customizable {% data variables.product.prodname_code
 
 ### Prerequisites
 
-Your repository is eligible for {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %} if:
-- it uses {% data variables.product.prodname_codeql %}-supported languages or you plan to generate code scanning results with a third-party tool.
+Your repository is eligible for {% ifversion code-scanning-without-workflow %}advanced setup{% else %}{% data variables.product.prodname_code_scanning %}{% endif %} if it meets these requirements.
+- It uses {% data variables.product.prodname_codeql %}-supported languages or you plan to generate code scanning results with a third-party tool.
 - {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-- it is publicly visible.{%- elsif ghec %}
-- it is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
+- It is publicly visible.{%- elsif ghec %}
+- It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
 - {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
 {% ifversion ghes %}
@@ -54,13 +59,9 @@ If the server on which you are running {% data variables.product.prodname_ghe_se
 
 {% ifversion code-scanning-without-workflow %}
 
-## Configuring advanced setup for a repository
+## Configuring advanced setup for {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
 
-Advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. By creating and editing a workflow file, you can choose which queries to run, change the scan schedule, select the languages to scan, use a matrix build, and more.
-
-### Configuring advanced setup for {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
-
-You can customize your {% data variables.product.prodname_code_scanning %} by creating and editing a workflow file. Selecting advanced setup generates a basic workflow file for you to customize.
+You can customize your {% data variables.product.prodname_codeql %} analysis by creating and editing a workflow file. Selecting advanced setup generates a basic workflow file for you to customize using standard workflow syntax and specifying options for the {% data variables.product.prodname_codeql %} action. See "[AUTOTITLE](/actions/using-workflows/about-workflows)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
 
 {% data reusables.code-scanning.billing %}
 
@@ -101,7 +102,7 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)."
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)" and [AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
 
 {% else %}
 
@@ -129,7 +130,7 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)."
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)" and [AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
 
 {% endif %}
 
@@ -137,11 +138,9 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 {% ifversion fpt or ghec %}
 
-### Configuring {% data variables.product.prodname_code_scanning %} using third-party actions
+## Configuring {% data variables.product.prodname_code_scanning %} using third-party actions
 
-{% data reusables.advanced-security.starter-workflows-beta %}
-
-{% data reusables.advanced-security.starter-workflow-overview %}
+{% data variables.product.product_name %} includes starter workflows for third-party actions, as well as the {% data variables.product.prodname_codeql %} action. Using a starter workflow is much easier than writing a workflow unaided.
 
 {% data reusables.code-scanning.billing %}
 
@@ -165,12 +164,19 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 ## Next steps
 
-After configuring {% data variables.product.prodname_code_scanning %}, and allowing its actions to complete, you can:
+After your workflow runs successfully at least once, you are ready to start examining and resolving {% data variables.product.prodname_code_scanning %} alerts. For more information on {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
 
-- View all of the {% data variables.product.prodname_code_scanning %} alerts generated for this repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
-- View any alerts generated for a pull request submitted after you configure {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
-- Configure notifications for completed runs. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#github-actions-notification-options)."
-- Learn about {% data variables.product.prodname_code_scanning %} checks on pull requests. For more information, "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check)."
-- View the logs generated by the {% data variables.product.prodname_code_scanning %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs)."
-- Investigate any problems that occur with the initial configuration of {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)."
-- Customize how {% data variables.product.prodname_code_scanning %} scans the code in your repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+Learn how {% data variables.product.prodname_code_scanning %} runs behave as checks on pull requests, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check)."
+
+{% ifversion code-scanning-tool-status-page %}
+
+You can find detailed information about your {% data variables.product.prodname_code_scanning %} configuration, including timestamps for each scan and the percentage of files scanned, on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
+
+{% endif %}
+
+### Further reading
+
+- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
+- "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#github-actions-notification-options)."
+- "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs)."

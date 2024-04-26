@@ -24,6 +24,12 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
 
+{% ifversion not ghes %}
+
+Using {% data variables.product.prodname_dotcom %}-hosted runners requires network access with at least 70 kilobits per second upload and download speeds.
+
+{% endif %}
+
 {% ifversion github-hosted-runners-emus-entitlements %}
 
 {% note %}
@@ -114,6 +120,8 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data variables.product.prodname_dotcom %}-hosted runners are available for use in both public and private repositories.
 
+{% data variables.product.prodname_dotcom %}-hosted Linux runners support hardware acceleration for Android SDK tools, which makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
+
 {% note %}
 
 **Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
@@ -131,6 +139,10 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+
+### Limitations for arm64 macOS runners
+
+{% data reusables.actions.macos-runner-limitations %}
 
 ### {% data variables.actions.hosted_runner_caps %}s
 
@@ -172,9 +184,7 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 {% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
 
-{% data variables.product.prodname_dotcom %} provides different Linux and Windows runners for public and private repositories.
-- For Linux and Windows runners in **public** repositories, GitHub uses `Standard_D4ads_v5` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
-- For Linux and Windows runners in **private** repositories, GitHub uses `Standard_DS2_v2` virtual machines. For more information, see [Dv2 and DSv2-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series) in the Microsoft Azure documentation.
+For Linux and Windows runners, GitHub uses `Dadsv5-series` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
 
 ## Workflow continuity
 
@@ -190,7 +200,7 @@ Windows virtual machines are configured to run as administrators with User Accou
 
 ## IP addresses
 
-To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the `GET /meta` endpoint. For more information, see "[AUTOTITLE](/rest/meta#get-github-meta-information)."
+To get a list of IP address ranges that {% data variables.product.prodname_actions %} uses for {% data variables.product.prodname_dotcom %}-hosted runners, you can use the {% data variables.product.prodname_dotcom %} REST API. For more information, see the `actions` key in the response of the `GET /meta` endpoint. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
 
 Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP address ranges as the Azure datacenters. macOS runners are hosted in {% data variables.product.prodname_dotcom %}'s own macOS cloud.
 

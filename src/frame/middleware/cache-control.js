@@ -22,12 +22,12 @@ function cacheControlFactory(
     !maxAge && 'no-store',
     maxAge >= 60 * 60 && `stale-while-revalidate=${60 * 60}`,
     maxAge >= 60 * 60 && `stale-if-error=${24 * 60 * 60}`,
-    maxAgeZero && 'max-age=0',
+    (maxAgeZero || maxAge === 0) && 'max-age=0',
   ]
     .filter(Boolean)
     .join(', ')
   return (res) => {
-    if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie')) {
+    if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie') && maxAge) {
       console.warn(
         "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control.",
       )

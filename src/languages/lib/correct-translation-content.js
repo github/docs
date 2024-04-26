@@ -20,11 +20,31 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[AUTOTITLE"을 참조하세요.](', '[AUTOTITLE](')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
 
   if (context.code === 'ru') {
-    // We've seen a lot of these in the Russian translations:
+    // Low-hanging fruit for the data tag
     content = content.replaceAll('{% данных variables', '{% data variables')
+    content = content.replaceAll('{% данными variables', '{% data variables')
+    content = content.replaceAll('{% данных организации variables', '{% data variables')
+    content = content.replaceAll('{% данным variables.', '{% data variables.')
+    content = content.replaceAll('{% данные variables.', '{% data variables.')
+    content = content.replaceAll('{% данных reusables', '{% data reusables')
+    content = content.replaceAll('{% данными reusables', '{% data reusables')
     content = content.replaceAll('{% variables.', '{% data variables.')
+    content = content.replaceAll('{% необработанного %}', '{% raw %}')
+    content = content.replaceAll('{%- ifversion fpt или ghec %}', '{%- ifversion fpt or ghec %}')
+    content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
+    content = content.replaceAll('{% endif _%}', '{% endif %}')
+    content = content.replaceAll('{% конечным %}', '{% endif %}')
+    content = content.replaceAll('{% переменных данных.', '{% data variables.')
+    content = content.replaceAll('{% повторно используемых данных.', '{% data reusables.')
+    content = content.replaceAll('{% примечание %}', '{% note %}')
+    content = content.replaceAll('{% конечных головщиков %}', '{% endrowheaders %}')
+    content = content.replaceAll('{% данных для повторного использования.', '{% data reusables.')
+    content = content.replaceAll('{% еще %}', '{% else %}')
+    content = content.replaceAll('{% необработанные %}', '{% raw %}')
+    content = content.replaceAll('{% подсказки %}', '{% tip %}')
 
     // For the rather custom Russian translation of
     // the content/get-started/learning-about-github/github-glossary.md page
@@ -37,7 +57,28 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{{ глоссарий.description }}', '{{ glossary.description }}')
   }
 
+  if (context.code === 'ja') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% データ variables', '{% data variables')
+    content = content.replaceAll('{% データvariables', '{% data variables')
+
+    // Internal issue #4160
+    content = content.replaceAll(
+      '- % data variables.product.prodname_copilot_enterprise %}',
+      '- {% data variables.product.prodname_copilot_enterprise %}',
+    )
+  }
+
+  if (context.code === 'zh') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 数据variables', '{% data variables')
+  }
+
   if (context.code === 'ko') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 데이터 variables', '{% data variables')
+    content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
+
     // For the rather custom Korean translation of github-glossary.md
     // Let's try to salvage based on what's in
     // docs-internal.ko-kr/content/get-started/learning-about-github/github-glossary.md
@@ -45,6 +86,11 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('용어집 %}의 용어집에 대한 {%', '{% for glossary in glossaries %}')
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ 용어집.description }}', '{{ glossary.description }}')
+  }
+
+  if (context.code === 'es') {
+    // Seen these a few times in the Spanish translations.
+    content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
   }
 
   // We have seen a lot of Markdown tables, that may have Liquid tags
@@ -79,6 +125,16 @@ export function correctTranslatedContentStrings(content, englishContent, context
       '{% data variables.copilot.cfb_price_per_month %} par utilisateur et par mois.',
     )
   }
+
+  // These are common mistakes made by translations that are specific.
+  // It's prevalent in all translations so that's why it's not per-language.
+  // It's important though that this happens after the other per-language
+  // specific fixes above. For example `{{% данных variables...`
+  content = content.replaceAll('{{% data variables.', '{% data variables.')
+  content = content.replaceAll('{%%data variables.', '{% data variables.')
+  content = content.replaceAll('{{% data reusables.', '{% data reusables.')
+  content = content.replaceAll('{%%data reusables.', '{% data reusables.')
+  content = content.replaceAll('{{% ifversion ', '{% ifversion ')
 
   // A lot of Liquid tags lose their linebreak after the `}`
   // result in formatting problems, especially around Markdown tables.

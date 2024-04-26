@@ -184,10 +184,10 @@ async function handlePullRequestOpened({octokit, payload}) {
       owner: payload.repository.owner.login,
       repo: payload.repository.name,
       issue_number: payload.pull_request.number,
-      body: messageForNewPRs,{% ifversion api-date-versioning %}
+      body: messageForNewPRs,
       headers: {
         "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     });
   } catch (error) {
     if (error.response) {

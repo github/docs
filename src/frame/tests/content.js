@@ -1,5 +1,6 @@
 import path from 'path'
 
+import { describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 
 import createTree from '#src/frame/lib/create-tree.js'

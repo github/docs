@@ -50,7 +50,7 @@ Every wiki provides an easy way to clone its contents down to your computer.
 Once you've created an initial page on {% data variables.product.product_name %}, you can clone the repository to your computer with the provided URL:
 
 ```shell
-$ git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.wiki.git
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.wiki.git
 # Clones the wiki locally
 ```
 

@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import schema from '#src/tests/helpers/schemas/site-tree-schema.js'
@@ -12,7 +12,7 @@ const latestEnterpriseRelease = EnterpriseServerReleases.latest
 const siteTreeValidate = getJsonValidator(schema.childPage)
 
 describe('siteTree', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   let siteTree
   beforeAll(async () => {

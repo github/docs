@@ -65,13 +65,9 @@ Headers provide extra information about the request and the desired response. Fo
 
 Most {% data variables.product.prodname_dotcom %} REST API endpoints specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. The value of the `Accept` header is a media type. For more information about media types, see "[Media types](#media-types)."
 
-{% ifversion api-date-versioning %}
-
 #### `X-GitHub-Api-Version`
 
 You should use this header to specify a version of the REST API to use for your request. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -243,8 +239,8 @@ In your request, specify the following options and values:
 
 - **--method** followed by the HTTP method and the path of the endpoint. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
 - **--header**:
-  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
-  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
 - **`-f`** or **`-F`** followed by any body parameters or query parameters in `key=value` format. Use the `-F` option to pass a parameter that is a number, Boolean, or null. Use the `-f` option to pass string parameters.
 
   Some endpoints use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
@@ -321,8 +317,8 @@ Specify the following options and values in your request:
 
   To use query parameters, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`. If you need to send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`. For more information, see "[Query parameters](#query-parameters)." For an example, see "[Example request using query parameters](#example-request-using-query-parameters-1)."
 - **`--header` or `-H`**:
-  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
-  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."
   - **`Authorization`**: Pass your authentication token in an `Authorization` header. Note that in most cases you can use `Authorization: Bearer` or `Authorization: token` to pass a token. However, if you are passing a JSON web token (JWT), you must use `Authorization: Bearer`. For more information, see "[Authentication](#authentication)." For an example of a request that uses an `Authorization` header, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 - **`--data` or `-d`** followed by any body parameters within a JSON object. If you do not need to specify any body parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)." For an example, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 
@@ -367,8 +363,8 @@ The following example uses the "[Create an issue](/rest/issues/issues#create-an-
 curl \
 --request POST \
 --url "{% data variables.product.api_url_code %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
---header "Accept: application/vnd.github+json" \{% ifversion api-date-versioning %}
---header "X-GitHub-Api-Version: 2022-11-28" \{% endif %}
+--header "Accept: application/vnd.github+json" \
+--header "X-GitHub-Api-Version: 2022-11-28" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
@@ -443,13 +439,13 @@ Create an access token to authenticate your request. You can save your token and
 
    The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument. The value of the `headers` property is an object with the header names as keys and header values as values.
 
-   For example, the following code will send a `content-type` header with a value of `text/plain`{% ifversion api-date-versioning %} and a `X-GitHub-Api-Version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`{% endif %}.
+   For example, the following code will send a `content-type` header with a value of `text/plain` and a `X-GitHub-Api-Version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`.
 
    ```javascript copy
    await octokit.request("GET /octocat", {
      headers: {
-       "content-type": "text/plain",{% ifversion api-date-versioning %}
-       "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
+       "content-type": "text/plain",
+       "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",
      },
    });
    ```
@@ -484,7 +480,7 @@ And it returns a response code and headers that look something like this:
 ```shell
 HTTP/2.0 200 OK
 Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
 Cache-Control: private, max-age=60, s-maxage=60
 Content-Security-Policy: default-src 'none'
 Content-Type: application/json; charset=utf-8
@@ -494,7 +490,7 @@ Link: <https://api.github.com/repositories/1300192/issues?per_page=1&page=2>; re
 Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
 Server: GitHub.com
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-Vary: Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With
+Vary: Accept, Authorization, Cookie, Accept-Encoding, Accept, X-Requested-With
 X-Accepted-Oauth-Scopes: repo
 X-Content-Type-Options: nosniff
 X-Frame-Options: deny
@@ -566,7 +562,7 @@ vary: Accept, Accept-Encoding, Accept, X-Requested-With
 etag: W/"7fceb7e8c958d3ec4d02524b042578dcc7b282192e6c939070f4a70390962e18"
 x-github-media-type: github.v3; format=json
 link: <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=7409>; rel="last"
-access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
 access-control-allow-origin: *
 strict-transport-security: max-age=31536000; includeSubdomains; preload
 x-frame-options: deny
@@ -718,6 +714,6 @@ You can then expand these templates using something like the [uri_template](http
 
 ## Next steps
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues/comments#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
 
 For more information about other endpoints that you can use, see the [REST reference documentation](/rest).

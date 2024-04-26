@@ -32,7 +32,7 @@ If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML au
    - If the application registration does not display the roles, proceed to the next step.
 1. In the Azure portal, click **App registrations**.
 1. Click **All applications**, then use the search bar to find your application for {% data variables.product.prodname_emus %}.
-1. Click your SAML application.
+1. Click your SAML or OIDC application.
 1. In the left sidebar, click **Manifest**.
 1. Under "appRoles", add the following:
 
@@ -71,6 +71,14 @@ To add the guest collaborator role to your Okta application:
    - For "Display name", type `Guest Collaborator`.
    - For "Value", type `guest_collaborator`.
 1. Click **Save**.
+
+## Enabling guest collaborators with PingFederate
+
+For more information about adding guest collaborators using PingFederate, see "[Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso)."
+
+## Enabling guest collaborators with the GitHub REST API
+
+For more information about adding guest collaborators with SCIM using GitHub's REST API, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api#user-and-group-attributes)."
 
 ## Adding guest collaborators to your enterprise
 

@@ -323,3 +323,7 @@ printf("hello world\n");
 Code search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.
 
 If code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.
+
+## Case sensitivity
+
+Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive, and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`.

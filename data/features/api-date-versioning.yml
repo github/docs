@@ -1,6 +1,0 @@
-# docs-content issue 7300
-# Date-based REST API versioning
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.9'

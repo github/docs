@@ -39,9 +39,6 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 
 {% data variables.product.product_name %} writes several categories of system logs to the instance's disk in plain text. People with administrative SSH access to the instance can parse these files using Linux command-line tools such as `cat`, `tail`, `head`, `less`, and `more`.
 
-{%- ifversion ghes < 3.9 %}
-- [Log files for authentication](#log-files-for-authentication)
-{%- endif %}
 - [Log files for databases](#log-files-for-databases)
 - [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
 - [Log files for the HTTP server](#log-files-for-the-http-server)
@@ -49,20 +46,6 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 - [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-the-management-console)
 - [Log files for search](#log-files-for-search)
 - [Log files for system services](#log-files-for-system-services)
-
-{% ifversion ghes < 3.9 %}
-
-### Log files for authentication
-
-The following log files contain events from services that provide authentication functionality for your instance.
-
-| Path | Description |
-| :- | :- |
-| <pre>/var/log/github/auth.log</pre> | Records authentication requests to the {% data variables.product.prodname_dotcom %} application on your instance. |
-| <pre>/var/log/github/ldap-sync.log</pre> | If LDAP is configured for the instance and LDAP Sync is enabled, records events associated with LDAP sync. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)." |
-| <pre>/var/log/github/ldap.log</pre> | If LDAP is configured for the instance, records events associated with LDAP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap)." |
-
-{% endif %}
 
 ### Log files for databases
 

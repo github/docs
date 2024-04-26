@@ -14,7 +14,7 @@ topics:
 
 {% data variables.product.prodname_server_statistics %} can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin#admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
+Once enabled, {% data variables.product.prodname_server_statistics %} collects aggregate data on how much certain features are used on your instance over time. Unlike other [Admin Stats API](/rest/enterprise-admin/admin-stats) endpoints, which only return data for the last day, {% data variables.product.prodname_server_statistics %} provides historical data of all {% data variables.product.prodname_server_statistics %} metrics collected since the day you enabled the feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
 When you enable {% data variables.product.prodname_server_statistics %}, you're helping to build a better {% data variables.product.prodname_dotcom %}. The aggregated data you'll provide gives us insights into how {% data variables.product.prodname_dotcom %} adds value to our customers. This information allows {% data variables.product.company_short %} to make better and more informed product decisions, ultimately benefiting you.
 
@@ -166,10 +166,6 @@ DE |`packages_stats.ecosystems.containers.daily_download_count` | Number of down
 DF |`packages_stats.ecosystems.containers.daily_update_count` | Number of container images updated
 DG |`packages_stats.ecosystems.containers.daily_delete_count` | Number of container images deleted
 DH | `packages_stats.ecosystems.containers.daily_create_count` | Number of container images created | {% endif %}
-
-{% ifversion ghes = 3.8 %}
-Optionally, you can include additional data about {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/including-data-about-github-actions-in-server-statistics)."
-{% endif %}
 
 ## {% data variables.product.prodname_server_statistics %} data examples
 

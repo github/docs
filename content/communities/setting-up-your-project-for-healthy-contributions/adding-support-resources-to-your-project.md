@@ -17,11 +17,7 @@ To direct people to specific support resources, you can add a SUPPORT file to yo
 
 ![Screenshot of the new issue form. In the right sidebar, in the "Helpful resources" section, a link labeled "Support" is outlined in dark orange.](/assets/images/help/issues/support-guidelines-in-issue.png)
 
-{% ifversion fpt or ghes or ghec %}
-
 You can create default support resources for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-
-{% endif %}
 
 {% tip %}
 

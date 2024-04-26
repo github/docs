@@ -37,7 +37,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3019
         - |
-          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The personal access token (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
+          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The {% data variables.product.pat_generic %} (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
 
     - heading: Authentication
       notes:
@@ -156,7 +156,7 @@ sections:
 
         # https://github.com/github/releases/issues/2896
         - |
-          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[ AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
+          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
 
         # https://github.com/github/releases/issues/2801
         - |
@@ -389,7 +389,7 @@ sections:
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 
-      ```
+      ```shell
       Error response from daemon: conflict: unable to delete IMAGE_ID (cannot be forced) - image is being used by running container CONTAINER_ID
       ```
 

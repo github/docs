@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -27,6 +27,9 @@ describe('audit log events docs', () => {
     'loads audit log event data for all versions on page %o',
     async (page) => {
       for (const version of Object.keys(allVersions)) {
+        // the enterprise events page has no FPT versioned audit log data
+        if (page.type === 'enterprise' && version === 'free-pro-team@latest') continue
+
         const auditLogEvents = getAuditLogEvents(page.type, version, true)
 
         if (Object.keys(auditLogEvents).length === 0) {

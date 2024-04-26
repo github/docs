@@ -7,11 +7,11 @@
  *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
  *
  * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on jest tests you need to index real
+ * once you're done working on vitest tests you need to index real
  * content again.
  */
 
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
 import { get } from '#src/tests/helpers/e2etest.js'
@@ -25,7 +25,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic search', async () => {
     const sp = new URLSearchParams()
@@ -263,7 +263,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
 })
 
 describeIfElasticsearchURL("additional fields with 'include'", () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test("'intro' and 'headings' are omitted by default", async () => {
     const sp = new URLSearchParams()

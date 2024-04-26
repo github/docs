@@ -55,7 +55,7 @@ const octokit = new Octokit({ {% ifversion ghes %}
 
 If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will indicate what type of {% data variables.product.prodname_github_app %} token is required. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-Instead of importing `Octokit` from `octokit`, import `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+Instead of importing `Octokit` from `octokit`, import `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript copy
 import { App } from "octokit";
@@ -128,14 +128,14 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 });
 ```
 
-The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`{% ifversion api-date-versioning %} and a `x-github-api-version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`{% endif %}:
+The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain` and a `x-github-api-version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`:
 
 ```javascript copy
 await octokit.request("POST /markdown/raw", {
   text: "Hello **world**",
   headers: {
-    "content-type": "text/plain",{% ifversion api-date-versioning %}
-    "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
+    "content-type": "text/plain",
+    "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
   },
 });
 ```
@@ -164,10 +164,10 @@ For example, the following example gets all of the issues from the `github/docs`
 const issueData = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "github",
   repo: "docs",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 ```
 
@@ -177,10 +177,10 @@ The `paginate` method accepts an optional map function, which you can use to col
 const issueData = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "github",
   repo: "docs",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 },
     (response, done) => response.data.map((issue) => {
     if (issue.title.includes("test")) {
@@ -197,10 +197,10 @@ Instead of fetching all of the results at once, you can use `octokit.paginate.it
 const iterator = octokit.paginate.iterator("GET /repos/{owner}/{repo}/issues", {
   owner: "github",
   repo: "docs",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 
 let issueData = []
@@ -224,10 +224,10 @@ You can use the `paginate` method with the `rest` endpoint methods as well. Pass
 const iterator = octokit.paginate.iterator(octokit.rest.issues.listForRepo, {
   owner: "github",
   repo: "docs",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 ```
 
@@ -247,10 +247,10 @@ try {
     owner: "github",
     repo: "docs",
     pull_number: 22809,
-    per_page: 100,{% ifversion api-date-versioning %}
+    per_page: 100,
     headers: {
       "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-    },{% endif %}
+    },
   });
 
   for await (const {data} of iterator) {
@@ -272,10 +272,10 @@ Sometimes, {% data variables.product.company_short %} uses a 4xx status code to 
 try {
   await octokit.request("GET /user/starred/{owner}/{repo}", {
     owner: "github",
-    repo: "docs",{% ifversion api-date-versioning %}
+    repo: "docs",
     headers: {
       "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-    },{% endif %}
+    },
   });
 
   console.log(`The repository is starred by me`);
@@ -326,10 +326,10 @@ The `request` method returns a promise that resolves to an object if the request
 const response = await octokit.request("GET /repos/{owner}/{repo}/issues/{issue_number}", {
   owner: "github",
   repo: "docs",
-  issue_number: 11901,{% ifversion api-date-versioning %}
+  issue_number: 11901,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 
 console.log(`The status of the response is: ${response.status}`)
@@ -344,10 +344,10 @@ Similarly, the `paginate` method returns a promise. If the request was successfu
 const data = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "github",
   repo: "docs",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 
 console.log(`${data.length} issues were returned`)
@@ -376,10 +376,10 @@ async function getChangedFiles({owner, repo, pullNumber}) {
       owner: owner,
       repo: repo,
       pull_number: pullNumber,
-      per_page: 100,{% ifversion api-date-versioning %}
+      per_page: 100,
       headers: {
         "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     });
 
     for await (const {data} of iterator) {
@@ -408,10 +408,10 @@ async function commentIfDataFilesChanged({owner, repo, pullNumber}) {
       owner: owner,
       repo: repo,
       issue_number: pullNumber,
-      body: `It looks like you changed a data file. These files are auto-generated. \n\nYou must revert any changes to data files before your pull request will be reviewed.`,{% ifversion api-date-versioning %}
+      body: `It looks like you changed a data file. These files are auto-generated. \n\nYou must revert any changes to data files before your pull request will be reviewed.`,
       headers: {
         "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     });
 
     return comment.html_url;

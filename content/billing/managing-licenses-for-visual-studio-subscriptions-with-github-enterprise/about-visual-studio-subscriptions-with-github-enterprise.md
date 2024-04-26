@@ -27,13 +27,13 @@ To use the {% data variables.product.prodname_enterprise %} portion of the licen
 
 For more information about the setup of {% data variables.visual_studio.prodname_vss_ghe %}, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise)."
 
-## About licenses for {% data variables.visual_studio.prodname_vss_ghe %}
+## About licenses for {% data variables.visual_studio.prodname_vss_ghec %}
 
-After you assign a license for {% data variables.visual_studio.prodname_vss_ghe %} to a subscriber, the subscriber will use the {% data variables.product.prodname_enterprise %} portion of the license by joining an organization in your enterprise with a personal account on {% data variables.product.prodname_dotcom_the_website %}. If the verified email address for the personal account of an enterprise member on {% data variables.product.prodname_dotcom_the_website %} matches the User Primary Name (UPN) for a subscriber to your {% data variables.product.prodname_vs %} account, the {% data variables.product.prodname_vs %} subscriber will automatically consume one license for {% data variables.visual_studio.prodname_vss_ghe %}.
+After you assign a license for {% data variables.visual_studio.prodname_vss_ghec %} to a subscriber, the subscriber will use the {% data variables.product.prodname_enterprise %} portion of the license by joining an organization in your enterprise with a personal account on {% data variables.product.prodname_dotcom_the_website %}. If the verified email address for the personal account of an enterprise member on {% data variables.product.prodname_dotcom_the_website %} matches the User Primary Name (UPN) for a subscriber to your {% data variables.product.prodname_vs %} account, the {% data variables.product.prodname_vs %} subscriber will automatically consume one license for {% data variables.visual_studio.prodname_vss_ghec %}.
 
 {% note %}
 
-**Note:** To make sure that a {% data variables.product.prodname_emus %} account consumes a {% data variables.product.prodname_vs %} license, either the email address associated with the {% data variables.product.prodname_dotcom %}  account or the SCIM `userName` attribute value from the linked identity must match the UPN.
+**Note:** For {% data variables.product.prodname_emu %} only, to make sure a user account consumes a {% data variables.product.prodname_vs %} license, ensure the {% data variables.product.prodname_vs %} UPN matches the SCIM `userName` attribute or the email address from the linked identity on the {% data variables.product.prodname_dotcom %} account.
 
 {% endnote %}
 
@@ -50,6 +50,12 @@ You can view the number of {% data variables.product.prodname_enterprise %} lice
 {% endtip %}
 
 You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
+
+## About licenses for {% data variables.product.prodname_ghe_server %}
+
+{% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options)."
+
+For users only on {% data variables.product.prodname_ghe_server %}, each {% data variables.product.prodname_vs %} subscriber will only consume one license as long as the email address associated with their {% data variables.product.prodname_ghe_server %} account matches their {% data variables.product.prodname_vs %} UPN. For users on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, only one license will be consumed as long as you follow the instructions in the 'About licenses for {% data variables.visual_studio.prodname_vss_ghec %}' section, and the user's accounts are linked as described in "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
 ## Further reading
 

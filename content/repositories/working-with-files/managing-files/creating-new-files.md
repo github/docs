@@ -16,6 +16,9 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 
 - If you try to create a new file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - File names created via the web interface can only contain alphanumeric characters and hyphens (`-`). To use other characters, [create and commit the files locally, then push them to the repository on {% data variables.product.product_name %}](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+{%- ifversion push-rulesets %}
+- {% data reusables.repositories.rulesets-push-rules-general-info-for-related-articles %}
+{% endif %}
 
 {% data reusables.repositories.sensitive-info-warning %}
 

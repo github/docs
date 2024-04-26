@@ -250,8 +250,6 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 
 {% data reusables.actions.oidc-permissions-token %}
 
-{% ifversion actions-oidc-hardening-config %}
-
 ## Customizing the token claims
 
 You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customizations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:
@@ -393,7 +391,7 @@ For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:
 
 #### Example: Granting access to a specific repository
 
-This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. {% ifversion ghec %}To further improve security, you can combine this template with a unique issuer URL for your enterprise, as described in "[Switching to a unique token URL](#switching-to-a-unique-token-url)."{% endif %}
+This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. {% ifversion ghec %}To further improve security, you can combine this template with a unique issuer URL for your enterprise, as described in "[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)."{% endif %}
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -476,8 +474,6 @@ To configure the repository to use the organization's template, a repository adm
 }
 ```
 
-{% endif %}
-
 ## Updating your workflows for OIDC
 
 You can now update your YAML workflows to use OIDC access tokens instead of secrets. Popular cloud providers have published their official login actions that make it easy for you to get started with OIDC. For more information about updating your workflows, see the cloud-specific guides listed below in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
@@ -502,3 +498,7 @@ To enable and configure OIDC for your specific cloud provider, see the following
 To enable and configure OIDC for another cloud provider, see the following guide:
 
 - "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers)"
+
+## Debugging your OIDC claims
+
+You can use the [`github/actions-oidc-debugger`](https://github.com/github/actions-oidc-debugger) action to visualize the claims that would be sent, before integrating with a cloud provider. This action requests a JWT and prints the claims included within the JWT that were received from {% data variables.product.prodname_actions %}.

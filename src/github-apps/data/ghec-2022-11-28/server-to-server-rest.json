@@ -790,61 +790,61 @@
       "slug": "list-environment-secrets",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets"
     },
     {
       "slug": "get-an-environment-public-key",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/public-key"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key"
     },
     {
       "slug": "get-an-environment-secret",
       "subcategory": "secrets",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "create-or-update-an-environment-secret",
       "subcategory": "secrets",
       "verb": "put",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "delete-an-environment-secret",
       "subcategory": "secrets",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}"
     },
     {
       "slug": "list-environment-variables",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "create-an-environment-variable",
       "subcategory": "variables",
       "verb": "post",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables"
     },
     {
       "slug": "get-an-environment-variable",
       "subcategory": "variables",
       "verb": "get",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "update-an-environment-variable",
       "subcategory": "variables",
       "verb": "patch",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     },
     {
       "slug": "delete-an-environment-variable",
       "subcategory": "variables",
       "verb": "delete",
-      "requestPath": "/repositories/{repository_id}/environments/{environment_name}/variables/{name}"
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}"
     }
   ],
   "activity": [
@@ -1711,10 +1711,22 @@
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
     },
     {
+      "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+      "subcategory": "copilot-usage",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/usage"
+    },
+    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
       "requestPath": "/orgs/{org}/members/{username}/copilot"
+    },
+    {
+      "slug": "get-a-summary-of-copilot-usage-for-a-team",
+      "subcategory": "copilot-usage",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage"
     }
   ],
   "dependabot": [
@@ -2062,73 +2074,73 @@
       "slug": "list-provisioned-scim-groups-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "provision-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-group",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-group",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "delete-a-scim-group-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "list-scim-provisioned-identities-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "provision-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-user",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-user",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "delete-a-scim-user-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     }
   ],
   "git": [
@@ -4095,6 +4107,12 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
+    },
+    {
+      "slug": "check-if-private-vulnerability-reporting-is-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
     },
     {
       "slug": "enable-private-vulnerability-reporting-for-a-repository",

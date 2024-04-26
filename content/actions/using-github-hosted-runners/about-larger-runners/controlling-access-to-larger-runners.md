@@ -84,16 +84,6 @@ For runner groups in an organization, you can change what repositories in the or
 - [Changing which workflows can access an organization runner group](#changing-which-workflows-can-access-an-organization-runner-group)
 - [Changing which workflows can access an enterprise runner group](#changing-which-workflows-can-access-an-enterprise-runner-group)
 
-{% ifversion actions-private-networking-azure-vnet %}
-
-## Configuring private network access for larger runners
-
-{% data reusables.actions.azure-vnet-injected-runners-intro %}
-
-If you have configured your enterprise to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network#using-an-azure-virtual-network-vnet)."
-
-{% endif %}
-
 ### Changing which workflows can access an organization runner group
 
 {% data reusables.actions.runner-groups-org-navigation %}
@@ -106,13 +96,23 @@ If you have configured your enterprise to connect to an Azure VNET, you can give
 
 {% endif %}
 
+{% ifversion actions-private-networking-azure-vnet %}
+
+## Configuring private network access for larger runners
+
+{% data reusables.actions.azure-vnet-network-configuration-intro %}
+
+If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners#using-an-azure-virtual-network-vnet)."
+
+{% endif %}
+
 ## Changing the name of a runner group
 
 {% ifversion ghec %}
 You can rename runner groups at the enterprise and organization levels.
 
 - [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
-- [Changing the name of an enterprise runner group](##changing-the-name-of-an-enterprise-runner-group)
+- [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
 

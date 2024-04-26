@@ -14,7 +14,7 @@ versions:
 topics:
   - Events
 ---
-Issue events are triggered by activity in issues and pull requests and are available in the REST API for [Issue events](/rest/issues#events) and [Timeline events](/rest/issues#timeline). Each event type specifies whether the event is available in the REST API for issue events or timeline events.
+Issue events are triggered by activity in issues and pull requests and are available in the REST API for [Issue events](/rest/issues/events) and [Timeline events](/rest/issues/timeline). Each event type specifies whether the event is available in the REST API for issue events or timeline events.
 
 GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
@@ -204,7 +204,7 @@ Name | Type | Description
 `tree` | `object` | The Git tree of the commit.
 `message` | `string` | The commit message.
 `parents` | `array of objects` | A list of parent commits.
-`verification` | `object` | The result of verifying the commit's signature. For more information, see "[AUTOTITLE](/rest/git#get-a-commit)."
+`verification` | `object` | The result of verifying the commit's signature. For more information, see "[AUTOTITLE](/rest/git/commits#get-a-commit)."
 `event` | `string` | The event value is `"committed"`.
 
 ## connected

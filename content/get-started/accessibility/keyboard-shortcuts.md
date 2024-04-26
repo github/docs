@@ -41,8 +41,8 @@ The following sections list some of the available keyboard shortcuts, organized 
 |-----------|------------
 |<kbd>G</kbd> <kbd>C</kbd> | Go to the **Code** tab
 |<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
-|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."{% ifversion fpt or ghes or ghec %}
-|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."{% endif %}
+|<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+|<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)."{% ifversion discussions %}
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."{% endif %}
@@ -77,13 +77,13 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>T</kbd> | Activates the file finder
-|<kbd>L</kbd> | Jump to a line in your code
-|<kbd>W</kbd> | Switch to a new branch or tag
-|<kbd>Y</kbd> | Expand a URL to its canonical form. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
-|<kbd>I</kbd> | Show or hide comments on diffs. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
-|<kbd>A</kbd> | Show or hide annotations on diffs
-|<kbd>B</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
+|<kbd>t</kbd> | Activates the file finder
+|<kbd>l</kbd> | Jump to a line in your code
+|<kbd>w</kbd> | Switch to a new branch or tag
+|<kbd>y</kbd> | Expand a URL to its canonical form. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files)."
+|<kbd>i</kbd> | Show or hide comments on diffs. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
+|<kbd>a</kbd> | Show or hide annotations on diffs
+|<kbd>b</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
 
 {% ifversion code-search-code-view %}
 

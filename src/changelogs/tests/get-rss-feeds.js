@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import nock from 'nock'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
 
@@ -33,11 +34,11 @@ describe('getChangelogItems module', () => {
 
   afterAll(() => nock.cleanAll())
 
-  it('changelog contains 3 items', async () => {
+  test('changelog contains 3 items', async () => {
     expect(changelog.length).toEqual(3)
   })
 
-  it('each changelog item has expected title, date, and href', async () => {
+  test('each changelog item has expected title, date, and href', async () => {
     const expectedChangelogValues = [
       {
         title: 'Authentication token format updates are generally available',

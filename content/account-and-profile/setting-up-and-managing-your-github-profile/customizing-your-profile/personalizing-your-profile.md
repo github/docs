@@ -76,11 +76,7 @@ You can change the name that is displayed on your profile. This name may also be
 
 Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
-{% ifversion fpt or ghes or ghec %}
-
 For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)."
-
-{% endif %}
 
 {% note %}
 
@@ -143,6 +139,18 @@ You can add up to four links to social accounts on your profile. These are visib
 {% data reusables.user-settings.access_settings %}
 1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
 {% data reusables.profile.update-profile %}
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+## Adding your ORCID iD to your profile
+
+If you're a researcher with an ORCID iD, you can identify yourself by adding your ORCID iD to your profile.
+
+{% data reusables.user-settings.access_settings %}
+1. Under "ORCID iD", click **Connect your ORCID iD**.
+1. Follow the steps to sign in to your ORCID account and then return to {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 

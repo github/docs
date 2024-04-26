@@ -52,6 +52,8 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
+Note that in conditionals, falsy values (`false`, `0`, `-0`, `""`, `''`, `null`) are coerced to `false` and truthy (`true` and other non-falsy values) are coerced to `true`.
+
 ### Example of literals
 
 {% raw %}
@@ -107,7 +109,7 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-- A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+- When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
 - {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 - Objects and arrays are only considered equal when they are the same instance.
 
@@ -125,7 +127,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
+It is important to note that the first value after the `&&` must be truthy. Otherwise, the value after the `||` will always be returned.
 
 ## Functions
 
@@ -243,7 +245,7 @@ This workflow sets a JSON matrix in one job, and passes it to the next job using
 
 {% raw %}
 
-```yaml
+```yaml copy
 name: build
 on: push
 jobs:
@@ -264,7 +266,7 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
-      - run: build
+      - run: echo "Matrix - Project ${{ matrix.project }}, Config ${{ matrix.config }}"
 ```
 
 {% endraw %}
@@ -273,7 +275,7 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-```yaml
+```yaml copy
 name: print
 on: push
 env:
@@ -287,8 +289,6 @@ jobs:
         timeout-minutes: {% raw %}${{ fromJSON(env.time) }}{% endraw %}
         run: echo ...
 ```
-
-This example workflow sets environment variables: `continue` is set to a boolean value `true`, `time` is set to an integer value `3`.
 
 The workflow uses the `fromJSON()` function to convert the environment variable `continue` from a string to a boolean, allowing it to determine whether to continue-on-error or not. Similarly, it converts the `time` environment variable from a string to an integer, setting the timeout for the job in minutes.
 

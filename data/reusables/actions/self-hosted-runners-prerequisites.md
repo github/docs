@@ -4,4 +4,4 @@
 
 - You must have access to the machine you will use as a self-hosted runner in your environment.
 
-- {% data reusables.actions.self-hosted-runner-ports-protocols %} For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-ae)."
+{% ifversion ghes %}- {% data reusables.actions.self-hosted-runner-ports-protocols %}{% endif %}

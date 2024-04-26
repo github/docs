@@ -1,9 +1,9 @@
 date: '2023-12-21'
 intro: |
   {% warning %}
-  
+
   **Warning**: Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the instance losing network connectivity after a reboot. We have removed the hotpatch upgrade package for the `3.11.1` version of GitHub Enterprise Server to ensure this upgrade path is not executed accidentally. Before you upgrade, please make sure you have read the "[Known issues](#3.11.1-known-issues)" section of these release notes.
-      
+
   {% endwarning %}
 sections:
   security_fixes:
@@ -26,7 +26,7 @@ sections:
     - |
       **MEDIUM:** An attacker could maintain admin access to a transferred repository in a race condition by making a GraphQL mutation to alter repository permissions during the transfer. GitHub has requested CVE ID [CVE-2023-6690](https://www.cve.org/CVERecord?id=CVE-2023-6690) for this vulnerability, which reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      **MEDIUM**: Improper privilege management allowed arbitrary workflows to be committed and run using an improperly scoped personal access token. To exploit this, a workflow must have already existed in the target repository. GitHub has requested CVE ID [CVE-2023-6804](https://www.cve.org/CVERecord?id=CVE-2023-6804) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+      **MEDIUM**: Improper privilege management allowed arbitrary workflows to be committed and run using an improperly scoped {% data variables.product.pat_generic %}. To exploit this, a workflow must have already existed in the target repository. GitHub has requested CVE ID [CVE-2023-6804](https://www.cve.org/CVERecord?id=CVE-2023-6804) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be updated with an improperly scoped token. This vulnerability did not allow unauthorized access to any repository content as it also required `contents.write` and `issues.read` permissions. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51379](https://www.cve.org/CVERecord?id=CVE-2023-51379).
     - |
@@ -112,6 +112,8 @@ sections:
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
     - |
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
   deprecations:
     - heading: Interactive maps in the web UI no longer allow authentication using an Azure Maps API key
       notes:

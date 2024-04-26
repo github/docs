@@ -25,7 +25,7 @@ repository. As always, samples can be found in [our platform-samples repository]
 
 ## Pull Request Comments
 
-To access comments on a Pull Request, you'll use [the endpoints to manage issues](/rest/issues#comments).
+To access comments on a Pull Request, you'll use [the endpoints to manage issues](/rest/issues/comments).
 This may seem counterintuitive at first. But once you understand that a Pull
 Request is just an Issue with code, it makes sense to use these endpoints to
 create comments on a Pull Request.
@@ -61,7 +61,7 @@ the comments to fetch information about each one.
 
 Within the diff view, you can start a discussion on a particular aspect of a singular
 change made within the Pull Request. These comments occur on the individual lines
-within a changed file. The endpoint URL for this discussion comes from [the endpoint to manage pull request reviews](/rest/pulls#comments).
+within a changed file. The endpoint URL for this discussion comes from [the endpoint to manage pull request reviews](/rest/pulls/comments).
 
 The following code fetches all the Pull Request comments made on files, given a single Pull Request number:
 

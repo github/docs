@@ -18,7 +18,7 @@ You can also manage repository discussions. For more information, see "[AUTOTITL
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your organization
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
-1. To disable discussions, under "Discussions", unselect **Enable discussions for this organization**.
+1. To disable discussions, under "Discussions", deselect **Enable discussions for this organization**.
 
 ## Further reading
 

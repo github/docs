@@ -5,10 +5,9 @@ always open a pull request and rely on the CI service to run tests for you,
 but it's helpful to run tests locally before pushing your changes to
 GitHub.
 
-Tests are written using [jest](https://ghub.io/jest), a framework maintained
-by Facebook and used by many teams at GitHub.
-Jest provides everything: a test runner, an assertion library, code coverage analysis,
-custom reporters for different types of test output, etc.
+Tests are written using [vitest](https://vitest.dev/).
+
+`vitest` runs tests and handles assertions.
 
 ### Install optional dependencies
 
@@ -48,7 +47,7 @@ You can run specific tests in two ways:
 # The TEST_NAME can be a filename, partial filename, or path to a file or directory
 npm test -- <TEST_NAME>
 
-NODE_OPTIONS=--experimental-vm-modules npx jest tests/unit
+vitest path/to/tests/directory
 ```
 
 ### Failed Local Tests
@@ -74,8 +73,8 @@ npm run lint
 
 ### Keeping the server running
 
-When you run `jest` tests that depend on making real HTTP requests
-to `localhost:4000`, the `jest` tests have a hook that starts the
+When you run `vitest` tests that depend on making real HTTP requests
+to `localhost:4000`, the `vitest` tests have a hook that starts the
 server before running all/any tests and stops the server when done.
 
 You can disable this, which might make it easier when debugging tests
@@ -84,19 +83,19 @@ since the server won't need to start and stop every time you run tests.
 In one terminal, type:
 
 ```shell
-NODE_ENV=test PORT=4000 node src/frame/server.js
+NODE_ENV=test PORT=4000 tsx src/frame/server.ts
 ```
 
 In another terminal, type:
 
 ```shell
-START_JEST_SERVER=false jest tests/rendering/foo/bar.js
+START_VITEST_SERVER=false vitests src/versions/tests
 ```
 
 Or whatever the testing command you use is.
 
-The `START_JEST_SERVER` environment variable needs to be set to `false`, or else `jest` will try to start
-a server on `:4000` too.
+The `START_VITEST_SERVER` environment variable needs to be set to `false`,
+or else `vitest` will try to start a server on `:4000` too.
 
 ### Debugging middleware errors
 
@@ -109,7 +108,7 @@ error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
 
 ```shell
 export DEBUG_MIDDLEWARE_TESTS=true
-jest tests/rendering/ -b
+vitest src/shielding/tests -b
 ```
 
 ### Fixture based testing

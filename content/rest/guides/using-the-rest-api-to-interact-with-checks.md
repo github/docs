@@ -24,7 +24,7 @@ You can use statuses with [protected branches](/rest/repos#branches) to prevent 
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
 
-The `status` can be `queued`, `in_progress`, or `completed`.
+The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
@@ -41,7 +41,7 @@ The check suite reports the highest priority check run `conclusion` in the check
 
 By default, GitHub creates a check suite automatically when code is pushed to the repository. This default flow sends the `check_suite` event (with `requested` action) to all GitHub Apps that have the `checks:write` permission. When your GitHub App receives the `check_suite` event, it can create new check runs for the latest commit. GitHub automatically adds new check runs to the correct [check suite](/rest/checks#check-suites) based on the check run's repository and SHA.
 
-If you don't want to use the default automatic flow, you can control when you create check suites. To change the default settings for the creation of check suites, use the [Update repository preferences for check suites](/rest/checks#update-repository-preferences-for-check-suites) endpoint. All changes to the automatic flow settings are recorded in the audit log for the repository. If you have disabled the automatic flow, you can create a check suite using the [Create a check suite](/rest/checks#create-a-check-suite) endpoint. You should continue to use the [Create a check run](/rest/checks#create-a-check-run) endpoint to provide feedback on a commit.
+If you don't want to use the default automatic flow, you can control when you create check suites. To change the default settings for the creation of check suites, use the [Update repository preferences for check suites](/rest/checks/suites#update-repository-preferences-for-check-suites) endpoint. All changes to the automatic flow settings are recorded in the audit log for the repository. If you have disabled the automatic flow, you can create a check suite using the [Create a check suite](/rest/checks/suites#create-a-check-suite) endpoint. You should continue to use the [Create a check run](/rest/checks/runs#create-a-check-run) endpoint to provide feedback on a commit.
 
 {% data reusables.apps.checks-availability %}
 
@@ -53,7 +53,7 @@ To use the endpoints to manage check suites, the {% data variables.product.prodn
 
 A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
 
-The status can be  `queued`, `in_progress`, or `completed`.
+The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
@@ -82,7 +82,7 @@ When you set up a check run with requested actions (not to be confused with {% d
 
 For example, a code linting app could use requested actions to display a button in a pull request to automatically fix detected syntax errors.
 
-To create a button that can request additional actions from your app, use the [`actions` object](/rest/checks#create-a-check-run--parameters) when you [Create a check run](/rest/checks#create-a-check-run). For example, the `actions` object below displays a button in the **Checks** tab of a pull request with the label "Fix this." The button appears after the check run completes.
+To create a button that can request additional actions from your app, use the [`actions` object](/rest/checks/runs#create-a-check-run--parameters) when you [Create a check run](/rest/checks#create-a-check-run). For example, the `actions` object below displays a button in the **Checks** tab of a pull request with the label "Fix this." The button appears after the check run completes.
 
 ```json
 "actions": [{
@@ -96,9 +96,6 @@ When a user clicks the button, {% data variables.product.prodname_dotcom %} send
 
 For a detailed example of how to set up requested actions with the REST API, see "[AUTOTITLE](/apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api#part-2-creating-the-octo-rubocop-ci-test)."
 
-{% ifversion status-check-retention %}
-
 ## Retention of checks data
 
 {% data reusables.pull_requests.retention-checks-data %}
-{% endif %}

@@ -24,7 +24,7 @@ redirect_from:
 ## Synopsis
 
 ```shell copy
-codeql database finalize [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] [--mode=<mode>] <options>... -- <database>
+codeql database finalize [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] <options>... -- <database>
 ```
 
 ## Description
@@ -130,7 +130,7 @@ If `--max-disk-cache` is not given, the evaluator will try hard to
 curtail disk cache usage if the free space on the file system drops
 below this percentage.
 
-#### `-m, --mode=<mode>`
+#### `--cache-cleanup=<mode>`
 
 Select how aggressively to trim the cache. Choices include:
 

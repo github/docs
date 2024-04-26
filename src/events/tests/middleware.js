@@ -1,8 +1,9 @@
-import { expect, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
+
 import { post } from '#src/tests/helpers/e2etest.js'
 
 describe('POST /events', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   async function checkEvent(data) {
     const body = JSON.stringify(data)
@@ -46,18 +47,18 @@ describe('POST /events', () => {
     },
   }
 
-  it('should record a page event', async () => {
+  test('should record a page event', async () => {
     const { statusCode } = await checkEvent(pageExample)
     expect(statusCode).toBe(200)
   })
 
-  it('should require a type', async () => {
+  test('should require a type', async () => {
     const { statusCode, body } = await checkEvent({ ...pageExample, type: undefined })
     expect(statusCode).toBe(400)
     expect(body).toEqual('{"message":"Invalid type"}')
   })
 
-  it('should require an event_id in uuid', async () => {
+  test('should require an event_id in uuid', async () => {
     const { statusCode } = await checkEvent({
       ...pageExample,
       context: {
@@ -68,7 +69,7 @@ describe('POST /events', () => {
     expect(statusCode).toBe(400)
   })
 
-  it('should require a user in uuid', async () => {
+  test('should require a user in uuid', async () => {
     const { statusCode } = await checkEvent({
       ...pageExample,
       context: {
@@ -79,7 +80,7 @@ describe('POST /events', () => {
     expect(statusCode).toBe(400)
   })
 
-  it('should require a version', async () => {
+  test('should require a version', async () => {
     const { statusCode } = await checkEvent({
       ...pageExample,
       context: {
@@ -90,7 +91,7 @@ describe('POST /events', () => {
     expect(statusCode).toBe(400)
   })
 
-  it('should require created timestamp', async () => {
+  test('should require created timestamp', async () => {
     const { statusCode } = await checkEvent({
       ...pageExample,
       context: {
@@ -101,7 +102,7 @@ describe('POST /events', () => {
     expect(statusCode).toBe(400)
   })
 
-  it('should not allow a honeypot token', async () => {
+  test('should not allow a honeypot token', async () => {
     const { statusCode } = await checkEvent({
       ...pageExample,
       context: {

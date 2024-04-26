@@ -37,7 +37,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3019
         - |
-          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The personal access token (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
+          On an instance configured for SAML SSO, enterprise owners can review information about the Identity Provider (IdP) configured for user authentication using the GraphQL API. The {% data variables.product.pat_generic %} (PAT) used to authenticate requests to this API requires the `read:enterprise` scope. Previously, the PAT required the `admin:enterprise` scope. For more information, see "[AUTOTITLE](/graphql/reference/objects#enterpriseidentityprovider)" in the GraphQL API documentation.
 
     - heading: Authentication
       notes:
@@ -156,7 +156,7 @@ sections:
 
         # https://github.com/github/releases/issues/2896
         - |
-          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[ AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
+          Administrators can bypass all protection rules for a given environment and force the pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#allow-administrators-to-bypass-configured-protection-rules)."
 
         # https://github.com/github/releases/issues/2801
         - |
@@ -198,10 +198,6 @@ sections:
 
     - heading: Organizations
       notes:
-        # https://github.com/github/releases/issues/2986
-        - |
-          Organization owners can improve security posture and protect data from threats by enabling the display of organization members' IP addresses in audit log events. This feature is in beta and is subject to change. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)."
-
         # https://github.com/github/releases/issues/2916
         - |
           To allow the management of branch protection rules without granting admin access, organization owners can create a custom role with the "Edit repository rules" permission. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
@@ -395,7 +391,7 @@ sections:
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 
-      ```
+      ```shell
       Error response from daemon: conflict: unable to delete IMAGE_ID (cannot be forced) - image is being used by running container CONTAINER_ID
       ```
 
@@ -449,6 +445,8 @@ sections:
       {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
     - |
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
 
   deprecations:
     # https://github.com/github/releases/issues/2826
@@ -468,3 +466,8 @@ sections:
       notes:
         - |
           To improve the security of an instance where users deploy sites using GitHub Pages, sites that contain symbolic links will no longer build outside of GitHub Actions. If a user's site is affected and a site administrator has configured email for the instance, the user will receive an email with instructions about how to fix the error. To continue using symbolic links in the site's source, the instance must be configured for GitHub Actions, and the user must write a GitHub Actions workflow to use as a publishing source. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)."
+
+  errata:
+    # https://github.com/github/releases/issues/2986
+    - |
+      Previously, these release notes indiciated that organization owners could enable the display of organization members' IP addresses in audit log events. Audit logs for GitHub Enterprise Server always include IP addresses. [Updated: 2024-03-28]

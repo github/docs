@@ -97,7 +97,7 @@ To allow someone other than an organization owner to run a repository migration 
 
 You can grant the migrator role using either the {% data variables.product.prodname_gei_cli %} or the GraphQL API.
 
-- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
+- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)"
 - "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
 
 ### Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}

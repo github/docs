@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:20-alpine@sha256:c0a3badbd8a0a760de903e00cedbca94588e609299820557e72cba2a53dbaa2c as base
+FROM node:20-alpine@sha256:ec0c413b1d84f3f7f67ec986ba885930c57b5318d2eb3abc6960ee05d4f2eb28 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -96,7 +96,7 @@ COPY --chown=node:node next.config.js ./
 
 EXPOSE $PORT
 
-CMD ["node", "src/frame/server.js"]
+CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations

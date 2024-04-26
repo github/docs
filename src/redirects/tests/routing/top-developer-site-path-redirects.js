@@ -1,11 +1,9 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { head } from '#src/tests/helpers/e2etest.js'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
-
 describe('developer.github.com redirects', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   const paths = [
     '/v3',

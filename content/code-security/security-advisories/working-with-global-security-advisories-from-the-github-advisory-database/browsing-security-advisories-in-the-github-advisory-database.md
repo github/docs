@@ -41,7 +41,7 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."
 
 {% ifversion security-advisories-rest-api %}
-Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)" in the REST API documentation.{% endif %}
+Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)."{% endif %}
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
 
@@ -88,7 +88,7 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 1. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
 1. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
-{% ifversion security-advisories-ghes-ghae %}
+{% ifversion security-advisories-ghes %}
 
 ## Accessing the local advisory database on {% data variables.location.product_location %}
 

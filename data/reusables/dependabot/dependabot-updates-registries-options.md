@@ -2,7 +2,7 @@ You use the following options to specify access settings. Registry settings must
 
 | Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description |
 |:---|:---|
-| `type`                     | Identifies the type of registry. See the full list of types below. |
+| `type`                     | Identifies the type of registry. For more information about the available registry types, see "[`registries`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries)." For further details about the configuration of private registries specifically, see "[Configuration options for private registries](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."|
 | `url`                      | The URL to use to access the dependencies in this registry. The protocol is optional. If not specified, `https://` is assumed. {% data variables.product.prodname_dependabot %} adds or ignores trailing slashes as required. |
 | `username`                 | The username that {% data variables.product.prodname_dependabot %} uses to access the registry.</br>`username` is the username or email address for the account. |
 | `password`                 | A reference to a {% data variables.product.prodname_dependabot %} secret containing the password for the specified user. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)."</br>`password` is the password for the account specified by the username. {% data reusables.dependabot.password-definition %} |

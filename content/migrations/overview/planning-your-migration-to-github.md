@@ -82,7 +82,7 @@ Next, follow the instructions below to add the following data to your migration 
 - The size of the largest file (also known as a “blob”)
 - The total size of all files (“blobs”)
 
-If you’re using a version control system other than Git, or your files aren’t tracked with a version control system at all, first move the repositories to Git. For more information, see "[Source code and history migrations](#source-code-and-history-migrations)."
+If you’re using a version control system other than Git, or your files aren’t tracked with a version control system at all, first move the repositories to Git. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)."
 
 Then, use the open-source tool, `git-sizer`, to get this data for your repository.
 
