@@ -1,6 +1,6 @@
 ---
 title: About commit signature verification
-intro: 'Using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
+intro: 'Using GPG, SSH, or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures
   - /articles/about-gpg
@@ -18,7 +18,7 @@ shortTitle: Commit signature verification
 ---
 ## About commit signature verification
 
-You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
+You can sign commits and tags locally, to give other people confidence about the origin of a change you have made. If a commit or tag has a GPG, SSH, or S/MIME signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag {% ifversion fpt or ghec %}"Verified" or "Partially verified."{% else %}"Verified."{% endif %}
 
 ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
@@ -26,9 +26,7 @@ You can sign commits and tags locally, to give other people confidence about the
 If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 
-{% ifversion ssh-commit-verification %}
 For most individual users, GPG or SSH will be the best choice for signing commits. S/MIME signatures are usually required in the context of a larger organization. SSH signatures are the simplest to generate. You can even upload your existing authentication key to {% data variables.product.product_name %} to also use as a signing key. Generating a GPG signing key is more involved than generating an SSH key, but GPG has features that SSH does not. A GPG key can expire or be revoked when no longer used. {% data variables.product.product_name %} shows commits that were signed with such a key as "Verified" unless the key was marked as compromised. SSH keys don't have this capability.
-{% endif %}
 
 {% ifversion fpt or ghec %}
 Commits and tags have the following verification statuses, depending on whether you have enabled vigilant mode. By default vigilant mode is not enabled. For information on how to enable vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
@@ -85,8 +83,6 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 1. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
 1. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
-{% ifversion ssh-commit-verification %}
-
 ## SSH commit signature verification
 
 You can use SSH to sign commits with an SSH key that you generate yourself. For more information, see the [Git reference documentation](https://git-scm.com/docs/git-config#Documentation/git-config.txt-usersigningKey)  for `user.Signingkey`. If you already use an SSH key to authenticate with {% data variables.product.product_name %},
@@ -104,8 +100,6 @@ To sign commits using SSH and have those commits verified on {% data variables.p
 1. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
 1. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
 1. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
-
-{% endif %}
 
 ## S/MIME commit signature verification
 

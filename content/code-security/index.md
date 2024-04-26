@@ -13,12 +13,10 @@ featuredLinks:
     - /code-security/getting-started/quickstart-for-securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
-    - '{% ifversion ghes < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
   guideCards:
     - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
     - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
-    - '{% ifversion ghes < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
@@ -55,4 +53,3 @@ children:
   - /dependabot
   - /security-overview
 ---
-

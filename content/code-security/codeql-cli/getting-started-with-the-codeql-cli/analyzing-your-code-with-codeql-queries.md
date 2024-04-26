@@ -132,16 +132,7 @@ The following examples show how to run `database analyze` using {% data variable
 
 ### Running a {% data variables.product.prodname_codeql %} query pack
 
-{% note %}
-
-**Note**
-
-The {% data variables.product.prodname_codeql %} package management functionality, including {% data variables.product.prodname_codeql %} packs, is currently available as a beta release and is subject to change. During the beta release, {% data variables.product.prodname_codeql %} packs are available only using {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. To use this beta functionality, install the latest version of the {% data variables.product.prodname_codeql_cli %} bundle from: https://github.com/github/codeql-action/releases.
-
-{% endnote %}
-
-To run an existing {% data variables.product.prodname_codeql %} query pack from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}, you can specify one or more
-pack names:
+To run an existing {% data variables.product.prodname_codeql %} query pack from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}, you can specify one or more pack names:
 
 ```shell
 codeql database analyze <database> microsoft/coding-standards@1.0.0 github/security-queries --format=sarifv2.1.0 --output=query-results.sarif --download
