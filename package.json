@@ -290,6 +290,7 @@
     "@graphql-tools/load": "^8.0.0",
     "@octokit/rest": "^20.1.0",
     "@playwright/test": "1.43.0",
+    "@types/express": "4.17.21",
     "@types/imurmurhash": "^0.1.4",
     "@types/js-cookie": "^3.0.6",
     "@types/lodash": "^4.14.202",
