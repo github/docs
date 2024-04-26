@@ -1,6 +1,6 @@
 ---
 title: Signing commits
-intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
+intro: 'You can sign commits locally using GPG, SSH, or S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
