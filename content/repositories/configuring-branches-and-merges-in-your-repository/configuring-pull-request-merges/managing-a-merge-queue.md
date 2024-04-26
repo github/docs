@@ -75,7 +75,13 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 - **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
 
 -
-  **Merge limits**: Select the minimum and maximum number of pull requests to merge in a single group (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number of pull requests. Exactly how many PRs are included in a group depends on a merge queue's settings:
+  **Merge limits**: Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
+
+{% note %}
+
+**Note:** Merge limits do not combine `merge_group` **builds**. Merge limits only affect merges to the base branch once one or more `merge_group` has satisfied build checks.
+
+{% endnote %}
 
   | Merge Limit | Use Case |
   | ----------- | -------- |
