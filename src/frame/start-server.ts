@@ -3,12 +3,14 @@ import http from 'http'
 import tcpPortUsed from 'tcp-port-used'
 import dotenv from 'dotenv'
 
-import './lib/check-node-version.js'
+import { checkNodeVersion } from './lib/check-node-version'
 import '../observability/lib/handle-exceptions.js'
 import createApp from './lib/app.js'
 import warmServer from './lib/warm-server.js'
 
 dotenv.config()
+
+checkNodeVersion()
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
