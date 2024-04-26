@@ -4,6 +4,40 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>FileExtensionRestrictionParameters</code> was added</p>",
+          "<p>Type <code>FileExtensionRestrictionParametersInput</code> was added</p>",
+          "<p>Type <code>FilePathRestrictionParameters</code> was added</p>",
+          "<p>Type <code>FilePathRestrictionParametersInput</code> was added</p>",
+          "<p>Type <code>MaxFilePathLengthParameters</code> was added</p>",
+          "<p>Type <code>MaxFilePathLengthParametersInput</code> was added</p>",
+          "<p>Type <code>MaxFileSizeParameters</code> was added</p>",
+          "<p>Type <code>MaxFileSizeParametersInput</code> was added</p>",
+          "<p>Member 'ProjectV2<code>was added to Union type</code>Closer'</p>",
+          "<p>Enum value 'FILE_EXTENSION_RESTRICTION<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'FILE_PATH_RESTRICTION<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MAX_FILE_PATH_LENGTH<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MAX_FILE_SIZE<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value <code>PUSH</code> was added to enum <code>RepositoryRulesetTarget</code></p>",
+          "<p>Member <code>FileExtensionRestrictionParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>FilePathRestrictionParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>MaxFilePathLengthParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>MaxFileSizeParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>fileExtensionRestriction</code> of type <code>FileExtensionRestrictionParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>filePathRestriction</code> of type <code>FilePathRestrictionParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>maxFilePathLength</code> of type <code>MaxFilePathLengthParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>maxFileSize</code> of type <code>MaxFileSizeParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>StartRepositoryMigrationInput.sourceRepositoryUrl</code> changed type from <code>URI</code> to <code>URI!</code></p>"
         ]
       }
