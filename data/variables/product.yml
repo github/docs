@@ -84,7 +84,6 @@ prodname_pages: 'GitHub Pages'
 
 # CodeQL
 prodname_codeql: 'CodeQL'
-prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
 # The CodeQL CLI version recommended for each GHES version.
 # CodeQL usually bumps its minor version for each minor version of GHES.
