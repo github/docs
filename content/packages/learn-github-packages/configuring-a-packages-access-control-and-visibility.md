@@ -1,4 +1,4 @@
----
+---content/​rest/​about-the-rest-api/​breaking-changes.md
 title: Configuring a package's access control and visibility
 intro: 'Choose who has read, write, or admin access to your package and the visibility of your packages on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.packages %}'
