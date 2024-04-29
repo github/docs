@@ -3,6 +3,7 @@ You can grant certain roles, teams, or apps bypass permissions for your ruleset.
 - Repository admins or organization owners
 - The maintain or write role, or custom repository roles based on the write role
 - Teams
+- Deploy keys
 - {% data variables.product.prodname_github_apps %}{% ifversion repo-rules-dependabot-bypass %}
 - {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide)."{% endif %}
 

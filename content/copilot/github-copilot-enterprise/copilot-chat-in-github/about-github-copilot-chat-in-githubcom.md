@@ -28,7 +28,7 @@ The chat interface provides access to coding information and support without req
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_copilot_chat_short %} is also avaiable in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
+**Note**: {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endnote %}
 
