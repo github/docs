@@ -1,1 +1,1 @@
-actions/setup-python@v4
+actions/setup-python@v5
