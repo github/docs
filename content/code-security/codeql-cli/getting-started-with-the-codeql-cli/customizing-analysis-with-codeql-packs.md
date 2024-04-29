@@ -14,8 +14,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-packs
 ---
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
 ## About {% data variables.product.prodname_codeql %} packs
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}

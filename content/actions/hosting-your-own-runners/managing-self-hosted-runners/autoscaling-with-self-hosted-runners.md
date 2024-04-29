@@ -35,6 +35,8 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.
 
+>[!WARNING]The runner application log files for ephemeral runners must be forwarded to an external log storage solution for troubleshooting and diagnostic purposes. While it is not required for ephemeral runners to be deployed, {% data variables.product.prodname_dotcom %} recommends ensuring runner logs are forwarded and preserved externally before deploying an ephemeral runner autoscaling solution in a production environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
+
 To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
 
 ```shell
@@ -95,6 +97,7 @@ Your access token will require the following scope:
 - For organizations, use an access token with the [`admin:org` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
 
 To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
+
 - For repositories, assign the `administration` permission.
 - For organizations, assign the `organization_self_hosted_runners` permission.
 

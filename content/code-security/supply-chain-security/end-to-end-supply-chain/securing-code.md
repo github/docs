@@ -43,7 +43,7 @@ You can secure the code you depend on by creating a vulnerability management pro
 
 ### Automatic inventory generation
 
-As a first step, you want to make a complete inventory of your dependencies. The dependency graph for a repository shows you dependencies for supported ecosystems. If you check in your dependencies, or use other ecosystems, you will need to supplement this with data from 3rd party tools or by listing dependencies manually.{% ifversion dependency-graph-sbom-export %} {% data reusables.dependency-graph.sbom-export %}{% else %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."{% endif %}
+As a first step, you want to make a complete inventory of your dependencies. The dependency graph for a repository shows you dependencies for supported ecosystems. If you check in your dependencies, or use other ecosystems, you will need to supplement this with data from 3rd party tools or by listing dependencies manually. {% data reusables.dependency-graph.sbom-export %}
 
 ### Automatic detection of vulnerabilities in dependencies
 

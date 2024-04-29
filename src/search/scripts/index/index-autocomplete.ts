@@ -56,6 +56,7 @@ type LoadOptions = {
 }
 
 function loadRecords(options: LoadOptions): Records {
+  // First load the rollup records for user-searches
   const filePath = path.join(
     options.dataRepoRoot,
     'hydro/rollups/user-searches',
@@ -63,7 +64,43 @@ function loadRecords(options: LoadOptions): Records {
     options.version,
     'rollup.json',
   )
-  const terms: Records = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  const terms: Records = {}
+
+  const userSearchTerms: Records = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  let highestValue = Math.max(...Object.values(userSearchTerms))
+  if (highestValue === 0) {
+    throw new Error(`No records found for ${options.language} ${options.version}`)
+  }
+  for (const [term, value] of Object.entries(userSearchTerms)) {
+    // Why +1?
+    // Because we want these user-searches to alway be higher than all the
+    // terms generated from titles.
+    // For example, a common user-search term that users use
+    // is "log forwarding". But there might not be a deconstructed term,
+    // from the document titles, however there might be one called
+    // "log proxy". So when our users search for "log" we want to suggest,
+    // in the autocomplete UI "log forwarding" before "log proxy".
+    terms[term] = value / highestValue + 1
+  }
+
+  const documentTermsFilePath = path.join(
+    options.dataRepoRoot,
+    'all-documents/terms',
+    options.language,
+    options.version,
+    'terms.json',
+  )
+  const documentTerms: Records = JSON.parse(fs.readFileSync(documentTermsFilePath, 'utf8'))
+  highestValue = Math.max(...Object.values(documentTerms))
+  if (highestValue === 0) {
+    throw new Error(`No document title records found for ${options.language} ${options.version}`)
+  }
+  for (const [term, value] of Object.entries(documentTerms)) {
+    if (!(term in terms)) {
+      terms[term] = value / highestValue + 1
+    }
+  }
+
   return terms
 }
 
@@ -75,19 +112,6 @@ type IndexInfo = {
 async function createIndex(client: Client, language: string, version: Version): Promise<IndexInfo> {
   const settings: estypes.IndicesIndexSettings = {
     analysis: {
-      // char_filter: {
-      //   // This will turn `runs-on` into `runs_on` so that it can't be
-      //   // tokenized to `runs` because `on` is a stop word.
-      //   // It also means that prose terms, in English, like `opt-in`
-      //   // not be matched if someone searches for `opt in`. But this
-      //   // is why we have multiple different analyzers. So it becomes
-      //   // `opt_in` in the `text_analyzer_explicit` analyzer, but is
-      //   // left as `opt` in the `text_analyzer` analyzer.
-      //   hyphenation_filter: {
-      //     type: 'mapping',
-      //     mappings: ['- => _'],
-      //   },
-      // },
       analyzer: {
         text_analyzer: {
           filter: ['lowercase'],
