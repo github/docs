@@ -938,7 +938,7 @@ jobs:
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+**Note**: Events will not be created if more than 5000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
 {% endnote %}
 
