@@ -19,7 +19,7 @@ When you sign up for a {% data variables.product.prodname_sponsors %} profile so
 
 {% data variables.product.prodname_sponsors %} supports these fiscal hosts:
 
-- [Open Source Collective](https://oscollective.org/)
+- [Open Source Collective](https://opencollective.com/opensource)
 - [NumFOCUS](https://www.numfocus.org/)
 - [Open Collective Europe](https://opencollective.com/europe)
 - [Software Underground](https://softwareunderground.org/)

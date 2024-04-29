@@ -14,8 +14,6 @@ intro: 'You can view, write, and edit {% data variables.product.prodname_codeql 
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
 ## Benefits of using the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to work with packs
 
 With the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, you can:

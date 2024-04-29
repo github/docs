@@ -47,8 +47,6 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
 #### Download information for macOS "Catalina" (or newer) users
 
 {% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}

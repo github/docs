@@ -309,12 +309,14 @@ For longer strings, we use reusables, and for shorter strings, we use variables.
 
 ## Table pipes
 
-Every row of a table in the {% data variables.product.prodname_docs %} must start and end with a pipe, `|`.
+Every row of a table in the {% data variables.product.prodname_docs %} must start and end with a pipe, `|`, even rows that contain only Liquid versioning.
 
 ```markdown
 | Where is the table located? | Does every row end with a pipe? |
 | --- | --- |
+| {% raw %}{% ifversion some-cool-feature %}{% endraw %} |
 | GitHub Docs | Yes |
+| {% raw %}{% endif %}{% endraw %} |
 ```
 
 ## Table row headers
