@@ -88,8 +88,7 @@ sections:
     - |
       People deploying a GitHub Enterprise Server instance in AWS can now deploy in an environment that uses Instance Metadata Service Version 2 (IMDSv2).
     - |
-      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding.
-    - |
+      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."
       Gists can be deleted using the **Purge Gist** button on the Deleted Gists page in Staff Tools.
     - |
       The payload for the `push` webhook event is now limited to 2,048 commits. If there are more than 2,048 commits in a push, the webhook payload for that push will not contain any commits. If you need to fetch commit information, you can use the Commits endpoints of the REST API. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#push)" and "[AUTOTITLE](/rest/commits)."
