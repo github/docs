@@ -38,7 +38,7 @@ An enterprise owner can choose whether to enable a feature for all organizations
 
 To install {% data variables.product.prodname_copilot_cli_short %}, you must have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
 
-1. If you are have not already authenticated with your {% data variables.product.prodname_dotcom %} account, run the following command in your terminal.
+1. If you have not already authenticated with your {% data variables.product.prodname_dotcom %} account, run the following command in your terminal.
 
     ```shell copy
     gh auth login
