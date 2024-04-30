@@ -84,6 +84,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
         # LINK TO RELEASE ISSUE
         - |
           ...
