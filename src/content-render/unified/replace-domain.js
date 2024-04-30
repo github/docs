@@ -22,7 +22,6 @@ export default function alerts() {
   return (tree) => {
     visit(tree, matcher, (node) => {
       const code = node.children[0].children[0].value
-      let found = false
       for (const [regex, replacement] of VALID_REPLACEMENTS) {
         if (regex.test(code)) {
           const codeTag = node.children[0]
@@ -31,12 +30,7 @@ export default function alerts() {
             replacements.push(replacement)
             codeTag.properties['data-replacedomain'] = replacements
           }
-          found = true
         }
-      }
-
-      if (!found && process.env.NODE_ENV === 'development') {
-        console.warn("The code snippet doesn't contain a valid replacement", { code })
       }
     })
   }
