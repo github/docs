@@ -157,6 +157,18 @@ You can think of required status checks as being either "loose" or "strict." The
 
 For troubleshooting information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks)."
 
+{% ifversion code-scanning-merge-protection-rulesets %}
+
+## Set {% data variables.product.prodname_code_scanning %} merge protection
+
+If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)." For more general information about {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
+
+{% endif %}
+
 ## Block force pushes
 
 You can prevent users from force pushing to the targeted branches or tags. This rule is enabled by default.
