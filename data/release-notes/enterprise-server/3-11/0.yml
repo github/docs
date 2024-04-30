@@ -145,6 +145,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3247
         - |
           To better navigate, trace, understand, and monitor deployments, users can view and track the full history of deployments in a repository or filter across environments. For more information, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."

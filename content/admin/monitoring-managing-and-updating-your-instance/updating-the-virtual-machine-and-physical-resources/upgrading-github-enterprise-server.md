@@ -48,7 +48,7 @@ To prepare for an upgrade, plan the upgrade path, optionally upgrade {% data var
 
    {% endnote %}
 
-1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
+1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run. To find the minimum required version for your release, see "[AUTOTITLE](/admin/all-releases#minimum-github-actions-runner-application-versions)."
 1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
    {% note %}
