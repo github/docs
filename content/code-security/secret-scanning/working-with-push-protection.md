@@ -33,7 +33,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-In some cases, you may need to bypass the block on a secret. {% ifversion push-protection-delegated-bypass %} Whether or not you are able to bypass the block depends on the permissions that have been set for you by your repository adminstrator or organization owner.
+In some cases, you may need to bypass the block on a secret. {% ifversion push-protection-delegated-bypass %} Whether or not you are able to bypass the block depends on the permissions that have been set for you by your repository administrator or organization owner.
 
 You may be able to bypass the block by specifying a reason for allowing the push. {% endif %} For more information on how to bypass push protection and push a blocked secret, see "[Bypassing push protection when working with the command line](#bypassing-push-protection-when-working-with-the-command-line)."
 
@@ -88,11 +88,19 @@ If your request is denied, you will need to remove the secret from all commits c
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
+For a blocked commit, you can remove the secret from the file using the web UI. Once you remove the secret, you will be able to commit your changes.
+
+{% ifversion push-protection-block-uploads %}
+
+{% data variables.product.prodname_dotcom %} will also block the commit if you attempt to upload files containing supported secrets. The dialog box will show you which files contain the secret. You should remove the secret from the files before attempting to upload the files again.
+
+{% data reusables.secret-scanning.push-protection-web-UI-uploads-beta %}
+
+{% endif %}
+
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
-
-For a blocked commit, you can remove the secret from the file using the web UI. Once you remove the secret, you will be able to commit your changes.
 
 You can bypass the block by specifying a reason for allowing the secret. For more information on how to bypass push protection and commit the blocked secret, see "[Bypassing push protection when working with the web UI](#bypassing-push-protection-when-working-with-the-web-ui)."
 
