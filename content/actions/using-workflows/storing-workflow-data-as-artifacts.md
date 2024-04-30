@@ -120,6 +120,20 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
+{% ifversion artifact-attestations %}
+
+## Generating artifact attestations for builds
+
+{% data reusables.actions.artifact-attestations-public-beta-note %}
+
+{% data reusables.actions.about-artifact-attestations %}
+
+You can access attestations after a build run, underneath the list of the artifacts the build produced.
+
+For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+
+{% endif %}
+
 ## Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:

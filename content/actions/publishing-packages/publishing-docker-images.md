@@ -83,6 +83,10 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+    permissions:
+      packages: write
+      contents: read
+      {% ifversion artifact-attestations %}attestations: write{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -100,6 +104,7 @@ jobs:
           images: my-docker-hub-namespace/my-docker-hub-repository
 
       - name: Build and push Docker image
+        id: push
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
@@ -107,9 +112,15 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
+      
+      {% ifversion artifact-attestations %}
+      {% data reusables.actions.artifact-attestations-step-for-container-images %}
+      {% endif %}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+
+{% ifversion artifact-attestations %}{% data reusables.actions.artifact-attestations-step-explanation %}{% endif %}
 
 ## Publishing images to {% data variables.product.prodname_registry %}
 
@@ -174,6 +185,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+      {% ifversion artifact-attestations %}attestations: write{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
@@ -200,13 +212,20 @@ jobs:
             {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
 
       - name: Build and push Docker images
+        id: push
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
+
+      {% ifversion artifact-attestations %}
+      {% data reusables.actions.artifact-attestations-step-for-container-images %}
+      {% endif %}
 ```
 
 The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% data variables.product.prodname_container_registry %}.
+
+{% ifversion artifact-attestations %}{% data reusables.actions.artifact-attestations-step-explanation %}{% endif %}
