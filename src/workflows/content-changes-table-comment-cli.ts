@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // For testing the GitHub Action that executes
-// src/workflows/content-changes-table-comment.js but doing it
+// src/workflows/content-changes-table-comment.ts but doing it
 // locally.
 // This is more convenient and faster than relying on seeing that the
 // Action produces in a PR. Especially since
@@ -18,21 +18,18 @@
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....
 //    export APP_URL=https://docs.github.com
-//    ./src/workflows/content-changes-table-comment-cli.js github docs-internal main 4a0b0f2
+//    tsx src/workflows/content-changes-table-comment-cli.ts github docs-internal main 4a0b0f2
 //
 // [end-readme]
 
 import { program } from 'commander'
-import main from '#src/workflows/content-changes-table-comment.js'
+import main from '@/workflows/content-changes-table-comment'
 
 program
   .description('Produce a nice table based on the branch diff')
-  .option('-v, --verbose', 'Verbose outputs')
-  .option('--debug', "Loud about everything it's doing")
-  .arguments('owner repo bash_sha head_sha', 'bla bla')
+  .arguments('owner repo bash_sha head_sha')
   .parse(process.argv)
 
-const opts = program.opts()
 const args = program.args
-
-console.log(await main(...args, { ...opts }))
+const [owner, repo, baseSHA, headSHA] = args
+console.log(await main(owner, repo, baseSHA, headSHA))

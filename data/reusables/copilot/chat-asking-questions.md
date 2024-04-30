@@ -18,9 +18,3 @@
    1. Type your question. For example, `#file:app.js What does this file do?`.
 
    You can use the `#file` command multiple times in your question to focus {% data variables.product.prodname_copilot_short %} on more than one file.
-
-{% note %}
-
-**Note:** To find out about other special commands you can use with {% data variables.product.prodname_copilot_chat_short %}, enter `/help` in the chat input box.
-
-{% endnote %}

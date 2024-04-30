@@ -1,11 +1,16 @@
-import dotenv from 'dotenv'
-import '#src/frame/lib/check-node-version.js'
-import '#src/observability/lib/handle-exceptions.js'
-import portUsed from 'port-used'
-import createApp from '#src/frame/lib/app.js'
-import warmServer from '#src/frame/lib/warm-server.js'
 import http from 'http'
+
+import tcpPortUsed from 'tcp-port-used'
+import dotenv from 'dotenv'
+
+import { checkNodeVersion } from './lib/check-node-version'
+import '../observability/lib/handle-exceptions.js'
+import createApp from './lib/app'
+import warmServer from './lib/warm-server.js'
+
 dotenv.config()
+
+checkNodeVersion()
 
 const { PORT, NODE_ENV } = process.env
 const port = Number(PORT) || 4000
@@ -20,7 +25,7 @@ export async function main() {
 
 async function checkPortAvailability() {
   // Check that the development server is not already running
-  const portInUse = await portUsed.check(port)
+  const portInUse = await tcpPortUsed.check(port)
   if (portInUse) {
     console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
     console.log(
@@ -42,7 +47,7 @@ async function startServer() {
   // to trigger it to warm up. That way, when in development and triggering
   // a `nodemon` restart, there's a good chance the warm up has come some
   // way before you manage to reach for your browser to do a page refresh.
-  await warmServer()
+  await warmServer([])
 
   // Workaround for https://github.com/expressjs/express/issues/1101
   const server = http.createServer(app)

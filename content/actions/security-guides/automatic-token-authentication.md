@@ -82,6 +82,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
+| {% ifversion artifact-attestations %}     |
+| attestations  | read/write  | none | read |
+| {% endif %}                               |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
 | deployments   | read/write  | none | read |{% ifversion fpt or ghec %}

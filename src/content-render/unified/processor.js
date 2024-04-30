@@ -27,6 +27,7 @@ import wrapProceduralImages from './wrap-procedural-images.js'
 import parseInfoString from './parse-info-string.js'
 import annotate from './annotate.js'
 import alerts from './alerts.js'
+import replaceDomain from './replace-domain.js'
 
 export function createProcessor(context) {
   return (
@@ -44,6 +45,7 @@ export function createProcessor(context) {
       .use(headingLinks)
       .use(codeHeader)
       .use(annotate)
+      .use(replaceDomain)
       .use(highlight, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,

@@ -141,8 +141,13 @@ Only include a CTA button if navigating to the link supports user needs. Do not 
 Style your CTAs using the following format.
 
 ```html
-{% raw %}<a href="https://github.com/DESTINATION/URL" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
+{% raw %}<a href="https://github.com/DESTINATION/URL?ref_cta=CTA+NAME&ref_loc=LOCATION&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
 ```
+
+Replace the placeholders with the relevant information for your CTA.
+- `DESTINATION/URL`: The URL that the button should navigate to.
+- `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
+- `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
 
 ## Code
 
@@ -288,6 +293,12 @@ When you include the text of an error message from a {% data variables.product.c
 - If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
 
 - If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
+
+## Expiring content
+
+In general, do not document content that will expire. Anyone who visits {% data variables.product.prodname_docs %} should be confident that the information is accurate and up to date.
+
+If you must document content that you know will expire, you can use the content linter to tag and track the content's expiration date. This will flag the content as outdated and avoids tracking expiration dates outside of the content itself. See "[AUTOTITLE](/contributing/collaborating-on-github-docs/using-the-content-linter#syntax-for-expiring-and-expired-content)" for information on how to format expiring content tags.
 
 ## Footnotes
 

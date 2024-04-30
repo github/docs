@@ -45,3 +45,27 @@ For more information about the latest release, see the [{% data variables.produc
 {%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
 {%- endfor %}
+
+## Recommended {% data variables.product.prodname_codeql_cli %} versions for code scanning
+
+For instances with a {% data variables.product.prodname_GH_advanced_security %} license and code scanning enabled, the {% data variables.product.prodname_codeql %} action for code scanning analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+
+| {% data variables.product.product_name %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
+| ------------------------------------------------- | ---------------------- |
+| 3.12 | 2.15.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.15.5/)) |
+| 3.11 | 2.14.6 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.14.6/)) |
+| 3.10 | 2.13.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.13.5/)) |
+| 3.9  | 2.12.7 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.12.7/)) |
+
+## Minimum {% data variables.product.prodname_actions %} Runner application versions
+
+For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
+
+For most instances, the Runner application is updated automatically. If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners to the required version of the Runner application before upgrading your instance to a new {% data variables.product.prodname_ghe_server %} release. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."
+
+| {% data variables.product.product_name %} version | Minimum Runner version |
+| ------------------------------------------------- | ---------------------- |
+| 3.12 | 2.311.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.311.0)) |
+| 3.11 | 2.309.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.309.0)) |
+| 3.10 | 2.304.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.304.0)) |
+| 3.9  | 2.303.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.303.0)) |

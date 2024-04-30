@@ -25,7 +25,7 @@ shortTitle: Check verification status
    ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 1. To view more detailed information about the commit signature, click **Verified**{% ifversion fpt or ghec %}, **Partially verified**,{% endif %} or **Unverified**.
 
-   GPG signed commits will show the ID of the key that was used.{% ifversion ssh-commit-verification %} SSH signed commits will show the signature of the public key that was used.{% endif %}
+   GPG signed commits will show the ID of the key that was used. SSH signed commits will show the signature of the public key that was used.
 
 ## Checking your tag signature verification status
 

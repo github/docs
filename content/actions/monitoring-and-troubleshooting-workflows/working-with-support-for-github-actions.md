@@ -52,9 +52,13 @@ If the information you provide is unreadable due to the loss of formatting by im
 Depending on the nature of your inquiry, {% data variables.contact.github_support %} may also request that you generate and upload a support bundle for further review and analysis. For more information about providing data to {% data variables.contact.github_support %} and support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 {% endif %}
 
+### Ephemeral Runner Application Log Files
+
+{% data variables.contact.github_support %} may request the runner application log files from ephemeral runners. {% data variables.product.prodname_dotcom %} expects and recommends that you have implemented a mechanism to forward and preserve the runner application log files from self-hosted ephemeral runners. For more information about runner application log files and troubleshooting self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
+
 ### {% data variables.product.prodname_actions_runner_controller %}
 
-If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the logs for the complete controller and runner set listeners. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener)."
+If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the complete logs for the controller, listeners, and runner pods. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener)."
 
 For more information about the scope of support for {% data variables.product.prodname_actions_runner_controller %}, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller)."
 

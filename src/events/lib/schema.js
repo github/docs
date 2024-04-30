@@ -98,6 +98,10 @@ const context = {
       minimum: 0,
       maximum: 999,
     },
+    is_logged_in: {
+      type: 'boolean',
+      description: 'Anonymous -- whether the user has github.com cookies set.',
+    },
 
     // Device information
     os: {
@@ -375,6 +379,12 @@ const survey = {
       type: 'string',
       format: 'email',
       description: "The user's email address, if the user provided and consented.",
+    },
+    survey_visit_duration: {
+      type: 'number',
+      minimum: 0.001,
+      description:
+        'The duration of survey submission - page.timestamp, in seconds. Used to filter out bot-generated survey resopnses.',
     },
   },
 }
