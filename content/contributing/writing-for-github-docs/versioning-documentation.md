@@ -157,7 +157,7 @@ Do not use the operators `&&` or `||`. Liquid does not recognize them, and the c
 
 ### Whitespace control
 
-When using Liquid conditionals in lists or tables, you can use [whitespace control](https://shopify.github.io/liquid/basics/whitespace/) characters to prevent the addition of newlines and other whitespace that would break the list or table rendering.
+When using Liquid conditionals in lists, you can use [whitespace control](https://shopify.github.io/liquid/basics/whitespace/) characters to prevent the addition of newlines and other whitespace that would break the list rendering.
 
 You can add a hyphen (`-`) on either the left, right, or both sides to indicate that there should be no newline or other whitespace on that side.
 
@@ -165,26 +165,22 @@ You can add a hyphen (`-`) on either the left, right, or both sides to indicate 
 {% raw %}{%- ifversion fpt %}{% endraw %}
 ```
 
-For example, to version a table row, instead of adding liquid versioning for the row starting at the end of the previous row, like this:
+For example, to version one step of a procedure, instead of adding liquid versioning for the step starting at the end of the previous step, like this:
 
 ```markdown
-Column A | Column B | Column C
----------|----------|---------
-This row is for all versions | B1 | C1{% raw %}{% ifversion ghes %}{% endraw %}
-This row is for GHES only | B2 | C2{% raw %}{% endif %}{% endraw %}
-This row is for all versions | B3 | C3
+1. This step is for all versions{% raw %}{% ifversion ghes %}{% endraw %}
+1. This step is for GHES only{% raw %}{% endif %}{% endraw %}
+1. This step is for all versions
 ```
 
-You can include the liquid versioning on its own line and use whitespace control to strip the newline to the left of the liquid tag. This makes reading the source much easier, without breaking the rendering of the table:
+You can include the liquid versioning on its own line and use whitespace control to strip the newline to the left of the liquid tag. This makes reading the source much easier, without breaking the rendering of the list:
 
 ```markdown
-Column A | Column B | Column C
----------|----------|---------
-This row is for all versions | B1 | C1
+1. This step is for all versions
 {% raw %}{%- ifversion ghes %}{% endraw %}
-This row is for GHES only | B2 | C2
+1. This step is for GHES only
 {% raw %}{%- endif %}{% endraw %}
-This row is for all versions | B3 | C3
+1. This row is for all versions
 ```
 
 ## About feature-based versioning

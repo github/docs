@@ -2,13 +2,13 @@
 
 There are currently 3 general automated tests:
 
-1. `jest` tests against real English content (and some code)
-1. `jest` tests against fixture content
+1. `vitest` tests against real English content (and some code)
+1. `vitest` tests against fixture content
 1. `playwright` tests against fixture content (What this document is about!)
 
 ## Quickstart
 
-Just like with regular `jest` tests, if you haven't already done so...
+Just like with regular `vitest` tests, if you haven't already done so...
 
 ```shell
 npm run build
@@ -44,18 +44,18 @@ to your assertions.
 
 ### What to test
 
-Beyond some basic happy path tests, **only test what `jest` can't test**.
+Beyond some basic happy path tests, **only test what `vitest` can't test**.
 In particular this means client-side JavaScript interactions. For example,
-`jest` can fetch the HTML over HTTP and assert against the `cheerio` parsed
+`vitest` can fetch the HTML over HTTP and assert against the `cheerio` parsed
 HTML, but it can't test what happens when you click a client-side routing
 link that triggers some sort of user agent interaction.
 
-`jest` is always faster. Playwright tests can test things like displaying
+`vitest` is always faster. Playwright tests can test things like displaying
 different things depending on cookies or `localStorage`. Playwright tests
 can test the visual presence of something. For example, if something
 like `<div style="display:none">Text here</div>` is in the DOM only
 Playwright can understand that it's not actually present in the page since
-`jest` and Cheerio can't understand CSS.
+`vitest` and Cheerio can't understand CSS.
 
 Think of your headless tests as "What would a human QA person do?"
 The imaginary QA person can be you. If there's something you find yourself

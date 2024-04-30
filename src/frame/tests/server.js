@@ -1,18 +1,19 @@
+import CspParse from 'csp-parse'
+import { beforeAll, describe, expect, test, vi } from 'vitest'
+
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '#src/tests/helpers/e2etest.js'
 import { describeViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
 import { loadPages } from '#src/frame/lib/page-data.js'
-import CspParse from 'csp-parse'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
 } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 
 describe('server', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -303,8 +304,8 @@ describe('static routes', () => {
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey())).toBeTruthy()
   })
 
-  test('serves schema files from the /data/graphql directory at /public', async () => {
-    const res = await get('/public/schema.docs.graphql')
+  test('serves schema files from the /src/graphql/data directory at /public', async () => {
+    const res = await get('/public/fpt/schema.docs.graphql')
     expect(res.statusCode).toBe(200)
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
@@ -313,6 +314,7 @@ describe('static routes', () => {
     expect(res.headers.etag).toBeUndefined()
     expect(res.headers['last-modified']).toBeTruthy()
 
+    expect((await get(`/public/ghec/schema.docs.graphql`)).statusCode).toBe(200)
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
         .statusCode,

@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs/promises'
 
 import cheerio from 'cheerio'
-import { expect, test } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import parsePageSectionsIntoRecords from '../scripts/parse-page-sections-into-records'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

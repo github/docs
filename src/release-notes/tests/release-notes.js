@@ -1,4 +1,4 @@
-import { describe, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get } from '#src/tests/helpers/e2etest.js'
@@ -13,7 +13,7 @@ const page = await Page.init({
 })
 
 describe('server', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic redirecting', async () => {
     const res = await get('/admin/release-notes')

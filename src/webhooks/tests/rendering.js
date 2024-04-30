@@ -1,10 +1,11 @@
-import { expect, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
+
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getWebhooks } from '../lib/index.js'
 
 describe('webhooks events and payloads', () => {
-  jest.setTimeout(300 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   // This test ensures that the page component and the Markdown file are
   // in sync. It also checks that all expected items are present.

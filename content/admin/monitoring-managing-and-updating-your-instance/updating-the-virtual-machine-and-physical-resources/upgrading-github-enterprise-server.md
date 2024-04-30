@@ -31,6 +31,8 @@ shortTitle: Upgrading GHES
 
 To upgrade an instance, you must plan and communicate the upgrade, choose the appropriate package, back up your data, and then perform the upgrade.
 
+> [!NOTE] Upgrading to a new feature release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)" and "[AUTOTITLE](/rest/enterprise-admin#announcements)."
+
 ## Prerequisites
 
 To successfully upgrade {% data variables.location.product_location %}, the instance's data disk must be at least 15% free. {% data variables.product.company_short %} recommends ensuring there is more free storage on the disk. In some rare cases, for customers with large data volumes, this threshold may differ.
@@ -48,7 +50,7 @@ To prepare for an upgrade, plan the upgrade path, optionally upgrade {% data var
 
    {% endnote %}
 
-1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
+1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run. To find the minimum required version for your release, see "[AUTOTITLE](/admin/all-releases#minimum-github-actions-runner-application-versions)."
 1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
    {% note %}
@@ -192,7 +194,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
    {% note %}
 
-   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node](#upgrading-the-primary-node)."
+   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)."
 
    {% endnote %}
 

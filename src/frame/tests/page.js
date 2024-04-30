@@ -1,7 +1,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+
 import cheerio from 'cheerio'
-import { describe, expect } from '@jest/globals'
+import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '#src/frame/lib/page.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'

@@ -31,8 +31,8 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 ## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
+1. Identify the relevant secrets you want to scan for and create regular expressions to capture them. For more detailed information and recommendations, see "[Identify your secrets and create regular expressions](#identify-your-secrets-and-create-regular-expressions)" below.
+1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %} that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
 1. Provide feedback for false positives (optional).
@@ -46,10 +46,16 @@ You will receive details on the {% data variables.product.prodname_secret_scanni
 ### Identify your secrets and create regular expressions
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
+- A unique, human-readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
+- A regular expression which finds the secret type. We recommend you are as precise as possible, because this will help reduce the number of false positives. Some best practices for high quality, identifiable secrets are:
+  - A uniquely defined prefix
+  - High entropy random strings
+  - A 32-bit checksum
 
-- A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-- A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
-- The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
+  ![Screenshot showing the breakdown of a secret into details to be considered when submitting to GitHub a regular expression to find high quality secrets.](/assets/images/help/security/regular-expression-guidance.png)
+
+- A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
+- The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 

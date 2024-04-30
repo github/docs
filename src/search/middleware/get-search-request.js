@@ -35,7 +35,7 @@ Object.values(allVersions).forEach((info) => {
 function getIndexPrefix() {
   // This logic is mirrored in the scripts we use before running tests
   // In particular, see the `index-test-fixtures` npm script.
-  // That's expected to be run before CI and local jest testing.
+  // That's expected to be run before CI and local vitest testing.
   // The reason we have a deliberately different index name (by prefix)
   // for testing compared to regular operation is to make it convenient
   // for engineers working on local manual testing *and* automated

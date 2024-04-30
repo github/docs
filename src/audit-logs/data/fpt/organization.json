@@ -11662,12 +11662,13 @@
       "org",
       "business",
       "business_id",
-      "number"
+      "number",
+      "secret_type"
     ]
   },
   {
     "action": "secret_scanning_alert.reopen",
-    "description": "A seret scanning alert was reopened.",
+    "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -11684,7 +11685,8 @@
       "@timestamp",
       "created_at",
       "operation_type",
-      "token_scopes"
+      "token_scopes",
+      "secret_type"
     ]
   },
   {
@@ -11707,7 +11709,8 @@
       "@timestamp",
       "created_at",
       "operation_type",
-      "token_scopes"
+      "token_scopes",
+      "secret_type"
     ]
   },
   {
@@ -11732,7 +11735,8 @@
       "created_at",
       "operation_type",
       "business",
-      "business_id"
+      "business_id",
+      "secret_type"
     ]
   },
   {
@@ -11751,7 +11755,8 @@
       "number",
       "created_at",
       "previous_validity",
-      "current_validity"
+      "current_validity",
+      "secret_type"
     ]
   },
   {

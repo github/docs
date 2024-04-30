@@ -1,4 +1,4 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import getRedirect from '../../lib/get-redirect.js'
 import {

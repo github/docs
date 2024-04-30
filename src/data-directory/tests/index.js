@@ -1,6 +1,10 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+
+import { describe, expect, test } from 'vitest'
+
 import dataDirectory from '#src/data-directory/lib/data-directory.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDir = path.join(__dirname, 'fixtures')
 

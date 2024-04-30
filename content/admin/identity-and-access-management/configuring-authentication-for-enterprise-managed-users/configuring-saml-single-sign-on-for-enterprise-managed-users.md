@@ -44,13 +44,13 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 ### Configuring your IdP
 
-1. {% ifversion emu-public-scim-schema %}If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click one of the following links.{% else %}To install the GitHub Enterprise Managed User application, click the link for your IdP below:{% endif %}
+1. {% ifversion emu-public-scim-schema %}If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click one of the following links.{% else %}To install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP below:{% endif %}
 
     - [Microsoft Entra ID application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) in Azure Marketplace (Entra ID was previously known as Azure AD)
     - [Okta application](https://www.okta.com/integrations/github-enterprise-managed-user) in Okta's integrations directory
     - [PingFederate downloads website](https://www.pingidentity.com/en/resources/downloads/pingfederate.html)
 
-      - To download the PingFederate connector, navigate to the **Add-ons** tab and select **GitHub EMU Connector 1.0**.
+      - To download the PingFederate connector, navigate to the **Add-ons** tab and select **{% data variables.product.prodname_dotcom %} EMU Connector 1.0**.
 
 1. To configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, read the following documentation. {% ifversion emu-public-scim-schema %}If you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP.{% endif %}
 
@@ -61,6 +61,9 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
    - "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)"
    {%- endif %}
 1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.location.product_location %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
+
+   > [!NOTE]
+   > In order to test a successful authentication connection upon configuration, at least one user must be assigned to the IdP.
 
 1. To continue configuring your enterprise on {% data variables.location.product_location %}, locate and note the following information from the application you installed on your IdP.
 

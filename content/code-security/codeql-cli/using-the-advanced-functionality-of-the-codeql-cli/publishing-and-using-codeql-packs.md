@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs
 ---
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
 ## Configuring the `qlpack.yml` file before publishing
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
@@ -46,6 +44,16 @@ codeql pack publish
 ```
 
 The published package will be displayed in the packages section of {% data variables.product.prodname_dotcom %} organization specified by the scope in the `qlpack.yml` file.
+
+{% ifversion code-scanning-without-workflow %}
+
+{% note %}
+
+**Note:** If you're publishing model packs to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} in order to extend coverage to all repositories in an organization as part of a default setup configuration, then you need to ensure that repositories running code scanning can access those model packs. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup)" and "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
+
+{% endnote %}
+
+{% endif %}
 
 ## Running `codeql pack download <scope>/<pack>`
 
@@ -489,7 +497,7 @@ Some extra notes on the following properties:
 
 - `library`: Indicates that this is a library pack with no executable queries. It is only meant to be used as a dependency for other packs.
 
-- `dbscheme` and `upgrades`: These properties are internal to the {% data variables.product.prodname_codeql_cli %} and should only be defined in the core QL pack for a language.
+- `dbscheme` and `upgrades`: These properties are internal to the {% data variables.product.prodname_codeql_cli %} and should only be defined in the core {% data variables.product.prodname_codeql %} query pack for a language.
 
 ### Core query pack
 

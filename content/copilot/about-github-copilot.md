@@ -48,3 +48,5 @@ You can access {% data variables.product.prodname_copilot %} as part of one of t
   - Generate automatic summaries of pull requests.
 
   For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
+
+{% data reusables.copilot.copilot-one-account-short %}

@@ -78,6 +78,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3227
         - |
           Users can set up organization-wide rules to enforce their CI/CD workflows, ensuring workflows pass before pull requests can be merged into target repositories. You can fine-tune your rule by selecting a specific branch, tag, or SHA, and provide maximum control over the version expected to run. To reduce risk, you can "evaluate" workflow rules to validate rules are working correctly. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)".

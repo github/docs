@@ -39,6 +39,20 @@ In addition to the security benefits, {% data variables.product.prodname_actions
 
 {% data variables.product.prodname_actions %} is a big topic, but a good place to get started is "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)," as well as "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners)," and "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
 
+{% ifversion artifact-attestations %}
+
+## Generate artifact attestations for your builds
+
+{% data reusables.actions.artifact-attestations-public-beta-note %}
+
+{% data reusables.actions.about-artifact-attestations %}
+
+Artifact attestations include a signature over a built artifact, along with links to the source code and build instructions. If you sign your build with artifact attestations, you do not have to manage your own signing key material. {% data variables.product.prodname_dotcom %} handles this for you with the signing authority we operate.
+
+For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+
+{% endif %}
+
 ## Sign your builds
 
 After your build process is secure, you want to prevent someone from tampering with the end result of your build process. A great way to do this is to sign your builds. When distributing software publicly, this is often done with a public/private cryptographic key pair. You use the private key to sign the build, and you publish your public key so users of your software can verify the signature on the build before they use it. If the bytes of the build are modified, the signature will not verify.

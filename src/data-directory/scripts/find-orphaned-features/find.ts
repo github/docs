@@ -40,6 +40,11 @@ import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
 
+const EXCEPTIONS = new Set([
+  // From data/features/placeholder.yml. Used by tests.
+  'placeholder',
+])
+
 type Options = {
   sourceDirectory: string
   output?: string
@@ -75,7 +80,9 @@ export async function find(options: Options) {
   }
   const site = await warmServer([])
 
-  const features = new Set(Object.keys(getDeepDataByLanguage('features', 'en')))
+  const features = new Set(
+    Object.keys(getDeepDataByLanguage('features', 'en')).filter((f) => !EXCEPTIONS.has(f)),
+  )
   if (options.verbose) {
     console.log(`Found ${features.size} features`)
   }

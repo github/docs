@@ -15,9 +15,15 @@ You can [perform introspection](/graphql/guides/introduction-to-graphql#discover
 
 Alternatively, you can download the latest version of the public schema here:
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
 
-[{% octicon "desktop-download" aria-label="Download" %} `schema.docs.graphql`](/public/schema.docs.graphql)
+[{% octicon "desktop-download" aria-label="Download" %} `schema.docs.graphql`](/public/fpt/schema.docs.graphql)
+
+{% endif %}
+
+{% ifversion ghec %}
+
+[{% octicon "desktop-download" aria-label="Download" %} `schema.docs.graphql`](/public/ghec/schema.docs.graphql)
 
 {% endif %}
 

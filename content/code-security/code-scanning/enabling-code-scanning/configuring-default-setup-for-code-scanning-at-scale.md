@@ -71,9 +71,14 @@ Through the "Code security and analysis" page of your organization's settings, y
 
 {% data reusables.code-scanning.beta-org-enable-all %}
 
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Code security & analysis**.
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_code_scanning %} and other security features for all eligible repositories with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% endif %}
+
 1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".{% ifversion bulk-code-scanning-query-suite%}
 1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 1. To enable your configuration of default setup, click **Enable for eligible repositories**.
@@ -91,6 +96,14 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% else %}
 {% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 {% endif %}
+
+{% ifversion codeql-model-packs-org %}
+
+### Extending {% data variables.product.prodname_codeql %} coverage in default setup
+
+Through the "Code security and analysis" page of your organization's settings, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization)."
+{% endif %}
+
 {% ifversion code-security-multi-repo-enablement %}
 
 ## Configuring default setup for a subset of repositories in an organization
@@ -160,4 +173,18 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 
   If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 
+{% endif %}
+
+{% ifversion code-scanning-merge-protection-rulesets %}
+{% ifversion ghes or ghec %}
+
+## Configuring merge protection for all repositories in an organization
+
+You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
 {% endif %}

@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import nock from 'nock'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
 

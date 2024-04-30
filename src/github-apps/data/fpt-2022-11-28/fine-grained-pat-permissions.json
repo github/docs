@@ -148,6 +148,15 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -298,6 +307,15 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/settings/billing/shared-storage",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-a-team",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -557,11 +575,29 @@
       },
       {
         "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
         "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-a-team",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
+        "additional-permissions": true,
         "access": "write"
       }
     ]
@@ -2824,24 +2860,6 @@
         "access": "write"
       },
       {
-        "category": "codespaces",
-        "slug": "create-or-update-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "codespaces",
-        "slug": "delete-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -3633,7 +3651,7 @@
         "subcategory": "repository-secrets",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -3642,7 +3660,7 @@
         "subcategory": "repository-secrets",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]

@@ -163,7 +163,7 @@ export default function (app) {
   app.use(asyncMiddleware(dynamicAssets))
   app.use(
     '/public/',
-    express.static('data/graphql', {
+    express.static('src/graphql/data', {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse

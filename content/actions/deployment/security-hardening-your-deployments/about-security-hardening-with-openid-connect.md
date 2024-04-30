@@ -391,7 +391,7 @@ For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:
 
 #### Example: Granting access to a specific repository
 
-This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. {% ifversion ghec %}To further improve security, you can combine this template with a unique issuer URL for your enterprise, as described in "[Switching to a unique token URL](#switching-to-a-unique-token-url)."{% endif %}
+This example template lets you grant cloud access to all the workflows in a specific repository, across all branches/tags and environments. {% ifversion ghec %}To further improve security, you can combine this template with a unique issuer URL for your enterprise, as described in "[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)."{% endif %}
 
 {% data reusables.actions.use-request-body-api %}
 

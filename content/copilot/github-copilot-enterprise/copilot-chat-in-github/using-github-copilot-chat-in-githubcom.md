@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Copilot Chat in GitHub.com
 shortTitle: Using Chat in GitHub.com
-intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the code in a repository.'
+intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
   feature: 'copilot-on-dotcom'
 topics:
@@ -28,10 +28,11 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 - Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
 - Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
 - Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
+- Questions about a specific issue. For more information, see "[Asking a question about a specific issue](#asking-a-question-about-a-specific-issue)."
 
 ### Limitations
 
-- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking a question about a specific repository, file or symbol](#asking-a-question-about-a-specific-repository-file-or-symbol)."
+- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
 - The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
@@ -59,6 +60,7 @@ You can also explicitly ask {% data variables.product.prodname_copilot_chat_dotc
 | `show-symbol-definition` | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
 | `pathsearch` | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ |
 | `bing-search` | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_ |
+| `get-issue` | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | _Summarize the conversation on this issue and suggest next steps_ |
 
 ## Asking a general question about software development
 
@@ -198,7 +200,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
    Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
 
-1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detatch the knowledge base or select a different one.
+1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
@@ -268,6 +270,34 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain what'
    - What is &#96;actorData&#96; in this line?
    - Explain this &#96;do..end&#96; block.
    - What's the purpose of this file?
+
+## Asking a question about a specific issue
+
+You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue. {% data variables.product.prodname_copilot_short %} has access to the issue's title, number, author, status, body, linked pull requests, and comments.
+
+{% note %}
+
+**Note:** The quality of {% data variables.product.prodname_copilot_chat_short %}'s responses may be degraded when working with issues with very long bodies or large numbers of comments. Where this happens, {% data variables.product.prodname_copilot_short %} will warn you so you can double check its output.
+
+{% endnote %}
+
+1. Navigate to an issue on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.copilot.open-copilot %}
+
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+
+   - Summarize this issue
+   - Recommend next steps for this issue
+   - What are the acceptance criteria for this issue?
+
+   {% tip %}
+
+   **Tip:** Instead of navigating to an issue in your browser, you can also refer to a specific issue in your message, for example `Summarize https://github.com/monalisa/octokit/issues/1`.
+
+   {% endtip %}
+
+   {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
 ## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
 
