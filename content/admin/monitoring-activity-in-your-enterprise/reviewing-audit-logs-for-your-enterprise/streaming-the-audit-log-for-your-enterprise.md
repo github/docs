@@ -20,10 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% note %}
 
-{% ifversion ghes %}**Notes:**
-- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
-- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
-**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
+**Note:** {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
 

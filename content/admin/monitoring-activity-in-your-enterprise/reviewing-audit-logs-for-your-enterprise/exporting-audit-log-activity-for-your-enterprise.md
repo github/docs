@@ -15,6 +15,8 @@ topics:
 
 You can export the audit log by downloading a JSON or CSV file from your enterprise on {% data variables.product.product_name %}. When you export audit log events, you can query by one or more of these supported qualifiers to filter for specific log events to export. For more information about search qualifiers, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise#search-based-on-the-action-performed)."
 
+The audit log lists events triggered by activities that affect your enterprise within the last 180 days. {% data reusables.audit_log.git-events-retention-period %}
+
 You can export Git events data by downloading a JSON file from your enterprise audit log. Unlike audit log data, you cannot query for specific Git events to filter and export in the audit log user interface.
 
 {% data reusables.audit_log.git-events-export-limited %}
