@@ -604,6 +604,12 @@ You may not want to accept an entire suggestion from {% data variables.product.p
 
 {% endazure_data_studio %}
 
+{% zed %}
+
+You will see a copilot icon in the bottom right corner of status bar. Click the icon to login using your existing copilot subscrition.
+
+{% endzed %}
+
 ## Next steps
 
 {% data reusables.copilot.next-steps %}
