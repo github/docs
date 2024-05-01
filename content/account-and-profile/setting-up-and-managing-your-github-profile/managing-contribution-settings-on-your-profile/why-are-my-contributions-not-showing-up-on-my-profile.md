@@ -42,7 +42,6 @@ In addition, **at least one** of the following must be true:
 - You are a collaborator on the repository or are a member of the organization that owns the repository.
 - You have forked the repository.
 - You have opened a pull request or issue in the repository.
-- You have starred the repository.
 
 ## Common reasons that contributions are not counted
 
