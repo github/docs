@@ -3,6 +3,7 @@ A user is considered active if the user has performed any of the following activ
 - {% ifversion ghec%}Authenticating to access your enterprise's resources via SAML SSO{% else %}Signing into {% data variables.location.product_location %} {% endif %}
 - Creating a repository
 - Pushing to a repository via HTTPS
+{% ifversion ghes %}- Pushing to a repository via SSH{% endif %}
 - Being added to a repository
 - Changing the visibility of a repository
 - Creating an issue or pull request
@@ -25,5 +26,3 @@ A user is considered active if the user has performed any of the following activ
 {% ifversion ghes %}
 A user will also be considered active if their account has been updated by LDAP.
 {% endif %}
-
-Pushing to a repository via SSH does not affect a user's dormancy.
