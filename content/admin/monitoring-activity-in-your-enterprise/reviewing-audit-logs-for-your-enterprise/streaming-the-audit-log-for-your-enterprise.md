@@ -48,6 +48,16 @@ Enabling audit log streaming can cause a minor impact on the performance of {% d
 
 {% endif %}
 
+{% ifversion audit-log-streaming-health-check %}
+
+## Health checks for audit log streams
+
+Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
+
+To fix your streaming configuration, follow the steps outlined in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
+
+{% endif %}
+
 ## Events that appear in audit log streams
 
 You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
