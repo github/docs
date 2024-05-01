@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 topics:
   - Profiles
+permissions: 'Profile READMEs are not available to {% data variables.enterprise.prodname_managed_users %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-your-profile-readme
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
