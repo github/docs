@@ -27,6 +27,45 @@ You will use a script to automate configuring your Azure resources.
     properties: {
       securityRules: [
         {
+          name: 'AllowAzureCloudOutbound'
+          properties: {
+            protocol: 'TCP'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            destinationAddressPrefix: 'AzureCloud'
+            access: 'Allow'
+            priority: 100
+            direction: 'Outbound'
+            destinationAddressPrefixes: []
+          }
+        }
+        {
+          name: 'AllowAzureADOutbound'
+          properties: {
+            protocol: 'TCP'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            destinationAddressPrefix: 'AzureActiveDirectory'
+            access: 'Allow'
+            priority: 110
+            direction: 'Outbound'
+            destinationAddressPrefixes: []
+          }
+        }
+        {
+          name: 'AllowAzureFrontDoorOutbound'
+          properties: {
+            protocol: 'TCP'
+            sourcePortRange: '*'
+            destinationPortRange: '443'
+            destinationAddressPrefix: 'AzureFrontDoor.Frontend'
+            access: 'Allow'
+            priority: 120
+            direction: 'Outbound'
+            destinationAddressPrefixes: []
+          }
+        }
+        {
           name: 'AllowVnetOutBoundOverwrite'
           properties: {
             protocol: 'TCP'
