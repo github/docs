@@ -75,6 +75,16 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
     Additionally, you can edit or delete existing autograding tests with {% octicon "pencil" aria-label="The pencil icon" %} or {% octicon "trash" aria-label="The trash icon" %}.
 
+1. To add new protected path, in the "Protected file paths" section, type out the file or path and click **Add path**.
+
+    Additionally, delete existing protected paths by clicking {% octicon "trash" aria-label="The trash icon" %}.
+
+    {% note %}
+
+    **Note:** If you remove a protected file path, the "Protected file(s) modified" label will be removed from any submissions that edited files in that path
+
+    {% endnote %}
+
 1. To turn feedback pull requests on or off, select or deselect **Enable feedback pull requests**.
 
     {% note %}
