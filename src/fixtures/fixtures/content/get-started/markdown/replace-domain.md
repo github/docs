@@ -38,3 +38,12 @@ await fetch("https://HOSTNAME/api/v1")
 ```js
 await fetch("https://HOSTNAME/api/v2")
 ```
+
+## Not always there
+
+In this next code snippet, the `HOSTNAME` only appears if the current
+version is `ghes`. That should be fine.
+
+```text replacedomain copy
+ssh handle@{% ifversion ghes %}HOSTNAME{% else %}github.com{% endif %}
+```

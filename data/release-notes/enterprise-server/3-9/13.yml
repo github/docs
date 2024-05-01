@@ -46,6 +46,8 @@ sections:
     - |
       On an instance hosted on Azure, administrators can set and reset SSH keys and passwords via the Azure Agent.
     - |
+      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."
+    - |
       As a result of a security vulnerability, the editor role for a Management Console user has been deprecated. For details, see the "Security fixes" section of these release notes. Existing users with the editor role will be unable to log in to the Management Console, and should contact their site administrator requesting that access be reinstated by updating the user to the operator role if appropriate.
   known_issues:
     - |
