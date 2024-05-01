@@ -181,7 +181,26 @@ codeload.github.com
 
 ```shell copy
 results-receiver.actions.githubusercontent.com
-*.blob.core.windows.net
+productionresultssa0.blob.core.windows.net
+productionresultssa1.blob.core.windows.net
+productionresultssa2.blob.core.windows.net
+productionresultssa3.blob.core.windows.net
+productionresultssa4.blob.core.windows.net
+productionresultssa5.blob.core.windows.net
+productionresultssa6.blob.core.windows.net
+productionresultssa7.blob.core.windows.net
+productionresultssa8.blob.core.windows.net
+productionresultssa9.blob.core.windows.net
+productionresultssa10.blob.core.windows.net
+productionresultssa11.blob.core.windows.net
+productionresultssa12.blob.core.windows.net
+productionresultssa13.blob.core.windows.net
+productionresultssa14.blob.core.windows.net
+productionresultssa15.blob.core.windows.net
+productionresultssa16.blob.core.windows.net
+productionresultssa17.blob.core.windows.net
+productionresultssa18.blob.core.windows.net
+productionresultssa19.blob.core.windows.net
 ```
 
 **Needed for runner version updates:**
