@@ -198,7 +198,7 @@ support_ticket_priority_normal: 'Normal'
 support_ticket_priority_low: 'Low'
 
 # GitHub Professional Services
-prodname_professional_services: 'GitHub Expert Services'
+prodname_professional_services: 'GitHub Professional Services'
 prodname_professional_services_team: 'Expert Services'
 
 # GitHub Security Lab
