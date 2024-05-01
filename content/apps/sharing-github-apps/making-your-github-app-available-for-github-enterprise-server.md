@@ -35,7 +35,7 @@ Organizations owned by a {% data variables.product.prodname_ghe_server %} instan
 
 ## The app code must be able to access the {% data variables.product.prodname_github_app %} credentials for the instance
 
-You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app.
+Your app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app.
 
 ### Get the credentials from the {% data variables.product.prodname_ghe_server %} instance
 
