@@ -49,11 +49,12 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 {% endnote %}
 
 ### Updating an existing fork
+
 If you forked the Spoon-Knife repository in the past, you can't create another fork from the same username. Instead you need to bring your fork up to date:
 1. In the top right corner of the page, click on the arrow next to the **Fork** button.
 2. A drop-down menu **Existing forks** appears. Click on your existing fork.
 3. Click on the **Sync fork** button.
-![Screenshot of the main page of repository. The "Existing fork" and "Sync fork£ buttons are outlined in dark orange.](https://github.com/github/docs/assets/52163138/7180c512-f520-4d00-b847-4713a8b5b863)
+![Screenshot of the main page of repository. The "Existing fork" and "Sync fork" buttons are outlined in dark orange.](https://github.com/github/docs/assets/52163138/7180c512-f520-4d00-b847-4713a8b5b863)
 
 
 ## Cloning a fork
