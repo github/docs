@@ -28,11 +28,13 @@ You can contribute by submitting pull requests from your fork to the upstream re
 
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
+### Creating a new fork
+
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 1. In the top-right corner of the page, click **Fork**.
 
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork-button.png)
-1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
+1. Under "Owner," select the dropdown menu and click an owner for the forked repository. (If your name is greyed out, it's because you have forked this project in the past; see "Updating an existing fork" below.)
 1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
 1. Optionally, in the "Description" field, type a description of your fork.
 1. Optionally, select **Copy the DEFAULT branch only**.
@@ -45,6 +47,14 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 **Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 
 {% endnote %}
+
+### Updating an existing fork
+If you forked the Spoon-Knife repository in the past, you can't create another fork from the same username. Instead you need to bring your fork up to date:
+1. In the top right corner of the page, click on the arrow next to the **Fork** button.
+2. A drop-down menu **Existing forks** appears. Click on your existing fork.
+3. Click on the **Sync fork** button.
+![Screenshot of the main page of repository. The "Existing fork" and "Sync fork£ buttons are outlined in dark orange.](https://github.com/github/docs/assets/52163138/7180c512-f520-4d00-b847-4713a8b5b863)
+
 
 ## Cloning a fork
 
