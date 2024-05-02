@@ -9,6 +9,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can run {% data variables.product.prodname_codeql %} queries on a large number of repositories on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_vscode %}.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/running-codeql-queries-at-scale-with-mrva
 ---
 
 {% data reusables.code-scanning.mrva-beta %}

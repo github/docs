@@ -9,6 +9,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can view, write, and edit {% data variables.product.prodname_codeql %} model packs in {% data variables.product.prodname_vscode %}.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/using-the-codeql-model-editor
 ---
 
 {% data reusables.code-scanning.beta-model-packs %}

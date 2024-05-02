@@ -12,6 +12,8 @@ topics:
 type: reference
 allowTitleToDifferFromFilename: true
 intro: 'If you specifically opt in to permit {% data variables.product.company_short %} to do so, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/about-telemetry-in-codeql-for-visual-studio-code
 ---
 
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.
