@@ -245,7 +245,7 @@ export default function (app) {
   app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
   app.use('/producticons', productIcons)
-  app.use('/manifest.json', asyncMiddleware(manifestJson))
+  app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints
