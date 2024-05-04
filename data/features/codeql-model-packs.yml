@@ -1,4 +1,5 @@
-# Reference: #11599 Java and #13332 Java and C#
+# Reference: #11599 Java, #13332 Java and C#, #13659 Java, C#, and Ruby
+
 versions:
   fpt: '*'
   ghec: '*'
