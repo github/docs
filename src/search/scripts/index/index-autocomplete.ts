@@ -24,6 +24,7 @@ type Options = {
   retries?: number
   sleepTime?: number
   verbose?: boolean
+  indexPrefix?: string
 }
 
 export async function indexAutocomplete(options: Options) {
@@ -38,7 +39,12 @@ export async function indexAutocomplete(options: Options) {
   for (const language of languages) {
     for (const version of versions) {
       const records = loadRecords({ version, language, dataRepoRoot })
-      const { alias, name } = await createIndex(client, language, version)
+      const { alias, name } = await createIndex(
+        client,
+        language,
+        version,
+        options.indexPrefix || '',
+      )
       await populate(client, records, {
         alias,
         name,
@@ -109,7 +115,12 @@ type IndexInfo = {
   name: string
 }
 
-async function createIndex(client: Client, language: string, version: Version): Promise<IndexInfo> {
+async function createIndex(
+  client: Client,
+  language: string,
+  version: Version,
+  indexPrefix: string,
+): Promise<IndexInfo> {
   const settings: estypes.IndicesIndexSettings = {
     analysis: {
       analyzer: {
@@ -126,7 +137,11 @@ async function createIndex(client: Client, language: string, version: Version): 
     // XXX SNOWBALL?
   }
 
-  const indexName = `github-autocomplete-${language}-${shortVersionNames[version] || version}`
+  if (indexPrefix && !indexPrefix.endsWith('_')) {
+    indexPrefix += '_'
+  }
+
+  const indexName = `${indexPrefix}github-autocomplete-${language}-${shortVersionNames[version] || version}`
   const thisAlias = `${indexName}__${utcTimestamp()}`
 
   const mappings: estypes.MappingTypeMapping = {

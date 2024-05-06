@@ -37,7 +37,7 @@
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
     "index": "tsx src/search/scripts/index/index.ts",
     "index-elasticsearch": "node src/search/scripts/index-elasticsearch.js",
-    "index-test-fixtures": "npm run index-elasticsearch -- -l en -l ja -V ghec -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
+    "index-test-fixtures": "./src/search/scripts/index-test-fixtures.sh",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-content": "node src/content-linter/scripts/lint-content.js",
     "lint-translation": "vitest src/content-linter/tests/lint-files.js",
@@ -339,7 +339,7 @@
     "typescript": "^5.4.4",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "1.5.0",
+    "vitest": "1.6.0",
     "website-scraper": "^5.3.1"
   },
   "overrides": {},
