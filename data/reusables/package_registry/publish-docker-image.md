@@ -30,6 +30,7 @@ jobs:
       contents: read
       packages: write
       {% ifversion artifact-attestations %}attestations: write{% endif %}
+      {% ifversion artifact-attestations %}id-token: write{% endif %}
       # 
     steps:
       - name: Checkout repository
