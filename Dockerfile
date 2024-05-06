@@ -93,6 +93,7 @@ COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
+COPY --chown=node:node tsconfig.json ./
 
 EXPOSE $PORT
 
