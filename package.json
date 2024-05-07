@@ -334,7 +334,7 @@
     "prettier": "^3.2.5",
     "rimraf": "^5.0.0",
     "robots-parser": "^3.0.0",
-    "sass": "^1.75.0",
+    "sass": "^1.77.0",
     "start-server-and-test": "^2.0.3",
     "typescript": "^5.4.4",
     "unist-util-remove": "^4.0.0",
