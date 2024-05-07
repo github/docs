@@ -29,12 +29,14 @@ With {% data variables.product.prodname_mobile %} you can:
 {% ifversion mobile-code-search %}- Search through code in a specific repository{% endif %}
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
 - Verify your sign in attempts on unrecognized devices{% endif %}
+{% ifversion copilot-chat-for-mobile %}- Use {% data variables.product.prodname_copilot_chat %} to ask and receive answers to coding-related questions{% endif %}
 
 The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
 - For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 {% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile)."{% endif %}
 {% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile)." {% endif %}
+{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.product.prodname_copilot_mobile %}, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile)."{% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
 

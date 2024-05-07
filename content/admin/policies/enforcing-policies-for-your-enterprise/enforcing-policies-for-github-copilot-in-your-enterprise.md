@@ -83,6 +83,12 @@ To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_shor
 
 {% data reusables.copilot.copilot-cli-enable %}
 
+## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_mobile %}
+
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. You can enable or disable the use of {% data variables.product.prodname_copilot_mobile_short %} for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy for {% data variables.product.prodname_copilot_mobile_short %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat-in-github-mobile)."
+
+{% data reusables.copilot.copilot-chat-mobile-enable %}
+
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
