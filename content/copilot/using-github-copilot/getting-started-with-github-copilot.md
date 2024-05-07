@@ -187,11 +187,17 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.8 or later installed. For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
 
 {% data reusables.copilot.vs-for-mac-note %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
+
+{% data reusables.copilot.install-copilot-vs-intro %}
+
+{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+
+### Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
