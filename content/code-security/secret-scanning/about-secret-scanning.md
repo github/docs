@@ -93,7 +93,7 @@ You can also define custom {% data variables.product.prodname_secret_scanning %}
 {% data reusables.secret-scanning.secret-scanning-about-alerts %}
 
 - {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository{% ifversion secret-scanning-notification-settings %}, {% else %}, and {% endif %}if you have enabled notifications either for security alerts or for all the activity on the repository{% ifversion secret-scanning-notification-settings %}, and if, in your notification settings, you have selected to receive email notifications for the repositories that you are watching.{% else %}.{% endif %}
-- If the person who introduced the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
+- If the person who introduced the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The email contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
 - {% data reusables.secret-scanning.repository-alert-location %}
 
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
