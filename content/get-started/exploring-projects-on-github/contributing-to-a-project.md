@@ -47,7 +47,6 @@ This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Kn
 
 {% endnote %}
 
-
 ## Cloning a fork
 
 You've successfully forked the Spoon-Knife repository, but so far, it only exists on {% data variables.product.product_name %}. To be able to work on the project, you will need to clone it to your computer.
