@@ -1,5 +1,5 @@
 import express from 'express'
-import middleware from '@/frame/middleware/index.js'
+import middleware from '@/frame/middleware'
 
 function createApp() {
   const app = express()
