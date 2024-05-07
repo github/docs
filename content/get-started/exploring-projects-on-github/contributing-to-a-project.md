@@ -28,8 +28,6 @@ You can contribute by submitting pull requests from your fork to the upstream re
 
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
-### Creating a new fork
-
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
 1. In the top-right corner of the page, click **Fork**.
 
