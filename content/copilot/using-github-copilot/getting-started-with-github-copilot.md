@@ -610,12 +610,15 @@ You may not want to accept an entire suggestion from {% data variables.product.p
 
 {% endazure_data_studio %}
 
+{% data reusables.copilot.enabling-or-disabling-in-mobile %}
+
 ## Next steps
 
 {% data reusables.copilot.next-steps %}
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}: Find out how to ask {% data variables.product.prodname_copilot %} for information and assistance.
+- "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile)": Learn how to use {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_mobile %}.
 - "[AUTOTITLE](/copilot/configuring-github-copilot)": These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 - "[AUTOTITLE](/billing/managing-billing-for-github-copilot)": Learn more about billing for {% data variables.product.prodname_copilot %}.
 - "[AUTOTITLE](/copilot/troubleshooting-github-copilot)": These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.

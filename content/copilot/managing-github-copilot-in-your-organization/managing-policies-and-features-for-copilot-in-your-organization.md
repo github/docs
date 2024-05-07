@@ -53,4 +53,5 @@ shortTitle: Managing policies
 - "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"
 {% ifversion ghec %}- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)"{% endif %}
 - "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
+- "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat-in-github-mobile)"
 - "[AUTOTITLE](/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)"

@@ -8,7 +8,7 @@ redirect_from:
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Using Copilot Chat
+shortTitle: Use Copilot Chat (IDE)
 ---
 
 {% vscode %}
