@@ -12,6 +12,7 @@ topics:
 children:
   - /configuring-saml-single-sign-on-for-enterprise-managed-users
   - /configuring-oidc-for-enterprise-managed-users
+  - /finding-the-object-id-for-your-entra-oidc-application
   - /about-support-for-your-idps-conditional-access-policy
   - /disabling-authentication-and-provisioning-for-enterprise-managed-users
 ---
