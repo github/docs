@@ -155,6 +155,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
 
+{% data reusables.copilot.install-copilot-vs-intro %}
+
+{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+
+### Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
+
 To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
 
 {% data reusables.copilot.link-to-vs-docs %}
