@@ -8,9 +8,10 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: ![Screenshot_2024-05-09-00-53-25-93_3aea4af51f236e4932235fdada7d1643](https://github.com/github/docs/assets/167148322/22948b32-89dd-455e-a358-9a06e4943ea7)
+
+  ghes: 
+  ghec: 
 topics:
   - Pull requests
 ---
