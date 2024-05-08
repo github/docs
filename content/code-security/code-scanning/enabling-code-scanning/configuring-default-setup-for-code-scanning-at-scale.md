@@ -18,7 +18,12 @@ versions:
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
 
-You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
+You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
+- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+- On a weekly schedule.{% endif %}
+
+For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
 
 {% ifversion code-security-multi-repo-enablement %}
 
