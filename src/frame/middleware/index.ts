@@ -5,7 +5,7 @@ import express from 'express'
 import type { NextFunction, Request, Response, Express } from 'express'
 
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
-import abort from './abort.js'
+import abort from './abort'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from '@/observability/middleware/connect-datadog.js'
