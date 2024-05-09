@@ -12,9 +12,9 @@ topics:
 type: reference
 intro: 'You can view, write, and edit {% data variables.product.prodname_codeql %} query and library packs in {% data variables.product.prodname_vscode %} using the {% data variables.product.prodname_codeql %} extension.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/codeql-for-vs-code/working-with-codeql-packs-in-visual-studio-code
 ---
-
-{% data reusables.codeql-cli.beta-note-package-management %}
 
 ## Benefits of using the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to work with packs
 

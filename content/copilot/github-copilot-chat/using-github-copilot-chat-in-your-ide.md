@@ -8,7 +8,7 @@ redirect_from:
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Using Copilot Chat
+shortTitle: Use Copilot Chat (IDE)
 ---
 
 {% vscode %}
@@ -101,6 +101,12 @@ When {% data variables.product.prodname_copilot_chat_short %} provides code sugg
 
 {% data reusables.copilot.chat-asking-questions %}
 
+{% note %}
+
+**Note:** To find out about other special commands you can use with {% data variables.product.prodname_copilot_chat_short %}, enter `/help` in the chat input box. For more information on slash commands, see [Using {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat#_slash-commands) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+{% endnote %}
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 
 To share feedback about {% data variables.product.prodname_copilot_chat_short %}, you can use the **share feedback** button in the {% data variables.product.prodname_copilot_chat_short %} window.
@@ -149,6 +155,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
 
+{% data reusables.copilot.install-copilot-vs-intro %}
+
+{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+
+### Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
+
 To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
 
 {% data reusables.copilot.link-to-vs-docs %}
@@ -168,7 +180,7 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
 {% data reusables.copilot.copilot-chat-exclusively-code-questions %}
 {% data reusables.copilot.chat-open-visualstudio %}
-1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}: Type / for commands and # to reference** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
 
     {% note %}
 
@@ -187,9 +199,15 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 {% data reusables.copilot.chat-open-visualstudio %}
 {% data reusables.copilot.chat-asking-questions %}
 
+{% note %}
+
+**Note:** To find out about other special commands you can use with {% data variables.product.prodname_copilot_chat_short %}, enter `/help` in the chat input box. For more information on slash commands, see [Get better answers by setting the context for {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022#slash-commands) in the {% data variables.product.prodname_vs %} documentation.
+
+{% endnote %}
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 
-To share feedback about {% data variables.product.prodname_copilot_chat_short %}, you can use the **Send feedback** button in {% data variables.product.prodname_vs %}. For more information on providing feedback for {% data variables.product.prodname_vs %}, see the [Visual Studio Feedback](https://learn.microsoft.com/en-us/visualstudio/ide/how-to-report-a-problem-with-visual-studio?view=vs-2022) documentation.
+To share feedback about {% data variables.product.prodname_copilot_chat_short %}, you can use the **Send feedback** button in {% data variables.product.prodname_vs %}. For more information on providing feedback for {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} Feedback](https://learn.microsoft.com/en-us/visualstudio/ide/how-to-report-a-problem-with-visual-studio?view=vs-2022) documentation.
 
 1. In the top right corner of the {% data variables.product.prodname_vs %} window, click the **Send feedback** button.
 
@@ -314,6 +332,7 @@ The following procedures will guide you through installing or updating the {% da
     - To generate a description of the file's purpose, ask a question like, "What does this file do?"
     - To generate a unit test for the file, type a request like, "Write a unit test for this file." Alternatively, highlight the code you want to generate a unit test for, then ask a question like, "Write a unit test for this code."
     - To generate a fix for a bug in the file, type a request like, "Fix this bug."
+1. Optionally, you can prompt {% data variables.product.prodname_copilot_chat_short %} to perform predefined tasks with slash commands. To see a list of all available slash commands and their definitions, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for commands** text box, type `/`.
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 

@@ -46,11 +46,12 @@ jobs:
 
       - name: Add Docs Engineering as a reviewer
         run: |
-          has_reviewer=$(
+          needs_review=$(
             gh pr view $PR --json reviews |
-            jq 'any(.reviews[]; select(length > 0))'
+            jq '.reviews |
+            length == 0 or all(.author.login == "${{github.event.pull_request.user.login}}")'
           )
-          if ! $has_reviewer
+          if $needs_review
           then
             gh pr edit $PR --add-reviewer github/docs-engineering
           fi

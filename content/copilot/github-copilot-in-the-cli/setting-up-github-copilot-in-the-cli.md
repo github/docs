@@ -28,7 +28,7 @@ An organization owner can enable or disable {% data variables.product.prodname_c
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_cli_short %} at the enterprise level
 
-An enterprise owner can choose whether to enable a feature for all organizations, disable for all organizations, or allow each organization to choose its own policy for the feature.
+An enterprise owner can choose whether to enable {% data variables.product.prodname_copilot_cli_short %} for all organizations, disable it for all organizations, or allow each organization to choose its own policy. When an enterprise has not yet set a policy, the default setting is "Unconfigured." This setting behaves identically to "No policy."
 
 {% data reusables.copilot.copilot-cli-enable %}
 
@@ -38,7 +38,7 @@ An enterprise owner can choose whether to enable a feature for all organizations
 
 To install {% data variables.product.prodname_copilot_cli_short %}, you must have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
 
-1. If you are have not already authenticated with your {% data variables.product.prodname_dotcom %} account, run the following command in your terminal.
+1. If you have not already authenticated with your {% data variables.product.prodname_dotcom %} account, run the following command in your terminal.
 
     ```shell copy
     gh auth login

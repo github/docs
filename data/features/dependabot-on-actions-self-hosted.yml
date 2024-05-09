@@ -1,0 +1,4 @@
+# Reference: Issue #13695 Dependabot on Actions on GHEC and FPT [GA]
+versions:
+  fpt: '*'
+  ghec: '*'

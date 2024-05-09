@@ -16,6 +16,8 @@ topics:
 shortTitle: View people in your enterprise
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 ## About the list of people in your enterprise
 
 To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise.

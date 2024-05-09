@@ -14,8 +14,6 @@ redirect_from:
 ---
 {% ifversion actions-deployment-history-beta %}
 
-{% data reusables.actions.deployment-history-beta-note %}
-
 ## About deployment history
 
 {% data reusables.actions.about-deployment-with-github-actions %}
@@ -33,43 +31,23 @@ On the deployments page of your repository, you can view the following aspects o
 
 By default, the deployments page shows currently active deployments from select environments and a timeline of the latest deployments for all environments.
 
-### Viewing your repository's deployment history
+## Viewing your repository's deployment history
 
-In the right-hand sidebar of the home page of your repository, click **Deployments**.
-
-### Viewing an environment's deployment history
-
-To view recent deployments for a specific environment, under **Deployments**, click any currently active or recent environment.
-
-### Viewing commits that triggered deployments
-
-To view the associated commit that triggered the deployment, to the right of the deployment status badge, click the commit message.
-
-{% note %}
-
-**Note:** Deployments from commits originating from a fork outside of the repository will not show links to the source pull request and branch related to each deployment. For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
-
-{% endnote %}
-
-### Navigating to deployment URLs
-
-To view the URL for the deployment, to the right of the commit message, click {% octicon "link-external" aria-label="Navigate to deployment URL" %}.
-
-{% note %}
-
-**Note:** If a deployment does not have an associated URL, the {% octicon "link-external" aria-label="Navigate to deployment URL" %} button is not displayed.
-
-{% endnote %}
-
-### Accessing workflow run logs
-
-To navigate to the workflow run logs associated with the deployment, to the right of the commit message, click {% octicon "kebab-horizontal" aria-label="View logs" %}. Then click **View logs**.
-
-{% note %}
-
-**Note:** If a deployment does not have an associated workflow run, the {% octicon "kebab-horizontal" aria-label="View logs" %} button is not displayed.
-
-{% endnote %}
+1. In the right-hand sidebar of the home page of your repository, click **Deployments**.
+1. Once you are on the "Deployments" page, you can view the following information about your deployment history.
+   - **To view recent deployments for a specific environment**, in the "Environments" section of the left sidebar, click an environment.{% ifversion deployment-dashboard-filter %}
+   - **To pin an environment to the top of the deployment history list**, repository administrators can click {% octicon "pin" aria-label="Pin environment" %} to the right of the environment. You can pin up to ten environments.{% endif %}
+   - **To view the commit that triggered a deployment**, in the deployment history list, click the commit message for the deployment you want to view.
+      >[!NOTE]Deployments from commits that originate from a fork outside of the repository will not show links to the source pull request and branch related to each deployment. For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+   - **To view the URL for a deployment**, to the right of the commit message in the deployment history list, click {% octicon "link-external" aria-label="Navigate to deployment URL" %}.
+   - **To navigate to the workflow run logs associated with a deployment**, to the right of the commit message in the deployment history list, click {% octicon "kebab-horizontal" aria-label="View logs" %}, then click **View logs**.{% ifversion deployment-dashboard-filter %}
+1. Optionally, to filter the deployment history list, create a filter.
+   1. Click on the **{% octicon "filter" aria-hidden="true"  %} Filter** button.
+   1. Click **{% octicon "plus" aria-hidden="true"  %} Add a filter**.
+   1. Choose a qualifier you would like to filter the deployment history by.
+   1. Depending on the qualifier you chose, fill out information in the "Operator" and "Value" columns.
+   1. Optionally, click **{% octicon "plus" aria-hidden="true"  %} Add a filter** to add another filter.
+   1. Click **Apply**.{% endif %}
 
 {% else %}
 

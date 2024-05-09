@@ -58,6 +58,28 @@ import { program } from 'commander'
 import { getSupportedQueries } from '@github/cocofix/dist/querySuites' // eslint-disable-line import/no-extraneous-dependencies
 import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
 
+/**
+ * The list of languages for which autofix support has (publicly) shipped.
+ *
+ * We don't want to add documentation about autofix support for languages that have not shipped.
+ *
+ * Note that this is conceptually different from the list of languages for which we support autofix:
+ * some languages are supported, but only staff-shipped internally (currently, `go` and `ruby`).
+ *
+ * Supporting a language is a technical decision, and reflected in the list of supported queries
+ * returned by `getSupportedQueries`. Shipping a language, on the other hand, is a product decision,
+ * and is implemented by a feature flag in the monolith, so we cannot easily check it here.
+ *
+ * Instead we hard-code the list of shipped languages here and manually keep it in sync with
+ * https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#supported-languages.
+ * This sounds worse than it is, since CodeQL only supports a total of eight languages
+ * and we are on track to ship autofix support for all of them in the next few months.
+ *
+ * Note that we never publicly ship a language for which we don't have autofix support, so if a language
+ * has been shipped, we know for sure that it is supported.
+ */
+const AUTOFIX_SHIPPED_LANGUAGES = ['csharp', 'java', 'javascript', 'python', 'go', 'ruby']
+
 program
   .description('Generate a reusable Markdown for for a code scanning query language')
   .option('--verbose', 'Verbose outputs')
@@ -191,11 +213,8 @@ async function main(options: Options, language: string) {
     return a.name.localeCompare(b.name)
   })
 
-  // At the moment, our chosen business logic is that we omit the Autofix
-  // column if there are no queries that support it.
-  // In a future rendition we might revisit this to make it configurable
-  // instead.
-  const includeAutofix = entries.some((query) => query.autofixSupport !== 'none')
+  // Omit the 'Autofix' column if the language has not been shipped
+  const includeAutofix = AUTOFIX_SHIPPED_LANGUAGES.includes(language)
   console.warn(`${includeAutofix ? 'Including' : 'Excluding'} 'Autofix' column for ${language}`)
   printQueries(options, entries, includeAutofix)
 }

@@ -11,8 +11,6 @@ versions:
   feature: code-scanning-without-workflow
 ---
 
-## About evaluating a new {% data variables.product.prodname_code_scanning %} configuration
-
 When you first start using {% data variables.product.prodname_code_scanning %}, you'll likely use default setup. This guide describes how to evaluate how default setup for {% data variables.product.prodname_code_scanning %} is working for you, and what steps to take if something isn't working as you expect. This guide also describes how you can customize {% data variables.product.prodname_code_scanning %} if you find that you have a specific use case that your new configuration doesn't fit.
 
 ## Customizing {% data variables.product.prodname_code_scanning %}

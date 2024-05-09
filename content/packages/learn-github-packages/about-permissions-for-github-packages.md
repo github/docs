@@ -72,7 +72,7 @@ For example:
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish{% ifversion packages-delete-with-github-token-api %}, install, delete, and restore{% else %} and install{% endif %} packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
+When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish, install, delete, and restore packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
 
 For more information, see:{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
@@ -99,7 +99,7 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-- To publish{% ifversion packages-delete-with-github-token-api %}, install, delete, and restore{% else %} and install{% endif %} packages associated with the workflow repository, use `GITHUB_TOKEN`.
+- To publish, install, delete, and restore packages associated with the workflow repository, use `GITHUB_TOKEN`.
 - To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)."

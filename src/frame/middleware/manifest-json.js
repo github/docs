@@ -17,7 +17,17 @@ const ICONS = [
   './assets/images/site/apple-touch-icon-512x512.png',
 ]
 
-export default async function manifestJson(req, res) {
+export default async function manifestJson(req, res, next) {
+  if (!req.url.startsWith('/manifest.json')) {
+    return next()
+  }
+
+  if (req.url !== '/manifest.json') {
+    // E.g. `/manifest.json/anything` or `/manifest.json?foo=bar`
+    defaultCacheControl(res)
+    return res.redirect(302, '/manifest.json')
+  }
+
   // This is modelled after https://github.com/manifest.json
   const manifest = {
     // In the future we might want to have a different manifest for each

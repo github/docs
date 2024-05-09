@@ -9,6 +9,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can view, write, and edit {% data variables.product.prodname_codeql %} model packs in {% data variables.product.prodname_vscode %}.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/using-the-codeql-model-editor
 ---
 
 {% data reusables.code-scanning.beta-model-packs %}
@@ -17,15 +19,17 @@ intro: 'You can view, write, and edit {% data variables.product.prodname_codeql 
 
 With {% data variables.product.prodname_codeql %} model packs, you can expand your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} analysis to recognize custom libraries and frameworks used by your codebase that are not supported by default. With the {% data variables.product.prodname_codeql %} model editor, you can create your own model packs. The model editor guides you through modeling the calls to external dependencies in your application, or fully modeling all the public entry and exit points in an external dependency.
 
-For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, including downloading others' packs to run in your own analysis, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies)."
+For more information about customizing {% data variables.product.prodname_code_scanning %} analysis with model packs, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)."
 
 When you open the model editor, it analyzes the currently selected {% data variables.product.prodname_codeql %} database and identifies where the application uses external APIs and all public methods. An external (or third-party) API is any API that is not part of the {% data variables.product.prodname_codeql %} database you have selected.
 
 The model editor has two different modes:
 
-- _Application mode_ (default view): The editor lists each external framework used by the selected {% data variables.product.prodname_codeql %} database. When you expand a framework, a list of all calls to and from the external API is shown with the options available to model dataflow through each call. This mode is most useful for improving the {% data variables.product.prodname_codeql %} results for a specific codebase.
+- **Application mode** (default view): The editor lists each external framework used by the selected {% data variables.product.prodname_codeql %} database. When you expand a framework, a list of all calls to and from the external API is shown with the options available to model dataflow through each call. This mode is most useful for improving the {% data variables.product.prodname_codeql %} results for a specific codebase.
 
-- _Dependency mode_: The editor identifies all of the publicly accessible APIs in the selected {% data variables.product.prodname_codeql %} database. This view guides you through modeling each public API that the codebase makes available. When you have finished modeling the entire API, you can save the model and use it to improve the {% data variables.product.prodname_codeql %} analysis for all codebases that use the dependency.
+- **Dependency mode**: The editor identifies all of the publicly accessible APIs in the selected {% data variables.product.prodname_codeql %} database. This view guides you through modeling each public API that the codebase makes available. When you have finished modeling the entire API, you can save the model and use it to improve the {% data variables.product.prodname_codeql %} analysis for all codebases that use the dependency.
+
+The rest of this article covers the practical aspects of modelling dependencies using the {% data variables.product.prodname_codeql %} model editor. For technical information, see [Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin/){% ifversion fpt or ghec or ghes > 3.12 %}, [Customizing Library Models for Ruby](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-ruby/), and [Customizing library models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/){% endif %} in the {% data variables.product.prodname_codeql %} language documentation.
 
 ## Displaying the {% data variables.product.prodname_codeql %} model editor
 
@@ -158,5 +162,5 @@ If your model is working well, you should see a difference in the results of the
 ## Further reading
 
 - [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)
-
 - [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)
+[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies).

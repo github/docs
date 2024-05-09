@@ -84,7 +84,6 @@ prodname_pages: 'GitHub Pages'
 
 # CodeQL
 prodname_codeql: 'CodeQL'
-prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
 # The CodeQL CLI version recommended for each GHES version.
 # CodeQL usually bumps its minor version for each minor version of GHES.
@@ -137,6 +136,8 @@ prodname_unfurls: 'Content Attachments'
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
+runner_controller_required_version: >-
+  {% ifversion ghes < 3.10 %}2.303.0{% elsif ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -197,7 +198,7 @@ support_ticket_priority_normal: 'Normal'
 support_ticket_priority_low: 'Low'
 
 # GitHub Professional Services
-prodname_professional_services: 'GitHub Expert Services'
+prodname_professional_services: 'GitHub Professional Services'
 prodname_professional_services_team: 'Expert Services'
 
 # GitHub Security Lab
@@ -263,6 +264,8 @@ prodname_copilot_chat: 'GitHub Copilot Chat'
 prodname_copilot_chat_short: 'Copilot Chat'
 prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
 prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
+prodname_copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
+prodname_copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
 prodname_copilot_for_prs: 'Copilot pull request summaries'

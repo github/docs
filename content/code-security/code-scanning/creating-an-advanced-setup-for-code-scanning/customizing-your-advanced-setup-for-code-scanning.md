@@ -237,6 +237,16 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 
 ## Defining the alert severities that cause a check failure for a pull request
 
+{% ifversion code-scanning-merge-protection-rulesets %}
+
+You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% else %}
+
 {% data reusables.code-scanning.pull-request-checks %}
 
 {% ifversion code-scanning-without-workflow %}
@@ -251,6 +261,7 @@ You can edit which severity and security severity alert levels cause a check fai
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
 
+{% endif %}
 {% endif %}
 
 ## Configuring a category for the analysis
@@ -313,9 +324,7 @@ In this example, the default queries will be run for Java, as well as the querie
 
 ### Using query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+To add one or more {% data variables.product.prodname_codeql %} query packs, add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 {% note %}
 
@@ -455,8 +464,6 @@ The settings in the configuration file are written in YAML format.
 {% ifversion codeql-packs %}
 
 ### Specifying {% data variables.product.prodname_codeql %} query packs
-
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
 
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 

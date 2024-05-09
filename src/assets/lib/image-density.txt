@@ -165,7 +165,7 @@
 /assets/images/help/billing/view-payment-history-link-personal-account.png 2x
 /assets/images/help/billing/view-payment-history-link.png 2x
 /assets/images/help/branches/branch-rename-edit.png 2x
-/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png 1x
+/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png 2x
 /assets/images/help/branches/branch-selection-dropdown.png 2x
 /assets/images/help/branches/branches-closed.png 2x
 /assets/images/help/branches/branches-delete.png 2x
@@ -273,7 +273,7 @@
 /assets/images/help/codespaces/create-review-comment.png 2x
 /assets/images/help/codespaces/csv-usage-report-prebuilds.png 2x
 /assets/images/help/codespaces/csv-usage-report.png 2x
-/assets/images/help/codespaces/default-machine-type.png 2x
+/assets/images/help/codespaces/default-machine-type.png 3x
 /assets/images/help/codespaces/delete-codespace.png 1x
 /assets/images/help/codespaces/disable-prebuild-optimization.png 2x
 /assets/images/help/codespaces/edit-machine-constraint.png 1x
@@ -339,8 +339,8 @@
 /assets/images/help/codespaces/make-public-option.png 2x
 /assets/images/help/codespaces/manage-button.png 2x
 /assets/images/help/codespaces/maximum-days-retention.png 2x
-/assets/images/help/codespaces/maximum-minutes-timeout.png 1x
-/assets/images/help/codespaces/maximum-value-policy-setting.png 1x
+/assets/images/help/codespaces/maximum-minutes-timeout.png 2x
+/assets/images/help/codespaces/maximum-value-policy-setting.png 2x
 /assets/images/help/codespaces/new-shell-session.png 2x
 /assets/images/help/codespaces/open-codespace-from-vscode.png 2x
 /assets/images/help/codespaces/open-codespace-in-another-editor.png 1x
@@ -427,7 +427,7 @@
 /assets/images/help/codespaces/vscode-commit-button.png 2x
 /assets/images/help/codespaces/vscode-deleting-in-5-days.png 2x
 /assets/images/help/codespaces/vscode-publish-branch-button.png 2x
-/assets/images/help/codespaces/vscode-settings.png 1x
+/assets/images/help/codespaces/vscode-settings.png 2.5x
 /assets/images/help/codespaces/web-ui-view-logs.png 2x
 /assets/images/help/codespaces/who-will-pay-vscode.png 2x
 /assets/images/help/codespaces/who-will-pay.png 2x
@@ -692,7 +692,7 @@
 /assets/images/help/docs/header-dotcom.png 2x
 /assets/images/help/docs/header-ghes.png 2x
 /assets/images/help/docs/hover-card.png 1x
-/assets/images/help/docs/version-picker.png 1x
+/assets/images/help/docs/version-picker.png 2x
 /assets/images/help/education/community-exchange-submission-add-repo.png 2x
 /assets/images/help/education/community-exchange-submissions-tab.png 2x
 /assets/images/help/education/reverify-academic-affiliation.png 2x
@@ -717,9 +717,9 @@
 /assets/images/help/enterprises/remove-organization.png 2x
 /assets/images/help/enterprises/saml-recovery-codes-link.png 2x
 /assets/images/help/enterprises/select-advanced-security-individual-organization-policy.png 2x
-/assets/images/help/gist/gist-clone-btn.png 2x
+/assets/images/help/gist/gist-clone-btn.png 3x
 /assets/images/help/gist/gist-history.png 2x
-/assets/images/help/gist/gist-visibility-drop-down.png 2x
+/assets/images/help/gist/gist-visibility-drop-down.png 4x
 /assets/images/help/gist/starring-a-gist.png 2x
 /assets/images/help/github-enterprise-importer/attribution-invitations-tab.png 2x
 /assets/images/help/github-enterprise-importer/mannequin-example.png 2x
@@ -820,7 +820,7 @@
 /assets/images/help/notifications-v2/save-triaging-option.png 2x
 /assets/images/help/notifications-v2/triage-multiple-notifications-together.png 2x
 /assets/images/help/notifications-v2/unsubscribe-from-all-repos.png 2x
-/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png 2x
+/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png 2.5x
 /assets/images/help/notifications/custom-router-emphasized.png 2x
 /assets/images/help/notifications/github-actions-customize-notifications.png 2x
 /assets/images/help/notifications/notifications-general-existence-indicator.png 2x
@@ -886,7 +886,7 @@
 /assets/images/help/profile/activity-overview-section.png 2x
 /assets/images/help/profile/activity-overview.png 2x
 /assets/images/help/profile/commit-link-on-profile-timeline.png 2x
-/assets/images/help/profile/contribution-settings.png 1x
+/assets/images/help/profile/contribution-settings.png 2x
 /assets/images/help/profile/contributions-graph.png 2x
 /assets/images/help/profile/customize-pinned-repositories.png 2x
 /assets/images/help/profile/edit-profile-photo.png 2x
@@ -894,16 +894,16 @@
 /assets/images/help/profile/org-profile.png 2x
 /assets/images/help/profile/organization-profile-following.png 2x
 /assets/images/help/profile/profile-block-or-report-button.png 2x
-/assets/images/help/profile/profile-button-avatar-menu-global-nav-update.png 1x
+/assets/images/help/profile/profile-button-avatar-menu-global-nav-update.png 2x
 /assets/images/help/profile/profile-button-avatar-menu.png 2x
 /assets/images/help/profile/profile-location-and-time.png 2x
 /assets/images/help/profile/profile-pinned-repositories.png 2x
 /assets/images/help/profile/profile-unblock-or-report-user.png 2x
-/assets/images/help/profile/set-status-on-profile-global-nav-update.png 1x
+/assets/images/help/profile/set-status-on-profile-global-nav-update.png 2x
 /assets/images/help/profile/set-status-on-profile.png 2x
 /assets/images/help/profile/sponsor-button.png 2x
 /assets/images/help/profile/sponsoring-button.png 2x
-/assets/images/help/profile/switch-accounts.png 1x
+/assets/images/help/profile/switch-accounts.png 2x
 /assets/images/help/profile/user-profile-followers.png 2x
 /assets/images/help/profile/user-profile-following.png 2x
 /assets/images/help/profile/username-with-limited-availability-text.png 2x
@@ -1107,7 +1107,7 @@
 /assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png 2x
 /assets/images/help/repository/choose-reason-for-hiding-comment.png 2x
 /assets/images/help/repository/citation-link.png 2x
-/assets/images/help/repository/code-button.png 1x
+/assets/images/help/repository/code-button.png 2x
 /assets/images/help/repository/code-navigation-popover.png 2x
 /assets/images/help/repository/code-of-conduct-tool.png 2x
 /assets/images/help/repository/code-owner-for-a-file.png 2x
@@ -1193,7 +1193,7 @@
 /assets/images/help/repository/ghas-enterprise-policy-block.png 1x
 /assets/images/help/repository/headings-toc.png 2x
 /assets/images/help/repository/hidden-comment.png 2x
-/assets/images/help/repository/https-url-clone-cli.png 1x
+/assets/images/help/repository/https-url-clone-cli.png 2x
 /assets/images/help/repository/images-2up-view.png 2x
 /assets/images/help/repository/images-swipe-view.png 2x
 /assets/images/help/repository/import-a-ruleset.png 1x
@@ -1217,7 +1217,7 @@
 /assets/images/help/repository/raw-file-button.png 2x
 /assets/images/help/repository/readme-automatic-toc.png 2x
 /assets/images/help/repository/readme-links.png 2x
-/assets/images/help/repository/remotes-url-global-nav-update.png 1x
+/assets/images/help/repository/remotes-url-global-nav-update.png 2x
 /assets/images/help/repository/remotes-url.png 2x
 /assets/images/help/repository/rendered-code-snippet.png 2x
 /assets/images/help/repository/rendered-csv.png 1x
@@ -1226,7 +1226,7 @@
 /assets/images/help/repository/reopen-dismissed-alert.png 2x
 /assets/images/help/repository/repo-action-auto-merge.png 1x
 /assets/images/help/repository/repo-actions-settings.png 2x
-/assets/images/help/repository/repo-create-global-nav-update.png 1x
+/assets/images/help/repository/repo-create-global-nav-update.png 2x
 /assets/images/help/repository/repo-create.png 2x
 /assets/images/help/repository/repo-license-indicator.png 2x
 /assets/images/help/repository/repo-nav-insights-tab.png 2x

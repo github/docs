@@ -192,7 +192,6 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/src/./**/*.{scss,ts,tsx} ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:

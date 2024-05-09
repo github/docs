@@ -187,11 +187,17 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.8 or later installed. For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
 
 {% data reusables.copilot.vs-for-mac-note %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
+
+{% data reusables.copilot.install-copilot-vs-intro %}
+
+{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+
+### Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
@@ -604,12 +610,15 @@ You may not want to accept an entire suggestion from {% data variables.product.p
 
 {% endazure_data_studio %}
 
+{% data reusables.copilot.enabling-or-disabling-in-mobile %}
+
 ## Next steps
 
 {% data reusables.copilot.next-steps %}
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
 - "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}: Find out how to ask {% data variables.product.prodname_copilot %} for information and assistance.
+- "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile)": Learn how to use {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_mobile %}.
 - "[AUTOTITLE](/copilot/configuring-github-copilot)": These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 - "[AUTOTITLE](/billing/managing-billing-for-github-copilot)": Learn more about billing for {% data variables.product.prodname_copilot %}.
 - "[AUTOTITLE](/copilot/troubleshooting-github-copilot)": These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.

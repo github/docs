@@ -914,15 +914,6 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Yarn
 
 {% endnote %}
-
-{% else %}
-
-{% note %}
-
-**Note:** Private registries behind firewalls on private networks are not supported.
-
-{% endnote %}
-
 {% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.

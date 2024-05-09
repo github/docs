@@ -4289,7 +4289,7 @@ type ClosedEvent implements Node & UniformResourceLocatable {
 """
 The object which triggered a `ClosedEvent`.
 """
-union Closer = Commit | PullRequest
+union Closer = Commit | ProjectV2 | PullRequest
 
 """
 The Code of Conduct for a repository
@@ -4324,6 +4324,76 @@ type CodeOfConduct implements Node {
   The HTTP URL for this Code of Conduct
   """
   url: URI
+}
+
+"""
+Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning must be enabled and have results for
+both the commit and the reference being updated.
+"""
+type CodeScanningParameters {
+  """
+  Tools that must provide code scanning results for this rule to pass.
+  """
+  codeScanningTools: [CodeScanningTool!]!
+}
+
+"""
+Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning must be enabled and have results for
+both the commit and the reference being updated.
+"""
+input CodeScanningParametersInput {
+  """
+  Tools that must provide code scanning results for this rule to pass.
+  """
+  codeScanningTools: [CodeScanningToolInput!]!
+}
+
+"""
+A tool that must provide code scanning results for this rule to pass.
+"""
+type CodeScanningTool {
+  """
+  The severity level at which code scanning results that raise alerts block a
+  reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  alertsThreshold: String!
+
+  """
+  The severity level at which code scanning results that raise security alerts
+  block a reference update. For more information on security severity levels,
+  see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  securityAlertsThreshold: String!
+
+  """
+  The name of a code scanning tool
+  """
+  tool: String!
+}
+
+"""
+A tool that must provide code scanning results for this rule to pass.
+"""
+input CodeScanningToolInput {
+  """
+  The severity level at which code scanning results that raise alerts block a
+  reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  alertsThreshold: String!
+
+  """
+  The severity level at which code scanning results that raise security alerts
+  block a reference update. For more information on security severity levels,
+  see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  securityAlertsThreshold: String!
+
+  """
+  The name of a code scanning tool
+  """
+  tool: String!
 }
 
 """
@@ -15810,6 +15880,50 @@ input FileDeletion {
 }
 
 """
+Prevent commits that include files with specified file extensions from being
+pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type FileExtensionRestrictionParameters {
+  """
+  The file extensions that are restricted from being pushed to the commit graph.
+  """
+  restrictedFileExtensions: [String!]!
+}
+
+"""
+Prevent commits that include files with specified file extensions from being
+pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input FileExtensionRestrictionParametersInput {
+  """
+  The file extensions that are restricted from being pushed to the commit graph.
+  """
+  restrictedFileExtensions: [String!]!
+}
+
+"""
+Prevent commits that include changes in specified file paths from being pushed
+to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type FilePathRestrictionParameters {
+  """
+  The file paths that are restricted from being pushed to the commit graph.
+  """
+  restrictedFilePaths: [String!]!
+}
+
+"""
+Prevent commits that include changes in specified file paths from being pushed
+to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input FilePathRestrictionParametersInput {
+  """
+  The file paths that are restricted from being pushed to the commit graph.
+  """
+  restrictedFilePaths: [String!]!
+}
+
+"""
 The possible viewed states of a file .
 """
 enum FileViewedState {
@@ -20432,11 +20546,55 @@ type MarketplaceListingEdge {
 }
 
 """
+Prevent commits that include file paths that exceed a specified character limit
+from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+type MaxFilePathLengthParameters {
+  """
+  The maximum amount of characters allowed in file paths
+  """
+  maxFilePathLength: Int!
+}
+
+"""
+Prevent commits that include file paths that exceed a specified character limit
+from being pushed to the commit graph. NOTE: This rule is in beta and subject to change
+"""
+input MaxFilePathLengthParametersInput {
+  """
+  The maximum amount of characters allowed in file paths
+  """
+  maxFilePathLength: Int!
+}
+
+"""
+Prevent commits that exceed a specified file size limit from being pushed to the
+commit. NOTE: This rule is in beta and subject to change
+"""
+type MaxFileSizeParameters {
+  """
+  The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
+  """
+  maxFileSize: Int!
+}
+
+"""
+Prevent commits that exceed a specified file size limit from being pushed to the
+commit. NOTE: This rule is in beta and subject to change
+"""
+input MaxFileSizeParametersInput {
+  """
+  The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
+  """
+  maxFileSize: Int!
+}
+
+"""
 Represents a member feature request notification
 """
 type MemberFeatureRequestNotification implements Node {
   """
-  Represents member feature request body containing organization name and the number of feature requests
+  Represents member feature request body containing entity name and the number of feature requests
   """
   body: String!
 
@@ -46317,6 +46475,13 @@ enum RepositoryRuleType {
   BRANCH_NAME_PATTERN
 
   """
+  Choose which tools must provide code scanning results before the reference is
+  updated. When configured, code scanning must be enabled and have results for
+  both the commit and the reference being updated.
+  """
+  CODE_SCANNING
+
+  """
   Committer email pattern
   """
   COMMITTER_EMAIL_PATTERN
@@ -46342,9 +46507,34 @@ enum RepositoryRuleType {
   DELETION
 
   """
+  Prevent commits that include files with specified file extensions from being
+  pushed to the commit graph. NOTE: Thie rule is in beta and subject to change
+  """
+  FILE_EXTENSION_RESTRICTION
+
+  """
+  Prevent commits that include changes in specified file paths from being pushed
+  to the commit graph. NOTE: Thie rule is in beta and subject to change
+  """
+  FILE_PATH_RESTRICTION
+
+  """
   Branch is read-only. Users cannot push to the branch.
   """
   LOCK_BRANCH
+
+  """
+  Prevent commits that include file paths that exceed a specified character
+  limit from being pushed to the commit graph. NOTE: Thie rule is in beta and
+  subject to change
+  """
+  MAX_FILE_PATH_LENGTH
+
+  """
+  Prevent commits that exceed a specified file size limit from being pushed to
+  the commit. NOTE: Thie rule is in beta and subject to change
+  """
+  MAX_FILE_SIZE
 
   """
   Max ref updates
@@ -46555,6 +46745,11 @@ type RepositoryRulesetBypassActor implements Node {
   bypassMode: RepositoryRulesetBypassActorBypassMode
 
   """
+  This actor represents the ability for a deploy key to bypass
+  """
+  deployKey: Boolean!
+
+  """
   The Node ID of the RepositoryRulesetBypassActor object
   """
   id: ID!
@@ -46637,7 +46832,8 @@ type RepositoryRulesetBypassActorEdge {
 
 """
 Specifies the attributes for a new or updated ruleset bypass actor. Only one of
-`actor_id`, `repository_role_database_id`, or `organization_admin` should be specified.
+`actor_id`, `repository_role_database_id`, `organization_admin`, or `deploy_key`
+should be specified.
 """
 input RepositoryRulesetBypassActorInput {
   """
@@ -46649,6 +46845,11 @@ input RepositoryRulesetBypassActorInput {
   The bypass mode for this actor.
   """
   bypassMode: RepositoryRulesetBypassActorBypassMode!
+
+  """
+  For deploy key bypasses, true. Can only use ALWAYS as the bypass mode
+  """
+  deployKey: Boolean
 
   """
   For organization owner bypasses, true
@@ -46702,13 +46903,18 @@ type RepositoryRulesetEdge {
 }
 
 """
-The targets supported for rulesets
+The targets supported for rulesets. NOTE: The push target is in beta and subject to change.
 """
 enum RepositoryRulesetTarget {
   """
   Branch
   """
   BRANCH
+
+  """
+  Push
+  """
+  PUSH
 
   """
   Tag
@@ -48033,9 +48239,14 @@ Types which can be parameters for `RepositoryRule` objects.
 """
 union RuleParameters =
     BranchNamePatternParameters
+  | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
   | CommitterEmailPatternParameters
+  | FileExtensionRestrictionParameters
+  | FilePathRestrictionParameters
+  | MaxFilePathLengthParameters
+  | MaxFileSizeParameters
   | PullRequestParameters
   | RequiredDeploymentsParameters
   | RequiredStatusChecksParameters
@@ -48053,6 +48264,11 @@ input RuleParametersInput {
   branchNamePattern: BranchNamePatternParametersInput
 
   """
+  Parameters used for the `code_scanning` rule type
+  """
+  codeScanning: CodeScanningParametersInput
+
+  """
   Parameters used for the `commit_author_email_pattern` rule type
   """
   commitAuthorEmailPattern: CommitAuthorEmailPatternParametersInput
@@ -48066,6 +48282,26 @@ input RuleParametersInput {
   Parameters used for the `committer_email_pattern` rule type
   """
   committerEmailPattern: CommitterEmailPatternParametersInput
+
+  """
+  Parameters used for the `file_extension_restriction` rule type
+  """
+  fileExtensionRestriction: FileExtensionRestrictionParametersInput
+
+  """
+  Parameters used for the `file_path_restriction` rule type
+  """
+  filePathRestriction: FilePathRestrictionParametersInput
+
+  """
+  Parameters used for the `max_file_path_length` rule type
+  """
+  maxFilePathLength: MaxFilePathLengthParametersInput
+
+  """
+  Parameters used for the `max_file_size` rule type
+  """
+  maxFileSize: MaxFileSizeParametersInput
 
   """
   Parameters used for the `pull_request` rule type

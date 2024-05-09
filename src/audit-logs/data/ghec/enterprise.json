@@ -1888,6 +1888,46 @@
     ]
   },
   {
+    "action": "business_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the enterprise level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "business_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the enterprise level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "business_secret_scanning_push_protection_custom_message.disable",
     "description": "The custom message triggered by an attempted push to a push-protected repository was disabled for your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
@@ -2389,6 +2429,21 @@
       "user_agent",
       "repo",
       "programmatic_access_type"
+    ]
+  },
+  {
+    "action": "code.search",
+    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/search-github/github-code-search",
+    "fields": [
+      "@timestamp",
+      "action",
+      "actor_id",
+      "business_id",
+      "query",
+      "org_id",
+      "user_id",
+      "_document_id"
     ]
   },
   {
@@ -8644,6 +8699,50 @@
     ]
   },
   {
+    "action": "org_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "org_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "user",
+      "user_id",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "org.secret_scanning_push_protection_custom_message_disabled",
     "description": "The custom message triggered by an attempted push to a push-protected repository was disabled for an organization.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization",
@@ -13899,6 +13998,52 @@
     ]
   },
   {
+    "action": "repository_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "repository_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning",
@@ -14445,12 +14590,13 @@
       "org",
       "business",
       "business_id",
-      "number"
+      "number",
+      "secret_type"
     ]
   },
   {
     "action": "secret_scanning_alert.reopen",
-    "description": "A seret scanning alert was reopened.",
+    "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -14472,7 +14618,7 @@
   },
   {
     "action": "secret_scanning_alert.resolve",
-    "description": "A seret scanning alert was resolved.",
+    "description": "A secret scanning alert was resolved.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -14490,7 +14636,8 @@
       "@timestamp",
       "created_at",
       "operation_type",
-      "token_scopes"
+      "token_scopes",
+      "secret_type"
     ]
   },
   {
@@ -14534,7 +14681,8 @@
       "number",
       "created_at",
       "previous_validity",
-      "current_validity"
+      "current_validity",
+      "secret_type"
     ]
   },
   {
@@ -14629,7 +14777,52 @@
       "business_id",
       "number",
       "created_at",
-      "push_protection_bypass_reason"
+      "push_protection_bypass_reason",
+      "secret_type"
+    ]
+  },
+  {
+    "action": "secret_scanning_push_protection_request.approve",
+    "description": "N/A",
+    "docs_reference_links": "A request to bypass secret scanning push protection was approved by a user.",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "number",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "secret_scanning_push_protection_request.request",
+    "description": "N/A",
+    "docs_reference_links": "A user requested to bypass secret scanning push protection.",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "number",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
     ]
   },
   {

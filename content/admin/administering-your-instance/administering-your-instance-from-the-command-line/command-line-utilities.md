@@ -42,7 +42,7 @@ $ ghe-announce -d -s MESSAGE
 > Announcement message set.
 # Removes a previously set message
 $ ghe-announce -u
-> Removed the announcement message, which was user 
+> Removed the announcement message, which was user
 > dismissible: MESSAGE
 ```
 
@@ -118,7 +118,7 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` 
+# Sets the configuration value of `core.github-hostname`
 # to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
@@ -720,6 +720,58 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
+
+### ghe-cluster-failover
+
+{% ifversion ghes < 3.13 %}
+
+{% data reusables.enterprise_clustering.cluster-ip-note %}
+
+{% endif %}
+
+With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster)."
+
+```shell
+ghe-cluster-failover
+```
+
+{% ifversion ghes < 3.13 %}
+
+### ghe-cluster-block-ips
+
+This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
+
+The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
+
+```shell
+ghe-cluster-block-ips
+```
+
+### ghe-cluster-block-ip
+
+This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
+
+```shell
+ghe-cluster-block-ip IPV4 ADDRESS
+```
+
+### ghe-cluster-unblock-ips
+
+This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
+
+```shell
+ghe-cluster-unblock-ips
+```
+
+### ghe-cluster-unblock-ip
+
+This utility allows you to unblock a specific IP address on a specific node.
+
+```shell
+ghe-cluster-unblock-ip IPV4 ADDRESS
+```
+
+{% endif %}
 
 ### ghe-dpages
 

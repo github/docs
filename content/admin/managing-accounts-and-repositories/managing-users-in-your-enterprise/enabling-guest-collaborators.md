@@ -34,7 +34,12 @@ If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML au
 1. Click **All applications**, then use the search bar to find your application for {% data variables.product.prodname_emus %}.
 1. Click your SAML or OIDC application.
 1. In the left sidebar, click **Manifest**.
-1. Under "appRoles", add the following:
+1. Search for the following `id`: `1ebc4a02-e56c-43a6-92a5-02ee09b90824` within the Manifest file:
+
+    - If the `id` is not present, proceed to the next step.
+    - If the `id` is present, review the `description` and `displayName` values. If the values are not set to `Guest Collaborator`, you can rename both to be so, and proceed to step 15.
+
+1. Under the `appRoles` object, add the following block:
 
    ```json
    {
@@ -83,3 +88,5 @@ For more information about adding guest collaborators with SCIM using GitHub's R
 ## Adding guest collaborators to your enterprise
 
 After you enable guest collaborators, you can add guest collaborators to your enterprise as you would any other user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups)."
+
+{% data reusables.emus.giving-access-to-guest-collaborators %}

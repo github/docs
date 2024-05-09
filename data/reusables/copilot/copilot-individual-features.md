@@ -2,6 +2,10 @@
 
 {% data variables.product.prodname_copilot %} is an AI tool that offers autocomplete-style suggestions in your IDE. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
 
+### {% data variables.product.prodname_copilot_mobile %}
+
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile)."
+
 ### {% data variables.product.prodname_copilot_chat %} in your IDE
 
 {% data variables.product.prodname_copilot_chat %} in your IDE is a chat interface that lets you ask and receive answers to coding-related questions within supported IDEs. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."

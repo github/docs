@@ -68,3 +68,5 @@ You can delete a fork and recreate the same repository, without the connection t
    cd ..
    rm -rf FORK-NAME.git
    ```
+
+For more information, see [our support page](https://support.github.com/request/fork) on forks.

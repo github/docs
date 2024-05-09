@@ -146,6 +146,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3006
         - |
           On instances in a cluster configuration, GitHub Actions is available as a private beta. Beta features are subject to change. For more information, and to enroll in the beta, [contact your representative on GitHub's Sales team](https://github.com/enterprise/contact).

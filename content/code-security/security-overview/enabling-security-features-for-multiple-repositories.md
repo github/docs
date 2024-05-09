@@ -23,8 +23,9 @@ If you're a security manager, repository administrator, or organization owner, y
 You can use checkboxes to select which repositories you want to include, or use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group. This is useful if you want to introduce a feature to your organization gradually over time, or if your organization requires a complex security setup where different features are enabled in different repositories. For example, if you are enabling a feature across a group of repositories, you may find the following filtering options helpful.
 
 - To exclude certain repositories from the selection, you can assign a topic such as `test` to these repositories, then exclude them from the results with a search like `-topic:test`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
-- If a team uses repositories that all require a certain feature, you can use the `team:` filter to search for repositories where a team has write or admin access.
-- If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."
+- If a team uses repositories that all require a certain feature, you can use the `team:` filter to search for repositories where a team has write access.{% ifversion code-scanning-without-workflow %}
+- If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}{% ifversion security-overview-repository-properties %}
+- You can use custom repository properties to filter security overview to show results from specific groups of repositories. Custom properties are metadata that organization owners can add and set for repositories in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."{% endif %}
 
 For more information on filters you can use in different parts of security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
@@ -35,7 +36,7 @@ For more information about the different ways of enabling security features in a
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.security-overview-coverage-view %}
-1. You can use the search bar to narrow down visible repositories in the "Security coverage" view based on name, or on the enablement status of security features.
+1. You can use the search bar to narrow down visible repositories in the "Security coverage" view based on filters such as repository name or enablement status of security features.
 1. In the list of repositories, select each repository you want to modify the enablement of security features for. To select all repositories on the page, click the checkbox next to **NUMBER Active**. To select all repositories that match the current search, click the checkbox next to **NUMBER Active** and then click **Select all NUMBER repos**.
 1. Click **Security settings** next to **NUMBER selected**.
 1. In the side panel, next to all the security features you want to enable or disable, select **Enable** or **Disable**.

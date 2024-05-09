@@ -7,6 +7,9 @@ versions:
 topics:
   - Copilot
 children:
+  - /about-github-copilot-chat-in-github-mobile
+  - /enabling-github-copilot-chat-for-github-mobile
+  - /using-github-copilot-chat-in-github-mobile
   - /about-github-copilot-chat
   - /using-github-copilot-chat-in-your-ide
 ---

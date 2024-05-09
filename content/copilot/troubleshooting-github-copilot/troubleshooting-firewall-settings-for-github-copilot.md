@@ -30,8 +30,6 @@ Due to {% data variables.product.prodname_copilot_short %}'s interaction with a 
 
 Additional domains and URLs may require allowlisting, depending on your organization's security policies and the editors in use. For more information about specific editors, see "[Further reading](#further-reading)."
 
-{% data reusables.copilot.chat-api-endpoints-note %}
-
 ## Further reading
 
 - [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)
