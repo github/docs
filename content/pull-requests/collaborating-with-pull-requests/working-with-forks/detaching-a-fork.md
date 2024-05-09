@@ -43,7 +43,7 @@ You can delete a fork and recreate the same repository, without the connection t
 1. Create a bare clone of the fork.
 
    ```shell
-   git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/FORK-NAME.git
+   git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/FORK-NAME.git
    ```
 
 1. Delete the forked repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."<br><br>
