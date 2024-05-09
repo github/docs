@@ -55,11 +55,8 @@ For {% data variables.product.company_short %} to scan for non-provider patterns
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.
    {% ifversion secret-scanning-user-owned-repos %}
 
-   {% note %}
-
-   **Note**: {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}
 
    {% endif %}
 
@@ -147,11 +144,8 @@ Once you have enabled validity checks for partner patterns for your repository, 
 
 ### Reviewing {% data variables.product.company_short %} token metadata
 
-{% note %}
-
-**Note:** Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
 
 In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take.
 
@@ -185,14 +179,16 @@ Once a secret has been committed to a repository, you should consider the secret
 - For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+> [!NOTE]
+> If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
-{% endnote %}
 {% endif %}
 
 ## Closing alerts
+
+> [!NOTE]
+>{% data variables.product.prodname_secret_scanning_caps %} doesn't automatically close alerts when the corresponding token has been removed from the repository. You must manually close these alerts in the alert list on  {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
