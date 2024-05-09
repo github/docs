@@ -63,11 +63,11 @@ If you have any local copies of personal repositories you have created or forked
 $ cd YOUR-REPOSITORY
 # Change directories to the initialized Git repository
 $ git remote -v
-origin	https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git (fetch)
-origin	https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git (push)
+origin	https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY.git (fetch)
+origin	https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY.git (push)
 ```
 
-Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.
+Your user name is what immediately follows the `https://{% data variables.product.product_url %}/`.
 
 {% ifversion fpt or ghec %}
 
