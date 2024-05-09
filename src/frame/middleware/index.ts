@@ -3,10 +3,10 @@ import path from 'path'
 
 import express from 'express'
 import type { NextFunction, Request, Response, Express } from 'express'
+import timeout from 'connect-timeout'
 
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
-import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from '@/observability/middleware/connect-datadog.js'
 import helmet from './helmet.js'
@@ -66,6 +66,7 @@ import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '@/search/middleware/contextualize.js'
 import shielding from '@/shielding/middleware/index.js'
 import tracking from '@/tracking/middleware/index.js'
+import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -89,7 +90,7 @@ const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: Ne
 
 export default function (app: Express) {
   // *** Request connection management ***
-  if (!isTest) app.use(timeout)
+  if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
 
   // Don't use the proxy's IP, use the requester's for rate limiting or

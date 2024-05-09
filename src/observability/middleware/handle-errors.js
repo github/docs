@@ -5,6 +5,7 @@ import {
   SURROGATE_ENUMS,
 } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { errorCacheControl } from '#src/frame/middleware/cache-control.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
@@ -31,7 +32,24 @@ async function logException(error, req) {
   }
 }
 
+function timedOut(req) {
+  // The `req.pagePath` can come later so it's not guaranteed to always
+  // be present. It's added by the `handle-next-data-path.js` middleware
+  // we translates those "cryptic" `/_next/data/...` URLs from
+  // client-side routing.
+  const incrementTags = [`path:${req.pagePath || req.path}`]
+  if (req.context?.currentCategory) {
+    incrementTags.push(`product:${req.context.currentCategory}`)
+  }
+  statsd.increment('middleware.timeout', 1, incrementTags)
+}
+
 export default async function handleError(error, req, res, next) {
+  // Potentially set by the `connect-timeout` middleware.
+  if (req.timedout) {
+    timedOut(req, res)
+  }
+
   const responseDone = res.headersSent || req.aborted
 
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
