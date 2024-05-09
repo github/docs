@@ -8,7 +8,7 @@ import timeout from 'connect-timeout'
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
 import morgan from 'morgan'
-import datadog from '@/observability/middleware/connect-datadog.js'
+import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
 import {
