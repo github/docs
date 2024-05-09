@@ -80,11 +80,7 @@ You can check which access policies are applied to a development environment sec
 {% data reusables.organizations.org_settings %}
 {% data reusables.codespaces.sidebar-secret %}
 
-1. The list of secrets includes any configured permissions and policies. For example:
-
-   ![Screenshot showing a list of two secrets. To the right of each is an edit button and a delete button.](/assets/images/help/codespaces/org-secrets-list.png)
-
-1. For more details on the configured permissions for each secret, click **Update**.
+1. Optionally, to view or edit the configured permissions for each secret, to the right of the secret, click {% octicon "pencil" aria-label="Edit secret" %}.
 
 ## Further reading
 

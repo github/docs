@@ -111,7 +111,7 @@ The following rules apply to configuration variable names:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is highlighted with a dark orange outline.](/assets/images/help/repository/actions-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is outlined in dark orange.](/assets/images/help/repository/actions-variables-tab.png)
 1. Click **New repository variable**.
 {% data reusables.actions.variable-fields %}
 1. Click **Add variable**.
@@ -139,10 +139,9 @@ The following rules apply to configuration variable names:
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
 
-   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is outlined in dark orange.](/assets/images/help/repository/actions-variables-tab.png)
 
    {% data reusables.actions.secrets-and-variables-org-permissions %}
-
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.
