@@ -2,42 +2,43 @@ import fs from 'fs'
 import path from 'path'
 
 import express from 'express'
+import type { NextFunction, Request, Response, Express } from 'express'
+import timeout from 'connect-timeout'
 
-import haltOnDroppedConnection from './halt-on-dropped-connection.js'
-import abort from './abort.js'
-import timeout from './timeout.js'
+import { haltOnDroppedConnection } from './halt-on-dropped-connection'
+import abort from './abort'
 import morgan from 'morgan'
-import datadog from '#src/observability/middleware/connect-datadog.js'
+import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
 import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
-import handleErrors from '#src/observability/middleware/handle-errors.js'
+import handleErrors from '@/observability/middleware/handle-errors.js'
 import handleNextDataPath from './handle-next-data-path.js'
-import detectLanguage from '#src/languages/middleware/detect-language.js'
+import detectLanguage from '@/languages/middleware/detect-language.js'
 import reloadTree from './reload-tree.js'
 import context from './context/context.js'
-import shortVersions from '#src/versions/middleware/short-versions.js'
-import languageCodeRedirects from '#src/redirects/middleware/language-code-redirects.js'
-import handleRedirects from '#src/redirects/middleware/handle-redirects.js'
+import shortVersions from '@/versions/middleware/short-versions.js'
+import languageCodeRedirects from '@/redirects/middleware/language-code-redirects.js'
+import handleRedirects from '@/redirects/middleware/handle-redirects.js'
 import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
-import archivedEnterpriseVersionsAssets from '#src/archives/middleware/archived-enterprise-versions-assets.js'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
 import api from './api.js'
 import healthz from './healthz.js'
 import productIcons from './product-icons.js'
 import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
-import archivedEnterpriseVersions from '#src/archives/middleware/archived-enterprise-versions.js'
+import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions.js'
 import robots from './robots.js'
-import earlyAccessLinks from '#src/early-access/middleware/early-access-links.js'
+import earlyAccessLinks from '@/early-access/middleware/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import triggerError from '#src/observability/middleware/trigger-error.js'
-import secretScanning from '#src/secret-scanning/middleware/secret-scanning.js'
-import ghesReleaseNotes from '#src/release-notes/middleware/ghes-release-notes.js'
+import triggerError from '@/observability/middleware/trigger-error.js'
+import secretScanning from '@/secret-scanning/middleware/secret-scanning.js'
+import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes.js'
 import whatsNewChangelog from './context/whats-new-changelog.js'
 import layout from './context/layout.js'
 import currentProductTree from './context/current-product-tree.js'
@@ -45,26 +46,27 @@ import genericToc from './context/generic-toc.js'
 import breadcrumbs from './context/breadcrumbs.js'
 import glossaries from './context/glossaries.js'
 import renderProductName from './context/render-product-name.js'
-import features from '#src/versions/middleware/features.js'
+import features from '@/versions/middleware/features.js'
 import productExamples from './context/product-examples.js'
 import productGroups from './context/product-groups.js'
-import featuredLinks from '#src/landings/middleware/featured-links.js'
-import learningTrack from '#src/learning-track/middleware/learning-track.js'
+import featuredLinks from '@/landings/middleware/featured-links.js'
+import learningTrack from '@/learning-track/middleware/learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
-import assetPreprocessing from '#src/assets/middleware/asset-preprocessing.js'
-import archivedAssetRedirects from '#src/archives/middleware/archived-asset-redirects.js'
+import assetPreprocessing from '@/assets/middleware/asset-preprocessing.js'
+import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects.js'
 import favicons from './favicons.js'
-import setStaticAssetCaching from '#src/assets/middleware/static-asset-caching.js'
+import setStaticAssetCaching from '@/assets/middleware/static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
-import dynamicAssets from '#src/assets/middleware/dynamic-assets.js'
-import contextualizeSearch from '#src/search/middleware/contextualize.js'
-import shielding from '#src/shielding/middleware/index.js'
-import tracking from '#src/tracking/middleware/index.js'
+import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
+import contextualizeSearch from '@/search/middleware/contextualize.js'
+import shielding from '@/shielding/middleware/index.js'
+import tracking from '@/tracking/middleware/index.js'
+import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -72,21 +74,23 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 // By default, logging each request (with morgan), is on. And by default
 // it's off if you're in a production environment or running automated tests.
 // But if you set the env var, that takes precedence.
-const ENABLE_DEV_LOGGING = JSON.parse(
-  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest),
+const ENABLE_DEV_LOGGING = Boolean(
+  process.env.ENABLE_DEV_LOGGING
+    ? JSON.parse(process.env.ENABLE_DEV_LOGGING)
+    : !(DEPLOYMENT_ENV === 'azure' || isTest),
 )
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = (fn) => (req, res, next) => {
+const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
-export default function (app) {
+export default function (app: Express) {
   // *** Request connection management ***
-  if (!isTest) app.use(timeout)
+  if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
 
   // Don't use the proxy's IP, use the requester's for rate limiting or

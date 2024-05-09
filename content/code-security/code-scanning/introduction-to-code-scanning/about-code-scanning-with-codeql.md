@@ -19,8 +19,6 @@ topics:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
-
 {% data reusables.code-scanning.about-codeql-analysis %}
 
 {% ifversion code-scanning-without-workflow %}

@@ -175,6 +175,8 @@ api.github.com
 
 ```shell copy
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -239,6 +241,8 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
 {% note %}

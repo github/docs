@@ -25,14 +25,14 @@ You'll need to authenticate this action using your password, which is the SSH ke
 1. Enter the following:
 
    ```shell replacedomain copy
-   ssh -T git@{% data variables.command_line.codeblock %}
+   ssh -T git@{% data variables.product.product_url %}
    # Attempts to ssh to {% data variables.product.product_name %}
    ```
 
    You may see a warning like this:
 
    ```shell replacedomain
-   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
+   > The authenticity of host '{% data variables.product.product_url %} (IP ADDRESS)' can't be established.
    > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
    > Are you sure you want to continue connecting (yes/no)?
    ```

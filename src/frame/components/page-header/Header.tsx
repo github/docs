@@ -195,7 +195,7 @@ export const Header = () => {
                   'mr-3',
                 )}
               >
-                <Search />
+                <Search isSearchOpen={isSearchOpen} />
               </div>
             )}
 
