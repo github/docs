@@ -1,7 +1,7 @@
+import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
-import { cloneDeep } from 'lodash-es'
-import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
-import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
+import isArchivedVersion from '@/archives/lib/is-archived-version.js'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
 
 const isDev = process.env.NODE_ENV === 'development'
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -17,7 +17,9 @@ const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
   crossOriginEmbedderPolicy: false, // doesn't work with youtube
   referrerPolicy: {
-    policy: 'no-referrer-when-downgrade', // See docs-engineering #2426
+    // See docs-engineering #2426
+    // The `... as 'no-referrer-when-downgrade'` is a workaround for TypeScript
+    policy: 'no-referrer-when-downgrade' as 'no-referrer-when-downgrade',
   },
   // This module defines a Content Security Policy (CSP) to disallow
   // inline scripts and content from untrusted sources.
@@ -27,14 +29,16 @@ const DEFAULT_OPTIONS = {
       prefetchSrc: ["'self'"],
       // When doing local dev, especially in Safari, you need to add `ws:`
       // which NextJS uses for the hot module reloading.
-      connectSrc: ["'self'", isDev && 'ws:'].filter(Boolean),
+      connectSrc: ["'self'", isDev && 'ws:'].filter(Boolean) as string[],
       fontSrc: ["'self'", 'data:', AZURE_STORAGE_URL],
       imgSrc: [...GITHUB_DOMAINS, 'data:', AZURE_STORAGE_URL, 'placehold.it'],
       objectSrc: ["'self'"],
       // For use during development only!
       // `unsafe-eval` allows us to use a performant webpack devtool setting (eval)
       // https://webpack.js.org/configuration/devtool/#devtool
-      scriptSrc: ["'self'", 'data:', AZURE_STORAGE_URL, isDev && "'unsafe-eval'"].filter(Boolean),
+      scriptSrc: ["'self'", 'data:', AZURE_STORAGE_URL, isDev && "'unsafe-eval'"].filter(
+        Boolean,
+      ) as string[],
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
@@ -44,7 +48,7 @@ const DEFAULT_OPTIONS = {
           : // Assume that a developer is not testing the VA iframe locally if this env var is not set
             process.env.SUPPORT_PORTAL_URL || '',
         'https://www.youtube-nocookie.com',
-      ].filter(Boolean),
+      ].filter(Boolean) as string[],
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
@@ -54,7 +58,7 @@ const DEFAULT_OPTIONS = {
   },
 }
 
-const NODE_DEPRECATED_OPTIONS = cloneDeep(DEFAULT_OPTIONS)
+const NODE_DEPRECATED_OPTIONS = structuredClone(DEFAULT_OPTIONS)
 const { directives: ndDirs } = NODE_DEPRECATED_OPTIONS.contentSecurityPolicy
 ndDirs.scriptSrc.push(
   "'unsafe-eval'",
@@ -65,14 +69,14 @@ ndDirs.scriptSrc.push(
 ndDirs.connectSrc.push('https://www.google-analytics.com')
 ndDirs.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')
 
-const STATIC_DEPRECATED_OPTIONS = cloneDeep(DEFAULT_OPTIONS)
+const STATIC_DEPRECATED_OPTIONS = structuredClone(DEFAULT_OPTIONS)
 STATIC_DEPRECATED_OPTIONS.contentSecurityPolicy.directives.scriptSrc.push("'unsafe-inline'")
 
 const defaultHelmet = helmet(DEFAULT_OPTIONS)
 const nodeDeprecatedHelmet = helmet(NODE_DEPRECATED_OPTIONS)
 const staticDeprecatedHelmet = helmet(STATIC_DEPRECATED_OPTIONS)
 
-export default function helmetMiddleware(req, res, next) {
+export default function helmetMiddleware(req: Request, res: Response, next: NextFunction) {
   // Enable CORS
   if (['GET', 'OPTIONS'].includes(req.method)) {
     res.set('access-control-allow-origin', '*')
