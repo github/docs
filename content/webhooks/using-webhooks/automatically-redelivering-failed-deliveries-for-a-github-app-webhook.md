@@ -133,7 +133,7 @@ async function checkAndRedeliverWebhooks() {
     appId: APP_ID,
     privateKey: PRIVATE_KEY,{% ifversion ghes %}
     Octokit: Octokit.defaults({
-      baseUrl: "{% data variables.product.api_url_code %}",
+      baseUrl: "{% data variables.product.rest_url %}",
     }),{% endif %}
   });
 
@@ -141,7 +141,7 @@ async function checkAndRedeliverWebhooks() {
   //
   // This will be used to update the configuration variable that stores the last time that this script ran.
   const octokit = new Octokit({ {% ifversion ghes %}
-    baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+    baseUrl: "{% data variables.product.rest_url %}",{% endif %}
     auth: TOKEN,
   });
 

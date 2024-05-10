@@ -61,7 +61,7 @@ jobs:
       - name: Create issue using REST API
         run: |
           curl --request POST \
-          --url {% data variables.product.api_url_code %}/repos/${% raw %}{{ github.repository }}{% endraw %}/issues \
+          --url {% data variables.product.rest_url %}/repos/${% raw %}{{ github.repository }}{% endraw %}/issues \
           --header 'authorization: Bearer ${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}' \
           --header 'content-type: application/json' \
           --data '{

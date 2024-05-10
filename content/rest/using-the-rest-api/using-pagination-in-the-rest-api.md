@@ -96,7 +96,7 @@ For example, this script gets all of the issues from the `octocat/Spoon-Knife` r
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",
+  baseUrl: "{% data variables.product.rest_url %}",
 {% endif %}});
 
 const data = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
@@ -123,7 +123,7 @@ The `getPaginatedData` function makes a request to an endpoint with `octokit.req
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",
+  baseUrl: "{% data variables.product.rest_url %}",
 {% endif %}});
 
 async function getPaginatedData(url) {

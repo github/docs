@@ -71,7 +71,7 @@ You can choose to have payloads delivered in JSON format (`application/json`) or
 > {
 >   "action": "opened",
 >   "issue": {
->     "url": "{% data variables.product.api_url_pre %}/repos/octocat/Hello-World/issues/1347",
+>     "url": "{% data variables.product.rest_url %}/repos/octocat/Hello-World/issues/1347",
 >     "number": 1347,
 >     ...
 >   },

@@ -57,7 +57,7 @@ Once a workflow reaches a job that references an environment that has the custom
 
    ```shell
    curl --request POST \
-   --url "{% data variables.product.api_url_code %}/app/installations/INSTALLATION_ID/ACCESS_TOKENS" \
+   --url "{% data variables.product.rest_url %}/app/installations/INSTALLATION_ID/ACCESS_TOKENS" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer {jwt}" \
    --header "Content-Type: application/json" \

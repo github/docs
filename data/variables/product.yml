@@ -299,9 +299,8 @@ raw_github_com: >-
 current-340-version: '11.10.354'
 
 # Developer site product variables
-# Use this inside command-line code blocks
-api_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% endif %}
+rest_url: >-
+  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://HOSTNAME/api/v3{% endif %}
 # Use this inside command-line code blocks
 # Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
 oauth_host_code: >-
@@ -312,12 +311,5 @@ device_authorization_url: >-
   {%- elsif ghes %}
   `http(s)://HOSTNAME/login/device`
   {%- endif %}
-# Use this all other code blocks
-api_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://HOSTNAME/api/v3{% endif %}
-# Use this inside command-line code blocks
-graphql_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/graphql{% endif %}
-# Use this all other code blocks
-graphql_url_code: >-
+graphql_url: >-
   {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://HOSTNAME/api/graphql{% endif %}
