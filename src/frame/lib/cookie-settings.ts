@@ -1,4 +1,6 @@
-export default {
+import { type CookieSerializeOptions } from 'cookie'
+
+export const cookieSettings: CookieSerializeOptions = {
   httpOnly: true, // can't access these cookies through browser JavaScript
   secure: !['test', 'development'].includes(process.env.NODE_ENV),
   // requires https protocol
