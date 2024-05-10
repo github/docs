@@ -85,15 +85,13 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}, y
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of {% ifversion dependabot-alerts-ghes-enablement %}"Periodically download the {% data variables.product.prodname_advisory_database %} so that users can receive vulnerability alerts for open source code dependencies"{% else %}"Users can receive vulnerability alerts for open source code dependencies"{% endif %}, select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
 
-   Note that this setting controls _email_ notifications only. Command line interface (CLI) warnings will still appear regardless of which option is selected.
+   ![Screenshot of the "Enable" dropdown menu for {% data variables.product.prodname_dependabot_alerts %}, showing the available options.](/assets/images/enterprise/site-admin-settings/dependabot-alerts-setup-dropdown.png)
 
-    ![Screenshot of the "Enable" dropdown menu for {% data variables.product.prodname_dependabot_alerts %}, showing the available options.](/assets/images/enterprise/site-admin-settings/dependabot-alerts-setup-dropdown.png)
+   > [!NOTE]
+   > This setting controls realtime email and web notifications only. Command line interface (CLI) warnings and email digests will still be delivered regardless of which option is selected.
 
-   {% tip %}
-
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
-
-   {% endtip %}
+    > [!TIP]
+   > We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of realtime notifications. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
 You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "Code security and analysis." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see "[AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."
 
