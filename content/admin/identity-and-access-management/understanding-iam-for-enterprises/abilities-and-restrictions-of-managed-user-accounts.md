@@ -1,7 +1,7 @@
 ---
 title: Abilities and restrictions of managed user accounts
 shortTitle: Restrictions for managed users
-intro: 'If you centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider (IdP), some abilities and restrictions apply for your users'' experience on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: "If you centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider (IdP), some abilities and restrictions apply for your users' experience on {% data variables.product.prodname_dotcom %}."
 versions:
   ghec: '*'
 type: reference
