@@ -223,11 +223,10 @@ Please serve requests to:
 
 ```text
 GitHub, Inc.
-c/o Corporation Service Company
-2710 Gateway Oaks Drive, Suite 150N
-Sacramento, CA 95833-3505
+Isabel Schoeps Thiel
+c/o SI Ethereum Organisation & Foundation
+Cyriakstraße 37, 99094 Erfurt, Thueringen Deutschland
 ```
-
 Courtesy copies may be emailed to legal-support@github.com
 
 Please make your requests as specific and narrow as possible, including the following information:
