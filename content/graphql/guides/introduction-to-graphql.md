@@ -115,7 +115,7 @@ GraphQL is [introspective](https://graphql.org/learn/introspection/). This means
 - You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
+  curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url %}
   ```
 
   {% note %}
@@ -130,7 +130,7 @@ GraphQL is [introspective](https://graphql.org/learn/introspection/). This means
 
   ```shell
   $ curl -H "Authorization: bearer TOKEN" -H "Accept: application/vnd.github.v4.idl" \
-  {% data variables.product.graphql_url_pre %}
+  {% data variables.product.graphql_url %}
   ```
 
   {% note %}

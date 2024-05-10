@@ -75,13 +75,13 @@ Most endpoints return an `etag` header, and many endpoints return a `last-modifi
 For example, if a previous request returned an `etag` header value of `644b5b0155e6404a9cc4bd9d8b1ae730`, you can use the `if-none-match` header in a future request:
 
 ```shell
-curl {% data variables.product.api_url_pre %}/meta --include --header 'if-none-match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+curl {% data variables.product.rest_url %}/meta --include --header 'if-none-match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 ```
 
 For example, if a previous request returned a `last-modified` header value of `Wed, 25 Oct 2023 19:17:59 GMT`, you can use the `if-modified-since` header in a future request:
 
 ```shell
-curl {% data variables.product.api_url_pre %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
+curl {% data variables.product.rest_url %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
 ```
 
 ## Do not ignore errors

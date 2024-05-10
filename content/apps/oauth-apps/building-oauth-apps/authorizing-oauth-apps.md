@@ -116,12 +116,12 @@ Accept: application/xml
 The access token allows you to make requests to the API on a behalf of a user.
 
     Authorization: Bearer OAUTH-TOKEN
-    GET {% data variables.product.api_url_code %}/user
+    GET {% data variables.product.rest_url %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.rest_url %}/user
 ```
 
 ## Device flow
