@@ -24,7 +24,7 @@ topics:
 
 {% ifversion ghec %}
 
-Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
+Your enterprise account on {% data variables.product.prodname_ghe_cloud %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes %}
 

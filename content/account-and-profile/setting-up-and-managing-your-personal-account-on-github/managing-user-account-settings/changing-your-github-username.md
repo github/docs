@@ -1,6 +1,6 @@
 ---
 title: Changing your GitHub username
-intro: 'You can change the username for your account on {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %} if your instance uses built-in authentication{% endif %}.'
+intro: 'You can change the username for your account on {% data variables.product.prodname_dotcom %}{% ifversion ghes %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
   - /articles/how-to-change-your-username
   - /articles/changing-your-github-user-name
@@ -99,7 +99,7 @@ After changing your username, the URLs to any public or secret gists will also c
 
 ## CODEOWNERS files
 
-After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom_the_website %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+After changing your username, CODEOWNERS files that include your old username will need to be manually updated. When you view the CODEOWNERS files on {% data variables.product.prodname_dotcom %}, an error message is displayed if the file contains any unknown users, or users without write access. We recommend updating all relevant CODEOWNERS files with your new username. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
 
 ## Changing your username
 
