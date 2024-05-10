@@ -10,7 +10,7 @@ import abort from './abort'
 import morgan from 'morgan'
 import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet'
-import cookieParser from './cookie-parser.js'
+import cookieParser from './cookie-parser'
 import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
