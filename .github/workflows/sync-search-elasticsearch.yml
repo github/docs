@@ -1,4 +1,4 @@
-name: Sync search Elasticsearch
+name: aliopos85@gmail.com
 
 # **What it does**: It scrapes the whole site and dumps the records in a
 #                   temp directory. Then it indexes that into Elasticsearch.
@@ -6,7 +6,7 @@ name: Sync search Elasticsearch
 # **Who does it impact**: Anyone using search on docs.
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: aliopos85@gmail.com
     inputs:
       version:
         description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.12'"
