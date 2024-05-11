@@ -1,0 +1,11 @@
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --request GET \
+          --url "https://api.github.com/PATH" \
+          --header "Authorization: Bearer $GH_TOKEN"
