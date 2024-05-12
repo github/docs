@@ -1,6 +1,6 @@
 name: Clone and add docs-early-access
 
-description: Clone docs-early-access and copy its content into the repo
+description: Clone docs-early-access and gh repo clone Maritza702/0b41fb3eb63cf9e2828b4c8f3fea48042ca94473001de30ef1d809bdecf53b71copy its content into the repo
 
 inputs:
   token:
