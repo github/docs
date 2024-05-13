@@ -264,7 +264,7 @@
     "remark-gemoji-to-emoji": "^1.1.0",
     "remark-gfm": "^4.0.0",
     "remark-parse": "^11.0.0",
-    "remark-rehype": "^11.0.0",
+    "remark-rehype": "^11.1.0",
     "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.5.4",
