@@ -1,16 +1,28 @@
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
-import { getOpenApiVersion } from '#src/versions/lib/all-versions.js'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file.js'
+import { getOpenApiVersion } from '@/versions/lib/all-versions.js'
+import type {
+  AuditLogEventT,
+  CategorizedEvents,
+  VersionedAuditLogData,
+  RawAuditLogEventT,
+} from '../types'
 
 export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
 
 // cache of audit log data
-const auditLogEventsCache = new Map()
+const auditLogEventsCache = new Map<string, Map<string, AuditLogEventT[]>>()
+const categorizedAuditLogEventsCache = new Map<string, Map<string, CategorizedEvents>>()
+
+type PipelineConfig = {
+  sha: string
+  appendedDescriptions: Record<string, string>
+}
 
 // get audit log event data for the requested page and version
 //
-// if categorized is false, returns an array of event objects that look like this:
+// returns an array of event objects that look like this:
 //
 // [
 //   {
@@ -19,18 +31,7 @@ const auditLogEventsCache = new Map()
 //     docs_reference_links: 'event reference links'
 //   },
 // ]
-//
-// if categorized is true, group events by category; the category is the first
-// part of the event action (e.g. category is `repo` for the `repo.create` event)
-// so we extract the categories and then group events under those categories
-// and return an object that looks like this:
-//
-// {
-//   git: [ [Object], [Object] ],
-//   repo: [ [Object] ],
-//   user: [ [Object], [Object] ]
-// }
-export function getAuditLogEvents(page, version, categorized = false) {
+export function getAuditLogEvents(page: string, version: string) {
   const openApiVersion = getOpenApiVersion(version)
   const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
@@ -38,39 +39,51 @@ export function getAuditLogEvents(page, version, categorized = false) {
   // the data from the JSON file the first time around
   if (!auditLogEventsCache.has(openApiVersion)) {
     auditLogEventsCache.set(openApiVersion, new Map())
-    auditLogEventsCache.get(openApiVersion).set(page, new Map())
+    auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      .set(page, readCompressedJsonFileFallback(auditLogFileName))
-  } else if (!auditLogEventsCache.get(openApiVersion).has(page)) {
-    auditLogEventsCache.get(openApiVersion).set(page, new Map())
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
+  } else if (!auditLogEventsCache.get(openApiVersion)?.has(page)) {
+    auditLogEventsCache.get(openApiVersion)?.set(page, [])
     auditLogEventsCache
       .get(openApiVersion)
-      .set(page, readCompressedJsonFileFallback(auditLogFileName))
+      ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
   }
 
-  const auditLogEvents = auditLogEventsCache.get(openApiVersion).get(page)
+  const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)!
   // If an event doesn't yet have a description (value will be empty string or
   // "N/A"), then we don't show the event.
   const filteredAuditLogEvents = auditLogEvents.filter(
     (event) => event.description !== 'N/A' && event.description !== '',
   )
 
-  if (!categorized) {
-    return filteredAuditLogEvents
+  return filteredAuditLogEvents
+}
+
+// get categorized audit log event data for the requested page and version
+//
+// Events are grouped by category; the category is the first part of the event
+// action (e.g. category is `repo` for the `repo.create` event) so we extract
+// the categories and then group events under those categories and return an
+// object that looks like this:
+//
+// {
+//   git: [ [Object], [Object] ],
+//   repo: [ [Object] ],
+//   user: [ [Object], [Object] ]
+// }
+export function getCategorizedAuditLogEvents(page: string, version: string) {
+  const events = getAuditLogEvents(page, version)
+  const openApiVersion = getOpenApiVersion(version)
+
+  if (!categorizedAuditLogEventsCache.get(openApiVersion)) {
+    categorizedAuditLogEventsCache.set(openApiVersion, new Map())
+    categorizedAuditLogEventsCache.get(openApiVersion)?.set(page, categorizeEvents(events))
+  } else if (!categorizedAuditLogEventsCache.get(openApiVersion)?.get(page)) {
+    categorizedAuditLogEventsCache.get(openApiVersion)?.set(page, categorizeEvents(events))
   }
 
-  const categorizedEvents = {}
-  filteredAuditLogEvents.forEach((event) => {
-    const [category] = event.action.split('.')
-    if (!Object.hasOwn(categorizedEvents, category)) {
-      categorizedEvents[category] = []
-    }
-
-    categorizedEvents[category].push(event)
-  })
-
-  return categorizedEvents
+  return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page)!
 }
 
 // Filters audit log events based on allowlist values.
@@ -80,10 +93,10 @@ export function getAuditLogEvents(page, version, categorized = false) {
 // * currentEvents: events already collected
 // * pipelineConfig: audit log pipeline config data
 export function filterByAllowlistValues(
-  eventsToCheck,
-  allowListValues,
-  currentEvents,
-  pipelineConfig,
+  eventsToCheck: RawAuditLogEventT[],
+  allowListValues: string | string[],
+  currentEvents: AuditLogEventT[],
+  pipelineConfig: PipelineConfig,
 ) {
   if (!Array.isArray(allowListValues)) allowListValues = [allowListValues]
   if (!currentEvents) currentEvents = []
@@ -103,7 +116,6 @@ export function filterByAllowlistValues(
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
-        fields: event.fields,
       }
 
       minimalEvents.push(minimal)
@@ -137,11 +149,11 @@ export function filterByAllowlistValues(
 //   },
 // }
 export function filterAndUpdateGhesDataByAllowlistValues(
-  eventsToCheck,
-  allowListValue,
-  currentGhesEvents,
-  pipelineConfig,
-  auditLogPage,
+  eventsToCheck: RawAuditLogEventT[],
+  allowListValue: string,
+  currentGhesEvents: VersionedAuditLogData,
+  pipelineConfig: PipelineConfig,
+  auditLogPage: string,
 ) {
   if (!currentGhesEvents) currentGhesEvents = {}
 
@@ -165,7 +177,6 @@ export function filterAndUpdateGhesDataByAllowlistValues(
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
-          fields: event.ghes[ghesVersion].fields,
         }
 
         // we need to initialize as we go to build up the `minimalEvents`
@@ -195,7 +206,26 @@ export function filterAndUpdateGhesDataByAllowlistValues(
   }
 }
 
-function processAndGetEventDescription(event, allowlists, pipelineConfig) {
+// Categorizes the given array of audit log events by event category
+function categorizeEvents(events: AuditLogEventT[]) {
+  const categorizedEvents: CategorizedEvents = {}
+  events.forEach((event) => {
+    const [category] = event.action.split('.')
+    if (!Object.hasOwn(categorizedEvents, category)) {
+      categorizedEvents[category] = []
+    }
+
+    categorizedEvents[category].push(event)
+  })
+
+  return categorizedEvents
+}
+
+function processAndGetEventDescription(
+  event: AuditLogEventT,
+  allowlists: string[],
+  pipelineConfig: PipelineConfig,
+) {
   let description = event.description
 
   // api.request is a unique event because it's an api_only event but is the only
