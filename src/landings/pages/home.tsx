@@ -14,7 +14,6 @@ import { ArticleList } from 'src/landings/components/ArticleList'
 import { HomePageHero } from 'src/landings/components/HomePageHero'
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'
 import { ProductSelections } from 'src/landings/components/ProductSelections'
-import { MeasureLanguageCookieMismatch } from '../components/MeasureLanguageCookieMatch'
 
 type FeaturedLink = {
   href: string
@@ -73,7 +72,6 @@ function HomePage(props: HomePageProps) {
             </div>
           </div>
         </div>
-        <MeasureLanguageCookieMismatch />
       </div>
     </div>
   )

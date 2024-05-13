@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import copyCode from 'src/frame/components/lib/copy-code'
 import toggleAnnotation from 'src/frame/components/lib/toggle-annotations'
 import wrapCodeTerms from 'src/frame/components/lib/wrap-code-terms'
-import { MeasureLanguageCookieMismatch } from '../components/MeasureLanguageCookieMatch'
 
 import {
   MainContextT,
@@ -110,12 +109,7 @@ const GlobalPage = ({
     }
   }
 
-  return (
-    <MainContext.Provider value={mainContext}>
-      {content}
-      <MeasureLanguageCookieMismatch />
-    </MainContext.Provider>
-  )
+  return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
 }
 
 export default GlobalPage
