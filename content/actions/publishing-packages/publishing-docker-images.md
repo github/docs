@@ -87,6 +87,7 @@ jobs:
       packages: write
       contents: read
       {% ifversion artifact-attestations %}attestations: write{% endif %}
+      {% ifversion artifact-attestations %}id-token: write{% endif %}
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
