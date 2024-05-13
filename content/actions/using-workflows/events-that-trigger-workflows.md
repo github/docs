@@ -601,6 +601,8 @@ on:
 
 - The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
+- Workflows triggered by the `pull_request` event will not be granted access to secrets, and any permissions set will not surpass `read` access.
+
 {% endnote %}
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[AUTOTITLE](/rest/pulls)."
