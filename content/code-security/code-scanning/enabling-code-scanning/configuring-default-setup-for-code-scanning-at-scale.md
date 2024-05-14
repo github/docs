@@ -18,7 +18,12 @@ versions:
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
 
-You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
+You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
+- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+- On a weekly schedule.{% endif %}
+
+For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
 
 {% ifversion code-security-multi-repo-enablement %}
 
@@ -63,7 +68,6 @@ A repository must meet all the following criteria to be eligible for default set
 If the code in a repository changes to include {% ifversion code-scanning-default-setup-recommended-languages %}{% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby,{% else %}a {% data variables.product.prodname_codeql %}-supported language,{% endif %} {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 
 {% endif %}
-{% ifversion org-enable-code-scanning %}
 
 ## Configuring default setup for all eligible repositories in an organization
 
@@ -93,9 +97,6 @@ Through the "Code security and analysis" page of your organization's settings, y
   - Enabling default setup for all eligible repositories in an organization includes eligible repositories without {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.{% endif %}
 
 {% endnote %}
-{% else %}
-{% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
-{% endif %}
 
 {% ifversion codeql-model-packs-org %}
 

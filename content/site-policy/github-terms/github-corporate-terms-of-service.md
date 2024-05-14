@@ -25,7 +25,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 - The Service;
 - Any Beta Previews;
 - Any related Support; and
-- Any related Expert Services.
+- Any related Professional Services.
 
 ## A. Definitions
 
@@ -57,7 +57,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 
 **"Feedback"** means any ideas, know-how, algorithms, code contributions, suggestions, enhancement requests, recommendations or any other feedback on GitHub products or services.
 
-**"Fees"** means the fees Customer is required to pay GitHub to (i) use the Products during the applicable Term or (ii) receive Expert Services, as such fees are reflected on an Order Form or SOW.
+**"Fees"** means the fees Customer is required to pay GitHub to (i) use the Products during the applicable Term or (ii) receive Professional Services, as such fees are reflected on an Order Form or SOW.
 
 **“Fork”** means to copy the Content of one repository into another repository.
 
@@ -73,7 +73,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 
 **“Private Repository”** means a repository which allows a User to control access to Content.
 
-**"Expert Services"** means training, consulting, or implementation services that GitHub provides to Customer pursuant to a mutually executed SOW. Expert Services do not include Support.
+**"Professional Services"** means training, consulting, or implementation services that GitHub provides to Customer pursuant to a mutually executed SOW. Professional Services do not include Support.
 
 **“Public Repository”** means a repository whose Content is visible to All Users.
 
@@ -83,7 +83,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 
 **"Service"** means GitHub's hosted service and any applicable Documentation.
 
-**"SOW"** means a mutually executed statement of work detailing the Expert Services GitHub will perform, any related Fees, and each party's related obligations.
+**"SOW"** means a mutually executed statement of work detailing the Professional Services GitHub will perform, any related Fees, and each party's related obligations.
 
 **"Subscription License"** means the license assigned to each User to install, operate, access, and use the Service on Customer’s behalf. Customer may only assign one Subscription License per User across its Organizations. For clarity, once Customer assigns a Subscription License to a User, Customer is prohibited from bifurcating the Subscription License so that one User can use a Subscription License on one Organization while another User uses the same Subscription License on another Organization.
 
@@ -283,7 +283,7 @@ Communications made through email or GitHub Support's messaging system will not 
 
 _General Warranty_. Each Party represents and warrants to the other that it has the legal power and authority to enter into this Agreement, and that this Agreement and each Order Form and SOW is entered into by an employee or agent of such Party with all necessary authority to bind such Party to the terms and conditions of this Agreement.
 
-_Expert Services Warranty._ Unless otherwise set forth in an SOW, GitHub warrants that any Expert Services performed under this Agreement will be performed in a professional and workmanlike manner by appropriately qualified personnel. GitHub's only obligation, and Customer's only remedy, for a breach of this warranty will be, at GitHub's option and expense, to either: (i) promptly re-perform any Expert Services that fail to meet this warranty or (ii) if the breach cannot be cured, terminate the SOW and refund the unused prepaid Fees.
+_Professional Services Warranty._ Unless otherwise set forth in an SOW, GitHub warrants that any Professional Services performed under this Agreement will be performed in a professional and workmanlike manner by appropriately qualified personnel. GitHub's only obligation, and Customer's only remedy, for a breach of this warranty will be, at GitHub's option and expense, to either: (i) promptly re-perform any Professional Services that fail to meet this warranty or (ii) if the breach cannot be cured, terminate the SOW and refund the unused prepaid Fees.
 
 _Service Disclaimer._ GitHub provides the Service **“AS IS”** and **“AS AVAILABLE”** without warranty of any kind. Without limiting this, GitHub expressly disclaims all warranties, whether express, implied or statutory, regarding the Service including without limitation any warranty of merchantability, fitness for a particular purpose, title, security, accuracy and non-infringement. GitHub does not warrant that the Service will meet Customer's requirements; that the Service will be uninterrupted, timely, secure, or error-free; that the information provided through the Service is accurate, reliable or correct; that any defects or errors will be corrected; that the Service will be available at any particular time or location; or that the Service is free of viruses or other harmful components. GitHub will not be responsible for any risk of loss resulting from Customer's downloading and/or use of files, information, Content or other material obtained from the Service.
 
@@ -317,9 +317,9 @@ If Customer has a dispute with one or more Users, Customer releases GitHub from 
 
 Neither Party will use the other Party's Confidential Information, except as permitted under this Agreement. Each Party agrees to maintain in confidence and protect the other Party's Confidential Information using at least the same degree of care as it uses for its own information of a similar nature, but in any event at least a reasonable degree of care. Each Party agrees to take all reasonable precautions to prevent any unauthorized disclosure of the other Party's Confidential Information, including, without limitation, disclosing such Confidential Information only to its Representatives who (i) have a need to know such information, (ii) are parties to appropriate agreements sufficient to comply with this Section P, and (iii) are informed of the restrictions on use and disclosure set forth in this Section P. Each Party is responsible for all acts and omissions of its Representatives. The foregoing obligations will not restrict either Party from disclosing Confidential Information of the other Party pursuant to the order or requirement of a court, administrative agency, or other governmental body, _provided_ that the Party required to make such a disclosure gives reasonable notice to the other Party to enable such Party to contest such order or requirement, unless such notice is prohibited by law. The restrictions set forth in this Section P will survive the termination or expiration of this Agreement.
 
-## Q. Expert Services
+## Q. Professional Services
 
-Upon Customer’s request for Expert Services, GitHub will provide an SOW detailing such Expert Services. GitHub will perform the Expert Services described in each SOW. GitHub will control the manner and means by which the Expert Services are performed and reserves the right to determine personnel assigned. GitHub may use third parties to perform the Expert Services, provided that GitHub remains responsible for their acts and omissions. Customer acknowledges and agrees that GitHub retains all right, title and interest in and to anything used or developed in connection with performing the Expert Services, including software, tools, specifications, ideas, concepts, inventions, processes, techniques, and know-how. To the extent GitHub delivers anything to Customer while performing the Expert Services, GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to use those deliverables during the term of this Agreement, solely in conjunction with Customer’s use of the Service.
+Upon Customer’s request for Professional Services, GitHub will provide an SOW detailing such Professional Services. GitHub will perform the Professional Services described in each SOW. GitHub will control the manner and means by which the Professional Services are performed and reserves the right to determine personnel assigned. GitHub may use third parties to perform the Professional Services, provided that GitHub remains responsible for their acts and omissions. Customer acknowledges and agrees that GitHub retains all right, title and interest in and to anything used or developed in connection with performing the Professional Services, including software, tools, specifications, ideas, concepts, inventions, processes, techniques, and know-how. To the extent GitHub delivers anything to Customer while performing the Professional Services, GitHub grants to Customer a non-exclusive, non-transferable, worldwide, royalty-free, limited-term license to use those deliverables during the term of this Agreement, solely in conjunction with Customer’s use of the Service.
 
 ## R. Changes to the Service or Terms
 

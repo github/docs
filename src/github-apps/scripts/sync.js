@@ -163,7 +163,6 @@ export async function getProgAccessData(progAccessSource) {
   }
 
   let progAccessDataRaw
-  // config/locales/programmatic_actor_fine_grained_resources.en.yml
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'

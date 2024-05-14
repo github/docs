@@ -11,6 +11,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can edit the settings for the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension to suit your needs.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/customizing-settings
 ---
 
 ## About settings in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension

@@ -1,7 +1,7 @@
 ---
 title: Abilities and restrictions of managed user accounts
 shortTitle: Restrictions for managed users
-intro: 'If you centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider (IdP), some abilities and restrictions apply for your users'' experience on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: "If you centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider (IdP), some abilities and restrictions apply for your users' experience on {% data variables.product.prodname_dotcom %}."
 versions:
   ghec: '*'
 type: reference
@@ -31,6 +31,8 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
   - Create or comment on discussions within the repository
   - Comment on issues or pull requests, or add reactions to comments
   - Star, watch, or fork the repository
+- {% data variables.enterprise.prodname_managed_users_caps %} can be added to organization-owned repositories as repository collaborators, which gives them access to repositories in organizations where they are not members. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
+- {% data variables.enterprise.prodname_managed_users_caps %} can be assigned the guest collaborator role, which prevents them from accessing internal repositories in the enterprise except in organizations where they are added as members. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
 
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create personalised profiles.
@@ -43,7 +45,6 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 - If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 - {% data reusables.enterprise-accounts.emu-forks %}
 - Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
-- Outside collaborators are not supported by {% data variables.product.prodname_emus %}, but guest collaborators are. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
 - {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_for_individuals %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. For more information, see "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 - {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:

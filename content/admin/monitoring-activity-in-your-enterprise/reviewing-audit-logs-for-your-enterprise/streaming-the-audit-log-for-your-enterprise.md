@@ -20,10 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% note %}
 
-{% ifversion ghes %}**Notes:**
-- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
-- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
-**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
+**Note:** {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
 
@@ -48,6 +45,16 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 {% ifversion ghes %}
 
 Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+
+{% endif %}
+
+{% ifversion audit-log-streaming-health-check %}
+
+## Health checks for audit log streams
+
+Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
+
+To fix your streaming configuration, follow the steps outlined in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
 
 {% endif %}
 

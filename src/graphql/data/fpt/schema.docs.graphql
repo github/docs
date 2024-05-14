@@ -4327,6 +4327,76 @@ type CodeOfConduct implements Node {
 }
 
 """
+Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning must be enabled and have results for
+both the commit and the reference being updated.
+"""
+type CodeScanningParameters {
+  """
+  Tools that must provide code scanning results for this rule to pass.
+  """
+  codeScanningTools: [CodeScanningTool!]!
+}
+
+"""
+Choose which tools must provide code scanning results before the reference is
+updated. When configured, code scanning must be enabled and have results for
+both the commit and the reference being updated.
+"""
+input CodeScanningParametersInput {
+  """
+  Tools that must provide code scanning results for this rule to pass.
+  """
+  codeScanningTools: [CodeScanningToolInput!]!
+}
+
+"""
+A tool that must provide code scanning results for this rule to pass.
+"""
+type CodeScanningTool {
+  """
+  The severity level at which code scanning results that raise alerts block a
+  reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  alertsThreshold: String!
+
+  """
+  The severity level at which code scanning results that raise security alerts
+  block a reference update. For more information on security severity levels,
+  see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  securityAlertsThreshold: String!
+
+  """
+  The name of a code scanning tool
+  """
+  tool: String!
+}
+
+"""
+A tool that must provide code scanning results for this rule to pass.
+"""
+input CodeScanningToolInput {
+  """
+  The severity level at which code scanning results that raise alerts block a
+  reference update. For more information on alert severity levels, see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  alertsThreshold: String!
+
+  """
+  The severity level at which code scanning results that raise security alerts
+  block a reference update. For more information on security severity levels,
+  see "[About code scanning alerts](${externalDocsUrl}/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+  """
+  securityAlertsThreshold: String!
+
+  """
+  The name of a code scanning tool
+  """
+  tool: String!
+}
+
+"""
 Collaborators affiliation level with a subject.
 """
 enum CollaboratorAffiliation {
@@ -20524,7 +20594,7 @@ Represents a member feature request notification
 """
 type MemberFeatureRequestNotification implements Node {
   """
-  Represents member feature request body containing organization name and the number of feature requests
+  Represents member feature request body containing entity name and the number of feature requests
   """
   body: String!
 
@@ -46405,6 +46475,13 @@ enum RepositoryRuleType {
   BRANCH_NAME_PATTERN
 
   """
+  Choose which tools must provide code scanning results before the reference is
+  updated. When configured, code scanning must be enabled and have results for
+  both the commit and the reference being updated.
+  """
+  CODE_SCANNING
+
+  """
   Committer email pattern
   """
   COMMITTER_EMAIL_PATTERN
@@ -48162,6 +48239,7 @@ Types which can be parameters for `RepositoryRule` objects.
 """
 union RuleParameters =
     BranchNamePatternParameters
+  | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
   | CommitterEmailPatternParameters
@@ -48184,6 +48262,11 @@ input RuleParametersInput {
   Parameters used for the `branch_name_pattern` rule type
   """
   branchNamePattern: BranchNamePatternParametersInput
+
+  """
+  Parameters used for the `code_scanning` rule type
+  """
+  codeScanning: CodeScanningParametersInput
 
   """
   Parameters used for the `commit_author_email_pattern` rule type

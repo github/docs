@@ -8,7 +8,7 @@ redirect_from:
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Using Copilot Chat
+shortTitle: Use Copilot Chat (IDE)
 ---
 
 {% vscode %}
@@ -154,6 +154,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 {% data reusables.copilot.enabling-or-disabling-copilot %}
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
+
+{% data reusables.copilot.install-copilot-vs-intro %}
+
+{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+
+### Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
 
 To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
 

@@ -1,6 +1,7 @@
 ---
-title: About GitHub Copilot Chat
+title: About GitHub Copilot Chat in your IDE
 intro: '{% data variables.product.prodname_copilot_chat %} can help you by providing answers to coding related questions {% ifversion ghec %}on {% data variables.product.prodname_dotcom_the_website %} or{% endif %} directly within a supported IDE.'
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot/github-copilot-chat-transparency-note
   - /early-access/copilot/github-copilot-chat-technical-preview-license-terms
@@ -9,7 +10,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: About Copilot Chat
+shortTitle: About Copilot Chat (IDE)
 type: rai
 ---
 

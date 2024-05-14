@@ -1,6 +1,6 @@
 ---
 title: Using artifact attestations to establish provenance for builds
-intro: 'Artifact attestations enable you to increase the supply chain security of your builds by publicly establishing where and how your software was built and associating it with a signed software build of materials (SBOM).'
+intro: 'Artifact attestations enable you to increase the supply chain security of your builds by publicly establishing where and how your software was built and associating it with a signed software bill of materials (SBOM).'
 versions:
   fpt: '*'
   ghec: '*'

@@ -64,7 +64,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    > remote: Compressing objects: 100% (53/53), done.
    > remote: Total 62 (delta 27), reused 44 (delta 9)
    > Unpacking objects: 100% (62/62), done.
-   > From https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY
+   > From https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY
    >  * [new branch]      main     -> upstream/main
    ```
 

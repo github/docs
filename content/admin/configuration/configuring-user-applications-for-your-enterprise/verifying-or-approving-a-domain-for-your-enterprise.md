@@ -57,6 +57,8 @@ Organization owners can also approve additional domains for their organizations.
 
 To verify your enterprise account's domain, you must have access to modify domain records with your domain hosting service.
 
+For successful domain verification, make sure that the TXT record needed for the verification can be checked directly from your domain's main name servers. You can verify this by running the command: `dig DOMAIN +nostats +nocomments +nocmd TXT @AUTHORITATIVE-NAMESERVER`. This helps avoid problems from CNAME records that might point somewhere else.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
@@ -68,6 +70,12 @@ To verify your enterprise account's domain, you must have access to modify domai
    ```shell
    dig TXT-RECORD-NAME +nostats +nocomments +nocmd TXT
    ```
+
+1. To make sure that the TXT record can be checked directly from your domain's main name servers, run the following command.
+
+    ```shell
+    dig DOMAIN +nostats +nocomments +nocmd TXT @AUTHORITATIVE-NAMESERVER
+    ```
 
 1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
 {% data reusables.enterprise-accounts.continue-verifying-domain %}

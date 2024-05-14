@@ -27,8 +27,8 @@ We recommend you either [configure SSH](/authentication/connecting-to-github-wit
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar.
 1. Type `Keychain Access`, then press the Enter key to launch the app.
-1. In Keychain Access, search for `{% data variables.command_line.backticks %}`.
-1. Find the "Internet password" entry for `{% data variables.command_line.backticks %}`.
+1. In Keychain Access, search for `{% data variables.product.product_url %}`.
+1. Find the "Internet password" entry for `{% data variables.product.product_url %}`.
 1. Edit or delete the entry accordingly.
 
 ## Deleting your credentials via the command line
@@ -37,7 +37,7 @@ Through the command line, you can use the credential helper directly to erase th
 
 ```shell
 $ git credential-osxkeychain erase
-host={% data variables.command_line.codeblock %}
+host={% data variables.product.product_url %}
 protocol=https
 > [Press Return]
 ```

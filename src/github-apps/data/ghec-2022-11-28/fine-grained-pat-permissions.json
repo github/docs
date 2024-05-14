@@ -604,15 +604,6 @@
         "access": "read"
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "orgs",
         "slug": "enable-or-disable-a-security-feature-for-an-organization",
         "subcategory": "orgs",
@@ -997,15 +988,6 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
         "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
-        "additional-permissions": true,
         "access": "write"
       }
     ]
@@ -4551,6 +4533,33 @@
         "subcategory": "code-scanning",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "create-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-the-summary-of-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-the-analysis-status-of-a-repository-in-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}/repos/{repo_owner}/{repo_name}",
         "additional-permissions": false,
         "access": "read"
       },

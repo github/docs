@@ -78,7 +78,7 @@ import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-li
  * Note that we never publicly ship a language for which we don't have autofix support, so if a language
  * has been shipped, we know for sure that it is supported.
  */
-const AUTOFIX_SHIPPED_LANGUAGES = ['csharp', 'java', 'javascript', 'python']
+const AUTOFIX_SHIPPED_LANGUAGES = ['csharp', 'java', 'javascript', 'python', 'go', 'ruby']
 
 program
   .description('Generate a reusable Markdown for for a code scanning query language')

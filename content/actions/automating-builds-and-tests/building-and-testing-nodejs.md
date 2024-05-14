@@ -64,7 +64,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
        strategy:
          matrix:
-           node-version: [14.x, 16.x, 18.x]
+           node-version: [18.x, 20.x]
            # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
        steps:
@@ -101,7 +101,7 @@ Each job can access the value defined in the matrix `node-version` array using t
 ```yaml copy
 strategy:
   matrix:
-    node-version: ['14.x', '16.x', '18.x']
+    node-version: ['18.x', '20.x']
 
 steps:
 - uses: {% data reusables.actions.action-checkout %}
@@ -254,7 +254,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'npm'
 - run: npm install
 - run: npm test
@@ -267,7 +267,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'yarn'
 - run: yarn
 - run: yarn test
@@ -287,7 +287,7 @@ steps:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'pnpm'
 - run: pnpm install
 - run: pnpm test

@@ -34,7 +34,7 @@ If your {% data variables.product.prodname_oauth_app %} doesn't have access to a
 Check headers to see what OAuth scopes you have, and what the API action accepts:
 
 ```shell
-$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.rest_url %}/users/codertocat -I
 HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
