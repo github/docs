@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server releases
-intro: '{% data variables.product.company_short %} releases new versions of {% data variables.product.product_name %} regularly. You can review supported versions, see deprecation dates, and browse documentation for the release you''ve deployed.'
+intro: "Review information for each version of {% data variables.product.prodname_ghe_server %}: deprecation dates, links to documentation, and minimum recommended versions of supporting applications."
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
@@ -10,17 +10,15 @@ topics:
 shortTitle: Releases
 ---
 
-## About releases of {% data variables.product.product_name %}
-
-{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} supports the four most recent feature releases. For more information, see "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)."
-
-You can see what's new for each release in the [release notes](/admin/release-notes), and you can view administrator and user documentation for all releases here on {% data variables.product.prodname_docs %}. When you read the documentation, make sure to select the version that reflects your product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+{% data reusables.enterprise.constantly-improving %} See "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)."
 
 ## Releases of {% data variables.product.product_name %}
 
-{% data variables.product.company_short %} provides documentation for both supported and deprecated versions of {% data variables.product.product_name %}, but does not maintain or update the documentation for deprecated versions.
+{% data variables.product.company_short %} supports the **four** most recent feature releases.
 
-For more information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
+We provide documentation for both supported and deprecated versions of {% data variables.product.product_name %}. We do not maintain or update the documentation for deprecated versions.
+
+For information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
 
 | Version | Release | Deprecation | Supported | Release notes | Documentation |
 | :- | :- | :- | :-: | :- | :- |
@@ -38,7 +36,7 @@ For more information about the latest release, see the [{% data variables.produc
 
 ### Deprecated developer documentation
 
-{% data variables.product.company_short %} hosted developer documentation for {% data variables.product.product_name %} on a separate site until the 2.17 release. {% data variables.product.company_short %} continues to provide developer documentation for version 2.16 and earlier, but does not maintain or update the documentation.
+We hosted developer documentation for {% data variables.product.product_name %} on a separate site until the 2.17 release. We provide developer documentation for version 2.16 and earlier, but do not maintain or update the documentation.
 
 | Version | Release | Deprecation | Developer documentation |
 | :- | :- | :- | :- |
@@ -48,7 +46,9 @@ For more information about the latest release, see the [{% data variables.produc
 
 ## Recommended {% data variables.product.prodname_codeql_cli %} versions for code scanning
 
-For instances with a {% data variables.product.prodname_GH_advanced_security %} license and code scanning enabled, the {% data variables.product.prodname_codeql %} action for code scanning analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+For instances with a {% data variables.product.prodname_GH_advanced_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
+
+If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
 
 | {% data variables.product.product_name %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
@@ -61,7 +61,8 @@ For instances with a {% data variables.product.prodname_GH_advanced_security %} 
 
 For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
 
-For most instances, the Runner application is updated automatically. If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners to the required version of the Runner application before upgrading your instance to a new {% data variables.product.prodname_ghe_server %} release. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."
+- For most instances, the Runner application is updated automatically.
+- If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."
 
 | {% data variables.product.product_name %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
