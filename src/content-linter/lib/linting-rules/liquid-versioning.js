@@ -238,6 +238,7 @@ export function validateIfversionConditionalsVersions(cond, allFeatures) {
 
   const errors = []
   const versions = {}
+  let hasFutureLessThan = false
   for (const part of cond.split(/\sor\s/)) {
     // For example `fpt or not ghec` or `not ghes or ghec or not fpt`
     if (/(^|\s)not(\s|$)/.test(part)) {
@@ -245,6 +246,13 @@ export function validateIfversionConditionalsVersions(cond, allFeatures) {
       return []
     }
     for (const [ver, value] of Object.entries(getVersionsObject(part.trim(), allFeatures))) {
+      // If the version value is something like `<=3.0` and the versioning is set
+      // to `<3.19` then it means the version can *potentially* match a version
+      // that doesn't exist yet, but will, in the future.
+      if (/<=?[\d.]+/.test(value)) {
+        hasFutureLessThan = true
+      }
+
       if (ver in versions) {
         versions[ver] = lowestVersion(value, versions[ver])
       } else {
@@ -260,7 +268,7 @@ export function validateIfversionConditionalsVersions(cond, allFeatures) {
     console.warn(`Condition '${cond}' throws an error when trying to get applicable versions`)
   }
 
-  if (isAllVersions(applicableVersions)) {
+  if (isAllVersions(applicableVersions) && !hasFutureLessThan) {
     errors.push(
       `The Liquid ifversion condition '${cond}' includes all possible versions and will always be true`,
     )
