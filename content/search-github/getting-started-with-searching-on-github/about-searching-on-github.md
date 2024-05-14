@@ -1,3 +1,4 @@
+![1000001152](https://github.com/github/docs/assets/169749664/dd199289-8b35-4f1b-ad85-764e10718275)
 ---
 title: About searching on GitHub
 intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
