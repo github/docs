@@ -8,6 +8,7 @@ export type ExtendedRequest = Request & {
   pagePath?: string
   context?: {
     currentCategory?: string
+    error?: Error
   }
   // Add more properties here as needed
 }
