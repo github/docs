@@ -126,6 +126,30 @@ steps:
 
 For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks)" in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the {% data variables.product.prodname_codeql %} documentation.
 
+{% ifversion codeql-no-build %}
+
+## About creating a {% data variables.product.prodname_codeql %} Java database without a build
+
+{% data variables.product.prodname_codeql %} creates a Java database without requiring a build when one or both of the following conditions is true:
+
+-`build-mode` is set to `none`.
+- Default setup is configured and Java code (but not Kotlin code) was present when {% data variables.product.prodname_codeql %} was enabled.
+
+{% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven first in order to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present.
+
+You can read about the system requirements to run Maven or Gradle, and the rules for selecting between them, in {% ifversion codeql-kotlin-beta %}"[Building Java and Kotlin](#building-java--and-kotlin)"{% else %}"[Building Java](#building-java)"{% endif %}. If you're creating a Java database without a build, these are the same, but note that multiple root Maven or Gradle scripts are allowed. Every root Maven or Gradle project file (a build script without any build script present in an ancestor directory) is queried for dependency information, and more recent dependency versions are preferred if there is a clash.
+
+Creating a {% data variables.product.prodname_codeql %} Java database without a build may produce less accurate results than using `autobuild` or manual build steps if:
+
+- Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
+- The analyzed code includes code that was generated during the build process.
+
+To use `autobuild` or manual build steps, you can use advanced setup.
+
+If `build-mode` is set to `none` and Kotlin code is found in the repository, it will not be analyzed and a warning will be produced. See {% ifversion codeql-kotlin-beta %}"[Building Java and Kotlin](#building-java--and-kotlin)"{% else %}"[Building Java](#building-java)"{% endif %}.
+
+{% endif %}
+
 ## About Autobuild for {% data variables.product.prodname_codeql %}
 
 {% ifversion codeql-no-build or code-scanning-without-workflow-310 %}
