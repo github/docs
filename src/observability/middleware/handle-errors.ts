@@ -1,15 +1,24 @@
+import type { NextFunction, Response } from 'express'
+
 import FailBot from '../lib/failbot.js'
-import { nextApp } from '#src/frame/middleware/next.js'
+import { nextApp } from '@/frame/middleware/next.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { errorCacheControl } from '#src/frame/middleware/cache-control.js'
-import statsd from '#src/observability/lib/statsd.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { errorCacheControl } from '@/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd.js'
+import { ExtendedRequest } from '@/types.js'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
-function shouldLogException(error) {
+type ErrorWithCode = Error & {
+  code: string
+  statusCode?: number
+  status?: string
+}
+
+function shouldLogException(error: ErrorWithCode) {
   const IGNORED_ERRORS = [
     // Client connected aborted
     'ECONNRESET',
@@ -23,7 +32,7 @@ function shouldLogException(error) {
   return true
 }
 
-async function logException(error, req) {
+async function logException(error: ErrorWithCode, req: ExtendedRequest) {
   if (process.env.NODE_ENV !== 'test' && shouldLogException(error)) {
     await FailBot.report(error, {
       path: req.path,
@@ -32,7 +41,7 @@ async function logException(error, req) {
   }
 }
 
-function timedOut(req) {
+function timedOut(req: ExtendedRequest) {
   // The `req.pagePath` can come later so it's not guaranteed to always
   // be present. It's added by the `handle-next-data-path.js` middleware
   // we translates those "cryptic" `/_next/data/...` URLs from
@@ -44,10 +53,15 @@ function timedOut(req) {
   statsd.increment('middleware.timeout', 1, incrementTags)
 }
 
-export default async function handleError(error, req, res, next) {
+export default async function handleError(
+  error: ErrorWithCode | number,
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   // Potentially set by the `connect-timeout` middleware.
   if (req.timedout) {
-    timedOut(req, res)
+    timedOut(req)
   }
 
   const responseDone = res.headersSent || req.aborted
@@ -74,7 +88,9 @@ export default async function handleError(error, req, res, next) {
     // If the headers have already been sent or the request was aborted...
     if (responseDone) {
       // Report to Failbot
-      await logException(error, req)
+      if (typeof error !== 'number') {
+        await logException(error, req)
+      }
 
       // We MUST delegate to the default Express error handler
       return next(error)
@@ -83,21 +99,25 @@ export default async function handleError(error, req, res, next) {
     if (!req.context) {
       req.context = {}
     }
-    // display error on the page in development and staging, but not in production
-    if (process.env.HEROKU_PRODUCTION_APP !== 'true') {
-      req.context.error = error
-    }
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       // Note that if this fails, it will swallow that error.
       return nextApp.render404(req, res)
     }
+    if (typeof error === 'number') {
+      throw new Error("Don't use next(xxx) where xxx is any other number than 404")
+    }
+
+    // display error on the page in development and staging, but not in production
+    if (process.env.HEROKU_PRODUCTION_APP !== 'true') {
+      req.context.error = error
+    }
 
     // If the error contains a status code, just send that back. This is usually
     // from a middleware like `express.json()`.
-    if (error.statusCode || error.status) {
-      return res.sendStatus(error.statusCode || error.status)
+    if (error.statusCode) {
+      return res.sendStatus(error.statusCode)
     }
 
     res.statusCode = 500
