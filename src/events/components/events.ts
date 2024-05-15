@@ -94,6 +94,7 @@ type SendEventProps = {
   [EventType.link]: {
     link_url: string
     link_samesite?: boolean
+    link_samepage?: boolean
     link_container?: string
   }
   [EventType.page]: {}
@@ -377,6 +378,7 @@ function initLinkEvent() {
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_samepage: sameSite && link.pathname === location.pathname,
       link_container: container?.dataset.container,
     })
   })
@@ -389,6 +391,9 @@ function initLinkEvent() {
     sendEvent({
       type: EventType.link,
       link_url: `${url}#scroll-to-top`,
+      link_samesite: true,
+      link_samepage: true,
+      link_container: 'static',
     })
   })
 }
