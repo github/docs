@@ -1,4 +1,12 @@
-export default function handleNextDataPath(req, res, next) {
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types.js'
+
+export default function handleNextDataPath(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (req.path.startsWith('/_next/data') && req.path.endsWith('.json')) {
     // translate a nextjs data request to a page path that the server can use on context
     // this is triggered via client-side route transitions
