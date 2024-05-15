@@ -43,7 +43,7 @@ async function logException(error: ErrorWithCode, req: ExtendedRequest) {
 
 function timedOut(req: ExtendedRequest) {
   // The `req.pagePath` can come later so it's not guaranteed to always
-  // be present. It's added by the `handle-next-data-path.js` middleware
+  // be present. It's added by the `handle-next-data-path.ts` middleware
   // we translates those "cryptic" `/_next/data/...` URLs from
   // client-side routing.
   const incrementTags = [`path:${req.pagePath || req.path}`]
