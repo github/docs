@@ -83,7 +83,7 @@ You can manage {% data variables.product.prodname_dependabot %} on self-hosted r
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on on self-hosted runners and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on self-hosted runners and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
 {% endif %}
 1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} on self-hosted runners", click **Enable**  to enable the feature or **Disable** to disable it.
 
@@ -95,7 +95,7 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 {% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on on self-hosted runners and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on self-hosted runners and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
 {% endif %}
 1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} on self-hosted runners", click **Enable all**  to enable the feature or **Disable all** to disable it.
 1. Optionally, select **Automatically enable for new repositories** to enable {% data variables.product.prodname_dependabot %} on self-hosted runners by default for your organization's new repositories.
