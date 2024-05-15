@@ -4,6 +4,35 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EnvironmentPinnedFilterField</code> was added</p>",
+          "<p>Type <code>PinEnvironmentInput</code> was added</p>",
+          "<p>Type <code>PinEnvironmentPayload</code> was added</p>",
+          "<p>Type <code>PinnedEnvironment</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentConnection</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentEdge</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentOrder</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentOrderField</code> was added</p>",
+          "<p>Type <code>ReorderEnvironmentInput</code> was added</p>",
+          "<p>Type <code>ReorderEnvironmentPayload</code> was added</p>",
+          "<p>Field <code>isPinned</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>latestCompletedDeployment</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>pinnedPosition</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>pinEnvironment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>reorderEnvironment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>pinnedEnvironments</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>pinnedEnvironmentFilter: EnvironmentPinnedFilterField</code> (with default value) added to field <code>Repository.environments</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CodeScanningParameters</code> was added</p>",
           "<p>Type <code>CodeScanningParametersInput</code> was added</p>",
           "<p>Type <code>CodeScanningTool</code> was added</p>",
