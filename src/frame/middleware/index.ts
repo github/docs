@@ -16,7 +16,7 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
 import handleErrors from '@/observability/middleware/handle-errors'
-import handleNextDataPath from './handle-next-data-path.js'
+import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language.js'
 import reloadTree from './reload-tree.js'
 import context from './context/context.js'
