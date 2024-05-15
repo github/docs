@@ -14,9 +14,7 @@ redirect_from:
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
 ---
 
-{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}
-
-Anyone with admin permissions to a repository can create and edit a security advisory.
+Anyone with admin permissions to a public repository can create and edit a security advisory.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
@@ -72,8 +70,8 @@ We recommend that you use the **Affected versions** field to specify which versi
   {% note %}
 
   **Notes:** The lower-bound limitation:
-  - is due to incompatibilities with the OSV (Open Source Vulnerability) schema.
-  - only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
+  - Is due to incompatibilities with the OSV (Open Source Vulnerability) schema.
+  - Only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
 
   {% endnote %}
 
