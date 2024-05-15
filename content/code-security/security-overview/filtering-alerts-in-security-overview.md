@@ -90,7 +90,7 @@ If you add custom properties to your organization and set values for repositorie
 
 {% ifversion security-overview-dashboard-enterprise %}
 
-## Organization name and type filters
+## Repository owner name and type filters
 
 In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise or an {% data variables.product.prodname_emu %} (EMU) account. Alternatively, you can filter by account owner type.
 
