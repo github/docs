@@ -73,14 +73,14 @@ Use `git status` to list all new or modified files that haven't yet been committ
 
 To format code or text into its own distinct block, use triple backticks.
 
-<pre>
+````text
 Some basic Git commands are:
 ```
 git status
 git add
 git commit
 ```
-</pre>
+````
 
 ![Screenshot of rendered GitHub Markdown showing a code block. The words "git status," "git add," and "git commit" appear in a fixed-width typeface, highlighted in light gray.](/assets/images/help/writing/code-block-rendered.png)
 
@@ -250,8 +250,6 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
-{% ifversion task-lists-v1 %}
-
 ## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
@@ -261,7 +259,6 @@ If a task list item description begins with a parenthesis, you'll need to escape
 `- [ ] \(Optional) Open a followup issue`
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
-{% endif %}
 
 ## Mentioning people and teams
 
