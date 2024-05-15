@@ -98,7 +98,7 @@ If you've previously set up SSH keys, you can use the SSH clone URL instead of H
 
 ### Check your spelling
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.product.product_url %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Typos happen.  If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
