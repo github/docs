@@ -146,37 +146,37 @@
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A Copilot Business or Copilot Enterprise seat was added for a user and they have received access to GitHub Copilot. This can occur as the result of directly assigning a seat for a user, assigning a seat for a team, or setting the organization to allow access for all members.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "A seat assignment was newly created for a user.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was newly created for a user or a team, and seats are being created.",
     "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to GitHub Copilot.",
+    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "A seat assignment was re-created for a user who already had a seat with no pending cancellation date.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was re-created for a user who already had a seat with no pending cancellation date, and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "A seat was unassigned from a user and they will lose access to GitHub Copilot at the end of the billing cycle.",
+    "description": "A user or team's Copilot Business or Copilot Enterprise seat assignment was unassigned, and the user(s) will lose access to Copilot at the end of the current billing cycle.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled manually by GitHub staff, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {

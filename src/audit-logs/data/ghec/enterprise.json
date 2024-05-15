@@ -191,7 +191,7 @@
   },
   {
     "action": "business.cancel_trial",
-    "description": "The trial of GitHub Enterprise Cloud was cancelled.",
+    "description": "The trial of GitHub Enterprise Cloud was canceled.",
     "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
@@ -721,62 +721,62 @@
   },
   {
     "action": "copilot.access_revoked",
-    "description": "The user's Copilot access was revoked.",
+    "description": "Copilot access was revoked for the organization or enterprise due to its Copilot subscription ending, an issue with billing the entity, the entity being marked spammy, or the entity being suspended.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_org_enablement_changed",
-    "description": "The Copilot Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
+    "description": "The Copilot enablement policy changed at the enterprise level to either allow or disable access for all organizations, or to allow access for selected organizations.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_settings_changed",
-    "description": "Settings for Copilot Business were changed at the enterprise level.",
+    "description": "Copilot feature settings were changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "Settings for Copilot Business were changed at the organization level.",
+    "description": "Copilot feature settings were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A Copilot Business or Copilot Enterprise seat was added for a user and they have received access to GitHub Copilot. This can occur as the result of directly assigning a seat for a user, assigning a seat for a team, or setting the organization to allow access for all members.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "A seat assignment was newly created for a user.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was newly created for a user or a team, and seats are being created.",
     "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to GitHub Copilot.",
+    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "A seat assignment was re-created for a user who already had a seat with no pending cancellation date.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was re-created for a user who already had a seat with no pending cancellation date, and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "A seat was unassigned from a user and they will lose access to GitHub Copilot at the end of the billing cycle.",
+    "description": "A user or team's Copilot Business or Copilot Enterprise seat assignment was unassigned, and the user(s) will lose access to Copilot at the end of the current billing cycle.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled manually by GitHub staff, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "The seat management setting was changed for the Copilot Business subscription.",
+    "description": "The seat management setting was changed at the organization level to either enable or disable Copilot access for all members of the organization, or to enable Copilot access for selected members or teams.",
     "docs_reference_links": "N/A"
   },
   {
@@ -791,7 +791,7 @@
   },
   {
     "action": "copilot.enterprise_enablement_changed",
-    "description": "The Copilot Business enablement policy changed at the enterprise level.",
+    "description": "Copilot access was enabled or disabled at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3665,6 +3665,11 @@
     "docs_reference_links": "A request to bypass secret scanning push protection was approved by a user."
   },
   {
+    "action": "secret_scanning_push_protection_request.deny",
+    "description": "N/A",
+    "docs_reference_links": "A request to bypass secret scanning push protection was denied by a user."
+  },
+  {
     "action": "secret_scanning_push_protection_request.request",
     "description": "N/A",
     "docs_reference_links": "A user requested to bypass secret scanning push protection."
@@ -4005,6 +4010,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.pin_workflow",
+    "description": "A workflow was pinned.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "workflows.prepared_workflow_job",
     "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
@@ -4018,5 +4028,10 @@
     "action": "workflows.rerun_workflow_run",
     "description": "A workflow run was re-run.",
     "docs_reference_links": "/actions/managing-workflow-runs/re-running-workflows-and-jobs"
+  },
+  {
+    "action": "workflows.unpin_workflow",
+    "description": "A workflow was unpinned after previously being pinned.",
+    "docs_reference_links": "N/A"
   }
 ]
