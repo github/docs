@@ -44,7 +44,7 @@ You can create a branch in different ways on {% data variables.product.product_n
 ### Creating a branch using the branch dropdown
 
 {% data reusables.repositories.navigate-to-repo %}
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 1. Select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, in the file tree view or at the top of the integrated file editor.
 
    ![Screenshot of the file tree view for a repository. A dropdown menu for branches is outlined in dark orange.](/assets/images/help/branches/file-tree-view-branch-dropdown.png)
