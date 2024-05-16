@@ -69,7 +69,7 @@ Organization{% ifversion ghec %} and enterprise{% endif %} owners can manage var
 
    - Click **Users and teams** to search for and add individual users or teams.
 
-     To search for users, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
+     To search for a user, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
 
    - Click **Upload CSV** to add users in bulk by uploading a CSV file.
 
@@ -77,7 +77,7 @@ Organization{% ifversion ghec %} and enterprise{% endif %} owners can manage var
 
      {% warning %}
 
-     **Warning:** When you upload a CSV file, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
+     **Warning:** When you upload a CSV file, unless you're using {% data variables.product.prodname_emus %}, {% data variables.product.prodname_copilot %} will search all users on {% data variables.product.prodname_dotcom_the_website %} for matches. If the CSV includes users who are not members of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**. This warning does not apply to accounts using {% data variables.product.prodname_emus %}.
 
      {% endwarning %}
 

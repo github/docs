@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { yamlScheduledJobs } from '../../lib/linting-rules/yaml-scheduled-jobs.js'
 

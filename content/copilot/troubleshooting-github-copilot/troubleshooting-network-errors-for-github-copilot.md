@@ -39,8 +39,6 @@ If you receive an error related to "revocation for the certificate," you can try
 
 If you're specifically having difficulty with {% data variables.product.prodname_copilot_chat_short %} in your editor, run the above `curl` commands but use `https://api.githubcopilot.com/_ping` instead of `https://copilot-proxy.githubusercontent.com/_ping`.
 
-{% data reusables.copilot.chat-api-endpoints-note %}
-
 If you're unable to connect and the `curl` requests don't help to identify the error, it may help to collect detailed diagnostic logs in your editor. If you're working with your company's IT department or {% data variables.contact.contact_support_page %}, sharing these diagnostics may help to resolve the error. Enabling debug logging in your editor will help you to share more specific information. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment)."
 
 ## Troubleshooting proxy errors
@@ -73,3 +71,9 @@ Some possible ways to resolve certificate-related errors are:
   **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
 
   {% endwarning %}
+
+### Troubleshooting security software-related certificate errors
+
+If you or your organization use security software that monitors secure web traffic and you receive an "unable to verify the first certificate" error, you may need to configure an exception for your IDE and/or the copilot extension.
+
+For more information about how to configure an exception, refer to your security software vendor.

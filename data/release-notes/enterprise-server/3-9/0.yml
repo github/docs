@@ -146,6 +146,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3006
         - |
           On instances in a cluster configuration, GitHub Actions is available as a private beta. Beta features are subject to change. For more information, and to enroll in the beta, [contact your representative on GitHub's Sales team](https://github.com/enterprise/contact).
@@ -198,10 +201,6 @@ sections:
 
     - heading: Organizations
       notes:
-        # https://github.com/github/releases/issues/2986
-        - |
-          Organization owners can improve security posture and protect data from threats by enabling the display of organization members' IP addresses in audit log events. This feature is in beta and is subject to change. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization)."
-
         # https://github.com/github/releases/issues/2916
         - |
           To allow the management of branch protection rules without granting admin access, organization owners can create a custom role with the "Edit repository rules" permission. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
@@ -470,3 +469,8 @@ sections:
       notes:
         - |
           To improve the security of an instance where users deploy sites using GitHub Pages, sites that contain symbolic links will no longer build outside of GitHub Actions. If a user's site is affected and a site administrator has configured email for the instance, the user will receive an email with instructions about how to fix the error. To continue using symbolic links in the site's source, the instance must be configured for GitHub Actions, and the user must write a GitHub Actions workflow to use as a publishing source. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)."
+
+  errata:
+    # https://github.com/github/releases/issues/2986
+    - |
+      Previously, these release notes indiciated that organization owners could enable the display of organization members' IP addresses in audit log events. Audit logs for GitHub Enterprise Server always include IP addresses. [Updated: 2024-03-28]

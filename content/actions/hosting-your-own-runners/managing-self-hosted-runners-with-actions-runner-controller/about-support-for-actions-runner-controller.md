@@ -25,7 +25,7 @@ If your support request is outside of the scope of what our team can help you wi
 
 - The legacy community-maintained version of ARC
 - Template spec customization
-- Container orchestration, such as Kubernetes setup, networking, etc.
+- Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
 - Applying Kubernetes policies
 - Managed Kubernetes providers or provider-specific configurations
 - [Runner Container Hooks](https://github.com/actions/runner-container-hooks) in conjunction with ARC's `kubernetes` mode
@@ -53,4 +53,4 @@ For more information about contacting {% data variables.contact.github_support %
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller
 
-{% data variables.contact.github_support %} may ask questions about your Actions Runner Controller deployment and request that you collect and attach [the controller and listener logs](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener) to the support ticket.
+{% data variables.contact.github_support %} may ask questions about your Actions Runner Controller deployment and request that you collect and attach the [controller, listener](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener), and runner logs to the support ticket.

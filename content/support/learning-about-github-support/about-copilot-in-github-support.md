@@ -13,6 +13,8 @@ type: rai
 
 {% data variables.product.prodname_copilot_in_support %} is a new conversational AI tool built to offer immediate assistance within the {% data variables.contact.github_support %} portal, allowing you to tackle issues without waiting for a response from {% data variables.contact.github_support %}. {% data variables.product.prodname_copilot_in_support %} uses a large language model, trained on publicly available {% data variables.product.prodname_dotcom %} documentation, to provide a conversational way to get help for your {% data variables.product.prodname_dotcom %} inquiries without having to wait for customer support to respond to your inquiry.
 
+The primary supported language for {% data variables.product.prodname_copilot_in_support %} is English.
+
 ## How {% data variables.product.prodname_copilot_in_support %} works
 
 {% data variables.product.prodname_copilot_in_support %}'s functionality can be broken down into a few steps.

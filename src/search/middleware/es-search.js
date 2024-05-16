@@ -183,6 +183,48 @@ export async function getSearchResults({
   return { meta, hits }
 }
 
+export async function getAutocompleteSearchResults({ indexName, query, size }) {
+  const client = getClient()
+
+  const matchQueries = getAutocompleteMatchQueries(query.trim(), {
+    fuzzy: {
+      minLength: 3,
+      maxLength: 20,
+    },
+  })
+  const matchQuery = {
+    bool: {
+      should: matchQueries,
+    },
+  }
+
+  const highlight = getHighlightConfiguration(query, ['term'])
+
+  const searchQuery = {
+    index: indexName,
+    highlight,
+    size,
+    query: matchQuery,
+    // Send absolutely minimal from Elasticsearch to here. Less data => faster.
+    _source_includes: ['term'],
+  }
+  const result = await client.search(searchQuery)
+
+  const hitsAll = result.hits
+  const hits = hitsAll.hits.map((hit) => {
+    return {
+      term: hit._source.term,
+      highlights: (hit.highlight && hit.highlight.term) || [],
+    }
+  })
+
+  const meta = {
+    found: hitsAll.total,
+  }
+
+  return { meta, hits }
+}
+
 function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_PHRASE = 10.0
   const BOOST_TITLE = 4.0
@@ -371,6 +413,46 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   return matchQueries
 }
 
+function getAutocompleteMatchQueries(query, { fuzzy }) {
+  const BOOST_PHRASE = 4.0
+  const BOOST_REGULAR = 2.0
+  const BOOST_FUZZY = 0.1 // make it always last in ranking
+  const matchQueries = []
+
+  // If the query input is multiple words, it's good to know because you can
+  // make the query do `match_phrase` and you can make `match` query
+  // with the `AND` operator (`OR` is the default).
+  const isMultiWordQuery = query.includes(' ') || query.includes('-')
+
+  if (isMultiWordQuery) {
+    matchQueries.push({
+      match_phrase_prefix: {
+        term: {
+          query,
+          boost: BOOST_PHRASE,
+        },
+      },
+    })
+  }
+  matchQueries.push({
+    match_bool_prefix: {
+      term: {
+        query,
+        boost: BOOST_REGULAR,
+      },
+    },
+  })
+  if (query.length > fuzzy.minLength && query.length < fuzzy.maxLength) {
+    matchQueries.push({
+      fuzzy: {
+        term: { value: query, boost: BOOST_FUZZY, fuzziness: 'AUTO' },
+      },
+    })
+  }
+
+  return matchQueries
+}
+
 function getHits(hits, { indexName, debug, includeTopics, highlightFields, include }) {
   return hits.map((hit) => {
     // Return `hit.highlights[...]` based on the highlight fields requested.
@@ -464,7 +546,16 @@ function getHighlightConfiguration(query, highlights) {
       },
     }
   }
-
+  if (highlights.includes('term')) {
+    fields.term = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
+      // fragment_size: 200,
+      // number_of_fragments: 1,
+    }
+  }
   return {
     pre_tags: ['<mark>'],
     post_tags: ['</mark>'],

@@ -24,6 +24,8 @@ Before you start, make sure you know:
 
 You will use your personal account to set up the enterprise account. You'll also need to sign in to this account to renew or make changes to your client's subscription in the future.
 
+If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-enterprise-account).
+
 {% data reusables.billing.create-personal-account %}
 
 ## Step 2: Create the enterprise account

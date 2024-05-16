@@ -41,10 +41,10 @@ jobs:
 
       - name: Find last PR
         id: get-number
-        timeout-minutes: 3
+        timeout-minutes: 5
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-        run: src/workflows/find-past-built-pr.js
+        run: npm run find-past-built-pr
 
       - name: Find content directory changes comment
         if: ${{ steps.get-number.outputs.number != '' }}

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_dependabot %} signs its own commits by default, even if commit signing is not a requirement for the repository. For more information about verified commits, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."

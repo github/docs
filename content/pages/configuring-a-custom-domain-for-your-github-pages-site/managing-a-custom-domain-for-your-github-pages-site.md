@@ -30,7 +30,7 @@ Make sure you add your custom domain to your {% data variables.product.prodname_
 
 {% windows %}
 
-The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. Before you can verify that your DNS records are configured correctly, you must install [BIND](https://www.isc.org/bind/).
+The `dig` command, which can be used to verify correct configuration of DNS records, is not included in Windows. To verify that your DNS records are configured correctly, you can use the `Resolve-DnsName` PowerShell command or install [BIND](https://www.isc.org/bind/).
 
 {% endwindows %}
 
@@ -158,7 +158,7 @@ To configure an apex domain, you only need to pick a single DNS record type from
 | Apex domain<br />(`example.com`) | `A` | `@` | `185.199.108.153`<br />`185.199.109.153`<br />`185.199.110.153`<br />`185.199.111.153` |
 | Apex domain<br />(`example.com`) | `AAAA` | `@` | `2606:50c0:8000::153`<br />`2606:50c0:8001::153`<br />`2606:50c0:8002::153`<br />`2606:50c0:8003::153` |
 | Apex domain<br />(`example.com`) | `ALIAS` or `ANAME` | `@` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
-| Subdomain<br />(`ww​w.example.com`,<br />`blog.example.com`) | `CNAME` | `SUBDOMAIN.example.com.` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
+| Subdomain<br />(`ww​w.example.com`,<br />`blog.example.com`) | `CNAME` | `SUBDOMAIN` | `USERNAME.github.io` or<br /> `ORGANIZATION.github.io` |
 
 ## Removing a custom domain
 

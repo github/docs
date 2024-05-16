@@ -44,7 +44,7 @@ To authenticate with an OAuth token from an {% data variables.product.prodname_o
 
 The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
-<pre>{% data variables.product.graphql_url_pre %}</pre>
+<pre>{% data variables.product.graphql_url %}</pre>
 
 The endpoint remains constant no matter what operation you perform.
 
@@ -61,7 +61,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {% data variables.product.graphql_url_code %}
+" {% data variables.product.graphql_url %}
 ```
 
 {% tip %}

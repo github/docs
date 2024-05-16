@@ -327,7 +327,7 @@ function getFilesToLint(paths) {
       } else if (isInDir(absPath, dataDir)) {
         if (absPath.endsWith('.yml')) {
           fileList.yml.push(absPath)
-        } else {
+        } else if (absPath.endsWith('.md')) {
           fileList.data.push(absPath)
         }
       }
@@ -342,7 +342,11 @@ function getFilesToLint(paths) {
   function cleanPaths(filePaths) {
     const clean = []
     for (const filePath of filePaths) {
-      if (path.basename(filePath) === 'README.md') continue
+      if (
+        path.basename(filePath) === 'README.md' ||
+        (!filePath.endsWith('.md') && !filePath.endsWith('.yml'))
+      )
+        continue
       const relPath = path.relative(root, filePath)
       if (seen.has(relPath)) continue
       seen.add(relPath)
@@ -487,12 +491,12 @@ function formatResult(object, isPrecommit) {
 
 // Get a list of changed and staged files in the local git repo
 function getChangedFiles() {
-  const changedFiles = execSync(`git diff --name-only`)
+  const changedFiles = execSync(`git diff --diff-filter=d --name-only`)
     .toString()
     .trim()
     .split('\n')
     .filter(Boolean)
-  const stagedFiles = execSync(`git diff --name-only --staged`)
+  const stagedFiles = execSync(`git diff --diff-filter=d --name-only --staged`)
     .toString()
     .trim()
     .split('\n')
@@ -632,7 +636,7 @@ function getCustomRule(ruleName) {
     ruleNames: [ 'search-replace' ],
     ruleDescription: 'Custom rule',
     ruleInformation: 'https://github.com/OnkarRuikar/markdownlint-rule-search-replace',
-    errorDetail: 'docs-domain: Catch occurrences of docs.gitub.com domain.',
+    errorDetail: 'docs-domain: Catch occurrences of docs.github.com domain.',
     errorContext: "column: 21 text:'docs.github.com'",
     errorRange: [ 21, 15 ],
     fixInfo: null

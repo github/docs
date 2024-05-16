@@ -1359,6 +1359,24 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "create-a-codeql-variant-analysis",
+      "subcategory": "code-scanning",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses"
+    },
+    {
+      "slug": "get-the-summary-of-a-codeql-variant-analysis",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}"
+    },
+    {
+      "slug": "get-the-analysis-status-of-a-repository-in-a-codeql-variant-analysis",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}/repos/{repo_owner}/{repo_name}"
+    },
+    {
       "slug": "get-a-code-scanning-default-setup-configuration",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -1709,6 +1727,12 @@
       "subcategory": "copilot-user-management",
       "verb": "delete",
       "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+      "subcategory": "copilot-usage",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/usage"
     },
     {
       "slug": "get-copilot-seat-assignment-details-for-a-user",

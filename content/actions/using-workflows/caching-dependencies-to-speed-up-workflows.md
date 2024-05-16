@@ -30,6 +30,7 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 | Gradle, Maven | [setup-java](https://github.com/actions/setup-java#caching-packages-dependencies) |
 | RubyGems | [setup-ruby](https://github.com/ruby/setup-ruby#caching-bundle-install-automatically) |
 | Go `go.sum` | [setup-go](https://github.com/actions/setup-go#caching-dependency-files-and-build-outputs) |
+| .NET NuGet | [setup-dotnet](https://github.com/actions/setup-dotnet?tab=readme-ov-file#caching-nuget-packages) |
 
 {% warning %}
 

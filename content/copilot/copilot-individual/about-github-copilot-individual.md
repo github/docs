@@ -40,7 +40,9 @@ You are responsible for ensuring the security and quality of your code. We recom
 
 {% data variables.product.prodname_copilot %} is a paid feature, requiring a monthly or yearly subscription. {% data variables.product.prodname_copilot %} subscriptions can be paid for and managed through a personal account on {% data variables.product.prodname_dotcom_the_website %} with {% data variables.product.prodname_copilot_individuals_short %}, or paid for and managed centrally through {% ifversion fpt %}an organization account {% else %}an enterprise account on {% data variables.product.prodname_ghe_cloud %}{% endif %} with {% ifversion ghec %}either{% endif %} {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %}.
 
-Verified students, teachers, and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot_individuals_short %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. {% ifversion fpt %}If you do not meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be offered a {% data reusables.copilot.trial-period %}-day free trial, after which a paid subscription is required for continued use.{% endif %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+Verified students, teachers, and maintainers of popular open source projects on {% data variables.product.prodname_dotcom %} are eligible to use {% data variables.product.prodname_copilot_individuals_short %} for free. If you meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. {% ifversion fpt %}If you do not meet the criteria for a free {% data variables.product.prodname_copilot_individuals_short %} subscription, you will be offered a {% data reusables.copilot.trial-period %}-day free trial, after which a paid subscription is required for continued use.{% endif %}
+
+For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
 ## About the license for the {% data variables.product.prodname_copilot %} plugin in JetBrains IDEs
 
@@ -48,7 +50,7 @@ Verified students, teachers, and maintainers of popular open source projects on 
 
 ## About privacy for {% data variables.product.prodname_copilot_for_individuals %}
 
-You have the ability to manage and make choices regarding the collection, retention, and processing of your data, allowing you to maintain control over your privacy while using {% data variables.product.prodname_copilot_for_individuals %}.
+Learn more about {% data variables.product.prodname_dotcom %}'s data collection, retention, and processing for {% data variables.product.prodname_copilot_for_individuals %}.
 
 ### What data does {% data variables.product.prodname_copilot_for_individuals %} collect?
 
@@ -56,15 +58,15 @@ You have the ability to manage and make choices regarding the collection, retent
 
 ### User Engagement Data
 
-When you use {% data variables.product.prodname_copilot %} it will collect usage information about events generated when interacting with the IDE or editor. These events include user edit actions like if Suggestions are accepted or dismissed, and error and general usage data to identify metrics like latency and features engagement. This information may include personal data, such as pseudonymous identifiers.
+When you use {% data variables.product.prodname_copilot %} it will collect usage information about events generated when interacting with {% data variables.product.prodname_copilot %}. These events include user edit actions like if Suggestions are accepted or dismissed, and error and general usage data to identify metrics like latency and features engagement. This information may include personal data, such as pseudonymous identifiers.
 
 #### Prompts
 
-A Prompt is the bundle of contextual information the {% data variables.product.prodname_copilot %} extension sends when a user is working on a file and pauses typing, or when the user opens the {% data variables.product.prodname_copilot_short %} pane. Prompts are retained unless you have disabled code snippet collection in your settings.
+A Prompt is the collection of code and supporting contextual information {% data variables.product.prodname_copilot %} sends to {% data variables.product.company_short %} to generate Suggestions, including data you submit through a chat interface. {% data variables.product.prodname_copilot %} in the code editor retains Prompts unless you have disabled code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Prompts in order to provide the Service.
 
 #### Suggestions
 
-A Suggestion is one or more lines of proposed text returned to the {% data variables.product.prodname_copilot %} extension after a Prompt is received and processed by the AI-model. Suggestions are retained unless you disable code snippet collection in your settings.
+A Suggestion is the code, functions, or other output returned to you by {% data variables.product.prodname_copilot %} after a Prompt is received and processed by the AI-model. {% data variables.product.prodname_copilot %} in the code editor retains Suggestions unless you disable code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Suggestions in order to provide the Service.
 
 ### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
 
@@ -93,7 +95,7 @@ To ensure the protection of sensitive data such as user edit actions, source cod
 {% data variables.product.prodname_copilot %} gives you choices about how it uses the data it collects.
 
 - User Engagement Data: User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the proper functioning of {% data variables.product.prodname_copilot %}. This data is collected, processed, and shared with Microsoft while you use {% data variables.product.prodname_copilot %}.
-- Retention of Prompts and Suggestions: You have the option to decide whether Prompts and Suggestions are retained by {% data variables.product.company_short %} and shared with Microsoft. These preferences can be adjusted in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
+- Retention of Prompts and Suggestions: You have the option to decide whether Prompts and Suggestions, when using {% data variables.product.prodname_copilot %} in your code editor, are retained by {% data variables.product.company_short %} and shared with Microsoft. These preferences can be adjusted in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
 - Requesting Deletion: If you wish to delete Prompts and Suggestions associated with your {% data variables.product.company_short %} identity, contact {% data variables.contact.contact_support %}.
 
 ### Will my private code be shared with other users?

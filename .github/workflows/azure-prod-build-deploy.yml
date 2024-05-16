@@ -52,6 +52,9 @@ jobs:
         uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226
 
       - name: Check out repo
+        # If any of the steps above fail, we'll need a checkout so we
+        # have access to the `.github/actions/slack-alert/action.yml` file.
+        if: ${{ always() && github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: ${{ github.sha }}
@@ -59,7 +62,7 @@ jobs:
           persist-credentials: 'false'
 
       - name: Setup Node.js
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: 'package.json'
           cache: npm

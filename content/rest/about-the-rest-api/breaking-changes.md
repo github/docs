@@ -3,7 +3,9 @@ title: Breaking changes
 shortTitle: Breaking changes
 intro: Learn about breaking changes that were introduced in each REST API version.
 versions:
-  feature: api-date-versioning
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /rest/overview/breaking-changes
 ---

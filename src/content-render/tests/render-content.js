@@ -1,4 +1,6 @@
 import cheerio from 'cheerio'
+import { describe, expect, test } from 'vitest'
+
 import { renderContent } from '#src/content-render/index.js'
 import { EOL } from 'os'
 

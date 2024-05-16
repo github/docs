@@ -74,6 +74,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
 
+{% ifversion fpt or ghec or ghes > 3.12 %}- **Job execution time** - Each job in a workflow can run for up to 5 days of execution time. If a job reaches this limit, the job is terminated and fails to complete.{% endif %}
 {% data reusables.actions.usage-workflow-run-time %}
 - **Job queue time** - Each job for self-hosted runners that has been queued for at least 24 hours will be canceled. The actual time in queue can reach up to 48 hours before cancellation occurs. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-api-requests %}
@@ -91,20 +92,18 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### Linux
 
-- Red Hat Enterprise Linux 7 or later
-- CentOS 7 or later
-- Oracle Linux 7 or later
+- Red Hat Enterprise Linux 8 or later
+- CentOS 8 or later
+- Oracle Linux 8 or later
 - Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Debian 10 or later
+- Ubuntu 20.04 or later
+- Linux Mint 20 or later
+- openSUSE 15.2 or later
+- SUSE Enterprise Linux (SLES) 15 SP2 or later
 
 ### Windows
 
-- Windows 7 64-bit
-- Windows 8.1 64-bit
 - Windows 10 64-bit
 - Windows 11 64-bit
 - Windows Server 2016 64-bit
@@ -154,7 +153,7 @@ For caching to work, the runner must be able to communicate with the blob storag
 
 {% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+You must ensure that the machine has the appropriate network access with at least 70 kilobits per second upload and download speed to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
@@ -176,6 +175,8 @@ api.github.com
 
 ```shell copy
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -240,6 +241,8 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
 {% note %}

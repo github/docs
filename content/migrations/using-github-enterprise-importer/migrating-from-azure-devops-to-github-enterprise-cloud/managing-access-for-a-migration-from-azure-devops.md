@@ -25,6 +25,8 @@ Additionally, if you use IP allow lists with the source or destination, you may 
 
 {% data reusables.enterprise-migration-tool.about-the-migrator-role %}
 
+<span id="required-roles"></span>
+
 ## Required roles for {% data variables.product.company_short %}
 
 For the destination organization on {% data variables.product.prodname_dotcom %}, different roles are required for different tasks.

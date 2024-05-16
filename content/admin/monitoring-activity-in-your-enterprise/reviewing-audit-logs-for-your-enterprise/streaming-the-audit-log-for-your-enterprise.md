@@ -20,10 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% note %}
 
-{% ifversion ghes %}**Notes:**
-- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
-- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
-**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
+**Note:** {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
 
@@ -51,6 +48,16 @@ Enabling audit log streaming can cause a minor impact on the performance of {% d
 
 {% endif %}
 
+{% ifversion audit-log-streaming-health-check %}
+
+## Health checks for audit log streams
+
+Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
+
+To fix your streaming configuration, follow the steps outlined in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
+
+{% endif %}
+
 ## Events that appear in audit log streams
 
 You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
@@ -71,6 +78,14 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 - [Splunk](#setting-up-streaming-to-splunk)
 
 ### Setting up streaming to Amazon S3
+
+{% ifversion ghes %}
+{% note %}
+
+**Note**: The Amazon region `us-east-1` must be reachable from your appliance in order for streaming to S3 to work accordingly.
+
+{% endnote %}
+{% endif %}
 
 {% ifversion streaming-oidc-s3 %}
 You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).

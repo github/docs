@@ -1,9 +1,11 @@
-<a name="allowing-select-actions-to-run"></a>
-<a name="allowing-specific-actions-to-run"></a>
+<span name="allowing-select-actions-to-run"></span>
+<span name="allowing-specific-actions-to-run"></span>
 
 ### Allowing select actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to run
 
 When you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed, and there are additional options for allowing other specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:
+
+{% data reusables.repositories.settings-permissions-org-policy-note %}
 
 - **Allow actions created by {% data variables.product.prodname_dotcom %}:** You can allow all actions created by {% data variables.product.prodname_dotcom %} to be used by workflows. Actions created by {% data variables.product.prodname_dotcom %} are located in the `actions` and `github` organizations. For more information, see the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
 - **Allow Marketplace actions by verified creators:** {% ifversion ghes %}This option is available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."{% endif %} You can allow all {% data variables.product.prodname_marketplace %} actions created by verified creators to be used by workflows. When GitHub has verified the creator of the action as a partner organization, the {% octicon "verified" aria-label="The verified badge" %} badge is displayed next to the action in {% data variables.product.prodname_marketplace %}.

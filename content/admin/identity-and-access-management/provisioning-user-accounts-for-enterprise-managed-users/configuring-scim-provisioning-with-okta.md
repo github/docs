@@ -83,6 +83,9 @@ To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin*
 1. To make changes, click **Edit**.
 1. Select **Enable API integration**.
 1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope belonging to the setup user.
+
+   {% data reusables.scim.import-groups-unsupported %}
+
 1. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
 1. To save the token, click **Save**.
 1. In the settings menu, click **To App**.

@@ -16,7 +16,15 @@ shortTitle: Manage GitHub Advanced Security
 
 ## About management of {% data variables.product.prodname_advanced_security %} features
 
-You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. To streamline management of {% data variables.product.prodname_advanced_security %}, you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
+You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. {% ifversion security-configurations %}{% data reusables.security-configurations.enable-security-features-with-gh-config %}
+
+{% note %}
+
+**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+
+To manage individual {% data variables.product.prodname_GH_advanced_security %} features, {% else %}To streamline management of {% data variables.product.prodname_advanced_security %}, {% endif %}you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
 
 {% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
 
@@ -41,6 +49,9 @@ When you enable one or more security and analysis features for existing reposito
 
      {% ifversion ghec %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-with-user-namespace.png)
+
+     {% elsif ghes > 3.12 %}
+     ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-without-validity-check.png)
 
      {% else %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png){% endif %}

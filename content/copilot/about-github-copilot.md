@@ -18,6 +18,7 @@ Using the chat feature, you can ask {% data variables.product.prodname_copilot_s
 
 {% data variables.product.prodname_copilot %} is available:
 - In your IDE
+- In {% data variables.product.prodname_mobile %}, as a chat interface
 - On the command line, through the {% data variables.product.prodname_cli %}
 - On {% data variables.product.prodname_dotcom_the_website %}, with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}
 
@@ -48,3 +49,5 @@ You can access {% data variables.product.prodname_copilot %} as part of one of t
   - Generate automatic summaries of pull requests.
 
   For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
+
+{% data reusables.copilot.copilot-one-account-short %}

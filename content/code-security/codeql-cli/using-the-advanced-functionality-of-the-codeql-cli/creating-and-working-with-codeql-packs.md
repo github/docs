@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs
 ---
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
 ## About {% data variables.product.prodname_codeql %} packs and the {% data variables.product.prodname_codeql_cli %}
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
@@ -27,7 +25,7 @@ There are{% ifversion codeql-model-packs %} three{% else %} two{% endif %} types
 
 - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs %}
 
-- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis at the repository level. For more information about creating your own model packs, see "[Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack)."{% endif %}
+- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. {% data reusables.code-scanning.codeql-model-packs-availability %} For more information about creating your own model packs, see "[Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack)."{% endif %}
 
 You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
 
@@ -78,7 +76,7 @@ The `codeql pack init` command creates the directory structure and configuration
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs use data extensions, which are implemented as YAML and describe how to add data for new dependencies. When a model pack is specified, the data extensions in that pack will be added to the {% data variables.product.prodname_code_scanning %} analysis automatically. For more information about {% data variables.product.prodname_codeql %} model packs and data extensions, see [Using the {% data variables.product.prodname_codeql %} model editor](https://codeql.github.com/docs/codeql-for-visual-studio-code/using-the-codeql-model-editor) in the {% data variables.product.prodname_codeql %} documentation.
+Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs use data extensions, which are implemented as YAML and describe how to add data for new dependencies. When a model pack is specified, the data extensions in that pack will be added to the {% data variables.product.prodname_code_scanning %} analysis automatically. For more information about {% data variables.product.prodname_codeql %} model packs and data extensions, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
 
 A model pack is a {% data variables.product.prodname_codeql %} pack with the following characteristics in the `qlpack.yml` file:
 
@@ -104,18 +102,6 @@ In this example, the model pack will inject all the data extensions in `models/*
 Once you've created a model pack, you can publish it in the same way as other {% data variables.product.prodname_codeql %} packs. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)." You can then use published model packs in a {% data variables.product.prodname_code_scanning %} analysis with the `--model-packs` option. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies)."
 
 {% endif %}
-
-## Modifying an existing legacy QL pack to create a {% data variables.product.prodname_codeql %} query pack
-
-If you already have a `qlpack.yml` file, you can edit it manually to convert it into a {% data variables.product.prodname_codeql %} pack.
-
-1. Edit the `name` property so that it matches the format `<scope>/<name>`, where `<scope>` is the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
-
-1. In the `qlpack.yml` file, include a `version` property with a semver identifier, as well as an optional `dependencies` block.
-
-1. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
-
-For more information about the properties, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 
 ## Adding and installing dependencies on a {% data variables.product.prodname_codeql %} pack
 

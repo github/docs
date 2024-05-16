@@ -24,7 +24,7 @@ topics:
 
 {% ifversion ghec %}
 
-Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
+Your enterprise account on {% data variables.product.prodname_ghe_cloud %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes %}
 
@@ -35,7 +35,7 @@ The enterprise account on {% data variables.location.product_location %} allows 
 Organizations are shared accounts where enterprise members can collaborate across many projects at once. Organization owners can manage access to the organization's data and projects with sophisticated security and administrative features. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
 
 {% ifversion ghec %}
-In the enterprise settings, enterprise owners can invite existing organizations to join your enterprise account, transfer organizations between enterprise accounts, or create new organizations. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+You can create new organizations that belong to your enterprise account. If your enterprise uses personal accounts on {% data variables.product.prodname_dotcom_the_website %}, enterprise owners can invite existing organizations to join your enterprise, or transfer organizations between enterprises. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 {% endif %}
 
 Your enterprise account allows you to manage and enforce policies for all the organizations owned by the enterprise. {% data reusables.enterprise.about-policies %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."

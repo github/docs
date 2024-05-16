@@ -10,7 +10,6 @@ export interface Operation {
   bodyParameters: Array<BodyParameter>
   category: string
   subcategory: string
-  enabledForGitHubApps: boolean
   codeExamples: Array<CodeSample>
   progAccess: ProgAccessT
 }

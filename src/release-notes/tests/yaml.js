@@ -1,8 +1,9 @@
-import yaml from 'js-yaml'
 import { readFile } from 'fs/promises'
 import walk from 'walk-sync'
 import path from 'path'
-import { jest } from '@jest/globals'
+
+import { beforeAll, describe, expect, test } from 'vitest'
+import yaml from 'js-yaml'
 
 import { liquid } from '#src/content-render/index.js'
 
@@ -13,8 +14,6 @@ const yamlWalkOptions = {
   includeBasePath: true,
 }
 const yamlFileList = walk(ghesReleaseNoteRootPath, yamlWalkOptions).sort()
-
-jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('lint enterprise release notes', () => {
   if (yamlFileList.length < 1) return
@@ -27,7 +26,7 @@ describe('lint enterprise release notes', () => {
       yamlContent = yaml.load(fileContents)
     })
 
-    it('contains valid liquid', () => {
+    test('contains valid liquid', () => {
       const { intro, sections } = yamlContent
       let toLint = { intro }
       for (const key in sections) {
@@ -51,7 +50,7 @@ describe('lint enterprise release notes', () => {
     })
 
     const currentWeeksFound = []
-    it('does not have more than one yaml file with currentWeek set to true', () => {
+    test('does not have more than one yaml file with currentWeek set to true', () => {
       if (!yamlAbsPath.includes('data/release-notes/github-ae')) return
       if (yamlContent.currentWeek) currentWeeksFound.push(relativePath)
       const errorMessage = `Found more than one file with currentWeek set to true: ${currentWeeksFound.join(

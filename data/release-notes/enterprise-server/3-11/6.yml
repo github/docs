@@ -37,6 +37,4 @@ sections:
     - |
       {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
     - |
-      Pre-receive hooks which utilize `git rev-list` fail with an `fatal: Invalid revision range` error message.
-    - |
       {% data reusables.release-notes.2024-02-pages-deployment-error %}

@@ -13,7 +13,7 @@ redirect_from:
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding. For more information on workflows and {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/guides/about-continuous-integration)."
+After a student accepts an assignment, on every push to the assignment repository (or on a teacher-defined schedule), {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding, but you can optionally modify the workflow configurations to suit your needs. For more information on workflows and {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/guides/about-continuous-integration)."
 
 You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 
@@ -21,9 +21,15 @@ You can see an overview of which students are passing autograding tests by navig
 
 ## Grading methods
 
-There are two grading methods: input/output tests and run command tests.
+{% data variables.product.prodname_classroom %} provides different autograding test presets that can be used if you do not wish to configure {% data variables.product.prodname_actions %} workflows yourself. You can also choose to use custom {% data variables.product.prodname_actions %} YAML to define your own autograding workflow.
 
-### Input/output test
+### Using {% data variables.product.prodname_dotcom %} presets
+
+You can use presets without any knowledge of {% data variables.product.prodname_actions %}. You can enter information about your autograding tests and {% data variables.product.prodname_classroom %} will automatically add the required files to student assignment repositories.
+
+There are three types of presets: input/output tests, python tests, and run command tests.
+
+#### Input/output test
 
 An input/output test optionally runs a setup command, then provides standard input to a test command. {% data variables.product.prodname_classroom %} evaluates the test command's output against an expected result.
 
@@ -38,7 +44,19 @@ An input/output test optionally runs a setup command, then provides standard inp
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The number of points the test is worth toward a total score |
 
-### Run command test
+#### Python test
+
+A Python test runs a setup command, then runs `pytest`. The number of points awarded will depend on how many tests in the `pytest` test suite the student passes. Each test is worth the same number of points; you can change how many points the entire test suite is worth by changing the `Points` setting.
+
+| Setting | Description |
+| :- | :- |
+| **Test name** | The name of the test, to identify the test in logs |
+| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation. [Some dependencies are already installed](https://github.com/education/autograding-python-grader/blob/main/requirements.txt), but you can install more if needed. You do not need to use `sudo`, and should use `pip` instead of `pip3`. |
+| **Run command** | The command to run the test and generate an exit code for evaluation |
+| **Timeout** | In minutes, how long a test should run before resulting in failure |
+| **Points** | _Optional_. The total number of points the entire `pytest` suite is worth. Each test will be worth `Points / number_of_tests` |
+
+#### Run command test
 
 A run command test runs a setup command, then runs a test command. {% data variables.product.prodname_classroom %} checks the exit status of the test command. An exit code of `0` results in success, and any other exit code results in failure.
 
@@ -51,6 +69,12 @@ A run command test runs a setup command, then runs a test command. {% data varia
 | **Run command** | The command to run the test and generate an exit code for evaluation |
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The number of points the test is worth toward a total score |
+
+### Using a custom {% data variables.product.prodname_actions %} workflow
+
+Instead of using presets, you can also add any {% data variables.product.prodname_actions %} workflow to the `.github/workflows/classroom.yml` file in your starter code repository.
+
+You can edit the `.github/workflows/classroom.yml` file directly from the assignment edit page by selecting **Custom YAML** instead of **{% data variables.product.prodname_dotcom %} presets**. Clicking **Convert to workflow file** will prompt you to commit your changes to your starter code repository. This synchronization will only work if your starter code repository is in the same organization as your classroom. If your starter code repository is in another organization, you must edit the `.github/workflows/classroom.yml` file manually.
 
 ## Configuring autograding tests for an assignment
 
@@ -72,6 +96,19 @@ You can add, edit, or delete autograding tests for an existing assignment. All c
     - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
 
 1. At the bottom of the page, click **Update assignment**.
+
+## Configuring when autograding tests are run
+
+By default, autograding tests will automatically run whenever a student pushes to an assignment repository on {% data variables.location.product_location %}. However, if you want to manage your {% data variables.product.prodname_actions %} minutes, you can change this behavior.
+
+{% data reusables.classroom.sign-into-github-classroom %}
+{% data reusables.classroom.click-classroom-in-list %}
+{% data reusables.classroom.assignments-click-pencil %}
+1. In the left sidebar, click **Grading and feedback**.
+1. Below your list of autograding tests, you can configure when autograding tests are run.
+    - **Every time a student submits an assignment**: This is the default behavior.
+    - **On a schedule**: You can set a time every day or every week for autograding tests to be run.
+    - **Manually**: Autograding test runs will be manually triggered by you from the assignment dashboard.
 
 ## Viewing and downloading results from autograding tests
 

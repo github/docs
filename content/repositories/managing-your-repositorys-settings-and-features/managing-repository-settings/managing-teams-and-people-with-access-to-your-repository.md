@@ -23,11 +23,11 @@ This overview can help you audit access to your repository, onboard or off-board
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-{% ifversion emu-repository-access-with-no-org-membership %}
+{% ifversion repository-collaborators %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you can invite a member of your enterprise to collaborate in a repository that either a user or organization owns. The invited user will only have access to the repository, even if the repository belongs to an organization. The user must be provisioned by your company's identity provider (IdP). If the user does not already consume a license, the user will consume a license after you grant access to the repository. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription)."
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you can invite a member of your enterprise to collaborate in a repository that either a user or organization owns. The invited user will only have access to the repository, even if the repository belongs to an organization. The user must be provisioned by your company's identity provider (IdP). For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
 
-{% data reusables.repositories.emu-access-for-unaffiliated-users-release-phase %}
+{% data reusables.repositories.repository-collaborators-release-phase %}
 
 {% endif %}
 

@@ -5,7 +5,9 @@ import { allVersions } from '#src/versions/lib/all-versions.js'
 import { POSSIBLE_HIGHLIGHT_FIELDS, DEFAULT_HIGHLIGHT_FIELDS } from './es-search.js'
 
 const DEFAULT_SIZE = 10
+const DEFAULT_AUTOCOMPLETE_SIZE = 8
 const MAX_SIZE = 50 // How much you return has a strong impact on performance
+const MAX_AUTOCOMPLETE_SIZE = 10
 const DEFAULT_PAGE = 1
 const POSSIBLE_SORTS = ['best', 'relevance']
 const DEFAULT_SORT = POSSIBLE_SORTS[0]
@@ -23,6 +25,7 @@ const V1_ADDITIONAL_INCLUDES = ['intro', 'headings']
 // In some distant future we can clean up any client enough that this
 // aliasing won't be necessary.
 const versionAliases = {}
+const prefixVersionAliases = {}
 Object.values(allVersions).forEach((info) => {
   if (info.hasNumberedReleases) {
     versionAliases[info.currentRelease] = info.miscVersionName
@@ -30,12 +33,17 @@ Object.values(allVersions).forEach((info) => {
     versionAliases[info.version] = info.miscVersionName
     versionAliases[info.miscVersionName] = info.miscVersionName
   }
+  // This makes it so you can search for `?version=enterprise-server`
+  // and that actually means `?version=ghes` because there's an index
+  // called `github-autocomplete-en-ghes`.
+  prefixVersionAliases[info.plan] = info.shortName
+  prefixVersionAliases[info.shortName] = info.shortName
 })
 
 function getIndexPrefix() {
   // This logic is mirrored in the scripts we use before running tests
   // In particular, see the `index-test-fixtures` npm script.
-  // That's expected to be run before CI and local jest testing.
+  // That's expected to be run before CI and local vitest testing.
   // The reason we have a deliberately different index name (by prefix)
   // for testing compared to regular operation is to make it convenient
   // for engineers working on local manual testing *and* automated
@@ -102,11 +110,44 @@ const PARAMS = [
   },
 ]
 
-export function getSearchFromRequest(req, force = {}) {
+const AUTOCOMPLETE_PARAMS = [
+  { key: 'query' },
+  { key: 'language', default_: 'en', validate: (v) => v in languages },
+  {
+    key: 'version',
+    default_: 'free-pro-team',
+    validate: (v) => {
+      if (prefixVersionAliases[v] || allVersions[v]) return true
+      if (Object.values(prefixVersionAliases).includes(v)) return true
+      const valid = [
+        ...Object.keys(prefixVersionAliases),
+        ...Object.values(prefixVersionAliases),
+        ...Object.keys(allVersions),
+      ]
+      throw new ValidationError(`'${v}' not in ${valid.join(', ')}`)
+    },
+  },
+  {
+    key: 'size',
+    default_: DEFAULT_AUTOCOMPLETE_SIZE,
+    cast: (v) => parseInt(v, 10),
+    validate: (v) => v >= 0 && v <= MAX_AUTOCOMPLETE_SIZE,
+  },
+]
+export function getAutocompleteSearchFromRequest(req, force = {}) {
+  const { search, validationErrors } = getSearchFromRequest(req, {}, AUTOCOMPLETE_PARAMS)
+  if (validationErrors.length === 0) {
+    const version = prefixVersionAliases[search.version] || allVersions[search.version].shortName
+    search.indexName = `${getIndexPrefix()}github-autocomplete-${search.language}-${version}`
+  }
+  return { search, validationErrors }
+}
+
+export function getSearchFromRequest(req, force = {}, params = PARAMS) {
   const search = {}
   const validationErrors = []
 
-  for (const { key, default_, cast, validate, multiple } of PARAMS) {
+  for (const { key, default_, cast, validate, multiple } of params) {
     // This is necessary because when the version or language comes from
     // the pathname, we don't want pick these up from the query string.
     // This function gets used by /$locale/$version/search
@@ -153,7 +194,10 @@ export function getSearchFromRequest(req, force = {}) {
   }
 
   if (!validationErrors.length) {
-    const version = versionAliases[search.version] || allVersions[search.version].miscVersionName
+    const version =
+      prefixVersionAliases[search.version] ||
+      versionAliases[search.version] ||
+      allVersions[search.version].miscVersionName
     search.indexName = `${getIndexPrefix()}github-docs-${version}-${search.language}` // github-docs-ghes-3.5-en
   }
 

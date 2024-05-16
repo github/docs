@@ -54,6 +54,16 @@ jobs:
           path: external-link-checker-db.json
           key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
 
+      - name: Insight into external link checker DB json file (before)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
+
       - name: Run link checker
         env:
           DISABLE_REWRITE_ASSET_URLS: true
@@ -79,12 +89,15 @@ jobs:
         timeout-minutes: 30
         run: node src/links/scripts/rendered-content-link-checker.js
 
-      - name: Upload artifact(s)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
-        with:
-          name: artifacts
-          path: ./artifacts
+      - name: Insight into external link checker DB json file (after)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

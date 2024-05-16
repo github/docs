@@ -3,8 +3,9 @@ import path from 'path'
 import os from 'os'
 
 import { rimraf } from 'rimraf'
-import { expect, test, describe, beforeAll, afterAll } from '@jest/globals'
+import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 import nock from 'nock'
+
 import getRemoteJSON, { cache } from '#src/frame/lib/get-remote-json.js'
 
 /**

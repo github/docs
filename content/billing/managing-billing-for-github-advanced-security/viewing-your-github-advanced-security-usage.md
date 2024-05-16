@@ -40,6 +40,16 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
    If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 
+{% ifversion security-configurations %}
+      {% note %}
+
+      **Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
+
+      {% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+      {% endnote %}
+{% endif %}
+
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -66,6 +76,15 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
   For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
+{% ifversion security-configurations %}
+{% note %}
+
+**Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
+
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
+
+{% endnote %}
+{% endif %}
 {% endif %}
 
 ## Downloading {% data variables.product.prodname_GH_advanced_security %} license usage information
@@ -121,7 +140,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 
    ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
 
-{%- elsif ghes > 3.8 %}
+{%- elsif ghes %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
 
    ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)

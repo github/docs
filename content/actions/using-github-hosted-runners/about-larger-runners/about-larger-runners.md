@@ -1,7 +1,7 @@
 ---
 title: About larger runners
 shortTitle: About larger runners
-intro: '{% data variables.product.prodname_dotcom %} offers runners with more RAM, CPU, and disk space.'
+intro: '{% data variables.product.prodname_dotcom %} offers runners with advanced features to support more customized use cases.'
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: actions-hosted-runners
@@ -13,7 +13,7 @@ redirect_from:
 
 {% data reusables.actions.about-larger-runners %}
 
-{% data variables.product.prodname_dotcom %} offers {% data variables.actions.hosted_runners %} with macOS, Ubuntu, or Windows operating systems, and different features are available depending on which operating system you use. For more information, see "[Additional features for {% data variables.actions.hosted_runners %}](#additional-features-for-larger-runners)."
+{% data variables.product.prodname_dotcom %} offers {% data variables.actions.hosted_runners %} with macOS, Ubuntu, or Windows operating systems, and different features and sizes are available depending on which operating system you use. For more information, see "[Additional features for {% data variables.actions.hosted_runners %}](#additional-features-for-larger-runners)."
 
 ### About Ubuntu and Windows {% data variables.actions.hosted_runners %}
 
@@ -34,8 +34,7 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
 
-- All actions provided by {% data variables.product.prodname_dotcom %} are compatible with arm64 {% data variables.product.prodname_dotcom %}-hosted runners. However, community actions may not be compatible with arm64 and need to be manually installed at runtime. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners?platform=mac#troubleshooting-larger-runners)."
-- Due to a limitation of Apple's Virtualization Framework, which our hypervisor uses, nested-virtualization is not supported by arm64 runners.
+{% data reusables.actions.macos-runner-limitations %}
 
 ### Additional features for {% data variables.actions.hosted_runners %}
 
@@ -45,7 +44,6 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 | Operating system                             | Ubuntu | Windows | macOS |
 | -------------------------------------------- | ------ | ------- | ----- |
-| Hardware acceleration for Android SDK tools  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Static IP addresses | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Autoscaling | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Runner groups | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -54,12 +52,17 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 These features can enhance your CI/CD pipelines in the following ways.
 
-- Hardware acceleration for the Android SDK tools makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
 - Assigning {% data variables.actions.hosted_runners %}  static IP addresses from a specific range enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runners %}](#networking-for-larger-runners)."
 - Autoscaling enables {% data variables.actions.hosted_runners %}  to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
 - Runner groups allow you to control access to {% data variables.actions.hosted_runners %} for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
-For a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
+### Runner images
+
+{% data variables.actions.hosted_runner_caps %}s run on virtual machines (VMs), and GitHub installs a virtual hard disk (VHD) on this machine during the VM creation process. You can choose from different VM images to install on your runners.
+
+**GitHub-owned images:** These images are maintained by GitHub and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
+
+**Partner Images:** Partner images are not managed by GitHub and are pulled from the Azure Marketplace. For more info on the Windows 11 desktop image see [Microsoft Windows 11 Desktop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview). For more info on the GPU runner compatible images, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
 
 ### Understanding billing
 
@@ -73,15 +76,30 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 ## Machine sizes for {% data variables.actions.hosted_runners %}
 
-| Processor (CPU)| Memory (RAM)  | Storage (SSD) | Operating system (OS) |
-| -------------- | ------------- | ------------- | --------------------- |
-| 6              | 14 GB         | 14 GB         | macOS                 |
-| 12             | 30 GB         | 14 GB         | macOS                 |
-| 4              | 16 GB         | 150 GB        | Ubuntu                |
-| 8              | 32 GB         | 300 GB        | Ubuntu, Windows       |
-| 16             | 64 GB         | 600 GB        | Ubuntu, Windows       |
-| 32             | 128 GB        | 1200 GB       | Ubuntu, Windows       |
-| 64             | 256 GB        | 2040 GB       | Ubuntu, Windows       |
+You can choose from several specifications for {% data variables.actions.hosted_runners %}.
+
+### Specifications for general {% data variables.actions.hosted_runners %}
+
+| CPU | Memory (RAM)  | Storage (SSD) | Operating system (OS) |
+| --- | ------------- | ------------- | --------------------- |
+| 6   | 14 GB         | 14 GB         | macOS                 |
+| 12  | 30 GB         | 14 GB         | macOS                 |
+| 2   | 8 GB          | 75 GB         | Ubuntu                |
+| 4   | 16 GB         | 150 GB        | Ubuntu, Windows               |
+| 8   | 32 GB         | 300 GB        | Ubuntu, Windows       |
+| 16  | 64 GB         | 600 GB        | Ubuntu, Windows       |
+| 32  | 128 GB        | 1200 GB       | Ubuntu, Windows       |
+| 64  | 256 GB        | 2040 GB       | Ubuntu, Windows       |
+
+>[!NOTE] The 4vcpu Windows runner only works with the Windows 11 Desktop image.
+
+### Specifications for GPU {% data variables.actions.hosted_runners %}
+
+{% data reusables.actions.gpu-runner-beta-note %}
+
+| CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
+| --- | --- | -------- | ------------ | ----------------- | ------------- | --------------------- |
+| 4   | 1   | Tesla T4 | 28 GB        | 16 GB             | 176 GB        | Ubuntu, Windows       |
 
 ## About runner groups
 
@@ -123,7 +141,7 @@ In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` h
 
 {% data variables.actions.hosted_runner_caps %}s can automatically scale to suit your needs. You can provision machines to run a specified maximum number of jobs when jobs are submitted for processing. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently.
 
-You can configure the maximum job concurrency, which allows you to control your costs by setting the maximum parallel number of jobs that can be run using this set. A higher value here can help avoid workflows being blocked due to parallelism. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#configuring-autoscaling-for-larger-runners)."
+You can configure the maximum job concurrency, which allows you to control your costs by setting the maximum parallel number of jobs that can be run using this set. A higher value here can help avoid workflows being blocked due to parallelism. For more information on how to set limits, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#configuring-autoscaling-for-larger-runners)". For more information on the maximum auto-scaling limits for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)."
 
 ## Networking for {% data variables.actions.hosted_runners %}
 
@@ -131,7 +149,7 @@ You can configure the maximum job concurrency, which allows you to control your 
 
 **Notes:**
 - Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
-- {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network)."
+- {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
 
 {% endnote %}
 

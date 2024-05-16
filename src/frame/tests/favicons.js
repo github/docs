@@ -1,10 +1,10 @@
-import { expect, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('favicon assets', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('should serve a valid and aggressively caching /favicon.ico', async () => {
     const res = await get('/favicon.ico')

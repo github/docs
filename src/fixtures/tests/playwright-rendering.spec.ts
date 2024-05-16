@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test'
 // In GitHub Actions, we rely on setting the environment variable directly
 // but for convenience, for local development, engineers might have a
 // .env file that can set environment variable. E.g. ELASTICSEARCH_URL.
-// The `src/frame/start-server.js` script uses dotenv too, but since Playwright
+// The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
@@ -591,5 +591,37 @@ test.describe('translations', () => {
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
+  })
+})
+
+test.describe('view pages with custom domain cookie', () => {
+  test('view article page', async ({ page }) => {
+    await page.goto(
+      '/enterprise-server@latest/get-started/markdown/replace-domain?ghdomain=example.ghe.com',
+    )
+
+    const content = page.locator('pre')
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+
+    // Now switch to enterprise-cloud, where replacedomain should not be used
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Cloud', { exact: true }).click()
+
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://HOSTNAME/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+
+    // Again switch back to enterprise server again
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Server 3.').first().click()
+
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
   })
 })

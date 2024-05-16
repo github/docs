@@ -1,10 +1,9 @@
-import {
-  filterByAllowlistValues,
-  filterAndUpdateGhesDataByAllowlistValues,
-} from '../../lib/index.js'
+import { describe, expect, test } from 'vitest'
+
+import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
 
 describe('audit log event fitering', () => {
-  it('match single allowlist value', () => {
+  test('matches single allowlist value', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -17,7 +16,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents[0].action).toEqual('repo.create')
   })
 
-  it('match multiple allowlist values', () => {
+  test('matches multiple allowlist values', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -36,7 +35,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents.length).toEqual(2)
   })
 
-  it('non-match allowlist value', () => {
+  test('does not match non-matching allowlist value', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',
@@ -49,7 +48,7 @@ describe('audit log event fitering', () => {
     expect(filteredEvents.length).toBe(0)
   })
 
-  it('ghes filter and update multiple ghes versions', () => {
+  test('ghes filters and updates multiple ghes versions', () => {
     const eventsToProcess = [
       {
         action: 'repo.create',

@@ -1,9 +1,9 @@
-import { expect, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('general /api pages', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test("any /api URL that isn't found should JSON", async () => {
     const res = await get('/api')

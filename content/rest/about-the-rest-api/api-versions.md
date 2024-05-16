@@ -3,7 +3,9 @@ title: API Versions
 shortTitle: API Versions
 intro: Learn how to specify which REST API version to use whenever you make a request to the REST API.
 versions:
-  feature: api-date-versioning
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /rest/overview/api-versions
 ---

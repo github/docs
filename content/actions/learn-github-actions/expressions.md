@@ -109,7 +109,7 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-- A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+- When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
 - {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 - Objects and arrays are only considered equal when they are the same instance.
 
@@ -245,7 +245,7 @@ This workflow sets a JSON matrix in one job, and passes it to the next job using
 
 {% raw %}
 
-```yaml
+```yaml copy
 name: build
 on: push
 jobs:
@@ -266,7 +266,7 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
-      - run: build
+      - run: echo "Matrix - Project ${{ matrix.project }}, Config ${{ matrix.config }}"
 ```
 
 {% endraw %}
@@ -275,7 +275,7 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-```yaml
+```yaml copy
 name: print
 on: push
 env:
@@ -289,8 +289,6 @@ jobs:
         timeout-minutes: {% raw %}${{ fromJSON(env.time) }}{% endraw %}
         run: echo ...
 ```
-
-This example workflow sets environment variables: `continue` is set to a boolean value `true`, `time` is set to an integer value `3`.
 
 The workflow uses the `fromJSON()` function to convert the environment variable `continue` from a string to a boolean, allowing it to determine whether to continue-on-error or not. Similarly, it converts the `time` environment variable from a string to an integer, setting the timeout for the job in minutes.
 

@@ -1,0 +1,3 @@
+Performing a failover blocks the old cluster from accessing the promoted cluster. The command identifies IPs to block from the old primary cluster and writes them to `/data/user/common/cluster-ip-blocklist`. After the failover completes, the command runs `ghe-cluster-block-ips` to block the IPs on the new active cluster.
+
+You can also run the `ghe-cluster-block-ips`, `ghe-cluster-block-ip`, `ghe-cluster-unblock-ips`, and `ghe-cluster-unblock-ip` commands manually. With these commands, you can manually control which IPs can access your newly promoted cluster, and avoid the potentially lengthy configuration run associated with running the `ghe-cluster-failover` command.

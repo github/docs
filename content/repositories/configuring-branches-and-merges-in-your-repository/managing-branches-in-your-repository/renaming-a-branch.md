@@ -24,13 +24,13 @@ Although file URLs are automatically redirected, raw file URLs are not redirecte
 
 {% data variables.product.prodname_actions %} workflows do not follow renames, so if your repository publishes an action, anyone using that action with `@{old-branch-name}` will break. You should consider adding a new branch with the original content plus an additional commit reporting that the branch name is deprecated and suggesting that users migrate to the new branch name.
 
+Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
+
 ## Renaming a branch
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next to the branch you want to rename, click {% octicon "pencil" aria-label="Rename branch" %}.
-
-    ![Screenshot of a branch in the branch list. A pencil icon is highlighted with an orange outline.](/assets/images/help/branches/branch-rename-edit.png)
+1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click {% octicon "pencil" aria-label="Rename branch" %} **Rename branch**.
 1. Type a new name for the branch.
 1. Review the information about local environments, then click **Rename branch**.
 

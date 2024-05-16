@@ -26,7 +26,7 @@ redirect_from:
 ## Synopsis
 
 ```shell copy
-codeql database create [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--github-url=<url>] [--source-root=<dir>] [--threads=<num>] [--ram=<MB>] [--command=<command>] [--mode=<mode>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
+codeql database create [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--github-url=<url>] [--source-root=<dir>] [--threads=<num>] [--ram=<MB>] [--command=<command>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
 ```
 
 ## Description
@@ -94,7 +94,8 @@ The build mode that will be used to create the database.
 Choose your build mode based on the language you are analyzing:
 
 `none`: The database will be created without building the source root.
-Available for JavaScript/TypeScript, Python, Ruby.
+Available for JavaScript/TypeScript, Python, and Ruby. Also available in
+beta for Java.
 
 `autobuild`: The database will be created by attempting to automatically
 build the source root. Available for C/C++, C#, Go, Java/Kotlin, and
@@ -105,7 +106,7 @@ a manually specified build command. Available for C/C++, C#, Go,
 Java/Kotlin, and Swift.
 
 When creating a database with `--command`, there is no need to
-additionally specify '--build-mode none'.
+additionally specify '--build-mode manual'.
 
 Available since `v2.16.4`.
 
@@ -266,7 +267,7 @@ If `--max-disk-cache` is not given, the evaluator will try hard to
 curtail disk cache usage if the free space on the file system drops
 below this percentage.
 
-#### `-m, --mode=<mode>`
+#### `--cache-cleanup=<mode>`
 
 Select how aggressively to trim the cache. Choices include:
 

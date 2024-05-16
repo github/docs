@@ -31,7 +31,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
    Each release of {% data variables.product.product_name %} includes an updated `containers.json` file at: `https://HOSTNAME/github/dependabot-action/blob/ghes-VERSION/docker/containers.json`. You can see the {% data variables.product.prodname_dotcom_the_website %} version of the file at: [containers.json](https://github.com/github/dependabot-action/blob/main/docker/containers.json).
 
-1. Preload all the container images from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} onto the {% data variables.product.prodname_dependabot %} runner using the `docker pull` command. {% ifversion ghes > 3.8 %}Alternatively, preload the `dependabot-proxy` image and then preload only the container images for the ecosystems you require.
+1. Preload all the container images from the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} onto the {% data variables.product.prodname_dependabot %} runner using the `docker pull` command. {% ifversion ghes %}Alternatively, preload the `dependabot-proxy` image and then preload only the container images for the ecosystems you require.
 
    For example, to support npm and {% data variables.product.prodname_actions %} you could use the following commands, copying details of the images to load from the `containers.json` file to ensure that you have the correct version and SHA for each image.
 

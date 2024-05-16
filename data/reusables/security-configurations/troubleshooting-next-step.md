@@ -1,0 +1,1 @@
+You may encounter an error when you attempt to apply a {% data variables.product.prodname_security_configuration %}. For information on common errors, see "[AUTOTITLE](/code-security/securing-your-organization/troubleshooting-security-configurations/)."

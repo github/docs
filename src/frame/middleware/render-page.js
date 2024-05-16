@@ -8,9 +8,10 @@ import getMiniTocItems from '#src/frame/lib/get-mini-toc-items.js'
 import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { isConnectionDropped } from './halt-on-dropped-connection.js'
+import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next.js'
 import { defaultCacheControl } from './cache-control.js'
+import { minimumNotFoundHtml } from '../lib/constants.js'
 
 const STATSD_KEY_RENDER = 'middleware.render_page'
 const STATSD_KEY_404 = 'middleware.render_404'
@@ -59,7 +60,7 @@ export default async function renderPage(req, res) {
 
     if (!pathLanguagePrefixed(req.path)) {
       defaultCacheControl(res)
-      return res.status(404).type('text').send('Not found')
+      return res.status(404).type('html').send(minimumNotFoundHtml)
     }
 
     // The rest is "unhandled" requests where we don't have the page

@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test.js'
 import { frontmatterHiddenDocs } from '../../lib/linting-rules/frontmatter-hidden-docs.js'

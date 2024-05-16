@@ -62,8 +62,6 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 
 ## Grouping {% data variables.product.prodname_dependabot_security_updates %} into a single pull request
 
-{% data reusables.dependabot.dependabot-grouped-security-updates-beta-note %}
-
 To reduce the number of pull requests you may be seeing, you can enable grouped security updates for your repository or organization. When this is enabled, {% data variables.product.prodname_dependabot %} will group security updates into one pull request for each package ecosystem. In order to use grouped security updates, you must first enable the following features:
 
 - **Dependency graph**. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."
@@ -95,6 +93,11 @@ Organization owners can enable or disable grouped security updates for all repos
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} in your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#grouping-dependabot-security-updates)."
+{% endif %}
+
 1. Under "Code security and analysis", to the right of "Grouped security updates", click **Disable all** or **Enable all**.
 1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
 

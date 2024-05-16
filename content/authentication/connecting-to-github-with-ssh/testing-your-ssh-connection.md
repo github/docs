@@ -1,6 +1,6 @@
 ---
 title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your account on {% data variables.location.product_location %}, you can test your connection.'
+intro: "After you've set up your SSH key and added it to {% data variables.product.prodname_dotcom %}, you can test your connection."
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -13,25 +13,26 @@ topics:
   - SSH
 shortTitle: Test your SSH connection
 ---
-Before testing your SSH connection, you should have:
+
+Before testing your SSH connection, you should have already:
 - [Checked for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
 - [Generated a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 - [Added a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+You'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. See "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Enter the following:
 
-   ```shell
-   $ ssh -T git@{% data variables.command_line.codeblock %}
+   ```shell replacedomain copy
+   ssh -T git@{% data variables.product.product_url %}
    # Attempts to ssh to {% data variables.product.product_name %}
    ```
 
    You may see a warning like this:
 
-   ```shell
-   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
+   ```shell replacedomain
+   > The authenticity of host '{% data variables.product.product_url %} (IP ADDRESS)' can't be established.
    > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
    > Are you sure you want to continue connecting (yes/no)?
    ```

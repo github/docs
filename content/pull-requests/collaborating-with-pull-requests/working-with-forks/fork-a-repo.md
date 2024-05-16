@@ -109,13 +109,13 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
 
    ```shell
-   git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
+   git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife
    ```
 
 1. Press **Enter**. Your local clone will be created.
 
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
+   $ git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife
    > Cloning into `Spoon-Knife`...
    > remote: Counting objects: 10, done.
    > remote: Compressing objects: 100% (8/8), done.
@@ -159,30 +159,30 @@ When you fork a project in order to propose changes to the upstream repository, 
 1. Change directories to the location of the fork you cloned.
     - To go to your home directory, type just `cd` with no other text.
     - To list the files and folders in your current directory, type `ls`.
-    - To go into one of your listed directories, type `cd your_listed_directory`.
+    - To go into one of your listed directories, type `cd YOUR-LISTED-DIRECTORY`.
     - To go up one directory, type `cd ..`.
 1. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
 
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
    ```
 
 1. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
 
    ```shell
-   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
+   git remote add upstream https://{% data variables.product.product_url %}/ORIGINAL-OWNER/Spoon-Knife.git
    ```
 
 1. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the upstream repository as `upstream`.
 
    ```shell
    $ git remote -v
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
    ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
@@ -228,7 +228,7 @@ You have now forked a repository, practiced cloning your fork, and configured an
 
 - For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
-- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
+- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 
 - {% data reusables.getting-started.being-social %}
 

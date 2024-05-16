@@ -1,6 +1,6 @@
 ---
-title: Searching code {% ifversion code-search-code-view %}(legacy){% endif %}
-intro: '{% ifversion code-search-code-view %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
+title: Searching code {% ifversion code-search-upgrade %}(legacy){% endif %}
+intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -15,7 +15,7 @@ versions:
 topics:
   - GitHub search
 ---
-{% ifversion code-search-code-view %}
+{% ifversion code-search-upgrade %}
 {% note %}
 
 **Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
