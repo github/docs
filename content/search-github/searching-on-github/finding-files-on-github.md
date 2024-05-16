@@ -1,6 +1,6 @@
 ---
 title: Finding files on GitHub
-intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.product_name %}, use the {% ifversion code-search-code-view %}[`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}[`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.'
+intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.product_name %}, use the {% ifversion code-search-upgrade %}[`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}[`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github
@@ -16,14 +16,14 @@ topics:
 
 **Tips:**
 
-- By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-code-view %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
+- By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-upgrade %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
 - You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% endtip %}
 
 ## Using the file finder
 
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 {% data reusables.repositories.navigate-to-repo %}
 1. In the “Go to file” search bar, type the name of the file or directory you'd like to find.
    ![Screenshot of the main view for a repository. A search bar, labeled "Go to file", is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file.png)

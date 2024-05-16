@@ -136,7 +136,7 @@ prodname_unfurls: 'Content Attachments'
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
-runner_controller_required_version: >-
+runner_required_version: >-
   {% ifversion ghes < 3.10 %}2.303.0{% elsif ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% endif %}
 
 # GitHub Debug
