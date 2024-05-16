@@ -191,20 +191,20 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 
 1. Two lines below the `## About me` header, insert a comment by using the following markup.
 
-   <pre>
-   &lt;!-- COMMENT --&gt;
-   </pre>
+   ```text
+   <!-- COMMENT -->
+   ```
 
    Replace `COMMENT` with a "to-do" item you remind yourself to do something later (for example, to add more items to the table).
 1. To check your comment is hidden in the output, click the **Preview** tab.
 
 ### Example of a comment
 
-<pre>
+```markdown
 ## About me
 
-&lt;!-- TO DO: add more details about me later --&gt;
-</pre>
+<!-- TO DO: add more details about me later -->
+```
 
 ## Saving your work
 
