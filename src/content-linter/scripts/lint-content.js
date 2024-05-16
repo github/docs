@@ -469,6 +469,9 @@ function formatResult(object, isPrecommit) {
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
+  if (!allConfig[ruleName]) {
+    throw new Error(`Rule not found in allConfig: '${ruleName}'`)
+  }
   formattedResult.severity =
     allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
 

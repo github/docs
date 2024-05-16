@@ -28,11 +28,13 @@ import parseInfoString from './parse-info-string.js'
 import annotate from './annotate.js'
 import alerts from './alerts.js'
 import replaceDomain from './replace-domain.js'
+import removeHtmlComments from 'remark-remove-comments'
 
 export function createProcessor(context) {
   return (
     unified()
       .use(remarkParse)
+      .use(removeHtmlComments)
       .use(gfm)
       // Markdown AST below vvv
       .use(parseInfoString)
