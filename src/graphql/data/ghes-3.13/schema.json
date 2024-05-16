@@ -338,7 +338,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The search string to look for.</p>"
+          "description": "<p>The search string to look for. GitHub search syntax is supported. For more\ninformation, see \"<a href=\"https://docs.github.com/search-github/searching-on-github\">Searching on\nGitHub</a>,\"\n\"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax\">Understanding the search syntax</a>,\"\nand \"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results\">Sorting search results</a>.\".</p>"
         },
         {
           "name": "type",
@@ -4374,6 +4374,48 @@
       ]
     },
     {
+      "name": "markNotificationAsDone",
+      "kind": "mutations",
+      "id": "marknotificationasdone",
+      "href": "/graphql/reference/mutations#marknotificationasdone",
+      "description": "<p>Marks a notification as done.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "MarkNotificationAsDoneInput!",
+          "id": "marknotificationasdoneinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#marknotificationasdoneinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user that the notification belongs to.</p>"
+        }
+      ]
+    },
+    {
       "name": "markProjectV2AsTemplate",
       "kind": "mutations",
       "id": "markprojectv2astemplate",
@@ -5946,6 +5988,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "id",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The id of the pinned issue that was unpinned.</p>"
         },
         {
           "name": "issue",
@@ -19811,6 +19861,14 @@
           ]
         },
         {
+          "name": "billingEmail",
+          "description": "<p>The enterprise's billing email.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "billingInfo",
           "description": "<p>Enterprise billing information visible to enterprise billing managers.</p>",
           "type": "EnterpriseBillingInfo",
@@ -28862,7 +28920,7 @@
       "kind": "objects",
       "id": "linkedbranchconnection",
       "href": "/graphql/reference/objects#linkedbranchconnection",
-      "description": "<p>The connection type for LinkedBranch.</p>",
+      "description": "<p>A list of branches linked to an issue.</p>",
       "fields": [
         {
           "name": "edges",
@@ -29102,7 +29160,7 @@
       "kind": "objects",
       "id": "mannequinconnection",
       "href": "/graphql/reference/objects#mannequinconnection",
-      "description": "<p>The connection type for Mannequin.</p>",
+      "description": "<p>A list of mannequins.</p>",
       "fields": [
         {
           "name": "edges",
@@ -38105,12 +38163,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -39183,6 +39251,16 @@
           "type": "User!",
           "id": "user",
           "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "inviterActor",
+          "description": "<p>The user who created the invitation.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
           "href": "/graphql/reference/objects#user"
         },
         {
@@ -39274,7 +39352,7 @@
       "kind": "objects",
       "id": "organizationmemberconnection",
       "href": "/graphql/reference/objects#organizationmemberconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users who belong to the organization.</p>",
       "fields": [
         {
           "name": "edges",
@@ -43222,6 +43300,14 @@
           ]
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the ProjectV2Item object.</p>",
           "type": "ID!",
@@ -45500,6 +45586,31 @@
       ]
     },
     {
+      "name": "PropertyTargetDefinition",
+      "kind": "objects",
+      "id": "propertytargetdefinition",
+      "href": "/graphql/reference/objects#propertytargetdefinition",
+      "description": "<p>A property that must match.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PublicKey",
       "kind": "objects",
       "id": "publickey",
@@ -46123,7 +46234,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "deletions",
@@ -46190,6 +46303,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "headRef",
@@ -48266,7 +48387,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "editor",
@@ -48275,6 +48398,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -48727,7 +48858,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "diffHunk",
@@ -48752,6 +48885,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -50956,6 +51097,66 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "rules",
+          "description": "<p>A list of rules from active Repository and Organization rulesets that apply to this ref.</p>",
+          "type": "RepositoryRuleConnection",
+          "id": "repositoryruleconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repository rules.</p>",
+              "type": {
+                "name": "RepositoryRuleOrder",
+                "id": "repositoryruleorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryruleorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "target",
           "description": "<p>The object the ref points to. Returns null when object does not exist.</p>",
           "type": "GitObject",
@@ -51531,7 +51732,7 @@
             },
             {
               "name": "name",
-              "description": "<p>A list of names to filter the assets by.</p>",
+              "description": "<p>A name to filter the assets by.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -57126,6 +57327,16 @@
               }
             },
             {
+              "name": "names",
+              "description": "<p>The names of the environments to be returned.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for the environments.</p>",
               "type": {
@@ -57253,12 +57464,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -59859,7 +60080,7 @@
         },
         {
           "name": "warningsCount",
-          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -59872,7 +60093,7 @@
       "kind": "objects",
       "id": "repositorymigrationconnection",
       "href": "/graphql/reference/objects#repositorymigrationconnection",
-      "description": "<p>The connection type for RepositoryMigration.</p>",
+      "description": "<p>A list of migrations.</p>",
       "fields": [
         {
           "name": "edges",
@@ -59967,6 +60188,31 @@
       ]
     },
     {
+      "name": "RepositoryPropertyConditionTarget",
+      "kind": "objects",
+      "id": "repositorypropertyconditiontarget",
+      "href": "/graphql/reference/objects#repositorypropertyconditiontarget",
+      "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository properties that must not match.</p>",
+          "type": "[PropertyTargetDefinition!]!",
+          "id": "propertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#propertytargetdefinition"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository properties that must match.</p>",
+          "type": "[PropertyTargetDefinition!]!",
+          "id": "propertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#propertytargetdefinition"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRule",
       "kind": "objects",
       "id": "repositoryrule",
@@ -60044,6 +60290,14 @@
           "id": "repositorynameconditiontarget",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositorynameconditiontarget"
+        },
+        {
+          "name": "repositoryProperty",
+          "description": "<p>Configuration for the repository_property condition.</p>",
+          "type": "RepositoryPropertyConditionTarget",
+          "id": "repositorypropertyconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorypropertyconditiontarget"
         }
       ]
     },
@@ -67588,12 +67842,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -70122,12 +70386,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -70872,12 +71146,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -70953,7 +71237,7 @@
       "kind": "objects",
       "id": "userconnection",
       "href": "/graphql/reference/objects#userconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users.</p>",
       "fields": [
         {
           "name": "edges",
@@ -73433,7 +73717,7 @@
         },
         {
           "name": "warningsCount",
-          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -75119,12 +75403,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -79426,6 +79720,27 @@
       ]
     },
     {
+      "name": "RepositoryRuleOrderField",
+      "kind": "enums",
+      "id": "repositoryruleorderfield",
+      "href": "/graphql/reference/enums#repositoryruleorderfield",
+      "description": "<p>Properties by which repository rule connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order repository rules by created time.</p>"
+        },
+        {
+          "name": "TYPE",
+          "description": "<p>Order repository rules by type.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order repository rules by updated time.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRuleType",
       "kind": "enums",
       "id": "repositoryruletype",
@@ -79507,10 +79822,6 @@
         {
           "name": "REQUIRED_WORKFLOW_STATUS_CHECKS",
           "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
-        },
-        {
-          "name": "RULESET_REQUIRED_SIGNATURES",
-          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
         },
         {
           "name": "SECRET_SCANNING",
@@ -88147,6 +88458,32 @@
       ]
     },
     {
+      "name": "MarkNotificationAsDoneInput",
+      "kind": "inputObjects",
+      "id": "marknotificationasdoneinput",
+      "href": "/graphql/reference/input-objects#marknotificationasdoneinput",
+      "description": "<p>Autogenerated input type of MarkNotificationAsDone.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The NotificationThread id.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "MarkProjectV2AsTemplateInput",
       "kind": "inputObjects",
       "id": "markprojectv2astemplateinput",
@@ -88954,6 +89291,31 @@
       ]
     },
     {
+      "name": "PropertyTargetDefinitionInput",
+      "kind": "inputObjects",
+      "id": "propertytargetdefinitioninput",
+      "href": "/graphql/reference/input-objects#propertytargetdefinitioninput",
+      "description": "<p>A property that must match.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PullRequestOrder",
       "kind": "inputObjects",
       "id": "pullrequestorder",
@@ -89681,6 +90043,31 @@
       ]
     },
     {
+      "name": "RepositoryPropertyConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "repositorypropertyconditiontargetinput",
+      "href": "/graphql/reference/input-objects#repositorypropertyconditiontargetinput",
+      "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository properties that must not match.</p>",
+          "type": "[PropertyTargetDefinitionInput!]!",
+          "id": "propertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#propertytargetdefinitioninput"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository properties that must match.</p>",
+          "type": "[PropertyTargetDefinitionInput!]!",
+          "id": "propertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#propertytargetdefinitioninput"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRuleConditionsInput",
       "kind": "inputObjects",
       "id": "repositoryruleconditionsinput",
@@ -89710,6 +90097,14 @@
           "id": "repositorynameconditiontargetinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#repositorynameconditiontargetinput"
+        },
+        {
+          "name": "repositoryProperty",
+          "description": "<p>Configuration for the repository_property condition.</p>",
+          "type": "RepositoryPropertyConditionTargetInput",
+          "id": "repositorypropertyconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositorypropertyconditiontargetinput"
         }
       ]
     },
@@ -89744,6 +90139,31 @@
           "id": "repositoryruletype",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryruletype"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleOrder",
+      "kind": "inputObjects",
+      "id": "repositoryruleorder",
+      "href": "/graphql/reference/input-objects#repositoryruleorder",
+      "description": "<p>Ordering options for repository rules.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order repository rules by.</p>",
+          "type": "RepositoryRuleOrderField!",
+          "id": "repositoryruleorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryruleorderfield"
         }
       ]
     },
@@ -93769,6 +94189,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "countMembersAlreadyRequested",
+          "description": "<p>Count any members whose review has already been requested against the required number of members assigned to review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "enabled",
           "description": "<p>Turn on or off review assignment.</p>",
           "type": "Boolean!",
@@ -93795,8 +94223,24 @@
           "isDeprecated": false
         },
         {
+          "name": "includeChildTeamMembers",
+          "description": "<p>Include the members of any child teams when assigning.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "notifyTeam",
           "description": "<p>Notify the entire team of the PR if it is delegated.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "removeTeamRequest",
+          "description": "<p>Remove the team review request when assigning.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
