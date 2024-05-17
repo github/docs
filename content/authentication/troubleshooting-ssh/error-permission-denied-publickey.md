@@ -24,13 +24,13 @@ If you have a _very good reason_ you must use `sudo`, then ensure you are using 
 
 To make sure you are connecting to the right domain, you can enter the following command:
 
-```shell replacedomain copy
+```shell copy
 ssh -vT git@{% data variables.product.product_url %}
 ```
 
 You should see this output:
 
-```shell replacedomain
+```shell
 > OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Reading configuration data /etc/ssh/ssh_config
@@ -44,7 +44,7 @@ The connection should be made on port 22{% ifversion fpt or ghec %}, unless you'
 
 All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
 
-```shell replacedomain
+```shell
 $ ssh -T GITHUB-USERNAME@{% data variables.product.product_url %}
 > Permission denied (publickey).
 ```
@@ -53,7 +53,7 @@ If your connection failed and you're using a remote URL with your {% data variab
 
 You should verify your connection by typing:
 
-```shell replacedomain copy
+```shell copy
 ssh -T git@{% data variables.product.product_url %}
 ```
 
@@ -124,7 +124,7 @@ The `ssh-add` command _should_ print out a long string of numbers and letters. I
 
 You can also check that the key is being used by trying to connect to `git@{% data variables.product.product_url %}`:
 
-```shell replacedomain copy
+```shell copy
 ssh -vT git@{% data variables.product.product_url %}
 ```
 
