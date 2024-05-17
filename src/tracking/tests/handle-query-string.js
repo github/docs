@@ -44,13 +44,13 @@ describe('setting a cookie', () => {
   test('empty value does nothing if nothing previous', async () => {
     const res = await get(`/?${DOMAIN_QUERY_PARAM}=`)
     expect(res.statusCode).toBe(302)
-    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['set-cookie'][0]).toMatch(`${DOMAIN_COOKIE_NAME}=;`)
   })
 
   test('empty value, when trimmed, does nothing if nothing previous', async () => {
     const res = await get(`/?${DOMAIN_QUERY_PARAM}=%20`)
     expect(res.statusCode).toBe(302)
-    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['set-cookie'][0]).toMatch(`${DOMAIN_COOKIE_NAME}=;`)
   })
 
   test('empty value resets previous cookie', async () => {
@@ -113,5 +113,21 @@ describe('setting a cookie', () => {
     )
     expect(res.statusCode).toBe(400)
     expect(res.body).toMatch(/can only be one/)
+  })
+
+  test('using the custom end point (200 OK)', async () => {
+    const res = await get(`/__tracking__?${DOMAIN_QUERY_PARAM}=Acme.example.com`)
+    expect(res.statusCode).toBe(200)
+    expect(res.body).toMatch(/OK/)
+  })
+  test('using the custom end point with no value', async () => {
+    const res = await get(`/__tracking__?${DOMAIN_QUERY_PARAM}=`)
+    expect(res.statusCode).toBe(200)
+    expect(res.body).toMatch(/OK/)
+  })
+  test('using the custom end point (400 Bad request)', async () => {
+    const res = await get('/__tracking__')
+    expect(res.statusCode).toBe(400)
+    expect(res.body).toMatch(/Lacking query string/)
   })
 })
