@@ -6,10 +6,13 @@ import { useTranslation } from 'src/languages/components/useTranslation'
 import { Box, Flash, FormControl, Spinner, Text, TextInput } from '@primer/react'
 import { Dialog } from '@primer/react/experimental'
 import { useEditableDomainName } from './useEditableDomainContext'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 type Props = {
   xs?: boolean
 }
+
+const EXPERIMENT_NAME = 'domain_edit'
 
 const QUERY_STRING_KEY = 'ghdomain' // Must match the middleware
 
@@ -43,6 +46,13 @@ export default function DomainNameEdit({ xs }: Props) {
             target.parentElement.parentElement.classList.contains('replacedomain-edit'))
         ) {
           setOpen(true)
+
+          sendEvent({
+            type: EventType.experiment,
+            experiment_name: EXPERIMENT_NAME,
+            experiment_variation: 'opened',
+            experiment_success: true,
+          })
         }
       }
     }
@@ -55,6 +65,17 @@ export default function DomainNameEdit({ xs }: Props) {
       if (main) {
         main.removeEventListener('click', handler)
       }
+    }
+  }, [asPath])
+
+  useEffect(() => {
+    if (document.querySelectorAll('code[data-replacedomain]').length > 0) {
+      sendEvent({
+        type: EventType.experiment,
+        experiment_name: EXPERIMENT_NAME,
+        experiment_variation: 'available',
+        experiment_success: true,
+      })
     }
   }, [asPath])
 
@@ -82,6 +103,13 @@ export default function DomainNameEdit({ xs }: Props) {
         } else {
           setSubmissionFailed(true)
         }
+
+        sendEvent({
+          type: EventType.experiment,
+          experiment_name: EXPERIMENT_NAME,
+          experiment_variation: 'saved',
+          experiment_success: true,
+        })
       })
       .finally(() => {
         setLoading(false)
@@ -121,7 +149,16 @@ export default function DomainNameEdit({ xs }: Props) {
               disabled: !!validationError || loading,
             },
           ]}
-          onClose={() => setOpen(false)}
+          onClose={() => {
+            setOpen(false)
+
+            sendEvent({
+              type: EventType.experiment,
+              experiment_name: EXPERIMENT_NAME,
+              experiment_variation: 'closed',
+              experiment_success: true,
+            })
+          }}
           aria-labelledby="header"
         >
           <form
