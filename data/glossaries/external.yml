@@ -95,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see "[dirty](#dirty)".
+    current HEAD. Also see "[dirty](#dirty)."
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
@@ -128,7 +128,7 @@
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
-- term: Commit graph
+- term: commit graph
   description: >-
     A repository graph that shows all the commits made to a repository in the
     past year.
