@@ -22,6 +22,7 @@ This tutorial guide shows you how to set up an example C# (.NET) project {% data
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-dotnet.
 {% data reusables.codespaces.use-this-template %}
 
@@ -37,20 +38,20 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.command-palette-container %}
 1. Type `c#` and click **C# (.NET)**. Other options are available if your project uses particular tools. For example, C# and MS SQL.
 
-   ![Screenshot of the 'C# (.NET)' option](/assets/images/help/codespaces/add-csharp-prebuilt-container.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, with "c#" entered in the text box and various C# options listed below.](/assets/images/help/codespaces/add-csharp-prebuilt-container.png)
 
 1. Choose the version of .NET you want to use for your project. In this case, select the version marked "(default)."
 
-   ![Screenshot of the .NET version selection](/assets/images/help/codespaces/add-dotnet-version.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing a variety of .NET versions, including "7.0 (default)."](/assets/images/help/codespaces/add-dotnet-version.png)
 
 1. A list of additional features is displayed. We'll install the .NET CLI, a command-line interface for developing, building, running, and publishing .NET applications. To install this tool, type `dotnet`, select `Dotnet CLI`, then click **OK**.
 
-   ![Screenshot of additional features for 'dotnet'](/assets/images/help/codespaces/add-dotnet-features.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "dotnet" in the text box and "Dotnet CLI" in the dropdown list.](/assets/images/help/codespaces/add-dotnet-features.png)
 
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
@@ -92,13 +93,13 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-* Forward the port on which the application runs on the remote machine to your local machine.
-* Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
-* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+- Forward the port on which the application runs on the remote machine to your local machine.
+- Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
+- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json{:copy}
+   ```jsonc copy
      "features": {
        "ghcr.io/devcontainers/features/dotnet:1": {}
      },
@@ -109,21 +110,21 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `forwardPorts` property and change its value to port `5000` only.
 
-   ```json{:copy}
+   ```jsonc copy
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [5000],
    ```
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json{:copy}
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "dotnet restore",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
    {
@@ -163,7 +164,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, restoring the required dependencies, and the "Code Spell Checker" extension will be available for use.
 
@@ -174,7 +175,7 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 1. Run the application by pressing `F5` or entering `dotnet watch run` in the Terminal.
 1. When the application starts, click the **Ports** tab, right-click port 5000 and click **Open in Browser**.
 
-   ![Screenshot of the 'Open in Browser' option](/assets/images/help/codespaces/open-port5000-in-browser.png)
+   ![Screenshot of the "Ports" tab, showing the right-click menu with the cursor pointer pointing to the "Open in Browser" option.](/assets/images/help/codespaces/open-port5000-in-browser.png)
 
 ## Step 5: Commit your changes
 

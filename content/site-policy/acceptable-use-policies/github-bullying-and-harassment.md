@@ -14,7 +14,7 @@ redirect_from:
 We do not tolerate harassment, bullying, or abuse of any kind, whether directly or by encouraging others to take part in the prohibited conduct. This includes:
 
 - Targeted personal attacks
-- Piling on to or orchestrating [disruptive](/github/site-policy/github-disrupting-the-experience-of-other-users) activity in a way that amounts to abuse
+- Piling on to or orchestrating [disruptive](/site-policy/acceptable-use-policies/github-disrupting-the-experience-of-other-users) activity in a way that amounts to abuse
 - Following another user around the platform in a manner that causes intimidation
 - Making sexual advances or comments directed at another individual
 - Disingenuously participating in conversation in a way that instigates conflict or undermines sincere discussion

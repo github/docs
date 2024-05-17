@@ -1,32 +1,34 @@
 ---
-title: GitHub Copilot
-shortTitle: GitHub Copilot
+title: '{% data variables.product.prodname_copilot %} documentation'
+shortTitle: '{% data variables.product.prodname_copilot %}'
 intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
 redirect_from:
   - /github/copilot
 changelog:
   label: copilot
 introLinks:
-  overview: /copilot/overview-of-github-copilot/about-github-copilot
+  overview: /copilot/copilot-individual/about-github-copilot-individual
   quickstart: /copilot/quickstart
 featuredLinks:
-  guides:
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
-    - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  startHere:
+    - /copilot/using-github-copilot/getting-started-with-github-copilot
   popular:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
-    - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
+    - /copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment
     - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
 layout: product-landing
 versions:
   feature: copilot
 children:
+  - /about-github-copilot
   - /quickstart
-  - /overview-of-github-copilot
-  - /getting-started-with-github-copilot
+  - /using-github-copilot
+  - /copilot-individual
+  - /copilot-business
+  - /github-copilot-enterprise
+  - /managing-github-copilot-in-your-organization
+  - /github-copilot-chat
+  - /github-copilot-in-the-cli
   - /configuring-github-copilot
   - /troubleshooting-github-copilot
 topics:

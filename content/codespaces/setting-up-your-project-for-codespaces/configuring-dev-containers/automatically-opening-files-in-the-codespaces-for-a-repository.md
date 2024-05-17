@@ -31,7 +31,7 @@ The file, or files, you specify are only opened the first time a codespace is op
 {% data reusables.codespaces.edit-devcontainer-json %}
 1. Edit the `devcontainer.json` file, adding a `customizations.codespaces.openFiles` property. The `customizations` property resides at the top level of the file, within the enclosing JSON object. For example:
 
-   ```json{:copy}
+   ```json copy
    "customizations": {
      "codespaces": {
        "openFiles": [
@@ -49,4 +49,4 @@ The file, or files, you specify are only opened the first time a codespace is op
 
 ## Further reading
 
-- "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)"
+- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)"

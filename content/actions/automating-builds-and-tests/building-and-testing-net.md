@@ -6,60 +6,75 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Build & test .NET
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide shows you how to build, test, and publish a .NET package.
 
-{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the .NET Core SDK. For a full list of up-to-date software and the preinstalled versions of .NET Core SDK, see [software installed on {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners).
-{% endif %}
+ {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the .NET Core SDK. For a full list of up-to-date software and the preinstalled versions of .NET Core SDK, see [software installed on {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners).
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 We recommend that you have a basic understanding of the .NET Core SDK. For more information, see [Getting started with .NET](https://dotnet.microsoft.com/learn).
 
-## Using the .NET starter workflow
+## Using a .NET starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for .NET that should work for most .NET projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml
-name: dotnet package
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "dotnet".
+1. On the ".NET" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes %}
 
-jobs:
-  build:
+   If you don't find the ".NET" starter workflow, copy the following workflow code to a new file called `dotnet.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+   ```yaml copy
+   name: .NET
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Setup .NET Core SDK {% raw %}${{ matrix.dotnet-version }}{% endraw %}
-        uses: {% data reusables.actions.action-setup-dotnet %}
-        with:
-          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Setup .NET
+         uses: {% data reusables.actions.action-setup-dotnet %}
+         with:
+           dotnet-version: 6.0.x
+       - name: Restore dependencies
+         run: dotnet restore
+       - name: Build
+         run: dotnet build --no-restore
+       - name: Test
+         run: dotnet test --no-build --verbosity normal
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the .NET version.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `dotnet.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a .NET version
 
@@ -80,7 +95,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.1.x', '6.0.x' ]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -95,14 +110,14 @@ jobs:
 
 ### Using a specific .NET version
 
-You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
+You can configure your job to use a specific version of .NET, such as `6.0.22`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 6.
 
 ```yaml
-    - name: Setup .NET 3.x
+    - name: Setup .NET 6.x
       uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
-        dotnet-version: '3.x'
+        dotnet-version: '6.x'
 ```
 
 ## Installing dependencies
@@ -115,7 +130,7 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
@@ -126,7 +141,7 @@ steps:
 
 You can cache NuGet dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For example, the YAML below installs the `Newtonsoft` package.
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ```yaml
 steps:
@@ -134,12 +149,12 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
     restore-keys: |
       ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies
@@ -164,7 +179,7 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '3.1.x'
+    dotnet-version: '6.0.x'
 - name: Install dependencies
   run: dotnet restore
 - name: Build
@@ -177,7 +192,7 @@ steps:
 
 After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ```yaml
 name: dotnet package
@@ -190,7 +205,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.1.x', '6.0.x' ]
 
       steps:
         - uses: {% data reusables.actions.action-checkout %}
@@ -232,7 +247,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: '3.1.x' # SDK Version to use.
+          dotnet-version: '6.0.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/<owner>/index.json
         env:
           NUGET_AUTH_TOKEN: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}

@@ -1,0 +1,5 @@
+# Ability to set projects in issue forms (#11231)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

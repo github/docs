@@ -8,6 +8,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/orphaned-assets-check.yml
+      # In case any of the dependencies affect the script
+      - 'package*.json'
+      - src/assets/scripts/find-orphaned-assets.js
+      - src/workflows/walk-files.js
+      - src/languages/lib/languages.js
+      - .github/actions/clone-translations/action.yml
+      - .github/actions/node-npm-setup/action.yml
 
 permissions:
   contents: read
@@ -18,90 +28,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
-      # TODO: Can be removed after we no longer keep translations in-repo
-      - name: Remove existing language translations
-        run: |
-          rm -rf translations
-
-      - name: Checkout the zh-cn repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
         with:
-          repository: github/docs-internal.zh-cn
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/zh-CN
-
-      - name: Checkout the ja-jp repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ja-jp
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ja-JP
-
-      - name: Checkout the es-es repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.es-es
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/es-ES
-
-      - name: Checkout the pt-br repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.pt-br
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/pt-BR
-
-      - name: Checkout the de-de repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.de-de
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/de-DE
-
-      - name: Checkout the fr-fr repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.fr-fr
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/fr-FR
-
-      - name: Checkout the ru-ru repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ru-ru
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ru-RU
-
-      - name: Checkout the ko-kr repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
-        with:
-          repository: github/docs-internal.ko-kr
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          path: translations/ko-KR
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Check for orphaned assets
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           set -e
 
-          ./script/find-orphaned-assets.js | xargs git rm
+          # The `-s` is to make npm run silent and not print verbose
+          # information about the npm script alias.
+          filesToRemove=`npm run -s find-orphaned-assets`
+          [ -z "$filesToRemove" ] && exit 0
+
+          echo $filesToRemove | xargs git rm
+
+          git status
 
           # If nothing to commit, exit now. It's fine. No orphans.
           git status -- ':!translations*' | grep 'nothing to commit' && exit 0
 
+          # When run on a pull_request, we're just testing the tooling.
+          # Exit before it actually pushes the possible changes.
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry-run mode when run in a pull request"
+            exit 0
+          fi
+
           # Replicated from the translation pipeline PR-maker Action
-          git config --global user.name "docubot"
-          git config --global user.email "67483024+docubot@users.noreply.github.com"
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           date=$(date '+%Y-%m-%d-%H-%M')
           branchname=orphaned-assets-$date-$GITHUB_RUN_ID
@@ -110,8 +82,25 @@ jobs:
           git commit -m "Delete orphaned assets $date"
           git push origin $branchname
 
+          body=$(cat <<-EOM
+            Found with the npm run find-orphaned-assets script.
+            The orphaned assets workflow file .github/workflows/orphaned-assets-check.yml
+            runs every Monday at 16:20 UTC / 8:20 PST.
+            The first responder should just spot-check some of the unused assets
+            to make sure they aren't referenced anywhere
+            and then approve and merge the pull request.
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md).
+          EOM
+          )
+
           gh pr create \
             --title "Delete orphaned assets ($date)" \
-            --body "Found with the find-orphaned-assets.js script" \
+            --body "$body" \
             --repo github/docs-internal \
             --label docs-content-fr
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       # Jump through some hoops to work with a multi-line file
       - name: Store review template in variable
@@ -34,6 +34,6 @@ jobs:
         run: |
           gh pr comment $PR --body "$TEMPLATE"
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           PR: ${{ github.event.pull_request.html_url }}
           TEMPLATE: ${{ env.TEMPLATE }}

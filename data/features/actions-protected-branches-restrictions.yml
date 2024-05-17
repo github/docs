@@ -1,0 +1,6 @@
+# Reference: #11588
+# Documentation for security fix that block runs triggered from tag or fork with the same name as the protected branch
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

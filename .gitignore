@@ -6,15 +6,17 @@
 /node_modules/
 npm-debug.log
 coverage/
-.linkinator
 /assets/images/early-access
 /content/early-access
 /data/early-access
-/script/dev-toc/static
+/src/dev-toc/static
 .next
 .eslintcache
 *.tsbuildinfo
-translations/
+/translations/
+.node-version
+.linkinator/full.log
+next-env.d.ts
 
 # blc: broken link checker
 blc_output.log
@@ -29,5 +31,23 @@ lib/redirects/.redirects-cache*.json
 user-code/
 
 # Logs from scripts
-script/logs/
+*/logs/
 external-link-checker-db.json
+
+# Playwright related
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Automated content source
+rest-api-description
+semmle-code
+
+.installed.package-lock.json
+assets/images/help/writing/unordered-list-rendered (1).png
+
+# Used by getRemoteJSON()
+.remotejson-cache/
+
+# Used by precompute-pageinfo
+.pageinfo-cache.json.br

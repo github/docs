@@ -46,7 +46,8 @@ For example, you can use `https://github.com/sponsors/{account}?metadata_campaig
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 1. Optionally, to filter your sponsors by tier, use the **Filter** drop-down menu, click **Active tiers** or **Retired tiers**, and select a tier.
-  ![Drop-down menu to filter by tier](/assets/images/help/sponsors/filter-drop-down.png)
+
+   ![Screenshot of the {% data variables.product.prodname_sponsors %} dashboard. An expanded dropdown menu, labeled "Filter: all sponsors," is outlined in dark orange.](/assets/images/help/sponsors/tier-filter-dropdown.png)
 
 ## Viewing recent sponsorship activity
 
@@ -59,7 +60,5 @@ You can export your sponsorship transactions by month. {% data variables.product
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.your-sponsors-tab %}
-1. In the top-right, click {% octicon "download" aria-label="The download icon" %} **Export**.
-  ![Export button](/assets/images/help/sponsors/export-all.png)
+1. In the top-right, click {% octicon "download" aria-hidden="true" %} **Export**.
 1. Choose a time frame and a format for the data you'd like to export, then click **Start export**.
-  ![Options for data export](/assets/images/help/sponsors/export-your-sponsors.png)

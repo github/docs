@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -20,7 +19,7 @@ shortTitle: Link PR to issue
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's _default_ branch. However, if the PR's base is _any other branch_, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
 
 {% endnote %}
 
@@ -30,21 +29,21 @@ You can link an issue to a pull request manually or using a supported keyword in
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
 
 ## Linking a pull request to an issue using a keyword
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
-* close
-* closes
-* closed
-* fix
-* fixes
-* fixed
-* resolve
-* resolves
-* resolved
+- `close`
+- `closes`
+- `closed`
+- `fix`
+- `fixes`
+- `fixed`
+- `resolve`
+- `resolves`
+- `resolved`
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
@@ -52,8 +51,8 @@ The syntax for closing keywords depends on whether the issue is in the same repo
 
 Linked issue | Syntax | Example
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+Issue in the same repository | KEYWORD #ISSUE-NUMBER | `Closes #10`
+Issue in a different repository | KEYWORD OWNER/REPOSITORY#ISSUE-NUMBER | `Fixes octo-org/octo-repo#100`
 Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
 Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
@@ -68,15 +67,9 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
-{% else %}
-4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
-{% endif %}
-5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+1. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% data reusables.pull_requests.click-development-in-pull-request %}
+1. Click the issue you want to link to the pull request.
 
 {% ifversion link-existing-branches-to-issue %}
 
@@ -84,22 +77,18 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 
 Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
 
-You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered 
+You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-4. In the right sidebar, click **Development**.
-  ![Development menu in the right sidebar](/assets/images/help/issues/development-menu.png)
-5. Click the repository containing the pull request or branch you want to link to the issue.
-  ![Drop down to select repository](/assets/images/help/issues/development-menu-select-repository.png)
-6. Click the pull request or branch you want to link to the issue.
-  ![Drop down to link pull request or branch](/assets/images/help/issues/development-menu-select-pr-or-branch.png)
-7. Click **Apply**.
-  ![Apply](/assets/images/help/issues/development-menu-apply.png)
+1. In the list of issues, click the issue that you'd like to link a pull request or branch to.
+{% data reusables.pull_requests.click-development-in-issue %}
+1. Click the repository containing the pull request or branch you want to link to the issue.
+1. Click the pull request or branch you want to link to the issue.
+1. Click **Apply**.
 
 {% endif %}
 
 ## Further reading
 
-* "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"

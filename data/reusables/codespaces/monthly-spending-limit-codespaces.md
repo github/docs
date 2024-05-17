@@ -1,3 +1,1 @@
-1. Under "Codespaces", choose to limit spending or allow unlimited spending.
- 
-   ![Screenshot of the radio buttons to limit spending or allow unlimited spending](/assets/images/help/billing/limit-or-unlimited-codespaces.png)
+1. Under "Codespaces", either select **Limit spending** and enter a spending limit, or select **Unlimited spending**.

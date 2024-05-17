@@ -8,5 +8,5 @@ You can use `defaults.run` to provide default `shell` and `working-directory` op
 defaults:
   run:
     shell: bash
-    working-directory: scripts
+    working-directory: ./scripts
 ```

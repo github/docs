@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-custom-actions
@@ -26,6 +25,5 @@ children:
   - /sharing-actions-and-workflows-with-your-organization
   - /releasing-and-maintaining-actions
   - /developing-a-third-party-cli-action
----
-{% data reusables.actions.enterprise-beta %}
+--- 
 {% data reusables.actions.enterprise-github-hosted-runners %}

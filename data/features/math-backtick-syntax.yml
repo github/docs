@@ -1,0 +1,6 @@
+# Reference: #10146
+# Documentation for dollar sign-backtick inline math syntax
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

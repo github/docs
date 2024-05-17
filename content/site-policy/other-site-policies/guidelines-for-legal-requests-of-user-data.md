@@ -43,29 +43,29 @@ Before asking us to disclose data, it may be useful to understand how our system
 GitHub hosts millions of data repositories using the [Git version control system](https://git-scm.com/video/what-is-version-control).
 Repositories on GitHub—which may be public or private—are most commonly used for software development projects, but are also often used to work on content of all kinds.
 
-- [**Users**](/articles/github-glossary#user) —
+- [**Users**](/get-started/learning-about-github/github-glossary#user) —
 Users are represented in our system as personal GitHub accounts.
 Each user has a personal profile, and can own multiple repositories.
 Users can create or be invited to join organizations or to collaborate on another user's repository.
 
-- [**Collaborators**](/articles/github-glossary#collaborator) —
+- [**Collaborators**](/get-started/learning-about-github/github-glossary#collaborator) —
 A collaborator is a user with read and write access to a repository who has been invited to contribute by the repository owner.
 
-- [**Organizations**](/articles/github-glossary#organization) —
+- [**Organizations**](/get-started/learning-about-github/github-glossary#organization) —
 Organizations are a group of two or more users that typically mirror real-world organizations, such as businesses or projects.
 They are administered by users and can contain both repositories and teams of users.
 
-- [**Repositories**](/articles/github-glossary#repository) —
+- [**Repositories**](/get-started/learning-about-github/github-glossary#repository) —
 A repository is one of the most basic GitHub elements.
 They may be easiest to imagine as a project's folder.
 A repository contains all of the project files (including documentation), and stores each file's revision history.
 Repositories can have multiple collaborators and, at its administrators' discretion, may be publicly viewable or not.
 
-- [**Pages**](/articles/what-is-github-pages) —
+- [**Pages**](/pages/getting-started-with-github-pages/about-github-pages) —
 GitHub Pages are public webpages freely hosted by GitHub that users can easily publish through code stored in their repositories.
 If a user or organization has a GitHub Page, it can usually be found at a URL such as `https://username.github.io` or they may have the webpage mapped to their own custom domain name.
 
-- [**Gists**](/articles/creating-gists) —
+- [**Gists**](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) —
 Gists are snippets of source code or other text that users can use to store ideas or share with friends.
 Like regular GitHub repositories, Gists are created with Git, so they are automatically versioned, forkable and downloadable.
 Gists can either be public or secret (accessible only through a known URL). Public Gists cannot be converted into secret Gists.
@@ -86,25 +86,25 @@ All user public profiles display:
   - The other GitHub users the user follows
   - The users that follow them
 
-  Optionally, a user may also choose to share the following information publicly:
+    Optionally, a user may also choose to share the following information publicly:
   - Their real name
   - An avatar
   - An affiliated company
   - Their location
   - A public email address
   - Their personal web page
-  - Organizations to which the user is a member (*depending on either the organizations' or the users' preferences*)
+  - Organizations to which the user is a member (_depending on either the organizations' or the users' preferences_)
 
 - <a name="private-account-data"></a>
 **Private account data** —
-GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/articles/github-privacy-statement).
+GitHub also collects and maintains certain private information about users as outlined in our [Privacy Policy](/site-policy/privacy-policies/github-privacy-statement).
 This may include:
   - Private email addresses
   - Payment details
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
+    To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** —
@@ -116,7 +116,7 @@ All organization public profiles display:
   - The repositories that the owners have starred
   - All GitHub users that are owners of the organization
 
-  Optionally, administrative users may also choose to share the following information publicly:
+    Optionally, administrative users may also choose to share the following information publicly:
   - An avatar
   - An affiliated company
   - Their location
@@ -177,7 +177,7 @@ In the case of organization accounts, we can provide the name(s) and email addre
 Please note that the information available will vary from case to case. Some of the information is optional for users to provide. In other cases, we may not have collected or retained the information.
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**With a court order *or* a search warrant** — We will not disclose account access logs unless compelled to do so by either
+**With a court order _or_ a search warrant** — We will not disclose account access logs unless compelled to do so by either
 (i) a court order issued under 18 U.S.C. Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or
 (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause.
 In addition to the non-public account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
@@ -221,7 +221,7 @@ We will take steps to preserve account records for up to 90 days upon formal req
 
 Please serve requests to:
 
-```
+```text
 GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
@@ -240,6 +240,10 @@ Please make your requests as specific and narrow as possible, including the foll
 - The description of the types of records you need
 
 Please allow at least two weeks for us to be able to look into your request.
+
+### California Assembly Bill 1242 Notice
+
+By submitting legal process to GitHub, you attest that the legal process does not relate to the violation of any law that creates liability for abortion-related conduct that is lawful in California.
 
 ## Requests from foreign law enforcement
 

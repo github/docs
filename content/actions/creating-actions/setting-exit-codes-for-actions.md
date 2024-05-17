@@ -7,12 +7,10 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About exit codes
@@ -36,17 +34,17 @@ try {
 }
 ```
 
-For more information, see "[Creating a JavaScript action](/articles/creating-a-javascript-action)."
+For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
 
 ## Setting a failure exit code in a Docker container action
 
 If you are creating a Docker container action, you can set a failure exit code in your `entrypoint.sh` script. For example:
 
-```
+```shell
 if <condition> ; then
   echo "Game over!"
   exit 1
 fi
 ```
 
-For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."

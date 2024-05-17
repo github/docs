@@ -2,9 +2,9 @@ When using the `pull_request` and `pull_request_target` events, you can configur
 
 Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
 
-If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+If you define both `branches`/`branches-ignore` and [`paths`/`paths-ignore`](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
 
-The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see the "[Filter pattern cheat sheet](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. For more information about glob patterns, see the "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
 #### Example: Including branches
 
@@ -18,15 +18,19 @@ The patterns defined in `branches` are evaluated against the Git ref's name. For
 on:
   pull_request:
     # Sequence of patterns matched against refs/heads
-    branches:    
+    branches:
       - main
       - 'mona/octocat'
       - 'releases/**'
 ```
 
+{% data reusables.pull_requests.path-filtering-required-workflows %}
+
+If a workflow is skipped due to branch filtering, [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+
 #### Example: Excluding branches
 
-When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
 
 - A branch named `mona/octocat` (`refs/heads/mona/octocat`)
 - A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
@@ -35,7 +39,7 @@ When a pattern matches the `branches-ignore` pattern, the workflow will not run.
 on:
   pull_request:
     # Sequence of patterns matched against refs/heads
-    branches-ignore:    
+    branches-ignore:
       - 'mona/octocat'
       - 'releases/**-alpha'
 ```
@@ -56,7 +60,7 @@ The following workflow will run on `pull_request` events for pull requests that 
 ```yaml
 on:
   pull_request:
-    branches:    
+    branches:
       - 'releases/**'
       - '!releases/**-alpha'
 ```

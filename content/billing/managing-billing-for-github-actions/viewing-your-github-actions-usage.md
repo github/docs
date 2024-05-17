@@ -15,7 +15,7 @@ topics:
   - User account
 shortTitle: View your Actions usage
 ---
-You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
+You can also view the billable job execution minutes for an individual workflow run. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time)."
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your personal account
 
@@ -29,6 +29,14 @@ Anyone can view {% data variables.product.prodname_actions %} usage for their ow
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your organization
 
+{% ifversion billing-beta-enterprise %}
+{% note %}
+
+**Note:** If your organization belongs to an enterprise enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+
+{% endnote %}
+{% endif %}
+
 Organization owners and billing managers can view {% data variables.product.prodname_actions %} usage for an organization. For organizations managed by an enterprise account, only the organization owners can view {% data variables.product.prodname_actions %} usage in the organization billing page.
 
 {% data reusables.organizations.billing-settings %}
@@ -37,7 +45,16 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 {% ifversion ghec %}
+
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
+
+{% ifversion billing-beta-enterprise %}
+{% note %}
+
+**Note:** If your enterprise is enrolled in the Billing private beta for {% data variables.product.prodname_actions %}, you will not see {% data variables.product.prodname_actions %} usage on the existing billing pages.
+
+{% endnote %}
+{% endif %}
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.
 
@@ -50,8 +67,11 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_actions %}", view details of usage of data transfer by each organization in your enterprise account.
-  ![Details of usage of minutes](/assets/images/help/billing/actions-minutes-enterprise.png)
+1. Under "Actions monthly usage," view your usage minutes.
+
+   You can expand this section to show a breakdown of the usage by runner type.
+
+1. Under your usage minutes, view details of usage of data transfer by each organization in your enterprise account.
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
 {% endif %}

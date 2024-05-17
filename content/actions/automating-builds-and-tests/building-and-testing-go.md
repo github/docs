@@ -4,7 +4,6 @@ intro: You can create a continuous integration (CI) workflow to build and test y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -12,53 +11,74 @@ topics:
 shortTitle: Build & test Go
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide shows you how to build, test, and publish a Go package.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
-{% endif %}
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
 
 ## Prerequisites
 
-You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions)."
+You should already be familiar with YAML syntax and how it's used with {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
 
-## Using the Go starter workflow
+## Using a Go starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Go starter workflow that should work for most Go projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Go starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/go.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a Go starter workflow that should work for most Go projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml{:copy}
-name: Go package
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "go".
+1. Filter the selection of workflows by clicking **Continuous integration**.
+1. On the "Go - by {% data variables.product.prodname_actions %}" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+   ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Go" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-go.png)
 
-jobs:
-  build:
+{%- ifversion ghes %}
+   If you don't find the "Go - by {% data variables.product.prodname_actions %}" starter workflow, copy the following workflow code to a new file called `go.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
+   ```yaml copy
+   name: Go
 
-      - name: Set up Go
-        uses: {% data reusables.actions.action-setup-go %}
-        with:
-          go-version: 1.15
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-      - name: Build
-        run: go build -v ./...
+   jobs:
+     build:
 
-      - name: Test
-        run: go test -v ./...
-```
+       runs-on: self-hosted
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+
+         - name: Set up Go
+           uses: {% data reusables.actions.action-setup-go %}
+           with:
+             go-version: '1.20'
+
+         - name: Build
+           run: go build -v ./...
+
+         - name: Test
+           run: go test -v ./...
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the version of Go.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `go.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a Go version
 
@@ -70,7 +90,7 @@ The `setup-go` action is the recommended way of using Go with {% data variables.
 
 ### Using multiple versions of Go
 
-```yaml{:copy}
+```yaml copy
 name: Go
 
 on: [push]
@@ -81,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: [ '1.14', '1.15', '1.16.x' ]
+        go-version: [ '1.19', '1.20', '1.21.x' ]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -96,27 +116,27 @@ jobs:
 
 ### Using a specific Go version
 
-You can configure your job to use a specific version of Go, such as `1.16.2`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest patch release of Go 1.16:
+You can configure your job to use a specific version of Go, such as `1.20.8`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest patch release of Go 1.21:
 
-```yaml{:copy}
-      - name: Setup Go 1.16.x
+```yaml copy
+      - name: Setup Go 1.21.x
         uses: {% data reusables.actions.action-setup-go %}
         with:
           # Semantic version range syntax or exact version of Go
-          go-version: '1.16.x'
+          go-version: '1.21.x'
 ```
 
 ## Installing dependencies
 
 You can use `go get` to install dependencies:
 
-```yaml{:copy}
+```yaml copy
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: '1.16.x'
+          go-version: '1.21.x'
       - name: Install dependencies
         run: |
           go get .
@@ -128,21 +148,36 @@ You can use `go get` to install dependencies:
 
 ### Caching dependencies
 
-You can cache and restore the dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is disabled, but you can set the `cache` parameter to `true` to enable it.
+You can cache and restore dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is {% ifversion actions-setup-go-default-cache-enabled %}enabled when using the `setup-go` action.{% else %}disabled, but you can set the `cache` parameter to `true` to enable it.{% endif %}
 
-When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
+{% ifversion actions-setup-go-default-cache-enabled %}
+The `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
 
-```yaml{:copy}
+You can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
+
+```yaml copy
       - name: Setup Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: '1.16.x'
+          go-version: '1.17'
+          cache-dependency-path: subdir/go.sum
+```
+
+{% else %}
+
+When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
+
+```yaml copy
+      - name: Setup Go
+        uses: {% data reusables.actions.action-setup-go %}
+        with:
+          go-version: '1.21.x'
           cache: true
 ```
 
 Alternatively, you can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
 
-```yaml{:copy}
+```yaml copy
       - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: '1.17'
@@ -150,7 +185,9 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
           cache-dependency-path: subdir/go.sum
 ```
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+{% endif %}
+
+If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 {% endif %}
 
@@ -158,7 +195,7 @@ If you have a custom requirement or need finer controls for caching, you can use
 
 You can use the same commands that you use locally to build and test your code. This example workflow demonstrates how to use `go build` and `go test` in a job:
 
-```yaml{:copy}
+```yaml copy
 name: Go
 on: [push]
 
@@ -171,7 +208,7 @@ jobs:
       - name: Setup Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: '1.16.x'
+          go-version: '1.21.x'
       - name: Install dependencies
         run: go get .
       - name: Build
@@ -184,9 +221,9 @@ jobs:
 
 After a workflow completes, you can upload the resulting artifacts for analysis. For example, you may need to save log files, core dumps, test results, or screenshots. The following example demonstrates how you can use the `upload-artifact` action to upload test results.
 
-For more information, see "[Storing workflow data as artifacts](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
-```yaml{:copy}
+```yaml copy
 name: Upload Go test results
 
 on: [push]
@@ -197,7 +234,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: [ '1.14', '1.15', '1.16.x' ]
+        go-version: [ '1.19', '1.20', '1.21.x' ]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}

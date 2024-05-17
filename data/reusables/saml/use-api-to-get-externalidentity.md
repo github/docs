@@ -1,0 +1,1 @@
+1. Use the GraphQL API to retrieve the `ExternalIdentity` for each member. For more information, see "[AUTOTITLE](/graphql/overview/about-the-graphql-api)" and "[AUTOTITLE](/graphql/reference/objects#externalidentity)" in the GraphQL API documentation.

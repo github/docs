@@ -1,1 +1,1 @@
-2. At the prompt, upload your license file and set a management console password. For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."
+1. At the prompt, upload your license file and set a management console password. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise)."

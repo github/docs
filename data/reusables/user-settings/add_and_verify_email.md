@@ -1,5 +1,2 @@
-{% ifversion not ghae %}
-1. In "Add email address", type your email address and click **Add**.
-   ![Email addition button](/assets/images/help/settings/add-email-address.png){% ifversion fpt or ghec %}
-2. [Verify your email address](/articles/verifying-your-email-address).{% endif %}
-{% endif %}
+1. In "Add email address", type your email address and click **Add**.{% ifversion fpt or ghec %}
+1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).{% endif %}

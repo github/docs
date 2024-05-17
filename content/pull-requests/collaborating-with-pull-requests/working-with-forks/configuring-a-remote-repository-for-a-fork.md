@@ -10,28 +10,32 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
 shortTitle: Configure a remote repository
 ---
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. List the current configured remote repository for your fork.
-  ```shell
-  $ git remote -v
-  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
-  ```
-3. Specify a new remote *upstream* repository that will be synced with the fork.
-  ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
-  ```
-4. Verify the new upstream repository you've specified for your fork.
-  ```shell
-  $ git remote -v
-  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
-  > origin    https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
-  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-  > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
-  ```
+1. List the current configured remote repository for your fork.
+
+   ```shell
+   $ git remote -v
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   ```
+
+1. Specify a new remote _upstream_ repository that will be synced with the fork.
+
+   ```shell
+   git remote add upstream https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git
+   ```
+
+1. Verify the new upstream repository you've specified for your fork.
+
+   ```shell
+   $ git remote -v
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
+   ```

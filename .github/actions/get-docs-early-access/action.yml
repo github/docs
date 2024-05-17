@@ -1,0 +1,33 @@
+name: Clone and add docs-early-access
+
+description: Clone docs-early-access and copy its content into the repo
+
+inputs:
+  token:
+    description: PAT
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Figure out which branch to checkout
+      id: check-early-access
+      env:
+        BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        GITHUB_TOKEN: ${{ inputs.token }}
+      shell: bash
+      run: node src/early-access/scripts/what-docs-early-access-branch.js
+
+    - name: Clone
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-early-access
+        token: ${{ inputs.token }}
+        path: docs-early-access
+        ref: ${{ steps.check-early-access.outputs.branch }}
+
+    - name: Merge docs-early-access repo's folders
+      shell: bash
+      run: |
+        src/early-access/scripts/merge-early-access.sh
+        rm -fr docs-early-access

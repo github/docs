@@ -15,7 +15,6 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -26,7 +25,7 @@ topics:
 You can create links in wikis using the standard markup supported by your page, or using MediaWiki syntax. For example:
 
 - If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
-- With MediaWiki syntax, the link syntax is `[[nameofwikipage|Link Text]]`.
+- With MediaWiki syntax, the link syntax is `[[Link Text|nameofwikipage]]`.
 
 ## Adding images
 
@@ -34,11 +33,13 @@ Wikis can display PNG, JPEG, and GIF images.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
-4. On the wiki toolbar, click **Image**.
-   ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
-5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
-6. Click **OK**.
+1. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
+1. In the wiki toolbar, click {% octicon "image" aria-hidden="true" %}.
+
+   ![Screenshot of the toolbar on the edit page of the wiki. The icon to add an image is outlined in dark orange.](/assets/images/help/wiki/wiki-add-image.png)
+
+1. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
+1. Click **OK**.
 
 ### Linking to images in a repository
 
@@ -46,8 +47,7 @@ You can link to an image in a repository on {% data variables.product.product_na
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 
-{% ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
-## Adding mathematical expressions and diagrams{% endif %}
+## Adding mathematical expressions and diagrams
 
 {% data reusables.getting-started.math-and-diagrams %}
 

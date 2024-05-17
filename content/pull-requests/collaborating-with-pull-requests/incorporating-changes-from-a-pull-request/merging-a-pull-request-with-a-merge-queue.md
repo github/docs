@@ -2,8 +2,7 @@
 title: Merging a pull request with a merge queue
 intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: merge-queue
 topics:
   - Pull requests
 shortTitle: Merge PR with merge queue
@@ -11,9 +10,8 @@ redirect_from:
   - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 defaultTool: webui
+product: '{% data reusables.gated-features.merge-queue %}'
 ---
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 ## About merge queues
 
@@ -24,11 +22,11 @@ defaultTool: webui
 
 {% webui %}
 
-{% tip %}
+{% note %}
 
-**Tip:** You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
+**Note:** You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
 
-{% endtip %}
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -36,14 +34,16 @@ defaultTool: webui
 1. In the "Pull Requests" list, click the pull request you would like to add to a merge queue.
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
-   ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
 
-  {% tip %}
+   - Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
 
-  **Tip:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+   ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
-  {% endtip %}
+   {% note %}
+
+   **Note:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
+
+   {% endnote %}
 
 1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
 
@@ -69,7 +69,8 @@ To remove a pull request from a merge queue, you must navigate to the repository
 1. In the "Pull Requests" list, click the pull request you would like to remove from a merge queue.
 
 1. To remove the pull request from the queue, click **Remove from queue**.
-  ![Remove pull request from queue](/assets/images/help/pull_requests/remove-from-queue-button.png)
+
+   ![Screenshot of the merge queue message at the bottom of a pull request. The "Remove from queue" button is outlined in dark orange.](/assets/images/help/pull_requests/remove-from-queue-button.png)
 
 Alternatively, you can navigate to the merge queue page for the base branch, click **...** next to the pull request you want to remove, and select **Remove from queue**. For information on how to get to the merge queue page for the base branch, see the section below.
 
@@ -87,22 +88,20 @@ You can view the merge queue for a base branch in various places on {% data vari
 
 {% endwebui %}
 
-- On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
+- On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
 
-  ![View merge queue in Branches page](/assets/images/help/pull_requests/merge-queue-branches-page.png)
-
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %} next to any pull request in the merge queue.
-
-  ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
+  ![Screenshot of the "Branches" page for a repository. A link, labeled "33 pull requests queued to merge," is outlined in dark orange.](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
 - On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
 
-  ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
+  ![Screenshot of the merge queue message at the bottom of a pull request. The "merge queue" link is outlined in dark orange.](/assets/images/help/pull_requests/merge-queue-link.png)
 
 - The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
 
-  ![Merge queue view](/assets/images/help/pull_requests/merge-queue-view.png)
+  ![Screenshot of the merge queue.](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
+## Understanding why your pull request was removed from the merge queue
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+{% data reusables.pull_requests.merge-queue-removal-reasons %}

@@ -28,35 +28,35 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% note %}
 
-**Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+**Note**: The hostname for port 443 is `ssh.{% data variables.product.product_url %}`, not `{% data variables.product.product_url %}`.
 
 {% endnote %}
 
-If that worked, great! If not, you may need to [follow our troubleshooting guide](/articles/error-permission-denied-publickey).
+If that worked, great! If not, you may need to [follow our troubleshooting guide](/authentication/troubleshooting-ssh/error-permission-denied-publickey).
 
 Now, to clone the repository, you can run the following command:
 
-```
-$ git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
+```shell
+git clone ssh://git@ssh.{% data variables.product.product_url %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
 ## Enabling SSH connections over HTTPS
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
+If you are able to SSH into `git@ssh.{% data variables.product.product_url %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
 
 To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
-```
-Host {% data variables.command_line.codeblock %}
-Hostname ssh.{% data variables.command_line.codeblock %}
-Port 443
-User git
+```text
+Host {% data variables.product.product_url %}
+    Hostname ssh.{% data variables.product.product_url %}
+    Port 443
+    User git
 ```
 
 You can test that this works by connecting once more to {% data variables.location.product_location %}:
 
 ```shell
-$ ssh -T git@{% data variables.command_line.codeblock %}
+$ ssh -T git@{% data variables.product.product_url %}
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -66,7 +66,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 The first time you interact with {% data variables.product.prodname_dotcom %} after switching to port 443, you may get a warning message
 that the host wasn't found in `known_hosts`, or that it was found by another name.
 
-```ShellSession
+```shell
 > The authenticity of host '[ssh.github.com]:443 ([140.82.112.36]:443)' can't be established.
 > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
 > This host key is known by the following other names/addresses:
@@ -75,4 +75,4 @@ that the host wasn't found in `known_hosts`, or that it was found by another nam
 ```
 
 It is safe to answer "yes" to this question, assuming that the SSH fingerprint matches
-one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[{% data variables.product.prodname_dotcom %}'s SSH key fingerprints](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."
+one of {% data variables.product.prodname_dotcom %}'s published fingerprints. For the list of fingerprints, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)."

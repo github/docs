@@ -10,7 +10,7 @@ on:
 
 permissions:
   pull-requests: write
-  contents: none
+  contents: read
 
 jobs:
   run:
@@ -19,7 +19,7 @@ jobs:
       github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
+      - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_SITEPOLICY }}
         with:

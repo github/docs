@@ -1,0 +1,5 @@
+# Reference: issue  #11910
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.12'

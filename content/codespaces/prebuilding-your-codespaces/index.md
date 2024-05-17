@@ -14,5 +14,6 @@ children:
   - /allowing-a-prebuild-to-access-other-repositories
   - /managing-prebuilds
   - /testing-dev-container-changes
+product: 'You create and configure prebuilds in your repository''s settings. {% data reusables.gated-features.codespaces-repo %}'
 ---
 

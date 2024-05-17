@@ -4,7 +4,6 @@ intro: 'An overview of {% data variables.product.prodname_dotcom %} security fea
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -21,62 +20,79 @@ topics:
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 ## Available for all repositories
+
 ### Security policy
 
-Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
-
-{% ifversion fpt or ghec %}
-### Security advisories
-
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[About repository security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-
-{% endif %}
-{% ifversion fpt or ghec or ghes %}
+Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
-and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+
+{% ifversion dependabot-auto-triage-rules %}
+
+You can use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.prodname_dotcom %} to automatically filter out a substantial amount of false positives. {% data reusables.dependabot.dismiss-low-impact-rule %}
+
 {% endif %}
 
-{% ifversion ghae %}
-### {% data variables.product.prodname_dependabot_alerts %}
+{% data reusables.dependabot.quickstart-link %}
 
-{% data reusables.dependabot.dependabot-alerts-beta %}
+### {% data variables.product.prodname_dependabot_version_updates %}
 
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-### {% data variables.product.prodname_dependabot %} version updates
-
-Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)."
-{% endif %}
+Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
 ### Dependency graph
+
 The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
 
-You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
+You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+
+{% data reusables.dependency-graph.sbom-export %}
 
 {% ifversion security-overview-displayed-alerts %}
+
 ### Security overview
 
-The security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 {% else %}
+
 ### Security overview for repositories
-The security overview shows which security features are enabled for the repository, and offers you the option of configuring any available security features that are not already enabled.
+
+Security overview shows which security features are enabled for the repository, and lets you configure any available security features that are not already enabled.
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## Available for free public repositories
 
 {% ifversion fpt or ghec %}
-## Available for free public repositories
+
+### Security advisories
+
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
+
+{% endif %}
+
+### {% data variables.secret-scanning.user_alerts_caps %}
+
+Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+### Push protection for users
+
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."
+
+{% endif %}
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[Supported secrets for partner alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-alerts)."
+Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
+
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion fpt %}
@@ -88,41 +104,42 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 {% elsif ghes %}
 {% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 
-{% elsif ghae %}
-{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 {% endif %}
 
-### {% data variables.product.prodname_code_scanning_capc %}
+{% data reusables.advanced-security.ghas-trial %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+### {% data variables.product.prodname_code_scanning_caps %}
+
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-{% ifversion fpt %}
-{% data reusables.secret-scanning.secret-scanning-alerts-beta %} 
-Limited to free public repositories.
-{% endif %}
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
 
-{% ifversion ghec %}
-Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
-{% endif %}
+{% ifversion dependabot-auto-triage-rules %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[About {% data variables.secret-scanning.user_alerts %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)"{% elsif ghes %}"[About {% data variables.secret-scanning.user_alerts %} on {% data variables.product.product_name %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% elsif ghae %}"[About {% data variables.secret-scanning.user_alerts %} on {% data variables.product.product_name %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-ae){% endif %}."
+### {% data variables.dependabot.custom_rules_caps %}
+
+{% data reusables.dependabot.dependabot-custom-rules-ghas %}
+
+{% endif %}
 
 ### Dependency review
 
-Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
 {% ifversion security-overview-displayed-alerts %}<!--Section appears in non-GHAS features above-->
 
 {% elsif fpt %}<!--Feature requires enterprise product-->
 
 {% else %}
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+### Security overview for organizations{% ifversion ghes %}, enterprises,{% endif %} and teams
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 ## Further reading
-- "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)"
-- "[{% data variables.product.prodname_dotcom %} language support](/github/getting-started-with-github/github-language-support)"
+
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+- "[AUTOTITLE](/get-started/learning-about-github/github-language-support)"

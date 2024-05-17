@@ -1,0 +1,1 @@
+1. To allow organizations to access your {% data variables.actions.hosted_runner %}, specify which organizations can use the runner group the runner is assigned to. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#changing-which-organizations-can-access-a-runner-group)."

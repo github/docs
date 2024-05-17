@@ -11,12 +11,12 @@ When you have started a web application in a codespace, you can preview the runn
 }
 ```
 
-If the Simple Browser tab does not open automatically, you can open the Simple Browser manually to view the application. 
+If the Simple Browser tab does not open automatically, you can open the Simple Browser manually to view the application.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Ports** tab.
 1. Right-click the port, then click **Preview in Editor**.
 
-   ![Screenshot of the VS Code Ports tab. The menu entry "Preview in Editor" is highlighted in a context menu](/assets/images/help/codespaces/preview-in-editor-vscode.png)
+   ![Screenshot of the pop-up menu in the {% data variables.product.prodname_vscode_shortname %} Ports tab. The menu entry "Preview in Editor" is highlighted with a dark orange outline.](/assets/images/help/codespaces/preview-in-editor-vscode.png)
 
 #### The simple browser tab does not open automatically
 
@@ -26,12 +26,13 @@ To implement the port configuration specified in `devcontainer.json`, {% data va
 
 1. In the terminal in your codespace, enter the following command.
 
-   ```bash{:copy}
+   ```bash copy
    cat ~/.vscode-remote/data/Machine/settings.json
    ```
+
 1. Verify that the `settings.json` file contains lines like the following.
 
-   ```
+   ```json
     "remote.portsAttributes": {
         "3000": {
             "label": "Application",
@@ -39,8 +40,8 @@ To implement the port configuration specified in `devcontainer.json`, {% data va
         }
     }
     ```
-   
-If the `settings.json` file doesn't contain these settings, check whether you have dotfiles enabled, and whether any configuration in your dotfiles is overwriting the `settings.json` file. For more information, see "[Personalizing {% data variables.product.prodname_github_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+
+If the `settings.json` file doesn't contain these settings, check whether you have dotfiles enabled, and whether any configuration in your dotfiles is overwriting the `settings.json` file. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
 
 #### The application does not load
 

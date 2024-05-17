@@ -1,0 +1,6 @@
+# Issue 14171
+# ProjectV2 auto-closing
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

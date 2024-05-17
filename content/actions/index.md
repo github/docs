@@ -1,12 +1,12 @@
 ---
-title: GitHub Actions Documentation
-shortTitle: GitHub Actions
+title: "{% data variables.product.prodname_actions %} documentation"
+shortTitle: "{% data variables.product.prodname_actions %}"
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /actions/learn-github-actions
     - /actions/examples
     - /actions/automating-builds-and-tests/about-continuous-integration
@@ -14,7 +14,7 @@ featuredLinks:
     - /actions/publishing-packages/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/using-workflows/using-starter-workflows
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/publishing-packages/publishing-nodejs-packages
     - /actions/automating-builds-and-tests/building-and-testing-powershell
   popular:
@@ -25,10 +25,9 @@ featuredLinks:
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/variables
-    - /actions/security-guides/encrypted-secrets
+    - /actions/security-guides/using-secrets-in-github-actions
 changelog:
   label: actions
-product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
   - /articles/customizing-your-project-with-github-actions
@@ -41,7 +40,6 @@ layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /quickstart

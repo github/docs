@@ -1,0 +1,260 @@
+# This file is a snapshot copy from 'docs-internal.ja-jp'.
+# It's important to assure that we don't need to have keys for
+# everything because the fallback should work.
+
+meta:
+  default_description: GitHub の使用開始、トラブルシューティング、最大限に活用する方法について説明します。 新規ユーザー、開発者、管理者、すべての GitHub の製品に関するドキュメント。
+header:
+  github_docs: 日本 GitHub Docs
+  sign_up_cta: サインアップ
+  menu: メニュー
+picker:
+  language_picker_default_text: 言語の選択
+  product_picker_default_text: すべての製品
+  version_picker_default_text: バージョンを選択する
+search:
+  need_help: ヘルプが必要ですか?
+  placeholder: GitHub Docs を検索する
+  search_results_for: 検索結果
+  no_content: コンテンツはありません
+  matches_found: 次の件数の結果が見つかりました
+  matches_displayed: 一致が表示されました
+  search_error: 検索を実行しようとして、エラーが発生しました。
+  description: GitHub ドキュメントで探す検索語句を入力してください。
+  label: GitHub Docs を検索する
+  n_results: '{n} 件の結果'
+  one_result: 1 件の結果
+homepage:
+  explore_by_product: 製品で調べる
+  version_picker: Version
+  description: GitHub のどこにいてもお手伝いします。
+toc:
+  getting_started: 作業の開始
+  popular: 基本
+  startHere: ここから開始
+  whats_new: 新着情報
+  videos: ビデオ
+pages:
+  article_version: 記事のバージョン
+  miniToc: この記事の内容
+  all_enterprise_releases: Enterprise Server のすべてのリリース
+  about_versions: バージョンについて
+errors:
+  oops: 問題が発生しています。
+  something_went_wrong: It looks like something went wrong. (問題が発生した可能性があります。)
+  page_doesnt_exist: 指定されたページは存在しません。
+support:
+  still_need_help: サポートが必要な場合は、
+  contact_support: サポートにお問い合せください
+  ask_community: GitHub コミュニティで質問する
+survey:
+  able_to_find: このドキュメントは役立ちましたか?
+  'yes': はい
+  'no': いいえ
+  comment_yes_label: うまくできていることをお知らせください
+  comment_no_label: 改善の方法をお知らせください
+  optional: オプション
+  required: 必須
+  email_placeholder: email@example.com
+  email_label: さらにお尋ねするためにご連絡してもよろしければ、メール アドレスを入力してください
+  email_validation: 有効な電子メール アドレスを入力してください
+  send: Send
+  feedback: よろしくお願いいたします。 フィードバックを受け取りました。
+  not_support: 返信が必要な場合は、サポートにお問い合わせください。
+  privacy_policy: プライバシー ポリシー
+contribution_cta:
+  title: これらのドキュメントを素晴らしいものにするのを手伝ってください！
+  body: GitHub のドキュメントはすべてオープンソースです。 誤りまたは不明瞭な点がありますか? pull request を提出してください。
+  button: コントリビューションを行う
+  to_guidelines: コントリビューションの方法を学ぶ
+parameter_table:
+  body: 本文のパラメーター
+  default: Default
+  description: 説明
+  enum_description_title: 次のいずれかにできます
+  headers: ヘッダー
+  name: 名前
+  path: パス パラメーター
+  query: クエリ パラメーター
+  required: 必須
+  see_preview_notice: プレビューの通知を見る
+  see_preview_notices: プレビューの通知を見る
+  type: Type
+  single_enum_description: 値
+products:
+  graphql:
+    reference:
+      implements: '<code>{{ GraphQLItemTitle }}</code> 実装'
+      fields: '<code>{{ GraphQLItemTitle }}</code> のフィールド'
+      arguments: '<code>{{ GraphQLItemTitle }}</code> の引数'
+      name: 名前
+      type: 型
+      description: 説明
+      input_fields: '<code>{{ GraphQLItemTitle }}</code> の入力フィールド'
+      return_fields: '<code>{{ GraphQLItemTitle }}</code> の戻り値フィールド'
+      implemented_by: |
+        <code>{{ GraphQLItemTitle }}</code> は次で実装されています
+      values: '<code>{{ GraphQLItemTitle }}</code> の値です。'
+      possible_types: '<code>{{ GraphQLItemTitle }}</code> に使用できる型'
+      preview_notice: プレビュー通知
+      deprecation_notice: 非推奨の通知
+      preview_period: プレビュー期間中、API は通知なしに変更されることがあります。
+    overview:
+      preview_header: このプレビューを切り替えて次のスキーマ メンバーにアクセスするには、`Accept` ヘッダーにカスタムのメディアの種類を指定する必要があります。
+      preview_schema_members: プレビューされたスキーマ メンバー
+      announced: 発表
+      updates: 更新プログラム
+  rest:
+    banner:
+      api_versioned: REST API はバージョン管理になりました。
+      api_version_info: '詳細については、「<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">API のバージョン管理について</a>」を参照してください。'
+      ghes_api_versioned: 'サイト管理者が Enterprise Server インスタンスを {{ firstGhesReleaseWithApiVersions.versionTitle }} 以降にアップグレードすると、REST API はバージョン管理されます。 インスタンスのバージョンを検索する方法については、「<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">GitHub Docs のバージョンについて</a>」を参照してください。'
+      redirect_notice: REST API ドキュメントの一部は最近移動されました。
+      redirect_repo: '探しているものが見つからない場合は、新しい {{ newRestPagesLinks }} REST API ページを試してみてください。'
+      redirect_enterprise: '探しているものが見つからない場合は、{{ actionsPageLink }} REST API ページを試してみてください。'
+      actions_api_title: Actions
+    versioning:
+      about_versions: REST API のバージョンについて
+    reference:
+      in: 場所
+      description: 説明
+      notes: Notes
+      parameters: '"{{ RESTOperationTitle }}" のパラメーター'
+      response: '[応答]'
+      example_response: 応答の例
+      status_code: 状態コード
+      http_status_code: '"{{ RESTOperationTitle }}" の HTTP 応答状態コード'
+      code_sample: コード サンプル
+      code_samples: '"{{ RESTOperationTitle }}" のコード サンプル'
+      preview_notice: '"{{ RESTOperationTitle }}" のプレビュー通知'
+      preview_notices: '"{{ RESTOperationTitle }}" のプレビュー通知'
+      preview_header_is_required: このヘッダーは<strong>必須</strong>です
+      preview_notice_to_change: この API はプレビュー段階であり、変更される可能性があります
+      works_with: ' に対応'
+      api_reference: REST API リファレンス
+      enum_description_title: 次のいずれかにできます
+      required: 必須
+      headers: ヘッダー
+      query: クエリ パラメーター
+      path: パス パラメーター
+      body: 本文のパラメーター
+      response_options:
+        example: 応答の例
+        schema: 応答スキーマ
+      code_sample_options:
+        ghcli: GitHub CLI
+        javascript: JavaScript
+        curl: cURL
+  webhooks:
+    action_type_switch_error: Webhook アクションの種類を切り替える際にエラーが発生しました。
+    action_type: アクションの種類
+    availability: '<code>{{ WebhookName }}</code> の可用性'
+    webhook_payload_object: '<code>{{ WebhookName }}</code> の Webhook ペイロード オブジェクト'
+    webhook_payload_example: webhook ペイロードの例
+    rephrase_availability:
+      repository: リポジトリ
+      organization: 組織
+      app: GitHub アプリ
+      business: Enterprise
+      marketplace: GitHub Marketplace
+      sponsors_listing: スポンサー付きアカウント
+footer:
+  all_rights_reserved: All rights reserved
+  terms: 用語
+  privacy: プライバシー
+  security: Security
+  product:
+    heading: 製品
+    links:
+      features: 機能
+      security: セキュリティ
+      enterprise: Enterprise
+      case_studies: ケース スタディ
+      pricing: 価格
+      resources: リソース
+  platform:
+    heading: プラットフォーム
+    links:
+      developer_api: 開発者 API
+      partners: パートナー
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: サポート
+    links:
+      help: ヘルプ
+      community_forum: コミュニティ フォーラム
+      training: トレーニング
+      status: 状態
+      contact_github: GitHub に連絡
+  company:
+    heading: '[会社]'
+    links:
+      about: 詳細
+      blog: ブログ
+      careers: キャリア
+      press: ショートカット キー
+      shop: ショップ
+product_landing:
+  quickstart: クイック スタート
+  reference: リファレンス
+  overview: 概要
+  guides: ガイド
+  explore_guides: ガイドを調べる
+  code_examples: コード例
+  search_code_examples: 検索コードの例
+  search_results_for: 検索結果
+  matches_displayed: 一致が表示されました
+  show_more: さらに表示
+  explore_people_and_projects: 人やプロジェクトを調べる
+  sorry: 検索結果はありません
+  no_example: 指定されたフィルターが当てはまる例はないようです。
+  try_another: 別のフィルターを試すか、ご自分のコードの例を追加してください。
+  no_result: 申し訳ありませんが、指定されたフィルターに一致するガイドはありません。
+  learn: コード例の追加方法を学ぶ
+  communities_using_discussions: ディスカッションを使用している GitHub.com 上のコミュニティ
+  add_your_community: コミュニティを追加する
+  sponsor_community: GitHub Sponsors コミュニティ
+  supported_releases: サポートされているリリース
+  release_notes_for: ' のリリース ノート'
+  upgrade_from: アップグレード前のバージョン
+  browse_all_docs: すべてのドキュメントを見る
+  browse_all: すべて参照
+  docs: docs
+  explore_release_notes: リリース ノートを調べる
+  view: すべて表示
+  view_transcript: ビデオのトランスクリプトを表示
+  all_docs: 'すべての {{ title }} ドキュメント'
+  code_example:
+    search_button: 検索
+    search_examples: '検索コードの例:'
+product_guides:
+  learning_paths_title: '{{ name }} ラーニング パス'
+  start_path: ラーニング パスの開始
+  learning_paths_desc: ラーニング パスは、特定のテーマについてマスターするのに役立つガイド集です。
+  more_guides: その他のガイド
+  load_more: さらにガイドをロード
+  all_guides_title: 'すべての {{ name }} ガイド'
+  filter_instructions: これらのコントロールを使ってガイドの一覧をフィルターしてください
+  filters:
+    type: Type
+    topic: トピック
+    all: すべて
+  guides_found:
+    multiple: '{n} 個のガイドが見つかりました'
+    one: 1 個のガイドが見つかりました
+    none: ガイドが見つかりませんでした
+  guide_types:
+    overview: 概要
+    quick_start: クイック スタート
+    tutorial: チュートリアル
+    how_to: ハウツー ガイド
+    reference: リファレンス
+learning_track_nav:
+  prev_guide: 前へ
+  next_guide: 次へ
+  more_guides: その他のガイド →
+  current_progress: 'ラーニング パスの {n} の {i}'
+scroll_button:
+  scroll_to_top: 一番上にスクロールします

@@ -1,2 +1,1 @@
-1. Click **Git Config**.
-![Git Config option](/assets/images/help/desktop/select-git-config.png)
+1. In the "Repository Settings" window, in the left sidebar, click **Git Config**.

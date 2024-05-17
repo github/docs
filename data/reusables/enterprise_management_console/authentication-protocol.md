@@ -1,1 +1,1 @@
-On the right side of "Authentication password", in the **Protocol** dropdown menu, click the authentication protocol you want to use.
+Next to "Authentication password", select the **Protocol** dropdown menu, then click the authentication protocol you want to use.

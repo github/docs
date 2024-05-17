@@ -1,0 +1,6 @@
+# Reference: #9704 #9701 #9663
+# Documentation improvements to the required workflow beta feature launch
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

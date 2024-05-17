@@ -4,23 +4,20 @@
 - Go
 - Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %}
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes > 3.3 or ghec or ghae > 3.3 %}
-- Ruby{% endif %}
+- Python
+- Ruby
+{% ifversion codeql-swift-beta %}- Swift{% endif %}
 
 {% note %}
 
-{% ifversion fpt or ghec or ghae or ghes > 3.3 %}
 **Notes**:
 
-{% ifversion ghes < 3.8 or ghae < 3.8 %}
-- {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.{% endif %}{% ifversion codeql-kotlin-beta %}
+{% ifversion codeql-swift-beta %}
+- {% data variables.product.prodname_codeql %} analysis for Swift is currently in beta. During the beta, analysis of Swift will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages. Additionally, Swift 5.8 is not yet supported.{% endif %}
+{% ifversion codeql-kotlin-beta %}
 - {% data variables.product.prodname_codeql %} analysis for Kotlin is currently in beta. During the beta, analysis of Kotlin will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
-- Use `java` to analyze code written in Java, Kotlin or both.{% endif %}
-- Use `javascript` to analyze code written in JavaScript, TypeScript or both.
-
-{% else %}
-**Note**: Use `javascript` to analyze code written in JavaScript, TypeScript or both.
-{% endif %}
+- Use {% ifversion codeql-language-identifiers-311 %}`java-kotlin`{% else %}`java`{% endif %} to analyze code written in Java, Kotlin or both.{% endif %}
+- Use {% ifversion codeql-language-identifiers-311 %}`javascript-typescript`{% else %}`javascript`{% endif %} to analyze code written in JavaScript, TypeScript or both.
 
 {% endnote %}
 

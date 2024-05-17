@@ -16,6 +16,7 @@ children:
   - /troubleshooting-included-usage
   - /exporting-changes-to-a-branch
   - /troubleshooting-creation-and-deletion-of-codespaces
+  - /troubleshooting-authentication-to-a-repository
   - /troubleshooting-your-connection-to-github-codespaces
   - /troubleshooting-prebuilds
   - /troubleshooting-personalization-for-codespaces
@@ -23,3 +24,4 @@ children:
   - /troubleshooting-gpg-verification-for-github-codespaces
   - /working-with-support-for-github-codespaces
 ---
+

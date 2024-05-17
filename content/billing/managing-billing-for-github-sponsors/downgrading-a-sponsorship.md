@@ -14,7 +14,6 @@ topics:
   - Downgrades
   - Sponsors
 ---
-{% data reusables.sponsors.org-sponsors-release-phase %} 
 
 ## About sponsorship downgrades
 
@@ -33,7 +32,15 @@ When you downgrade or cancel a sponsorship, the change will become effective on 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.sponsors.billing-switcher %}
-3. Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="The down triangle octicon" %} next to your sponsored amount, then click **Cancel sponsorship**.
-  ![Cancel sponsorship button](/assets/images/help/billing/edit-sponsor-billing.png)
-4. Review the information about canceling your sponsorship, then click **OK**.
-  ![Cancellation confirmation box](/assets/images/help/billing/confirm-sponsorship-cancellation.png)
+1. Under "{% data variables.product.prodname_sponsors %}", next to the sponsored account, click your current tier amount, then click **Cancel sponsorship**.
+1. Review the alert about canceling your sponsorship, then click **OK**.
+
+## Canceling a scheduled sponsorship
+
+Organizations that pay for {% data variables.product.prodname_sponsors %} by invoice can schedule the first payment for the next billing date. You can cancel the scheduled sponsorship before it becomes active.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. Under "{% data variables.product.prodname_sponsors %}", in the yellow banner with the start date, click **Undo**.
+1. Review the alert about undoing the activation of the sponsorship, then click **OK**.

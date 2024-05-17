@@ -22,6 +22,7 @@ This guide shows you how to set up an example Python project {% data reusables.c
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-python.
 {% data reusables.codespaces.use-this-template %}
 
@@ -37,20 +38,20 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.command-palette-container %}
 1. Start typing `python` and click **Python 3** in the list. Other options are available if your project uses particular tools. For example, Python 3 & PostgreSQL.
 
-   ![Screenshot of the 'Python 3' option](/assets/images/help/codespaces/add-python-prebuilt-container.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, listing options for Python.](/assets/images/help/codespaces/add-python-prebuilt-container.png)
 
 1. Choose the version of Python you want to use for your project. In this case, select the version marked "(default)."
 
-   ![Screenshot of the Python 3 version selection](/assets/images/help/codespaces/add-python-version.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, listing various versions of Python 3.](/assets/images/help/codespaces/add-python-version.png)
 
 1. A list of additional features is displayed. We'll install Coverage.py, a code coverage tool for Python. To install this tool, type `py`, select `Coverage.py (via pipx)`, then click **OK**.
 
-   ![Screenshot of additional features for 'dotnet'](/assets/images/help/codespaces/add-python-features.png)
+   ![Screenshot of the "Add Dev Container Configuration Files" dropdown, with "Coverage.py" selected.](/assets/images/help/codespaces/add-python-features.png)
 
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
@@ -86,12 +87,12 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-* Install a package required by the application.
-* Install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+- Install a package required by the application.
+- Install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json{:copy}
+   ```json copy
    "features": {
      "ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
    },
@@ -102,14 +103,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json{:copy}
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "pip3 install --user -r requirements.txt",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/python
    {
@@ -144,7 +145,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing the package listed in the `requirements.txt` file, and the "Code Spell Checker" extension will be available for use.
 
@@ -154,11 +155,11 @@ In the previous section, you used the `postCreateCommand` to install a package f
 
 1. In the Terminal of your codespace, enter `python -m flask run`.
 
-   ![Screenshot of running the Python application from the terminal](/assets/images/help/codespaces/python-flask-run.png)
+   ![Screenshot of the Terminal tab with the command "python -m flask run" entered, and output including "Running on http://127.0.0.1:5000."](/assets/images/help/codespaces/python-flask-run.png)
 
 1. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, telling you that your application is available on a forwarded port. To view the running application, click **Open in Browser**.
 
-   ![Port forwarding "toast" notification](/assets/images/help/codespaces/codespaces-port5000-toast.png)
+   ![Screenshot of the port forwarding message, reading "Your application running on port 5000 is available." The "Open in Browser" button is also shown.](/assets/images/help/codespaces/codespaces-port5000-toast.png)
 
 ## Step 5: Commit your changes
 

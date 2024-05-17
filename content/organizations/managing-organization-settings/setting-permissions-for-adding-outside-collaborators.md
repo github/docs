@@ -7,13 +7,16 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Set collaborator policy
 ---
+
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
+{% data reusables.organizations.about-outside-collaborators %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
 
 By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to add outside collaborators to organization owners only.
 
@@ -32,6 +35,5 @@ By default, anyone with admin access to a repository can invite outside collabor
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
-  ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
-6. Click **Save**.
+1. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**.
+1. Click **Save**.

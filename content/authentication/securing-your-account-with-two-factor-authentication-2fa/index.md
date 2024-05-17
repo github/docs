@@ -18,9 +18,13 @@ children:
   - /configuring-two-factor-authentication-recovery-methods
   - /accessing-github-using-two-factor-authentication
   - /recovering-your-account-if-you-lose-your-2fa-credentials
-  - /changing-two-factor-authentication-delivery-methods-for-your-mobile-device
+  - /changing-your-two-factor-authentication-method
+  - /about-mandatory-two-factor-authentication
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
 ---
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}

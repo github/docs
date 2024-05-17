@@ -7,12 +7,15 @@ name: Move new issues to correct docs repo
 on:
   issues:
     types:
+      # Note, if an issue is transferred from github/some-other-repo
+      # over to github/docs-internal, this will trigger both 'transferred'
+      # *and* 'opened' events. And 'opened' covers the most basic case
+      # of an issue being created here in this repo.
       - opened
-      - transferred
       - reopened
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   transfer_issue:
@@ -21,12 +24,12 @@ jobs:
     if: github.repository == 'github/docs-internal'
     steps:
       - id: move_to_correct_repo
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
             const issueNo = context.issue.number
             const owner = 'github'
@@ -41,13 +44,13 @@ jobs:
               correctRepo = process.env.TEAM_ENGINEERING_REPO
             }
 
-            const correctRepoObject = await github.repos.get({
+            const correctRepoObject = await github.rest.repos.get({
               owner: owner,
               repo: correctRepo
             })
 
             // Post a comment in the docs-internal issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner: owner,
               repo: originalRepo,
               issue_number: issueNo,
@@ -82,9 +85,18 @@ jobs:
 
             // Add the same labels to the new issue
             const newIssueNumber = graph.transferIssue.issue.number
-            await github.issues.addLabels({
+            await github.rest.issues.addLabels({
               owner: owner,
               repo: correctRepo,
               issue_number: newIssueNumber,
               labels: context.payload.issue.labels.map(label => label.name),
             })
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

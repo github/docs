@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Commit missing in local clone
 ---
@@ -23,20 +22,20 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 
 However, when you view the commit on {% data variables.location.product_location %}, you'll be able to see it without any problems:
 
-`github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
+`github.com/ACCOUNT/REPOSITORY/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
 There are several possible explanations:
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+- The local repository is out of date.
+- The branch that contains the commit was deleted, so the commit is no longer referenced.
+- Someone force pushed over the commit.
 
 ## The local repository is out of date
 
 Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
 
 ```shell
-$ git fetch REMOTE
+git fetch REMOTE
 ```
 
 This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
@@ -64,7 +63,7 @@ the commit.  This might be tracking the branch that was force pushed or deleted
 and they simply haven't updated yet.  To preserve the commit, they can push that
 local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
 let's assume they have a remote named `upstream` via which they have push access
-to `github.com/$account/$repository`.
+to `github.com/ACCOUNT/REPOSITORY`.
 
 The other person runs:
 
@@ -75,7 +74,7 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+Now, _you_ can run:
 
 ```shell
 $ git fetch upstream recover-B

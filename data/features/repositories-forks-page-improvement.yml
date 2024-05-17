@@ -1,0 +1,6 @@
+# Reference: Issue #8558 - Make the forks page of a repository more useful
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.9'
