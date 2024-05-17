@@ -123,9 +123,9 @@ You can add an expiration date to content by wrapping it in HTML tags that conta
 **Use:**
 
 ```markdown
-This content does not expire. 
+This content does not expire.
 <!-- expires 2022-01-28 -->
-This content expires on January 28, 2022. 
+This content expires on January 28, 2022.
 <!-- end expires 2022-01-28 -->
 This content also does not expire.
 ```
@@ -134,7 +134,6 @@ This content also does not expire.
 
 Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible. You can disable a rule for an entire file, for a section of a Markdown file, a specific line, or the next line.
 
-<!-- markdownlint-disable MD011 -->
 For example, if you are writing an article that includes the regular expression `(^|/)[Cc]+odespace/` that checks for reversed link syntax, it will trigger the `MD011` rule that checks for reversed links. You can disable the rule `MD011` on that specific line by adding the following comment.
 
 ```text
@@ -150,8 +149,6 @@ If the line you're trying to ignore is in a code block, you can ignore the code 
 ```
 <!-- markdownlint-enable MD011 -->
 ````
-
-<!-- markdownlint-enable MD011 -->
 
 You can use these comments to enable or disable rules.
 
