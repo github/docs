@@ -95,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see "[dirty](#dirty)".
+    current HEAD. Also see "[dirty](#dirty)."
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
