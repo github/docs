@@ -120,9 +120,11 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+    - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -156,8 +158,10 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **OpenID Connect**.
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
