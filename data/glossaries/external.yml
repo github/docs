@@ -128,7 +128,7 @@
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
-- term: Commit graph
+- term: commit graph
   description: >-
     A repository graph that shows all the commits made to a repository in the
     past year.
