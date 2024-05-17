@@ -148,6 +148,7 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
+  'domain_edit',
 ]
 
 export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {
