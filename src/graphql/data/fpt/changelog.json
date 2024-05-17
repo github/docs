@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'BRANCH_POLICY<code>was added to enum</code>DeploymentProtectionRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>EnvironmentPinnedFilterField</code> was added</p>",
           "<p>Type <code>PinEnvironmentInput</code> was added</p>",
           "<p>Type <code>PinEnvironmentPayload</code> was added</p>",
