@@ -1,11 +1,11 @@
 ---
-title. Connecting to GitHub
-intro. 'Learn about the tools you can use to work with repositories hosted on {% data variables.product.prodname_dotcom %}.'
-versions.
-  fpt. '*'
-  ghec. '*'
-  ghes. '*'
-topics.
+title: Connecting to GitHub
+intro: 'Learn about the tools you can use to work with repositories hosted on {% data variables.product.prodname_dotcom %}.'
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+topics:
   - CLI
   - Codespaces
   - Desktop
@@ -58,7 +58,7 @@ There are several tools you can use to connect to {% data variables.product.prod
 
 - If you want a lot of control and flexibility, you can use the command line. You'll need to install Git and be familiar with some basic Git commands. You can also install {% data variables.product.prodname_cli %}, a command-line interface that lets you perform many actions on {% data variables.product.prodname_dotcom %}, such as creating a pull request or forking a repository. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 - If you'd prefer to use a visual interface, you can use a visual Git client such as {% data variables.product.prodname_desktop %}. With {% data variables.product.prodname_desktop %}, you can visualize the changes you're making and access most Git commands through a visual interface, so you don't need to memorize any commands. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
-- If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https.//code.visualstudio.com/download).
+- If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/download).
 
 ## Comparison of tools for connecting to GitHub
 
