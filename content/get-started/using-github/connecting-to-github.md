@@ -1,11 +1,11 @@
 ---
-title: Connecting to GitHub
-intro: 'Learn about the tools you can use to work with repositories hosted on {% data variables.product.prodname_dotcom %}.'
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-topics:
+title. Connecting to GitHub
+intro. 'Learn about the tools you can use to work with repositories hosted on {% data variables.product.prodname_dotcom %}.'
+versions.
+  fpt. '*'
+  ghec. '*'
+  ghes. '*'
+topics.
   - CLI
   - Codespaces
   - Desktop
@@ -19,7 +19,7 @@ topics:
 
 There are many ways to work with {% data variables.product.prodname_dotcom %}, and you can choose a method that suits your level of experience, personal preferences, and the repositories you work with. For example, you can choose whether you want to work in the browser or from your desktop, how you want to use Git, and what capabilities you need from your editor and other software. You may choose to work with different repositories in different ways.
 
-If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to GitHub](#comparison-of-tools-for-connecting-to-github)."
+If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at Each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to GitHub](#comparison-of-tools-for-connecting-to-github)."
 
 ## Getting started
 
@@ -58,15 +58,15 @@ There are several tools you can use to connect to {% data variables.product.prod
 
 - If you want a lot of control and flexibility, you can use the command line. You'll need to install Git and be familiar with some basic Git commands. You can also install {% data variables.product.prodname_cli %}, a command-line interface that lets you perform many actions on {% data variables.product.prodname_dotcom %}, such as creating a pull request or forking a repository. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 - If you'd prefer to use a visual interface, you can use a visual Git client such as {% data variables.product.prodname_desktop %}. With {% data variables.product.prodname_desktop %}, you can visualize the changes you're making and access most Git commands through a visual interface, so you don't need to memorize any commands. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
-- If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/download).
+- If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https.//code.visualstudio.com/download).
 
 ## Comparison of tools for connecting to GitHub
 
 The following table provides a comparison between the tools you can use to work with repositories on {% data variables.product.prodname_dotcom %}, both in your browser and from your desktop.
 
-You can perform the whole {% data variables.product.prodname_dotcom %} flow with any of the tools described here: each tool includes access not only to Git commands for tracking the changes you've made, but also to {% data variables.product.prodname_dotcom %}-specific features, so you can create a pull request with your proposed changes from wherever you're working.
+You can perform the whole {% data variables.product.prodname_dotcom %} flow with any of the tools described here. Each tool includes access not only to Git commands for tracking the changes you've made, but also to {% data variables.product.prodname_dotcom %}-specific features, so you can create a pull request with your proposed changes from wherever you're working.
 
-For more information about how to authenticate to {% data variables.product.product_name %} with each of these tools, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
+For more information about how to authenticate to {% data variables.product.product_name %} with Each of these tools, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
 | Tool | Use case | Browser or desktop |
 | ---- | -------- | ------------------ |
