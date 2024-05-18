@@ -37,6 +37,7 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 1. Optionally, if you have access to {% data variables.product.prodname_copilot_enterprise %}, you can ask {% data variables.product.prodname_copilot_short %} about the changes in a file in a pull request by clicking {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, clicking **Ask {% data variables.product.prodname_copilot_short %} about this diff**, then typing a request such as "Explain these changes." For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#finding-out-about-the-changes-in-a-pull-request)."
 {%- endif %}
 {% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.multiple-lines-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
 {% ifversion pull-request-comment-on-file %}
