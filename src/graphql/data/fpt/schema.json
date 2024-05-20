@@ -20661,6 +20661,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -38883,6 +38891,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "announcementExpiresAt",
@@ -78168,6 +78184,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "announcementExpiresAt",

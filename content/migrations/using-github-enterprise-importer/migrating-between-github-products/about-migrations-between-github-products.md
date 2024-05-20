@@ -44,6 +44,10 @@ Limit | GHES <3.8.0 | GHES 3.8.0+ |
 Git source | 2GB | 10GB
 Metadata | 2GB | 10GB
 
+### Data that is not migrated
+
+Currently, the following data is **not** migrated.
+
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
 - Teams
 - User or team access to the repository
@@ -107,6 +111,11 @@ When you migrate a repository, either directly or as part of an organization mig
 - User history for the above data
 - Attachments (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)")
 
+### Data that is not migrated
+
+Currently, the following data is **not** migrated.
+
+- {% data variables.product.prodname_codespaces %} secrets
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
 - User access to the repository
 
