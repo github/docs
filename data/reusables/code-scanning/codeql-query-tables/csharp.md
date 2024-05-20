@@ -56,5 +56,7 @@
 | [Thread-unsafe capturing of an ICryptoTransform object](https://codeql.github.com/codeql-query-help/csharp/cs-thread-unsafe-icryptotransform-captured-in-lambda/) | 362 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Thread-unsafe use of a static ICryptoTransform field](https://codeql.github.com/codeql-query-help/csharp/cs-thread-unsafe-icryptotransform-field-in-class/) | 362 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of file upload](https://codeql.github.com/codeql-query-help/csharp/cs-web-file-upload/) | 434 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Value shadowing](https://codeql.github.com/codeql-query-help/csharp/cs-web-ambiguous-client-variable/) | 348 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Value shadowing: server variable](https://codeql.github.com/codeql-query-help/csharp/cs-web-ambiguous-server-variable/) | 348 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
