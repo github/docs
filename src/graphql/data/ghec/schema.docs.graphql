@@ -1183,6 +1183,11 @@ interface AnnouncementBanner {
   announcement: String
 
   """
+  The date the announcement was created
+  """
+  announcementCreatedAt: DateTime
+
+  """
   The expiration date of the announcement, if any
   """
   announcementExpiresAt: DateTime
@@ -12543,6 +12548,11 @@ type Enterprise implements AnnouncementBanner & Node {
   The text of the announcement
   """
   announcement: String
+
+  """
+  The date the announcement was created
+  """
+  announcementCreatedAt: DateTime
 
   """
   The expiration date of the announcement, if any
@@ -28285,6 +28295,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   The text of the announcement
   """
   announcement: String
+
+  """
+  The date the announcement was created
+  """
+  announcementCreatedAt: DateTime
 
   """
   The expiration date of the announcement, if any

@@ -64,7 +64,7 @@ There are several tools you can use to connect to {% data variables.product.prod
 
 The following table provides a comparison between the tools you can use to work with repositories on {% data variables.product.prodname_dotcom %}, both in your browser and from your desktop.
 
-You can perform the whole {% data variables.product.prodname_dotcom %} flow with any of the tools described here: each tool includes access not only to Git commands for tracking the changes you've made, but also to {% data variables.product.prodname_dotcom %}-specific features, so you can create a pull request with your proposed changes from wherever you're working.
+You can perform the whole {% data variables.product.prodname_dotcom %} flow with any of the tools described here. Each tool includes access not only to Git commands for tracking the changes you've made, but also to {% data variables.product.prodname_dotcom %}-specific features, so you can create a pull request with your proposed changes from wherever you're working.
 
 For more information about how to authenticate to {% data variables.product.product_name %} with each of these tools, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
