@@ -19,7 +19,7 @@ topics:
 
 There are many ways to work with {% data variables.product.prodname_dotcom %}, and you can choose a method that suits your level of experience, personal preferences, and the repositories you work with. For example, you can choose whether you want to work in the browser or from your desktop, how you want to use Git, and what capabilities you need from your editor and other software. You may choose to work with different repositories in different ways.
 
-If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at Each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to GitHub](#comparison-of-tools-for-connecting-to-github)."
+If you're new to {% data variables.product.prodname_dotcom %}, a good way to start contributing is to make changes in the browser on {% data variables.location.product_location %}. As you become more familiar with {% data variables.product.prodname_dotcom %} and start contributing larger changes, you may want to start working with other tools. This article explains how to progress through these stages and helps you choose the best tool for your requirements at each stage. To quickly compare all the tools available for working with {% data variables.product.prodname_dotcom %}, see "[Comparison of tools for connecting to GitHub](#comparison-of-tools-for-connecting-to-github)."
 
 ## Getting started
 
@@ -66,7 +66,7 @@ The following table provides a comparison between the tools you can use to work 
 
 You can perform the whole {% data variables.product.prodname_dotcom %} flow with any of the tools described here. Each tool includes access not only to Git commands for tracking the changes you've made, but also to {% data variables.product.prodname_dotcom %}-specific features, so you can create a pull request with your proposed changes from wherever you're working.
 
-For more information about how to authenticate to {% data variables.product.product_name %} with Each of these tools, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
+For more information about how to authenticate to {% data variables.product.product_name %} with each of these tools, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)."
 
 | Tool | Use case | Browser or desktop |
 | ---- | -------- | ------------------ |
