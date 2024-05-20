@@ -73,7 +73,7 @@ Use `git status` to list all new or modified files that haven't yet been committ
 
 To format code or text into its own distinct block, use triple backticks.
 
-````text
+````markdown
 Some basic Git commands are:
 ```
 git status
@@ -373,9 +373,9 @@ Here are the rendered alerts:
 
 You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+```text
+<!-- This content will not appear in the rendered Markdown -->
+```
 
 ## Ignoring Markdown formatting
 

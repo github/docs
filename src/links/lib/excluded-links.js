@@ -74,6 +74,7 @@ export default [
   'https://api.octocorp.ghe.com',
   'https://platform.openai.com/docs/guides/safety-best-practices',
   'https://global.rel.tunnels.api.visualstudio.com/api/version',
+  'https://www.wireguard.com/quickstart/',
 ]
 
 // Return a regular expression from a URL string that matches the URL
