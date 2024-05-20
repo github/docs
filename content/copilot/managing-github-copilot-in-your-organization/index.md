@@ -4,6 +4,8 @@ shortTitle: Manage Copilot in your organization
 intro: 'Learn about {% data variables.product.prodname_copilot_cli %}, including use cases, best practices, and limitations.'
 versions:
   feature: copilot-in-the-cli
+redirect_from:
+  - /copilot/managing-copilot/managing-policies-for-copilot-business-in-your-organization
 topics:
   - Copilot
   - CLI
