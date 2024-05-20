@@ -67,7 +67,7 @@ As an organization owner, you can add a {% data variables.product.prodname_copil
 
 ## Signing up for {% data variables.product.prodname_copilot_for_business %} for your enterprise account
 
-As an enterprise owner, you can add a {% data variables.product.prodname_copilot_for_business %} subscription to your enterprise account. Owners of organizations that you have enabled for {% data variables.product.prodname_copilot_short %} will then be able to assign {% data variables.product.prodname_copilot %} seats to members of their organization. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization)."
+As an enterprise owner, you can add a {% data variables.product.prodname_copilot_for_business %} subscription to your enterprise account. Owners of organizations that you have enabled for {% data variables.product.prodname_copilot_short %} will then be able to assign {% data variables.product.prodname_copilot %} seats to members of their organization. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 ### Customers under a Microsoft Enterprise Agreement
 
@@ -79,7 +79,7 @@ As an enterprise owner, you can add a {% data variables.product.prodname_copilot
 
 ## Signing up for {% data variables.product.prodname_copilot_enterprise %} for your enterprise account
 
-As an enterprise owner, you can add a {% data variables.product.prodname_copilot_enterprise %} subscription to your enterprise account. Owners of organizations that you have enabled for {% data variables.product.prodname_copilot_short %} will then be able to assign {% data variables.product.prodname_copilot %} seats to members of their organization. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization)."
+As an enterprise owner, you can add a {% data variables.product.prodname_copilot_enterprise %} subscription to your enterprise account. Owners of organizations that you have enabled for {% data variables.product.prodname_copilot_short %} will then be able to assign {% data variables.product.prodname_copilot %} seats to members of their organization. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 ### Customers under a Microsoft Enterprise Agreement
 
@@ -152,7 +152,7 @@ As an enterprise owner, you must decide whether to allow all organizations in yo
 
 {% data reusables.copilot.next-steps %}
 
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization)": As an organization owner, learn how to manage access to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} in your organization.
+- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)": As an organization owner, learn how to grant access to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} in your organization.
 - "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)": You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}: Find out how to ask {% data variables.product.prodname_copilot %} for information and assistance.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
