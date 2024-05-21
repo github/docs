@@ -42,7 +42,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type `hello-world`.
-{% data reusables.repositories.add-description %} For example, type "This repository is for practising the {% data variables.product.prodname_dotcom %} Flow."
+{% data reusables.repositories.add-description %} For example, type "This repository is for practicing the {% data variables.product.prodname_dotcom %} Flow."
 {% data reusables.repositories.select-public-or-private %}
 {% data reusables.repositories.add-readme %}
 {% data reusables.repositories.click-create %}

@@ -1,6 +1,6 @@
 ---
 title: Managing Copilot knowledge bases
-shortTitle: Managing knowledge bases
+shortTitle: Manage knowledge bases
 intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
 versions:
   feature: copilot-private-docsets
@@ -9,13 +9,14 @@ topics:
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets
   - /copilot/github-copilot-enterprise/copilot-docset-management
+  - /copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases
 ---
 
 ## About knowledge bases
 
 Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.
 
-When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response. For more information on how to use knowledge bases in {% data variables.product.prodname_copilot_chat_dotcom_short %}, see "[Asking a question about a knowledge base](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom/#asking-a-question-about-a-knowledge-base)."
+When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response. For more information on how to use knowledge bases in {% data variables.product.prodname_copilot_chat_dotcom_short %}, see "[Asking a question about a knowledge base](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom/#asking-a-question-about-a-knowledge-base)."
 
 ## Creating a knowledge base
 
