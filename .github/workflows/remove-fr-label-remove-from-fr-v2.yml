@@ -40,7 +40,7 @@ jobs:
             echo "Archiving item $ITEM_ID ..."
             gh project item-archive $PROJECT_NUMBER --owner github --id $ITEM_ID
           else
-            echo "Issue $PR_NUMBER not found on Project"
+            echo "Pull request number $PR_NUMBER not found on FR v2 Project"
           fi
 
           echo "done"
