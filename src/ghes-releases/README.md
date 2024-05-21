@@ -1,6 +1,6 @@
 # GHES releases
 
-New GHES releases are cut about every 3 months and around the same time, the oldest release is deprecated (or unofficially supported). The release schedule is located here: src/ghes-releases/lib/enterprise-dates.json
+New GHES releases are cut about every 3 months and around the same time, the oldest release is deprecated (unofficially supported). The release schedule is located here: src/ghes-releases/lib/enterprise-dates.json
 
 ## How does it work
 
