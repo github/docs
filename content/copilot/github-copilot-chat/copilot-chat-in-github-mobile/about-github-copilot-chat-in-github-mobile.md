@@ -3,12 +3,13 @@ title: About GitHub Copilot Chat in GitHub Mobile
 intro: '{% data variables.product.prodname_copilot_chat %} can help you by providing answers to coding related questions directly within {% data variables.product.prodname_mobile %}.'
 redirect_from:
   - /early-access/copilot/about-github-copilot-chat-in-github-mobile
+  - /copilot/github-copilot-chat/about-github-copilot-chat-in-github-mobile
 versions:
   feature: copilot-chat-for-mobile
 topics:
   - Copilot
   - Mobile
-shortTitle: About Copilot Chat (Mobile)
+shortTitle: About Copilot Chat
 type: rai
 ---
 

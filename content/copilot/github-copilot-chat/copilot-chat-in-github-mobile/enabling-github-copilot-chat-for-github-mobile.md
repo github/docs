@@ -6,7 +6,9 @@ topics:
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-shortTitle: Enabling Copilot Chat (Mobile)
+shortTitle: Enable Copilot Chat
+redirect_from:
+  - /copilot/github-copilot-chat/enabling-github-copilot-chat-for-github-mobile
 ---
 
 If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, {% data variables.product.prodname_copilot_mobile %} is already enabled.
@@ -34,4 +36,4 @@ An enterprise owner can choose whether to enable a feature for all organizations
 
 ## Next steps
 
-You successfully enabled {% data variables.product.prodname_copilot_mobile_short %} for your organization{% ifversion ghec %} or enterprise{% endif %}. To learn more about how to use it, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile)."
+You successfully enabled {% data variables.product.prodname_copilot_mobile_short %} for your organization{% ifversion ghec %} or enterprise{% endif %}. To learn more about how to use it, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile)."
