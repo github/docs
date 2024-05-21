@@ -88,6 +88,9 @@ sections:
          # https://github.com/github/releases/issues/3566
         - |
            In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+        # https://github.com/github/releases/issues/3180
+        - |
+          To increase coverage of secret scanning across an instance, users can enable secret scanning in repositories owned by their personal account. Enterprise owners can disable this feature, or automatically enable it for all new user-owned repositories, in the enterprise settings. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
     - heading: Code scanning
       notes:

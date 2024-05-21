@@ -5,10 +5,11 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat
+  - /copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Use Copilot Chat (IDE)
+shortTitle: Use Copilot Chat
 ---
 
 {% vscode %}

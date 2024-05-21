@@ -6,14 +6,16 @@ topics:
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-shortTitle: Use Copilot Chat (Mobile)
+shortTitle: Use Copilot Chat
+redirect_from:
+  - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
 ---
 
 ## Overview
 
-{% data variables.product.prodname_copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.product.prodname_copilot_chat %} {% ifversion ghec %}on either {% data variables.product.prodname_dotcom_the_website %} or{% endif %} within a supported IDE. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."
+{% data variables.product.prodname_copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.product.prodname_copilot_chat %} {% ifversion ghec %}on either {% data variables.product.prodname_dotcom_the_website %} or{% endif %} within a supported IDE. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)."
 
-{% data variables.product.prodname_copilot_mobile_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat-in-github-mobile)."
+{% data variables.product.prodname_copilot_mobile_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)."
 
 {% ifversion ghec %}
 In {% data variables.product.prodname_mobile %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
@@ -38,7 +40,7 @@ To use {% data variables.product.prodname_copilot_mobile_short %} you will need 
 
    If you do not have a {% data variables.product.prodname_copilot %} subscription, you can purchase a {% data variables.product.prodname_copilot_individuals_short %} subscription directly in the iOS version of {% data variables.product.prodname_mobile %}, or in the Google Play Store for the Android version of {% data variables.product.prodname_mobile %}.
 
-- **Access to {% data variables.product.prodname_copilot_mobile_short %}**: If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_cli_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/enabling-github-copilot-chat-for-github-mobile)."
+- **Access to {% data variables.product.prodname_copilot_mobile_short %}**: If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_cli_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile)."
 - **Enable {% data variables.product.prodname_copilot_short %} features for your device**: {% data variables.product.prodname_copilot_short %} needs to be enabled from within {% data variables.product.prodname_mobile %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot#enabling-or-disabling-copilot-in-github-mobile)."
 
 ## Asking a general question about software development
@@ -86,7 +88,7 @@ You can ask questions about a specific repository, to get help with understandin
    > [!IMPORTANT]
    > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. However, only members of an enterprise with a {% data variables.product.prodname_copilot_enterprise %} subscription can index a repository for semantic code search. Without indexing, {% data variables.product.prodname_copilot_mobile_short %} may not be able to provide the most relevant answers to your questions.
    >
-   > Additionally, indexing a repository is not possible in {% data variables.product.prodname_mobile %}. To index a repository, you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser. For more information, see step 6 of "[Asking a question about a specific repository, file or symbol](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)."
+   > Additionally, indexing a repository is not possible in {% data variables.product.prodname_mobile %}. To index a repository, you must use {% data variables.product.prodname_copilot_chat_short %} in a web browser. For more information, see step 6 of "[Asking a question about a specific repository, file or symbol](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)."
 
 {% data reusables.copilot.chat-mobile-conversation-buttons %}
 
