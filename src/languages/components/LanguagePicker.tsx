@@ -98,7 +98,10 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
         </>
       ) : mediumOrLower ? (
         <ActionList className="hide-sm" selectionVariant="single">
-          <ActionList.Group title={t('language_picker_label')}>{languageList}</ActionList.Group>
+          <ActionList.Group>
+            <ActionList.GroupHeading>{t('language_picker_label')}</ActionList.GroupHeading>
+            {languageList}
+          </ActionList.Group>
         </ActionList>
       ) : (
         <ActionMenu>
