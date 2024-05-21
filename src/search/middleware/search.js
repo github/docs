@@ -32,8 +32,18 @@ router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, query, autocomplete, page, size, debug, sort, highlights, include } =
-      req.search
+    const {
+      indexName,
+      query,
+      autocomplete,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      include,
+      toplevel,
+    } = req.search
 
     const options = {
       indexName,
@@ -45,6 +55,7 @@ router.get(
       highlights,
       usePrefixSearch: autocomplete,
       include,
+      toplevel,
     }
     try {
       const { meta, hits } = await getSearchResults(options)
