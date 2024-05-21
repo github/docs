@@ -42,7 +42,7 @@ jobs:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
+        uses: azure/docker-login@f3bf641aefa4add3a0667e94dbbcb96374bba2fa
         with:
           login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
           username: ${{ secrets.PROD_REGISTRY_USERNAME }}
