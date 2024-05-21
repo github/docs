@@ -55,7 +55,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 1. To configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, read the following documentation. {% ifversion emu-public-scim-schema %}If you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP.{% endif %}
 
    - [Entra ID](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) on Microsoft Learn
-   - [Okta instructions](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html) in the Okta documentation
+   - "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)"
    - [PingFederate instructions](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) in the PingIdentity documentation
    {%- ifversion emu-public-scim-schema %}
    - "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)"
