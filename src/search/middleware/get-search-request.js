@@ -18,7 +18,7 @@ const MAX_PAGE = 10
 // the output by default. E.g. `...&include=intro`
 // Requesting anything that is not in this list will result in
 // a 400 Bad Request.
-const V1_ADDITIONAL_INCLUDES = ['intro', 'headings']
+const V1_ADDITIONAL_INCLUDES = ['intro', 'headings', 'toplevel']
 
 // If someone searches for `...&version=3.5` what they actually mean
 // is `ghes-3.5`. This is because of legacy formatting with the old search.
@@ -107,6 +107,12 @@ const PARAMS = [
     // But we don't have any other versions yet so no need to
     // over-engineer this more.
     validate: (values) => values.every((value) => V1_ADDITIONAL_INCLUDES.includes(value)),
+  },
+  {
+    key: 'toplevel',
+    default_: [],
+    cast: toArray,
+    multiple: true,
   },
 ]
 

@@ -311,3 +311,56 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     expect(results.error).toMatch(`Not a valid value ([ 'xxxxx' ]) for key 'include'`)
   })
 })
+
+describeIfElasticsearchURL('filter by toplevel', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("include 'toplevel' in output", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    // In the fixtures, there are two distinct `toplevel` that
+    // matches to this search.
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by 'toplevel' (single)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Baring')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Baring']))
+  })
+
+  test("filter by 'toplevel' (array)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.append('toplevel', 'Baring')
+    sp.append('toplevel', 'Fooing')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by unrecognized 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Never heard of')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.meta.found.value).toBe(0)
+  })
+})
