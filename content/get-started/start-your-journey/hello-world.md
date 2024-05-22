@@ -42,7 +42,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type `hello-world`.
-{% data reusables.repositories.add-description %} For example, type "This repository is for practising the {% data variables.product.prodname_dotcom %} Flow."
+{% data reusables.repositories.add-description %} For example, type "This repository is for practicing the {% data variables.product.prodname_dotcom %} Flow."
 {% data reusables.repositories.select-public-or-private %}
 {% data reusables.repositories.add-readme %}
 {% data reusables.repositories.click-create %}
@@ -96,7 +96,7 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the `README.md` file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself.
-{% ifversion code-search-code-view %}1. Click **Commit changes...**.{% endif %}
+{% ifversion code-view-ui %}1. Click **Commit changes**.{% endif %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
 

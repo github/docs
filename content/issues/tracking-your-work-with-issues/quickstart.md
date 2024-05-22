@@ -39,14 +39,11 @@ You can use markdown to add formatting, links, emojis, and more. For more inform
 
 ![Screenshot of the new issue form, with a title and body filled in.](/assets/images/help/issues/issue-title-body.png)
 
-{% ifversion task-lists-v1 %}
-
 ## Adding a task list
 
 It can be helpful to break large issues into smaller tasks, or to track multiple related issues in a single larger issue. Add a task list to your issue by prefacing list items with `[ ]`. Reference existing issues by issue number or URL. You can use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
 ![Screenshot of the new issue form, with the title and body filled in. The body includes the Markdown for a task list.](/assets/images/help/issues/issue-task-list-raw.png)
-{% endif %}
 
 ## Adding labels
 

@@ -59,7 +59,7 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | github_com_profile | The URL for the user's profile page on GHEC
 | github_com_user	| Whether or not the user has an account on GHEC |
 | github_com_member_roles | For each of the organizations the user belongs to on GHEC, the organization name and the user's role in that organization (`Owner` or `Member`) separated by a colon<br><br>Organizations delimited by commas |
-| github_com_enterprise_role | Can be one of: `Owner`, `Member`, or `Outside collaborator`
+| github_com_enterprise_role | Can be one of: `Owner`, `Member`, `Outside collaborator` (for an enterprise with personal accounts on {% data variables.product.prodname_dotcom_the_website %}), or `Repository collaborator` (for an enterprise that uses {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom_the_website %})
 | github_com_verified_domain_emails | All email addresses associated with the user's GHEC account that match your enterprise's verified domains |
 | github_com_saml_name_id | The SAML username |
 | github_com_orgs_with_pending_invites | All pending invitations for the user's GHEC account to join organizations within your enterprise |

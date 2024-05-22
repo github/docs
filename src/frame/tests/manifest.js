@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
@@ -37,5 +38,21 @@ describe('manifest', () => {
         expect(dimensions.height).toBe(height)
       }),
     )
+  })
+
+  test('/manifest.json is the only valid URL (query string)', async () => {
+    const res = await get('/manifest.json?foo=bar')
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/manifest.json')
+    expect(res.headers['cache-control']).toMatch(/public/)
+    expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
+  })
+
+  test('/manifest.json is the only valid URL (more path)', async () => {
+    const res = await get('/manifest.json/something/else')
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/manifest.json')
+    expect(res.headers['cache-control']).toMatch(/public/)
+    expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
   })
 })

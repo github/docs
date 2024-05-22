@@ -289,8 +289,10 @@ jobs:
           ruby-version: '2.6'
       - run: bundle install
       - name: Rubocop
-        run: rubocop
+        run: rubocop -f github
 ```
+
+Specifying `-f github` means that the RuboCop output will be in {% data variables.product.prodname_dotcom %}'s annotation format. Any linting errors will show inline in the **Files changed** tab of the pull request that introduces them.
 
 ## Publishing Gems
 

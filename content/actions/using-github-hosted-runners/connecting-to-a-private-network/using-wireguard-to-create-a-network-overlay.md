@@ -50,7 +50,7 @@ jobs:
     steps:
       - run: sudo apt install wireguard
 
-      - run: echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
+      - run: echo {% raw %}"${{ secrets.WIREGUARD_PRIVATE_KEY }}"{% endraw %} > privatekey
 
       - run: sudo ip link add dev wg0 type wireguard
 

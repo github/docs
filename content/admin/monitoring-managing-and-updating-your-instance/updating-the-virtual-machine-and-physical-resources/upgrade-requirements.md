@@ -50,6 +50,8 @@ curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.
 
 Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
 
+{% data reusables.enterprise_installation.preflight-checks %}
+
 {% ifversion mysql-8-upgrade %}
 
 ## Known issues

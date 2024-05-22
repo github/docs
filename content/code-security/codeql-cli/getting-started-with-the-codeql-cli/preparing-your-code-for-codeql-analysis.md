@@ -153,7 +153,7 @@ The {% data variables.product.prodname_codeql_cli %} includes extractors to crea
 
 ### JavaScript and TypeScript
 
-Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, you must install Node.js 6.x or later. In the command line you can specify `--language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}` to extract both JavaScript and TypeScript files:
+Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, Node.js 14 or higher must be installed and available on the `PATH` as `node`. In the command line you can specify `--language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}` to extract both JavaScript and TypeScript files:
 
 ```shell
 codeql database create --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --source-root <folder-to-extract> <output-folder>/javascript-database

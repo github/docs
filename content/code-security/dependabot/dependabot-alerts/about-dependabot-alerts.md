@@ -23,11 +23,9 @@ shortTitle: Dependabot alerts
 ---
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About alerts for vulnerable dependencies ".-->
 
-## About {% data variables.product.prodname_dependabot_alerts %}
+{% data variables.product.prodname_dependabot_alerts %} tell you when your code depends on a package that is insecure. Often, software is built using open-source code packages from a large variety of sources. The complex relationships between these dependencies, and the ease with which malicious actors can insert malware into upstream code, mean that you may unknowingly be using dependencies that have security flaws, also known as vulnerabilities.
 
-{% data variables.product.prodname_dependabot_alerts %} tell you that your code depends on a package that is insecure.
-
-If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
+If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. Using a vulnerable package makes you a soft target for malicious users looking to exploit your system. For example, they may seek to get access to your code and data from your customers or contributors. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
 
 {% data reusables.dependabot.no-dependabot-alerts-for-malware %}
 

@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
 import { getDOM } from '#src/tests/helpers/e2etest.js'

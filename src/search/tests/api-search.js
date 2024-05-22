@@ -7,11 +7,11 @@
  *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
  *
  * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on jest tests you need to index real
+ * once you're done working on vitest tests you need to index real
  * content again.
  */
 
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
 import { get } from '#src/tests/helpers/e2etest.js'
@@ -25,7 +25,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic search', async () => {
     const sp = new URLSearchParams()
@@ -263,7 +263,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
 })
 
 describeIfElasticsearchURL("additional fields with 'include'", () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test("'intro' and 'headings' are omitted by default", async () => {
     const sp = new URLSearchParams()
@@ -309,5 +309,85 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     expect(res.statusCode).toBe(400)
     const results = JSON.parse(res.body)
     expect(results.error).toMatch(`Not a valid value ([ 'xxxxx' ]) for key 'include'`)
+  })
+})
+
+describeIfElasticsearchURL('filter by toplevel', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("include 'toplevel' in output", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    // In the fixtures, there are two distinct `toplevel` that
+    // matches to this search.
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by 'toplevel' (single)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Baring')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Baring']))
+  })
+
+  test("filter by 'toplevel' (array)", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.append('toplevel', 'Baring')
+    sp.append('toplevel', 'Fooing')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
+    expect(toplevels).toEqual(new Set(['Fooing', 'Baring']))
+  })
+
+  test("filter by unrecognized 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('include', 'toplevel')
+    sp.set('toplevel', 'Never heard of')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.meta.found.value).toBe(0)
+  })
+})
+
+describeIfElasticsearchURL('aggregate', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("aggregate by 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.aggregations).toBeTruthy()
+    expect(results.aggregations.toplevel).toBeTruthy()
+    const firstAgg = results.aggregations.toplevel[0]
+    expect(firstAgg.key).toBeTruthy()
+    expect(firstAgg.count).toBeTruthy()
+  })
+
+  test("aggregate by 'unrecognizedxxx'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'unrecognizedxxx')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(400)
+    expect(JSON.parse(res.body).error).toMatch('aggregate')
   })
 })

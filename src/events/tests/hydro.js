@@ -1,4 +1,5 @@
-import { afterEach } from '@jest/globals'
+import { afterEach, describe, expect, test } from 'vitest'
+
 import nock from 'nock'
 import { publish } from '../lib/hydro.js'
 
@@ -11,7 +12,7 @@ describe('Hydro', () => {
     nock.cleanAll()
   })
 
-  it('publishes a single event', async () => {
+  test('publishes a single event', async () => {
     const scope = nock(endpoint, {
       reqheaders: {
         Authorization: /^Hydro \w{64}$/,
@@ -33,7 +34,7 @@ describe('Hydro', () => {
     expect(scope.isDone()).toBeTruthy()
   })
 
-  it('publishes many events in one request', async () => {
+  test('publishes many events in one request', async () => {
     const scope = nock(endpoint, {
       reqheaders: {
         Authorization: /^Hydro \w{64}$/,
@@ -66,7 +67,7 @@ describe('Hydro', () => {
     expect(scope.isDone()).toBeTruthy()
   })
 
-  it('422 with JSON error', async () => {
+  test('422 with JSON error', async () => {
     // Hydro will return 422 errors with the body being a string of
     // JSON serialized information. Some of the errors are operational
     // and something we don't need to send to Failbot.

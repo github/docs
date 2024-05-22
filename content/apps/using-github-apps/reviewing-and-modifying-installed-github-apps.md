@@ -21,7 +21,7 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 ## Navigating to the {% data variables.product.prodname_github_app %} you want to review or modify
 
 - For a {% data variables.product.prodname_github_app %} installed on an organization:
-   1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**.
+   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile photo, then click **Your organizations**.
    1. Next to your organization name, click **Settings**.
    1. In the side bar, under "Third-party Access," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your organization will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.

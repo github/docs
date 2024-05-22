@@ -17,7 +17,7 @@ redirect_from:
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
 
-Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see "[Allowing repositories to access a runner group](#allowing-repositories-to-access-a-runner-group)."
+Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see "[Allowing repositories to access {% data variables.actions.hosted_runner %}s](#allowing-repositories-to-access-larger-runners)."
 
 {% data reusables.actions.add-hosted-runner-overview %}
 

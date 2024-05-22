@@ -1,5 +1,6 @@
 import fs from 'fs/promises'
 
+import { describe, expect, test } from 'vitest'
 import { glob } from 'glob'
 
 /*

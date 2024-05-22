@@ -47,7 +47,7 @@ Callouts should be concise. If the information consists of more than a couple of
 
 ### Callout types
 
-There are four types of callouts: tip, note, warning, and danger.
+There are four types of callouts: tip, note, warning, and caution.
 
 #### Tip
 
@@ -55,7 +55,8 @@ Recommendations, best practices or product hints. Tips contain non-essential inf
 
 For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
 
->[!TIP] When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+> [!TIP]
+> When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
 #### Note
 
@@ -67,7 +68,8 @@ Notes are particularly useful for communicating parenthetical information that i
 
 For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
 
->[!NOTE] Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+> [!NOTE]
+> Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
 
 #### Warning
 
@@ -77,13 +79,14 @@ Warning callouts are particularly relevant for processes that occur outside the 
 
 For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning callout to alert users that once issued, certificates cannot be revoked:
 
->[!WARNING] After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+> [!WARNING]
+> After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
 
-#### Danger
+#### Caution
 
 Alerts users to dangerous or destructive actions that warrant extreme caution before performing, particularly where there is a security risk or potential for data loss.
 
-Danger callouts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+Caution callouts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
 ### Formatting callouts
 
@@ -94,25 +97,29 @@ Callouts are rendered using Markdown.
 Tip:
 
 ```markdown
->[!TIP] Here's a suggestion.
+> [!TIP]
+> Here's a suggestion.
 ```
 
 Note:
 
 ```markdown
->[!NOTE] Keep this in mind.
+> [!NOTE]
+> Keep this in mind.
 ```
 
 Warning:
 
 ```markdown
->[!WARNING] Be careful.
+> [!WARNING]
+> Be careful.
 ```
 
-Danger:
+Caution:
 
 ```markdown
->[!DANGER] Be extremely careful.
+> [!CAUTION]
+> Be extremely careful.
 ```
 
 Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
@@ -134,8 +141,13 @@ Only include a CTA button if navigating to the link supports user needs. Do not 
 Style your CTAs using the following format.
 
 ```html
-{% raw %}<a href="https://github.com/DESTINATION/URL" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
+{% raw %}<a href="https://github.com/DESTINATION/URL?ref_cta=CTA+NAME&ref_loc=LOCATION&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
 ```
+
+Replace the placeholders with the relevant information for your CTA.
+- `DESTINATION/URL`: The URL that the button should navigate to.
+- `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
+- `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
 
 ## Code
 
@@ -281,6 +293,12 @@ When you include the text of an error message from a {% data variables.product.c
 - If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
 
 - If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
+
+## Expiring content
+
+In general, do not document content that will expire. Anyone who visits {% data variables.product.prodname_docs %} should be confident that the information is accurate and up to date.
+
+If you must document content that you know will expire, you can use the content linter to tag and track the content's expiration date. This will flag the content as outdated and avoids tracking expiration dates outside of the content itself. See "[AUTOTITLE](/contributing/collaborating-on-github-docs/using-the-content-linter#syntax-for-expiring-and-expired-content)" for information on how to format expiring content tags.
 
 ## Footnotes
 

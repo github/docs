@@ -63,9 +63,9 @@ The verification link expires after 24 hours. If you don't verify your email wit
 
 If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
-1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
+1. Sign out of your personal account on {% data variables.location.product_location %}.
 1. Quit and restart your browser.
-1. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
+1. Sign in to your personal account on {% data variables.location.product_location %}.
 1. Click on the verification link in the email we sent you.
 
 ## Further reading

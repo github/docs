@@ -90,9 +90,7 @@ The following table indicates where each context and special function can be use
 
 | Workflow key | Context | Special functions |
 | ---- | ------- | ----------------- |
-{%- ifversion actions-run-name %}
 | <code>run-name</code> | <code>github, inputs, vars</code> | None |
-{%- endif %}
 | <code>concurrency</code> | <code>github, inputs, vars</code> | None |
 | <code>env</code> | <code>github, secrets, inputs, vars</code> | None |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs, vars</code> | None |
@@ -579,6 +577,7 @@ The `runner` context contains information about the runner that is executing the
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
 | `runner.tool_cache` | `string` | {% data reusables.actions.runner-tool-cache-description %} |
 | `runner.debug` | `string` | {% data reusables.actions.runner-debug-description %} |
+| `runner.environment` | `string` | {% data reusables.actions.runner-environment-description %} |
 
 {%- comment %}
 The `runner.workspace` property is purposefully not documented. It is an early Actions property that now isn't relevant for users, compared to `github.workspace`. It is kept around for compatibility.

@@ -27,6 +27,7 @@ on:
       - synchronize
     paths:
       - 'content/**'
+      - 'data/reusables/**'
 
 permissions:
   contents: read
@@ -62,10 +63,10 @@ jobs:
           APP_URL: ${{ env.APP_URL }}
           BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.BASE_SHA }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || inputs.HEAD_SHA }}
-        run: src/workflows/content-changes-table-comment.js
+        run: npm run content-changes-table-comment
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@d5fe37641ad8451bdd80312415672ba26c86575e
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}

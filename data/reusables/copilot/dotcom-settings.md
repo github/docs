@@ -27,7 +27,3 @@ You can choose whether your prompts and suggestions from your code editor are co
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
 {% data reusables.copilot.save-settings %}{% endif %}
-
-## Further reading
-
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)

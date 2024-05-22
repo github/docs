@@ -13,23 +13,29 @@ topics:
   - SSH
 shortTitle: Permission denied (publickey)
 ---
+
 ## Should the `sudo` command or elevated privileges be used with Git?
 
-You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a _very good reason_ you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/authentication/connecting-to-github-with-ssh) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
+You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git.
+
+If you have a _very good reason_ you must use `sudo`, then ensure you are using it with every command. If you [generate SSH keys](/authentication/connecting-to-github-with-ssh) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
 ## Check that you are connecting to the correct server
 
-Typing is hard, we all know it. Pay attention to what you type; you won't be able to connect to "githib.com" or "guthub.com". In some cases, a corporate network may cause issues resolving the DNS record as well.
-
 To make sure you are connecting to the right domain, you can enter the following command:
 
-```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
+```shell replacedomain copy
+ssh -vT git@{% data variables.product.product_url %}
+```
+
+You should see this output:
+
+```shell replacedomain
 > OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Reading configuration data /etc/ssh/ssh_config
 > debug1: /etc/ssh/ssh_config line 47: Applying options for *
-> debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
+> debug1: Connecting to {% data variables.product.product_url %} port 22.
 ```
 
 The connection should be made on port 22{% ifversion fpt or ghec %}, unless you're overriding settings to use [SSH over HTTPS](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port){% endif %}.
@@ -38,8 +44,8 @@ The connection should be made on port 22{% ifversion fpt or ghec %}, unless you'
 
 All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
 
-```shell
-$ ssh -T GITHUB-USERNAME@{% data variables.command_line.codeblock %}
+```shell replacedomain
+$ ssh -T GITHUB-USERNAME@{% data variables.product.product_url %}
 > Permission denied (publickey).
 ```
 
@@ -47,8 +53,13 @@ If your connection failed and you're using a remote URL with your {% data variab
 
 You should verify your connection by typing:
 
+```shell replacedomain copy
+ssh -T git@{% data variables.product.product_url %}
+```
+
+You should see this output:
+
 ```shell
-$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi USERNAME! You've successfully authenticated...
 ```
 
@@ -111,10 +122,15 @@ The `ssh-add` command _should_ print out a long string of numbers and letters. I
 
 ### Getting more details
 
-You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
+You can also check that the key is being used by trying to connect to `git@{% data variables.product.product_url %}`:
+
+```shell replacedomain copy
+ssh -vT git@{% data variables.product.product_url %}
+```
+
+You'll see output like this:
 
 ```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/YOU/.ssh/id_rsa type -1
 > debug1: identity file /Users/YOU/.ssh/id_rsa-cert type -1
@@ -129,10 +145,13 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-In that example, we did not have any keys for SSH to use. The "-1" at the end of the "identity file" lines means SSH couldn't find a file to use. Later on, the "Trying private key" lines also indicate that no file was found. If a file existed, those lines would be "1" and "Offering public key", respectively:
+In this example, SSH did not find any keys.
+- "-1" at the end of the "identity file" lines means SSH couldn't find a file to use.
+- "Trying private key" lines indicate that no file was found.
+
+If a file existed, those lines would be "1" and "Offering public key", as in this output:
 
 ```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/YOU/.ssh/id_rsa type 1
 > ...

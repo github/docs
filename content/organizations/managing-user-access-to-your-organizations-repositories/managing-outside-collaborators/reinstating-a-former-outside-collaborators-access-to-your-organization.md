@@ -17,6 +17,8 @@ topics:
 shortTitle: Reinstate collaborator
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}

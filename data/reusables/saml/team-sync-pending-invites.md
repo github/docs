@@ -1,0 +1,1 @@
+Changes to this setting do **not** impact pending invitations. Any invitation generated while team sync was allowed to re-invite past members to the organization can result in the member being re-added to the organization, even if re-invitation has since been disallowed.

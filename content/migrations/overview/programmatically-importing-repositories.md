@@ -15,12 +15,6 @@ To learn more about "source and history" and other types of migrations, see "[AU
 
 The term "source repository" refers to the repository you're importing, and "imported repository" refers to the new repository you're creating.
 
-### About the deprecation of the Source imports REST API
-
-The REST API endpoints to manage source imports allowed the programmatic import of a repositories that are accessible over the internet to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/rest/migrations/source-imports)."
-
-On April 12, 2024, {% data variables.product.company_short %} will deprecate all of the endpoints listed within "[AUTOTITLE](/rest/migrations/source-imports)." If you currently use these operations, you'll need to make changes to your code or your application will stop working on April 12, 2024.
-
 ## Using forks
 
 If the source repository is on {% data variables.product.prodname_dotcom_the_website %}, you may be able to use a fork instead of importing the repository. {% data reusables.repositories.about-forks %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."

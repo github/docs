@@ -31,3 +31,5 @@ Some portions of a limited diff may be displayed, but anything exceeding the lim
 ## Commit listings limits
 
 The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
+
+The maximum count of commits displayed on the Commits tab of Github.com is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.

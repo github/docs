@@ -1,6 +1,6 @@
 ---
 title: About repository security advisories
-intro: 'You can use repository security advisories to privately discuss, fix, and publish information about security vulnerabilities in your repository.'
+intro: 'You can use repository security advisories to privately discuss, fix, and publish information about security vulnerabilities in your public repository.'
 shortTitle: About repository security advisories
 redirect_from:
   - /articles/about-maintainer-security-advisories
@@ -18,8 +18,6 @@ topics:
   - Vulnerabilities
   - CVEs
 ---
-
-{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}
 
 {% data reusables.repositories.security-advisory-admin-permissions %}
 

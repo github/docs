@@ -50,7 +50,7 @@ If you opt into user access tokens that expire after you have already generated 
    Query parameter | Type | Description
    -----|------|------------
    `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.
-   `client_secret` | `string` | **Required.** The client secret for your {% data variables.product.prodname_github_app %}. You can generate a client secret on the settings page for your app.
+   `client_secret` | `string` | **Required** unless the user access token was generated using the device flow. The client secret for your {% data variables.product.prodname_github_app %}.
    `grant_type` | `string` | **Required.** The value must be "refresh_token".
    `refresh_token` | `string` | **Required.** The refresh token that you received when you generated a user access token.
 

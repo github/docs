@@ -20,14 +20,14 @@ Your JWT must be signed using the `RS256` algorithm and must contain the followi
 |---|---|---|
 |`iat`| Issued At | The time that the JWT was created. To protect against clock drift, we recommend that you set this 60 seconds in the past and ensure that your server's date and time is set accurately (for example, by using the Network Time Protocol). |
 |`exp`| Expires At | The expiration time of the JWT, after which it can't be used to request an installation token. The time must be no more than 10 minutes into the future. |
-|`iss`| Issuer | The ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID with the `GET /app` REST API endpoint. For more information, see "[Apps](/rest/apps/apps)" in the REST API documentation.|
+|`iss`| Issuer | The {% ifversion client-id-for-app %}client ID or {% endif %}application ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID{% ifversion client-id-for-app %}s{% endif %} on the settings page for your {% data variables.product.prodname_github_app %}.{% ifversion client-id-for-app %} Use of the client ID is recommended.{% endif %} For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."|
 |`alg`| Message authentication code algorithm | This should be `RS256` since your JWT must be signed using the `RS256` algorithm. |
 
 To use a JWT, pass it in the `Authorization` header of an API request. For example:
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/app" \
+--url "{% data variables.product.rest_url %}/app" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR_JWT" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
@@ -69,8 +69,11 @@ payload = {
   iat: Time.now.to_i - 60,
   # JWT expiration time (10 minute maximum)
   exp: Time.now.to_i + (10 * 60),
-  # {% data variables.product.prodname_github_app %}'s identifier
-  iss: "YOUR_APP_ID"
+  {% ifversion client-id-for-app %}
+# {% data variables.product.prodname_github_app %}'s client ID
+  iss: "YOUR_CLIENT_ID"{% else %}
+# {% data variables.product.prodname_github_app %}'s app ID
+  iss: "YOUR_APP_ID"{% endif %}
 }
 
 jwt = JWT.encode(payload, private_key, "RS256")
@@ -98,11 +101,19 @@ if len(sys.argv) > 1:
 else:
     pem = input("Enter path of private PEM file: ")
 
+{% ifversion client-id-for-app %}
+# Get the Client ID
+if len(sys.argv) > 2:
+    client_id = sys.argv[2]
+else:
+    client_id = input("Enter your Client ID: ")
+{% else %}
 # Get the App ID
 if len(sys.argv) > 2:
     app_id = sys.argv[2]
 else:
     app_id = input("Enter your APP ID: ")
+{% endif %}
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
@@ -113,8 +124,11 @@ payload = {
     'iat': int(time.time()),
     # JWT expiration time (10 minutes maximum)
     'exp': int(time.time()) + 600,
-    # GitHub App's identifier
-    'iss': app_id
+    {% ifversion client-id-for-app %}
+    # {% data variables.product.prodname_github_app %}'s client ID
+    'iss': client_id{% else %}
+    # {% data variables.product.prodname_github_app %}'s app ID
+    'iss': app_id{% endif %}
 }
 
 # Create JWT
@@ -130,7 +144,7 @@ This script will prompt you for the file path where your private key is stored a
 
 {% note %}
 
-**Note:** You must pass your App ID and the file path where your private key is stored as arguments when running this script.
+**Note:** You must pass your {% ifversion client-id-for-app %}Client ID{% else %}App ID{% endif %}  and the file path where your private key is stored as arguments when running this script.
 
 {% endnote %}
 
@@ -138,8 +152,11 @@ This script will prompt you for the file path where your private key is stored a
 #!/usr/bin/env bash
 
 set -o pipefail
-
+{% ifversion client-id-for-app %}
+client_id=$1 # Client ID as first argument
+{% else %}
 app_id=$1 # App ID as first argument
+{% endif %}
 pem=$( cat $2 ) # file path of the private key as second argument
 
 now=$(date +%s)
@@ -158,7 +175,7 @@ header=$( echo -n "${header_json}" | b64enc )
 payload_json='{
     "iat":'"${iat}"',
     "exp":'"${exp}"',
-    "iss":'"${app_id}"'
+    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${client_id}"'{% endif %}
 }'
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
@@ -177,12 +194,16 @@ printf '%s\n' "JWT: $JWT"
 
 ### Example: Using PowerShell to generate a JWT
 
-In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` in double quotes.
+In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace {% ifversion client-id-for-app %}`YOUR_CLIENT_ID`{% else %}`YOUR_APP_ID`{% endif %} with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` in double quotes.
 
 ```powershell copy
 #!/usr/bin/env pwsh
 
+{% ifversion client-id-for-app %}
+$client_id = YOUR_CLIENT_ID
+{% else %}
 $app_id = YOUR_APP_ID
+{% endif %}
 $private_key_path = "YOUR_PATH_TO_PEM"
 
 $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
@@ -193,7 +214,7 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
   iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  iss = $app_id
+  {% ifversion client-id-for-app %}  iss = $client_id{% else %}  iss = $app_id{% endif %}
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

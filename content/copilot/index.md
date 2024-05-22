@@ -7,7 +7,7 @@ redirect_from:
 changelog:
   label: copilot
 introLinks:
-  overview: /copilot/copilot-individual/about-github-copilot-individual
+  overview: /copilot/about-github-copilot
   quickstart: /copilot/quickstart
 featuredLinks:
   startHere:

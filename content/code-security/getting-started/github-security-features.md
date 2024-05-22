@@ -25,14 +25,6 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
-{% ifversion fpt or ghec %}
-
-### Security advisories
-
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
-
-{% endif %}
-
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
 View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
@@ -56,7 +48,7 @@ The dependency graph allows you to explore the ecosystems and packages that your
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
-{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
+{% data reusables.dependency-graph.sbom-export %}
 
 {% ifversion security-overview-displayed-alerts %}
 
@@ -74,6 +66,14 @@ Security overview shows which security features are enabled for the repository, 
 {% ifversion fpt or ghec %}
 
 ## Available for free public repositories
+
+{% ifversion fpt or ghec %}
+
+### Security advisories
+
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
+
+{% endif %}
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 

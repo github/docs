@@ -22,7 +22,7 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 {% ifversion fpt or ghec %}
 
-## About configuring the dependency graph
+## Configuring the dependency graph
 
 To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private {% ifversion ghec %}and internal {% endif %}repositories. For more information on viewing the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)."
 

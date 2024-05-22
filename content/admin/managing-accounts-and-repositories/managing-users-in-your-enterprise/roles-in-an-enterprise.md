@@ -89,9 +89,7 @@ People with outside collaborator access to repositories owned by your organizati
 
 If your enterprise uses {% data variables.product.prodname_emus %}, you can use the role of guest collaborator to grant limited access to vendors and contractors. Like all {% data variables.enterprise.prodname_managed_users %}, guest collaborators are provisioned by your IdP. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member. Guest collaborators will never see internal repositories in an organization they are not a member of.
 
-The base permission policy for an organization controls whether or not the guest collaborator has access to internal and private repositories in an organization they are a member of. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
-
-When you add a guest collaborator to an organization with the base permissions set to "No permission", the guest collaborator will not have access to internal and private repositories unless added directly to one of the repositories as a collaborator, or through an authorized team. For more information about granting users and teams access to a repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+{% data reusables.emus.giving-access-to-guest-collaborators %}
 
 Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 

@@ -4,7 +4,7 @@ shortTitle: Code search syntax
 intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---

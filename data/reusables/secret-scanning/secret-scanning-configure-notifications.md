@@ -4,11 +4,8 @@ When a new secret is detected, {% data variables.product.product_name %} notifie
 - Users with custom roles with read/write access
 - Organization owners and enterprise owners, if they are administrators of repositories where secrets were leaked
 
-{% note %}
-
-**Note:** Commit authors who've accidentally committed secrets will be notified, regardless of their notification preferences.
-
-{% endnote %}
+> [!NOTE]
+> Commit authors who've accidentally committed secrets will be notified, regardless of their notification preferences.
 
 You will receive an email notification if:
 - You are watching the repository.

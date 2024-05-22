@@ -29,7 +29,7 @@ An organization's news feed shows other people's activity on repositories owned 
 
 ## Accessing your organization's news feed
 
-1. {% data variables.product.signin_link %} to your account on {% data variables.location.product_location %}.
+1. Sign in to your account on {% data variables.location.product_location %}.
 1. Open your {% data reusables.user-settings.personal_dashboard %}.
 1. In the upper-left corner of the page, select the dropdown menu that switches account context, then select an organization.
 

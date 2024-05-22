@@ -7,8 +7,8 @@ import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
 } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { getSearchResults } from './es-search.js'
-import { getSearchFromRequest } from './get-search-request.js'
+import { getAutocompleteSearchResults, getSearchResults } from './es-search.js'
+import { getAutocompleteSearchFromRequest, getSearchFromRequest } from './get-search-request.js'
 
 const router = express.Router()
 
@@ -32,8 +32,19 @@ router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, query, autocomplete, page, size, debug, sort, highlights, include } =
-      req.search
+    const {
+      indexName,
+      query,
+      autocomplete,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      include,
+      toplevel,
+      aggregate,
+    } = req.search
 
     const options = {
       indexName,
@@ -45,9 +56,57 @@ router.get(
       highlights,
       usePrefixSearch: autocomplete,
       include,
+      toplevel,
+      aggregate,
     }
     try {
-      const { meta, hits } = await getSearchResults(options)
+      const { meta, hits, aggregations } = await getSearchResults(options)
+
+      if (process.env.NODE_ENV !== 'development') {
+        searchCacheControl(res)
+        // We can cache this without purging it after every deploy
+        // because the API search is only used as a proxy for local
+        // and preview environments.
+        setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+      }
+
+      // The v1 version of the output matches perfectly what comes out
+      // of the getSearchResults() function.
+      res.status(200).json({ meta, hits, aggregations })
+    } catch (error) {
+      // If getSearchResult() throws an error that might be 404 inside
+      // elasticsearch, if we don't capture that here, it will propagate
+      // to the next middleware.
+      await handleGetSearchResultsError(req, res, error, options)
+    }
+  }),
+)
+
+export const autocompleteValidationMiddleware = (req, res, next) => {
+  const { search, validationErrors } = getAutocompleteSearchFromRequest(req)
+  if (validationErrors.length) {
+    // There might be multiple things bad about the query parameters,
+    // but we send a 400 on the first possible one in the API.
+    return res.status(400).json(validationErrors[0])
+  }
+
+  req.search = search
+  return next()
+}
+
+router.get(
+  '/autocomplete/v1',
+  autocompleteValidationMiddleware,
+  catchMiddlewareError(async (req, res) => {
+    const { indexName, query, size } = req.search
+
+    const options = {
+      indexName,
+      query,
+      size,
+    }
+    try {
+      const { meta, hits } = await getAutocompleteSearchResults(options)
 
       if (process.env.NODE_ENV !== 'development') {
         searchCacheControl(res)
@@ -91,6 +150,11 @@ router.get('/', (req, res) => {
   // Use `req.originalUrl` because this router is "self contained"
   // which means that `req.url` will be `/` in this context.
   res.redirect(307, req.originalUrl.replace('/search', '/search/v1'))
+})
+
+// Alias for the latest autocomplete version
+router.get('/autocomplete', (req, res) => {
+  res.redirect(307, req.originalUrl.replace('/search/autocomplete', '/search/autocomplete/v1'))
 })
 
 export default router

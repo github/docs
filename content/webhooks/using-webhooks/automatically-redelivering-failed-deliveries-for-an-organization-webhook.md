@@ -124,7 +124,7 @@ async function checkAndRedeliverWebhooks() {
 
   // Create an instance of `Octokit` using the token{% ifversion ghes %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
   const octokit = new Octokit({ {% ifversion ghes %}
-    baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+    baseUrl: "{% data variables.product.rest_url %}",{% endif %}
     auth: TOKEN,
   });
 

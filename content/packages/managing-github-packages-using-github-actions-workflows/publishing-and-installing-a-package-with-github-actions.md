@@ -72,7 +72,7 @@ These are more examples of how default permissions work for workflows that manag
 
 | {% data variables.product.prodname_actions %} workflow task | Default permissions and access |
 |----|----|
-| Download an existing  | - If the package is public, any workflow running in any repository can download the package. <br> - If the package is internal, then all workflows running in any repository owned by the Enterprise account can download the package. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the package is private, only workflows running in repositories that are given read permission on that package can download the package. <br>
+| Download an existing  | - If the package is public, any workflow running in any repository can download the package. <br> - If the package is internal, then all workflows running in any repository owned by the Enterprise account can download the package. For enterprise-owned organizations, you can read any repository in the enterprise <br> - If the package is private, only workflows running in repositories that are given read permission on that package can download the package. {% data reusables.package_registry.public-forks-private-packages %} <br>
 | Upload a new version to an existing package | - If the package is private, internal, or public, only workflows running in repositories that are given write permission on that package can upload new versions to the package.
 | Delete a package or versions of a package | - If the package is private, internal, or public, only workflows running in repositories that are given admin permission can delete existing versions of the package.
 
@@ -255,7 +255,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
-        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u {% raw %}${{ github.actor }}{% endraw %} --password-stdin
         #
       - name: Push image
         run: |

@@ -64,7 +64,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 {% endif %}
@@ -150,7 +150,7 @@ If you're a researcher with an ORCID iD, you can identify yourself by adding you
 
 {% data reusables.user-settings.access_settings %}
 1. Under "ORCID iD", click **Connect your ORCID iD**.
-1. Follow the steps to sign in to your ORCID account and then return to {% data variables.location.product_location %}.
+1. Follow the steps to sign in to your ORCID account and then return to {% data variables.product.prodname_dotcom %}.
 
 {% endif %}
 
@@ -168,7 +168,7 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, select your profile photo, then click {% octicon "smiley" aria-hidden="true" %} **Set status** or, if you already have a status set, click your current status.
+1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click {% octicon "smiley" aria-hidden="true" %} **Set status** or, if you already have a status set, click your current status.
 
 {% ifversion global-nav-update %}
 

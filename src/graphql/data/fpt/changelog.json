@@ -4,6 +4,170 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>announcementCreatedAt</code> was added to interface <code>AnnouncementBanner</code></p>",
+          "<p>Field <code>announcementCreatedAt</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>announcementCreatedAt</code> was added to object type <code>Organization</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-20"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'BRANCH_POLICY<code>was added to enum</code>DeploymentProtectionRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>EnvironmentPinnedFilterField</code> was added</p>",
+          "<p>Type <code>PinEnvironmentInput</code> was added</p>",
+          "<p>Type <code>PinEnvironmentPayload</code> was added</p>",
+          "<p>Type <code>PinnedEnvironment</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentConnection</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentEdge</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentOrder</code> was added</p>",
+          "<p>Type <code>PinnedEnvironmentOrderField</code> was added</p>",
+          "<p>Type <code>ReorderEnvironmentInput</code> was added</p>",
+          "<p>Type <code>ReorderEnvironmentPayload</code> was added</p>",
+          "<p>Field <code>isPinned</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>latestCompletedDeployment</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>pinnedPosition</code> was added to object type <code>Environment</code></p>",
+          "<p>Field <code>pinEnvironment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>reorderEnvironment</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>pinnedEnvironments</code> was added to object type <code>Repository</code></p>",
+          "<p>Argument <code>pinnedEnvironmentFilter: EnvironmentPinnedFilterField</code> (with default value) added to field <code>Repository.environments</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CodeScanningParameters</code> was added</p>",
+          "<p>Type <code>CodeScanningParametersInput</code> was added</p>",
+          "<p>Type <code>CodeScanningTool</code> was added</p>",
+          "<p>Type <code>CodeScanningToolInput</code> was added</p>",
+          "<p>Enum value 'CODE_SCANNING<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Member <code>CodeScanningParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>codeScanning</code> of type <code>CodeScanningParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-05-02"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>deployKey</code> was added to object type <code>RepositoryRulesetBypassActor</code></p>",
+          "<p>Input field <code>deployKey</code> of type <code>Boolean</code> was added to input object type <code>RepositoryRulesetBypassActorInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>FileExtensionRestrictionParameters</code> was added</p>",
+          "<p>Type <code>FileExtensionRestrictionParametersInput</code> was added</p>",
+          "<p>Type <code>FilePathRestrictionParameters</code> was added</p>",
+          "<p>Type <code>FilePathRestrictionParametersInput</code> was added</p>",
+          "<p>Type <code>MaxFilePathLengthParameters</code> was added</p>",
+          "<p>Type <code>MaxFilePathLengthParametersInput</code> was added</p>",
+          "<p>Type <code>MaxFileSizeParameters</code> was added</p>",
+          "<p>Type <code>MaxFileSizeParametersInput</code> was added</p>",
+          "<p>Member 'ProjectV2<code>was added to Union type</code>Closer'</p>",
+          "<p>Enum value 'FILE_EXTENSION_RESTRICTION<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'FILE_PATH_RESTRICTION<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MAX_FILE_PATH_LENGTH<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MAX_FILE_SIZE<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value <code>PUSH</code> was added to enum <code>RepositoryRulesetTarget</code></p>",
+          "<p>Member <code>FileExtensionRestrictionParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>FilePathRestrictionParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>MaxFilePathLengthParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Member <code>MaxFileSizeParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>fileExtensionRestriction</code> of type <code>FileExtensionRestrictionParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>filePathRestriction</code> of type <code>FilePathRestrictionParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>maxFilePathLength</code> of type <code>MaxFilePathLengthParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>",
+          "<p>Input field <code>maxFileSize</code> of type <code>MaxFileSizeParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>StartRepositoryMigrationInput.sourceRepositoryUrl</code> changed type from <code>URI</code> to <code>URI!</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>statusCheckRollup</code> was added to object type <code>PullRequest</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>RepositoryPlanFeatures</code> was added</p>",
+          "<p>Field <code>planFeatures</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-04-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'BUY_ME_A_COFFEE<code>was added to enum</code>FundingPlatform'</p>"
         ]
       }

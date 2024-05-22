@@ -313,7 +313,7 @@ Use the `curl` command to make your request. For more information, see [the curl
 Specify the following options and values in your request:
 
 - **`--request` or `-X`** followed by the HTTP method as the value. For more information, see "[HTTP method](#http-method)."
-- **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`https://api.github.com`) and the path of the endpoint, like this: `{% data variables.product.api_url_code %}/PATH`.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
+- **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`https://api.github.com`) and the path of the endpoint, like this: `{% data variables.product.rest_url %}/PATH`.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
 
   To use query parameters, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`. If you need to send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`. For more information, see "[Query parameters](#query-parameters)." For an example, see "[Example request using query parameters](#example-request-using-query-parameters-1)."
 - **`--header` or `-H`**:
@@ -339,7 +339,7 @@ The ["List public events" endpoint](/rest/activity/events#list-public-events) re
 
 ```shell copy
 curl --request GET \
---url "{% data variables.product.api_url_code %}/events?per_page=2&page=1" \
+--url "{% data variables.product.rest_url %}/events?per_page=2&page=1" \
 --header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/events
@@ -362,7 +362,7 @@ The following example uses the "[Create an issue](/rest/issues/issues#create-an-
 ```shell copy
 curl \
 --request POST \
---url "{% data variables.product.api_url_code %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
+--url "{% data variables.product.rest_url %}/repos/{% ifversion ghes %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
 --header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: 2022-11-28" \
 --header "Authorization: Bearer YOUR-TOKEN" \
@@ -402,11 +402,11 @@ Create an access token to authenticate your request. You can save your token and
 ### 4. Make a request with Octokit.js
 
 1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token.{% ifversion ghes %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
+1. Create an instance of `Octokit` with your token.{% ifversion ghes %} Set the base URL to `{% data variables.product.rest_url %}`. Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
 
    ```javascript copy
    const octokit = new Octokit({ {% ifversion ghes %}
-     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+     baseUrl: "{% data variables.product.rest_url %}",{% endif %}
      auth: 'YOUR-TOKEN'
    });
    ```
@@ -480,7 +480,7 @@ And it returns a response code and headers that look something like this:
 ```shell
 HTTP/2.0 200 OK
 Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
 Cache-Control: private, max-age=60, s-maxage=60
 Content-Security-Policy: default-src 'none'
 Content-Type: application/json; charset=utf-8
@@ -490,7 +490,7 @@ Link: <https://api.github.com/repositories/1300192/issues?per_page=1&page=2>; re
 Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
 Server: GitHub.com
 Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
-Vary: Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding, Accept, X-Requested-With
+Vary: Accept, Authorization, Cookie, Accept-Encoding, Accept, X-Requested-With
 X-Accepted-Oauth-Scopes: repo
 X-Content-Type-Options: nosniff
 X-Frame-Options: deny
@@ -562,7 +562,7 @@ vary: Accept, Accept-Encoding, Accept, X-Requested-With
 etag: W/"7fceb7e8c958d3ec4d02524b042578dcc7b282192e6c939070f4a70390962e18"
 x-github-media-type: github.v3; format=json
 link: <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=2&sort=updated&direction=asc&page=7409>; rel="last"
-access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+access-control-expose-headers: ETag, Link, Location, Retry-After, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
 access-control-allow-origin: *
 strict-transport-security: max-age=31536000; includeSubdomains; preload
 x-frame-options: deny
@@ -653,7 +653,7 @@ For example, you can use `>` to redirect the response to a file. In the followin
 
 ```shell copy
 curl --request GET \
---url "{% data variables.product.api_url_code %}/repos/REPO-OWNER/REPO-NAME/issues?per_page=2" \
+--url "{% data variables.product.rest_url %}/repos/REPO-OWNER/REPO-NAME/issues?per_page=2" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```

@@ -76,7 +76,7 @@ Security overview has multiple views that provide different ways to explore enab
 
 {% data reusables.security-overview.alert-differences %}
 
-For more information about these views, see {% ifversion security-overview-dashboard %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization),"{% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
+For more information about these views, see {% ifversion security-overview-dashboard %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights),"{% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
 
 {% else %}
 
@@ -104,9 +104,13 @@ You can find security overview on the **Code Security** tab for your enterprise.
 
 As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore enablement and alert data.
 
+{% ifversion security-overview-dashboard-enterprise %}
+- Use the "Overview" view to see insights about your enterprise's security landscape and progress.{% endif %}
 - Use the "Coverage" view to assess the adoption of code security features across organizations in the enterprise.
 - Use the "Risk" view to assess the risk from security alerts of all types across organizations in the enterprise.
 - Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.{% else %}You can view repositories owned by your enterprise that have security alerts, view all security alerts, or view security feature-specific alerts from across your enterprise.{% endif %}
+
+For more information about these views, see {% ifversion security-overview-dashboard-enterprise %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights)," {% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
 
 For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
 

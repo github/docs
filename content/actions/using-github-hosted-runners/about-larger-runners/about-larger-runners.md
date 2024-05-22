@@ -34,8 +34,7 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
 
-- All actions provided by {% data variables.product.prodname_dotcom %} are compatible with arm64 {% data variables.product.prodname_dotcom %}-hosted runners. However, community actions may not be compatible with arm64 and need to be manually installed at runtime. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners?platform=mac#troubleshooting-larger-runners)."
-- Due to a limitation of Apple's Virtualization Framework, which our hypervisor uses, nested-virtualization is not supported by arm64 runners.
+{% data reusables.actions.macos-runner-limitations %}
 
 ### Additional features for {% data variables.actions.hosted_runners %}
 
@@ -85,7 +84,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | --- | ------------- | ------------- | --------------------- |
 | 6   | 14 GB         | 14 GB         | macOS                 |
 | 12  | 30 GB         | 14 GB         | macOS                 |
-| 2   | 8 GB          | 14 GB         | Ubuntu                |
+| 2   | 8 GB          | 75 GB         | Ubuntu                |
 | 4   | 16 GB         | 150 GB        | Ubuntu, Windows               |
 | 8   | 32 GB         | 300 GB        | Ubuntu, Windows       |
 | 16  | 64 GB         | 600 GB        | Ubuntu, Windows       |

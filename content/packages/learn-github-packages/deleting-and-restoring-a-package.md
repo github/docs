@@ -46,9 +46,7 @@ You can use the REST API to manage your packages. For more information, see the 
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-{% ifversion packages-delete-with-github-token-api %}
 With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
-{% endif %}
 
 {% endif %}
 

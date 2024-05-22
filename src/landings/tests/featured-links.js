@@ -1,10 +1,10 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('featuredLinks', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('non-TOC pages do not have intro links', async () => {
     const $ = await getDOM('/en/get-started/start-your-journey')

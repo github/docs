@@ -31,7 +31,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 - [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
 - [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
-- [Enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.company_short %}-hosted runners](#enabling-dependabot-on-github-hosted-runners){% endif %}{% ifversion fpt %}
+- [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
 - [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
 - [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
 
@@ -49,9 +49,11 @@ For more information on {% data variables.dependabot.auto_triage_rules %}, see "
 
 {% ifversion fpt or ghec %}
 
-### Enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.company_short %}-hosted runners
+### Enabling dependency updates on {% data variables.product.prodname_actions %} runners
 
-You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.company_short %}-hosted runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, click **Enable all**. To automatically enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on new repositories in your organization, select **Automatically enable for new repositories**.
+You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, click **Enable all**. To automatically enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on new repositories in your organization, select **Automatically enable for new repositories**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+
+{% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 {% endif %}
 

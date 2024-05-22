@@ -18,7 +18,12 @@ versions:
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
 
-You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
+You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
+- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+- On a weekly schedule.{% endif %}
+
+For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
 
 {% ifversion code-security-multi-repo-enablement %}
 
@@ -63,7 +68,6 @@ A repository must meet all the following criteria to be eligible for default set
 If the code in a repository changes to include {% ifversion code-scanning-default-setup-recommended-languages %}{% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby,{% else %}a {% data variables.product.prodname_codeql %}-supported language,{% endif %} {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 
 {% endif %}
-{% ifversion org-enable-code-scanning %}
 
 ## Configuring default setup for all eligible repositories in an organization
 
@@ -71,9 +75,14 @@ Through the "Code security and analysis" page of your organization's settings, y
 
 {% data reusables.code-scanning.beta-org-enable-all %}
 
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Code security & analysis**.
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_code_scanning %} and other security features for all eligible repositories with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% endif %}
+
 1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".{% ifversion bulk-code-scanning-query-suite%}
 1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 1. To enable your configuration of default setup, click **Enable for eligible repositories**.
@@ -88,9 +97,14 @@ Through the "Code security and analysis" page of your organization's settings, y
   - Enabling default setup for all eligible repositories in an organization includes eligible repositories without {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.{% endif %}
 
 {% endnote %}
-{% else %}
-{% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+
+{% ifversion codeql-model-packs-org %}
+
+### Extending {% data variables.product.prodname_codeql %} coverage in default setup
+
+Through the "Code security and analysis" page of your organization's settings, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization)."
 {% endif %}
+
 {% ifversion code-security-multi-repo-enablement %}
 
 ## Configuring default setup for a subset of repositories in an organization
@@ -160,4 +174,18 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 
   If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 
+{% endif %}
+
+{% ifversion code-scanning-merge-protection-rulesets %}
+{% ifversion ghes or ghec %}
+
+## Configuring merge protection for all repositories in an organization
+
+You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
 {% endif %}

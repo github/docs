@@ -101,7 +101,7 @@ git fetch upstream
 > remote: Compressing objects: 100% (53/53), done.
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
-> From https://{% data variables.command_line.codeblock %}/OCTOCAT/REPO
+> From https://{% data variables.product.product_url %}/OCTOCAT/REPO
 >  * [new branch]      main     -> upstream/main
 ```
 

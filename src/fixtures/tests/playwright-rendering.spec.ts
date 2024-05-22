@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test'
 // In GitHub Actions, we rely on setting the environment variable directly
 // but for convenience, for local development, engineers might have a
 // .env file that can set environment variable. E.g. ELASTICSEARCH_URL.
-// The `src/frame/start-server.js` script uses dotenv too, but since Playwright
+// The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
@@ -591,5 +591,90 @@ test.describe('translations', () => {
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
+  })
+})
+
+test.describe('domain edit', () => {
+  test('edit a domain (using header nav)', async ({ page }) => {
+    test.skip(true, 'Editing domain from header is disabled')
+
+    await page.goto('/')
+    await expect(page.getByText('Domain name:')).not.toBeVisible()
+    await page.getByLabel('Select GitHub product version').click()
+    await page
+      .getByLabel(/Enterprise Server/)
+      .first()
+      .click()
+    await expect(page.getByText('Domain name:')).toBeVisible()
+    await page.getByRole('button', { name: 'Edit' }).click()
+
+    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
+    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
+    await expect(page.getByText("Can't be github.com")).toBeVisible()
+    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
+    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    // This tests that the dialog is gone.
+    // XXX Peterbe: These don't work and I don't know why yet.
+    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
+    await expect(page.getByText('github.peterbe.com')).toBeVisible()
+  })
+
+  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
+    await page.goto('/get-started/markdown/replace-domain')
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Server 3.12').click() // XXX
+
+    // This is generally discourage in Playwright, but necessary here
+    // in this case. Because of the way
+    // the `main.addEventListener('click', ...)` is handled, it's setting
+    // up that event listener too late. In fact, it happens in a useEffect.
+    // Adding a little delay makes is much more likely that the event
+    // listener has been set up my the time we fire the `.click()` on the
+    // next line.
+    await page.waitForTimeout(500)
+    await page.getByText('HOSTNAME', { exact: true }).first().click()
+
+    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
+    await page
+      .getByTestId('domain-name-edit-form')
+      .getByLabel('Your domain name')
+      .fill('peterbe.ghe.com')
+    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
+    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
+  })
+})
+
+test.describe('view pages with custom domain cookie', () => {
+  test('view article page', async ({ page }) => {
+    await page.goto(
+      '/enterprise-server@latest/get-started/markdown/replace-domain?ghdomain=example.ghe.com',
+    )
+
+    const content = page.locator('pre')
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+
+    // Now switch to enterprise-cloud, where replacedomain should not be used
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Cloud', { exact: true }).click()
+
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://HOSTNAME/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+
+    // Again switch back to enterprise server again
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Server 3.').first().click()
+
+    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
+    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
+    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
+    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
   })
 })

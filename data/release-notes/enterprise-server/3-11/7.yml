@@ -60,7 +60,7 @@ sections:
     - |
       On an instance with a GitHub Advanced Security license, in some cases, when a user deleted a custom pattern for secret scanning, GitHub Enterprise Server failed to close or delete the patterns alerts.
     - |
-      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding.
+      On an instance in a cluster configuration, MySQL replica nodes can be configured to skip database seeding. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."
     - |
       The payload for the `push` webhook event is now limited to 2,048 commits. If there are more than 2,048 commits in a push, the webhook payload for that push will not contain any commits. If you need to fetch commit information, you can use the Commits endpoints of the REST API. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#push)" and "[AUTOTITLE](/rest/commits)."
     - |
@@ -90,5 +90,3 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
-    - |
-      Pre-receive hooks which utilize `git rev-list` fail with an `fatal: Invalid revision range` error message.

@@ -38,6 +38,8 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
 {% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %}. {% data reusables.dependabot.dismiss-low-impact-rule %}
 
+The rule is enabled by default for public repositories and can be opted into for private repositories. You can enable the rule for a private repository via the **Settings** tab for the repository. For more information, see "[Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts#enabling-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule-for-your-private-repository)."
+
 ### About {% data variables.dependabot.custom_rules %}
 
 {% note %}
@@ -47,6 +49,8 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 {% endnote %}
 
 With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)."
+
+You can create custom rules from the **Settings** tab of the repository{% ifversion ghec or ghes %}, provided the repository belongs to an organization that has a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}. For more information, see "[Adding custom auto-triage rules to your repository](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-repository)."
 
 ### About auto-dismissing alerts
 

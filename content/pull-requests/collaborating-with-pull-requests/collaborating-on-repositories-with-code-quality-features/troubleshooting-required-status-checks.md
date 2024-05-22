@@ -97,6 +97,30 @@ Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-acti
 
 {% data reusables.pull_requests.path-filtering-required-workflows %}
 
+{% ifversion merge-queue %}
+
+### Status checks with {% data variables.product.prodname_actions %} and a Merge queue
+
+You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
+
+{% note %}
+
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
+
+{% endnote %}
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
+
+{% endif %}
+
 ## Required status checks from unexpected sources
 
 It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.

@@ -27,7 +27,7 @@ import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
-  public: path.resolve(path.join('data', 'graphql')),
+  public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
 Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
@@ -88,6 +88,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     REPORT_AUTHOR,
     REPORT_LABEL,
     EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
+    CHECK_ANCHORS,
   } = process.env
 
   const octokit = github()
@@ -110,6 +111,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     verbose: true,
     linkReports: true,
     checkImages: true,
+    checkAnchors: Boolean(CHECK_ANCHORS),
     patient: boolEnvVar('PATIENT'),
     random: false,
     language: 'en',
@@ -613,7 +615,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
         checkAnchors,
         checkExternalLinks,
         externalServerErrorsAsWarning,
-        { verbose, patient },
+        { verbose, patient, permalink },
         db,
       )
 
@@ -759,94 +761,149 @@ async function checkHrefLink(
   checkAnchors = false,
   checkExternalLinks = false,
   externalServerErrorsAsWarning = false,
-  { verbose = false, patient = false } = {},
+  { verbose = false, patient = false, permalink } = {},
   db = null,
 ) {
-  if (href === '#') {
-    if (checkAnchors) {
+  // this function handles hrefs in all the following forms:
+
+  // same article links:
+  // 1. '#'
+  // 2. '#anchor'
+  // 3. '/to/this/article#anchor'
+
+  // different article links:
+  // 4. '/some/path/article#anchor' (currently not supported)
+  // 5. '/some/path/article'
+
+  // external links:
+  // 6. 'https://example.com' (external link)
+
+  const [pathFragment, hashFragment] = href.split('#')
+  const hash = '#' + hashFragment // the hash is the part that starts with `#`
+
+  // this conditional handles cases in which the link is to the current article (cases 1-3 above)
+  if (checkAnchors && (!pathFragment || pathFragment === permalink.href)) {
+    // cases covered by this part of the conditional:
+    // 1. '#'
+    if (hash === '#') {
       return { WARNING: 'Link is just an empty `#`' }
     }
-  } else if (href.startsWith('#')) {
-    if (checkAnchors) {
+    // cases covered by this part of the conditional:
+    // 2. '#anchor'
+    // 3. '/to/this/article#anchor'
+    else {
+      // Some pages are a mix of Markdown and React components. On its own,
+      // the Markdown might appear broken but when combined with automated
+      // React rendering it might work. Best to stay out of it.
+      const avoid =
+        permalink &&
+        ((permalink.href.includes('/rest/') && !permalink.href.includes('/rest/guides/')) ||
+          permalink.href.includes('/webhooks-and-events/webhooks/webhook-events-and-payloads') ||
+          permalink.href.includes('/graphql/reference') ||
+          permalink.href.includes('/code-security/codeql-cli/codeql-cli-manual/') ||
+          permalink.href.includes(
+            '/apps/maintaining-github-apps/modifying-a-github-app-registration',
+          ) ||
+          permalink.href.includes(
+            '/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning',
+          ) ||
+          permalink.href.includes(
+            '/site-policy/github-company-policies/github-statement-against-modern-slavery-and-child-labor',
+          ) ||
+          permalink.href.includes('/site-policy/content-removal-policies/dmca-takedown-policy') ||
+          permalink.href.includes('/early-access/'))
+
       // You don't need a DOM ID (or <a name="top">) for `<a href="#top">`
       // to work in all modern browsers.
-      if (href !== '#top') {
+      if (hash !== '#top' && !avoid) {
         // If the link is `#foo` it could either match `<element id="foo">`
         // or it could match `<a name="foo">`.
-        const countDOMItems = $(href).length + $(`a[name="${href.slice(1)}"]`).length
+        const countDOMItems = $(hash).length + $(`a[name="${hash.slice(1)}"]`).length
         if (countDOMItems === 0) {
-          return { WARNING: `Anchor on the same page can't be found by ID` }
+          return { CRITICAL: `Anchor on the same page can't be found by ID` }
         } else if (countDOMItems > 1) {
-          return { WARNING: `Matches multiple points in the page` }
+          return { CRITICAL: `Matches multiple points in the page` }
         }
       }
     }
-  } else if (href.startsWith('/')) {
-    const pathname = new URL(href, 'http://example.com').pathname
+  }
+  // this conditional handles cases in which the link is to a different article or externally (cases 4-6 above)
+  else {
+    // cases covered by this part of the conditional:
+    // 4. '/some/path/article#anchor' (currently not supported)
+    // 5. '/some/path/article'
+    if (href.startsWith('/')) {
+      const pathname = new URL(href, 'http://example.com').pathname
+      // we drop any hashes due to `.pathname`
+      // we don't currently support hashes for other articles we link to: /some/path/article#anchor
 
-    // Remember, if the Markdown has something like
-    //
-    //   See [my link][/some/page/]
-    //
-    // In the post-processing, that will actually become
-    //
-    //   See <a href="/en/some/page">my link</a>
-    //
-    // But, if that link was a redirect, that would have been left
-    // untouched.
-    if (pathname.endsWith('/')) {
-      const whatifPathname = pathname.slice(0, -1)
-      if (getRedirect(whatifPathname, { redirects, pages: pageMap })) {
-        return {
-          WARNING: `Redirect to ${getRedirect(whatifPathname, { redirects, pages: pageMap })}`,
+      // Remember, if the Markdown has something like
+      //
+      //   See [my link][/some/page/]
+      //
+      // In the post-processing, that will actually become
+      //
+      //   See <a href="/en/some/page">my link</a>
+      //
+      // But, if that link was a redirect, that would have been left
+      // untouched.
+      if (pathname.endsWith('/')) {
+        const whatifPathname = pathname.slice(0, -1)
+        if (getRedirect(whatifPathname, { redirects, pages: pageMap })) {
+          return {
+            WARNING: `Redirect to ${getRedirect(whatifPathname, { redirects, pages: pageMap })}`,
+          }
+        } else if (!pageMap[whatifPathname]) {
+          if (!deprecatedVersionPrefixesRegex.test(whatifPathname)) {
+            return { CRITICAL: 'Broken link' }
+          }
         }
-      } else if (!pageMap[whatifPathname]) {
-        if (!deprecatedVersionPrefixesRegex.test(whatifPathname)) {
+        return { WARNING: 'Links with a trailing / will always redirect' }
+      } else {
+        if (pathname.split('/')[1] in STATIC_PREFIXES) {
+          const staticFilePath = path.join(
+            STATIC_PREFIXES[pathname.split('/')[1]],
+            pathname.split(path.sep).slice(2).join(path.sep),
+          )
+          if (!fs.existsSync(staticFilePath)) {
+            return { CRITICAL: `Static file not found ${staticFilePath} (${pathname})` }
+          }
+        } else if (getRedirect(pathname, { redirects, pages: pageMap })) {
+          return { WARNING: `Redirect to ${getRedirect(pathname, { redirects, pages: pageMap })}` }
+        } else if (!pageMap[pathname]) {
+          if (deprecatedVersionPrefixesRegex.test(pathname)) {
+            return
+          }
+
           return { CRITICAL: 'Broken link' }
         }
       }
-      return { WARNING: 'Links with a trailing / will always redirect' }
-    } else {
-      if (pathname.split('/')[1] in STATIC_PREFIXES) {
-        const staticFilePath = path.join(
-          STATIC_PREFIXES[pathname.split('/')[1]],
-          pathname.split(path.sep).slice(2).join(path.sep),
-        )
-        if (!fs.existsSync(staticFilePath)) {
-          return { CRITICAL: `Static file not found ${staticFilePath} (${pathname})` }
-        }
-      } else if (getRedirect(pathname, { redirects, pages: pageMap })) {
-        return { WARNING: `Redirect to ${getRedirect(pathname, { redirects, pages: pageMap })}` }
-      } else if (!pageMap[pathname]) {
-        if (deprecatedVersionPrefixesRegex.test(pathname)) {
-          return
-        }
-
-        return { CRITICAL: 'Broken link' }
+    }
+    // cases covered by this part of the conditional:
+    // 6. 'https://example.com' (external link)
+    else if (checkExternalLinks) {
+      if (!href.startsWith('https://')) {
+        return { WARNING: `Will not check external URLs that are not HTTPS (${href})` }
       }
-    }
-  } else if (checkExternalLinks) {
-    if (!href.startsWith('https://')) {
-      return { WARNING: `Will not check external URLs that are not HTTPS (${href})` }
-    }
-    if (linksToSkip(href)) {
-      return
-    }
-    const { ok, ...info } = await checkExternalURLCached(core, href, { verbose, patient }, db)
-    if (!ok) {
-      // By default, an not-OK problem with an external link is CRITICAL
-      // but if it was a `responseError` or the statusCode was >= 500
-      // then downgrade it to WARNING.
-      let problem = 'CRITICAL'
-      if (externalServerErrorsAsWarning) {
-        if (
-          (info.statusCode && info.statusCode >= 500) ||
-          (info.requestError && isTemporaryRequestError(info.requestError))
-        ) {
-          problem = 'WARNING'
-        }
+      if (linksToSkip(href)) {
+        return
       }
-      return { [problem]: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
+      const { ok, ...info } = await checkExternalURLCached(core, href, { verbose, patient }, db)
+      if (!ok) {
+        // By default, an not-OK problem with an external link is CRITICAL
+        // but if it was a `responseError` or the statusCode was >= 500
+        // then downgrade it to WARNING.
+        let problem = 'CRITICAL'
+        if (externalServerErrorsAsWarning) {
+          if (
+            (info.statusCode && info.statusCode >= 500) ||
+            (info.requestError && isTemporaryRequestError(info.requestError))
+          ) {
+            problem = 'WARNING'
+          }
+        }
+        return { [problem]: `Broken external link (${JSON.stringify(info)})`, isExternal: true }
+      }
     }
   }
 }

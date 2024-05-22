@@ -46,7 +46,7 @@ First, import `Octokit` from `octokit`. Then, pass your {% data variables.produc
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+  baseUrl: "{% data variables.product.rest_url %}",{% endif %}
   auth: 'YOUR-TOKEN',
 });
 ```
@@ -64,7 +64,7 @@ const app = new App({
   appId: APP_ID,
   privateKey: PRIVATE_KEY,{% ifversion ghes %}
   Octokit: Octokit.defaults({
-    baseUrl: "{% data variables.product.api_url_code %}",
+    baseUrl: "{% data variables.product.rest_url %}",
   }),{% endif %}
 });
 
@@ -95,20 +95,20 @@ The script that the workflow runs uses `process.env.TOKEN` to authenticate:
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+  baseUrl: "{% data variables.product.rest_url %}",{% endif %}
   auth: process.env.TOKEN,
 });
 ```
 
 ### Instantiating without authentication
 
-You can use the REST API without authentication, although you will have a lower rate limit and will not be able to use some endpoints. To create an instance of `Octokit` without authenticating, do not pass the `auth` argument.{% ifversion ghes %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+You can use the REST API without authentication, although you will have a lower rate limit and will not be able to use some endpoints. To create an instance of `Octokit` without authenticating, do not pass the `auth` argument.{% ifversion ghes %} Set the base URL to `{% data variables.product.rest_url %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript copy
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",
+  baseUrl: "{% data variables.product.rest_url %}",
 {% endif %}});
 ```
 
@@ -364,7 +364,7 @@ The `getChangedFiles` function gets all of the files changed for a pull request.
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+  baseUrl: "{% data variables.product.rest_url %}",{% endif %}
   auth: 'YOUR-TOKEN',
 });
 

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 

@@ -19,5 +19,6 @@ children:
   - /enabling-debug-logging
   - /notifications-for-workflow-runs
   - /viewing-github-actions-usage-metrics-for-your-organization
+  - /working-with-support-for-github-actions
 --- 
 {% data reusables.actions.enterprise-github-hosted-runners %}

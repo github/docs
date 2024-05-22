@@ -95,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see "[dirty](#dirty)".
+    current HEAD. Also see "[dirty](#dirty)."
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
@@ -128,7 +128,7 @@
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
-- term: Commit graph
+- term: commit graph
   description: >-
     A repository graph that shows all the commits made to a repository in the
     past year.
@@ -291,8 +291,7 @@
   description: A section for hosting wiki style documentation on a GitHub repository.
 - term: gitfile
   description: >-
-    A plain `.git` file, which is always at the root of a working tree and points to the Git directory, which has the entire Git repository and its meta data. You can view this file for your repository on the command line with `git rev-parse --git-dir`.
-    that is the real repository.
+    A plain `.git` file, which is always at the root of a working tree and points to the Git directory, which has the entire Git repository and its meta data. You can view this file for your repository on the command line with `git rev-parse --git-dir`. That is the real repository.
 - term: GraphQL
   description: >-
     A query language for APIs and a runtime for fulfilling those queries with
@@ -570,7 +569,7 @@
 - term: punch graph
   description: >-
     A repository graph that shows the frequency of updates to a repository based
-    on the day of week and time of day
+    on the day of week and time of day.
 - term: push
   description: >-
     To push means to send your committed changes to a remote repository on
