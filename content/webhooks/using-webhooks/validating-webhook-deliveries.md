@@ -172,7 +172,7 @@ function hexToBytes(hex) {
 
 For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
 
-```ts
+```javascript copy
 import { Webhooks } from "@octokit/webhooks";
 
 const webhooks = new Webhooks({
