@@ -43,6 +43,8 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 If your cloud provider has created an official action for using OIDC with {% data variables.product.prodname_actions %}, it will allow you to easily exchange the OIDC token for an access token. You can then update your workflows to use this token when accessing cloud resources.
 
+For example, Alibaba Cloud created [`aliyun/configure-aliyun-credentials-action`](https://github.com/aliyun/configure-aliyun-credentials-action) to integrate with using OIDC with {% data variables.product.prodname_dotcom %}.
+
 ## Using custom actions
 
 If your cloud provider doesn't have an official action, or if you prefer to create custom scripts, you can manually request the JSON Web Token (JWT) from {% data variables.product.prodname_dotcom %}'s OIDC provider.
@@ -134,6 +136,9 @@ The steps for exchanging the OIDC token for an access token will vary for each c
 ### Accessing resources in your cloud provider
 
 Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
+
+For example, Alibaba Cloud maintains their own instructions for OIDC authentication. For more information, see [Overview of OIDC-based SSO](https://www.alibabacloud.com/help/en/ram/user-guide/overview-of-oidc-based-sso) in the Alibaba Cloud documentation.
+
 In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
 
 ## Further reading
