@@ -29,14 +29,14 @@ const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
 export function getShellExample(operation: Operation, codeSample: CodeSample) {
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
-  const defaultAcceptHeader = getAcceptHeader(codeSample)
 
-  // For operations that upload data using octet-stream, you need
-  // to explicitly set the content-type header.
-  const contentTypeHeader =
-    codeSample?.request?.contentType === 'application/octet-stream'
-      ? '-H "Content-Type: application/octet-stream"'
-      : ''
+  let contentTypeHeader = ''
+
+  if (codeSample?.request?.contentType === 'application/octet-stream') {
+    contentTypeHeader = '-H "Content-Type: application/octet-stream"'
+  } else if (codeSample?.request?.contentType === 'multipart/form-data') {
+    contentTypeHeader = '-H "Content-Type: multipart/form-data"'
+  }
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -70,22 +70,13 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader
-  let apiVersionHeader
-
-  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
-    authHeader = '-u "api_key:your-password"'
-    apiVersionHeader = ''
-  } else {
-    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-
-    apiVersionHeader =
-      allVersions[currentVersion].apiVersions.length > 0 &&
-      allVersions[currentVersion].latestApiVersion
-        ? ` \\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-        : ''
-  }
-
+  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+  let apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `-H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+  let acceptHeader = `-H "Accept: ${getAcceptHeader(codeSample)}"`
   let urlArg = `${operation.serverUrl}${requestPath}`
   // If the `requestPath` contains a `?` character, if you need to escape
   // the whole URL otherwise, when you paste it into your terminal, it
@@ -93,9 +84,19 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (requestPath.includes('?')) {
     urlArg = `"${urlArg}"`
   }
+
+  // Overwrite curl examples since the github enterprise related apis are seperate from the dotcom api standards
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
+    authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+    acceptHeader = acceptHeader === `-H "Accept: application/vnd.github+json"` ? '' : acceptHeader
+  }
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
+    acceptHeader,
+    authHeader,
+    apiVersionHeader,
     contentTypeHeader,
     urlArg,
     requestBodyParams,
