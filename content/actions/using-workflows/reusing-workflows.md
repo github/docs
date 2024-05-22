@@ -59,6 +59,16 @@ A reusable workflow can be used by another workflow if any of the following is t
 - The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
 {% endif %}
 
+In summary, the ability to access reusable workflow by the caller workflow is determined by the repository's visibility as shown in the table below.
+
+| Caller workflow's Repository | Accessible reusable workflow's Repositories |
+|----|----|
+| `private` | `private`, `internal`, and  `public` |
+| `internal` | `internal`, and `public` |
+| `public` | `public` |
+
+In addition, please note that the **Actions permissions** on the caller's repository Actions settings page must be set to allow the use of actions and reusable workflows; and with the exception of a public repository, the **Access** policy on the called workflow's repository Actions settings page must also be explicitly configured to allow access from repositories in the organization or repositories in the enterprise.
+
 {% data reusables.actions.actions-redirects-workflows %}
 
 ## Using runners
