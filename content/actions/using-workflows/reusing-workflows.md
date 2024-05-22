@@ -61,7 +61,7 @@ A reusable workflow can be used by another workflow if any of the following is t
 
 In summary, the ability to access called workflow by the caller workflow is determined by the repository's visibility access as shown in the table below.
 
-| Caller repository | Accessible called workflow repositories |
+| Caller repository | Accessible workflows repositories |
 |----|----|
 | `private` | `private`, `internal`, and  `public` |
 | `internal` | `internal`, and `public` |
