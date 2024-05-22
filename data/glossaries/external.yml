@@ -570,7 +570,7 @@
 - term: punch graph
   description: >-
     A repository graph that shows the frequency of updates to a repository based
-    on the day of week and time of day
+    on the day of week and time of day.
 - term: push
   description: >-
     To push means to send your committed changes to a remote repository on
