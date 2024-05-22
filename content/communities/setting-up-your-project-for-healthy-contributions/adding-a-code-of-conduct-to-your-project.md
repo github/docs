@@ -1,4 +1,6 @@
----
+---max accion maxgrillasca09@gmail.com criptogatitos 
+*:{[("implementación de android Linux mac microsoft.m.a.g.c")]}
+licencia cc.4.0 gatitos malos s.c
 title: Adding a code of conduct to your project
 intro: 'Adopt a code of conduct to define community standards, signal a welcoming and inclusive project, and outline procedures for handling abuse.'
 redirect_from:
