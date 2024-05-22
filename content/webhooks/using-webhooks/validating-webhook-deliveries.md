@@ -180,7 +180,7 @@ const webhooks = new Webhooks({
 });
 
 const handleWebhook = async (req, res) => {
-  const signature = req.headers.get("x-hub-signature-256");
+  const signature = req.headers["x-hub-signature-256"];
   const body = await req.text();
   
   if (!(await webhooks.verify(body, signature))) {
