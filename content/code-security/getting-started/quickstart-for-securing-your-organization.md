@@ -151,9 +151,10 @@ Once your organization's security setup is in place, you may want to prevent use
 
 {% data reusables.security-overview.security-information-about-actions %}
 
-{% ifversion ghec %}
+{% ifversion ghec or fpt %}
 
 ## Further reading
 
 "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+
 {% endif %}
