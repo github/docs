@@ -364,3 +364,30 @@ describeIfElasticsearchURL('filter by toplevel', () => {
     expect(results.meta.found.value).toBe(0)
   })
 })
+
+describeIfElasticsearchURL('aggregate', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
+  test("aggregate by 'toplevel'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'toplevel')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body)
+    expect(results.aggregations).toBeTruthy()
+    expect(results.aggregations.toplevel).toBeTruthy()
+    const firstAgg = results.aggregations.toplevel[0]
+    expect(firstAgg.key).toBeTruthy()
+    expect(firstAgg.count).toBeTruthy()
+  })
+
+  test("aggregate by 'unrecognizedxxx'", async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    sp.set('aggregate', 'unrecognizedxxx')
+    const res = await get('/api/search/v1?' + sp)
+    expect(res.statusCode).toBe(400)
+    expect(JSON.parse(res.body).error).toMatch('aggregate')
+  })
+})
