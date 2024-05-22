@@ -20,6 +20,8 @@ const MAX_PAGE = 10
 // a 400 Bad Request.
 const V1_ADDITIONAL_INCLUDES = ['intro', 'headings', 'toplevel']
 
+const V1_AGGREGATES = ['toplevel']
+
 // If someone searches for `...&version=3.5` what they actually mean
 // is `ghes-3.5`. This is because of legacy formatting with the old search.
 // In some distant future we can clean up any client enough that this
@@ -113,6 +115,13 @@ const PARAMS = [
     default_: [],
     cast: toArray,
     multiple: true,
+  },
+  {
+    key: 'aggregate',
+    default_: [],
+    cast: toArray,
+    multiple: true,
+    validate: (values) => values.every((value) => V1_AGGREGATES.includes(value)),
   },
 ]
 
