@@ -168,10 +168,10 @@ rest_reference:
   button_text:
     copy_to_clipboard: Copy to clipboard
     copied: Copied!
-  works_with_tokens: 'This endpoint works with the following token types'
-  permission_sets: 'The token must have at least one of the following permission sets'
-  permission_set: 'The token must have the following permission set'
-  no_permission_sets: 'The token does not require any permissions.'
+  works_with_fine_grained_tokens: 'This endpoint works with the following fine-grained token types'
+  permission_sets: 'The fine-grained token must have at least one of the following permission sets'
+  permission_set: 'The fine-grained token must have the following permission set'
+  no_permission_sets: 'The fine-grained token does not require any permissions.'
   allows_public_read_access: This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
   allows_public_read_access_no_permissions: This endpoint can be used without authentication if only public resources are requested.
   user_access_token_name: GitHub App user access tokens
