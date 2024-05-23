@@ -25,13 +25,13 @@ jobs:
 
       - name: Create an enterprise release issue
         run: |
-          src/versions/scripts/create-enterprise-issue.js release
+          src/ghes-releases/scripts/create-enterprise-issue.js release
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create an enterprise deprecation issue
         run: |
-          src/versions/scripts/create-enterprise-issue.js deprecation
+          src/ghes-releases/scripts/create-enterprise-issue.js deprecation
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
