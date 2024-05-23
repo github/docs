@@ -125,7 +125,6 @@ childGroups:
     children:
       - issues
       - issues/planning-and-tracking-with-projects
-      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon
