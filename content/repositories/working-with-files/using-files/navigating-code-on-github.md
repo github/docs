@@ -23,19 +23,28 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 
 {% rowheaders %}
 
-| Language   | Search-based code navigation | Precise code navigation |
-|:----------:|:----------------------------:|:-----------------------:|
-| C#         | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| CodeQL     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Elixir     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Go         | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Java       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| JavaScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| PHP        | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Python     | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                         |
-| Ruby       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| Rust       | {% octicon "check" aria-label="Supported" %}                           | {% octicon "x" aria-label="Not supported" %}                         |
-| TypeScript | {% octicon "check" aria-label="Supported" %}                           | {% octicon "check" aria-label="Supported" %}                         |
+| Language         | Search-based code navigation                 | Precise code navigation                      |
+|------------------|:--------------------------------------------:|:--------------------------------------------:|
+| Bash             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| C                | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| C#               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| C++              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| CodeQL           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Elixir           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Go               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| JSX              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Java             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| JavaScript       | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Lua              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| PHP              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Protocol Buffers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Python           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Ruby             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Rust             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Scala            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Starlark         | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Swift            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| TypeScript       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
