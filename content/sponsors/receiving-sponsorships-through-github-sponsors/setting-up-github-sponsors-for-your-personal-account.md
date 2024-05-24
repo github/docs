@@ -24,12 +24,10 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 1. If you are an organization owner, you have more than one eligible account. Click **Get sponsored**, then in the list of accounts, find your personal account.
-1. Click **Join the waitlist**.
+1. Click **Get sponsored**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.payout-choice %}
 {% data reusables.sponsors.accept-legal-terms %}
-
-If you have a bank account in a supported region, {% data variables.product.prodname_dotcom %} will review your application within two weeks.
 
 ## Completing your sponsored developer profile
 

@@ -29,6 +29,17 @@ You can use filters in a security overview to narrow your focus based on a range
 
 {% endnote %}
 
+## Filter logic for security overview
+
+You can apply filters and use logical operators to display results that meet specific criteria on security overview. By default, if you apply several different filters, you are using AND logic, meaning you will only see results that match _every_ filter you apply. For example, if you add the filter `is:public dependabot:enabled`, you will only see results from repositories that are public _and_ have {% data variables.product.prodname_dependabot %} enabled.
+
+Currently, there are two logical operators that you can apply to your filters on security overview:
+
+- The `-` operator applies NOT logic, displaying all results _except_ those that match the specified filter. To use the `-` operator, add it to the beginning of a filter. For example, filtering for `-repo:REPOSITORY-NAME` will display data from all repositories _except_ `REPOSITORY-NAME`.
+- The `,` operator applies OR logic, displaying results that match _any_ of the specified values for a single filter. To use the `,` operator, add it between each listed value for a filter. For example, filtering for `is:public,private` will display data from all repositories that are public _or_ private. Similarly, if you apply the same filter multiple times with different values, you are using OR logic. For example, `is:public is:private` is equivalent to `is:public,private`.
+
+## Filter methods
+
 All security views have features to help you define filters. These provide an easy way to set up filters and understand the options available.
 
 - **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
@@ -79,7 +90,7 @@ If you add custom properties to your organization and set values for repositorie
 
 {% ifversion security-overview-dashboard-enterprise %}
 
-## Organization name and type filters
+## Repository owner name and type filters
 
 In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise or an {% data variables.product.prodname_emu %} (EMU) account. Alternatively, you can filter by account owner type.
 

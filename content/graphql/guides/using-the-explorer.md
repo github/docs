@@ -87,7 +87,7 @@ There are many open source GraphQL client IDEs. For example, you can use Altair 
 1. In the "Header key" field, enter `Authorization`.
 1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
 1. Click **Save** in the bottom right corner of the window to save your authorization header.
-1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
+1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url %}`.
 1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
 1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
 1. Select the file public schema that you downloaded in an earlier step.

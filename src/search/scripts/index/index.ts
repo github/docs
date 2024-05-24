@@ -25,6 +25,7 @@ program
     ]),
   )
   .option('--verbose', 'Verbose output')
+  .option('--index-prefix <prefix>', 'Prefix for the index names', '')
   .argument('<data-root>', 'path to the docs-internal-data repo')
   .action((root: string, options) => {
     const languages = options.language ? options.language : languageKeys
@@ -36,7 +37,8 @@ program
         versions.push(v)
       }
     }
-    return indexAutocomplete({ dataRepoRoot: root, languages, versions })
+    const indexPrefix = options.indexPrefix || ''
+    return indexAutocomplete({ dataRepoRoot: root, languages, versions, indexPrefix })
   })
 
 program.parse(process.argv)

@@ -21,6 +21,7 @@ import {
   latestStable,
   releaseCandidate,
 } from '@/versions/lib/enterprise-server-releases.js'
+import type { AuditLogEventT, VersionedAuditLogData } from '../types'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -33,13 +34,6 @@ const AUDIT_LOG_PAGES = {
   ORGANIZATION: 'organization',
   ENTERPRISE: 'enterprise',
 }
-
-type AuditLogEventT = {
-  action: string
-  description: string
-}
-
-type AuditLogdata = Record<string, Array<AuditLogEventT>>
 
 async function main() {
   // get latest audit log data
@@ -82,7 +76,7 @@ async function main() {
   // data for every supported GHES version including RC releases.  Just to be
   // extra careful, we also fallback to the latest stable GHES version if
   // there's an RC release in the docs site but no audit log data for that version.
-  const auditLogData: Record<string, AuditLogdata> = {}
+  const auditLogData: VersionedAuditLogData = {}
 
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
@@ -91,9 +85,9 @@ async function main() {
   // Wrapper around filterGhesByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filterAndUpdateGhes = (
-    allowListValues: string | string[],
+    allowListValues: string,
     auditLogPage: string,
-    currentEvents: AuditLogdata,
+    currentEvents: VersionedAuditLogData,
   ) =>
     filterAndUpdateGhesDataByAllowlistValues(
       schemaEvents,

@@ -24,8 +24,6 @@ redirect_from:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
 ---
 
-## About the {% data variables.product.prodname_codeql_cli %}
-
 Software developers and security researchers can secure their code
 using {% data variables.product.prodname_codeql %} analysis. For more information about {% data variables.product.prodname_codeql %}, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
 

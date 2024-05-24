@@ -219,6 +219,7 @@ Members of the bypass list are still protected from accidentally pushing secrets
 {% data reusables.repositories.navigate-to-ghas-settings %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
+   >[!NOTE] You can't add secret teams to the bypass list.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
 
 ### Configuring delegated bypass for a repository
@@ -231,6 +232,7 @@ Members of the bypass list are still protected from accidentally pushing secrets
 {% data reusables.repositories.navigate-to-ghas-settings %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
+   >[!NOTE] You can't add secret teams to the bypass list.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
 
 ## Managing requests to bypass push protection

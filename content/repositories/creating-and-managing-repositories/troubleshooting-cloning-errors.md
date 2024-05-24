@@ -28,18 +28,18 @@ Here's an example of an HTTPS error you might receive:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs?service=git-receive-pack
+> https://{% data variables.product.product_url %}/USER/REPO.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs
+> https://{% data variables.product.product_url %}/USER/REPO.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{% data variables.command_line.codeblock %}/USER/REPO.git/info/refs not found: did you run git
+> Error: https://{% data variables.product.product_url %}/USER/REPO.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
@@ -98,7 +98,7 @@ If you've previously set up SSH keys, you can use the SSH clone URL instead of H
 
 ### Check your spelling
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Typos happen.  If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
@@ -122,7 +122,7 @@ You should ensure that the SSH key you are using is attached to your personal ac
 the following into the command line:
 
 ```shell
-$ ssh -T git@{% data variables.command_line.codeblock %}
+$ ssh -T git@{% data variables.product.product_url %}
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -152,7 +152,7 @@ This error occurs if the default branch of a repository has been deleted on {% d
 Detecting this error is simple; Git will warn you when you try to clone the repository:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USER/REPO.git
+$ git clone https://{% data variables.product.product_url %}/USER/REPO.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.

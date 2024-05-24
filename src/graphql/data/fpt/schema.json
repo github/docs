@@ -5167,6 +5167,48 @@
       ]
     },
     {
+      "name": "pinEnvironment",
+      "kind": "mutations",
+      "id": "pinenvironment",
+      "href": "/graphql/reference/mutations#pinenvironment",
+      "description": "<p>Pin an environment to a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PinEnvironmentInput!",
+          "id": "pinenvironmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#pinenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment",
+          "description": "<p>The environment that was pinned.</p>"
+        },
+        {
+          "name": "pinnedEnvironment",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment",
+          "description": "<p>The pinned environment if we pinned.</p>"
+        }
+      ]
+    },
+    {
       "name": "pinIssue",
       "kind": "mutations",
       "id": "pinissue",
@@ -5881,6 +5923,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest",
           "description": "<p>The pull request that was reopened.</p>"
+        }
+      ]
+    },
+    {
+      "name": "reorderEnvironment",
+      "kind": "mutations",
+      "id": "reorderenvironment",
+      "href": "/graphql/reference/mutations#reorderenvironment",
+      "description": "<p>Reorder a pinned repository environment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReorderEnvironmentInput!",
+          "id": "reorderenvironmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#reorderenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment",
+          "description": "<p>The environment that was reordered.</p>"
         }
       ]
     },
@@ -20585,6 +20661,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -25115,12 +25199,36 @@
           "href": "/graphql/reference/scalars#id"
         },
         {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this environment is currently pinned to the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "latestCompletedDeployment",
+          "description": "<p>The latest completed deployment with status success, failure, or error if it exists.</p>",
+          "type": "Deployment",
+          "id": "deployment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#deployment"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the environment.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pinnedPosition",
+          "description": "<p>The position of the environment if it is pinned, null if it is not pinned.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "protectionRules",
@@ -31211,7 +31319,7 @@
       "fields": [
         {
           "name": "body",
-          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "description": "<p>Represents member feature request body containing entity name and the number of feature requests.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -38785,6 +38893,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -43340,6 +43456,136 @@
           "id": "pinneddiscussion",
           "kind": "objects",
           "href": "/graphql/reference/objects#pinneddiscussion"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironment",
+      "kind": "objects",
+      "id": "pinnedenvironment",
+      "href": "/graphql/reference/objects#pinnedenvironment",
+      "description": "<p>Represents a pinned environment on a given repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the pinned environment was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "environment",
+          "description": "<p>Identifies the environment associated.</p>",
+          "type": "Environment!",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PinnedEnvironment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "position",
+          "description": "<p>Identifies the position of the pinned environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository that this environment was pinned to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentConnection",
+      "kind": "objects",
+      "id": "pinnedenvironmentconnection",
+      "href": "/graphql/reference/objects#pinnedenvironmentconnection",
+      "description": "<p>The connection type for PinnedEnvironment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PinnedEnvironmentEdge]",
+          "id": "pinnedenvironmentedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironmentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PinnedEnvironment]",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentEdge",
+      "kind": "objects",
+      "id": "pinnedenvironmentedge",
+      "href": "/graphql/reference/objects#pinnedenvironmentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment"
         }
       ]
     },
@@ -59959,6 +60205,17 @@
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#environments"
               }
+            },
+            {
+              "name": "pinnedEnvironmentFilter",
+              "defaultValue": "ALL",
+              "description": "<p>Filter to control pinned environments return.</p>",
+              "type": {
+                "name": "EnvironmentPinnedFilterField",
+                "id": "environmentpinnedfilterfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#environmentpinnedfilterfield"
+              }
             }
           ]
         },
@@ -61004,6 +61261,66 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pinnedEnvironments",
+          "description": "<p>A list of pinned environments for this repository.</p>",
+          "type": "PinnedEnvironmentConnection",
+          "id": "pinnedenvironmentconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironmentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the environments.</p>",
+              "type": {
+                "name": "PinnedEnvironmentOrder",
+                "id": "pinnedenvironmentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#pinnedenvironmentorder"
               }
             }
           ]
@@ -77869,6 +78186,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -82064,6 +82389,10 @@
       "description": "<p>The possible protection rule types.</p>",
       "values": [
         {
+          "name": "BRANCH_POLICY",
+          "description": "<p>Branch policy.</p>"
+        },
+        {
           "name": "REQUIRED_REVIEWERS",
           "description": "<p>Required reviewers.</p>"
         },
@@ -82691,6 +83020,27 @@
         {
           "name": "NAME",
           "description": "<p>Order environments by name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnvironmentPinnedFilterField",
+      "kind": "enums",
+      "id": "environmentpinnedfilterfield",
+      "href": "/graphql/reference/enums#environmentpinnedfilterfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>All environments will be returned.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>Environments exclude pinned will be returned.</p>"
+        },
+        {
+          "name": "ONLY",
+          "description": "<p>Only pinned environment will be returned.</p>"
         }
       ]
     },
@@ -84251,6 +84601,19 @@
         {
           "name": "ZAP",
           "description": "<p>A lightning bolt pattern.</p>"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentOrderField",
+      "kind": "enums",
+      "id": "pinnedenvironmentorderfield",
+      "href": "/graphql/reference/enums#pinnedenvironmentorderfield",
+      "description": "<p>Properties by which pinned environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order pinned environments by position.</p>"
         }
       ]
     },
@@ -96954,6 +97317,40 @@
       ]
     },
     {
+      "name": "PinEnvironmentInput",
+      "kind": "inputObjects",
+      "id": "pinenvironmentinput",
+      "href": "/graphql/reference/input-objects#pinenvironmentinput",
+      "description": "<p>Autogenerated input type of PinEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pinned",
+          "description": "<p>The desired state of the environment. If true, environment will be pinned. If false, it will be unpinned.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "PinIssueInput",
       "kind": "inputObjects",
       "id": "pinissueinput",
@@ -96976,6 +97373,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentOrder",
+      "kind": "inputObjects",
+      "id": "pinnedenvironmentorder",
+      "href": "/graphql/reference/input-objects#pinnedenvironmentorder",
+      "description": "<p>Ordering options for pinned environments.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order pinned environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order pinned environments by.</p>",
+          "type": "PinnedEnvironmentOrderField!",
+          "id": "pinnedenvironmentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pinnedenvironmentorderfield"
         }
       ]
     },
@@ -98136,6 +98558,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "ReorderEnvironmentInput",
+      "kind": "inputObjects",
+      "id": "reorderenvironmentinput",
+      "href": "/graphql/reference/input-objects#reorderenvironmentinput",
+      "description": "<p>Autogenerated input type of ReorderEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "position",
+          "description": "<p>The desired position of the environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },

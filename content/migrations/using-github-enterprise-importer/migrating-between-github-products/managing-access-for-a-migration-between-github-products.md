@@ -88,7 +88,7 @@ Assigning the migrator role for repository migrations | {% octicon "dash" aria-l
 Running a repository migration (destination organization) | {% octicon "dash" aria-label="Not applicable" %} | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Downloading a migration log | {% octicon "dash" aria-label="Not applicable" %} | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Reclaiming mannequins | {% octicon "dash" aria-label="Not applicable" %} | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
-Running a migration (source organization) | {% octicon "dash" aria-label="Not applicable" %} | `read:org`, `repo` | `read:org`, `repo` |
+Running a migration (source organization) | {% octicon "dash" aria-label="Not applicable" %} | `admin:org`, `repo` | `admin:org`, `repo` |
 Running an organization migration (destination enterprise) | `read:enterprise`, `admin:org`, `repo`, `workflow` | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
 ## Granting the migrator role

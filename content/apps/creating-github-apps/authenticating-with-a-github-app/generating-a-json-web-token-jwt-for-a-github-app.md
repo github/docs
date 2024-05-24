@@ -27,7 +27,7 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/app" \
+--url "{% data variables.product.rest_url %}/app" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR_JWT" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
@@ -128,7 +128,7 @@ payload = {
     # {% data variables.product.prodname_github_app %}'s client ID
     'iss': client_id{% else %}
     # {% data variables.product.prodname_github_app %}'s app ID
-    'iss': app_id{% endif %}    
+    'iss': app_id{% endif %}
 }
 
 # Create JWT
@@ -156,7 +156,7 @@ set -o pipefail
 client_id=$1 # Client ID as first argument
 {% else %}
 app_id=$1 # App ID as first argument
-{% endif %} 
+{% endif %}
 pem=$( cat $2 ) # file path of the private key as second argument
 
 now=$(date +%s)
@@ -175,7 +175,7 @@ header=$( echo -n "${header_json}" | b64enc )
 payload_json='{
     "iat":'"${iat}"',
     "exp":'"${exp}"',
-    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${client_id}"'{% endif %} 
+    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${client_id}"'{% endif %}
 }'
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
@@ -203,7 +203,7 @@ In the following example, replace `YOUR_PATH_TO_PEM` with the file path where yo
 $client_id = YOUR_CLIENT_ID
 {% else %}
 $app_id = YOUR_APP_ID
-{% endif %} 
+{% endif %}
 $private_key_path = "YOUR_PATH_TO_PEM"
 
 $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
@@ -214,7 +214,7 @@ $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((Conve
 $payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
   iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()
   exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
-  {% ifversion client-id-for-app %}  iss = $client_id{% else %}  iss = $app_id{% endif %} 
+  {% ifversion client-id-for-app %}  iss = $client_id{% else %}  iss = $app_id{% endif %}
 }))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
 
 $rsa = [System.Security.Cryptography.RSA]::Create()

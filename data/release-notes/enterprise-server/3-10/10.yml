@@ -23,7 +23,7 @@ sections:
     - |
       Disk usage, utilization, and latency for data devices could render incorrectly in Grafana.
     - |
-      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover.
+      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover. The `ghe-cluster-failover` command has been updated to block access from the old cluster, and four new command-line utilities have been introduced to manually block IP addresses: `ghe-cluster-block-ips`, `ghe-cluster-block-ip`, `ghe-cluster-unblock-ips`, and `ghe-cluster-unblock-ip`. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover)." [Updated: 2024-05-01]
     - |
       The `ghe-update-check` command did not clean up .tmp files in `/var/lib/ghe-updates/`, which could lead to full disk issues.
     - |
@@ -88,5 +88,3 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
-    - |
-      {% data reusables.release-notes.2024-02-pages-deployment-error %}

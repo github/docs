@@ -44,6 +44,12 @@ Before you can start using {% data variables.product.prodname_copilot_for_indivi
 
 ## Canceling your {% data variables.product.prodname_copilot_individuals_short %} subscription
 
+{% note %}
+
+**Note:** If you have been granted a free subscription to {% data variables.product.prodname_copilot_for_individuals %} as a verified student, teacher, or maintainer of a popular open source project, you will not be able to cancel your subscription. In this case, you can disable {% data variables.product.prodname_copilot_for_individuals %} in your environment. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment)."
+
+{% endnote %}
+
 You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. You can also cancel your {% data variables.product.prodname_copilot_individuals_short %} trial, during the {% data reusables.copilot.trial-period %}-day trial period. For more information, see "[Canceling your {% data variables.product.prodname_copilot_individuals_short %} trial](#canceling-your-copilot-individual-trial)."
 
 {% data reusables.user-settings.access_settings %}

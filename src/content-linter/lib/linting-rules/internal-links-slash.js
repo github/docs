@@ -26,6 +26,8 @@ export const internalLinksSlash = {
                 attr[1].startsWith(ignorePrefix),
               ),
           )
+          // We can ignore empty links because MD042 from markdownlint catches empty links
+          .filter((attr) => attr[1] !== '')
           // Get the link path from the attribute
           .map((attr) => attr[1])
 
