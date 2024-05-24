@@ -4,8 +4,8 @@ name: Enterprise date updater
 # src/ghes-releases/lib/enterprise-dates.json.
 # **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
 # file needs to be up-to-date for the
-# .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/search.js test.
+# Used to display deprecation banner dates and as a reference
+# for all past server release numbers.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:

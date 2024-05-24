@@ -15,9 +15,9 @@ import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
-import handleErrors from '@/observability/middleware/handle-errors.js'
-import handleNextDataPath from './handle-next-data-path.js'
-import detectLanguage from '@/languages/middleware/detect-language.js'
+import handleErrors from '@/observability/middleware/handle-errors'
+import handleNextDataPath from './handle-next-data-path'
+import detectLanguage from '@/languages/middleware/detect-language'
 import reloadTree from './reload-tree.js'
 import context from './context/context.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
@@ -27,8 +27,7 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
 import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
 import api from './api.js'
-import healthz from './healthz.js'
-import productIcons from './product-icons.js'
+import healthz from './healthz'
 import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
@@ -248,7 +247,6 @@ export default function (app: Express) {
   app.use('/api', api)
   app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
-  app.use('/producticons', productIcons)
   app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.

@@ -253,6 +253,10 @@ const link = {
       type: 'boolean',
       description: 'If the link stays on docs.github.com.',
     },
+    link_samepage: {
+      type: 'boolean',
+      description: 'If the link stays on the same page (hash link).',
+    },
     link_container: {
       type: 'string',
       enum: [
@@ -265,6 +269,7 @@ const link = {
         'article',
         'toc',
         'footer',
+        'static',
       ],
       description: 'The part of the page where the user clicked the link.',
     },
@@ -405,7 +410,6 @@ const experiment = {
     },
     experiment_variation: {
       type: 'string',
-      enum: ['control', 'treatment'],
       description: 'The variation this user we bucketed in, such as control or treatment.',
     },
     experiment_success: {

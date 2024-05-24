@@ -14,7 +14,9 @@ topics:
 shortTitle: Remove label when adding card
 allowTitleToDifferFromFilename: true
 ---
- 
+
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -26,7 +28,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-1. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
+1. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. {% ifversion projects-v1-can-create %} You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
 1. {% data reusables.actions.make-workflow-file %}
 1. Copy the following YAML contents into your workflow file.
 

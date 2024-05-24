@@ -155,7 +155,7 @@ Commands:
   circle-ci     Convert a CircleCI pipeline to GitHub Actions workflows and open a pull request with the changes.
   gitlab        Convert a GitLab pipeline to a GitHub Actions workflow and open a pull request with the changes.
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and open a pull request with the changes.
-  travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and and open a pull request with the changes.
+  travis-ci     Convert a Travis CI pipeline to a GitHub Actions workflow and open a pull request with the changes.
 ```
 
 ## Performing self-serve migrations using IssueOps

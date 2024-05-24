@@ -37,6 +37,8 @@ To upgrade an instance, you must plan and communicate the upgrade, choose the ap
 
 To successfully upgrade {% data variables.location.product_location %}, the instance's data disk must be at least 15% free. {% data variables.product.company_short %} recommends ensuring there is more free storage on the disk. In some rare cases, for customers with large data volumes, this threshold may differ.
 
+{% data reusables.enterprise_installation.preflight-checks %}
+
 ## Preparing to upgrade
 
 To prepare for an upgrade, plan the upgrade path, optionally upgrade {% data variables.product.prodname_actions %} runners, and schedule a maintenance window.

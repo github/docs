@@ -3,7 +3,7 @@ title: Using GitHub Code Search
 intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom_the_website %}."
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---

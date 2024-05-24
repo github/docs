@@ -139,4 +139,19 @@ describeIfElasticsearchURL('search rendering page', () => {
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
   })
+
+  test("search with 'toplevel' query string", async () => {
+    const $ = await getDOM('/en/search?query=foo&toplevel=Baring')
+    expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
+
+    // Note it testid being 'search-result', not 'search-results'
+    const results = $('[data-testid="search-result"]')
+    expect(results.length).toBeGreaterThan(0)
+    const result = results.first()
+    expect($('h2', result).text()).toBe('Bar')
+    const paragraph = $('p', result)
+    expect(paragraph.text()).toMatch('baring')
+    const link = $('a', result)
+    expect(link.html()).toMatch('Bar')
+  })
 })

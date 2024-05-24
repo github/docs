@@ -73,11 +73,7 @@ If you disable automatic updates, you will be required to update your runner ver
 
 For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
 
-{% note %}
-
-**Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
-
-{% endnote %}
+>[!WARNING] If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 ## Using webhooks for autoscaling
 

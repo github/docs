@@ -28,6 +28,9 @@ if (process.env.ELASTICSEARCH_URL) {
     createProxyMiddleware({
       target: 'https://docs.github.com',
       changeOrigin: true,
+      pathRewrite: function (path, req) {
+        return req.originalUrl
+      },
     }),
   )
 }

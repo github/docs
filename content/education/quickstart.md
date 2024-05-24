@@ -15,7 +15,7 @@ In this guide, you'll get started with {% data variables.product.product_name %}
 
 {% tip %}
 
-**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+**Tip**: If you're a student and you'd like to take advantage of an academic discount, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)."
 
 {% endtip %}
 

@@ -1,0 +1,38 @@
+span.replacedomain-edit {
+  color: var(--fgColor-accent, var(--color-accent-fg, #0969da));
+  font-weight: 600;
+  border-width: 1px;
+  border-style: solid solid dashed;
+  border-image: initial;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d0d7de)
+  );
+  border-left-color: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  cursor: pointer;
+
+  :hover {
+    border-color: var(
+      --borderColor-default,
+      var(--color-border-default, #d0d7de)
+    );
+    background-color: var(
+      --bgColor-default,
+      var(--color-canvas-default, #ffffff)
+    );
+  }
+
+  svg {
+    margin: 0 3px;
+  }
+}
+
+span.editable-domain {
+  color: var(--color-accent-fg);
+  cursor: pointer;
+  // text-decoration: dashed underline;
+}
