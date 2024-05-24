@@ -89,7 +89,7 @@ If you set your repository visibility to "Public," the repository will be displa
 
 As you add, edit or delete files directly in the browser on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_dotcom %} will track these changes ("commits"), so you can start to manage your project's history and evolution.
 
-When making changes, remember that you can create a new branch from the `main` branch of your repository, so that you can experiment without affecting the main copy of files. Then, when you're happy with a set of a changes, open a pull request to merge the changes into your `main` branch. For a reminder of how to do this, see "[AUTOTITLE](/get-started/quickstart/hello-world)."
+When making changes, remember that you can create a new branch from the `main` branch of your repository, so that you can experiment without affecting the main copy of files. Then, when you're happy with a set of a changes, open a pull request to merge the changes into your `main` branch. For a reminder of how to do this, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)."
 
 ## Next steps
 
