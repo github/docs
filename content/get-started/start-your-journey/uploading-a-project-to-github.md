@@ -54,7 +54,7 @@ So far, you should only see one file listed in the repository, the `README.md` f
 
 Your repository's README file is typically the first item someone will see when visiting your repository. It usually contains information on what your project is about and why your project is useful.
 
-As we learned in the "Hello world" tutorial, the README file (`README.md`) is written in Markdown syntax. {% data reusables.getting-started.what-is-markdown %}
+As we learned in the "[AUTOTITLE](/get-started/start-your-journey/hello-world)" tutorial, the README file (`README.md`) is written in Markdown syntax. {% data reusables.getting-started.what-is-markdown %}
 
 In this step, we'll edit your project's `README.md` using Markdown so that it includes some basic information about your project.
 
