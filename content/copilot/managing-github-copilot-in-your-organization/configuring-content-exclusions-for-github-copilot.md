@@ -299,5 +299,5 @@ To reload content exclusions into your JetBrains IDE, either close and reopen th
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/managing-copilot-business/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business)"
+- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business)"
 - "[AUTOTITLE](/enterprise-cloud@latest/copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot#github-copilot-content-exclusions-are-not-being-applied)"

@@ -16,4 +16,4 @@ Organization owners can manage policies for {% data variables.product.prodname_c
 
 ### Audit logs
 
-Organization owners can review audit logs for {% data variables.product.prodname_copilot %} in their organization, to understand what actions have been taken and by which users. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business)."
+Organization owners can review audit logs for {% data variables.product.prodname_copilot %} in their organization, to understand what actions have been taken and by which users. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business)."
