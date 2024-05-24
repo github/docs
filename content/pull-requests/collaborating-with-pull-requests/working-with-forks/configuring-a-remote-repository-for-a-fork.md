@@ -20,22 +20,22 @@ shortTitle: Configure a remote repository
 
    ```shell
    $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin  https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
    ```
 
 1. Specify a new remote _upstream_ repository that will be synced with the fork.
 
    ```shell
-   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git
+   git remote add upstream https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git
    ```
 
 1. Verify the new upstream repository you've specified for your fork.
 
    ```shell
    $ git remote -v
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
-   > origin    https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-FORK.git (push)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
-   > upstream  https://{% data variables.command_line.codeblock %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (fetch)
+   > origin    https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-FORK.git (push)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+   > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
    ```

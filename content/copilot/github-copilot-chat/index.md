@@ -1,12 +1,14 @@
 ---
 title: GitHub Copilot Chat
 shortTitle: Copilot Chat
-intro: 'Learn about {% data variables.product.prodname_copilot_chat %}, including use cases, best practices, and limitations.'
+intro: 'Learn about {% data variables.product.prodname_copilot_chat %}, including use cases, tools, best practices, and limitations.'
 versions:
   feature: copilot
 topics:
   - Copilot
 children:
-  - /about-github-copilot-chat
-  - /using-github-copilot-chat-in-your-ide
+  - /copilot-chat-in-github
+  - /copilot-chat-in-ides
+  - /copilot-chat-in-github-mobile
+  - /github-copilot-extensions
 ---

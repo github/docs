@@ -9,6 +9,8 @@ topics:
 type: reference
 intro: 'If you see this warning, update your controller repository to a private repository.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/codeql-for-vs-code/troubleshooting-variant-analysis
 ---
 
 {% data reusables.code-scanning.mrva-beta %}

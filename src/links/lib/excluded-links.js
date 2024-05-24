@@ -73,6 +73,10 @@ export default [
   'https://azure.microsoft.com',
   'https://api.octocorp.ghe.com',
   'https://platform.openai.com/docs/guides/safety-best-practices',
+  'https://global.rel.tunnels.api.visualstudio.com/api/version',
+  'https://www.wireguard.com/quickstart/',
+  'https://docs.openstack.org/horizon/latest/',
+  'https://packages.ubuntu.com/search?keywords=netcat&searchon=names',
 ]
 
 // Return a regular expression from a URL string that matches the URL

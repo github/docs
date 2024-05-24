@@ -17,7 +17,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '20 */24 * * *' # Run every 24 hours at 20 minutes past the hour
+    - cron: '20 16 * * *' # Run every 24 hours at 20 minutes past the hour
   workflow_run:
     workflows: ['Azure Production - Build and Deploy']
     types:

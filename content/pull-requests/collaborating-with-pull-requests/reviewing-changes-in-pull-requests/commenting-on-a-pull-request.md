@@ -47,6 +47,7 @@ To reply to an existing line {% ifversion pull-request-comment-on-file %}or file
 1. In the list of pull requests, click the pull request where you'd like to leave line comments.
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.multiple-lines-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
 {% ifversion pull-request-comment-on-file %}

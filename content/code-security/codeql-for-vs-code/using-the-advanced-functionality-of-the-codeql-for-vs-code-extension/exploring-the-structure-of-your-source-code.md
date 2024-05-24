@@ -11,6 +11,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can use the AST viewer to display the abstract syntax tree of a {% data variables.product.prodname_codeql %} database.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/exploring-the-structure-of-your-source-code
 ---
 
 ## About the abstract syntax tree

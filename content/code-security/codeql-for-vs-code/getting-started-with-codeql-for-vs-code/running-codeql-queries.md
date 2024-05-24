@@ -12,6 +12,8 @@ topics:
 type: reference
 intro: 'You can run queries on {% data variables.product.prodname_codeql %} databases and view the results in {% data variables.product.prodname_vscode %}.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/codeql-for-vs-code/analyzing-your-projects
 ---
 
 ## About running {% data variables.product.prodname_codeql %} queries

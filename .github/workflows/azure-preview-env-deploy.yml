@@ -86,7 +86,7 @@ jobs:
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226
+        uses: docker/setup-buildx-action@d70bba72b1f3fd22344832f00baa16ece964efeb
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
@@ -187,14 +187,11 @@ jobs:
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Move acceptable user changes
         run: |
-          # Don't allow users to change code here
-          rm -rf ./user-code/src/workflows
           # Make sure recursive path expansion is enabled
           shopt -s globstar
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/src/./**/*.{scss,ts,tsx} ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:
@@ -209,7 +206,7 @@ jobs:
         run: src/workflows/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09
+        uses: docker/build-push-action@2cdde995de11925a030ce8070c3d77a52ffcf1c0
         with:
           context: .
           push: true

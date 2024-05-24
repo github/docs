@@ -33,7 +33,6 @@ async function main() {
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
     const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
-    // await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,

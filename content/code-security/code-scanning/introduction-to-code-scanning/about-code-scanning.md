@@ -21,8 +21,6 @@ topics:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## About {% data variables.product.prodname_code_scanning %}
-
 {% data reusables.code-scanning.about-code-scanning %}
 
 You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_caps %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.

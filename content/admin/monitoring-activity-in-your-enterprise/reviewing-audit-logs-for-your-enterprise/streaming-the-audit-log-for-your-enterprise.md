@@ -48,6 +48,16 @@ Enabling audit log streaming can cause a minor impact on the performance of {% d
 
 {% endif %}
 
+{% ifversion audit-log-streaming-health-check %}
+
+## Health checks for audit log streams
+
+Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
+
+To fix your streaming configuration, follow the steps outlined in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
+
+{% endif %}
+
 ## Events that appear in audit log streams
 
 You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
@@ -66,6 +76,14 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 - [Datadog](#setting-up-streaming-to-datadog){% endif %}
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the Streaming endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
+
+{% endnote %}
+{% endif %}
 
 ### Setting up streaming to Amazon S3
 
@@ -102,9 +120,11 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+    - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -138,8 +158,10 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **OpenID Connect**.
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -257,10 +279,6 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 **Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (such as with [Splunk HEC Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure the endpoint is reachable at this destination.
 
 {% endnote %}
-
-{% ifversion ghec %}
-To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
-{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.

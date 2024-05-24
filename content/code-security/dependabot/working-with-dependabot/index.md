@@ -16,6 +16,7 @@ topics:
 children:
   - /managing-pull-requests-for-dependency-updates
   - /about-dependabot-on-github-actions-runners
+  - /managing-dependabot-on-self-hosted-runners
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
   - /configuring-access-to-private-registries-for-dependabot

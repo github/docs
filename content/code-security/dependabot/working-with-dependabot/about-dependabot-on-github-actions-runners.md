@@ -1,7 +1,7 @@
 ---
 title: About Dependabot on GitHub Actions runners
 intro: 'Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} allows for better performance, and increased visibility and control of {% data variables.product.prodname_dependabot %} jobs.'
-shortTitle: Dependabot on Actions
+shortTitle: About Dependabot on Actions
 permissions: 'Organization owners and repository administrators can enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %}.'
 versions:
   feature: dependabot-on-actions-opt-in
@@ -23,23 +23,21 @@ topics:
 
 Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see "[AUTOTITLE](/rest/actions)" and "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
-You cannot run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} on self-hosted runners or {% data variables.actions.hosted_runners %}. Using private networking with an Azure Virtual Network (VNET) or Actions Runner Controller (ARC) is not supported.
+You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} on self-hosted and {% data variables.actions.hosted_runners %}. However, using private networking with an Azure Virtual Network (VNET) or Actions Runner Controller (ARC) is not supported.
 
-Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted runners runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_dotcom %}-hosted and self-hosted runners **does not** count towards your included {% data variables.product.prodname_actions %} minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
 Enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} may increase the number of concurrent jobs run in your account. If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
 
 If you are transitioning to using {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners and you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses. For example, if you currently limit access to your private resources to the IP addresses that {% data variables.product.prodname_dependabot %} uses, you should update your allowlist to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses sourced from the meta API endpoint. For more information, see "[AUTOTITLE](/rest/meta)."
 
-{% ifversion ghec %}
-When you enforce a policy to allow actions and reusable workflows from only in your enterprise, and you enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will not run. To enable {% data variables.product.prodname_dependabot %} to run with your enterprise actions and reusable workflows, you should choose either to allow actions created by {% data variables.product.prodname_dotcom %}, or allow specified actions and reusable workflows. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allowing-select-actions-and-reusable-workflows-to-run)."
-{% endif %}
+{% data reusables.dependabot.dependabot-on-actions-enterprise-policy-condition %}
 
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
 New repositories that you create in your user account or in your organization will automatically be configured to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} if any of the following is true:
 - {% data variables.product.prodname_dependabot %} is installed and enabled, and {% data variables.product.prodname_actions %} is enabled and in use.
-- The "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} Runners" setting for your organization is enabled.
+- The "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" setting for your organization is enabled.
 
 For existing repositories, you can opt in to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} as follows.
 
@@ -47,9 +45,9 @@ Future releases of {% data variables.product.product_name %} will remove the abi
 
 If you restrict access to your organization's or repository's private resources, you may need to update your list of allowed IP addresses prior to enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners. You can update your IP allow list to use the {% data variables.product.prodname_dotcom %}-hosted runners IP addresses (instead of the {% data variables.product.prodname_dependabot %} IP addresses), sourced from the [meta](/rest/meta) REST API endpoint.
 
->[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. In a future release, you will be able to use a self-hosted runner or {% data variables.actions.hosted_runner %} to ensure greater control over your network access.
+>[!WARNING] You should not rely on the {% data variables.product.prodname_actions %} IP addresses for authentication to private registries. These {% data variables.product.prodname_actions %} addresses are not only used by {% data variables.product.prodname_dotcom %}, and should not be trusted for authentication. Instead, use a self-hosted runner to ensure greater control over your network access. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners)."
 
-Note, disabling and re-enabling the "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} Runners" settings will not trigger a new {% data variables.product.prodname_dependabot %} run.
+Note, disabling and re-enabling the "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" settings will not trigger a new {% data variables.product.prodname_dependabot %} run.
 
 ### Enabling or disabling for your repository
 
@@ -58,7 +56,7 @@ You can manage {% data variables.product.prodname_dependabot %} on {% data varia
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} Runners", click **Enable**  to enable the feature or **Disable** to disable it.
+1. Under "Dependabot", to the right of "{% data variables.product.prodname_dependabot %} on Actions runners", click **Enable**  to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling for your organization
 
@@ -72,7 +70,11 @@ If a repository in your organization has {% data variables.product.prodname_depe
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} Runners", click **Enable all**  to enable the feature or **Disable all** to disable it.
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% endif %}
+1. Under "Code security", select "Global settings".
+1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on Actions runners" to enable the feature or deselect to disable it.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 

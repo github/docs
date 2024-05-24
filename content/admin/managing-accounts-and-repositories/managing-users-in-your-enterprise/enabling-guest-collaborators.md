@@ -88,3 +88,5 @@ For more information about adding guest collaborators with SCIM using GitHub's R
 ## Adding guest collaborators to your enterprise
 
 After you enable guest collaborators, you can add guest collaborators to your enterprise as you would any other user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups)."
+
+{% data reusables.emus.giving-access-to-guest-collaborators %}

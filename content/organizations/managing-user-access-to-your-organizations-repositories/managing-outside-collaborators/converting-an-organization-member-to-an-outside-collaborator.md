@@ -17,6 +17,8 @@ topics:
 shortTitle: Convert member to collaborator
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 ## About conversion of organization members to outside collaborators
 
 You can convert a member of an organization to an outside collaborator. For more information about outside collaborators, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."

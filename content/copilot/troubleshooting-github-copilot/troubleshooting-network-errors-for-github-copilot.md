@@ -71,3 +71,9 @@ Some possible ways to resolve certificate-related errors are:
   **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
 
   {% endwarning %}
+
+### Troubleshooting security software-related certificate errors
+
+If you or your organization use security software that monitors secure web traffic and you receive an "unable to verify the first certificate" error, you may need to configure an exception for your IDE and/or the copilot extension.
+
+For more information about how to configure an exception, refer to your security software vendor.

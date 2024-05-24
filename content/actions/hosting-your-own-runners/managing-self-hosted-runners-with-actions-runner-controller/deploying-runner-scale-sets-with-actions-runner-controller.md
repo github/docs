@@ -397,6 +397,8 @@ template:
         image: "custom-registry.io/actions-runner:latest"
         imagePullPolicy: Always
         command: ["/home/runner/run.sh"]
+    imagePullSecrets:
+      - name: <registry-secret-name>
 ```
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
@@ -932,9 +934,12 @@ The following table shows the metrics emitted by the controller-manager and list
 | listener           | gha_idle_runners                              | gauge     | Number of registered runners not running a job                                                              |
 | listener           | gha_started_jobs_total                        | counter   | Total number of jobs started since the listener became ready [1]                                            |
 | listener           | gha_completed_jobs_total                      | counter   | Total number of jobs completed since the listener became ready [1]                                          |
-| listener           | gha_job_queue_duration_seconds                | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing    |
+| {% ifversion fpt or ghec or ghes > 3.10 %} |
 | listener           | gha_job_startup_duration_seconds              | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
+| {% endif %} |
+| {% ifversion fpt or ghec or ghes > 3.10 %} |
 | listener           | gha_job_execution_duration_seconds            | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
+| {% endif %} |
 
 [1]: Listener metrics that have the counter type are reset when the listener pod restarts.
 

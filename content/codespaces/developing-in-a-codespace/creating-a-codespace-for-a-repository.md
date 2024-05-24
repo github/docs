@@ -123,7 +123,7 @@ The names of user-defined secrets may be displayed on the advanced options page 
 
 Entering values for these development environment secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
 
-If you enter a value for a recommended secret, the secret will available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
+If you enter a value for a recommended secret, the secret will be available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
 
 If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
 
