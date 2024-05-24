@@ -59,7 +59,7 @@ A reusable workflow can be used by another workflow if any of the following is t
 - The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
 {% endif %}
 
-In summary, for the called workflow to be reachable by the caller workflow, the repository's visibility must be as shown in the table below.
+The following table shows the accessibility of reusable workflows to a caller workflow, depending on the visibility of the host repository.
 
 | Caller repository | Accessible workflows repositories |
 |----|----|
@@ -67,9 +67,9 @@ In summary, for the called workflow to be reachable by the caller workflow, the 
 | `internal` | `internal`, and `public` |
 | `public` | `public` |
 
-Additionaly, please note that the **Actions permissions** on the caller's repository Actions settings page must be configured to allow the use of actions and reusable workflows.
+The **Actions permissions** on the callers repository's Actions settings page must be configured to allow the use of actions and reusable workflows - see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-select-actions-and-reusable-workflows-to-run)."
 
-Furthermore, except for a public repository, also note that the **Access** policy on the called workflow's repository Actions settings page must be explicitly configured to allow access from repositories in the organization or repositories in the enterprise.
+For internal or private repositories, the **Access** policy on the Actions settings page of the called workflow's repository must be explicitly configured to allow access from repositories containing caller workflows.
 
 {% data reusables.actions.actions-redirects-workflows %}
 
