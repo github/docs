@@ -148,6 +148,9 @@ sections:
     # https://github.com/github/releases/issues/3443
     - |
        The "Create a reference" REST API endpoint is restricted from accepting POSTs from users and apps that only have permission to read and write packages. Previously, this endpoint accepted updates to both tags and branches.
+    # https://github.com/github/releases/issues/3850
+    - |
+      To ensure security updates are applied correctly regardless of your repository's configuration settings, Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`.  Security updates still do not support `target-branch` configuration. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB

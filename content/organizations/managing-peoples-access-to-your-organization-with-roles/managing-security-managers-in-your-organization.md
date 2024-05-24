@@ -46,8 +46,6 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 
 ## Removing the security manager role from a team in your organization
 
-{% data reusables.organizations.warning-remove-security-managers %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
