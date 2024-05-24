@@ -15,5 +15,5 @@ children:
   - /reviewing-usage-data-for-github-copilot-in-your-organization
   - /managing-policies-and-features-for-copilot-in-your-organization
   - /configuring-content-exclusions-for-github-copilot
-  - /reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business
+  - /reviewing-audit-logs-for-copilot-business
 ---
