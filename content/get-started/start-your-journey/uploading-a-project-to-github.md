@@ -36,7 +36,7 @@ It's a good idea to create a new repository for each individual project you're w
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type a name for your project. For example, type "my-first-project."
-{% data reusables.repositories.add-description %}. For example, type "This is my first project on GitHub."
+{% data reusables.repositories.add-description %} For example, type "This is my first project on GitHub."
 {% data reusables.repositories.select-public-or-private %} Select "Public" if you want others to be able to see your project.
 {% data reusables.repositories.add-readme %} You will edit this file in a later step.
 {% data reusables.repositories.click-create %}
