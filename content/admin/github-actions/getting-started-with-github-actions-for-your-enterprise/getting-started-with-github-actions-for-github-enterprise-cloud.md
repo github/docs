@@ -35,7 +35,7 @@ If you choose self-hosted runners, you can add runners at the enterprise, organi
 
 ## Provisioning fine-grained permissions for {% data variables.product.prodname_actions %}
 
-Organization owners and users with the "Manage custom organization roles" permission can provision fine-grained permissions for users and teams in your organization. Provisioning fine-grained permissions for {% data variables.product.prodname_actions %} allows you to practice the principal of least privilege to secure settings in your {% data variables.product.prodname_actions %} CI/CD pipeline.
+Organization owners and users with the "Manage custom organization roles" permission can provision fine-grained permissions for users and teams in your organization. Provisioning fine-grained permissions for {% data variables.product.prodname_actions %} allows you to practice the principle of least privilege to secure settings in your {% data variables.product.prodname_actions %} CI/CD pipeline.
 
 {% data reusables.actions.org-roles-for-gh-actions %}
 
