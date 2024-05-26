@@ -150,7 +150,7 @@ async function main() {
   }
 
   // remove temp directory
-  rimraf.sync(tmpArchivalDirectory)
+  await rimraf(tmpArchivalDirectory)
 
   const app = createApp()
   const server = http.createServer(app)

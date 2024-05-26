@@ -42,7 +42,7 @@ export const ArticleInlineLayout = ({
         )}
 
         {introCallOuts && (
-          <Box gridArea="intro" className="f4">
+          <Box gridArea="intro" className="f4 mb-4">
             {introCallOuts}
           </Box>
         )}

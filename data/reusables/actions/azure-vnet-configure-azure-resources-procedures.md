@@ -43,9 +43,9 @@ You will use a script to automate configuring your Azure resources.
         {
           name: 'AllowOutBoundActions'
           properties: {
-            protocol: 'TCP'
+            protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '443'
+            destinationPortRange: '*'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 210
@@ -122,9 +122,9 @@ You will use a script to automate configuring your Azure resources.
         {
           name: 'AllowOutBoundGitHub'
           properties: {
-            protocol: 'TCP'
+            protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '443'
+            destinationPortRange: '*'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 220
@@ -172,6 +172,7 @@ You will use a script to automate configuring your Azure resources.
               '20.248.137.50/32'
               '20.248.137.52/32'
               '20.248.137.55/32'
+              '20.26.156.216/32'
               '20.27.177.113/32'
               '20.27.177.114/32'
               '20.27.177.116/32'

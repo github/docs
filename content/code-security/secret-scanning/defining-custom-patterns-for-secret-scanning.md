@@ -112,6 +112,11 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on defining a custom pattern for your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#defining-custom-patterns)."
+{% endif %}
+
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}

@@ -42,7 +42,7 @@ $ ghe-announce -d -s MESSAGE
 > Announcement message set.
 # Removes a previously set message
 $ ghe-announce -u
-> Removed the announcement message, which was user 
+> Removed the announcement message, which was user
 > dismissible: MESSAGE
 ```
 
@@ -118,7 +118,7 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` 
+# Sets the configuration value of `core.github-hostname`
 # to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
@@ -721,6 +721,58 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
 
+### ghe-cluster-failover
+
+{% ifversion ghes < 3.13 %}
+
+{% data reusables.enterprise_clustering.cluster-ip-note %}
+
+{% endif %}
+
+With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster)."
+
+```shell
+ghe-cluster-failover
+```
+
+{% ifversion ghes < 3.13 %}
+
+### ghe-cluster-block-ips
+
+This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
+
+The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
+
+```shell
+ghe-cluster-block-ips
+```
+
+### ghe-cluster-block-ip
+
+This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
+
+```shell
+ghe-cluster-block-ip IPV4 ADDRESS
+```
+
+### ghe-cluster-unblock-ips
+
+This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
+
+```shell
+ghe-cluster-unblock-ips
+```
+
+### ghe-cluster-unblock-ip
+
+This utility allows you to unblock a specific IP address on a specific node.
+
+```shell
+ghe-cluster-unblock-ip IPV4 ADDRESS
+```
+
+{% endif %}
+
 ### ghe-dpages
 
 This utility allows you to manage the distributed {% data variables.product.prodname_pages %} server.
@@ -906,7 +958,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.com/orgs/community/discussions/34220) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -966,7 +1018,7 @@ For more information about the configuration of {% data variables.product.prodna
 {% ifversion ghes-actions-storage-oidc %}
 {% note %}
 
-**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. It does not work with OpenID Connect (OIDC) configurations.
+**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
 
 {% endnote %}
 {% endif %}
@@ -980,6 +1032,24 @@ If your storage system is configured correctly, you'll see the following output.
 ```text
 All Storage tests passed
 ```
+
+{% ifversion ghes-actions-storage-oidc %}
+
+### ghe-actions-test-storage-with-oidc
+
+This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
+
+{% note %}
+
+**Note:** This utility only works with configurations that use an OpenID Connect (OIDC) configuration. To test credentials-based configurations, use [`ghe-actions-precheck`](#ghe-actions-precheck).
+
+{% endnote %}
+
+```shell
+ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
+```
+
+{% endif %}
 
 ### ghe-actions-stop
 
@@ -1011,6 +1081,28 @@ If your system is configured correctly, you'll see the following output:
 
 ```shell
 Actions was enabled!
+```
+
+## {% data variables.product.prodname_registry %}
+
+### ghe-check-blob-connection
+
+This utility checks that a blob storage provider for {% data variables.product.prodname_registry %} is valid on {% data variables.location.product_location %}.
+
+```shell
+ghe-check-blob-connection --help
+```
+
+If a connection was previously configured, tests may be performed by directly running the command without any parameters.
+
+```shell
+ghe-check-blob-connection
+```
+
+If your system is configured correctly, you'll see the following output:
+
+```shell
+All Storage tests passed
 ```
 
 ## High availability
@@ -1131,6 +1223,67 @@ This utility rewrites the imported repository. This gives you a chance to rename
 ```shell
 git-import-rewrite
 ```
+
+{% ifversion ghes > 3.12 %}
+
+## License
+
+### ghe-license
+
+This utility lets you interact with your current active license, or with new licenses without needing to import them first. You can also directly apply the license to make the changes effective using `--apply`. Applying changes with the `ghe-license` utility avoids a configuration run and only restarts the affected services.
+
+You can review the possible commands and flags using `ghe-license -h`.
+
+Alternatively, you can manage licenses using the REST API or the {% data variables.product.prodname_cli %}. See "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)."
+
+Display license information. Alternatively, use the `-j` flag for JSON formatting.
+
+```shell
+ghe-license info
+# "advanced_security_enabled" : true
+# "advanced_security_seats" : 0
+# "cluster_support" : false
+# "company" : "GitHub"
+# "croquet_support" : true
+# "custom_terms" : true
+# "evaluation" : false
+# "expire_at" : "2025-01-01T23:59:59-08:00"
+# "insights_enabled" : true
+# "insights_expire_at" : "2025-01-01T23:59:59.999-08:00"
+# "learning_lab_evaluation_expires" : "2023-01-01T23:59:59.000-08:00"
+# "learning_lab_seats" : 100
+# "perpetual" : false
+# "reference_number" : "123456"
+# "seats" : 0
+# "ssh_allowed" : true
+# "support_key" : null
+# "unlimited_seating" : true
+```
+
+Check the license.
+
+```shell
+ghe-license check
+# License is valid.
+```
+
+All commands are performed on the existing license. However, you can also provide a license from STDOUT using `--pipe`.
+
+```shell
+cat license | ghe-license import --pipe
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+You can also provide a license by assigning a file path to the `GHE_LICENSE_FILE` environment variable.
+
+```shell
+GHE_LICENSE_FILE=/path/license ghe-license import
+# License imported at /data/user/common/enterprise.ghl.
+# License synchronized.
+```
+
+{% endif %}
 
 ## Security
 
@@ -1314,14 +1467,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### ghe-license-usage
+### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
+By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
 
 ```shell
-ghe-license-usage
+{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
 ```
 
 ### ghe-org-membership-update

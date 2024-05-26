@@ -814,11 +814,7 @@ This event runs in the context of the base of the pull request, rather than in t
 
 To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
 
-{% warning %}
-
-**Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
-
-{% endwarning %}
+{% data reusables.actions.pull-request-target-permissions-warning %}
 
 For example, you can run a workflow when a pull request has been `assigned`, `opened`, `synchronize`, or `reopened`.
 
@@ -938,7 +934,7 @@ jobs:
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+**Note**: Events will not be created if more than 5000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
 {% endnote %}
 
@@ -1174,10 +1170,18 @@ jobs:
 **Notes:**
 
 - {% data reusables.actions.schedule-delay %}
-- In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
-- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be re-activated.
 - This event will only trigger a workflow run if the workflow file is on the default branch.
 - Scheduled workflows will only run on the default branch.
+- In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
+- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
+
+  **Example:**
+
+  ```yaml
+  on:
+    schedule:
+      - cron: "15 4,5 * * *"   # <=== Change this value
+  ```
 
 {% endnote %}
 

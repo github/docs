@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import parse from '#src/frame/lib/read-frontmatter.js'
 import { schema as frontmatterSchema } from '#src/frame/lib/frontmatter.js'
 
@@ -18,7 +20,7 @@ versions:
 `
 
 describe('frontmatter', () => {
-  it('parses frontmatter and content in a given string (no options required)', () => {
+  test('parses frontmatter and content in a given string (no options required)', () => {
     const { data, content, errors } = parse(fixture1)
     expect(data.title).toBe('Hello, World')
     expect(data.meaning_of_life).toBe(42)
@@ -27,13 +29,13 @@ describe('frontmatter', () => {
   })
 
   describe('frontmatter.stringify', () => {
-    it('is exported', () => {
+    test('is exported', () => {
       expect(typeof parse.stringify).toBe('function')
     })
   })
 
   describe('YML parsing errors', () => {
-    it('creates errors if YML has an unescaped quote', () => {
+    test('creates errors if YML has an unescaped quote', () => {
       const fixture = `---
 intro: 'I've got an unescaped quote'
 ---
@@ -50,7 +52,7 @@ I am content.
       expect(errors[0]).toEqual(expectedError)
     })
 
-    it('creates errors if YML has incorrect indentation', () => {
+    test('creates errors if YML has incorrect indentation', () => {
       const fixture = `---
 title: Hello, World
  intro: 'I have a bad leading space'
@@ -70,7 +72,7 @@ I am content.
   })
 
   describe('schema', () => {
-    it('is optional', () => {
+    test('is optional', () => {
       const schema = {
         properties: {
           title: {
@@ -89,7 +91,7 @@ I am content.
       expect(errors.length).toBe(0)
     })
 
-    it('creates errors if frontmatter does not conform to schema', () => {
+    test('creates errors if frontmatter does not conform to schema', () => {
       const schema = {
         properties: {
           meaning_of_life: {
@@ -117,7 +119,7 @@ I am content.
       expect(errors[0]).toEqual(expectedError)
     })
 
-    it('creates errors if versions frontmatter does not match semver format', () => {
+    test('creates errors if versions frontmatter does not match semver format', () => {
       const schema = { type: 'object', required: ['versions'], properties: {} }
       schema.properties.versions = Object.assign({}, frontmatterSchema.properties.versions)
 
@@ -146,7 +148,7 @@ I am content.
       expect(errors[0]).toEqual(expectedError)
     })
 
-    it('creates errors if required frontmatter is not present', () => {
+    test('creates errors if required frontmatter is not present', () => {
       const schema = {
         type: 'object',
         required: ['yet_another_key'],

@@ -1,5 +1,7 @@
-import FailBot from '../lib/failbot.js'
+import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import nock from 'nock'
+
+import FailBot from '../lib/failbot.js'
 
 describe('FailBot', () => {
   const requestBodiesSent = []
@@ -24,19 +26,19 @@ describe('FailBot', () => {
   })
 
   describe('.report', () => {
-    it('returns early if `HAYSTACK_URL` is not set', async () => {
+    test('returns early if `HAYSTACK_URL` is not set', async () => {
       const result = await FailBot.report()
       expect(result).toBeUndefined()
       expect(requestBodiesSent.length).toBe(0)
     })
 
-    it('sends the expected report', async () => {
+    test('sends the expected report', async () => {
       process.env.HAYSTACK_URL = 'https://haystack.example.com'
       const err = new Error('Kaboom')
       const backendPromises = FailBot.report(err, { foo: 'bar' })
       // Note! You don't need to await the promises it returns to be
       // able to use `FailBot.report()`. It will send.
-      // But here in the context of jest, we need to await *now*
+      // But here in the context of vitest, we need to await *now*
       // so we can assert that it did make the relevant post requests.
       // Once we've done this, we can immediate check what it did.
       await Promise.all(await backendPromises)

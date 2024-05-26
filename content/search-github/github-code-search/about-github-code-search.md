@@ -3,7 +3,7 @@ title: About GitHub Code Search
 intro: 'You can search, navigate and understand code across {% data variables.product.prodname_dotcom %} with code search.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
@@ -17,6 +17,14 @@ Code search is integrated with features in the search interface on {% data varia
 {% data reusables.search.code-search-login-requirement %}
 
 {% data reusables.search.non-code-search-explanation %}
+
+## Code navigation
+
+{% data variables.product.prodname_dotcom %} code search provides code navigation for supported languages. This includes jumping to the definition of and finding references for programming language constructs like classes, structs, functions, and methods. See "[AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github)."
+
+Supported languages for code navigation include:
+
+{% data reusables.search.code-nav-supported-languages %}
 
 ## Limitations
 

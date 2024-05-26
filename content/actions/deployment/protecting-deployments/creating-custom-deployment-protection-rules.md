@@ -57,7 +57,7 @@ Once a workflow reaches a job that references an environment that has the custom
 
    ```shell
    curl --request POST \
-   --url "{% data variables.product.api_url_code %}/app/installations/INSTALLATION_ID/ACCESS_TOKENS" \
+   --url "{% data variables.product.rest_url %}/app/installations/INSTALLATION_ID/ACCESS_TOKENS" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer {jwt}" \
    --header "Content-Type: application/json" \
@@ -70,13 +70,13 @@ Once a workflow reaches a job that references an environment that has the custom
    }'
    ```
 
-1. Optionally, to add a status report without taking any other action to {% data variables.product.prodname_dotcom_the_website %}, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, omit the `state`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)." You can post a status report on the same deployment up to 10 times. Status reports support Markdown formatting and can be up to 1024 characters long.
+1. Optionally, to add a status report without taking any other action to {% data variables.product.prodname_dotcom %}, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, omit the `state`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)." You can post a status report on the same deployment up to 10 times. Status reports support Markdown formatting and can be up to 1024 characters long.
 
 1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)."
 
 1. Optionally, request the status of an approval for a workflow run by sending a `GET` request to `/repos/OWNER/REPOSITORY_ID/actions/runs/RUN_ID/approvals`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#get-the-review-history-for-a-workflow-run)."
 
-1. Optionally, review the deployment on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
+1. Optionally, review the deployment on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 
 {% ifversion fpt or ghec %}
 

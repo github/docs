@@ -55,8 +55,8 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 - The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies.
 - The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
-- You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.{% ifversion dependency-graph-sbom-export %}
-- {% data reusables.dependency-graph.sbom-export %}{% endif %}
+- You can see the dependency graph by opening the repository's main page on {% data variables.product.product_name %}, and navigating to the **Insights** tab.
+- {% data reusables.dependency-graph.sbom-export %}
 
 {% data reusables.dependency-submission.dependency-submission-link %}
 
@@ -81,11 +81,11 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
   - {% data variables.product.prodname_dependabot_security_updates %}—Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
   - {% data variables.product.prodname_dependabot_version_updates %}—Scheduled updates to keep your dependencies up to date with the latest version.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %}Pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)."{% endif %}
 
-{% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %} do not use {% data variables.product.prodname_actions %} when they run on {% data variables.product.product_name %}. However, pull requests opened by {% data variables.product.prodname_dependabot %} can trigger workflows that run actions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions)."
+{% ifversion dependabot-on-actions-opt-in %}By default, {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %} are run using the built-in {% data variables.product.prodname_dependabot %} application in {% data variables.product.product_name %}. You can instead choose to run {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} on {% data variables.product.prodname_actions %}, to take advantage of better performance, and increased visibility and control of {% data variables.product.prodname_dependabot_updates %} jobs. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
-{% elsif ghes %}
+{% else %}
 
 {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.product_name %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 

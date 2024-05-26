@@ -101,6 +101,11 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot_alerts %} and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% endif %}
+
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
 1. Optionally, to enable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories in your organization, in the dialog box, select "Enable by default for new repositories".
 1. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories in your organization.

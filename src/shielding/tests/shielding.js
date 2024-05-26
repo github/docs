@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 
@@ -112,7 +114,7 @@ describe('rate limiting', () => {
       const newRemaining = parseInt(res.headers['ratelimit-remaining'])
       expect(newLimit).toBe(limit)
       // Can't rely on `newRemaining == remaining - 1` because of
-      // concurrency of jest-running.
+      // concurrency of test-running.
       expect(newRemaining).toBeLessThan(remaining)
     }
   })

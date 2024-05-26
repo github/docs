@@ -19,8 +19,6 @@ topics:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## About {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}
-
 {% data reusables.code-scanning.about-codeql-analysis %}
 
 {% ifversion code-scanning-without-workflow %}
@@ -74,17 +72,10 @@ The queries are open source, so you can view and contribute to the queries in th
 
 If you are scanning your code with advanced setup or an external CI system, you can run additional queries as part of your analysis.
 
-{%- ifversion codeql-packs %}
-These queries must belong to a published {% data variables.product.prodname_codeql %} query pack (beta) or a {% data variables.product.prodname_codeql %} pack in a repository. {% data variables.product.prodname_codeql %} packs (beta) provide the following benefits over traditional {% data variables.product.prodname_ql %} packs:
+These queries must belong to a published {% data variables.product.prodname_codeql %} query pack or a {% data variables.product.prodname_codeql %} pack in a repository.
 
-- When a {% data variables.product.prodname_codeql %} query pack (beta) is published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, all the transitive dependencies required by the queries and a compilation cache are included in the package. This improves performance and ensures that running the queries in the pack gives identical results every time until you upgrade to a new version of the pack or the CLI.
-- {% data variables.product.prodname_ql %} packs do not include transitive dependencies, so queries in the pack can depend only on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query.
-- {% data variables.product.prodname_codeql %} query packs (beta) can be downloaded from multiple GitHub container registries. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
+- When a {% data variables.product.prodname_codeql %} query pack is published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, all the transitive dependencies required by the queries and a compilation cache are included in the package. This improves performance and ensures that running the queries in the pack gives identical results every time until you upgrade to a new version of the pack or the CLI.
+
+- {% data variables.product.prodname_codeql %} query packs can be downloaded from multiple {% data variables.product.prodname_dotcom %} container registries. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
 
 For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
-
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
-{%- else %}
-The queries you want to run must belong to a {% data variables.product.prodname_ql %} pack in a repository. Queries must only depend on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query.
-{% endif %}

@@ -1,4 +1,6 @@
-When you add metadata restrictions, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+When you add metadata restrictions for a ruleset that targets branches or tags, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+
+Metadata restrictions do not accept regex patterns by default. To enable this, select the **Must match a given regex pattern** restriction when you are creating the metadata restrictions for your ruleset.
 
 Rulesets support RE2 syntax. For more information, see Google's [syntax guide](https://github.com/google/re2/wiki/Syntax). To validate your expressions, you can use the validator on [regex101.com](https://regex101.com/), selecting the "Golang" flavor in the left sidebar.
 

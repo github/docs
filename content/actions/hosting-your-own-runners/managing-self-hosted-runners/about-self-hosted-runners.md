@@ -28,11 +28,10 @@ You can add self-hosted runners at various levels in the management hierarchy:
 {% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+> [!NOTE]
+> {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
@@ -157,61 +156,9 @@ You must ensure that the machine has the appropriate network access with at leas
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
-{% note %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
-
-{% endnote %}
-
-**Needed for essential operations:**
-
-```shell copy
-github.com
-api.github.com
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading actions:**
-
-```shell copy
-codeload.github.com
-```
-
-**Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
-
-```shell copy
-results-receiver.actions.githubusercontent.com
-*.blob.core.windows.net
-```
-
-**Needed for runner version updates:**
-
-```shell copy
-objects.githubusercontent.com
-objects-origin.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
-```
-
-**Needed for retrieving OIDC tokens:**
-
-```shell copy
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
-
-```shell copy
-*.pkg.github.com
-ghcr.io
-```
-
-**Needed for {% data variables.large_files.product_name_long %}**
-
-```shell copy
-github-cloud.githubusercontent.com
-github-cloud.s3.amazonaws.com
-```
+{% data reusables.actions.runner-essential-communications %}
 
 In addition, your workflow may require access to other network resources.
 
@@ -239,13 +186,11 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
-{% note %}
-
-**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
-
-{% endnote %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
 {% endif %}
 

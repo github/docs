@@ -22,7 +22,8 @@ topics:
 
 {% warning %}
 
-**Warning**: Treat your access tokens like passwords. For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."
+**Warning**: Treat your access tokens like passwords. {% ifversion pat-v2 %}
+For more information, see "[Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure)."{% endif %}
 
 {% endwarning %}
 
@@ -165,7 +166,7 @@ Once you have a {% data variables.product.pat_generic %}, you can enter it inste
 For example, to clone a repository on the command line you would enter the following `git clone` command. You would then be prompted to enter your username and password. When prompted for your password, enter your {% data variables.product.pat_generic %} instead of a password.
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO.git
+$ git clone https://{% data variables.product.product_url %}/USERNAME/REPO.git
 Username: YOUR-USERNAME
 Password: YOUR-PERSONAL-ACCESS-TOKEN
 ```

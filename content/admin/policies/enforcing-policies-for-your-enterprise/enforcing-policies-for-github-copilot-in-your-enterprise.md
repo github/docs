@@ -65,7 +65,7 @@ You can enable or disable the use of these features for organizations in your en
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_chat %} in IDEs
 
-{% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable the use of {% data variables.product.prodname_copilot_chat %} in IDEs for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
+{% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable the use of {% data variables.product.prodname_copilot_chat %} in IDEs for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/about-github-copilot-chat-in-your-ide)."
 
 To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_short %}, see "[Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}](#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
 
@@ -82,6 +82,12 @@ To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_shor
 {% data reusables.copilot.copilot-cli-about %} You can enable or disable the use of {% data variables.product.prodname_copilot_cli_short %} for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy for {% data variables.product.prodname_copilot_cli_short %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)."
 
 {% data reusables.copilot.copilot-cli-enable %}
+
+## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_mobile %}
+
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. You can enable or disable the use of {% data variables.product.prodname_copilot_mobile_short %} for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy for {% data variables.product.prodname_copilot_mobile_short %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)."
+
+{% data reusables.copilot.copilot-chat-mobile-enable %}
 
 ## Further reading
 

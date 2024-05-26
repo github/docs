@@ -11,7 +11,7 @@ shortTitle: Manage rulesets
 
 ## About managing rulesets for an organization
 
-After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to the "Default Branch" of a repository will no longer allow the repository administrator to make updates to the default branch of the targeted repository.
+After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
 
 You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
 

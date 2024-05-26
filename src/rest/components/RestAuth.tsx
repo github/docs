@@ -54,14 +54,14 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
       ? t('allows_public_read_access_no_permissions')
       : t('allows_public_read_access')
   // progAccess.permissions is an array of objects
-  // For example: [ {'actions': 'read', 'packages': 'read'}, {'read': 'repo'} ]
+  // For example: [ {'"Actions" repository permissions': 'read', '"Administration" organization permissions': 'write'}, {'"Secrets" organization permissions"': 'write'} ]
   // Each object represents a set of permissions containing one
   // or more key-value pairs. All permissions in a set are required.
   // If there is more than one set of permissions, any set can be used.
   const formattedPermissions = progAccess.permissions.map((permissionSet: Object, index) => {
     // Given the example above, the first object is now an array of tuples
-    // [['actions', 'read'], ['packages', 'read']]
-    // that can be formatted as a string like `actions:read` and `packages:read`
+    // [['"Actions" repository permissions', 'read'], ['"Administration" organization permissions', 'read']]
+    // that can be formatted as a string like `"Administration" organization permissions (write)'
     const permissionSetPairs = Object.entries(permissionSet)
     const numPermissionSetPairs = permissionSetPairs.length
 
@@ -69,7 +69,7 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
       <li key={`token-permissions-${index}`}>
         {permissionSetPairs.map(([key, value], setIndex) => (
           <span key={`token-permissions-text-${index}-${setIndex}`}>
-            <code>{key + ':' + value}</code>
+            <span>{`${key} (${value})`}</span>
             {setIndex < numPermissionSetPairs - 1 && <span> and </span>}
           </span>
         ))}
@@ -79,7 +79,7 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
 
   const fineGrainedData = (
     <>
-      <p>{t('works_with_tokens')}:</p>
+      <p>{t('works_with_fine_grained_tokens')}:</p>
       <ul>
         {progAccess.userToServerRest && (
           <li>

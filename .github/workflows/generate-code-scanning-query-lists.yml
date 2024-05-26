@@ -71,6 +71,20 @@ jobs:
         with:
           token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
 
+      - name: Lint the code (eslint)
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
+        run: |
+          eslint --no-ignore src/code-scanning/scripts/generate-code-scanning-query-list.ts
+
+      - name: Lint the code (tsc)
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
+        run: |
+          tsc --noEmit --project src/code-scanning/scripts/tsconfig.json
+
       - name: Build code scanning query list
         run: |
           for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do

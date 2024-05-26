@@ -22,7 +22,7 @@ These commands are very useful when interacting with [a remote repository](/get-
 To grab a complete copy of another user's repository, use `git clone` like this:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+$ git clone https://{% data variables.product.product_url %}/USERNAME/REPOSITORY.git
 # Clones a repository to your computer
 ```
 

@@ -14,8 +14,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-packs
 ---
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
 ## About {% data variables.product.prodname_codeql %} packs
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
@@ -28,7 +26,7 @@ There are{% ifversion codeql-model-packs %} three{% else %} two{% endif %} types
 
 - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs %}
 
-- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis at the repository level. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
+- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in beta and subject to change. {% data reusables.code-scanning.codeql-model-packs-availability %} For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-codeql-model-pack)."
 
 {% endif %}
 

@@ -41,6 +41,10 @@ shortTitle: Manage security & analysis
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
+{% ifversion security-configurations %}
+    >[!NOTE] If your organization is enrolled in the {% data variables.product.prodname_security_configurations %} and {% data variables.product.prodname_global_settings %} public beta, instead of "Code security and analysis", you will see a **Code security** dropdown menu. You can manage your repository-level security settings with {% data variables.product.prodname_security_configurations %}, and your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
+{% endif %}
+
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
 
 {% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
@@ -60,9 +64,7 @@ You can enable or disable features for all repositories.
 - **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.{% endif %}
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories and public npm packages these repositories may depend on.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
 
-{%- ifversion org-enable-code-scanning %}
 - **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
-{%- endif %}
 
 {% endif %}
 
@@ -101,7 +103,6 @@ You can use security overview to find a set of repositories and enable or disabl
      - Automatic enablement for a specific type of repository
      - Feature-specific settings, such as recommending the extended query suite for {% data variables.product.prodname_code_scanning %} default setup throughout your organization, or automatic secret validation for {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion org-enable-code-scanning %}
    {% note %}
 
    **Notes:**
@@ -109,7 +110,6 @@ You can use security overview to find a set of repositories and enable or disabl
    - Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
 
    {% endnote %}
-{% endif %}
 
 {% data reusables.security.displayed-information %}
 
@@ -142,7 +142,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private{% 
    ![Screenshot of the dropdown that you can use to search for repositories. As you type, repositories whose name matches your search criteria will appear in the list. The search text field is highlighted with a dark orange outline.](/assets/images/help/organizations/dependabot-private-repo-choose.png)
 
 1. Start typing the name of the repository you want to grant {% data variables.product.prodname_dependabot %} access to.
-1. A list of matching repositories in the organization is displayed, click the repository you want to to allow access to and this adds the repository to the allowed list.
+1. A list of matching repositories in the organization is displayed, click the repository you want to allow access to and this adds the repository to the allowed list.
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}

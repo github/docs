@@ -16,6 +16,8 @@ topics:
 shortTitle: Remove collaborator
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 {% ifversion fpt or ghec %}
 
 {% warning %}

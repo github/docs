@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Setting this will activate the jest tests that depend on actually
+  # Setting this will activate the vitest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
 
@@ -72,6 +72,7 @@ jobs:
           - rest
           - search
           - shielding
+          - tracking
           # - tests
           # - tools
           - versions

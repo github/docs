@@ -297,7 +297,7 @@ For example:
 gh actions-importer audit circle-ci --output-dir ./output/ --include-from repositories.txt
 ```
 
-The file supplied for this parameter must be a a line-delimited list of repositories, for example:
+The file supplied for this parameter must be a line-delimited list of repositories, for example:
 
 ```text
 repository_one

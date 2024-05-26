@@ -8,7 +8,9 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
   - /issues/tracking-your-work-with-issues/about-task-lists
 versions:
-  feature: task-lists-v1
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Pull requests
   - Issues

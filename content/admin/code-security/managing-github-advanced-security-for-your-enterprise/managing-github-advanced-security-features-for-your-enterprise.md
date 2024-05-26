@@ -50,6 +50,9 @@ When you enable one or more security and analysis features for existing reposito
      {% ifversion ghec %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-with-user-namespace.png)
 
+     {% elsif ghes > 3.12 %}
+     ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-without-validity-check.png)
+
      {% else %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png){% endif %}
    - To confirm the change, click the **Enable/Disable all** or **Enable/Disable for eligible repositories** button in the dialog that is displayed.

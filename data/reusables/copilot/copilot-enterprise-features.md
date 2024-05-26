@@ -1,6 +1,6 @@
 ### {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}
 
-{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} is a chat interface that lets you ask and receive answers to coding-related questions within {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
+{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} is a chat interface that lets you ask and receive answers to coding-related questions within {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
 
 ### {% data variables.product.prodname_copilot_for_prs %}
 

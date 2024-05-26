@@ -1,2 +1,1 @@
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", under "Push protection", click **Enable**.
-   ![Screenshot showing how to enable push protection for {% data variables.product.prodname_secret_scanning %} for a repository.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)

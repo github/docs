@@ -95,7 +95,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 1. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/repositories/creating-and-managing-repositories/cloning-a-repository) to your local computer.
 
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
+   $ git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY
    > Initialized empty Git repository in /Users/YOUR-FILE-PATH/YOUR-REPOSITORY/.git/
    > remote: Counting objects: 1301, done.
    > remote: Compressing objects: 100% (769/769), done.
@@ -159,7 +159,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    > Compressing objects: 100% (677/677), done.
    > Writing objects: 100% (1058/1058), 148.85 KiB, done.
    > Total 1058 (delta 590), reused 602 (delta 378)
-   > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+   > To https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY.git
    >  + 48dc599...051452f main -> main (forced update)
    ```
 
@@ -172,7 +172,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    > Compressing objects: 100% (166/166), done.
    > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
    > Total 321 (delta 124), reused 269 (delta 108)
-   > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+   > To https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY.git
    >  + 48dc599...051452f main -> main (forced update)
    ```
 

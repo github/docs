@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { checkURL } from '#src/tests/helpers/check-url.js'

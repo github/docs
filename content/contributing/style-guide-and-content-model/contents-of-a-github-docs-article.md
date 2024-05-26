@@ -153,7 +153,7 @@ Troubleshooting content helps people avoid or work through errors. For more info
 ## Further reading
 
 Further reading sections highlight additional targeted articles that aren’t already included within the article’s content. Use further reading sections sparingly when they provide real value.
-'s
+
 Format further reading sections using unordered lists. See "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)" for how to write links.
 
 ### Title and format for further reading sections

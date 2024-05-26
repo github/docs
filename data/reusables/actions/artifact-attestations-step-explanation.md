@@ -1,0 +1,1 @@
+In the last step, it generates an artifact attestation for the image, which increases supply chain security. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."

@@ -22,8 +22,8 @@ A remote URL is Git's fancy way of saying "the place where your code is stored."
 
 You can only push to two types of URL addresses:
 
-- An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
-- An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
+- An HTTPS URL like `https://{% data variables.product.product_url %}/user/repo.git`
+- An SSH URL, like `git@{% data variables.product.product_url %}:user/repo.git`
 
 Git associates a remote URL with a name, and your default remote is usually called `origin`.
 

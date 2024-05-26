@@ -45,6 +45,8 @@ You'll also find recommendations for the setup of the following registry hosts:
 - [Nexus](#nexus)
 - [ProGet](#proget)
 
+{% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
+
 ## Configuring package managers
 
 ### Bundler

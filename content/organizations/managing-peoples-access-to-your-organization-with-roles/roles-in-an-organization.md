@@ -75,9 +75,36 @@ By default, only organization owners can manage the settings of {% data variable
 
 When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
 
-### Outside collaborators
+### Outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
 
-To keep your organization's data secure while allowing access to repositories, you can add _outside collaborators_. {% data reusables.organizations.outside_collaborators_description %}
+To keep your organization's data secure while allowing access to repositories, you can add outside collaborators. An outside collaborator is a person who has access to one or more organization repositories but is not explicitly a member of the organization, such as a consultant or temporary employee.
+
+{% ifversion repository-collaborators %}
+If your enterprise uses {% data variables.enterprise.prodname_managed_users %}, the outside collaborator role is called "repository collaborator." A repository collaborator must be part of your enterprise, with a {% data variables.enterprise.prodname_managed_user %} provisioned from your identity provider. If the user does not already consume a license, the user will consume a license after you grant access to a repository. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription)."
+
+Generally, the outside collaborator and repository collaborator roles are equivalent, and the documentation for outside collaborators also applies to repository collaborators. However, the following distinctions apply:
+- You cannot enforce two-factor authentication (2FA) for repository collaborators, because this feature is not available with {% data variables.product.prodname_emus %}.
+- Repository collaborators cannot bypass single sign-on (SSO) requirements, because SSO is managed at the enterprise level in an {% data variables.enterprise.prodname_emu_enterprise %}. However, like outside collaborators, they do not need to provide SSO authorization of credentials for organizations where they are a collaborator.
+- Repository collaborators are subject to your enterprise IP allow list policy and your identity provider's conditional access policy. However, they are not subject to the organization's IP allow list policy.
+
+{% data reusables.repositories.repository-collaborators-release-phase %}
+
+{% endif %}
+
+#### Managing outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
+
+To manage access to repositories for outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}, see:
+
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)"
+
+{% ifversion ghec or ghes %}
+To control who can add outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %} to repositories, see:
+
+- "[AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)"
+- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)"
+{% endif %}
 
 ## Permissions for organization roles
 
@@ -144,7 +171,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Limit activity in public repositories in an organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Pull (read) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Push (write) and clone (copy) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Convert organization members to [outside collaborators](#outside-collaborators) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
+| Convert organization members to {% ifversion repository-collaborators %}[outside collaborators or repository collaborators](#outside-collaborators-or-repository-collaborators){% else %}[outside collaborators](#outside-collaborators){% endif %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | [View people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% ifversion ghec %}
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% endif %}
 | Manage the default branch name (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
@@ -196,7 +223,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Pull (read) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Push (write) and clone (copy) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} |{% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Convert organization members to [outside collaborators](#outside-collaborators) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
+| Convert organization members to {% ifversion repository-collaborators %}[outside collaborators or repository collaborators](#outside-collaborators-or-repository-collaborators){% else %}[outside collaborators](#outside-collaborators){% endif %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | [View people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |{% ifversion pull-request-approval-limit %}
@@ -241,7 +268,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% endif %}
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Pull (read), push (write), and clone (copy) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
-| Convert organization members to [outside collaborators](#outside-collaborators) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
+| Convert organization members to {% ifversion repository-collaborators %}[outside collaborators or repository collaborators](#outside-collaborators-or-repository-collaborators){% else %}[outside collaborators](#outside-collaborators){% endif %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | [View people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | [Export a list of people with access to an organization repository](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |
 | Manage default labels (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |

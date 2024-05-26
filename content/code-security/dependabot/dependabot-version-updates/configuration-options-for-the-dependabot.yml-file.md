@@ -440,6 +440,40 @@ updates:
 
 {% endnote %}
 
+The following examples show how `ignore` can be used to customize which dependencies are updated.
+
+##### Ignore updates beyond a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "lodash:*"
+       versions: [ ">=1.0.0" ]
+   ```
+
+##### Ignore updates beyond a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "sphinx"
+       versions: [ "[1.1,)" ]
+   ```
+
+##### Ignore patch updates
+
+   ```yaml
+   ignore:
+     - dependency-name: "@types/node"
+       update-types: ["version-update:semver-patch"]
+   ```
+
+##### Ignore updates for a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "django*"
+       versions: [ "11" ]
+   ```
+
 ### `insecure-external-code-execution`
 
 Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
@@ -651,7 +685,11 @@ updates:
 
 ### `registries`
 
-To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. {% data reusables.dependabot.dependabot-updates-registries %} For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration.
+
+{% data reusables.dependabot.dependabot-updates-registries %}
+
+For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
@@ -910,15 +948,6 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Yarn
 
 {% endnote %}
-
-{% else %}
-
-{% note %}
-
-**Note:** Private registries behind firewalls on private networks are not supported.
-
-{% endnote %}
-
 {% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.

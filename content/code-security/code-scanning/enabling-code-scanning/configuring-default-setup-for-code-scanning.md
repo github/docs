@@ -28,7 +28,7 @@ versions:
 
 Default setup for {% data variables.product.prodname_code_scanning %} is the quickest, easiest, most low-maintenance way to enable {% data variables.product.prodname_code_scanning %} for your repository. Based on the code in your repository, default setup will automatically create a custom {% data variables.product.prodname_code_scanning %} configuration. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in your repository will be scanned:
 - On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
-- When creating or committing to a pull request based against the repository's default branch, or any protected branch.{% ifversion default-setup-scan-on-schedule %}
+- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
 - On a weekly schedule.
 
 {% ifversion code-scanning-default-setup-exclude-dormant-repos %}
@@ -40,7 +40,7 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 {% endif %}
 {% endif %}
 
-{% ifversion org-enable-code-scanning %}You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}
+You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."
 
 If you need more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you should instead configure advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 

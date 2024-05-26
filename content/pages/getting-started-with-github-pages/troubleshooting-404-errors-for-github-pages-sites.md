@@ -15,12 +15,12 @@ shortTitle: Troubleshoot 404 errors
 
 In this guide you'll find common reasons you may be seeing a 404 error while building your {% data variables.product.prodname_pages %} site.
 
-- [{% data variables.product.prodname_dotcom %}'s Status page](#githubs-status-page)
-- [DNS setup](#dns-setup)
+- [{% data variables.product.prodname_dotcom %}'s Status page](#githubs-status-page){% ifversion fpt or ghec %}
+- [DNS setup](#dns-setup){% endif %}
 - [Browser cache](#browser-cache)
 - [`index.html` file](#indexhtml-file)
-- [Directory contents](#directory-contents)
-- [Custom domain](#custom-domain)
+- [Directory contents](#directory-contents){% ifversion fpt or ghec %}
+- [Custom domain](#custom-domain){% endif %}
 - [Repository](#repository)
 
 ### {% data variables.product.prodname_dotcom %}'s Status page

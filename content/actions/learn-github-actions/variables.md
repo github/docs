@@ -75,8 +75,6 @@ Because runner environment variable interpolation is done after a workflow job i
 
 When you set an environment variable, you cannot use any of the default environment variable names. For a complete list of default environment variables, see "[Default environment variables](#default-environment-variables)" below. If you attempt to override the value of one of these default variables, the assignment is ignored.
 
-Any new variables you set that point to a location on the filesystem should have a `_PATH` suffix. The `GITHUB_ENV` and `GITHUB_WORKSPACE` default variables are exceptions to this convention.
-
 {% note %}
 
 **Note**: You can list the entire set of environment variables that are available to a workflow step by using <span style="white-space: nowrap;">`run: env`</span> in a step and then examining the output for the step.
@@ -113,7 +111,7 @@ The following rules apply to configuration variable names:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is highlighted with a dark orange outline.](/assets/images/help/repository/actions-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is outlined in dark orange.](/assets/images/help/repository/actions-variables-tab.png)
 1. Click **New repository variable**.
 {% data reusables.actions.variable-fields %}
 1. Click **Add variable**.
@@ -141,10 +139,9 @@ The following rules apply to configuration variable names:
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
 
-   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Variables" tab is outlined in dark orange.](/assets/images/help/repository/actions-variables-tab.png)
 
    {% data reusables.actions.secrets-and-variables-org-permissions %}
-
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.
@@ -281,16 +278,16 @@ We strongly recommend that actions use variables to access the filesystem rather
 {%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_ACTOR_ID` | {% data reusables.actions.actor_id-description %} |
 {%- endif %}
-| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
+| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.rest_url %}`.
 | `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
-| `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." |
+| `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." |
 | `GITHUB_EVENT_NAME` | The name of the event that triggered the workflow. For example, `workflow_dispatch`. |
 | `GITHUB_EVENT_PATH` | The path to the file on the runner that contains the full event webhook payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
+| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url %}`.
 | `GITHUB_HEAD_REF` | The head ref or source branch of the pull request in a workflow run. This property is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `feature-branch-1`. |
 | `GITHUB_JOB` | The [job_id](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
-| `GITHUB_OUTPUT` | The path on the runner to the file that sets the current step's outputs from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/set_output_a50ef383-b063-46d9-9157-57953fc9f3f0`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)." |
-| `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. This file is unique to the current step and changes for each step in a job.  For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
+| `GITHUB_OUTPUT` | The path on the runner to the file that sets the current step's outputs from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_output_a50ef383-b063-46d9-9157-57953fc9f3f0`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)." |
+| `GITHUB_PATH` | The path on the runner to the file that sets system `PATH` variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/add_path_899b9445-ad4a-400c-aa89-249f18632cf5`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path)." |
 | `GITHUB_REF` | {% data reusables.actions.ref-description %} |
 | `GITHUB_REF_NAME` | {% data reusables.actions.ref_name-description %} |
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
@@ -310,7 +307,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
 {%- ifversion actions-job-summaries %}
-| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. This file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
+| `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
 {%- endif %}
 {%- ifversion actions-stable-actor-ids %}
 | `GITHUB_TRIGGERING_ACTOR` | {% data reusables.actions.github-triggering-actor-description %} |

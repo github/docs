@@ -27,6 +27,7 @@
  *
  */
 
+import { strictEqual } from 'node:assert'
 import fs from 'fs'
 import path from 'path'
 
@@ -38,6 +39,11 @@ import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+
+const EXCEPTIONS = new Set([
+  // From data/features/placeholder.yml. Used by tests.
+  'placeholder',
+])
 
 type Options = {
   sourceDirectory: string
@@ -74,7 +80,9 @@ export async function find(options: Options) {
   }
   const site = await warmServer([])
 
-  const features = new Set(Object.keys(getDeepDataByLanguage('features', 'en')))
+  const features = new Set(
+    Object.keys(getDeepDataByLanguage('features', 'en')).filter((f) => !EXCEPTIONS.has(f)),
+  )
   if (options.verbose) {
     console.log(`Found ${features.size} features`)
   }
@@ -296,5 +304,9 @@ function escapeRegex(string: string) {
 }
 
 function isFloat(x: any) {
-  return !!(parseFloat(x) + 1)
+  return !!(Number(x) + 1)
 }
+strictEqual(isFloat('1.2'), true)
+strictEqual(isFloat('10'), true)
+strictEqual(isFloat('notatall'), false)
+strictEqual(isFloat('2fa'), false)

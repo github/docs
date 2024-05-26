@@ -24,7 +24,7 @@ You may see this error when using {% data variables.product.prodname_dependabot 
 
 If you're using {% data variables.product.prodname_dependabot %} in your {% data variables.product.prodname_code_scanning %} workflow, investigate the scope it's using.
 
-Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security-events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
 
 ## Fixing the problem
 

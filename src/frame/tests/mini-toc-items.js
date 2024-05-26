@@ -1,4 +1,5 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
+
 import getMiniTocItems from '#src/frame/lib/get-mini-toc-items'
 
 function generateHeading(h) {

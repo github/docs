@@ -1,6 +1,6 @@
 ---
 title: Configuring access to private registries for Dependabot
-intro: 'You can configure {% data variables.product.prodname_dependabot %} to access dependencies stored in private registries. You can store authentication information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.{% ifversion fpt or ghec %} You can also add {% data variables.product.prodname_dependabot %} to your registries IP allow list.{% endif %}'
+intro: 'You can configure {% data variables.product.prodname_dependabot %} to access dependencies stored in private registries. You can store authentication information, like passwords and access tokens, as encrypted secrets and then reference these in the {% data variables.product.prodname_dependabot %} configuration file.{% ifversion dependabot-on-actions-self-hosted %} If you have registries on private networks, you can also configure {% data variables.product.prodname_dependabot %} access when running {% data variables.product.prodname_dependabot %} on self-hosted runners.{% endif %}'
 redirect_from:
   - /github/administering-a-repository/managing-encrypted-secrets-for-dependabot
   - /code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot
@@ -30,10 +30,14 @@ In most ecosystems, private dependencies are usually published to private packag
 For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
 {% endif %}
 
+{% ifversion dependabot-on-actions-self-hosted %}To allow {% data variables.product.prodname_dependabot %} access to registries hosted privately or restricted to internal networks, configure {% data variables.product.prodname_dependabot %} to run on {% data variables.product.prodname_actions %} self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners)."{% endif %}
+
 ## Configuring private registries
 
 You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
-The top-level `registries` key is optional and specifies authentication details. {% data reusables.dependabot.dependabot-updates-registries %}
+The top-level `registries` key is optional and specifies authentication details.
+
+{% data reusables.dependabot.dependabot-updates-registries %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
@@ -106,12 +110,12 @@ When creating a secret in an organization, you can use a policy to limit which r
 
    The name of the secret is listed on the {% data variables.product.prodname_dependabot %} secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
-{% ifversion fpt or ghec %}
+{% ifversion dependabot-on-actions-self-hosted %}
 
 ## Configuring firewall IP rules
 
-You can add {% data variables.product.prodname_dependabot %} to your registries IP allow list.
+You can add {% data variables.product.prodname_dependabot %}-related IP addresses to your registries IP allow list.
 
-If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. For more information, see "[AUTOTITLE](/rest/meta)."
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. If you run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, you should instead use the IP addresses under the `actions` key. For more information, see "[AUTOTITLE](/rest/meta/meta)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% endif %}

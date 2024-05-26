@@ -9,3 +9,6 @@ discover_url: >-
 
 gist_starred: >-
   {% ifversion fpt or ghec %}[Gist starred page](https://gist.github.com/starred){% else %}Gist starred page, `http(s)://[hostname]/gist/starred` or `http(s)://gist.[hostname]/starred` if subdomains are enabled{% endif %}
+
+gist_user_starred: >-
+  {% ifversion fpt or ghec %}`https://gist.github.com/YOUR_USERNAME/starred`{% else %}`http(s)://[hostname]/gist/YOUR_USERNAME/starred` or `http(s)://gist.[hostname]/YOUR_USERNAME/starred` if subdomains are enabled{% endif %}

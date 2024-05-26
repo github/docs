@@ -50,27 +50,29 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 ## Callout tags
 
-Callouts highlight important information that users need to know. We use standard formatting and colors for different types of callouts: notes, warnings, and danger notices. Use Liquid tags before and after the text you’d like included in the callout box.
+Callouts highlight important information that users need to know. We use standard formatting and colors for four different types of callouts: notes, tips, warnings, and danger notices.
 
-For information on when to use callout tags, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
+For information on when to use callouts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
 
-### Example usage of a callout
+### Examples of callouts
 
 ```markdown
-{% raw %}{% note %}
-
-**Note:** Owners and administrators can add outside collaborators to a repository.
-
-{% endnote %}{% endraw %}
+> [!NOTE] Keep this in mind.
 ```
 
-### Example callout rendered on {% data variables.product.prodname_docs %}
+```markdown
+> [!NOTE]
+> Generally callouts should be short.
+>
+> But occasionally may require more than one paragraph
+```
 
-{% note %}
+### Example callouts rendered on {% data variables.product.prodname_docs %}
 
-**Note:** Owners and administrators can add outside collaborators to a repository.
-
-{% endnote %}
+> [!NOTE]
+> Generally callouts should be short.
+>
+> But occasionally may require more than one paragraph
 
 ## Code sample syntax highlighting
 
@@ -307,12 +309,14 @@ For longer strings, we use reusables, and for shorter strings, we use variables.
 
 ## Table pipes
 
-Every row of a table in the {% data variables.product.prodname_docs %} must start and end with a pipe, `|`.
+Every row of a table in the {% data variables.product.prodname_docs %} must start and end with a pipe, `|`, even rows that contain only Liquid versioning.
 
 ```markdown
 | Where is the table located? | Does every row end with a pipe? |
 | --- | --- |
+| {% raw %}{% ifversion some-cool-feature %}{% endraw %} |
 | GitHub Docs | Yes |
+| {% raw %}{% endif %}{% endraw %} |
 ```
 
 ## Table row headers
