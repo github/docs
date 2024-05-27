@@ -1,5 +1,5 @@
 ---
-title: loads
+title: Webhook events and payloads
 intro: Learn about when each webhook event occurs and what the payload contains.
 redirect_from:
   - /early-access/integrations/webhooks
