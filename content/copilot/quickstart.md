@@ -52,7 +52,7 @@ To use {% data variables.product.prodname_copilot %} in {% data variables.produc
 {% data reusables.copilot.create-js-file %}
 {% data reusables.copilot.type-function-header %}
    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text. The exact suggestion may vary.
-{% data reusables.copilot.accept-suggestion %}
+1. {% data reusables.copilot.accept-suggestion %}
 
 {% ifversion fpt %}
 
@@ -150,7 +150,7 @@ As an enterprise owner, you must decide whether to allow all organizations in yo
 
 ## Next steps
 
-{% data reusables.copilot.next-steps %}
+You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.
 
 - "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)": As an organization owner, learn how to grant access to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} in your organization.
 - "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)": You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
