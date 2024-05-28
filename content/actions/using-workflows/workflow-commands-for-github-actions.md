@@ -735,7 +735,41 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 ## Environment files
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using [GitHub's default environment variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+
+In GitHub Actions, when you need to dynamically set or update environment variables for use in the same job, you write commands to a temporary file specified by the $GITHUB_ENV environment variable. 
+
+Here’s are some examples:
+
+1. **Storing build metdata:**
+
+```yaml copy
+steps:
+  - name: Store build timestamp
+    run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
+
+  - name: Deploy using stored timestamp
+    run: echo "Deploying at $BUILD_TIME"
+```
+
+2. **Passing outputs between jobs**
+```yaml copy
+  jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      dynamic_value: ${{ steps.set_output.outputs.value }}
+    steps:
+      - id: set_output
+        run: echo "value=myDynamicValue" >> $GITHUB_ENV
+        run: echo "::set-output name=value::$MY_ENV_VAR"
+    
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "The dynamic value from job1 is ${{ needs.job1.outputs.dynamic_value }}"
+```
 
 {% powershell %}
 
