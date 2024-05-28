@@ -319,7 +319,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-n": "16.6.1",
     "eslint-plugin-primer-react": "5.1.0",
-    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-promise": "6.2.0",
     "event-to-promise": "^0.8.0",
     "graphql": "^16.8.1",
     "http-status-code": "^2.1.0",
