@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Copilot in your environment
-shortTitle: In your environment
+shortTitle: Copilot in your environment
 intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
