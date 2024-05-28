@@ -737,11 +737,29 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using [GitHub's default environment variables](https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
-In GitHub Actions, when you need to dynamically set or update environment variables for use in the same job, you write commands to a temporary file specified by the $GITHUB_ENV environment variable. 
+To use environment variables in a GitHub Action, you create or modify `.env` files using specific GitHub Actions commands. 
 
-Here’s are some examples:
+Here's how:
 
-1. **Storing build metdata:**
+```yaml copy
+name: Example Workflow for Environment Files
+
+on: push
+
+jobs:
+  set_and_use_env_vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment variable
+        run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+
+      - name: Use environment variable
+        run: |
+          echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
+
+```
+
+Another example would be to use it to store metadata like build timestamps, commit SHAs, or artifact names:
 
 ```yaml copy
 steps:
@@ -750,25 +768,6 @@ steps:
 
   - name: Deploy using stored timestamp
     run: echo "Deploying at $BUILD_TIME"
-```
-
-2. **Passing outputs between jobs**
-```yaml copy
-  jobs:
-  job1:
-    runs-on: ubuntu-latest
-    outputs:
-      dynamic_value: ${{ steps.set_output.outputs.value }}
-    steps:
-      - id: set_output
-        run: echo "value=myDynamicValue" >> $GITHUB_ENV
-        run: echo "::set-output name=value::$MY_ENV_VAR"
-    
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "The dynamic value from job1 is ${{ needs.job1.outputs.dynamic_value }}"
 ```
 
 {% powershell %}
