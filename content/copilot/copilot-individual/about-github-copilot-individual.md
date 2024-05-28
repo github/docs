@@ -14,6 +14,8 @@ shortTitle: About GitHub Copilot Individual
 product: '{% data reusables.copilot.copilot-individual-emus %}'
 ---
 
+<a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot+individual&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Start a free trial</span> {% octicon "link-external" height:16 %}</a>
+
 ## About {% data variables.product.prodname_copilot %}
 
 {% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by a generative AI model developed by {% data variables.product.prodname_dotcom %}, OpenAI, and Microsoft.
