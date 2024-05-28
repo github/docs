@@ -42,13 +42,13 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Clone docs-internal.popular-pages
+      - name: Clone docs-internal-data
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          repository: github/docs-internal.popular-pages
+          repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-          path: popular-pages
+          path: docs-internal-data
 
       - uses: ./.github/actions/setup-elasticsearch
 
@@ -89,8 +89,8 @@ jobs:
           THROW_ON_EMPTY: false
 
           # The sync-search-index recognizes this env var if you don't
-          # use the `--popular-pags <PATH>` option.
-          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
+          # use the `--docs-internal-data <PATH>` option.
+          DOCS_INTERNAL_DATA: docs-internal-data
 
         run: |
           mkdir /tmp/records
