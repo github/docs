@@ -22,6 +22,16 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
 
+  // For a short while we injected `replacedomain` into code snippets
+  // to activate the Domain Edit functionality. That was in `main` for a
+  // while and was later removed in English. But during that window of
+  // time, some translations picked it up. Let's remove it. For now.
+  // The day we re-instate editable domain, delete these lines.
+  if (content.includes('replacedomain')) {
+    content = content.replaceAll('```text replacedomain copy', '```text copy')
+    content = content.replaceAll('```shell replacedomain', '```shell')
+  }
+
   if (context.code === 'ru') {
     // Low-hanging fruit for the data tag
     content = content.replaceAll('{% данных variables', '{% data variables')
