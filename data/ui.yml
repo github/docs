@@ -6,7 +6,7 @@ header:
   notices:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
-      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
+      ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
