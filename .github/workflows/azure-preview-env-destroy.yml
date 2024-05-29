@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin @v2
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
