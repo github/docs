@@ -335,7 +335,7 @@
     "mkdirp": "^3.0.0",
     "mockdate": "^3.0.5",
     "nock": "^13.5.4",
-    "nodemon": "3.1.0",
+    "nodemon": "3.1.2",
     "npm-merge-driver-install": "^3.0.0",
     "nth-check": "2.1.1",
     "prettier": "^3.2.5",
