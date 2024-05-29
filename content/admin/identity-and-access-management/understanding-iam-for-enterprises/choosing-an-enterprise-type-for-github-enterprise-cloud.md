@@ -65,7 +65,7 @@ If you choose {% data variables.product.prodname_emus %} but require that users 
 
 ## Can your enterprise tolerate migration costs?
 
-If you already have an enterprise that uses personal accounts on {% data variables.product.prodname_dotcom_the_website %}, adoption of {% data variables.product.prodname_emus %} requires migration to a new enterprise account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
+If you already have an enterprise that uses personal accounts on {% data variables.product.prodname_dotcom_the_website %}, adoption of {% data variables.product.prodname_emus %} requires migration to a new enterprise account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
 
 Although {% data variables.product.prodname_emus %} does not differ in cost from an enterprise that uses personal accounts, the migration process may require time or cost from your team. Confirm that this migration process is acceptable to your business and your users. If not, an enterprise with personal accounts may be the better choice for you.
 
