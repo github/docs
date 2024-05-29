@@ -5,3 +5,4 @@ You can choose from the following options.
 - Choose **Appearance** to switch between the light or dark theme.
 - Choose **Prompts** to enable or disable confirmation dialogs before performing destructive actions.
 - Choose **Advanced** for more configuration options.
+- Choose **Accessibility** to configure accessibility options.
