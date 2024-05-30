@@ -170,7 +170,7 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
-You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+You can practice the principle of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
 
 {% data reusables.actions.org-roles-for-gh-actions %}
 

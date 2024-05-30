@@ -12,7 +12,7 @@ topics:
 
 ## Introduction
 
-To enable users to use {% data variables.product.prodname_copilot_enterprise_short %} features, your {% data variables.product.prodname_ghe_cloud %} enterprise must have a subscription to {% data variables.product.prodname_copilot_enterprise_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/quickstart#signing-up-for-github-copilot-enterprise-for-your-enterprise-account)."
+To enable users to use {% data variables.product.prodname_copilot_enterprise_short %} features, your {% data variables.product.prodname_ghe_cloud %} enterprise must have a subscription to {% data variables.product.prodname_copilot_enterprise_short %}. For more information, see "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 
 Access to {% data variables.product.prodname_copilot_short %} is determined at the enterprise and organization levels:
 

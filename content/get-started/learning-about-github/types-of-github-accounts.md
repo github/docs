@@ -50,7 +50,7 @@ Most people will use one personal account for all their work on {% data variable
 
 ## Organization accounts
 
-Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once.
+Organizations are shared accounts where a large number of people can collaborate across many projects at once.
 
 Like personal accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign into an organization. Instead, each person signs into their own personal account, and any actions the person takes on organization resources are attributed to their personal account. Each personal account can be a member of multiple organizations.
 

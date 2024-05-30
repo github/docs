@@ -52,7 +52,7 @@ If your server goes down, you should redeliver missed webhooks once your server 
 
 ## Use the `X-GitHub-Delivery` header
 
-In a replay attack, a bad actor intercepts a webhook delivery and re-sends the delivery. To protect against replay attacks, you can use the `X-GitHub-Delivery` header to ensure that each delivery is unique.
+In a replay attack, a bad actor intercepts a webhook delivery and re-sends the delivery. To protect against replay attacks, you can use the `X-GitHub-Delivery` header to ensure that each delivery is unique per event.
 
 {% note %}
 

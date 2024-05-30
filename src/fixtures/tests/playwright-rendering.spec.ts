@@ -503,9 +503,19 @@ test.describe('survey', () => {
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+
+    await page.locator('[for=survey-comment]').click()
+    await page.locator('[for=survey-comment]').fill('This is a comment')
+    await page.getByRole('button', { name: 'Next' }).click()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).not.toBeVisible()
+
     await page.getByPlaceholder('email@example.com').click()
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
-
     await page.getByRole('button', { name: 'Send' }).click()
     // One for the page view event, one for the thumbs up click, one for
     // the submission.
@@ -533,9 +543,26 @@ test.describe('survey', () => {
     // One for the page view event and one for the thumbs up click
     expect(fulfilled).toBe(1 + 1)
 
-    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()
-    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+  })
+
+  test('vote on one page, then go to another and it should reset', async ({ page }) => {
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
+    await page.route('**/api/events', (route) => {
+      route.fulfill({})
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
+    await page.locator('[for=survey-yes]').click()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.locator('[for=survey-comment]')).toBeVisible()
+
+    await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
+    await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
 })
 

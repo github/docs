@@ -111,7 +111,9 @@ export async function find(options: Options) {
   )
   if (options.output) {
     if (options.output.endsWith('.json')) {
-      fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      if (remaining.length) {
+        fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      }
     } else {
       fs.writeFileSync(options.output, remaining.join('\n'))
     }

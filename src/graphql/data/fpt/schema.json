@@ -16213,6 +16213,47 @@
       ]
     },
     {
+      "name": "CopilotEndpoints",
+      "kind": "objects",
+      "id": "copilotendpoints",
+      "href": "/graphql/reference/objects#copilotendpoints",
+      "description": "<p>Copilot endpoint information.</p>",
+      "fields": [
+        {
+          "name": "api",
+          "description": "<p>Copilot API endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "originTracker",
+          "description": "<p>Copilot origin tracker endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "proxy",
+          "description": "<p>Copilot proxy endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "telemetry",
+          "description": "<p>Copilot telemetry endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CreatedCommitContribution",
       "kind": "objects",
       "id": "createdcommitcontribution",
@@ -73540,6 +73581,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "copilotEndpoints",
+          "description": "<p>The user's Copilot endpoint information.</p>",
+          "type": "CopilotEndpoints",
+          "id": "copilotendpoints",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#copilotendpoints"
         },
         {
           "name": "createdAt",

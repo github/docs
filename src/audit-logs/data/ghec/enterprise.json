@@ -3005,6 +3005,11 @@
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
+    "action": "repo.codeql_updated",
+    "description": "Code scanning using the default setup was updated for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+  },
+  {
     "action": "repo.codespaces_trusted_repo_access_granted",
     "description": "GitHub Codespaces was granted trusted repository access to this repository.",
     "docs_reference_links": "N/A"
