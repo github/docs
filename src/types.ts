@@ -26,3 +26,64 @@ type Language = {
 export type Languages = {
   [key: string]: Language
 }
+
+type Permalink = {
+  languageCode: string
+  pageVersion: string
+  title: string
+  href: string
+}
+
+type Versions = {
+  feature?: string
+  fpt?: string
+  ghec?: string
+  ghes?: string
+}
+
+export type Page = {
+  mtime: number
+  permalinks: Permalink[]
+  fullPath: string
+  title: string
+  shortTitle?: string
+  intro: string
+  languageCode: string
+  documentType: string
+  renderProp: (prop: string, context: any, opts: any) => Promise<string>
+  markdown: string
+  versions: Versions
+}
+
+export type Tree = {
+  page: Page
+  children: string[] | undefined
+  href: string
+  childPages?: Tree[]
+}
+export type VersionedTree = {
+  [version: string]: Tree
+}
+
+export type SiteTree = {
+  [languageCode: string]: VersionedTree
+}
+
+export type UnversionedTree = {
+  page: Page
+  children: string[]
+  childPages: UnversionedTree[]
+}
+
+export type UnversionLanguageTree = {
+  [languageCode: string]: UnversionedTree
+}
+
+export type Site = {
+  pages: Record<string, Page>
+  redirects: Record<string, string>
+  unversionedTree: UnversionLanguageTree
+  siteTree: SiteTree
+  pageList: Page[]
+  pageMap: Record<string, Page>
+}

@@ -18,7 +18,7 @@ import {
 import handleErrors from '@/observability/middleware/handle-errors'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
-import reloadTree from './reload-tree.js'
+import reloadTree from './reload-tree'
 import context from './context/context.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import languageCodeRedirects from '@/redirects/middleware/language-code-redirects.js'
