@@ -746,7 +746,7 @@
     When talking about a branch or a fork, the primary branch on the original
     repository is often referred to as the "upstream", since that is the main
     place that other changes will come in from. The branch/fork you are working
-    on is then called the "downstream". Also called origin.
+    on is then called the "downstream." Also called origin.
 - term: upstream branch
   description: >-
     The default branch that is merged into the branch in question (or the branch
