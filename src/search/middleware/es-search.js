@@ -84,6 +84,8 @@ export async function getSearchResults({
   const matchQuery = {
     bool: {
       should: matchQueries,
+      // This allows filtering by toplevel later.
+      minimum_should_match: 1,
     },
   }
 
