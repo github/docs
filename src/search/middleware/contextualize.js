@@ -46,6 +46,11 @@ export default async function contextualizeSearch(req, res, next) {
     }
   }
 
+  // Feature flag for now XXX
+  if (req.context.currentVersion === 'enterprise-cloud@latest') {
+    search.aggregate = ['toplevel']
+  }
+
   req.context.search = { search, validationErrors }
 
   if (!validationErrors.length && search.query) {
@@ -56,7 +61,18 @@ export default async function contextualizeSearch(req, res, next) {
       // set up Elasticsearch.
       // This same proxying logic happens in `middleware/api/index.js`
       // too for the outwards facing `/api/search/v1` endpoint.
-      req.context.search.results = await getProxySearch(search)
+      if (search.aggregate && search.toplevel && search.toplevel.length > 0) {
+        // Do 2 searches. One without filtering
+        const { toplevel, ...searchWithoutFilter } = search
+        searchWithoutFilter.size = 0
+        const { meta, aggregations } = await getProxySearch(searchWithoutFilter)
+        const { aggregate, ...searchWithoutAggregate } = search
+        req.context.search.results = await getProxySearch(searchWithoutAggregate)
+        req.context.search.results.meta = meta
+        req.context.search.results.aggregations = aggregations
+      } else {
+        req.context.search.results = await getProxySearch(search)
+      }
     } else {
       // If this throws, so be it. Let it bubble up.
       // In local dev, you get to see the error. In production,
@@ -65,7 +81,17 @@ export default async function contextualizeSearch(req, res, next) {
       const tags = [`indexName:${search.indexName}`]
       const timed = statsd.asyncTimer(getSearchResults, 'contextualize.search', tags)
       try {
-        req.context.search.results = await timed(search)
+        if (search.aggregate && search.toplevel && search.toplevel.length > 0) {
+          // Do 2 searches. One without filtering
+          const { toplevel, ...searchWithoutFilter } = search
+          searchWithoutFilter.size = 0
+          const { meta, aggregations } = await timed(searchWithoutFilter)
+          req.context.search.results = await timed(search)
+          req.context.search.results.meta = meta
+          req.context.search.results.aggregations = aggregations
+        } else {
+          req.context.search.results = await timed(search)
+        }
       } catch (error) {
         // If the error coming from the Elasticsearch client is any sort
         // of 4xx error, it will be bubbled up to the next middleware
@@ -92,10 +118,38 @@ export default async function contextualizeSearch(req, res, next) {
   return next()
 }
 
+// When you use the proxy to prod, using its API, we need to "convert"
+// the parameters we have figured out here in the contextualizer.
+// Thankfully all the names match. For example, we might figure
+// the page by doing `req.context.search.page = 123` and now we need to
+// add that to the query string for the `/api/search/v1`.
+// We inclusion-list all the keys that we want to take from the search
+// object into the query string URL.
+const SEARCH_KEYS_TO_QUERY_STRING = [
+  'query',
+  'version',
+  'language',
+  'page',
+  'aggregate',
+  'toplevel',
+  'size',
+]
+
 async function getProxySearch(search) {
   const url = new URL('https://docs.github.com/api/search/v1')
-  for (const key of ['query', 'version', 'language', 'page']) {
-    url.searchParams.set(key, `${search[key] || ''}`)
+  for (const key of SEARCH_KEYS_TO_QUERY_STRING) {
+    const value = search[key]
+    if (typeof value === 'boolean') {
+      url.searchParams.set(key, value ? 'true' : 'false')
+    } else if (Array.isArray(value)) {
+      for (const v of value) {
+        url.searchParams.append(key, v)
+      }
+    } else if (typeof value === 'number') {
+      url.searchParams.set(key, `${value}`)
+    } else if (value) {
+      url.searchParams.set(key, value)
+    }
   }
   console.log(`Proxying search to ${url}`)
   return got(url).json()
