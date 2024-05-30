@@ -31,6 +31,8 @@ search_results:
   matches_displayed: Matches displayed
   n_results: '{n} results'
   search_validation_error: Validation error with search query
+  filter: Filter
+  clear_filter: Clear
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

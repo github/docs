@@ -65,6 +65,21 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
+test('search from enterprise-cloud and filter by top-level Fooing', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/enterprise-cloud@latest')
+
+  await page.getByTestId('site-search-input').fill('fixture')
+  await page.getByTestId('site-search-input').press('Enter')
+  await page.getByText('Fooing (1)').click()
+  await page.getByRole('link', { name: 'Clear' }).click()
+
+  // At the moment this test isn't great because it's not proving that
+  // certain things cease to be visible, that was visible before. Room
+  // for improvement!
+})
+
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
