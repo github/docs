@@ -2,6 +2,9 @@ import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
+import { Spinner } from '@primer/react'
+import useSWR from 'swr'
+
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType, startVisitTime } from 'src/events/components/events'
@@ -10,23 +13,30 @@ import styles from './Survey.module.scss'
 
 enum ViewState {
   START = 'START',
+  NEXT = 'NEXT',
+  END = 'END',
+}
+
+enum VoteState {
   YES = 'YES',
   NO = 'NO',
-  END = 'END',
 }
 
 export const Survey = () => {
   const { asPath, locale } = useRouter()
   const { t } = useTranslation('survey')
   const [state, setState] = useState<ViewState>(ViewState.START)
+  const [voteState, setVoteState] = useState<VoteState | null>(null)
   const [isEmailError, setIsEmailError] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
+  const [comment, setComment] = useState('')
 
   useEffect(() => {
     // Always reset the form if navigating to a new page because what
     // you might have said or started to say belongs exclusively to
     // to the page you started on.
     setState(ViewState.START)
+    setVoteState(null)
   }, [asPath])
 
   useEffect(() => {
@@ -42,10 +52,10 @@ export const Survey = () => {
     }
   }, [state])
 
-  function vote(state: ViewState) {
+  function vote(vote: VoteState) {
     return () => {
       trackEvent(getFormData())
-      setState(state)
+      setVoteState(vote)
     }
   }
 
@@ -64,12 +74,43 @@ export const Survey = () => {
     }
   }
 
+  const { data, error, isLoading } = useSWR(
+    state === ViewState.NEXT && comment.trim() ? '/api/events/survey/preview/v1' : null,
+    async (url: string) => {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          comment: comment.trim(),
+          locale,
+          url: `/${locale}${asPath}`,
+          vote: voteState,
+        }),
+      })
+      if (response.ok) {
+        return await response.json()
+      } else {
+        throw new Error(`${response.status} on preview`)
+      }
+    },
+  )
+
+  const hasPreview = !!data && !error
+
   function submit(evt: React.FormEvent) {
     evt.preventDefault()
-    trackEvent(getFormData())
-    if (!isEmailError) {
-      setState(ViewState.END)
-      setIsEmailError(false)
+    if (hasPreview) {
+      trackEvent(getFormData())
+      if (!isEmailError) {
+        setState(ViewState.END)
+        setIsEmailError(false)
+        setComment('')
+      }
+    } else if (comment.trim()) {
+      setState(ViewState.NEXT)
     }
   }
 
@@ -100,18 +141,21 @@ export const Survey = () => {
             name="survey-vote"
             value="Y"
             aria-label={t`yes`}
-            onChange={vote(ViewState.YES)}
-            checked={state === ViewState.YES}
+            onChange={vote(VoteState.YES)}
+            checked={voteState === VoteState.YES}
           />
           <label
             className={cx(
               'btn mr-1 color-border-accent-emphasis',
-              state === ViewState.YES && 'color-bg-accent-emphasis',
+              voteState === VoteState.YES && 'color-bg-accent-emphasis',
             )}
             htmlFor="survey-yes"
           >
             <span className="visually-hidden">{t`yes`}</span>
-            <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
+            <ThumbsupIcon
+              size={16}
+              className={voteState === VoteState.YES ? '' : 'color-fg-muted'}
+            />
           </label>
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
@@ -120,29 +164,34 @@ export const Survey = () => {
             name="survey-vote"
             value="N"
             aria-label={t`no`}
-            onChange={vote(ViewState.NO)}
-            checked={state === ViewState.NO}
+            onChange={vote(VoteState.NO)}
+            checked={voteState === VoteState.NO}
           />
           <label
             className={cx(
               'btn color-border-accent-emphasis',
-              state === ViewState.NO && 'color-bg-danger-emphasis',
+              voteState === VoteState.NO && 'color-bg-danger-emphasis',
             )}
             htmlFor="survey-no"
           >
             <span className="visually-hidden">{t`no`}</span>
-            <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
+            <ThumbsdownIcon
+              size={16}
+              className={voteState === VoteState.NO ? '' : 'color-fg-muted'}
+            />
           </label>
         </div>
       )}
 
-      {[ViewState.YES, ViewState.NO].includes(state) && (
+      {error && <span className="f6 color-fg-danger">{t`server_error`}</span>}
+
+      {[ViewState.START, ViewState.NEXT].includes(state) && voteState && (
         <>
           <p className="mb-3">
             <label className="d-block mb-1 f6" htmlFor="survey-comment">
               <span>
-                {state === ViewState.YES && t`comment_yes_label`}
-                {state === ViewState.NO && t`comment_no_label`}
+                {voteState === VoteState.YES && t`comment_yes_label`}
+                {voteState === VoteState.NO && t`comment_no_label`}
               </span>
               <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
@@ -150,48 +199,75 @@ export const Survey = () => {
               className="form-control input-sm width-full"
               name="survey-comment"
               id="survey-comment"
+              value={comment}
+              onChange={(event) => setComment(event.target.value)}
             ></textarea>
           </p>
-          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
-            <label className="d-block mb-1 f6" htmlFor="survey-email">
-              {t`email_label`}
-              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
-            </label>
-            <input
-              type="email"
-              className="form-control input-sm width-full"
-              name="survey-email"
-              id="survey-email"
-              placeholder={t`email_placeholder`}
-              onChange={handleEmailInputChange}
-              aria-invalid={isEmailError}
-              {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
-            />
-            {isEmailError && (
-              <p className="note warning" id="email-input-validation">
-                {t`email_validation`}
-              </p>
-            )}
-          </div>
-          <span className="f6 color-fg-muted">{t`not_support`}</span>
+          {hasPreview && (
+            <div className={cx('form-group', isEmailError ? 'warn' : '')}>
+              <label className="d-block mb-1 f6" htmlFor="survey-email">
+                {t`email_label`}
+                <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
+              </label>
+              <input
+                type="email"
+                className="form-control input-sm width-full"
+                name="survey-email"
+                id="survey-email"
+                placeholder={t`email_placeholder`}
+                onChange={handleEmailInputChange}
+                aria-invalid={isEmailError}
+                {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
+              />
+              {isEmailError && (
+                <p className="note warning" id="email-input-validation">
+                  {t`email_validation`}
+                </p>
+              )}
+            </div>
+          )}
+
+          {hasPreview && (
+            <span
+              className="f6 color-fg-muted"
+              dangerouslySetInnerHTML={{ __html: t`not_support` }}
+            ></span>
+          )}
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"
               className="btn btn-sm btn-invisible mr-3"
               onClick={() => {
                 setState(ViewState.START)
+                setVoteState(null)
                 setIsEmailError(false)
               }}
             >
               Cancel
             </button>
-            <button
-              disabled={isEmailError}
-              type="submit"
-              className="btn btn-sm color-border-accent-emphasis"
-            >
-              {t`send`}
-            </button>
+            {hasPreview ? (
+              <button
+                disabled={isEmailError}
+                type="submit"
+                className="btn btn-sm color-border-accent-emphasis"
+              >
+                {t`send`}
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="btn btn-sm color-border-accent-emphasis"
+                disabled={isLoading || !comment.trim()}
+              >
+                {t`next`}
+                {isLoading && (
+                  <>
+                    {' '}
+                    <Spinner size="small" />
+                  </>
+                )}
+              </button>
+            )}
           </div>
         </>
       )}

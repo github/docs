@@ -65,9 +65,11 @@ survey:
   email_label: If we can contact you with more questions, please enter your email address
   email_validation: Please enter a valid email address
   send: Send
+  next: Next
   feedback: Thank you! We received your feedback.
-  not_support: If you need a reply, please contact support instead.
+  not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
+  server_error: Unable to process comment at the moment. Please try again.
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.

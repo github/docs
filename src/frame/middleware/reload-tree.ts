@@ -16,33 +16,37 @@
 
 import path from 'path'
 
-import languages, { languageKeys } from '#src/languages/lib/languages.js'
-import createTree from '#src/frame/lib/create-tree.js'
-import warmServer from '#src/frame/lib/warm-server.js'
-import { loadSiteTree, loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
-import loadRedirects from '#src/redirects/lib/precompile.js'
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest, UnversionedTree, SiteTree } from '@/types'
+import languages, { languageKeys } from '@/languages/lib/languages.js'
+import createTree from '@/frame/lib/create-tree.js'
+import warmServer from '@/frame/lib/warm-server.js'
+import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data.js'
+import loadRedirects from '@/redirects/lib/precompile.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
 
 const isDev = process.env.NODE_ENV === 'development'
 
-export default async function reloadTree(req, res, next) {
+export default async function reloadTree(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!isDev) return next()
   // Filter out things like `/will/redirect` or `/_next/data/...`
-  if (!languagePrefixRegex.test(req.pagePath)) return next()
+  if (!req.pagePath || !languagePrefixRegex.test(req.pagePath)) return next()
   // We only bother if the loaded URL is something `/en/...`
   if (!englishPrefixRegex.test(req.pagePath)) return next()
 
-  const warmed = await warmServer()
+  const warmed = await warmServer([])
+
   // For all the real English content, this usually takes about 30-60ms on
   // an Intel MacBook Pro.
   const before = getMtimes(warmed.unversionedTree.en)
-  warmed.unversionedTree.en = await createTree(
+  warmed.unversionedTree.en = (await createTree(
     path.join(languages.en.dir, 'content'),
     undefined,
     warmed.unversionedTree.en,
-  )
+  )) as UnversionedTree // Note! Have to use `as` until create-tree.js is JS
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than
   // refreshing the tree. So we want to know if the tree changed before
@@ -50,9 +54,9 @@ export default async function reloadTree(req, res, next) {
   // If refreshing of the `.en` part of the `unversionedTree` takes 40ms
   // then the following operations takes about 140ms.
   if (before !== after) {
-    warmed.siteTree = await loadSiteTree(warmed.unversionedTree)
+    warmed.siteTree = (await loadSiteTree(warmed.unversionedTree)) as SiteTree
     warmed.pageList = await loadPages(warmed.unversionedTree)
-    warmed.pageMap = await loadPageMap(warmed.pageList)
+    warmed.pages = await loadPageMap(warmed.pageList)
     warmed.redirects = await loadRedirects(warmed.pageList)
   }
 
@@ -63,7 +67,7 @@ export default async function reloadTree(req, res, next) {
 // in the tree.
 // You can use this to compute it before and after the tree is (maybe)
 // mutated and if the numbers *change* you can know the tree changed.
-function getMtimes(tree) {
+function getMtimes(tree: UnversionedTree) {
   let mtimes = tree.page.mtime
   for (const child of tree.childPages || []) {
     mtimes += getMtimes(child)
