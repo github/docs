@@ -219,7 +219,7 @@ used.
 
 \[Windows only] When initializing tracing, inject the tracer this many
 parents above the current process, with 0 corresponding to the process
-that is invoking the CodeQL CLI. The CLI's default behavior if no
+that is invoking the CodeQL CLI. The CLI's default behaviour if no
 arguments are passed is to inject into the parent of the calling
 process, with some special cases for GitHub Actions and Azure Pipelines.
 
