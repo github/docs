@@ -1,7 +1,7 @@
 ---
 title: About GitHub Copilot Business
 intro: 'With {% data variables.product.prodname_copilot_for_business %} you can manage access to {% data variables.product.prodname_copilot %} for your organization{% ifversion ghec%} or enterprise{% endif %}.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+product: '{% data reusables.gated-features.copilot-business %}'
 redirect_from:
   - /copilot/overview-of-github-copilot/about-github-copilot-for-business
   - /copilot/overview-of-github-copilot/about-github-copilot-business
