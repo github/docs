@@ -6,13 +6,16 @@ import type { Request } from 'express'
 // througout the codebase.
 export type ExtendedRequest = Request & {
   pagePath?: string
-  context?: {
-    currentCategory?: string
-    error?: Error
-  }
+  context?: Context
   language?: string
   userLanguage?: string
   // Add more properties here as needed
+}
+
+export type Context = {
+  currentCategory?: string
+  error?: Error
+  siteTree?: SiteTree
 }
 
 type Language = {
@@ -45,6 +48,7 @@ export type Page = {
   mtime: number
   permalinks: Permalink[]
   fullPath: string
+  relativePath: string
   title: string
   shortTitle?: string
   intro: string
