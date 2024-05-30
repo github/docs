@@ -20,7 +20,7 @@ Each gist indicates which forks have activity, making it easy to find interestin
 
 If you want to make local changes to a gist and push them up to the web, you can clone a gist and make commits the same as you would with any Git repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
-To clone a gist, select the Embed dropdown menu, then click Clone via HTTPS or Clone via SSH.
+To clone a gist, select the Embed dropdown menu, then click **Clone via HTTPS** or **Clone via SSH**.
 
 ![Screenshot of the "Embed" dropdown menu in GitHub Gist. The dropdown is expanded, and an option labeled “Clone via HTTPS” is outlined in dark orange.](/assets/images/help/gist/gist-clone-btn.png)
 
