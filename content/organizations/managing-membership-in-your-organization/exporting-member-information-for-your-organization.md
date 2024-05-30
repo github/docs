@@ -21,7 +21,7 @@ The membership information report includes the following information.
 - Whether the user has two-factor authentication enabled
 - Whether the membership is public or private
 - Whether the user is an organization owner or member
-- Datetime of the user's last activity (for a full list of relevant activity, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
+- Datetime of the user's last activity (such as timeline events, session updates, or access to resources via a {% data variables.product.pat_generic %} or SSH key)
 {%- ifversion ghec %}
 - Optionally, additional information that depends on the organization's configuration:
   - The user's SAML `NameID`
@@ -66,7 +66,8 @@ If SAML SSO is configured for your organization, or if you have verified a domai
    - `saml_name_id`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)")
    - `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)")
 
-   For more information, see "[Exporting membership information](#exporting-membership-information)."
+   For more information, see "[Exporting membership information](#exporting-a-membership-information-report)."
+
 {% data reusables.saml.use-api-to-get-externalidentity %}
 
 {% endif %}

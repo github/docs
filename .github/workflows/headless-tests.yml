@@ -2,7 +2,7 @@ name: Headless Tests
 
 # **What it does**: This runs our browser tests to test things that depend
 #                   on client-side JavaScript.
-# **Why we have it**: Because most automated jest tests only test static
+# **Why we have it**: Because most automated vitest tests only test static
 #                     input and outputs.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { jest, expect } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
@@ -14,21 +14,21 @@ function getNextStaticAsset(directory) {
 }
 
 describe('static assets', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
-  it('should serve /assets/cb-* with optimal headers', async () => {
+  test('should serve /assets/cb-* with optimal headers', async () => {
     const res = await get('/assets/cb-1234/images/site/logo.png')
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res)
   })
 
-  it('should serve /assets/ with optimal headers', async () => {
+  test('should serve /assets/ with optimal headers', async () => {
     const res = await get('/assets/images/site/logo.png')
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, true)
   })
 
-  it('should serve /_next/static/ with optimal headers', async () => {
+  test('should serve /_next/static/ with optimal headers', async () => {
     // This picks the first one found. We just need it to be anything
     // that actually resolves.
     const filePath = getNextStaticAsset('css')
@@ -38,26 +38,26 @@ describe('static assets', () => {
     checkCachingHeaders(res)
   })
 
-  it('should 404 on /assets/cb-* with plain text', async () => {
+  test('should 404 on /assets/cb-* with plain text', async () => {
     const res = await get('/assets/cb-1234/never/heard/of.png')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toContain('text/plain')
     // Only a tiny amount of Cache-Control on these
     checkCachingHeaders(res, true, 60)
   })
-  it('should 404 on /assets/ with plain text', async () => {
+  test('should 404 on /assets/ with plain text', async () => {
     const res = await get('/assets/never/heard/of.png')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toContain('text/plain')
     checkCachingHeaders(res, true, 60)
   })
-  it('should 404 on /_next/static/ with plain text', async () => {
+  test('should 404 on /_next/static/ with plain text', async () => {
     const res = await get('/_next/static/never/heard/of.css')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toContain('text/plain')
     checkCachingHeaders(res, true, 60)
   })
-  it("should redirect if the URLisn't all lowercase", async () => {
+  test("should redirect if the URLisn't all lowercase", async () => {
     // Directory
     {
       const res = await get('/assets/images/SITE/logo.png')

@@ -29,6 +29,7 @@ children:
   - /about-enterprise-managed-users
   - /abilities-and-restrictions-of-managed-user-accounts
   - /choosing-an-enterprise-type-for-github-enterprise-cloud
+  - /getting-started-with-enterprise-managed-users
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise

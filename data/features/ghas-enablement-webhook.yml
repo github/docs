@@ -1,4 +1,0 @@
-# docs-content 7314. GHAS enablement webhook
-versions:
-  ghec: '*'
-  ghes: '>= 3.6'

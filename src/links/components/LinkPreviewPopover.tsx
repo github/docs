@@ -240,7 +240,12 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
     element.href.startsWith(`${window.location.href.split('#')[0]}#`)
   ) {
     const domID = element.href.split('#')[1]
-    const domElement = document.querySelector(`#${domID}`)
+    // The reason we're using `getElementById(...)` instead of
+    // `querySelector(#...)` is because `getElementById(...)` will not
+    // throw a DOMException if the ID starts with a number.
+    // For example, `document.getElementById('123-thing')` will work, but
+    // `document.querySelector('#123-thing')` will throw a DOMException.
+    const domElement = document.getElementById(domID)
     if (domElement && domElement.textContent) {
       anchor = domElement.textContent
       // Headings will have the `#` character to the right which is to

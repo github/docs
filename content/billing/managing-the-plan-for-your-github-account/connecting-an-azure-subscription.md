@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription
-intro: "If you use {% data variables.product.product_name %} through a Microsoft Enterprise Agreement, you can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
+intro: "You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -70,7 +70,7 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 To connect an Azure subscription, you'll need appropriate access permissions on both {% data variables.product.product_name %} and the Azure billing portal. This may require coordination between two different people.
 
-To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=DAiIhJKCt8s&ab_channel=GitHub) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see "[Connecting your Azure subscription to your organization account](#connecting-your-azure-subscription-to-your-organization-account)."
+To see a demo of the process from beginning to end, see [Billing GitHub consumption through an Azure subscription](https://www.youtube.com/watch?v=DAiIhJKCt8s&ab_channel=GitHub) on {% data variables.product.company_short %}'s YouTube channel. This video demonstrates the process for an enterprise account. If you're connecting a subscription to an organization account, see "[Connecting your Azure subscription to your organization account](/free-pro-team@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-organization-account)."
 
 {% ifversion fpt %}
 
@@ -80,7 +80,7 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 
 {% note %}
 
-**Note**: If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. For more information, see "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)."
+**Note**: If your organization account on {% data variables.location.product_location %} belongs an enterprise account, you must connect your Azure subscription to the enterprise account instead of the organization account. For more information, see "[Connecting your Azure subscription to your enterprise account](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account)" in the {% data variables.product.prodname_ghe_cloud %} version of this article.
 
 {% endnote %}
 

@@ -9,16 +9,14 @@ introLinks:
   try_ghas_for_free: '{% ifversion ghec %}/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security{% endif %}'
 featuredLinks:
   startHere:
-    - /code-security/getting-started/securing-your-repository
-    - /code-security/getting-started/securing-your-organization
+    - /code-security/getting-started/quickstart-for-securing-your-repository
+    - /code-security/getting-started/quickstart-for-securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
-    - '{% ifversion ghes < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
   guideCards:
-    - '/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates'
-    - '/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates'
+    - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
+    - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
-    - '{% ifversion ghes < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
@@ -45,9 +43,11 @@ topics:
 children:
   - /getting-started
   - /adopting-github-advanced-security-at-scale
+  - /securing-your-organization
   - /secret-scanning
   - /code-scanning
   - /codeql-cli
+  - /codeql-for-vs-code
   - /security-advisories
   - /supply-chain-security
   - /dependabot

@@ -19,7 +19,7 @@ Push protection helps to prevent security leaks by scanning for secrets before y
 
 When you try to push a secret to a repository secured by push protection, {% data variables.product.prodname_dotcom %} blocks the push. You must remove the secret from your branch before pushing again. For more information on how to resolve a blocked push, see "[Resolving a blocked push on the command line](#resolving-a-blocked-push-on-the-command-line)" and "[Resolving a blocked commit in the web UI](#resolving-a-blocked-commit-in-the-web-ui)" in this article.
 
-If you believe it's safe to allow the secret, you have the option to bypass the protection. For more information, see "[Allowing a blocked secret to be pushed](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#allowing-a-blocked-secret-to-be-pushed)" and "[Bypassing push protection for a secret](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#bypassing-push-protection-for-a-secret)."
+If you believe it's safe to allow the secret, you {% ifversion push-protection-delegated-bypass %}may {% endif %}have the option to bypass the protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)."
 
 For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
@@ -106,9 +106,10 @@ You can also remove the secret if the secret appears in an earlier commit in the
 
 To resolve a blocked commit in the web UI, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.
 
-Alternatively, if you determine that it's safe to allow the secret, use the options displayed in the dialog box to bypass push protection. For more information about bypassing push protection from the web UI, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
+Alternatively, if you determine that it's safe to allow the secret, use the options displayed in the dialog box to bypass push protection. For more information about bypassing push protection from the web UI, see "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection#bypassing-push-protection-when-working-with-the-web-ui)."
 
 # Further reading
 
+- "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
 - "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"{% ifversion secret-scanning-push-protection-for-users %}
 - "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)"{% endif %}

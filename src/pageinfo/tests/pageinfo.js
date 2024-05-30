@@ -1,4 +1,4 @@
-import { beforeAll } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'

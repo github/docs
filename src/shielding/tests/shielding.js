@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 
@@ -112,7 +114,7 @@ describe('rate limiting', () => {
       const newRemaining = parseInt(res.headers['ratelimit-remaining'])
       expect(newLimit).toBe(limit)
       // Can't rely on `newRemaining == remaining - 1` because of
-      // concurrency of jest-running.
+      // concurrency of test-running.
       expect(newRemaining).toBeLessThan(remaining)
     }
   })
@@ -126,18 +128,28 @@ describe('rate limiting', () => {
 })
 
 describe('404 pages and their content-type', () => {
-  const exampleNonLanguage404s = [
-    '/_next/image/foo',
-    '/wp-content/themes/seotheme/db.php?u',
-    '/enterprise/3.1/_next/static/chunks/616-910d0397bafa52e0.js',
-    '/~root',
-  ]
-  test.each(exampleNonLanguage404s)(
+  const exampleNonLanguage404plain = ['/_next/image/foo']
+  test.each(exampleNonLanguage404plain)(
     'non-language 404 response is plain text and cacheable: %s',
     async (pathname) => {
       const res = await get(pathname)
       expect(res.statusCode).toBe(404)
       expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch('public')
+    },
+  )
+
+  const exampleNonLanguage404s = [
+    '/wp-content/themes/seotheme/db.php?u',
+    '/enterprise/3.1/_next/static/chunks/616-910d0397bafa52e0.js',
+    '/~root',
+  ]
+  test.each(exampleNonLanguage404s)(
+    'non-language 404 response is html text and cacheable: %s',
+    async (pathname) => {
+      const res = await get(pathname)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/html; charset=utf-8')
       expect(res.headers['cache-control']).toMatch('public')
     },
   )

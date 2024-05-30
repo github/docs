@@ -24,6 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
       # Note that we don't check out docs-early-access, Elasticsearch,
       # or any remote translations. Nothing fancy here!
 
@@ -42,6 +47,7 @@ jobs:
           # tests not exiting at the end with a non-zero. Otherwise,
           # by default failures are marked as "flaky" instead of "failed".
           PLAYWRIGHT_RETRIES: 0
+          TEST_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
         run: npm run playwright-test -- playwright-local-dev
 
       - name: Start server in the background

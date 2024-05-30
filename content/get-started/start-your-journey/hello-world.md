@@ -42,7 +42,7 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type `hello-world`.
-{% data reusables.repositories.add-description %} For example, type "This repository is for practising the {% data variables.product.prodname_dotcom %} Flow."
+{% data reusables.repositories.add-description %} For example, type "This repository is for practicing the {% data variables.product.prodname_dotcom %} Flow."
 {% data reusables.repositories.select-public-or-private %}
 {% data reusables.repositories.add-readme %}
 {% data reusables.repositories.click-create %}
@@ -96,7 +96,7 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the `README.md` file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself.
-{% ifversion code-search-code-view %}1. Click **Commit changes...**.{% endif %}
+{% ifversion code-view-ui %}1. Click **Commit changes**.{% endif %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
 
@@ -113,7 +113,7 @@ As soon as you make a commit, you can open a pull request and start a discussion
 In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practise the {% data variables.product.product_name %} flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
-1. Click **New pull request**
+1. Click **New pull request**.
 1. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
 1. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 

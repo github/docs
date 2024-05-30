@@ -53,10 +53,6 @@ For more information about these metadata properties, see "[Metadata for {% data
 
 ## Packaging custom QL queries
 
-{% data reusables.codeql-cli.beta-note-package-management %}
-
-<!-- using reusable re-created by Felicity -->
-
 When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 
 <!-- tweaked to "For more information, see X" to match our style guide -->

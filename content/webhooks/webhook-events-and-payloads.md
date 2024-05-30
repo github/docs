@@ -37,7 +37,7 @@ HTTP POST payloads that are delivered to your webhook's configured URL endpoint 
 
 - `X-GitHub-Hook-ID`: The unique identifier of the webhook.
 - `X-GitHub-Event`: The name of the event that triggered the delivery.
-- `X-GitHub-Delivery`: A globally unique identifier (GUID) to identify the delivery.{% ifversion ghes %}
+- `X-GitHub-Delivery`: A globally unique identifier (GUID) to identify the event.{% ifversion ghes %}
 - `X-GitHub-Enterprise-Version`: The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
 - `X-GitHub-Enterprise-Host`: The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
 - `X-Hub-Signature`: This header is sent if the webhook is configured with a `secret`. This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`. `X-Hub-Signature` is provided for compatibility with existing integrations. We recommend that you use the more secure `X-Hub-Signature-256` instead.
@@ -71,7 +71,7 @@ You can choose to have payloads delivered in JSON format (`application/json`) or
 > {
 >   "action": "opened",
 >   "issue": {
->     "url": "{% data variables.product.api_url_pre %}/repos/octocat/Hello-World/issues/1347",
+>     "url": "{% data variables.product.rest_url %}/repos/octocat/Hello-World/issues/1347",
 >     "number": 1347,
 >     ...
 >   },

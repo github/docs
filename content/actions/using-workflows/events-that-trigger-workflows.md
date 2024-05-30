@@ -184,8 +184,6 @@ on:
   deployment_status
 ```
 
-{% ifversion discussions %}
-
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -237,8 +235,6 @@ on:
   discussion_comment:
     types: [created, deleted]
 ```
-
-{% endif %}
 
 ## `fork`
 
@@ -391,7 +387,10 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Notes**:
+
+- {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+- {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
@@ -401,6 +400,8 @@ For example, you can run a workflow when the `checks_requested` activity has occ
 
 ```yaml
 on:
+  pull_request:
+    branches: [ "main" ]
   merge_group:
     types: [checks_requested]
 ```
@@ -813,11 +814,7 @@ This event runs in the context of the base of the pull request, rather than in t
 
 To ensure repository security, branches with names that match certain patterns (such as those which look similar to SHAs) may not trigger workflows with the `pull_request_target` event.
 
-{% warning %}
-
-**Warning:** For workflows that are triggered by the `pull_request_target` event, the `GITHUB_TOKEN` is granted read/write repository permission unless the `permissions` key is specified and the workflow can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch. To help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered. For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" on the GitHub Security Lab website.
-
-{% endwarning %}
+{% data reusables.actions.pull-request-target-permissions-warning %}
 
 For example, you can run a workflow when a pull request has been `assigned`, `opened`, `synchronize`, or `reopened`.
 
@@ -937,7 +934,7 @@ jobs:
 
 {% note %}
 
-**Note**: An event will not be created when you push more than three tags at once.
+**Note**: Events will not be created if more than 5000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
 
 {% endnote %}
 
@@ -1173,8 +1170,18 @@ jobs:
 **Notes:**
 
 - {% data reusables.actions.schedule-delay %}
+- This event will only trigger a workflow run if the workflow file is on the default branch.
+- Scheduled workflows will only run on the default branch.
 - In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
-- When the last user to commit to a scheduled workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository commits to the scheduled workflow file, the scheduled workflow will be re-activated.
+- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
+
+  **Example:**
+
+  ```yaml
+  on:
+    schedule:
+      - cron: "15 4,5 * * *"   # <=== Change this value
+  ```
 
 {% endnote %}
 
@@ -1304,11 +1311,11 @@ on: workflow_dispatch
 
 ### Providing inputs
 
-You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the {% ifversion actions-unified-inputs %}`inputs`{% else %}`github.event.inputs`{% endif %} context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When you trigger the event, you can provide the `ref` and any `inputs`. When the workflow runs, you can access the input values in the `inputs` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 {% data reusables.actions.inputs-vs-github-event-inputs %}
 
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the {% ifversion actions-unified-inputs %}`inputs.logLevel`, `inputs.tags`, and  `inputs.environment`{% else %}`github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment`{% endif %} context properties.
+This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `inputs.logLevel`, `inputs.tags`, and  `inputs.environment` context properties.
 
 ```yaml
 on:
@@ -1341,9 +1348,9 @@ jobs:
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
         env:
-          LEVEL: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.logLevel }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.logLevel }}{% endraw %}{% endif %}
-          TAGS: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.tags }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.tags }}{% endraw %}{% endif %}
-          ENVIRONMENT: {% ifversion actions-unified-inputs %}{% raw %}${{ inputs.environment }}{% endraw %}{% else %}{% raw %}${{ github.event.inputs.environment }}{% endraw %}{% endif %}
+          LEVEL: {% raw %}${{ inputs.logLevel }}{% endraw %}
+          TAGS: {% raw %}${{ inputs.tags }}{% endraw %}
+          ENVIRONMENT: {% raw %}${{ inputs.environment }}{% endraw %}
 ```
 
 If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
@@ -1362,7 +1369,7 @@ For more information, see the {% data variables.product.prodname_cli %} informat
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`workflow_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) | - `completed`<br/>- `requested`{% ifversion actions-workflow-run-in-progress %}<br/>- `in_progress`{% endif %} | Last commit on default branch | Default branch |
+| [`workflow_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run) | - `completed`<br/>- `requested`<br/>- `in_progress` | Last commit on default branch | Default branch |
 
 {% note %}
 

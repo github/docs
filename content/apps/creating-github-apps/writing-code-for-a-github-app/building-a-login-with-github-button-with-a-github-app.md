@@ -249,7 +249,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
    ```ruby copy
    def user_info(token)
-     uri = URI("{% data variables.product.api_url_code %}/user")
+     uri = URI("{% data variables.product.rest_url %}/user")
 
      result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
        body = {"access_token" => token}.to_json
@@ -332,7 +332,7 @@ def exchange_code(code)
 end
 
 def user_info(token)
-  uri = URI("{% data variables.product.api_url_code %}/user")
+  uri = URI("{% data variables.product.rest_url %}/user")
 
   result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
     body = {"access_token" => token}.to_json

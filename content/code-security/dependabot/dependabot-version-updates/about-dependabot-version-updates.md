@@ -38,7 +38,11 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 
 {% data reusables.dependabot.pull-request-security-vs-version-updates %}
 
-{% data reusables.dependabot.dependabot-updates-and-actions %}
+{% data reusables.dependabot.dependabot-updates-signed-commits %}
+
+{% data reusables.dependabot.dependabot-updates-prs-and-actions %}
+
+{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."{% endif %}
 
 {% data reusables.dependabot.dependabot-tos %}
 

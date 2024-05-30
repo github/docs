@@ -1,4 +1,4 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { getOpenApiSchemaFiles } from '../../rest/scripts/utils/sync.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'

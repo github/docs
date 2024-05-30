@@ -148,6 +148,15 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -553,6 +562,15 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -2824,24 +2842,6 @@
         "access": "write"
       },
       {
-        "category": "codespaces",
-        "slug": "create-or-update-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "codespaces",
-        "slug": "delete-a-repository-secret",
-        "subcategory": "repository-secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -3248,6 +3248,15 @@
       },
       {
         "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-for-the-authenticated-user",
         "subcategory": "repos",
         "verb": "post",
@@ -3624,7 +3633,7 @@
         "subcategory": "repository-secrets",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -3633,7 +3642,7 @@
         "subcategory": "repository-secrets",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]
@@ -3858,6 +3867,33 @@
         "subcategory": "code-scanning",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "create-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-the-summary-of-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-the-analysis-status-of-a-repository-in-a-codeql-variant-analysis",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/variant-analyses/{codeql_variant_analysis_id}/repos/{repo_owner}/{repo_name}",
         "additional-permissions": false,
         "access": "read"
       },
@@ -5439,15 +5475,6 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/topics",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "repos",
-        "slug": "create-a-repository-using-a-template",
-        "subcategory": "repos",
-        "verb": "post",
-        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
         "additional-permissions": false,
         "access": "read"
       },

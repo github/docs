@@ -89,6 +89,14 @@ You should configure your server to return a 2xx status. If your server returns 
 
 Webhook deliveries can take a few minutes to be delivered and to appear in the recent deliveries log. Before concluding that your webhook delivery failed, wait a few minutes and then check again.
 
+{% ifversion fpt or ghec %}
+
+If your account experiences a surge in webhook deliveries, {% data variables.product.company_short %} may temporarily throttle the rate of deliveries to your account. If your webhook deliveries are slowed down by GitHub, the `throttled_at` property for each affected delivery shows the timestamp when delivery was throttled. You can check for this using the REST API, see "[List deliveries for a repository webhook](/rest/repos/webhooks#list-deliveries-for-a-repository-webhook)."
+
+To avoid delays, subscribe only to the webhook events that are necessary for your account, reducing the frequency of deliveries. See “[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks).”
+
+{% endif %}
+
 ## Failed signature verification
 
 You should use a webhook secret and the `X-Hub-Signature-256` header to verify that a webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries)."

@@ -28,6 +28,8 @@ You can set up a {% data variables.product.prodname_copilot_business_short %} su
 
 {% endif %}
 
+The {% data variables.product.prodname_copilot_for_business %} subscription for organizations and enterprises is available on a monthly cycle. For more general information about billing for {% data variables.product.prodname_copilot_for_business %}, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)."
+
 {% data reusables.billing.billing-info %}
 
 {% ifversion ghec %}

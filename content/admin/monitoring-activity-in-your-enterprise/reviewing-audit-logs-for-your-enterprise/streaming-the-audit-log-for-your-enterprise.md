@@ -20,10 +20,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 {% note %}
 
-{% ifversion ghes %}**Notes:**
-- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
-- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
-**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
+**Note:** {% ifversion ghes %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}{% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
 
@@ -32,7 +29,7 @@ permissions: Enterprise owners can configure audit log streaming.
 To help protect your intellectual property and maintain compliance for your company, you can use streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. If you stream audit log data, you can take advantage of the following benefits.
 
 - **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-- **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+- **Data continuity**. When you pause a stream, it retains a buffer for seven days, so there is no data loss for the first week. If the stream remains paused for more than seven days, it will resume from a point one week prior to the current time. If paused for three weeks or more, the stream won't retain any data and will start anew from the current timestamp.{% endif %}
 - **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
@@ -48,6 +45,16 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 {% ifversion ghes %}
 
 Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+
+{% endif %}
+
+{% ifversion audit-log-streaming-health-check %}
+
+## Health checks for audit log streams
+
+Every 24 hours, a health check runs for each stream. If a stream is set up incorrectly, an email will be sent to the enterprise owners. To avoid audit log events being dropped from the stream, a misconfigured stream must be fixed within six days.
+
+To fix your streaming configuration, follow the steps outlined in "[Setting up audit log streaming](#setting-up-audit-log-streaming)."
 
 {% endif %}
 
@@ -70,7 +77,23 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 - [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
 - [Splunk](#setting-up-streaming-to-splunk)
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the Streaming endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
+
+{% endnote %}
+{% endif %}
+
 ### Setting up streaming to Amazon S3
+
+{% ifversion ghes %}
+{% note %}
+
+**Note**: The Amazon region `us-east-1` must be reachable from your appliance in order for streaming to S3 to work accordingly.
+
+{% endnote %}
+{% endif %}
 
 {% ifversion streaming-oidc-s3 %}
 You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
@@ -97,9 +120,11 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
-   - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
+    - Under "Secret Key", type your secret key. For example, `aBcJalrXUtnWXYZ/A1MDENG/zPxRfiCYEXAMPLEKEY`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -133,8 +158,10 @@ For information on creating or accessing your access key ID and secret key, see 
 1. Under "Authentication", click **OpenID Connect**.
 1. Configure the stream settings.
 
-   - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
-   - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
+{% ifversion ghec %}
+    - Under "Region", select the bucket's region. For example, `us-east-1`; an option for Auto Discovery is also available.{% endif %}
+    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
+    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
 {% data reusables.audit_log.streaming-check-s3-endpoint %}
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -252,10 +279,6 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 **Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (such as with [Splunk HEC Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure the endpoint is reachable at this destination.
 
 {% endnote %}
-
-{% ifversion ghec %}
-To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
-{% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.

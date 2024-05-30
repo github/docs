@@ -7,7 +7,7 @@ versions:
   feature: 'contributing'
 featuredLinks:
   startHere:
-    - /contributing/writing-for-github-docs/about-githubs-documentation-philosophy
+    - /contributing/writing-for-github-docs/best-practices-for-github-docs
     - /contributing/style-guide-and-content-model/style-guide
     - /contributing/style-guide-and-content-model/about-the-content-model
     - /contributing/collaborating-on-github-docs/about-contributing-to-github-docs

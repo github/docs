@@ -39,6 +39,10 @@ If anything prevents {% data variables.product.prodname_dependabot %} from raisi
 {% endnote %}
 {% endif %}
 
+{% ifversion dependabot-on-actions-opt-in %}
+For more information about troubleshooting when running {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+{% endif %}
+
 ## Investigating errors with {% data variables.product.prodname_dependabot_security_updates %}
 
 When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.

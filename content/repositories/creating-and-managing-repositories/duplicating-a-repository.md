@@ -17,7 +17,7 @@ topics:
 
 {% note %}
 
-**Note:** If you have a project hosted on another version control system, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
+**Note:** If you have a project hosted on another Git-based hosting service, you can automatically import your project to {% data variables.product.prodname_dotcom %} using the {% data variables.product.prodname_importer %} tool. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer)."
 
 {% endnote %}
 
@@ -31,14 +31,14 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Create a bare clone of the repository.
 
    ```shell
-   git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
+   git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/OLD-REPOSITORY.git
    ```
 
 1. Mirror-push to the new repository.
 
    ```shell
    cd OLD-REPOSITORY.git
-   git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
+   git push --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/NEW-REPOSITORY.git
    ```
 
 1. Remove the temporary local repository you created earlier.
@@ -54,7 +54,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
 
    ```shell
-   git clone --bare https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/OLD-REPOSITORY.git
+   git clone --bare https://{% data variables.product.product_url %}/EXAMPLE-USER/OLD-REPOSITORY.git
    ```
 
 1. Navigate to the repository you just cloned.
@@ -72,7 +72,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Mirror-push to the new repository.
 
    ```shell
-   git push --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/NEW-REPOSITORY.git
+   git push --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/NEW-REPOSITORY.git
    ```
 
 1. Push the repository's {% data variables.large_files.product_name_long %} objects to your mirror.
@@ -96,14 +96,14 @@ If you want to mirror a repository in another location, including getting update
 1. Create a bare mirrored clone of the repository.
 
    ```shell
-   git clone --mirror https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/REPOSITORY-TO-MIRROR.git
+   git clone --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/REPOSITORY-TO-MIRROR.git
    ```
 
 1. Set the push location to your mirror.
 
    ```shell
    cd REPOSITORY-TO-MIRROR
-   git remote set-url --push origin https://{% data variables.command_line.codeblock %}/EXAMPLE-USER/MIRRORED
+   git remote set-url --push origin https://{% data variables.product.product_url %}/EXAMPLE-USER/MIRRORED
    ```
 
     As with a bare clone, a mirrored clone includes all remote branches and tags, but all local references will be overwritten each time you fetch, so it will always be the same as the original repository. Setting the URL for pushes simplifies pushing to your mirror.

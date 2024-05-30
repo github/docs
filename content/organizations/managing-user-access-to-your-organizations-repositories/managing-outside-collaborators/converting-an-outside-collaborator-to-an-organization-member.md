@@ -16,6 +16,9 @@ topics:
   - Teams
 shortTitle: Convert collaborator to member
 ---
+
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 {% ifversion fpt or ghec %}
 If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}
 

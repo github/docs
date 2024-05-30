@@ -36,7 +36,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -130,6 +130,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_advanced_security.disabled_for_new_user_namespace_repos",
+    "description": "GitHub Advanced Security was disabled for new user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
     "action": "business_advanced_security.enabled",
     "description": "GitHub Advanced Security was enabled for your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
@@ -137,6 +142,11 @@
   {
     "action": "business_advanced_security.enabled_for_new_repos",
     "description": "GitHub Advanced Security was enabled for new repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
+    "action": "business_advanced_security.enabled_for_new_user_namespace_repos",
+    "description": "GitHub Advanced Security was enabled for new user namespace repositories in your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
@@ -148,6 +158,16 @@
     "action": "business.advanced_security_repo_admin_enablement_policy_update",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business_advanced_security.user_namespace_repos_disabled",
+    "description": "GitHub Advanced Security was disabled for user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
+    "action": "business_advanced_security.user_namespace_repos_enabled",
+    "description": "GitHub Advanced Security was enabled for user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.audit_log_export",
@@ -171,8 +191,13 @@
   },
   {
     "action": "business.cancel_trial",
-    "description": "The trial of GitHub Enterprise Cloud was cancelled.",
+    "description": "The trial of GitHub Enterprise Cloud was canceled.",
     "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+  },
+  {
+    "action": "business.change_seats_plan_type",
+    "description": "The seats plan type was changed for an enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.clear_actions_settings",
@@ -188,6 +213,11 @@
     "action": "business.clear_members_can_create_repos",
     "description": "An enterprise owner cleared a restriction on repository creation in organizations in the enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation"
+  },
+  {
+    "action": "business.code_scanning_autofix_policy_update",
+    "description": "The policy for Code scanning autofix was updated for an enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.connect_usage_metrics_export",
@@ -245,6 +275,11 @@
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
   },
   {
+    "action": "business.disable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was disabled for the enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.disable_saml",
     "description": "SAML single sign-on was disabled for an enterprise.",
     "docs_reference_links": "N/A"
@@ -263,6 +298,11 @@
     "action": "business.enable_oidc",
     "description": "OIDC single sign-on was enabled for an enterprise.",
     "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
+  },
+  {
+    "action": "business.enable_open_scim",
+    "description": "SCIM provisioning for custom integrations that use the REST API was enabled for the enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.enable_saml",
@@ -455,6 +495,16 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the enterprise level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "business_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the enterprise level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
     "action": "business_secret_scanning_push_protection_custom_message.disable",
     "description": "The custom message triggered by an attempted push to a push-protected repository was disabled for your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
@@ -585,6 +635,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "code.search",
+    "description": "A code search was run targeting an organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/search-github/github-code-search"
+  },
+  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A"
@@ -666,62 +721,62 @@
   },
   {
     "action": "copilot.access_revoked",
-    "description": "The user's Copilot access was revoked.",
+    "description": "Copilot access was revoked for the organization or enterprise due to its Copilot subscription ending, an issue with billing the entity, the entity being marked spammy, or the entity being suspended.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_org_enablement_changed",
-    "description": "The Copilot Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
+    "description": "The Copilot enablement policy changed at the enterprise level to either allow or disable access for all organizations, or to allow access for selected organizations.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_settings_changed",
-    "description": "Settings for Copilot Business were changed at the enterprise level.",
+    "description": "Copilot feature settings were changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "Settings for Copilot Business were changed at the organization level.",
+    "description": "Copilot feature settings were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A Copilot Business or Copilot Enterprise seat was added for a user and they have received access to GitHub Copilot. This can occur as the result of directly assigning a seat for a user, assigning a seat for a team, or setting the organization to allow access for all members.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "A seat assignment was newly created for a user.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was newly created for a user or a team, and seats are being created.",
     "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to GitHub Copilot.",
+    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "A seat assignment was re-created for a user who already had a seat with no pending cancellation date.",
+    "description": "A Copilot Business or Copilot Enterprise seat assignment was re-created for a user who already had a seat with no pending cancellation date, and the user will retain access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "A seat was unassigned from a user and they will lose access to GitHub Copilot at the end of the billing cycle.",
+    "description": "A user or team's Copilot Business or Copilot Enterprise seat assignment was unassigned, and the user(s) will lose access to Copilot at the end of the current billing cycle.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A user's Copilot Business or Copilot Enterprise seat was canceled manually by GitHub staff, and the user no longer has access to Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "The seat management setting was changed for the Copilot Business subscription.",
+    "description": "The seat management setting was changed at the organization level to either enable or disable Copilot access for all members of the organization, or to enable Copilot access for selected members or teams.",
     "docs_reference_links": "N/A"
   },
   {
@@ -736,8 +791,23 @@
   },
   {
     "action": "copilot.enterprise_enablement_changed",
-    "description": "The Copilot Business enablement policy changed at the enterprise level.",
+    "description": "Copilot access was enabled or disabled at the enterprise level.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.knowledge_base_created",
+    "description": "A knowledge base was created in the organization.",
+    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
+  },
+  {
+    "action": "copilot.knowledge_base_deleted",
+    "description": "A knowledge base was deleted from the organization.",
+    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
+  },
+  {
+    "action": "copilot.knowledge_base_updated",
+    "description": "A knowledge base was updated in the organization.",
+    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.plan_changed",
@@ -1005,6 +1075,41 @@
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
+    "action": "enterprise_team.add_member",
+    "description": "A new member was added to the enterprise team or an IdP group linked to an enterprise team, or an IdP group was linked to an enterprise team.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.copilot_assignment",
+    "description": "A license for GitHub Copilot was assigned to an enterprise team.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.copilot_unassignment",
+    "description": "A license for GitHub Copilot was unassigned from an enterprise team.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.create",
+    "description": "A new enterprise team was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.destroy",
+    "description": "An enterprise team was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.remove_member",
+    "description": "A member was removed from the enterprise team or an IdP group linked to an enterprise team, or an IdP group was unlinked from an enterprise team.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "enterprise_team.rename",
+    "description": "The name of an enterprise team was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "environment.add_protection_rule",
     "description": "A GitHub Actions deployment protection rule was created via the API.",
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules"
@@ -1021,8 +1126,8 @@
   },
   {
     "action": "environment.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A variable was created for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment"
   },
   {
     "action": "environment.delete",
@@ -1036,8 +1141,8 @@
   },
   {
     "action": "environment.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A variable was deleted for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment"
   },
   {
     "action": "environment.remove_protection_rule",
@@ -1051,8 +1156,8 @@
   },
   {
     "action": "environment.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A variable was updated for a GitHub Actions environment.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-environment"
   },
   {
     "action": "environment.update_protection_rule",
@@ -1520,6 +1625,21 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "network_configuration.create",
+    "description": "A network configuration for a hosted compute service was created.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
+    "action": "network_configuration.delete",
+    "description": "A network configuration for a hosted compute service was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
+    "action": "network_configuration.update",
+    "description": "A network configuration for a hosted compute service was updated.",
+    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
+  },
+  {
     "action": "oauth_application.create",
     "description": "An OAuth application was created.",
     "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
@@ -1650,6 +1770,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1747,16 +1877,16 @@
   {
     "action": "org.create_actions_secret",
     "description": "A GitHub Actions secret was created for an organization.",
-    "docs_reference_links": "/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization"
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
   },
   {
     "action": "org.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was created for an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
   },
   {
     "action": "org.create_integration_secret",
-    "description": "An integration secret was created for an organization.",
+    "description": "A Codespaces or Dependabot secret was created for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1931,13 +2061,13 @@
   },
   {
     "action": "org.remove_actions_secret",
-    "description": "A GitHub Actions secret was removed.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions secret was removed from an organization.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
   },
   {
     "action": "org.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was removed from an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
   },
   {
     "action": "org.remove_billing_manager",
@@ -1946,7 +2076,7 @@
   },
   {
     "action": "org.remove_integration_secret",
-    "description": "An integration secret was removed from an organization.",
+    "description": "A Codespaces or Dependabot secret was removed from an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2085,6 +2215,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "org_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the organization level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
     "action": "org.secret_scanning_push_protection_custom_message_disabled",
     "description": "The custom message triggered by an attempted push to a push-protected repository was disabled for an organization.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization"
@@ -2191,8 +2331,8 @@
   },
   {
     "action": "org.update_actions_secret",
-    "description": "A GitHub Actions secret was updated.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions secret was updated for an organization.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
   },
   {
     "action": "org.update_actions_settings",
@@ -2201,8 +2341,8 @@
   },
   {
     "action": "org.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was updated for an organization.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
   },
   {
     "action": "org.update_default_repository_permission",
@@ -2211,7 +2351,7 @@
   },
   {
     "action": "org.update_integration_secret",
-    "description": "An integration secret was updated for an organization.",
+    "description": "A Codespaces or Dependabot secret was updated for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2840,6 +2980,16 @@
     "docs_reference_links": "/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository"
   },
   {
+    "action": "repo.code_scanning_autofix_disabled",
+    "description": "Autofix for code scanning alerts was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_autofix_enabled",
+    "description": "Autofix for code scanning alerts was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.code_scanning_configuration_for_branch_deleted",
     "description": "A code scanning configuration for a branch of a repository was deleted.",
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
@@ -2852,6 +3002,11 @@
   {
     "action": "repo.codeql_enabled",
     "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
+  },
+  {
+    "action": "repo.codeql_updated",
+    "description": "Code scanning using the default setup was updated for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
@@ -2907,16 +3062,16 @@
   {
     "action": "repo.create_actions_secret",
     "description": "A GitHub Actions secret was created for a repository.",
-    "docs_reference_links": "/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository"
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository"
   },
   {
     "action": "repo.create_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was created for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository"
   },
   {
     "action": "repo.create_integration_secret",
-    "description": "An integration secret was created for a repository.",
+    "description": "A Codespaces or Dependabot secret was created for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2987,16 +3142,16 @@
   {
     "action": "repo.remove_actions_secret",
     "description": "A GitHub Actions secret was deleted for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository"
   },
   {
     "action": "repo.remove_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was deleted for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository"
   },
   {
     "action": "repo.remove_integration_secret",
-    "description": "An integration secret was deleted for a repository.",
+    "description": "A Codespaces or Dependabot secret was deleted for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3111,8 +3266,8 @@
   },
   {
     "action": "repo.update_actions_secret",
-    "description": "A GitHub Actions secret was updated.",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions secret was updated for a repository.",
+    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository"
   },
   {
     "action": "repo.update_actions_settings",
@@ -3121,8 +3276,8 @@
   },
   {
     "action": "repo.update_actions_variable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A GitHub Actions variable was updated for a repository.",
+    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository"
   },
   {
     "action": "repo.update_default_branch",
@@ -3131,7 +3286,7 @@
   },
   {
     "action": "repo.update_integration_secret",
-    "description": "An integration secret was updated for a repository.",
+    "description": "A Codespaces or Dependabot secret was updated for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3330,6 +3485,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repository_secret_scanning_non_provider_patterns.disabled",
+    "description": "Secret scanning for non-provider patterns was disabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
+    "action": "repository_secret_scanning_non_provider_patterns.enabled",
+    "description": "Secret scanning for non-provider patterns was enabled at the repository level.",
+    "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
@@ -3456,12 +3621,12 @@
   },
   {
     "action": "secret_scanning_alert.reopen",
-    "description": "A seret scanning alert was reopened.",
+    "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "secret_scanning_alert.resolve",
-    "description": "A seret scanning alert was resolved.",
+    "description": "A secret scanning alert was resolved.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3498,6 +3663,21 @@
     "action": "secret_scanning_push_protection.bypass",
     "description": "Triggered when a user bypasses the push protection on a secret detected by secret scanning.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.approve",
+    "description": "N/A",
+    "docs_reference_links": "A request to bypass secret scanning push protection was approved by a user."
+  },
+  {
+    "action": "secret_scanning_push_protection_request.deny",
+    "description": "N/A",
+    "docs_reference_links": "A request to bypass secret scanning push protection was denied by a user."
+  },
+  {
+    "action": "secret_scanning_push_protection_request.request",
+    "description": "N/A",
+    "docs_reference_links": "A user requested to bypass secret scanning push protection."
   },
   {
     "action": "sponsors.agreement_sign",
@@ -3835,6 +4015,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.pin_workflow",
+    "description": "A workflow was pinned.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "workflows.prepared_workflow_job",
     "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
@@ -3848,5 +4033,10 @@
     "action": "workflows.rerun_workflow_run",
     "description": "A workflow run was re-run.",
     "docs_reference_links": "/actions/managing-workflow-runs/re-running-workflows-and-jobs"
+  },
+  {
+    "action": "workflows.unpin_workflow",
+    "description": "A workflow was unpinned after previously being pinned.",
+    "docs_reference_links": "N/A"
   }
 ]

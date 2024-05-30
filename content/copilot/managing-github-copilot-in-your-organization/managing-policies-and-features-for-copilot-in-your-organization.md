@@ -52,5 +52,6 @@ shortTitle: Managing policies
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 - "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"
 {% ifversion ghec %}- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)"{% endif %}
-- "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
+- "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/about-github-copilot-chat-in-your-ide)"
+- "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)"
 - "[AUTOTITLE](/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli)"

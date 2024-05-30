@@ -94,7 +94,7 @@ To add a `repo:` filter, you must include the owner of the repository in the que
 
 ### Supported `is:` queries
 
-To filter notifications for specific activity on {% data variables.location.product_location %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`.
+To filter notifications for specific activity on {% data variables.product.prodname_dotcom %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`.
 
 - `is:check-suite`
 - `is:commit`

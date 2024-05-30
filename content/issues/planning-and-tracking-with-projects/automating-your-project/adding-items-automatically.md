@@ -1,13 +1,13 @@
 ---
 title: Adding items automatically
-intro: You can configure your project's built-in workflows to automatically add items from {% ifversion projects-v2-duplicate-auto-add %}repositories{% else%}a repository{% endif %} that match a filter.
+intro: 'You can configure your project''s built-in workflows to automatically add items from {% ifversion projects-v2-duplicate-auto-add %}repositories{% else%}a repository{% endif %} that match a filter.'
 versions:
   feature: projects-v2-auto-add
 type: tutorial
 topics:
   - Projects
 ---
-{% ifversion ghes > 3.8 %}
+{% ifversion ghes %}
 
 {% data reusables.projects.enable_enterprise_workflows %}
 

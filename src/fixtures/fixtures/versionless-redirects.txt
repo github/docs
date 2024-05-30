@@ -453,7 +453,8 @@
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 
-/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
 - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 - /articles/viewing-insights-for-your-organization
 - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization

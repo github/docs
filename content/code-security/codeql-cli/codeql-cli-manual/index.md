@@ -56,6 +56,7 @@ children:
   - /generate-extensible-predicate-metadata
   - /generate-log-summary
   - /generate-query-help
+  - /github-merge-results
   - /github-upload-results
   - /pack-add
   - /pack-bundle

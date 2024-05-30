@@ -52,12 +52,7 @@ export function ParameterRow({
     <>
       <tr className={`${isChild ? 'color-bg-subtle' : ''}`}>
         <td className={`${isChild ? 'px-3' : ''}`}>
-          <div
-            className={cx(
-              'pl-0 pt-1 pr-1 pb-1',
-              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`,
-            )}
-          >
+          <div className={cx('pl-0 pt-1 pr-1 pb-1', `${rowIndex > 0 && isChild ? 'my-3' : ''}`)}>
             <div>
               {rowParams.name ? (
                 <>

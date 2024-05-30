@@ -16,6 +16,8 @@ topics:
 shortTitle: View people in your enterprise
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 ## About the list of people in your enterprise
 
 To audit access to your enterprise's resources and manage license usage, you can see a list of all the people who have access to your enterprise.
@@ -102,7 +104,7 @@ For more information about how license usage is calculated across deployments, s
 
 The "Deployment" column groups users by the type of deployment they are using. For more information, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options)."
 
-"Cloud members" are a member or owner of any organization in your enterprise on {% data variables.product.prodname_dotcom_the_website %}. "Server members" have an account on a {% data variables.product.prodname_ghe_server %} instance owned by your enterprise. "Members on cloud and server" are users who match both these criteria.
+"Cloud members" are a member or owner of any organization in your enterprise on {% data variables.product.prodname_ghe_cloud %}. "Server members" have an account on a {% data variables.product.prodname_ghe_server %} instance owned by your enterprise. "Members on cloud and server" are users who match both these criteria.
 {% endif %}
 
 {% endif %}

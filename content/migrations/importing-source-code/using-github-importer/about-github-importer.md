@@ -1,11 +1,16 @@
 ---
 title: About GitHub Importer
-intro: "If your source code is stored on a code hosting service using Git, Subversion, Mercurial, or Team Foundation Version Control (TFVC) and is accessible from the public internet, you can move the code to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_importer %}."
+intro: "If your source code is stored on another Git-based hosting service, you can move the code to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_importer %}."
 redirect_from:
   - /articles/about-github-importer
   - /github/importing-your-projects-to-github/about-github-importer
   - /github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer
   - /get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer
+  - /articles/updating-commit-author-attribution-with-github-importer
+  - /github/importing-your-projects-to-github/updating-commit-author-attribution-with-github-importer
+  - /github/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer
+  - /get-started/importing-your-projects-to-github/importing-source-code-to-github/updating-commit-author-attribution-with-github-importer
+  - /migrations/importing-source-code/using-github-importer/updating-commit-author-attribution-with-github-importer
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,24 +18,17 @@ versions:
 
 ## About {% data variables.product.prodname_importer %}
 
-{% data variables.product.prodname_importer %} is a tool that quickly imports source code repositories, including commits and revision history, to {% data variables.product.prodname_dotcom_the_website %} for you.
+{% data variables.product.prodname_importer %} is a tool that quickly imports Git repositories from other hosting services to {% data variables.product.prodname_dotcom %}.
 
-During an import, depending on the version control system you're importing from, you can authenticate with your remote repository, update commit author attribution, and either import repositories with large files or, if you don't want to use {% data variables.large_files.product_name_long %}, remove large files.
+To get started with {% data variables.product.prodname_importer %}, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer#importing-a-repository-with-github-importer)."
 
-## Supported functionality by version control system
+## Capabilities and limitations of {% data variables.product.prodname_importer %}
 
-{% data reusables.migrations.github-importer-non-git-deprecation %}
-
-{% rowheaders %}
-
-| Import action | Subversion | Mercurial | TFVC | Git |
-|:--------------|:----------:|:---------:|:----------------------:|:---:|
-| Authenticate with remote repository | {% octicon "check" aria-label="Supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-| [Update commit author attribution](/migrations/importing-source-code/using-github-importer/updating-commit-author-attribution-with-github-importer) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Move large files to [Git Large File Storage](/repositories/working-with-files/managing-large-files/about-git-large-file-storage) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Remove large files from your repository | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-
-{% endrowheaders %}
+- {% data variables.product.prodname_importer %} imports the source code and commit history of a repository. It does not import other associated data from the hosting service, such as issues and pull requests.
+- During an import, you can authenticate with your remote repository. The repository must be accessible from the public internet. If the repository is hosted on a private network, {% data variables.product.prodname_importer %} won't be able to access it.
+- {% data variables.product.prodname_importer %} does not support repositories that use version control systems other than Git, such as Mercurial, Subversion, or Team Foundation Version Control (TFVC). For more information about alternatives to {% data variables.product.prodname_importer %}, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/about-source-code-imports-using-the-command-line)."
+- Repositories and individual files on {% data variables.product.prodname_dotcom %} are subject to size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+- {% data variables.product.prodname_importer %} does not move Git Large File Storage (LFS) objects from the source repository to the target repository. If you use Git LFS, you will need to either convert the Git LFS objects to regular files tracked by Git before running the migration, or move the Git LFS objects to the new repository separately after running the migration.
 
 ## Further reading
 

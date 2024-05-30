@@ -2,10 +2,11 @@
 import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
+import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
 
 const COOKIE_NAME = '_docs-events'
 
-const startVisitTime = Date.now()
+export const startVisitTime = Date.now()
 
 let initialized = false
 let cookieValue: string | undefined
@@ -18,7 +19,6 @@ let scrollDirection = 1
 let scrollFlipCount = 0
 let maxScrollY = 0
 let previousPath: string | undefined
-
 let hoveredUrls = new Set()
 
 function resetPageParams() {
@@ -94,6 +94,7 @@ type SendEventProps = {
   [EventType.link]: {
     link_url: string
     link_samesite?: boolean
+    link_samepage?: boolean
     link_container?: string
   }
   [EventType.page]: {}
@@ -118,6 +119,7 @@ type SendEventProps = {
     survey_vote: boolean
     survey_comment?: string
     survey_email?: string
+    survey_visit_duration?: number
   }
 }
 
@@ -146,11 +148,12 @@ export function sendEvent<T extends EventType>({
       page_event_id: pageEventId,
 
       // Content information
-      path: location.pathname,
-      hostname: location.hostname,
       referrer: getReferrer(document.referrer),
-      search: location.search,
-      href: location.href,
+      href: location.href, // full URL
+      hostname: location.hostname, // origin without protocol or port
+      path: location.pathname, // path without search or host
+      search: location.search, // also known as query string
+      hash: location.hash, // also known as anchor
       path_language: getMetaContent('path-language'),
       path_version: getMetaContent('path-version'),
       path_product: getMetaContent('path-product'),
@@ -158,6 +161,7 @@ export function sendEvent<T extends EventType>({
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
       status: Number(getMetaContent('status') || 0),
+      is_logged_in: isLoggedIn(),
 
       // Device information
       // os, os_version, browser, browser_version:
@@ -375,7 +379,22 @@ function initLinkEvent() {
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_samepage: sameSite && link.pathname === location.pathname,
       link_container: container?.dataset.container,
+    })
+  })
+
+  // Add tracking for scroll to top button
+  document.documentElement.addEventListener('click', (evt) => {
+    const target = evt.target as HTMLElement
+    if (!target.closest('.ghd-scroll-to-top')) return
+    const url = window.location.href.split('#')[0] // Remove hash
+    sendEvent({
+      type: EventType.link,
+      link_url: `${url}#scroll-to-top`,
+      link_samesite: true,
+      link_samepage: true,
+      link_container: 'static',
     })
   })
 }

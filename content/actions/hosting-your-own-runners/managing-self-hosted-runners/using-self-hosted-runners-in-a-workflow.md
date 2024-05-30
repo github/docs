@@ -17,6 +17,8 @@ shortTitle: Use runners in a workflow
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
 
+>[!NOTE]Action Runner Controller does not support multiple labels, only the name of the runner can be used in place of a label
+
 ## About self-hosted runner labels
 
 Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
@@ -58,7 +60,7 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
-- `self-hosted`: Default label applied to all self-hosted runners.
+- `self-hosted`: Default label applied to self-hosted runners.
 - `linux`, `windows`, or `macOS`: Applied depending on operating system.
 - `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
@@ -72,7 +74,7 @@ runs-on: [self-hosted, linux, ARM64]
 - `linux` - Only use a Linux-based runner.
 - `ARM64` - Only use a runner based on ARM64 hardware.
 
-The default labels are fixed and cannot be changed or removed. Consider using custom labels if you need more control over job routing.
+To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner. Actions Runner Controller does not support multiple labels.
 
 ## Using custom labels to route jobs
 

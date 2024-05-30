@@ -17,7 +17,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '20 */24 * * *' # Run every 24 hours at 20 minutes past the hour
+    - cron: '20 16 * * *' # Run every 24 hours at 20 minutes past the hour
   workflow_run:
     workflows: ['Azure Production - Build and Deploy']
     types:
@@ -58,7 +58,9 @@ jobs:
               if (context.payload.workflow_run.conclusion === "success") {
                 return ["en"]
               }
-              throw new Error(`It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+              console.warn(`NOTE! It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+              console.warn("This means we're not going to index anything in the next dependent step.")
+              return []
             }
 
             if (context.eventName === "workflow_dispatch") {
@@ -95,7 +97,7 @@ jobs:
   updateElasticsearchIndexes:
     needs: figureOutMatrix
     name: Update indexes
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' && needs.figureOutMatrix.outputs.matrix != '[]' }}
     runs-on: ubuntu-20.04-xl
     strategy:
       fail-fast: false
@@ -113,13 +115,13 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Clone docs-internal.popular-pages
+      - name: Clone docs-internal-data
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          repository: github/docs-internal.popular-pages
+          repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-          path: popular-pages
+          path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
@@ -168,8 +170,8 @@ jobs:
           VERSION: ${{ inputs.version }}
 
           # The sync-search-index recognizes this env var if you don't
-          # use the `--popular-pags <PATH>` option.
-          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
+          # use the `--docs-internal-data <PATH>` option.
+          DOCS_INTERNAL_DATA: docs-internal-data
 
         run: |
           mkdir /tmp/records

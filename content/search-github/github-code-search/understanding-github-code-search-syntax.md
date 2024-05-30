@@ -4,7 +4,7 @@ shortTitle: Code search syntax
 intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
@@ -238,18 +238,9 @@ You can also use regular expressions with the symbol qualifier. For example, the
 language:rust symbol:/^String::to_.*/
 ```
 
-Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages.
+Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages:
 
-- C#
-- Python
-- Go
-- Java
-- JavaScript
-- TypeScript
-- PHP
-- Protocol Buffers
-- Ruby
-- Rust
+{% data reusables.search.code-nav-supported-languages %}
 
 We are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source [Tree-sitter](https://github.com/tree-sitter) parser ecosystem, upon which symbol search is based.
 
@@ -323,3 +314,7 @@ printf("hello world\n");
 Code search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.
 
 If code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.
+
+## Case sensitivity
+
+Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive, and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`.

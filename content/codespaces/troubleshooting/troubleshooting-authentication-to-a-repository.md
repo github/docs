@@ -55,7 +55,7 @@ To use the token to authenticate in your codespace, you have the following optio
 - You can clone the repository with a URL that includes the access token. Replace `YOUR-VARIABLE` with the name of the environment variable or secret you created.
 
   ```shell
-  git clone https://PAT:$YOUR-VARIABLE@github.com/OWNER/REPO`
+  git clone https://USERNAME:$YOUR-VARIABLE@github.com/OWNER/REPO`
   ```
 
   This will store the access token for the specific repository, so you will be able to push to and pull from the repository without overriding the existing credential helper.

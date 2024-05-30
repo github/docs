@@ -24,7 +24,7 @@ You can use statuses with [protected branches](/rest/repos#branches) to prevent 
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
 
-The `status` can be `queued`, `in_progress`, or `completed`.
+The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
@@ -53,7 +53,7 @@ To use the endpoints to manage check suites, the {% data variables.product.prodn
 
 A check run is an individual test that is part of a check suite. Each run includes a status and conclusion.
 
-The status can be  `queued`, `in_progress`, or `completed`.
+The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
 - `action_required`
@@ -96,9 +96,6 @@ When a user clicks the button, {% data variables.product.prodname_dotcom %} send
 
 For a detailed example of how to set up requested actions with the REST API, see "[AUTOTITLE](/apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api#part-2-creating-the-octo-rubocop-ci-test)."
 
-{% ifversion status-check-retention %}
-
 ## Retention of checks data
 
 {% data reusables.pull_requests.retention-checks-data %}
-{% endif %}

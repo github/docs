@@ -49,7 +49,7 @@ ARC consists of a set of resources, some of which are created specifically for A
 Each resource that is deployed by ARC is given a name composed of:
 
 - an installation name, which is the installation name you specify when you install the Helm chart.
-- a resource identification suffix, which is is a string that identifies the resource type. This value is not configurable.
+- a resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
 
 {% note %}
 

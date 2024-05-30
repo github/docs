@@ -14,7 +14,7 @@ redirect_from:
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-You can follow these steps to remove your app from {% data variables.product.prodname_marketplace %}. The listing will be removed from {% data variables.product.prodname_marketplace %} immediately. Existing subscriptions will be canceled at the end of the current billing cycle. Although the app will be removed from {% data variables.product.prodname_marketplace %}, you will not be able to delete your app until the the current billing cycle ends.
+You can follow these steps to remove your app from {% data variables.product.prodname_marketplace %}. The listing will be removed from {% data variables.product.prodname_marketplace %} immediately. Existing subscriptions will be canceled at the end of the current billing cycle. Although the app will be removed from {% data variables.product.prodname_marketplace %}, you will not be able to delete your app until the current billing cycle ends.
 
 {% data reusables.apps.settings-step %}
 
