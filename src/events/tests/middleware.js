@@ -113,3 +113,57 @@ describe('POST /events', () => {
     expect(statusCode).toBe(400)
   })
 })
+
+// These are mostly placeholder tests for now since most of the
+// implementation of this endpoint is not yet written.
+describe('POST /events/survey/preview/v1', () => {
+  test('should repond with 400 when no comment is provided', async () => {
+    const body = JSON.stringify({
+      locale: 'en',
+      url: '/quickstart',
+      vote: 'yes',
+    })
+    const res = await post('/api/events/survey/preview/v1', {
+      body,
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    expect(res.statusCode).toBe(400)
+  })
+
+  test('should repond with 400 when comment is provided but empty', async () => {
+    const body = JSON.stringify({
+      locale: 'en',
+      url: '/quickstart',
+      vote: 'yes',
+      comment: '      ',
+    })
+    const res = await post('/api/events/survey/preview/v1', {
+      body,
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    expect(res.statusCode).toBe(400)
+  })
+
+  test('should repond with 200 when comment is provided', async () => {
+    const body = JSON.stringify({
+      locale: 'en',
+      url: '/quickstart',
+      vote: 'yes',
+      comment: 'Wonderful',
+    })
+    const res = await post('/api/events/survey/preview/v1', {
+      body,
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    const respBody = JSON.parse(res.body)
+    expect(res.statusCode).toBe(200)
+    expect(respBody.rating).toEqual(1.0)
+    expect(respBody.signals).toEqual([])
+  })
+})
