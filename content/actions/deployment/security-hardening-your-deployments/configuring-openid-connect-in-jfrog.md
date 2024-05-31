@@ -48,7 +48,7 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once your trusted is established on your JFrog Platform, you can update your {% data variables.product.prodname_actions %} workflow to work on the JFrog platform.
+Once you establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform, you can update your {% data variables.product.prodname_actions %} workflow file.
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
@@ -69,7 +69,7 @@ The following example uses the placeholder `YOUR_PROVIDER_NAME`.
           echo ACCESS_TOKEN=$ACCESS_TOKEN >> $GITHUB_OUTPUT
 ```
 
-The following example uses the placeholder `YOUR_AUDIENCE` with cURL.
+The following example show part of a {% data variables.product.prodname_actions %} workflow file using cURL.
 
 ```yaml
 - name: Get ID Token (cURL method)
