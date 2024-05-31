@@ -69,7 +69,7 @@ The following example uses the placeholder `YOUR_PROVIDER_NAME`.
           echo ACCESS_TOKEN=$ACCESS_TOKEN >> $GITHUB_OUTPUT
 ```
 
-The following example show part of a {% data variables.product.prodname_actions %} workflow file using cURL.
+The following example shows part of a {% data variables.product.prodname_actions %} workflow file using cURL.
 
 ```yaml
 - name: Get ID Token (cURL method)
