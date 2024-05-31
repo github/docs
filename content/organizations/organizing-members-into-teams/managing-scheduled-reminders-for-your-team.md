@@ -67,10 +67,8 @@ Team maintainers and organization owners can set scheduled reminders for any pul
 {% data reusables.reminders.scheduled-reminders %}
 {% data reusables.reminders.delete %}
 
-## Get mentioned on slack
-If you want your team members to be mentioned in the reminder Slack message and receive notifications, they will need to authorize the GitHub application on their Slack workspace. Each member should use the `/github signin` [command](https://github.com/integrations/slack/blob/master/README.md#getting-started) on their GitHub App private Slack conversation channel to complete the authorization. This ensures they receive notifications and mentions. For guidance on installation and getting started with the integration, refer to the information available [here](https://github.com/integrations/slack/blob/master/README.md).
-
 ## Further reading
 
+- [Getting started](https://github.com/integrations/slack?tab=readme-ov-file#getting-started) in the Slack integrations documentation
 - "[AUTOTITLE](/organizations/managing-organization-settings/managing-scheduled-reminders-for-your-organization)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)"
