@@ -246,6 +246,42 @@ $ git remote rm sofake
 
 Check that you've correctly typed the remote name.
 
+## Switching Branches
+
+To switch to an existing branch, use the `git checkout` command. This command needs the name of the branch you want to switch to.
+
+Here's an example:
+
+```bash
+$ git checkout feature_branch
+```
+
+If you get an error saying "pathspec 'feature_branch' did not match any file(s) known to git", make sure you've typed the branch name correctly.
+
+# Creating and Switching to a New Branch
+
+If you want to create a new branch and immediately switch to it, you can use the `git checkout -b` command. This command needs the name of the new branch.
+
+Here's an example:
+
+```bash
+$ git checkout feature_branch
+```
+
+This command will create a new branch called `new_feature_branch` and switch to it. If a branch with the same name already exists, you'll get an error saying "A branch named 'new_feature_branch' already exists".
+
+# Checking Which Branch You're On
+
+To see which branch you're currently on, you can use the `git branch` command. The branch you're currently on will be marked with an asterisk (*).
+
+Here's an example:
+
+```bash
+$ git branch
+```
+
+This command will list all the branches in your repository. The current branch will be marked with an asterisk (*).
+
 ## Further reading
 
 - "[Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
