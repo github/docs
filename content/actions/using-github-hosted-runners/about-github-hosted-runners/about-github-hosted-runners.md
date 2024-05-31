@@ -32,11 +32,8 @@ Using {% data variables.product.prodname_dotcom %}-hosted runners requires netwo
 
 {% ifversion github-hosted-runners-emus-entitlements %}
 
-{% note %}
-
-**Note:** {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -122,11 +119,8 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data variables.product.prodname_dotcom %}-hosted Linux runners support hardware acceleration for Android SDK tools, which makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
 
-{% note %}
-
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
-
-{% endnote %}
+> [!NOTE]
+> The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% warning %}
 
@@ -207,6 +201,16 @@ Windows and Ubuntu runners are hosted in Azure and subsequently have the same IP
 Since there are so many IP address ranges for {% data variables.product.prodname_dotcom %}-hosted runners, we do not recommend that you use these as allowlists for your internal resources. Instead, we recommend you use {% data variables.actions.hosted_runner %}s with a static IP address range, or self-hosted runners. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)" or "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
+
+## Communication requirements for {% data variables.product.prodname_dotcom %}-hosted runners and {% data variables.product.product_name %}
+
+A {% data variables.product.prodname_dotcom %}-hosted runner must establish connections to {% data variables.product.prodname_dotcom %}-owned endpoints to perform essential communication operations. In addition, your runner may require access to additional networks that you specify or utilize within an action.
+
+To ensure proper communications for {% data variables.product.prodname_dotcom %}-hosted runners between networks within your configuration, ensure that the following communications are allowed.
+
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
+
+{% data reusables.actions.runner-essential-communications %}
 
 ## The `etc/hosts` file
 

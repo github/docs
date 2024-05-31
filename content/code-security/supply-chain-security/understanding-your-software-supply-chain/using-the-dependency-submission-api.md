@@ -101,10 +101,12 @@ Alternatively, you can write your own action to submit dependencies for your pro
 
 {% data reusables.dependency-graph.sbom-intro %}
 
+### Generating a software bill of materials (SBOM)
+
 To generate an SBOM, you can use:
-- the {% data variables.product.prodname_dotcom %} user interface.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
-- the REST API. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
-- {% data variables.product.prodname_actions %}. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+- The **{% data variables.product.prodname_dotcom %} UI**.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
+- The **REST API**. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
+- **{% data variables.product.prodname_actions %}**. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 
 Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 --- | --- | ---
@@ -112,7 +114,11 @@ Action | Details | <span style="white-space: nowrap;">Maintained by {% data vari
 [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 [sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-You can then upload and submit the SBOM to the {% data variables.dependency-submission-api.name %} using one of the following actions so that you can receive {% data variables.product.prodname_dependabot_alerts %} on any dependencies that have known vulnerabilities. Actions that appear in both tables can be configured to both generate and submit an SBOM.
+### Submitting a software bill of materials (SBOM) to the {% data variables.dependency-submission-api.name %}
+
+To receive {% data variables.product.prodname_dependabot_alerts %} for dependencies that have known vulnerabilities, you can upload and submit the SBOM to the {% data variables.dependency-submission-api.name %}. To submit an SBOM to the {% data variables.dependency-submission-api.name %}, you can use one of the actions in the following table.
+
+>[!TIP] The [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) and the [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) can be used to both generate the SBOM and submit it to the {% data variables.dependency-submission-api.name %}.
 
 Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 ---  | --- | ---

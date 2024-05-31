@@ -34,6 +34,7 @@ import path from 'path'
 import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 
+import type { Page } from '@/types'
 import warmServer from '@/frame/lib/warm-server.js'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
@@ -49,22 +50,6 @@ type Options = {
   sourceDirectory: string
   output?: string
   verbose?: boolean
-}
-
-type Page = {
-  permalinks: Permalink[]
-  relativePath: string
-  fullPath: string
-  title: string
-  shortTitle?: string
-  intro: string
-  markdown: string
-  languageCode: string
-  versions: Record<string, string>
-}
-type Permalink = {
-  href: string
-  languageCode: string
 }
 
 export async function find(options: Options) {
@@ -111,7 +96,9 @@ export async function find(options: Options) {
   )
   if (options.output) {
     if (options.output.endsWith('.json')) {
-      fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      if (remaining.length) {
+        fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      }
     } else {
       fs.writeFileSync(options.output, remaining.join('\n'))
     }

@@ -66,6 +66,8 @@ If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can auto
 
 {% data reusables.organizations.team-synchronization %}
 
+If an organization exceeds 100,000 members, some UI experiences and API functionality may be degraded.
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

@@ -16,6 +16,9 @@ topics:
 shortTitle: '{% data variables.projects.projects_v1_board_caps %} permissions'
 allowTitleToDifferFromFilename: true
 ---
+
+{% data reusables.projects.project_boards_old %}
+
 ## Permissions overview
 
 There is only one owner of a user-owned {% data variables.projects.projects_v1_board %}; this permission cannot be shared with another personal account. In addition to the owner, other people can collaborate on {% data variables.projects.projects_v1_boards %}.

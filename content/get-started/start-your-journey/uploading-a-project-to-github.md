@@ -36,7 +36,7 @@ It's a good idea to create a new repository for each individual project you're w
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type a name for your project. For example, type "my-first-project."
-{% data reusables.repositories.add-description %}. For example, type "This is my first project on GitHub."
+{% data reusables.repositories.add-description %} For example, type "This is my first project on GitHub."
 {% data reusables.repositories.select-public-or-private %} Select "Public" if you want others to be able to see your project.
 {% data reusables.repositories.add-readme %} You will edit this file in a later step.
 {% data reusables.repositories.click-create %}
@@ -54,7 +54,7 @@ So far, you should only see one file listed in the repository, the `README.md` f
 
 Your repository's README file is typically the first item someone will see when visiting your repository. It usually contains information on what your project is about and why your project is useful.
 
-As we learned in the "Hello world" tutorial, the README file (`README.md`) is written in Markdown syntax. {% data reusables.getting-started.what-is-markdown %}
+As we learned in the "[AUTOTITLE](/get-started/start-your-journey/hello-world)" tutorial, the README file (`README.md`) is written in Markdown syntax. {% data reusables.getting-started.what-is-markdown %}
 
 In this step, we'll edit your project's `README.md` using Markdown so that it includes some basic information about your project.
 
@@ -89,7 +89,7 @@ If you set your repository visibility to "Public," the repository will be displa
 
 As you add, edit or delete files directly in the browser on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_dotcom %} will track these changes ("commits"), so you can start to manage your project's history and evolution.
 
-When making changes, remember that you can create a new branch from the `main` branch of your repository, so that you can experiment without affecting the main copy of files. Then, when you're happy with a set of a changes, open a pull request to merge the changes into your `main` branch. For a reminder of how to do this, see "[AUTOTITLE](/get-started/quickstart/hello-world)."
+When making changes, remember that you can create a new branch from the `main` branch of your repository, so that you can experiment without affecting the main copy of files. Then, when you're happy with a set of a changes, open a pull request to merge the changes into your `main` branch. For a reminder of how to do this, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)."
 
 ## Next steps
 

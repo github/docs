@@ -34,25 +34,25 @@ You can create and participate in issues, pull requests and team discussions, de
 
 ### {% data variables.product.prodname_github_issues %}
 
-- are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
-- are specific to a repository, and usually have a clear owner.
-- are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
+- Are useful for discussing specific details of a project such as bug reports, planned improvements and feedback
+- Are specific to a repository, and usually have a clear owner
+- Are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system
 
 ### Pull requests
 
-- allow you to propose specific changes.
-- allow you to comment directly on proposed changes suggested by others.
-- are specific to a repository.
+- Allow you to propose specific changes
+- Allow you to comment directly on proposed changes suggested by others
+- Are specific to a repository
 
 {% ifversion fpt or ghec %}
 
 ### {% data variables.product.prodname_discussions %}
 
-- are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
-- may span many repositories.
-- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
-- often don’t have a clear owner.
-- often do not result in an actionable task.
+- Are like a forum, and are best used for open-form ideas and discussions where collaboration is important
+- May span many repositories
+- Provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base
+- Often don’t have a clear owner
+- Often do not result in an actionable task
 {% endif %}
 
 {% ifversion team-discussions %}

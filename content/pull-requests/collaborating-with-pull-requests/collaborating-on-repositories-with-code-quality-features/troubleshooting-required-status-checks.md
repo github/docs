@@ -63,6 +63,7 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
 
+When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 {% endwarning %}
 
 ### Example

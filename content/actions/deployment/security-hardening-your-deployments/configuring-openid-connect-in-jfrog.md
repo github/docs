@@ -27,6 +27,17 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
 {% data reusables.actions.oidc-security-notice %}
 
+- To be secure, you need to set a Claims JSON in JFrog when configuring identity mappings. For more information, see "[AUTOTITLE](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-identity-mappings)" and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)."
+
+    For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
+
+    ```json copy
+    {
+      "iss": "https://token.actions.githubusercontent.com",
+      "repository": "octo-org/octo-repo"
+    }
+    ```
+
 ## Adding the identity provider to JFrog
 
 To use OIDC with JFrog, establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform. For more information about this process, see [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation.
@@ -37,7 +48,7 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once your trusted is established on your JFrog Platform, you can update your {% data variables.product.prodname_actions %} workflow to work on the JFrog platform.
+Once you establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform, you can update your {% data variables.product.prodname_actions %} workflow file.
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
@@ -58,7 +69,7 @@ The following example uses the placeholder `YOUR_PROVIDER_NAME`.
           echo ACCESS_TOKEN=$ACCESS_TOKEN >> $GITHUB_OUTPUT
 ```
 
-The following example uses the placeholder `YOUR_AUDIENCE` with cURL.
+The following example shows part of a {% data variables.product.prodname_actions %} workflow file using cURL.
 
 ```yaml
 - name: Get ID Token (cURL method)
