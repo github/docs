@@ -8,6 +8,8 @@ export const DEFAULT_HIGHLIGHT_FIELDS = ['title', 'content']
 
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
+const MAX_AGGREGATE_SIZE = 30
+
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
@@ -215,6 +217,7 @@ function getAggregations(aggregate) {
     aggs[key] = {
       terms: {
         field: key,
+        size: MAX_AGGREGATE_SIZE,
       },
     }
   }
