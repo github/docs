@@ -64,11 +64,11 @@ When you use {% data variables.product.prodname_copilot %} it will collect usage
 
 #### Prompts
 
-A Prompt is the collection of code and supporting contextual information {% data variables.product.prodname_copilot %} sends to {% data variables.product.company_short %} to generate Suggestions, including data you submit through a chat interface. {% data variables.product.prodname_copilot %} in the code editor retains Prompts unless you have disabled code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Prompts in order to provide the Service.
+A Prompt is the collection of code and supporting contextual information {% data variables.product.prodname_copilot %} sends to {% data variables.product.company_short %} to generate Suggestions, including data you submit through a chat interface. {% data variables.product.prodname_copilot %} in the code editor retains Prompts unless you have disabled code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} and {% data variables.product.prodname_copilot_mobile_short %} retain Prompts in order to provide the Service.
 
 #### Suggestions
 
-A Suggestion is the code, functions, or other output returned to you by {% data variables.product.prodname_copilot %} after a Prompt is received and processed by the AI-model. {% data variables.product.prodname_copilot %} in the code editor retains Suggestions unless you disable code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Suggestions in order to provide the Service.
+A Suggestion is the code, functions, or other output returned to you by {% data variables.product.prodname_copilot %} after a Prompt is received and processed by the AI-model. {% data variables.product.prodname_copilot %} in the code editor retains Suggestions unless you disable code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} and {% data variables.product.prodname_copilot_mobile_short %} retain Suggestions in order to provide the Service.
 
 ### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
 
