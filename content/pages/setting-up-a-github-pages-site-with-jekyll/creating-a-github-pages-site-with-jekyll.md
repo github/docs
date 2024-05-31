@@ -104,7 +104,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. From the command line, run `bundle install`.
 1. Open the `.gitignore` file that Jekyll created and ignore the gems lock file by adding this line:
 
-   ```gitignore
+   ```shell
    Gemfile.lock
    ```
 
