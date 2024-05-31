@@ -48,7 +48,7 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once you establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform, you can update your {% data variables.product.prodname_actions %} workflow.
+Once you establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform, you can update your {% data variables.product.prodname_actions %} workflow file.
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
