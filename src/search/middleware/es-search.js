@@ -48,6 +48,7 @@ export async function getSearchResults({
   highlights,
   include,
   toplevel,
+  aggregate,
 }) {
   if (topics && !Array.isArray(topics)) {
     throw new Error("'topics' has to be an array")
@@ -83,6 +84,8 @@ export async function getSearchResults({
   const matchQuery = {
     bool: {
       should: matchQueries,
+      // This allows filtering by toplevel later.
+      minimum_should_match: 1,
     },
   }
 
@@ -114,11 +117,14 @@ export async function getSearchResults({
   }
   const highlight = getHighlightConfiguration(query, highlightFields)
 
+  const aggs = getAggregations(aggregate)
+
   const searchQuery = {
     index: indexName,
     highlight,
     from,
     size,
+    aggs,
 
     // Since we know exactly which fields from the source we're going
     // need we can specify that here. It's an inclusion list.
@@ -185,6 +191,7 @@ export async function getSearchResults({
     highlightFields,
     include,
   })
+  const aggregations = getAggregationsResult(aggregate, result.aggregations)
   const t1 = new Date()
 
   const meta = {
@@ -197,7 +204,38 @@ export async function getSearchResults({
     size,
   }
 
-  return { meta, hits }
+  return { meta, hits, aggregations }
+}
+
+function getAggregations(aggregate) {
+  if (!aggregate || !aggregate.length) return undefined
+
+  const aggs = {}
+  for (const key of aggregate) {
+    aggs[key] = {
+      terms: {
+        field: key,
+      },
+    }
+  }
+  return aggs
+}
+
+function getAggregationsResult(aggregate, result) {
+  if (!aggregate || !aggregate.length) return
+  return Object.fromEntries(
+    aggregate.map((key) => [
+      key,
+      result[key].buckets
+        .map((bucket) => {
+          return {
+            key: bucket.key,
+            count: bucket.doc_count,
+          }
+        })
+        .sort((a, b) => a.key.localeCompare(b.key)),
+    ]),
+  )
 }
 
 export async function getAutocompleteSearchResults({ indexName, query, size }) {

@@ -18,6 +18,14 @@ Code search is integrated with features in the search interface on {% data varia
 
 {% data reusables.search.non-code-search-explanation %}
 
+## Code navigation
+
+{% data variables.product.prodname_dotcom %} code search provides code navigation for supported languages. This includes jumping to the definition of and finding references for programming language constructs like classes, structs, functions, and methods. See "[AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github)."
+
+Supported languages for code navigation include:
+
+{% data reusables.search.code-nav-supported-languages %}
+
 ## Limitations
 
 We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom%} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom_the_website %}. However, very large repositories may not be indexed at this time, and not all code is indexed.

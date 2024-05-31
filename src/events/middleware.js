@@ -77,4 +77,32 @@ router.post(
   }),
 )
 
+router.post(
+  '/survey/preview/v1',
+  catchMiddlewareError(async function previewComment(req, res) {
+    noCacheControl(res)
+
+    const { comment, locale, url, vote } = req.body
+
+    console.log(`The comment was posted in ${locale} on ${url} with vote ${vote}`)
+
+    if (!comment || !comment.trim()) {
+      return res.status(400).json({ message: 'Empty comment' })
+    }
+
+    const signals = []
+    const rating = 1.0
+
+    // if (comment.includes('@') && !comment.includes(' ')) {
+    //   // XXX Make it a simple email validator
+    //   signals.push({
+    //     email: 'Looks like an email address',
+    //   })
+    //   rating -= 0.1
+    // }
+
+    return res.json({ rating, signals })
+  }),
+)
+
 export default router

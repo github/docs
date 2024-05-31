@@ -142,12 +142,12 @@ updates:
     open-pull-requests-limit: 0
     registries:
       - example
-  {%- ifversion dependabot-grouped-security-updates-config %}- package-ecosystem: "gomod"
+  {% ifversion dependabot-grouped-security-updates-config %}- package-ecosystem: "gomod"
     groups:
       golang:
         applies-to: security-updates
         patterns:
-          - "golang.org*"{%- endif %}
+          - "golang.org*"{% endif %}
 ```
 
 {% note %}
