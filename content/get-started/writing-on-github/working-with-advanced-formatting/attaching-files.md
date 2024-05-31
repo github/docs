@@ -46,7 +46,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% endif %}
 
-When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)".{% endif %}
+When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)."{% endif %}
 
 {% note %}
 
@@ -55,6 +55,7 @@ When you attach a file, it is uploaded immediately to {% data variables.product.
 {% endnote %}
 
 The maximum file size is:
+
 - 10MB for images and gifs{% ifversion fpt or ghec %}
 - 10MB for videos uploaded to a repository owned by a user or organization on a free {% data variables.product.prodname_dotcom %} plan
 - 100MB for videos uploaded to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan{% elsif ghes %}
@@ -69,22 +70,30 @@ The maximum file size is:
 
 We support these files:
 
-- PNG (_.png_)
-- GIF (_.gif_)
-- JPEG (_.jpg_, _.jpeg_)
+- PNG (`.png`)
+- GIF (`.gif`)
+- JPEG (`.jpg`, `.jpeg`)
 {%- ifversion svg-support %}
-- SVG (_.svg_)
+- SVG (`.svg`)
 {%- endif %}
-- Log files (_.log_)
-- Markdown files (_.md_)
-- Microsoft Word (_.docx_), PowerPoint (_.pptx_), and Excel (_.xlsx_) documents
-- Text files (_.txt_)
-- PDFs (_.pdf_)
-- ZIP (_.zip_, _.gz_, _.tgz_){% ifversion fpt or ghec or ghes %}
-- Video (_.mp4_, _.mov_, _.webm_){% endif %}
+- Log files (`.log`)
+- Markdown files (`.md`)
+- Microsoft Word (`.docx`), PowerPoint (`.pptx`), and Excel (`.xlsx`) documents
+- Text files (`.txt`)
+- Patch files (`.patch`)
 
-{% ifversion fpt or ghec or ghes %}{% note %}
+  {% note %}
 
-**Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using h.264 for greatest compatibility.
+  **Note:** If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
 
-{% endnote %}{% endif %}
+  {% endnote %}
+
+- PDFs (`.pdf`)
+- ZIP (`.zip`, `.gz`, `.tgz`)
+- Video (`.mp4`, `.mov`, `.webm`)
+
+  {% note %}
+
+  **Note:** Video codec compatibility is browser specific, and it's possible that a video you upload to one browser is not viewable on another browser. At the moment we recommend using H.264 for greatest compatibility.
+
+  {% endnote %}

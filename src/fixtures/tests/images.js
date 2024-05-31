@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
 import { get, head, getDOM } from '#src/tests/helpers/e2etest.js'
@@ -13,18 +14,18 @@ describe('render Markdown image tags', () => {
     const sources = $('source', pictures)
     expect(sources.length).toBe(1)
     const srcset = sources.attr('srcset')
-    expect(srcset).toBe(`/assets/cb-914945/mw-${MAX_WIDTH}/images/_fixtures/screenshot.webp`)
+    expect(srcset).toBe(`/assets/cb-646451/mw-${MAX_WIDTH}/images/_fixtures/screenshot.webp 2x`)
     const type = sources.attr('type')
     expect(type).toBe('image/webp')
 
     const imgs = $('img', pictures)
     expect(imgs.length).toBe(1)
     const src = imgs.attr('src')
-    expect(src).toBe('/assets/cb-914945/images/_fixtures/screenshot.png')
+    expect(src).toBe('/assets/cb-646451/images/_fixtures/screenshot.png')
     const alt = imgs.attr('alt')
     expect(alt).toBe('This is the alt text')
 
-    const res = await get(srcset, { responseType: 'buffer' })
+    const res = await get(srcset.split(' ')[0], { responseType: 'buffer' })
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/webp')
 
@@ -41,10 +42,24 @@ describe('render Markdown image tags', () => {
     expect(height).toBe(Math.round((1494 * MAX_WIDTH) / 2000))
   })
 
+  test('images have density specified', async () => {
+    const $ = await getDOM('/get-started/images/retina-image')
+
+    const pictures = $('#article-contents picture')
+    expect(pictures.length).toBe(3)
+
+    const sources = $('source', pictures)
+    expect(sources.length).toBe(3)
+
+    expect(sources.eq(0).attr('srcset')).toContain('1x') // 0
+    expect(sources.eq(1).attr('srcset')).toContain('2x') // 1
+    expect(sources.eq(2).attr('srcset')).toContain('2x') // 2
+  })
+
   test('image inside a list keeps its span', async () => {
     const $ = await getDOM('/get-started/images/images-in-lists')
 
-    const imageSpan = $('#article-contents > div > ol > li > span.procedural-image-wrapper')
+    const imageSpan = $('#article-contents > div > ol > li > div.procedural-image-wrapper')
     expect(imageSpan.length).toBe(1)
   })
 

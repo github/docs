@@ -31,9 +31,13 @@ shortTitle: Upgrading GHES
 
 To upgrade an instance, you must plan and communicate the upgrade, choose the appropriate package, back up your data, and then perform the upgrade.
 
+> [!NOTE] Upgrading to a new feature release will cause a few hours of downtime, during which none of your users will be able to use the enterprise. You can inform your users about downtime by publishing a global announcement banner, using your enterprise settings or the REST API. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)" and "[AUTOTITLE](/rest/enterprise-admin#announcements)."
+
 ## Prerequisites
 
 To successfully upgrade {% data variables.location.product_location %}, the instance's data disk must be at least 15% free. {% data variables.product.company_short %} recommends ensuring there is more free storage on the disk. In some rare cases, for customers with large data volumes, this threshold may differ.
+
+{% data reusables.enterprise_installation.preflight-checks %}
 
 ## Preparing to upgrade
 
@@ -48,7 +52,7 @@ To prepare for an upgrade, plan the upgrade path, optionally upgrade {% data var
 
    {% endnote %}
 
-1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run.
+1. If {% data variables.location.product_location %} uses ephemeral self-hosted runners for {% data variables.product.prodname_actions %} and you've disabled automatic updates, upgrade your runners to the version of the runner application that your upgraded instance will run. To find the minimum required version for your release, see "[AUTOTITLE](/admin/all-releases#minimum-github-actions-runner-application-versions)."
 1. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
    {% note %}
@@ -79,7 +83,7 @@ There are two types of snapshots:
 | Platform | Snapshot method | Documentation |
 |---|---|---|
 | Amazon AWS | Disk | [Create Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html) in the AWS documentation
-| Azure | VM | [Back up an Azure VM from the VM settings](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm) in Microsoft Learn
+| Azure | VM | [Create a snaphot of a virtual hard disk on an Azure VM](https://learn.microsoft.com/azure/virtual-machines/snapshot-copy-managed-disk) in Microsoft Learn
 | Hyper-V | VM | [Enable or disable checkpoints in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v) in Microsoft Learn
 | Google Compute Engine | Disk | [Create and manage disk snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots) in the Google Cloud documentation
 | VMware | VM | [Taking Snapshots of a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html) in VMware Docs
@@ -192,7 +196,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
    {% note %}
 
-   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node](#upgrading-the-primary-node)."
+   **Note**: When upgrading the primary node in a high availability configuration, the instance should already be in maintenance mode if you are following the instructions in "[Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)."
 
    {% endnote %}
 
@@ -221,7 +225,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    {% ifversion ghes-upgrade-complete-indicator %}
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
-   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %}{%- endif %} For more information{% ifversion ghes < 3.12 %} about the utility{% endif %}, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs)."
+   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %}{%- endif %} For more information{% ifversion ghes < 3.12 %} about the utility{% endif %}, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs)."
 
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 

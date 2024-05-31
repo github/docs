@@ -48,7 +48,6 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
@@ -67,7 +66,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner labels are:
 <tbody>
 <tr>
 <td>
-<code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
+<code>ubuntu-latest</code>,<code>ubuntu-24.04</code> [Beta], <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
 </td>
 <td>
 The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
@@ -83,10 +82,10 @@ The <code>windows-latest</code> label currently uses the Windows 2022 runner ima
 </tr>
 <tr>
 <td>
-<code>macos-latest</code>, <code>macos-14</code> [Beta], <code>macos-13</code>, <code>macos-12</code>, <code>macos-11</code>
+<code>macos-latest</code>, <code>macos-14</code>, <code>macos-13</code>, <code>macos-12</code>, <code>macos-11</code>
 </td>
 <td>
-The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
+The <code>macos-latest</code> workflow label currently uses the macOS 14 runner image.
 </td>
 </tr>
 </tbody>
@@ -113,13 +112,8 @@ runs-on: ubuntu-latest
 ```
 
 For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
 
 ### Choosing self-hosted runners
-
-{% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 

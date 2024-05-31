@@ -227,9 +227,9 @@ This information may be sufficient to debug trivial test failures.
 
 For failures that are harder to debug, you can import `EmptyThen.testproj`
 into {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %}, execute `EmptyThen.ql`, and view the results in the
-`Test.java` example code. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)" in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} help.
+`Test.java` example code. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#choosing-a-database-to-analyze)."
 
 ## Further reading
 
 - "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
-- "[Testing {% data variables.product.prodname_codeql %} queries in {% data variables.product.prodname_vscode %}](https://codeql.github.com/docs/codeql-for-visual-studio-code/testing-codeql-queries-in-visual-studio-code/#testing-codeql-queries-in-visual-studio-code)."
+- "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/testing-codeql-queries-in-vs-code)."

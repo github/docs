@@ -9,7 +9,7 @@ shortTitle: Set profile to private
 ---
 ## About private profiles
 
-To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
+To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
 
 After making your profile private, you can still view all your information when you visit your own profile.
 
@@ -38,7 +38,7 @@ When your profile is private, the following content is hidden from your profile 
 
 By making your profile private, you will not remove or hide past activity; this setting only applies to your activity while the private setting is enabled.
 
-When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
+When your profile is private, your {% data variables.product.prodname_dotcom %} activity will not appear in the following locations:
 
 - Activity feeds for other users.
 - Discussions leaderboards.
@@ -54,5 +54,6 @@ When your profile is private, your {% data variables.product.prodname_dotcom_the
 ## Changing your profile's privacy settings
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Contributions & Activity", select the checkbox next to **Make profile private and hide activity**.
+1. Navigate to the "Public profile" section, and scroll down to "Contributions & Activity"
+1. Select the checkbox next to **Make profile private and hide activity**.
 {% data reusables.user-settings.update-preferences %}

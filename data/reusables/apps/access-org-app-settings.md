@@ -1,0 +1,1 @@
+1. In the sidebar, under "Third-party Access," click **{% data variables.product.prodname_github_apps %}**. A list of the {% data variables.product.prodname_github_apps %} installed on your organization will be displayed.

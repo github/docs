@@ -62,6 +62,8 @@ You can also configure and manage team synchronization for an individual organiz
 
 ## Managing whether team synchronization can re-invite non-members to organizations
 
+{% data reusables.saml.team-sync-pending-invites %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}

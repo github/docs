@@ -46,9 +46,7 @@ You can use the REST API to manage your packages. For more information, see the 
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-{% ifversion packages-delete-with-github-token-api %}
 With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
-{% endif %}
 
 {% endif %}
 
@@ -84,8 +82,6 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
 
 {% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
@@ -107,8 +103,6 @@ To find all of the private packages you have published to {% data variables.prod
 For more information about the `deletePackageVersion` mutation, see "[AUTOTITLE](/graphql/reference/mutations#deletepackageversion)."
 
 You cannot directly delete an entire package using GraphQL, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -152,8 +146,6 @@ To delete an entire repository-scoped package, you must have admin permissions t
 1. At the bottom of the page, under "Danger Zone", click **Delete this package**.
 1. To confirm, review the confirmation message, enter your package name, and click **I understand, delete this package.**
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}
 
 To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
@@ -175,7 +167,6 @@ To review who can delete a package, see "[Required permissions](#required-permis
 1. At the bottom of the page, under "Danger zone", click **Delete this package**.
 1. In the confirmation box, type the name of the package to confirm you want to delete it.
 1. Click **I understand the consequences, delete this package**.
-{% endif %}
 
 ## Restoring packages
 
@@ -212,8 +203,6 @@ To review who can restore a package in an organization, see "[Required permissio
 1. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
 1. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Restoring a user-account scoped package
 
 You can restore a deleted package through your personal account settings, if the package was in one of your repositories or scoped to your personal account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
@@ -222,8 +211,6 @@ You can restore a deleted package through your personal account settings, if the
 1. In the left sidebar, click **Packages**.
 1. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
 1. To confirm, type the name of the package and click **I understand the consequences, restore this package**.
-
-{% endif %}
 
 ### Restoring a package version
 

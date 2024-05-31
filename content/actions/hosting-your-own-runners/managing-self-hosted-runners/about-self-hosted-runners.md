@@ -28,11 +28,10 @@ You can add self-hosted runners at various levels in the management hierarchy:
 {% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+> [!NOTE]
+> {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
@@ -43,14 +42,13 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 
 {% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted runners are a highly configurable way to run workflows in your own custom environment.
 
-{% ifversion fpt or ghec or ghes %}
 **{% data variables.product.prodname_dotcom %}-hosted runners:**
 - Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
 - Are managed and maintained by {% data variables.product.prodname_dotcom %}.
 - Provide a clean instance for every job execution.
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
-**Self-hosted runners:**{% endif %}
+**Self-hosted runners:**
 - Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
@@ -75,6 +73,7 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
 
+{% ifversion fpt or ghec or ghes > 3.12 %}- **Job execution time** - Each job in a workflow can run for up to 5 days of execution time. If a job reaches this limit, the job is terminated and fails to complete.{% endif %}
 {% data reusables.actions.usage-workflow-run-time %}
 - **Job queue time** - Each job for self-hosted runners that has been queued for at least 24 hours will be canceled. The actual time in queue can reach up to 48 hours before cancellation occurs. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-api-requests %}
@@ -92,20 +91,18 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### Linux
 
-- Red Hat Enterprise Linux 7 or later
-- CentOS 7 or later
-- Oracle Linux 7 or later
+- Red Hat Enterprise Linux 8 or later
+- CentOS 8 or later
+- Oracle Linux 8 or later
 - Fedora 29 or later
-- Debian 9 or later
-- Ubuntu 16.04 or later
-- Linux Mint 18 or later
-- openSUSE 15 or later
-- SUSE Enterprise Linux (SLES) 12 SP2 or later
+- Debian 10 or later
+- Ubuntu 20.04 or later
+- Linux Mint 20 or later
+- openSUSE 15.2 or later
+- SUSE Enterprise Linux (SLES) 15 SP2 or later
 
 ### Windows
 
-- Windows 7 64-bit
-- Windows 8.1 64-bit
 - Windows 10 64-bit
 - Windows 11 64-bit
 - Windows Server 2016 64-bit
@@ -155,65 +152,13 @@ For caching to work, the runner must be able to communicate with the blob storag
 
 {% ifversion fpt or ghec %}
 
-You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
+You must ensure that the machine has the appropriate network access with at least 70 kilobits per second upload and download speed to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
-{% note %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
-
-{% endnote %}
-
-**Needed for essential operations:**
-
-```shell copy
-github.com
-api.github.com
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading actions:**
-
-```shell copy
-codeload.github.com
-```
-
-**Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
-
-```shell copy
-results-receiver.actions.githubusercontent.com
-*.blob.core.windows.net
-```
-
-**Needed for runner version updates:**
-
-```shell copy
-objects.githubusercontent.com
-objects-origin.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
-```
-
-**Needed for retrieving OIDC tokens:**
-
-```shell copy
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
-
-```shell copy
-*.pkg.github.com
-ghcr.io
-```
-
-**Needed for {% data variables.large_files.product_name_long %}**
-
-```shell copy
-github-cloud.githubusercontent.com
-github-cloud.s3.amazonaws.com
-```
+{% data reusables.actions.runner-essential-communications %}
 
 In addition, your workflow may require access to other network resources.
 
@@ -241,13 +186,11 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
-{% note %}
-
-**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
-
-{% endnote %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
 {% endif %}
 

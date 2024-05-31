@@ -40,7 +40,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 {% data reusables.releases.release-title %}
 1. In the "Describe this release" field, type a description for your release.
    If you @mention anyone in the description, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
-   {% ifversion fpt or ghec or ghes %} Alternatively, you can automatically generate your release notes by clicking {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% endif %}
+    Alternatively, you can automatically generate your release notes by clicking **Generate release notes**.
 {% data reusables.releases.finish-release %}
 
 {% endwebui %}

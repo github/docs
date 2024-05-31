@@ -57,6 +57,8 @@ By default, npm uses the `name` field of the `package.json` file to determine th
 
 If you're publishing a package that includes a scope prefix, include the scope in the name of your `package.json` file. For example, if your npm scope prefix is "octocat" and the package name is "hello-world", the `name` in your `package.json` file should be `@octocat/hello-world`. If your npm package uses a scope prefix and the package is public, you need to use the option `npm publish --access public`. This is an option that npm requires to prevent someone from publishing a private package unintentionally.
 
+{% ifversion artifact-attestations %}If you would like to publish your package with provenance, include the `--provenance` flag with your `npm publish` command. This allows you to publicly and verifiably establish where and how your package was built, which increases supply chain security for people who consume your package. For more information, see [Generating provenance statements](https://docs.npmjs.com/generating-provenance-statements) in the npm documentation.{% endif %}
+
 This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an `.npmrc` file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
 ```yaml copy
@@ -75,7 +77,7 @@ jobs:
           node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm publish
+      - run: npm publish {% ifversion artifact-attestations %}--provenance --access public{% endif %}
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```

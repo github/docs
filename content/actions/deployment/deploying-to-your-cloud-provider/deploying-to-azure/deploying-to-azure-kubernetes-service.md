@@ -10,22 +10,18 @@ topics:
   - CD
   - Azure Kubernetes Service
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghes %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
-
-{% endif %}
 
 ## Prerequisites
 
@@ -86,7 +82,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
-    
+
     - name: Gets K8s context
       uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
       with:
@@ -101,13 +97,13 @@ jobs:
         renderEngine: 'helm'
         helmChart: {% raw %}${{ env.CHART_PATH }}{% endraw %}
         overrideFiles: {% raw %}${{ env.CHART_OVERRIDE_PATH }}{% endraw %}
-        overrides: |     
+        overrides: |
           replicas:2
-        helm-version: 'latest' 
+        helm-version: 'latest'
       id: bake
 
     - name: Deploys application
-    - uses: Azure/k8s-deploy@dd4bbd13a5abd2fc9ca8bdcb8aee152bb718fa78
+      uses: Azure/k8s-deploy@dd4bbd13a5abd2fc9ca8bdcb8aee152bb718fa78
       with:
         manifests: {% raw %}${{ steps.bake.outputs.manifestsBundle }}{% endraw %}
         images: |

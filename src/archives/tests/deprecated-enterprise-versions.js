@@ -1,13 +1,11 @@
-import { describe, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
-
 describe('enterprise deprecation', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('redirects language-prefixed requests for deprecated enterprise content', async () => {
     const res = await get('/en/enterprise/2.12')
@@ -189,7 +187,7 @@ describe('does not render survey prompt or contribution button', () => {
 })
 
 describe('JS and CSS assets', () => {
-  it('returns the expected CSS file > 2.18', async () => {
+  test('returns the expected CSS file > 2.18', async () => {
     const result = await get('/enterprise/2.18/dist/index.css', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -203,7 +201,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
-  it('returns the expected CSS file', async () => {
+  test('returns the expected CSS file', async () => {
     const result = await get('/stylesheets/index.css', {
       headers: {
         Referrer: '/en/enterprise/2.13',
@@ -214,7 +212,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
-  it('returns the expected JS file > 2.18 by using Referrer', async () => {
+  test('returns the expected JS file > 2.18 by using Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -225,7 +223,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
-  it("cannot return the archived asset if there's no Referrer", async () => {
+  test("cannot return the archived asset if there's no Referrer", async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         // No Referrer header set at all.
@@ -234,7 +232,7 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(404)
   })
 
-  it('cannot return the archived asset if empty Referrer', async () => {
+  test('cannot return the archived asset if empty Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '',
@@ -243,7 +241,7 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(404)
   })
 
-  it('returns the expected JS file', async () => {
+  test('returns the expected JS file', async () => {
     const result = await get('/javascripts/index.js', {
       headers: {
         Referrer: '/en/enterprise/2.13',
@@ -254,7 +252,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
-  it('returns the expected image', async () => {
+  test('returns the expected image', async () => {
     const result = await get('/assets/images/octicons/hamburger.svg', {
       headers: {
         Referrer: '/en/enterprise/2.17',
@@ -265,7 +263,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('image/svg+xml; charset=utf-8')
   })
 
-  it('returns the expected node_modules', async () => {
+  test('returns the expected node_modules', async () => {
     const result = await get(
       '/node_modules/instantsearch.js/dist/instantsearch.production.min.js',
       {
@@ -279,7 +277,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
-  it('returns the expected favicon', async () => {
+  test('returns the expected favicon', async () => {
     const result = await get('/assets/images/site/favicon.svg', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -290,7 +288,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('image/svg+xml; charset=utf-8')
   })
 
-  it('returns the expected CSS file ( <2.13 )', async () => {
+  test('returns the expected CSS file ( <2.13 )', async () => {
     const result = await get('/assets/stylesheets/application.css', {
       headers: {
         Referrer: '/en/enterprise/2.12',
@@ -301,7 +299,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
-  it('ignores invalid paths', async () => {
+  test('ignores invalid paths', async () => {
     const result = await get('/pizza/index.css', {
       headers: {
         Referrer: '/en/enterprise/2.13',

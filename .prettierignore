@@ -3,7 +3,6 @@ src/bookmarklets/
 src/open-source/scripts/add-pr-links.js
 /.next/
 
-# jest --coverage option
 /.coverage
 /coverage
 

@@ -30,6 +30,7 @@ export const myRule = {
   names: [],
   description: '',
   tags: [],
+  parser: 'markdownit',
   function: (params, onError) => {
     // Logic to check for violations of the rule
 
@@ -78,6 +79,7 @@ export const myRule = {
   names: [],
   description: '',
   tags: [],
+  parser: 'markdownit',
   asynchronous: true
   function: (params, onError) => {
     // Logic to check for violations of the rule

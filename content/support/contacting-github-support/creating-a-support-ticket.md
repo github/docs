@@ -27,6 +27,8 @@ topics:
 
 {% ifversion fpt %}
 {% data reusables.support.free-and-paid-support %}
+
+To share feedback with {% data variables.product.company_short %}, you can use the {% data variables.contact.community_feedback_discussions %}. For more information, see "[AUTOTITLE](/support/sharing-feedback-with-github)."
 {% endif %}
 
 {% ifversion ghes or ghec %}
@@ -50,7 +52,7 @@ After you create your ticket, you can view your ticket and the responses from {%
 
 ## What to include in your support ticket
 
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
+{% data variables.contact.github_support %} does not have access to any private or internal {% data variables.product.company_short %} resources. Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
 
 - Obtain information that can help {% data variables.contact.github_support %} track, prioritize, reproduce, or investigate the issue.
 - Include full URLs, repository names, and usernames wherever possible.

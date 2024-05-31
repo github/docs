@@ -170,8 +170,8 @@ or `401` status, or return a different subset of information.
 To help you gracefully handle these situations, all API responses for requests
 made with valid OAuth app tokens also contain an [`X-OAuth-Scopes` header](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the REST API provides an endpoint to {% ifversion fpt or ghes or ghec %}
-[check a token for validity](/rest/apps#check-a-token){% else %}[check a token for validity](/rest/apps#check-an-authorization){% endif %}.
+request. In addition to that, the REST API provides an endpoint to
+[check a token for validity](/rest/apps/oauth-applications#check-a-token).
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
@@ -182,13 +182,13 @@ the logged in user:
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -271,7 +271,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
+      auth_result = RestClient.get('{% data variables.product.rest_url %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -292,7 +292,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end

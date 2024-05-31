@@ -43,11 +43,15 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
+## Required check needs to succeed against the latest commit SHA
+
+In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks.
+
 ## Conflicts between head commit and test merge commit
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch.
 
-If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls#get-a-pull-request)."
+If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls/pulls#get-a-pull-request)."
 
 ## Handling skipped but required checks
 
@@ -59,6 +63,7 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
 
+When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 {% endwarning %}
 
 ### Example
@@ -92,6 +97,30 @@ jobs:
 Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
 {% data reusables.pull_requests.path-filtering-required-workflows %}
+
+{% ifversion merge-queue %}
+
+### Status checks with {% data variables.product.prodname_actions %} and a Merge queue
+
+You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
+
+{% note %}
+
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
+
+{% endnote %}
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
+
+{% endif %}
 
 ## Required status checks from unexpected sources
 

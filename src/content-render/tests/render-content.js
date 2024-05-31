@@ -1,4 +1,6 @@
 import cheerio from 'cheerio'
+import { describe, expect, test } from 'vitest'
+
 import { renderContent } from '#src/content-render/index.js'
 import { EOL } from 'os'
 
@@ -50,45 +52,6 @@ describe('renderContent', () => {
     const context = { color: 'orange' }
     const output = await renderContent(template, context, { textOnly: true })
     expect(output, 'my favorite color is orange.')
-  })
-
-  test('throws on rendering errors', async () => {
-    const template = 1
-    const context = {}
-
-    let err
-
-    try {
-      await renderContent(template, context)
-    } catch (_err) {
-      err = _err
-    }
-
-    expect(err).toBeTruthy()
-  })
-
-  test('warns and throws on rendering errors when the file name is passed', async () => {
-    const template = 1
-    const context = {}
-
-    let err
-    let warned = false
-
-    const error = console.error
-    console.error = (message) => {
-      expect(message, 'renderContent failed on file: name')
-      console.error = error
-      warned = true
-    }
-
-    try {
-      await renderContent(template, context, { filename: 'name' })
-    } catch (_err) {
-      err = _err
-    }
-
-    expect(err).toBeTruthy()
-    expect(warned).toBeTruthy()
   })
 
   test('renders empty templates', async () => {

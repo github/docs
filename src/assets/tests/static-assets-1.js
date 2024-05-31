@@ -1,5 +1,5 @@
+import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
-import { expect, jest } from '@jest/globals'
 
 import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
 import { setDefaultFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
@@ -57,7 +57,7 @@ describe('archived enterprise static assets', () => {
   // Sometimes static assets are proxied. The URL for the static asset
   // might not indicate it's based on archived enterprise version.
 
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -99,7 +99,7 @@ describe('archived enterprise static assets', () => {
 
   afterAll(() => nock.cleanAll())
 
-  it('should proxy if the static asset is prefixed', async () => {
+  test('should proxy if the static asset is prefixed', async () => {
     const req = mockRequest('/enterprise/2.21/_next/static/foo.css', {
       headers: {
         Referrer: '/enterprise/2.21',
@@ -115,7 +115,7 @@ describe('archived enterprise static assets', () => {
     checkCachingHeaders(res, false, 60)
   })
 
-  it('should proxy if the Referrer header indicates so on home page', async () => {
+  test('should proxy if the Referrer header indicates so on home page', async () => {
     const req = mockRequest('/_next/static/only-on-proxy.css', {
       headers: {
         Referrer: '/enterprise/2.21',
@@ -131,7 +131,7 @@ describe('archived enterprise static assets', () => {
     checkCachingHeaders(res, false, 60)
   })
 
-  it('should proxy if the Referrer header indicates so on sub-page', async () => {
+  test('should proxy if the Referrer header indicates so on sub-page', async () => {
     const req = mockRequest('/_next/static/only-on-2.3.css', {
       headers: {
         Referrer: '/en/enterprise-server@2.3/some/page',
@@ -147,7 +147,7 @@ describe('archived enterprise static assets', () => {
     checkCachingHeaders(res, false, 60)
   })
 
-  it('might still 404 even with the right referrer', async () => {
+  test('might still 404 even with the right referrer', async () => {
     const req = mockRequest('/_next/static/fourofour.css', {
       headers: {
         Referrer: '/en/enterprise-server@2.3/some/page',
@@ -166,7 +166,7 @@ describe('archived enterprise static assets', () => {
     expect(nexted).toBe(true)
   })
 
-  it('404 on the proxy but actually present here', async () => {
+  test('404 on the proxy but actually present here', async () => {
     const req = mockRequest('/assets/images/site/logo.png', {
       headers: {
         Referrer: '/en/enterprise-server@2.3/some/page',

@@ -1,5 +1,0 @@
-# Documentation for adding business.sso_response and org.sso_response
-
-versions:
-  ghec: '*'
-  ghes: '>=3.8'

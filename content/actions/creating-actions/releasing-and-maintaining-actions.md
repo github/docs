@@ -74,7 +74,7 @@ Here is an example process that you can follow to automatically run tests, creat
 
 Unlike some other automated release management strategies, this process intentionally does not commit dependencies to the `main` branch, only to the tagged release commits. By doing so, you encourage users of your action to reference named tags or `sha`s, and you help ensure the security of third party pull requests by doing the build yourself during a release.
 
-Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level:
+Using semantic releases means that the users of your actions can pin their workflows to a version and know that they might continue to receive the latest stable, non-breaking features, depending on their comfort level.
 
 ## Working with the community
 
@@ -83,7 +83,8 @@ Using semantic releases means that the users of your actions can pin their workf
 - Maintain a `README` with plenty of usage examples and guidance. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 - Include a workflow status badge in your `README` file. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)." Also visit [shields.io](https://shields.io/) to learn about other badges that you can add.{% ifversion fpt or ghec %}
 - Add community health files like `CODE_OF_CONDUCT`, `CONTRIBUTING`, and `SECURITY`. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types)."{% endif %}
-- Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).
+- Keep issues current by utilizing actions like [actions/stale](https://github.com/actions/stale).{% ifversion fpt or ghec %}
+- Use {% data variables.product.product_name %}'s security features to communicate about vulnerabilities and how to fix them. For more information, see "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#protecting-actions-youve-created)."{% endif %}
 
 ## Further reading
 

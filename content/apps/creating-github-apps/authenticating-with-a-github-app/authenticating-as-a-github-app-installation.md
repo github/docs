@@ -22,7 +22,7 @@ Some REST API endpoints do not accept installation access tokens, and most REST 
 
 App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test that your app has the required permissions for the GraphQL queries and mutations that you want to make.
 
-You can also use an installation access token to authenticate for HTTP-based Git access. Your app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git"`.
+You can also use an installation access token to authenticate for HTTP-based Git access. Your app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git`.
 
 Requests made with an installation access token are sometimes called "server-to-server" requests.
 
@@ -46,10 +46,10 @@ In the following example, replace `INSTALLATION_ACCESS_TOKEN` with an installati
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_pre %}/meta" \
+--url "{% data variables.product.rest_url %}/meta" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "Authorization: Bearer INSTALLATION_ACCESS_TOKEN" \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
 
 ## Using the Octokit.js SDK to authenticate as an app installation
@@ -138,10 +138,9 @@ The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook
          repo: payload.repository.name,
          issue_number: payload.issue.number,
          body: `This is a bot post in response to this issue being opened.`,
-         {% ifversion api-date-versioning %}
          headers: {
            "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-         },{% endif %}
+         },
        }
      )
    });

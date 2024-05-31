@@ -71,10 +71,12 @@ changelog:
   label: enterprise
 featuredLinks:
   startHere:
+    - '{% ifversion ghec %}/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
     - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
     - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
+    - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
   guideCards:
     - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
@@ -86,13 +88,12 @@ featuredLinks:
     - /admin/overview/about-github-enterprise-server
     - '{% ifversion ghes %}/admin/overview/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
-    - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
-    - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
     - '{% ifversion ghec %}/admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise{% endif %}'
+    - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
     - '{% ifversion ghec %}/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise{% endif %}'
     - /support/learning-about-github-support/about-github-support
+    - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
 layout: product-landing
 versions:
   ghec: '*'

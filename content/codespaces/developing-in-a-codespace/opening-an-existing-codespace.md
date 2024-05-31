@@ -169,4 +169,4 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/codespaces)" (REST API reference)
+- "[AUTOTITLE](/rest/codespaces/organizations)"

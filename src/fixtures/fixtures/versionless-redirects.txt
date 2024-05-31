@@ -1,7 +1,7 @@
 # These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
 # Shipped in pull #20947 on 10/15/21
 
-/enterprise-cloud@latest/admin/overview/about-enterprise-accounts
+/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts
 - /articles/about-github-business-accounts
 - /articles/about-enterprise-accounts
 - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
@@ -453,7 +453,8 @@
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 
-/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
 - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
 - /articles/viewing-insights-for-your-organization
 - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization

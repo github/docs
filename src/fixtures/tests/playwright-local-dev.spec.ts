@@ -13,6 +13,8 @@
 
 import { test, expect } from '@playwright/test'
 
+const TEST_EARLY_ACCESS = Boolean(JSON.parse(process.env.TEST_EARLY_ACCESS || 'false'))
+
 test('view home page', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveTitle(/GitHub Docs/)
@@ -31,4 +33,17 @@ test('search "git" and get results', async ({ page }) => {
   await page.getByTestId('site-search-input').fill('git')
   await page.getByTestId('site-search-input').press('Enter')
   await expect(page.getByRole('heading', { name: /\d+ Search results for "git"/ })).toBeVisible()
+})
+
+test('view the early-access links page', async ({ page }) => {
+  if (!TEST_EARLY_ACCESS) return
+
+  await page.goto('/early-access')
+  await expect(page).toHaveURL(/\/en\/early-access/)
+  await page.getByRole('heading', { name: 'Early Access documentation' }).click()
+  const links = await page.$$eval(
+    '#article-contents ul li a',
+    (elements: HTMLAnchorElement[]) => elements,
+  )
+  expect(links.length).toBeGreaterThan(0)
 })

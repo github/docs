@@ -27,6 +27,7 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 - A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
 - A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+- Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue)."
 
 {% endnote %}
 
@@ -36,7 +37,7 @@ You **must** use the `merge_group` event to trigger your {% data variables.produ
 
 {% note %}
 
-**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported. The `merge_group` event is separate from the `pull_request` and `push` events.
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
@@ -74,7 +75,13 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 - **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
 
 -
-  **Merge limits**: Select the minimum and maximum number of pull requests to merge in a single group (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number of pull requests. Exactly how many PRs are included in a group depends on a merge queue's settings:
+  **Merge limits**: Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
+
+{% note %}
+
+**Note:** Merge limits do not combine `merge_group` **builds**. Merge limits only affect merges to the base branch once one or more `merge_group` has satisfied build checks.
+
+{% endnote %}
 
   | Merge Limit | Use Case |
   | ----------- | -------- |

@@ -1,5 +1,6 @@
 ---
-title: OAuth Authorizations
+title: REST API endpoints for OAuth authorizations
+shortTitle: OAuth authorizations
 allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with {% data

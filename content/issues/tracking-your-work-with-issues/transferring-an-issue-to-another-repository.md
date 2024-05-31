@@ -18,7 +18,7 @@ To transfer an open issue to another repository, you must have write access to t
 
 {% note %}
 
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+**Note**: You can only transfer issues between repositories owned by the same user or organization account. A private repository issue cannot be transferred to a public repository.
 
 {% endnote %}
 

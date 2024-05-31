@@ -47,11 +47,38 @@ You must assign a static IP address to each new node that you provision, and you
 
 ## Creating a high availability replica for a cluster
 
-- [Assigning active nodes to the primary datacenter](#assigning-active-nodes-to-the-primary-datacenter)
-- [Adding replica nodes to the cluster configuration file](#adding-replica-nodes-to-the-cluster-configuration-file)
-- [Example configuration](#example-configuration)
+{% ifversion cluster-ha-tooling-improvements %}
 
-### Assigning active nodes to the primary datacenter
+To create a high availability replica for your cluster, use the `ghe-cluster-repl-bootstrap` utility, then complete the follow-up tasks that the tool details.
+
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
+1. To begin configuration of high availability, run the following command. The `-p` and `-s` flags are optional. If you're using the flags, replace PRIMARY-DATACENTER and SECONDARY-DATACENTER with the names of your primary and secondary datacenters.
+
+   {% note %}
+
+   **Notes:**
+
+   - By default, the utility will use the name of the primary datacenter in `cluster.conf`.
+   - If no name for the primary datacenter is defined, the utility will use `mona`.
+   - If no name for the secondary datacenter is defined, the utility will use `hubot`.
+
+   {% endnote %}
+
+   ```shell copy
+   ghe-cluster-repl-bootstrap -p PRIMARY-DATACENTER -s SECONDARY-DATACENTER
+   ```
+
+1. After the utility runs, you will see output with further instructions. To finish the configuration, complete the tasks listed in the output.
+
+{% else %}
+
+To create a high availability replica for your cluster, you must complete the following tasks. You can also review an example configuration.
+
+1. [Assign active nodes to the primary datacenter](#1-assign-active-nodes-to-the-primary-datacenter).
+1. [Add replica nodes to the cluster configuration file](#2-add-replica-nodes-to-the-cluster-configuration-file).
+1. [Review an example configuration](#3-review-an-example-configuration).
+
+### 1. Assign active nodes to the primary datacenter
 
 Before you define a secondary datacenter for your replica nodes, ensure that you assign your active nodes to the primary datacenter.
 
@@ -100,7 +127,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
 After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
 
-### Adding replica nodes to the cluster configuration file
+### 2. Add replica nodes to the cluster configuration file
 
 To configure high availability, you must define a corresponding replica node for every active node in your cluster. To create a new cluster configuration that defines both active and replica nodes, you'll complete the following tasks.
 
@@ -109,7 +136,7 @@ To configure high availability, you must define a corresponding replica node for
 - Merge the modified copy of the cluster configuration back into your active configuration.
 - Apply the new configuration to start replication.
 
-For an example configuration, see "[Example configuration](#example-configuration)."
+For an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
 1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
@@ -203,7 +230,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
       - `replica` should be configured as `enabled`.
     - Take the opportunity to remove sections for offline nodes that are no longer in use.
 
-    To review an example configuration, see "[Example configuration](#example-configuration)."
+    To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
     {% endwarning %}
 
@@ -231,7 +258,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
 You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding replica node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see "[AUTOTITLE](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
 
-### Example configuration
+### 3. Review an example configuration
 
 The top-level `[cluster]` configuration should look like the following example.
 
@@ -295,6 +322,8 @@ The configuration for the corresponding replica node in the storage tier should 
 ...
 ```
 
+{% endif %}
+
 ## Monitoring replication between active and replica cluster nodes
 
 Initial replication between the active and replica nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
@@ -322,7 +351,24 @@ If you use the original active nodes, after reconfiguring high availability, you
 
 ## Disabling high availability replication for a cluster
 
-You can stop replication to the replica nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
+You can stop replication to the replica nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}{% ifversion cluster-ha-tooling-improvements %} using the `ghe-cluster-repl-teardown` utility. Alternatively, you can manually disable replication.{% else %}.{% endif %}
+
+{% ifversion cluster-ha-tooling-improvements %}
+
+### Disabling replication using `ghe-cluster-repl-teardown`
+
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
+1. To disable replication, run the following command:
+
+   ```shell copy
+   ghe-cluster-repl-teardown
+   ```
+
+{% data reusables.enterprise_clustering.configuration-finished %}
+
+### Manually disabling replication
+
+{% endif %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 {% data reusables.enterprise_clustering.open-configuration-file %}
@@ -330,5 +376,3 @@ You can stop replication to the replica nodes for your cluster deployment of {% 
 1. Delete each section for a replica node. For replica nodes, `replica` is configured as `enabled`.
 {% data reusables.enterprise_clustering.apply-configuration %}
 {% data reusables.enterprise_clustering.configuration-finished %}
-
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished disabling high availability replication.

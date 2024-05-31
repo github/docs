@@ -36,10 +36,10 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.gravatar_id` | `string` | The unique identifier of the Gravatar profile for the actor. |
 | `actor.url` | `string` | The REST API URL used to retrieve the user object, which includes additional user information. |
 | `actor.avatar_url` | `string` | The URL of the actor's profile image. |
-| `repository` | `object` | The repository object where the event occurred.  |
-| `repository.id` | `string` | The unique identifier of the repository. |
-| `repository.name` | `string` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
-| `repository.url` | `string` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
+| `repo` | `object` | The repository object where the event occurred.  |
+| `repo.id` | `string` | The unique identifier of the repository. |
+| `repo.name` | `string` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
+| `repo.url` | `string` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
 | `payload` | `object` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
 | `public` | `boolean` | Whether the event is visible to all users. |
 | `created_at` | `string` | The date and time when the event was triggered. It is formatted according to ISO 8601. |
@@ -52,7 +52,7 @@ The event objects returned from the Events API endpoints have the same structure
 
 ### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/activity#events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/activity/events).
 
 ```http
 HTTP/2 200
@@ -67,7 +67,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
     "public": false,
     "payload": {
     },
-    "repository": {
+    "repo": {
       "id": 3,
       "name": "octocat/Hello-World",
       "url": "https://api.github.com/repos/octocat/Hello-World"
@@ -175,8 +175,6 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
 
-{% ifversion fpt or ghes or ghec %}
-
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
@@ -184,7 +182,6 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ### Event `payload` object for PublicEvent
 
 This event returns an empty `payload` object.
-{% endif %}
 
 ## PullRequestEvent
 
@@ -245,7 +242,7 @@ Key | Type | Description
 `push_id` | `integer` | Unique identifier for the push.
 `size`|`integer` | The number of commits in the push.
 `distinct_size`|`integer` | The number of distinct commits in the push.
-`ref`|`string` | The full [`git ref`](/rest/git#refs) that was pushed. Example: `refs/heads/main`.
+`ref`|`string` | The full [`git ref`](/rest/git/refs) that was pushed. Example: `refs/heads/main`.
 `head`|`string` | The SHA of the most recent commit on `ref` after the push.
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
 `commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)

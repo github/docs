@@ -1,9 +1,11 @@
 import path from 'path'
 import fs from 'fs'
+
 import walk from 'walk-sync'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import matter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
@@ -33,10 +35,13 @@ describe('category pages', () => {
   const productIndices = walk(contentDir, walkOptions)
   const productNames = productIndices.map((index) => path.basename(path.dirname(index)))
 
-  // Combine those to fit Jest's `.each` usage
+  // Combine those to fit vitest's `.each` usage
   const productTuples = zip(productNames, productIndices)
 
-  describe.each(productTuples)('product "%s"', (productName, productIndex) => {
+  // Use a regular forEach loop to generate the `describe(...)` blocks
+  // otherwise, if one of them has no categories, the tests will fail.
+  productTuples.forEach((tuple) => {
+    const [, productIndex] = tuple
     // Get links included in product index page.
     // Each link corresponds to a product subdirectory (category).
     // Example: "getting-started-with-github"
@@ -48,7 +53,7 @@ describe('category pages', () => {
     const categoryLinks = data.children
       // Only include category directories, not standalone category files like content/actions/quickstart.md
       .filter((link) => fs.existsSync(getPath(productDir, link, 'index')))
-    // TODO this should move to async, but you can't asynchronously define tests with Jest...
+    // TODO this should move to async, but you can't asynchronously define tests with vitest...
 
     // Map those to the Markdown file paths that represent that category page index
     const categoryPaths = categoryLinks.map((link) => getPath(productDir, link, 'index'))
@@ -56,10 +61,8 @@ describe('category pages', () => {
     // Make them relative for nicer display in test names
     const categoryRelativePaths = categoryPaths.map((p) => path.relative(contentDir, p))
 
-    // Combine those to fit Jest's `.each` usage
+    // Combine those to fit vitests's `.each` usage
     const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
-
-    if (!categoryTuples.length) return
 
     describe.each(categoryTuples)(
       'category index "%s"',

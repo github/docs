@@ -22,7 +22,7 @@ You can search for issues and pull requests globally across all of {% data varia
 - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
 - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
 - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
-- Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search.
+- Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
 - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
@@ -83,8 +83,6 @@ You can also use the `is` qualifier to find pull requests that are queued to mer
 
 {% endif %}
 
-{% ifversion issue-close-reasons %}
-
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
@@ -94,15 +92,13 @@ You can filter issues based on the reason given when the issue was closed, using
 | `reason:completed` | [**libraries is:closed reason:completed**](https://github.com/search?q=libraries+is%3Aclosed+reason%3Acompleted&type=Issues) matches issues with the word "libraries" that were closed as "completed."
 | `reason:"not planned"` | [**libraries is:closed reason:"not planned"**](https://github.com/search?q=libraries+is%3Aclosed+reason%3A%22not+planned%22&type=Issues) matches issues with the word "libraries" that were closed as "not planned."
 
-{% endif %}
-
 ## Filter by repository visibility
 
 You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 | Qualifier  | Example
-| ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec %}
+| ------------- | ------------- |
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% ifversion ghes or ghec %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %}
 | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
@@ -119,11 +115,12 @@ The `author` qualifier finds issues and pull requests created by a certain user 
 
 ## Search by assignee
 
-The `assignee` qualifier finds issues and pull requests that are assigned to a certain user. You cannot search for issues and pull requests that have _any_ assignee, however, you can search for [issues and pull requests that have no assignee](#search-by-missing-metadata).
+The `assignee` qualifier finds issues and pull requests that are assigned to a certain user. You can search for issues and pull requests that have _any_ assignee by using the wildcard character `*`, but only within a single repository. You can also search for [issues and pull requests that have no assignee](#search-by-missing-metadata).
 
 | Qualifier     | Example
 | ------------- | -------------
 | <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) matches issues and pull requests in libgit2's project libgit2 that are assigned to @vmg.
+| <code>assignee:*</code> | [**is:open is:issue assignee:\***](https://github.com/openssl/openssl/issues/assigned/*) matches open issues within a single repository that are assigned to any user.
 
 ## Search by mention
 
@@ -363,7 +360,7 @@ You can search for an issue or pull request that has a locked conversation using
 
 ## Search by missing metadata
 
-You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. That metadata includes:
+You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. These qualifiers cannot be combined with the minus (hyphen) symbol to exclude items that are missing metadata. That metadata includes:
 
 - Labels
 - Milestones

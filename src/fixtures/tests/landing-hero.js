@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('product landing page', () => {

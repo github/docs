@@ -9,6 +9,8 @@ versions:
 children:
   - /security-hardening-for-github-actions
   - /using-secrets-in-github-actions
+  - /using-githubs-security-features-to-secure-your-use-of-github-actions
   - /automatic-token-authentication
+  - /using-artifact-attestations-to-establish-provenance-for-builds
 ---
 

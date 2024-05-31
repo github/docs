@@ -17,8 +17,26 @@
    {% endnote %}
 {% endif %}
 1. Select the **From** dropdown menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
+
 {%- ifversion ghec or ghes %}
-1. Select the **Product** dropdown menu and click {% ifversion ghes %}**GitHub Enterprise Server (self-hosted)**{% else %}**GitHub Enterprise Cloud**{% endif %}.
+
+   Adding CC emails to your ticket:
+      - An admin or a support entitled user can add up to 10 additional email addresses to a ticket on CC directly from the ticket form.
+     - To add more email addresses, loop them in directly via email.
+
+   CC recipients’ abilities:
+     - Those on CC can read every conversation and attachment related to the ticket.
+     - They can also send a reply to the ticket.
+  
+   Support Portal visibility:
+     - CCing an email address does not automatically display the ticket in the support portal for that email address.
+
+   Admins, support entitled users:
+      - Admins and support entitled users can view tickets created by members of their enterprise or organization on the portal. However, they still need to be CC’d on such tickets to be able to comment on them.
+{%- endif %}
+
+{%- ifversion ghec or ghes %}
+1. Select the **Product** dropdown menu and click {% ifversion ghes %}**{% data variables.product.prodname_ghe_server %} (self-hosted)**{% else %}**{% data variables.product.prodname_ghe_cloud %}**{% endif %}.
 {%- endif %}
 {%- ifversion ghes %}
 1. If prompted, select the **Server installation** dropdown menu and click the installation your support ticket is regarding. If the installation is not listed, click **Other**.
@@ -29,14 +47,8 @@
 {%- ifversion ghes or ghec %}
 1. Select the **Type of Issue** dropdown menu and click the appropriate circumstance.
 {%- endif %}
-{%- ifversion ghes %}
-    - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
-    - Choose **{% data variables.product.support_ticket_priority_high %}** to report issues impacting business operations, including {% ifversion fpt or ghec %}removing sensitive data (commits, issues, pull requests, uploaded attachments) from your own accounts and organization restorations{% else %}system performance issues{% endif %}, or to report critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_normal %}** to {% ifversion fpt or ghec %}request account recovery or spam unflagging, report user login issues{% else %}make technical requests like configuration changes and third-party integrations{% endif %}, and to report non-critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
-{%- endif %}
 {%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket issue aligns to our {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is about a system failure or a critical outage currently blocking business operations in production, you can request a callback in English. Select **Request a callback from {% data variables.contact.github_support %}**, select the country code dropdown menu to choose your country, and enter your phone number.
 
    {% note %}
 

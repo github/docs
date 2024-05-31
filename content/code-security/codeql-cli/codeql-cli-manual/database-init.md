@@ -100,6 +100,29 @@ analyse. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
 
+#### `--build-mode=<mode>`
+
+The build mode that will be used to create the database.
+
+Choose your build mode based on the language you are analyzing:
+
+`none`: The database will be created without building the source root.
+Available for JavaScript/TypeScript, Python, and Ruby. Also available in
+beta for Java.
+
+`autobuild`: The database will be created by attempting to automatically
+build the source root. Available for C/C++, C#, Go, Java/Kotlin, and
+Swift.
+
+`manual`: The database will be created by building the source root using
+a manually specified build command. Available for C/C++, C#, Go,
+Java/Kotlin, and Swift.
+
+When creating a database with `--command`, there is no need to
+additionally specify '--build-mode manual'.
+
+Available since `v2.16.4`.
+
 #### `--[no-]allow-missing-source-root`
 
 \[Advanced] Proceed even if the specified source root does not exist.

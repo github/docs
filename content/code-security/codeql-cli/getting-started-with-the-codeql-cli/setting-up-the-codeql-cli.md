@@ -47,8 +47,6 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
 #### Download information for macOS "Catalina" (or newer) users
 
 {% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}
@@ -68,7 +66,7 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 {% note %}
 
 **Note:** If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries.
- For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[Setting up {% data variables.product.prodname_codeql %} in {% data variables.product.prodname_vscode %}](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/#setting-up-codeql-in-visual-studio-code)."
+ For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
 
  {% endnote %}
 

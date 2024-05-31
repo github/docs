@@ -42,8 +42,7 @@ Generally, we name our supported ecosystems after the software programming langu
 - Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
 - Erlang (registry: https://hex.pm/){% endif %}
 - Go (registry: https://pkg.go.dev/)
-{%- ifversion fpt or ghec or ghes %}
-- GitHub Actions (https://github.com/marketplace?type=actions/) {% endif %}
+- GitHub Actions (https://github.com/marketplace?type=actions/)
 - Maven (registry: https://repo.maven.apache.org/maven2)
 - npm (registry: https://www.npmjs.com/)
 - NuGet (registry: https://www.nuget.org/)
@@ -117,4 +116,4 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 ## Further reading
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- MITRE's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+- The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

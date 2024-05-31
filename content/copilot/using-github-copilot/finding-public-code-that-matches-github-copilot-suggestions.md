@@ -1,6 +1,6 @@
 ---
 title: Finding public code that matches GitHub Copilot suggestions
-shortTitle: Finding matching code
+shortTitle: Find matching code
 intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, you can see references to the matching code on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot

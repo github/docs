@@ -1,5 +1,7 @@
-import yaml from 'js-yaml'
 import fs from 'fs/promises'
+
+import { afterEach, describe, expect, test } from 'vitest'
+import yaml from 'js-yaml'
 import MockDate from 'mockdate'
 
 import {
@@ -20,7 +22,7 @@ describe('creating a changelog from old schema and new schema', () => {
     MockDate.reset()
   })
 
-  it('finds a diff of schema changes, upcoming changes, and preview changes', async () => {
+  test('finds a diff of schema changes, upcoming changes, and preview changes', async () => {
     const oldSchemaString = `
     type PreviewType {
       field1(changeTypeArgument: Int): Int
@@ -94,7 +96,7 @@ upcoming_changes:
     expect(entry).toEqual(expectedChangelogEntry)
   })
 
-  it('returns null when there isnt any difference', async () => {
+  test('returns null when there isnt any difference', async () => {
     const schemaString = `
     type Query {
       i: Int!
@@ -106,7 +108,7 @@ upcoming_changes:
 })
 
 describe('Preparing preview links', () => {
-  it('fixes preview names', () => {
+  test('fixes preview names', () => {
     // These two are special cases
     expect(cleanPreviewTitle('UpdateRefsPreview')).toEqual('Update refs preview')
     expect(cleanPreviewTitle('MergeInfoPreview')).toEqual('Merge info preview')
@@ -116,7 +118,7 @@ describe('Preparing preview links', () => {
     expect(cleanPreviewTitle('nice preview')).toEqual('nice preview')
   })
 
-  it('creates anchors from preview titles', () => {
+  test('creates anchors from preview titles', () => {
     expect(previewAnchor('Merge info preview')).toEqual('merge-info-preview')
     expect(previewAnchor('some.punct123 preview')).toEqual('somepunct123-preview')
   })
@@ -127,7 +129,7 @@ describe('updating the changelog file', () => {
     MockDate.reset()
   })
 
-  it('modifies the entry object and the file on disk', async () => {
+  test('modifies the entry object and the file on disk', async () => {
     const testTargetPath = 'src/graphql/tests/fixtures/example-changelog.json'
     const previousContents = await fs.readFile(testTargetPath)
 

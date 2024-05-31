@@ -3,7 +3,9 @@ title: API Versions
 shortTitle: API Versions
 intro: Learn how to specify which REST API version to use whenever you make a request to the REST API.
 versions:
-  feature: api-date-versioning
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /rest/overview/api-versions
 ---
@@ -50,4 +52,4 @@ The following REST API versions are currently supported:
 {{ apiVersion }}
 {% endfor %}
 
-You can also make an API request to get all of the supported API versions. For more information, see "[AUTOTITLE](/rest/meta#get-all-api-versions)."
+You can also make an API request to get all of the supported API versions. For more information, see "[AUTOTITLE](/rest/meta/meta#get-all-api-versions)."

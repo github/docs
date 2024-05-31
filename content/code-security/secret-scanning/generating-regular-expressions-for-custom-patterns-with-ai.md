@@ -13,14 +13,6 @@ topics:
 ---
 {% data reusables.secret-scanning.beta-custom-pattern-regular-expression-generator %}
 
-## About the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
-
-Custom patterns are formatted as regular expressions. You can manually type in a regular expression on {% data variables.product.prodname_dotcom %}, or you can use the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}. {% data reusables.secret-scanning.regular-expression-generator-overview %}
-
-For instructions on how to generate a regular expression manually for your repository or organization, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-
-For more information about the generator, see "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)."
-
 ## Generating a regular expression for a repository using the generator
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -40,6 +32,11 @@ For more information about the generator, see "[AUTOTITLE](/code-security/secret
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
+
+{% ifversion security-configurations %}
+    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For detail on using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, reference the following steps in this procedure. For more information on configuring {% data variables.product.prodname_global_settings %} for your organization, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
+{% endif %}
+
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-generate-regular-expression-custom-pattern %}
@@ -49,3 +46,7 @@ For more information about the generator, see "[AUTOTITLE](/code-security/secret
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 {% data reusables.secret-scanning.link-to-push-protection %}
+
+## Further reading
+
+- "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)"

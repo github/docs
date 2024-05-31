@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { liquid } from '#src/content-render/index.js'
 import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
@@ -43,7 +43,7 @@ const contextualize = (req) => {
 }
 
 describe('liquid template parser', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   describe('short versions', () => {
     // Create a fake req so we can test the shortVersions middleware

@@ -44,7 +44,7 @@ You can create a branch in different ways on {% data variables.product.product_n
 ### Creating a branch using the branch dropdown
 
 {% data reusables.repositories.navigate-to-repo %}
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 1. Select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, in the file tree view or at the top of the integrated file editor.
 
    ![Screenshot of the file tree view for a repository. A dropdown menu for branches is outlined in dark orange.](/assets/images/help/branches/file-tree-view-branch-dropdown.png)
@@ -66,12 +66,9 @@ You can create a branch in different ways on {% data variables.product.product_n
 
    ![Screenshot of the branch selector dropdown menu. "Create branch: new-branch" is highlighted with an orange outline.](/assets/images/help/branches/create-branch-text.png)
 
-{% ifversion fpt or ghec or ghes %}
-
 ### Creating a branch for an issue
 
 You can create a branch to work on an issue directly from the issue page and get started right away. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-a-branch-for-an-issue)".
-{% endif %}
 
 ## Deleting a branch
 

@@ -88,7 +88,7 @@ Assigning the migrator role for repository migrations | {% octicon "dash" aria-l
 Running a repository migration (destination organization) | {% octicon "dash" aria-label="Not applicable" %} | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Downloading a migration log | {% octicon "dash" aria-label="Not applicable" %} | `repo`, `admin:org`, `workflow` | `repo`, `read:org`, `workflow`
 Reclaiming mannequins | {% octicon "dash" aria-label="Not applicable" %} | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
-Running a migration (source organization) | {% octicon "dash" aria-label="Not applicable" %} | `read:org`, `repo` | `read:org`, `repo` |
+Running a migration (source organization) | {% octicon "dash" aria-label="Not applicable" %} | `admin:org`, `repo` | `admin:org`, `repo` |
 Running an organization migration (destination enterprise) | `read:enterprise`, `admin:org`, `repo`, `workflow` | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
 ## Granting the migrator role
@@ -97,7 +97,7 @@ To allow someone other than an organization owner to run a repository migration 
 
 You can grant the migrator role using either the {% data variables.product.prodname_gei_cli %} or the GraphQL API.
 
-- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
+- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)"
 - "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
 
 ### Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}

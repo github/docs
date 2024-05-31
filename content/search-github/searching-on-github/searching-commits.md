@@ -105,9 +105,7 @@ The `is` qualifier matches commits from repositories with the specified visibili
 
 | Qualifier  | Example
 | ------------- | ------------- |
-{%- ifversion fpt or ghes or ghec %}
 | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
-{%- endif %}
 {%- ifversion ghes or ghec %}
 | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
 {%- endif %}

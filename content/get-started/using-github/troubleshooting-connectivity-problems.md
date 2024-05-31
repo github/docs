@@ -32,7 +32,7 @@ If you're unable to verify with the captcha:
 
 Switching from cloning via SSH to cloning via HTTPS, or vice versa may improve connectivity. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors)."
 
-If you prefer to use SSH but the port is blocked, you can use an alternative port. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)".
+If you prefer to use SSH but the port is blocked, you can use an alternative port. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)."
 
 If you're encountering timeouts with SSH, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-bad-file-number)."
 

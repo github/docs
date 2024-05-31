@@ -10,7 +10,6 @@ export interface Operation {
   bodyParameters: Array<BodyParameter>
   category: string
   subcategory: string
-  enabledForGitHubApps: boolean
   codeExamples: Array<CodeSample>
   progAccess: ProgAccessT
 }
@@ -54,7 +53,7 @@ export interface CodeSample {
   request: {
     contentType: string
     acceptHeader: string
-    bodyParameters: Record<string, string | Array<string>>
+    bodyParameters: Record<string, string | Array<string | { [key: string]: string }>>
     parameters: Record<string, string>
     description: string
   }

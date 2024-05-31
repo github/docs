@@ -56,14 +56,14 @@ jobs:
       - env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
-          gh api {% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}
+          gh api {% data variables.product.rest_url %}{% data variables.rest.example_request_url %}
 ```
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
 If you are authenticating with a {% data variables.product.prodname_github_app %}, you can create an installation access token within your workflow:
 
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable. In the following example, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the API. For more information, see "[AUTOTITLE](/rest/apps/apps#get-an-app)" in the REST API documentation. For more information about configuration variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable. In the following example, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the API. For more information, see "[AUTOTITLE](/rest/apps/apps#get-an-app)." For more information about configuration variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
 1. Generate a private key for your app. Store the contents of the resulting file as a secret. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following example, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. {% ifversion fpt or ghec %}For example:{% else %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
@@ -89,7 +89,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            env:
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
            run: |
-             gh api {% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}
+             gh api {% data variables.product.rest_url %}{% data variables.rest.example_request_url %}
    ```
 
 {% endcli %}
@@ -122,7 +122,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
    ```javascript copy
    const octokit = new Octokit({ {% ifversion ghes %}
-     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+     baseUrl: "{% data variables.product.rest_url %}",{% endif %}
      auth: 'YOUR-TOKEN'
    });
    ```
@@ -187,7 +187,7 @@ The following is an example JavaScript script with the file path `.github/action
 import { Octokit } from "octokit"
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+  baseUrl: "{% data variables.product.rest_url %}",{% endif %}
   auth: process.env.TOKEN
 });
 
@@ -287,7 +287,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```shell copy
    curl --request GET \
-   --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+   --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer YOUR-TOKEN"
    ```
@@ -321,7 +321,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           curl --request GET \
-          --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+          --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
           --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
@@ -358,7 +358,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
            run: |
              curl --request GET \
-             --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+             --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
              --header "Accept: application/vnd.github+json" \
              --header "Authorization: Bearer $GH_TOKEN"
 

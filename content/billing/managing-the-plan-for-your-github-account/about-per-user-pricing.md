@@ -45,6 +45,8 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 ## People that consume a license
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 {% ifversion fpt %}
 
 {% data variables.product.company_short %} bills for the following people:
@@ -97,7 +99,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 
 - {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
-- Enterprise owners who are not a member or owner of at least one organization in the enterprise
+- Enterprise owners who are not a member or owner of at least one organization in the enterprise, except for the user who set up the enterprise
 - Enterprise billing managers
 - Billing managers for individual organizations
 - Anyone with a pending invitation to become a billing manager

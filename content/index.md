@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-started-with-github-copilot
+    - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -42,6 +42,8 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
+  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
 versions:
   fpt: '*'
   ghes: '*'
@@ -123,7 +125,6 @@ childGroups:
     children:
       - issues
       - issues/planning-and-tracking-with-projects
-      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon
@@ -168,3 +169,4 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
+

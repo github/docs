@@ -56,17 +56,21 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
-  | Enterprise | 1000 | 50 |
+  | Enterprise | 500 | 50 |
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 
-  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
-  |---|---|---|
-  | All | 500 | The limit is based on your {% data variables.product.prodname_dotcom %} plan. |
+  | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs | Maximum concurrent GPU jobs |
+  |---|---|---|---|
+  | Team | 1000 | 5 | 100 |
+  | Enterprise | 1000 | 50 | 100 |
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  **Notes:**
+
+  - If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  - The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
 
   {% endnote %}
 
@@ -84,14 +88,23 @@ Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#a-actions-usage).
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
+{% ifversion fpt or ghec %}
+
+## {% data variables.product.prodname_actions %} usage metrics
+
+{% data reusables.actions.actions-usage-metrics-beta-note %}
+
+If you are on a {% data variables.product.prodname_ghe_cloud %} plan, organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+
+When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
+
+{% endif %}
 
 ## Billing for reusable workflows
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 For more information see, "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
-{% endif %}
 
 ## Artifact and log retention policy
 

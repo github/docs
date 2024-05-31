@@ -139,7 +139,7 @@ async function updateDirectory(
   const initialDirectoryListing = await getDirectoryInfo(directory)
   // If there are no children on disk, remove the directory
   if (initialDirectoryListing.directoryContents.length === 0 && !rootDirectoryOnly) {
-    rimraf(directory)
+    await rimraf(directory)
     return
   }
 

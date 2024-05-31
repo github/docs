@@ -97,6 +97,7 @@ export type MainContextT = {
     href: string
   }
   currentProduct?: ProductT
+  currentProductName: string
   currentLayoutName?: string
   isHomepageVersion: boolean
   data: DataT
@@ -147,6 +148,7 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
+  'domain_edit',
 ]
 
 export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {
@@ -223,10 +225,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     }) ||
     null
 
+  const currentProduct: ProductT = req.context.productMap[req.context.currentProduct] || null
+  const currentProductName: string = req.context.currentProductName || ''
+
   const props: MainContextT = {
     breadcrumbs: req.context.breadcrumbs || {},
     communityRedirect: req.context.page?.communityRedirect || {},
-    currentProduct: req.context.productMap[req.context.currentProduct] || null,
+    currentProduct,
+    currentProductName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
     error: req.context.error ? req.context.error.toString() : '',
     data: {

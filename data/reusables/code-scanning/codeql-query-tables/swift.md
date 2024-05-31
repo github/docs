@@ -15,7 +15,6 @@
 | [Inefficient regular expression](https://codeql.github.com/codeql-query-help/swift/swift-redos/) | 1333, 730, 400 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insecure TLS configuration](https://codeql.github.com/codeql-query-help/swift/swift-insecure-tls/) | 757 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insufficient hash iterations](https://codeql.github.com/codeql-query-help/swift/swift-insufficient-hash-iterations/) | 916 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [JavaScript Injection](https://codeql.github.com/codeql-query-help/swift/swift-unsafe-js-eval/) | 094, 095, 749 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing regular expression anchor](https://codeql.github.com/codeql-query-help/swift/swift-missing-regexp-anchor/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Predicate built from user-controlled sources](https://codeql.github.com/codeql-query-help/swift/swift-predicate-injection/) | 943 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Regular expression injection](https://codeql.github.com/codeql-query-help/swift/swift-regex-injection/) | 730, 400 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -29,5 +28,6 @@
 | [Use of a broken or weak cryptographic hashing algorithm on sensitive data](https://codeql.github.com/codeql-query-help/swift/swift-weak-sensitive-data-hashing/) | 327, 328 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of an inappropriate cryptographic hashing algorithm on passwords](https://codeql.github.com/codeql-query-help/swift/swift-weak-password-hashing/) | 327, 328, 916 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of constant salts](https://codeql.github.com/codeql-query-help/swift/swift-constant-salt/) | 760 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [JavaScript Injection](https://codeql.github.com/codeql-query-help/swift/swift-unsafe-js-eval/) | 094, 095, 749 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

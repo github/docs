@@ -30,7 +30,7 @@ In general, {% data variables.product.company_short %} recommends minimizing the
 
 Organization owners always have access to all repositories owned by the organization. If your company is large enough that no single owner should have access to all repositories, consider creating multiple organizations.
 
-The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. For example, each organization can have a different SAML configuration.
+The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. {% ifversion fpt or ghec %} For example, each organization can have a different SAML configuration.{% endif %}
 
 Avoid creating a one-to-one relationship between organizations and structural entities of your company, such as individual teams or business units. Instead, group structural entities that can share policies, settings, and requirements into a single organization. This approach maximizes collaboration while meeting your regulatory requirements.
 

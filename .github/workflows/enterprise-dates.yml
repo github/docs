@@ -4,8 +4,8 @@ name: Enterprise date updater
 # src/ghes-releases/lib/enterprise-dates.json.
 # **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
 # file needs to be up-to-date for the
-# .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/search.js test.
+# Used to display deprecation banner dates and as a reference
+# for all past server release numbers.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -36,7 +36,7 @@ jobs:
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@b1ddad2c994a25fbc81a28b3ec0e368bb2021c50 # pin @v6.0.0
+        uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # pin @v6.0.2
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
