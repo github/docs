@@ -37,7 +37,7 @@ type Permalink = {
   href: string
 }
 
-type Versions = {
+export type FrontmatterVersions = {
   feature?: string
   fpt?: string
   ghec?: string
@@ -56,7 +56,7 @@ export type Page = {
   documentType: string
   renderProp: (prop: string, context: any, opts: any) => Promise<string>
   markdown: string
-  versions: Versions
+  versions: FrontmatterVersions
 }
 
 export type Tree = {
