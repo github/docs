@@ -29,7 +29,7 @@ permissions: Enterprise owners can configure audit log streaming.
 To help protect your intellectual property and maintain compliance for your company, you can use streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. If you stream audit log data, you can take advantage of the following benefits.
 
 - **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-- **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+- **Data continuity**. When you pause a stream, it retains a buffer for seven days, so there is no data loss for the first week. If the stream remains paused for more than seven days, it will resume from a point one week prior to the current time. If paused for three weeks or more, the stream won't retain any data and will start anew from the current timestamp.{% endif %}
 - **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.

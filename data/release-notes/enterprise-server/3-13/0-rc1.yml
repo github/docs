@@ -85,31 +85,37 @@ sections:
 
     - heading: Secret scanning
       notes:
-         # https://github.com/github/releases/issues/3566
+        # https://github.com/github/releases/issues/3566
         - |
-           In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+          In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
         # https://github.com/github/releases/issues/3180
         - |
           To increase coverage of secret scanning across an instance, users can enable secret scanning in repositories owned by their personal account. Enterprise owners can disable this feature, or automatically enable it for all new user-owned repositories, in the enterprise settings. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
     - heading: Code scanning
       notes:
+        # https://github.com/github/releases/issues/3526
+        - |
+           Users can enable code scanning on repositories even if they don't contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+        # https://github.com/github/releases/issues/3545
+        - |
+           Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
         # https://github.com/github/releases/issues/3771
         # https://github.com/github/releases/issues/3807
         # https://github.com/github/releases/issues/3818
         # https://github.com/github/releases/issues/3864
         # https://github.com/github/releases/issues/3894
         - |
-          The {% data variables.product.prodname_codeql %} action for code scanning analysis uses version 2.16.6 of the {% data variables.product.prodname_codeql_cli %} of the CodeQL CLI by default. See the [changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.6/) for this version.
-        # https://github.com/github/releases/issues/3526
-        - |
-           Users can enable code scanning on repositories even if they don’t contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
-       # https://github.com/github/releases/issues/3545
-        - |
-           Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
-       # https://github.com/github/releases/issues/3648
-        - |
-           To enable users to adopt the latest version of .NET / C# for their code base and continue using CodeQL to identify vulnerabilities, CodeQL code scanning supports C# 12 and .NET 8. For more information, see "[CodeQL 2.16.4](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.4/#c-2)" in the CodeQL documentation.
+          The {% data variables.product.prodname_codeql %} action for code scanning analysis uses version 2.16.5 of the {% data variables.product.prodname_codeql_cli %} by default, an upgrade from 2.15.5 compared to the previous {% data variables.product.prodname_ghe_server %} feature release. For a detailed list of changes included in each version, see the [{% data variables.product.prodname_codeql %} change logs](https://codeql.github.com/docs/codeql-overview/codeql-changelog/).
+          Significant changes include:
+          - Support for Swift 5.9.2, C# 12 / .NET 8, and Go 1.22.
+          - Installation of Python dependencies is disabled for all Python scans by default. See the [GitHub Blog post](https://github.blog/changelog/2023-07-12-code-scanning-with-codeql-no-longer-installs-python-dependencies-automatically-for-new-users/).
+          - A new `python_executable_name` option for the Python extractor. This allows you to select a non-default Python executable installed on the system running the scan (such as `py.exe` on Windows machines). See the [changelog in the CodeQL documentation](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.3/#new-features).
+          - A fix for [CVE-2024-25129](https://github.com/github/codeql-cli-binaries/security/advisories/GHSA-gf8p-v3g3-3wph), a low-severity data exfiltration vulnerability that could be triggered by processing untrusted databases or CodeQL packs.
+          - The code scanning UI now includes partially extracted files. See the [GitHub Blog post](https://github.blog/changelog/2024-01-23-codeql-2-16-python-dependency-installation-disabled-new-queries-and-bug-fixes/#:~:text=The%20measure%20of,the%20near%20future.).
+          - 2 new C/C++ queries: `cpp/use-of-unique-pointer-after-lifetime-ends` and `cpp/incorrectly-checked-scanf`
+          - 6 new Java queries: `java/insecure-randomness` , `java/exec-tainted-environment` , `java/android/sensitive-text`, `java/android/sensitive-notification`, `java/android/insecure-local-authentication`, and `java/android/insecure-local-key-gen`
+          - 2 new Swift queries: `swift/weak-password-hashing` and `swift/unsafe-unpacking`
 
     - heading: Code security
       notes:
@@ -148,6 +154,9 @@ sections:
     # https://github.com/github/releases/issues/3443
     - |
        The "Create a reference" REST API endpoint is restricted from accepting POSTs from users and apps that only have permission to read and write packages. Previously, this endpoint accepted updates to both tags and branches.
+    # https://github.com/github/releases/issues/3850
+    - |
+      To ensure security updates are applied correctly regardless of your repository's configuration settings, Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`.  Security updates still do not support `target-branch` configuration. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB

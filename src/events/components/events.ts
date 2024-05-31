@@ -148,11 +148,12 @@ export function sendEvent<T extends EventType>({
       page_event_id: pageEventId,
 
       // Content information
-      path: location.pathname,
-      hostname: location.hostname,
       referrer: getReferrer(document.referrer),
-      search: location.search,
-      href: location.href,
+      href: location.href, // full URL
+      hostname: location.hostname, // origin without protocol or port
+      path: location.pathname, // path without search or host
+      search: location.search, // also known as query string
+      hash: location.hash, // also known as anchor
       path_language: getMetaContent('path-language'),
       path_version: getMetaContent('path-version'),
       path_product: getMetaContent('path-product'),

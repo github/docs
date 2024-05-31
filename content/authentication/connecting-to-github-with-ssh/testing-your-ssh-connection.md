@@ -24,14 +24,14 @@ You'll need to authenticate this action using your password, which is the SSH ke
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Enter the following:
 
-   ```shell replacedomain copy
+   ```shell copy
    ssh -T git@{% data variables.product.product_url %}
    # Attempts to ssh to {% data variables.product.product_name %}
    ```
 
    You may see a warning like this:
 
-   ```shell replacedomain
+   ```shell
    > The authenticity of host '{% data variables.product.product_url %} (IP ADDRESS)' can't be established.
    > ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
    > Are you sure you want to continue connecting (yes/no)?

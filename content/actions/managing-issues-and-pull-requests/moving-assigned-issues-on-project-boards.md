@@ -15,6 +15,8 @@ shortTitle: Move assigned issues
 allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -26,7 +28,7 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-1. In your repository, choose a {% data variables.projects.projects_v1_board %}. You can use an existing project, or you can create a new project. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
+1. In your repository, choose a {% data variables.projects.projects_v1_board %}. {% ifversion projects-v1-can-create %} You can use an existing project, or you can create a new project. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
 1. {% data reusables.actions.make-workflow-file %}
 1. Copy the following YAML contents into your workflow file.
 
