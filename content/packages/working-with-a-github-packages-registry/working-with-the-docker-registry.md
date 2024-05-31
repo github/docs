@@ -4,7 +4,7 @@ intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by 
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-package-registry/configuring-docker-for-use-with-github-package-registry
+  - /github/managing-packages-with-github-package-registry/configuring-docker-for-use-with-github-pack
   - /github/managing-packages-with-github-packages/configuring-docker-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
   - /packages/guides/container-guides-for-github-packages/configuring-docker-for-use-with-github-packages
