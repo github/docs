@@ -19,7 +19,7 @@ You can use {% data variables.product.prodname_projects_v2 %} to manage your wor
 
 Breaking a large issue into smaller issues makes the work more manageable and enables team members to work in parallel. It also leads to smaller pull requests, which are easier to review.
 
-To track how smaller issues fit into the larger goal, use {% ifversion task-lists-v1 %}task lists, milestones, or labels.{% else %} milestones or labels.{% endif %} For more information, see {% ifversion projects-v2-tasklists %}"[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)"{% endif %}{% ifversion ghes %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)"{% endif %}, "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)", and "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+To track how smaller issues fit into the larger goal, use task lists, milestones, or labels. For more information, see {% ifversion projects-v2-tasklists %}"[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)"{% endif %}{% ifversion ghes %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)"{% endif %}, "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones)", and "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
 
 ## Communicate
 

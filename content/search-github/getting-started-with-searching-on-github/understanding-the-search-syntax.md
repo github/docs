@@ -15,7 +15,7 @@ topics:
 shortTitle: Understand search syntax
 ---
 
-{% ifversion code-search-code-view %}
+{% ifversion code-search-upgrade %}
   {% note %}
 
   **Note:** The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."

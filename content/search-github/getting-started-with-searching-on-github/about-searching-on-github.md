@@ -25,7 +25,7 @@ topics:
 - To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "Search all of {% data variables.product.prodname_dotcom %}" in the search dropdown menu.
 - To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
 
-  {% ifversion code-search-code-view %}You can also use suggestions and completions in the search bar to quickly find what you need.
+  {% ifversion code-search-upgrade %}You can also use suggestions and completions in the search bar to quickly find what you need.
 
 - If you click on the search bar in the top navigation of GitHub.com, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to.
 - Clicking on any of the specific suggestions will take you directly to the page for that suggestion (for example, the repository or project page). If you click on a recent search, depending on the type of search, the search term will appear in the search bar or you will be taken to the search results page for the search term.
@@ -39,7 +39,7 @@ After typing a search query, you can press **Enter** to go to the full search re
 **Notes:**
 
 - {% data reusables.search.required_login %}
-- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)"
+- {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}." For more information about {% data variables.product.prodname_pages %}, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)"
 - Currently our search doesn't support exact matching.{% ifversion ghes %}
 - Whenever you are searching in code files, only the first two results in each file will be returned.{% endif %}
 
@@ -57,7 +57,7 @@ You can search for the following information across all repositories you can acc
 - [Topics](/search-github/searching-on-github/searching-topics)
 - [Issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests){% ifversion fpt or ghec %}
 - [Discussions](/search-github/searching-on-github/searching-discussions){% endif %}
-- {% ifversion code-search-code-view %}[Code](/search-github/github-code-search/understanding-github-code-search-syntax){% else %}[Code](/search-github/searching-on-github/searching-code){% endif %}
+- {% ifversion code-search-upgrade %}[Code](/search-github/github-code-search/understanding-github-code-search-syntax){% else %}[Code](/search-github/searching-on-github/searching-code){% endif %}
 - [Commits](/search-github/searching-on-github/searching-commits)
 - [Users](/search-github/searching-on-github/searching-users)
 - [Packages](/search-github/searching-on-github/searching-for-packages)

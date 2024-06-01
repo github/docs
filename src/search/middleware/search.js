@@ -32,8 +32,19 @@ router.get(
   '/v1',
   validationMiddleware,
   catchMiddlewareError(async function search(req, res) {
-    const { indexName, query, autocomplete, page, size, debug, sort, highlights, include } =
-      req.search
+    const {
+      indexName,
+      query,
+      autocomplete,
+      page,
+      size,
+      debug,
+      sort,
+      highlights,
+      include,
+      toplevel,
+      aggregate,
+    } = req.search
 
     const options = {
       indexName,
@@ -45,9 +56,11 @@ router.get(
       highlights,
       usePrefixSearch: autocomplete,
       include,
+      toplevel,
+      aggregate,
     }
     try {
-      const { meta, hits } = await getSearchResults(options)
+      const { meta, hits, aggregations } = await getSearchResults(options)
 
       if (process.env.NODE_ENV !== 'development') {
         searchCacheControl(res)
@@ -59,7 +72,7 @@ router.get(
 
       // The v1 version of the output matches perfectly what comes out
       // of the getSearchResults() function.
-      res.status(200).json({ meta, hits })
+      res.status(200).json({ meta, hits, aggregations })
     } catch (error) {
       // If getSearchResult() throws an error that might be 404 inside
       // elasticsearch, if we don't capture that here, it will propagate

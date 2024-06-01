@@ -76,7 +76,7 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
 
-- {% data reusables.getting-started.create-a-repository %}.
+- {% data reusables.getting-started.create-a-repository %}
 
 - {% data reusables.getting-started.fork-a-repository %}
 

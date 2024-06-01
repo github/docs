@@ -14,3 +14,8 @@ ce_price_per_month: '$39 USD'
 
 # Copilot Chat in GitHub.com: maximum number of repos that can be indexed for an org
 max-chat-indexed-repos: '50'
+
+# Copilot partners: builders who can develop Copilot extensions
+copilot_partners: 'Copilot Partners'
+copilot_partner: 'Copilot Partner'
+copilot_partner_program: 'Copilot Partner Program'

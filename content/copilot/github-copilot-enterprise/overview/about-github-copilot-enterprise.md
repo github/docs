@@ -2,7 +2,7 @@
 title: About GitHub Copilot Enterprise
 shortTitle: About Copilot Enterprise
 intro: 'Learn about {% data variables.product.prodname_copilot_enterprise %} and how it compares to other {% data variables.product.prodname_copilot_short %} plans.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+product: '{% data reusables.gated-features.copilot-enterprise %}'
 versions:
   feature: copilot
 topics:

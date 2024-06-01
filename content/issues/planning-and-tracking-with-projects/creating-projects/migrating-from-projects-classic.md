@@ -30,7 +30,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating an organization {% data variables.projects.projects_v1_board %}
 
-{% data reusables.projects.enable-migration %}
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
@@ -39,7 +38,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating a user {% data variables.projects.projects_v1_board %}
 
-{% data reusables.projects.enable-migration %}
 1. In the upper-right corner of {% data variables.product.prodname_dotcom_the_website %}, select your profile photo, then click **Your projects**.
 
    ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
@@ -57,7 +55,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 {% endnote %}
 
-{% data reusables.projects.enable-migration %}
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click {% octicon "table" aria-hidden="true" %} **Projects**.
 1. In the left sidebar, click **Projects (classic)**.

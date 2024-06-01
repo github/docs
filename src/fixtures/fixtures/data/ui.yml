@@ -6,7 +6,7 @@ header:
   notices:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
-      ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
+      ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
@@ -31,6 +31,8 @@ search_results:
   matches_displayed: Matches displayed
   n_results: '{n} results'
   search_validation_error: Validation error with search query
+  filter: Filter
+  clear_filter: Clear
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -65,9 +67,11 @@ survey:
   email_label: If we can contact you with more questions, please enter your email address
   email_validation: Please enter a valid email address
   send: Send
+  next: Next
   feedback: Thank you! We received your feedback.
-  not_support: If you need a reply, please contact support instead.
+  not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
+  server_error: Unable to process comment at the moment. Please try again.
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
@@ -168,10 +172,10 @@ rest_reference:
   button_text:
     copy_to_clipboard: Copy to clipboard
     copied: Copied!
-  works_with_tokens: 'This endpoint works with the following token types'
-  permission_sets: 'The token must have at least one of the following permission sets'
-  permission_set: 'The token must have the following permission set'
-  no_permission_sets: 'The token does not require any permissions.'
+  works_with_fine_grained_tokens: 'This endpoint works with the following fine-grained token types'
+  permission_sets: 'The fine-grained token must have at least one of the following permission sets'
+  permission_set: 'The fine-grained token must have the following permission set'
+  no_permission_sets: 'The fine-grained token does not require any permissions.'
   allows_public_read_access: This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
   allows_public_read_access_no_permissions: This endpoint can be used without authentication if only public resources are requested.
   user_access_token_name: GitHub App user access tokens
@@ -256,7 +260,7 @@ learning_track_nav:
 scroll_button:
   scroll_to_top: Scroll to top
 popovers:
-  role_description: hover card
+  role_description: hovercard link
   keyboard_shortcut_description: Press alt+up to activate
 alerts:
   NOTE: Note
@@ -264,3 +268,14 @@ alerts:
   WARNING: Warning
   TIP: Tip
   CAUTION: Caution
+domain_edit:
+  name: Domain name
+  edit: Edit
+  edit_your: Edit your domain name
+  experimental: Experimental
+  your_name: Your domain name
+  cancel: Cancel
+  save: Save
+  snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
+  learn_more: Learn more
+  submission_failed: Submission failed. Please try again in a minute.

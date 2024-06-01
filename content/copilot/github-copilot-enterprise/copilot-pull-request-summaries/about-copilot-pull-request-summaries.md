@@ -4,7 +4,7 @@ shortTitle: About PR summaries
 intro: 'With {% data variables.product.prodname_copilot_for_prs %}, you can create an AI-generated description for a pull request.'
 versions:
   feature: copilot
-product: '{% data reusables.gated-features.copilot-enterprise %}'
+permissions: 'Members of an enterprise with a subscription to [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:
   - Copilot
 type: rai

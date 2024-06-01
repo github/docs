@@ -55,7 +55,7 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
-prodname_global_campus: 'GitHub Global Campus'
+prodname_global_campus: 'GitHub Education'
 prodname_community_exchange: 'GitHub Community Exchange'
 prodname_student_leader_program: 'GitHub Campus Experts'
 prodname_student_leader_program_singular: 'GitHub Campus Expert'
@@ -89,7 +89,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.6{% endif %}
+  {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.5{% endif %}
 
 # Projects v2
 prodname_projects_v2: '{% ifversion ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
@@ -136,7 +136,7 @@ prodname_unfurls: 'Content Attachments'
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
-runner_controller_required_version: >-
+runner_required_version: >-
   {% ifversion ghes < 3.10 %}2.303.0{% elsif ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% endif %}
 
 # GitHub Debug
@@ -266,6 +266,10 @@ prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
 prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
 prodname_copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
 prodname_copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
+prodname_copilot_extensions: 'GitHub Copilot Extensions'
+prodname_copilot_extension: 'GitHub Copilot Extension'
+prodname_copilot_extensions_short: 'Copilot Extensions'
+prodname_copilot_extension_short: 'Copilot Extension'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
 prodname_copilot_for_prs: 'Copilot pull request summaries'

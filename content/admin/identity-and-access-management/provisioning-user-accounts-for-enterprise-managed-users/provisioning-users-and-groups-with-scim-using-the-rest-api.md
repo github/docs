@@ -40,7 +40,7 @@ When you configure authentication and provisioning for your enterprise, you can 
 
 ### Using a partner identity provider
 
-Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify your configuration of {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} recommends that you use a partner IdP's application for both authentication and provisioning. For more information and a list of partner IdPs, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."
+Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify your configuration of {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} recommends that you use a partner IdP's application for both authentication and provisioning. For more information and a list of partner IdPs, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
 
 When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP, as well as the IdPs' integration with {% data variables.product.product_name %}.
 

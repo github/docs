@@ -1,5 +1,0 @@
-# Reference: #12623
-# Repository access without organization membership for EMUs
-
-versions:
-  ghec: '*'

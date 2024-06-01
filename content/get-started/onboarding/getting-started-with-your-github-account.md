@@ -122,7 +122,7 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 ### 3. Managing collaborators and permissions
 
-You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v1_boards %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
+You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v2 %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
 You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)."
 
@@ -191,7 +191,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
-For more information on steps you can take to secure your repositories, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
+For more information on steps you can take to secure your repositories, see "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)."
 
 {% ifversion fpt or ghec %}
 

@@ -9,11 +9,11 @@ versions:
   ghes: '*'
 ---
 
-{% note %}
+{% ifversion tag-protection-rules-deprecation %}
 
-**Note:** Tag protection rules are currently in beta and subject to change.
+>[!NOTE] Tag protection rules will be deprecated on August 30, 2024 in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
 
-{% endnote %}
+{% endif %}
 
 ## About tag protection rules
 

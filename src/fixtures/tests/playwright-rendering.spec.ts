@@ -65,6 +65,21 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
+test('search from enterprise-cloud and filter by top-level Fooing', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/enterprise-cloud@latest')
+
+  await page.getByTestId('site-search-input').fill('fixture')
+  await page.getByTestId('site-search-input').press('Enter')
+  await page.getByText('Fooing (1)').click()
+  await page.getByRole('link', { name: 'Clear' }).click()
+
+  // At the moment this test isn't great because it's not proving that
+  // certain things cease to be visible, that was visible before. Room
+  // for improvement!
+})
+
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
@@ -274,7 +289,7 @@ test.describe('hover cards', () => {
   test('internal links get a aria-roledescription and aria-describedby', async ({ page }) => {
     await page.goto('/pages/quickstart')
     const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
-    await expect(link).toHaveAttribute('aria-roledescription', 'hover card')
+    await expect(link).toHaveAttribute('aria-roledescription', 'hovercard link')
 
     // The link gets a `aria-describedby="...ID..."` attribute that points to
     // another element in the DOM that has the description text.
@@ -503,9 +518,19 @@ test.describe('survey', () => {
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+
+    await page.locator('[for=survey-comment]').click()
+    await page.locator('[for=survey-comment]').fill('This is a comment')
+    await page.getByRole('button', { name: 'Next' }).click()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).not.toBeVisible()
+
     await page.getByPlaceholder('email@example.com').click()
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
-
     await page.getByRole('button', { name: 'Send' }).click()
     // One for the page view event, one for the thumbs up click, one for
     // the submission.
@@ -533,9 +558,26 @@ test.describe('survey', () => {
     // One for the page view event and one for the thumbs up click
     expect(fulfilled).toBe(1 + 1)
 
-    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()
-    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+  })
+
+  test('vote on one page, then go to another and it should reset', async ({ page }) => {
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
+    await page.route('**/api/events', (route) => {
+      route.fulfill({})
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
+    await page.locator('[for=survey-yes]').click()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.locator('[for=survey-comment]')).toBeVisible()
+
+    await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
+    await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
 })
 
@@ -591,6 +633,59 @@ test.describe('translations', () => {
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
+  })
+})
+
+test.describe('domain edit', () => {
+  test('edit a domain (using header nav)', async ({ page }) => {
+    test.skip(true, 'Editing domain from header is disabled')
+
+    await page.goto('/')
+    await expect(page.getByText('Domain name:')).not.toBeVisible()
+    await page.getByLabel('Select GitHub product version').click()
+    await page
+      .getByLabel(/Enterprise Server/)
+      .first()
+      .click()
+    await expect(page.getByText('Domain name:')).toBeVisible()
+    await page.getByRole('button', { name: 'Edit' }).click()
+
+    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
+    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
+    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
+    await expect(page.getByText("Can't be github.com")).toBeVisible()
+    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
+    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    // This tests that the dialog is gone.
+    // XXX Peterbe: These don't work and I don't know why yet.
+    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
+    await expect(page.getByText('github.peterbe.com')).toBeVisible()
+  })
+
+  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
+    await page.goto('/get-started/markdown/replace-domain')
+    await page.getByLabel('Select GitHub product version').click()
+    await page.getByLabel('Enterprise Server 3.12').click() // XXX
+
+    // This is generally discourage in Playwright, but necessary here
+    // in this case. Because of the way
+    // the `main.addEventListener('click', ...)` is handled, it's setting
+    // up that event listener too late. In fact, it happens in a useEffect.
+    // Adding a little delay makes is much more likely that the event
+    // listener has been set up my the time we fire the `.click()` on the
+    // next line.
+    await page.waitForTimeout(500)
+    await page.getByText('HOSTNAME', { exact: true }).first().click()
+
+    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
+    await page
+      .getByTestId('domain-name-edit-form')
+      .getByLabel('Your domain name')
+      .fill('peterbe.ghe.com')
+    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
+    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
   })
 })
 
