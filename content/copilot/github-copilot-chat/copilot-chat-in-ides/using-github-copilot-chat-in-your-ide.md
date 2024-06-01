@@ -165,7 +165,7 @@ Use the `@terminal` chat participant to ask specific questions about the command
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
-In addition to submitting prompts through the chat view, you submit prompts in other ways:
+In addition to submitting prompts through the chat view, you can submit prompts in other ways:
 
 - **Inline**: To start an inline chat directly in the editor or integrated terminal, enter <kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>i</kbd> (Windows/Linux).
 - **Quick chat**: To open the quick chat dropdown, enter <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>i</kbd> (Windows/Linux)
