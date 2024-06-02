@@ -1360,5 +1360,5 @@
       "BackgroundColor" : "#00000000"
     }
   ],
-  "Editable" : true
-}
+  "Editable" : false
+} run 
