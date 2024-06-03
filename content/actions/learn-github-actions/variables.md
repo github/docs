@@ -322,6 +322,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} |
 {%- endif %}
 | `RUNNER_DEBUG` | {% data reusables.actions.runner-debug-description %} |
+| `RUNNER_ENVIRONMENT` | {% data reusables.actions.runner-environment-description %} |
 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |
 | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` |
 | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %} For example, `D:\a\_temp` |
