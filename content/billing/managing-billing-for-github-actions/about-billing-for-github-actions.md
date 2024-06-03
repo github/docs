@@ -13,6 +13,13 @@ topics:
   - Spending limits
 shortTitle: Billing for GitHub Actions
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About billing for {% data variables.product.prodname_actions %}
 
 {% ifversion billing-auth-and-capture %}

@@ -18,6 +18,13 @@ topics:
   - User account
 shortTitle: Downgrade Git LFS storage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
 
 ## Downgrading storage and bandwidth for a personal account
