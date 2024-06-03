@@ -62,8 +62,6 @@ module.exports = setup
 
 To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
 
-For a full example of how to set up this action, see [example-setup-gh](https://github.com/github-developer/example-setup-gh).
-
 ## Further reading
 
 This pattern is employed in several actions. For more examples, see:
