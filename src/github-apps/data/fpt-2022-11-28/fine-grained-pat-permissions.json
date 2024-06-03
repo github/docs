@@ -1,4 +1,19 @@
 {
+  "enterprise_administration": {
+    "title": "Enterprise administration",
+    "displayTitle": "Business permissions for \"Enterprise administration\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
+        "access": "read"
+      }
+    ]
+  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
