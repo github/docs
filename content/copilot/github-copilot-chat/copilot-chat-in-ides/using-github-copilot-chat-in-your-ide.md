@@ -194,83 +194,118 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 {% visualstudio %}
 
-{% note %}
-
-**Important:**
-
-{% data reusables.gated-features.copilot-chat-callout %}
-
-{% endnote %}
-
-## About {% data variables.product.prodname_copilot_chat %} and {% data variables.product.prodname_vs %}
-
-{% data reusables.copilot.chat-procedural-intro %} For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
-
 ## Prerequisites
 
-{% data reusables.copilot.chat-subscription-prerequisite %}
+- **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
+- **{% data variables.product.prodname_vs %} 2022 version 17.8 or higher**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
+- **{% data variables.product.prodname_copilot %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+- **{% data variables.product.prodname_copilot_chat %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+- **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.8 or higher. For more information, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot %}](https://visualstudio.microsoft.com/github-copilot/) documentation.
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_chat %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
+## Submitting prompts
 
-## Enabling or disabling {% data variables.product.prodname_copilot_chat %}
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-{% data reusables.copilot.enabling-or-disabling-copilot %}
+1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
+1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[Example prompts](#example-prompts)" below.
+1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
-## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
+   The response often includes interactive elements. For example, the response may include buttons to copy, insert, or preview the result of a code block.
 
-{% data reusables.copilot.install-copilot-vs-intro %}
+   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, select the **References** dropdown below the response.
 
-{% data reusables.copilot.install-copilot-and-chat-combo-vs-procedure %}
+## Using keywords in your prompt
 
-### Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %} for versions 17.8 and 17.9
+You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
 
-To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
+### Slash commands
 
-{% data reusables.copilot.link-to-vs-docs %}
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. Slash commands include:
 
-{% data reusables.copilot.vs-extensions %}
+- `/tests`: Generate unit tests for the selected code
+- `/fix`: Propose a fix for problems in the selected code
+- `/explain`: Explain the selected code
+- `/optimize`: Analyze and improve the runtime of the selected code
 
-1. In the "Manage Extensions" window, click **{% data variables.product.prodname_vs %} Marketplace**, search for "{% data variables.product.prodname_copilot_chat %}", then click **Download**.
-{% data reusables.copilot.vs-exit-and-relaunch %}
+To see all available slash commands, type `/` in the chat prompt box. See also [Slash commands](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#slash-commands) in the {% data variables.product.prodname_vs %} documentation.
 
-{% note %}
+### References
 
-**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
+By default, {% data variables.product.prodname_copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also use `#` followed by a file name, file name and line numbers, or `solution` to reference a specific file, lines, or solution. For example:
 
-{% endnote %}
+- Reference a specific file: `Where are the tests in #MyFile.cs?`
+- Reference multiple files: `How are these files related #MyFile.cs #MyFile2.cs`
+- Reference specific lines in a file: `Explain this function #MyFile.cs: 66-72?`
+- Reference the current file: `Is there a delete method in this #solution`
 
-## Asking your first question
+See also [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#reference) in the {% data variables.product.prodname_vs %} documentation.
 
-{% data reusables.copilot.copilot-chat-exclusively-code-questions %}
-{% data reusables.copilot.chat-open-visualstudio %}
-1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}: Type / for commands and # to reference** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+## Example prompts
 
-    {% note %}
+You can ask {% data variables.product.prodname_copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.product.prodname_copilot_chat_short %} to write code, fix errors, write tests, and document code.
 
-    **Note:** If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
+### Ask general software questions
 
-    {% endnote %}
+You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
 
-1. If {% data variables.product.prodname_copilot_chat_short %} offers a code suggestion that you want to use, click the **Copy** icon to copy the code suggestion to your clipboard.
-1. Optionally, if {% data variables.product.prodname_copilot_chat_short %} suggests a follow-up question under your last answer, click the follow-up question to ask it.
+- `tell me about nodejs web server frameworks`
+- `how to create an express app`
+- `how to update an npm package`
 
-## Asking {% data variables.product.prodname_copilot_chat %} questions about your code
+### Ask questions about your project
 
-{% data variables.product.prodname_copilot_chat_short %} can provide answers and support with a wide range of coding related topics.
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about your project. To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
 
-1. In {% data variables.product.prodname_vs %}, open the file you want {% data variables.product.prodname_copilot_chat_short %} to help you with.
-{% data reusables.copilot.chat-open-visualstudio %}
-{% data reusables.copilot.chat-asking-questions %}
+- Highlight relevant lines of code
+- Open the relevant file
+- Use `#file` to tell {% data variables.product.prodname_copilot_short %} to reference specific files
+- Use `#solution` to tell {% data variables.product.prodname_copilot_short %} to reference the active file
 
-{% note %}
+For example:
 
-**Note:** To find out about other special commands you can use with {% data variables.product.prodname_copilot_chat_short %}, enter `/help` in the chat input box. For more information on slash commands, see [Get better answers by setting the context for {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022#slash-commands) in the {% data variables.product.prodname_vs %} documentation.
+- `what sorting algorithm does this function use`
+- `#file:gameReducer.js what happens when a new game is requested`
 
-{% endnote %}
+### Write code
 
-## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
+You can ask {% data variables.product.prodname_copilot_short %} to write code for you. For example:
+
+- `write a function to sum all numbers in a list`
+- `add error handling to this function`
+
+When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, insert the code into a new file, or preview the code output.
+
+### Fix, improve, and refactor code
+
+If your active file contains an error, use the `/fix` slash command to ask {% data variables.product.prodname_copilot_short %} to fix the error.
+
+You can also make general requests to improve or refactor your code.
+
+- `how would you improve this code?`
+- `translate this code to C#`
+- `add error handling to this function`
+
+### Write tests
+
+Use the `/tests` slash command to ask {% data variables.product.prodname_copilot_short %} to write tests for the active file or selected code. For example:
+
+- `/tests`
+- `/tests using the Jest framework`
+- `/tests ensure the function rejects an empty list`
+
+The `/tests` slash command writes tests for existing code. If you prefer to write tests before writing code (test driven development), omit the `/tests` command. For example:
+
+- `Add tests for a JavaScript function that should sum a list of integers`
+
+## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
+
+In addition to submitting prompts through the chat window, you can submit prompts inline. To start an inline chat, right click in your editor window and select **Ask {% data variables.product.prodname_copilot_short %}**.
+
+See [Ask questions in the inline chat view](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat#ask-questions-in-the-inline-chat-view) in the {% data variables.product.prodname_vs %} documentation for more details.
+
+## Sharing feedback
 
 To share feedback about {% data variables.product.prodname_copilot_chat_short %}, you can use the **Send feedback** button in {% data variables.product.prodname_vs %}. For more information on providing feedback for {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} Feedback](https://learn.microsoft.com/en-us/visualstudio/ide/how-to-report-a-problem-with-visual-studio?view=vs-2022) documentation.
 
@@ -284,11 +319,15 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Further reading
 
-- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 - [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 - [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
+{% ifversion ghec %}
+- "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
+{% endif %}
+- "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
+- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvisualstudio %}
 
