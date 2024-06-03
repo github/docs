@@ -8,6 +8,10 @@ For procedures to configure Azure private networking at the organization level, 
 
 {% ifversion ghec %}
 
-For procedures to configure Azure private networking at the enterprise level, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise)."
+{% data reusables.actions.azure-vnet-enterprise-policy %}
+
+For procedures to configure Azuzre private networking at the enterprise level, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise)."
+
+For procedures to configure Azure private networking at the organization level, see "[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization)."
 
 {% endif %}
