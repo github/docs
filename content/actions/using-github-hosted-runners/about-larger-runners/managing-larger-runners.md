@@ -9,9 +9,14 @@ redirect_from:
   - /actions/using-github-hosted-runners/managing-larger-runners
 ---
 
-{% data reusables.actions.windows-linux-larger-runners-note %}
+{% note %}
 
-{% data reusables.actions.gpu-runner-beta-note %}
+**Notes:**
+
+- {% data reusables.actions.windows-linux-larger-runners-note %}
+- GPU-powered runners and ARM-powered runners are currently in beta and are subject to change.
+
+{% endnote %}
 
 {% ifversion ghec %}
 

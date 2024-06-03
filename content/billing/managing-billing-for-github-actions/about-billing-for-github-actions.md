@@ -85,7 +85,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 |  Windows 2-core             |   $0.016              |
 |  macOS 3 or 4 (M1 or Intel) |   $0.08               |
 
-#### Per-minute rates for {% data variables.actions.hosted_runners %}
+#### Per-minute rates for x64-powered {% data variables.actions.hosted_runners %}
 
 | Operating system    | Per-minute rate (USD) |
 |---------------------| -----------|
@@ -95,17 +95,42 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 |  Linux 16-core      |   $0.064   |
 |  Linux 32-core      |   $0.128   |
 |  Linux 64-core      |   $0.256   |
-|  Linux 4-core GPU   |   $0.07    |
 |  Windows 4-core     |   $0.032   |
 |  Windows 8-core     |   $0.064   |
 |  Windows 16-core    |   $0.128   |
 |  Windows 32-core    |   $0.256   |
 |  Windows 64-core    |   $0.512   |
-|  Windows 4-core GPU |   $0.14   |
+|  Windows 4-core GPU |   $0.14    |
 |  macOS 12-core      |   $0.12    |
+
+#### Per-minute rates for arm64-powered {% data variables.actions.hosted_runners %}
+
+| Operating system    | Per-minute rate (USD) |
+|---------------------| -----------|
+|  Linux 2-core       |   $0.005   |
+|  Linux 4-core       |   $0.01    |
+|  Linux 8-core       |   $0.02    |
+|  Linux 16-core      |   $0.04    |
+|  Linux 32-core      |   $0.08    |
+|  Linux 64-core      |   $0.16    |
+|  Windows 2-core     |   $0.01    |
+|  Windows 4-core     |   $0.02    |
+|  Windows 8-core     |   $0.04    |
+|  Windows 16-core    |   $0.08    |
+|  Windows 32-core    |   $0.16    |
+|  Windows 64-core    |   $0.32    |
 |  macOS 6-core (M1)  |   $0.16    |
 
-- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+#### Per-minute rates for GPU-powered {% data variables.actions.hosted_runners %}
+
+| Operating system    | Per-minute rate (USD) |
+|---------------------| -----------|
+|  Linux 4-core       |   $0.07    |
+|  Windows 4-core     |   $0.14   |
+
+#### Points to note about rates for runners
+
+- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
 - {% data reusables.user-settings.context_switcher %}
 - {% data reusables.actions.larger-runner-permissions %}
 - {% data reusables.actions.about-larger-runners-billing %}
