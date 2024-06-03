@@ -94,6 +94,15 @@
         "access": "write"
       },
       {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "enterprise-admin",
         "slug": "list-provisioned-scim-groups-for-an-enterprise",
         "subcategory": "scim",
