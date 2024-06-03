@@ -16,6 +16,11 @@ export type Context = {
   currentCategory?: string
   error?: Error
   siteTree?: SiteTree
+  pages?: Record<string, Page>
+  redirects?: Record<string, Page>
+  currentLanguage?: string
+  page?: Page
+  currentVersion?: string
 }
 
 type Language = {
@@ -30,14 +35,14 @@ export type Languages = {
   [key: string]: Language
 }
 
-type Permalink = {
+export type Permalink = {
   languageCode: string
   pageVersion: string
   title: string
   href: string
 }
 
-type Versions = {
+export type FrontmatterVersions = {
   feature?: string
   fpt?: string
   ghec?: string
@@ -56,7 +61,7 @@ export type Page = {
   documentType: string
   renderProp: (prop: string, context: any, opts: any) => Promise<string>
   markdown: string
-  versions: Versions
+  versions: FrontmatterVersions
 }
 
 export type Tree = {

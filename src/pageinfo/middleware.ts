@@ -1,19 +1,21 @@
 import express from 'express'
+import type { NextFunction, RequestHandler, Response } from 'express'
 
-import statsd from '#src/observability/lib/statsd.js'
-import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
-import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
+import type { ExtendedRequest, Page, Context, Permalink } from '@/types'
+import statsd from '@/observability/lib/statsd.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
 import {
   SURROGATE_ENUMS,
   setFastlySurrogateKey,
   makeLanguageSurrogateKey,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import shortVersions from '#src/versions/middleware/short-versions.js'
-import contextualize from '#src/frame/middleware/context/context.js'
-import features from '#src/versions/middleware/features.js'
-import getRedirect from '#src/redirects/lib/get-redirect.js'
-import { isArchivedVersionByPath } from '#src/archives/lib/is-archived-version.js'
-import { readCompressedJsonFile } from '#src/frame/lib/read-json-file.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import shortVersions from '@/versions/middleware/short-versions.js'
+import contextualize from '@/frame/middleware/context/context.js'
+import features from '@/versions/middleware/features.js'
+import getRedirect from '@/redirects/lib/get-redirect.js'
+import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version.js'
+import { readCompressedJsonFile } from '@/frame/lib/read-json-file.js'
 
 const router = express.Router()
 
@@ -25,8 +27,25 @@ const router = express.Router()
 // it can be imported by the script scripts/precompute-pageinfo.ts
 export const CACHE_FILE_PATH = '.pageinfo-cache.json.br'
 
-const validationMiddleware = (req, res, next) => {
-  const { pathname } = req.query
+type ArchivedVersion = {
+  isArchived?: boolean
+  requestedVersion?: string
+}
+
+type ExtendedRequestWithPageInfo = ExtendedRequest & {
+  pageinfo: {
+    pathname: string
+    page?: Page
+    archived?: ArchivedVersion
+  }
+}
+
+const validationMiddleware = (
+  req: ExtendedRequestWithPageInfo,
+  res: Response,
+  next: NextFunction,
+) => {
+  const pathname = req.query.pathname as string | string[] | undefined
   if (!pathname) {
     return res.status(400).json({ error: `No 'pathname' query` })
   }
@@ -46,7 +65,11 @@ const validationMiddleware = (req, res, next) => {
   return next()
 }
 
-const pageinfoMiddleware = (req, res, next) => {
+const pageinfoMiddleware = (
+  req: ExtendedRequestWithPageInfo,
+  res: Response,
+  next: NextFunction,
+) => {
   let { pathname } = req.pageinfo
   // We can't use the `findPage` middleware utility function because we
   // need to know when the pathname is a redirect.
@@ -55,6 +78,10 @@ const pageinfoMiddleware = (req, res, next) => {
   // This is important when rendering a page because of translations,
   // if it needs to do a fallback, it needs to know the correct
   // equivalent English page.
+
+  if (!req.context || !req.context.pages || !req.context.redirects)
+    throw new Error('request not yet contextualized')
+
   const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
 
   // Similar to how the `handle-redirects.js` middleware works, let's first
@@ -75,7 +102,7 @@ const pageinfoMiddleware = (req, res, next) => {
     // That's why it's import to not bother looking at the redirects
     // if the pathname is an archived enterprise version.
     // This mimics how our middleware work and their order.
-    req.pageinfo.archived = isArchivedVersionByPath(pathname)
+    req.pageinfo.archived = isArchivedVersionByPath(pathname) as ArchivedVersion
     if (!req.pageinfo.archived.isArchived) {
       const redirect = getRedirect(pathname, redirectsContext)
       if (redirect) {
@@ -92,12 +119,14 @@ const pageinfoMiddleware = (req, res, next) => {
   return next()
 }
 
-export async function getPageInfo(page, pathname) {
+export async function getPageInfo(page: Page, pathname: string) {
+  const mockedContext: Context = {}
   const renderingReq = {
     path: pathname,
     language: page.languageCode,
     pagePath: pathname,
     cookies: {},
+    context: mockedContext,
   }
   const next = () => {}
   const res = {}
@@ -116,6 +145,7 @@ export async function getPageInfo(page, pathname) {
       .split('/')
       .slice(0, permalink.pageVersion === 'free-pro-team@latest' ? 3 : 4)
       .join('/')
+    if (!context.pages) throw new Error('context.pages not yet set')
     const rootPage = context.pages[rootHref]
     if (rootPage) {
       productPage = rootPage
@@ -127,11 +157,13 @@ export async function getPageInfo(page, pathname) {
   return { title, intro, product }
 }
 
-const _productPageCache = {}
+const _productPageCache: {
+  [key: string]: string
+} = {}
 // The title of the product is much easier to cache because it's often
 // repeated. What determines the title of the product is the language
 // and the version. A lot of pages have the same title for the product.
-async function getProductPageInfo(page, context) {
+async function getProductPageInfo(page: Page, context: Context) {
   const cacheKey = `${page.relativePath}:${context.currentVersion}:${context.currentLanguage}`
   if (!(cacheKey in _productPageCache)) {
     const title =
@@ -146,16 +178,25 @@ async function getProductPageInfo(page, context) {
   return _productPageCache[cacheKey]
 }
 
-let _cache = null
-async function getPageInfoFromCache(page, pathname) {
+type CachedPageInfo = {
+  [url: string]: {
+    title: string
+    intro: string
+    product: string
+    cacheInfo?: string
+  }
+}
+
+let _cache: CachedPageInfo | null = null
+async function getPageInfoFromCache(page: Page, pathname: string) {
   let cacheInfo = ''
   if (_cache === null) {
     try {
-      _cache = readCompressedJsonFile(CACHE_FILE_PATH)
+      _cache = readCompressedJsonFile(CACHE_FILE_PATH) as CachedPageInfo
       cacheInfo = 'initial-load'
     } catch (error) {
       cacheInfo = 'initial-fail'
-      if (error.code !== 'ENOENT') {
+      if (error instanceof Error && (error as any).code !== 'ENOENT') {
         throw error
       }
       _cache = {}
@@ -185,9 +226,9 @@ async function getPageInfoFromCache(page, pathname) {
 
 router.get(
   '/v1',
-  validationMiddleware,
-  pageinfoMiddleware,
-  catchMiddlewareError(async function pageInfo(req, res) {
+  validationMiddleware as RequestHandler,
+  pageinfoMiddleware as RequestHandler,
+  catchMiddlewareError(async function pageInfo(req: ExtendedRequestWithPageInfo, res: Response) {
     // Remember, the `validationMiddleware` will use redirects if the
     // `pathname` used is a redirect (e.g. /en/articles/foo or
     // /articles or '/en/enterprise-server@latest/foo/bar)
@@ -208,7 +249,7 @@ router.get(
       return res.status(400).json({ error: `No page found for '${pathname}'` })
     }
 
-    const pagePermalinks = page.permalinks.map((p) => p.href)
+    const pagePermalinks = page.permalinks.map((p: Permalink) => p.href)
     if (!pagePermalinks.includes(pathname)) {
       throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
     }
@@ -234,6 +275,7 @@ router.get(
     // (other than the default 'en').
     // We do this so that all of these URLs are cached in Fastly by language
     // which we need for the staggered purge.
+
     setFastlySurrogateKey(
       res,
       `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,

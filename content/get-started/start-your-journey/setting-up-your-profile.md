@@ -1,7 +1,7 @@
 ---
 title: Setting up your profile
 shortTitle: Set up your profile
-intro: 'Your profile tells people who you are and what you''re interested in.'
+intro: Your profile tells people who you are and what you're interested in.
 versions:
   fpt: '*'
   ghes: '*'
@@ -28,7 +28,7 @@ You'll also learn the basics of Markdown syntax, which is what you'll use to for
 
 ### Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% endif %}
+- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
 
 ## Adding a profile picture and bio
 
@@ -61,7 +61,7 @@ Next, we'll create a special repository and README file that will be displayed d
 
 Your profile README contains information such as your interests, skills, and background, and it can be a great way to introduce yourself to other people on {% data variables.product.product_name %} and showcase your work.
 
-As we learned in the "[AUTOTITLE](/get-started/quickstart/hello-world)" tutorial, `README.md` files are written using Markdown syntax (note the `.md` file extension), which is just a way to format plain text.
+As we learned in the "[AUTOTITLE](/get-started/start-your-journey/hello-world)" tutorial, `README.md` files are written using Markdown syntax (note the `.md` file extension), which is just a way to format plain text.
 
 In the following steps, we'll create and edit your profile README.
 

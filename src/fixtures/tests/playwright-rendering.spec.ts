@@ -289,7 +289,7 @@ test.describe('hover cards', () => {
   test('internal links get a aria-roledescription and aria-describedby', async ({ page }) => {
     await page.goto('/pages/quickstart')
     const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
-    await expect(link).toHaveAttribute('aria-roledescription', 'hover card')
+    await expect(link).toHaveAttribute('aria-roledescription', 'hovercard link')
 
     // The link gets a `aria-describedby="...ID..."` attribute that points to
     // another element in the DOM that has the description text.
