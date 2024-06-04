@@ -11,8 +11,6 @@ topics:
 
 {% azure_data_studio %}
 
-## About the {% data variables.product.prodname_copilot %} extension in Azure Data Studio
-
 Installing the {% data variables.product.prodname_copilot %} extension in Azure Data Studio allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
@@ -36,15 +34,9 @@ To see instructions for other popular coding environments, use the tool switcher
 
 {% jetbrains %}
 
-## About the {% data variables.product.prodname_copilot %} extension in JetBrains IDEs
-
-Installing the {% data variables.product.prodname_copilot %} extension in JetBrains IDEs allows you to chat with {% data variables.product.prodname_copilot_short %} in your IDE and receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
+Installing the {% data variables.product.prodname_copilot %} extension in JetBrains IDEs allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
-
-### Version compatibility
-
-For information about version compatibility of the {% data variables.product.prodname_copilot %} extension in JetBrains IDEs, see [{% data variables.product.prodname_copilot %} Versions](https://plugins.jetbrains.com/plugin/17718-github-copilot/versions) in the JetBrains Marketplace.
 
 ## Installing the {% data variables.product.prodname_copilot %} plugin in your JetBrains IDE
 
@@ -95,8 +87,6 @@ The following procedure will guide you through installation of the {% data varia
 
 {% vimneovim %}
 
-## About the {% data variables.product.prodname_copilot %} extension in Vim/Neovim
-
 Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
@@ -145,15 +135,9 @@ To see instructions for other popular coding environments, use the tool switcher
 
 {% visualstudio %}
 
-## About the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
-
 Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
-
-### Version compatibility
-
-Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_chat %} extension is included by default as a built-in component. For more information, see "[Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states)" in the Microsoft documentation.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
@@ -169,17 +153,9 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 {% vscode %}
 
-## About the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
-
 Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. It also automatically installs the {% data variables.product.prodname_copilot_chat %} extension, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
-
-### Version compatibility
-
-{% data variables.product.prodname_copilot_chat_short %} releases in lockstep with {% data variables.product.prodname_vscode %}, due to its deep UI integration. As a result, every new version of {% data variables.product.prodname_copilot_chat_short %} is only compatible with the latest release of {% data variables.product.prodname_vscode %}. This means that if you are using an older version of {% data variables.product.prodname_vscode %}, you will not be able to use the latest {% data variables.product.prodname_copilot_chat_short %}.
-
-Only the latest {% data variables.product.prodname_copilot_chat_short %} versions will use the latest large language model provided by the {% data variables.product.prodname_copilot_short %} service, as even minor model upgrades require prompt changes and fixes in the extension. An older version of {% data variables.product.prodname_copilot_chat_short %} will still use the latest version of {% data variables.product.prodname_copilot_short %} code completions.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
 
