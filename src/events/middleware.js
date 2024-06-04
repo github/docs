@@ -8,6 +8,7 @@ import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
+import { analyzeComment } from './analyze-comment.js'
 
 const router = express.Router()
 const OMIT_FIELDS = ['type']
@@ -90,18 +91,9 @@ router.post(
       return res.status(400).json({ message: 'Empty comment' })
     }
 
-    const signals = []
-    const rating = 1.0
+    const { rating } = await analyzeComment(comment, locale)
 
-    // if (comment.includes('@') && !comment.includes(' ')) {
-    //   // XXX Make it a simple email validator
-    //   signals.push({
-    //     email: 'Looks like an email address',
-    //   })
-    //   rating -= 0.1
-    // }
-
-    return res.json({ rating, signals })
+    return res.json({ rating })
   }),
 )
 
