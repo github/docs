@@ -3,6 +3,7 @@ import { omit, without, mapValues } from 'lodash-es'
 import QuickLRU from 'quick-lru'
 
 import { schemas, hydroNames } from './lib/schema.js'
+import statsd from '@/observability/lib/statsd.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
@@ -84,16 +85,19 @@ router.post(
     noCacheControl(res)
 
     const { comment, locale, url, vote } = req.body
-
-    console.log(`The comment was posted in ${locale} on ${url} with vote ${vote}`)
+    const tags = [url, vote]
 
     if (!comment || !comment.trim()) {
+      statsd.increment('events.survey_preview.empty', 1, tags)
       return res.status(400).json({ message: 'Empty comment' })
     }
 
-    const { rating } = await analyzeComment(comment, locale)
+    const { rating, signals } = await analyzeComment(comment, locale)
 
-    return res.json({ rating })
+    res.json({ rating })
+
+    tags.push(...signals)
+    statsd.increment('events.survey_preview.signals', 1, tags)
   }),
 )
 
