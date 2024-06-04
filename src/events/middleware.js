@@ -85,7 +85,7 @@ router.post(
     noCacheControl(res)
 
     const { comment, locale, url, vote } = req.body
-    const tags = [`url:${url}`, `vote:${vote}`]
+    const tags = [url, vote]
 
     if (!comment || !comment.trim()) {
       statsd.increment('events.survey_preview.empty', 1, tags)
@@ -96,7 +96,7 @@ router.post(
 
     res.json({ rating })
 
-    tags.push(...signals.map((signal) => `signal:${signal}`))
+    tags.push(...signals)
     statsd.increment('events.survey_preview.signals', 1, tags)
   }),
 )
