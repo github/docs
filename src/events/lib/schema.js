@@ -395,6 +395,11 @@ const survey = {
       description:
         'The duration of survey submission - page.timestamp, in seconds. Used to filter out bot-generated survey resopnses.',
     },
+    survey_rating: {
+      type: 'number',
+      description:
+        'The compute rating of the quality of the survey comment. Used for spam filtering and quality control.',
+    },
   },
 }
 

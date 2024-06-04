@@ -1,6 +1,6 @@
-import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
+import { addError } from 'markdownlint-rule-helpers'
 
-import { getRange } from '../helpers/utils.js'
+import { forEachInlineChild, getRange } from '../helpers/utils.js'
 
 const excludeStartWords = ['image', 'graphic']
 
@@ -12,6 +12,7 @@ export const imageAltTextExcludeStartWords = {
   names: ['GHD031', 'image-alt-text-exclude-words'],
   description: 'Alternate text for images should not begin with words like "image" or "graphic"',
   tags: ['accessibility', 'images'],
+  parser: 'markdownit',
   function: (params, onError) => {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()

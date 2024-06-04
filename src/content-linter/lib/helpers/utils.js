@@ -1,9 +1,17 @@
-import { addError } from 'markdownlint-rule-helpers'
+import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import matter from 'gray-matter'
 
 // Adds an error object with details conditionally via the onError callback
 export function addFixErrorDetail(onError, lineNumber, expected, actual, range, fixInfo) {
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
+}
+
+export function forEachInlineChild(params, type, handler) {
+  filterTokens(params, 'inline', (token) => {
+    for (const child of token.children.filter((c) => c.type === type)) {
+      handler(child, token)
+    }
+  })
 }
 
 export function getRange(line, content) {

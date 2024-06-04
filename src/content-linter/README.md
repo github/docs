@@ -51,7 +51,7 @@ See the [custom rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/
 
 ### Helper utilities
 
-Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js).
+Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js). Note, this is unsupported and may stop being published to in the future.
 
 We've also written a few of our own:
 
