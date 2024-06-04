@@ -12,7 +12,8 @@ shortTitle: Share with your organization
 
 ## About {% data variables.product.prodname_actions %} access to private {% ifversion internal-actions %} or internal {% endif %}repositories
 
-You can share actions and reusable workflows within your organization, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access a private {% ifversion internal-actions %} repository that contains the action or reusable workflow.
+You can share actions and reusable workflows within your organization, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access a private {% ifversion internal-actions %}  {% endif %}repository that contains the action or reusable workflow.
+
 
 Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private {% ifversion internal-actions %} repositories owned by the same organization. Actions and reusable workflows stored in private repositories cannot be used in public repositories{% endif %}.
 
