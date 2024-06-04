@@ -2,7 +2,6 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
-
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
