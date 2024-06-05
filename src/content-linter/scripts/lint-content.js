@@ -474,6 +474,8 @@ function formatResult(object, isPrecommit) {
   formattedResult.severity =
     allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
 
+  formattedResult.context = allConfig[ruleName].context || ''
+
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
       acc.fixable = !!value
