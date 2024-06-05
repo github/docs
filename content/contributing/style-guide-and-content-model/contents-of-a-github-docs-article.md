@@ -47,25 +47,6 @@ Titles can be challenging. Use these general guidelines to help create clear, he
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
 - Think about how the title will look in production.
 
-## Product callout
-
-Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
-
-All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
-
-### How to write a product callout
-
-- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
-- Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
-- Examples:
-  - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
-  - [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
-
-### Examples of articles with product callouts
-
-Check the source files and `gated-features` to see how source content is written.
-- [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
-
 ## Intro
 
 The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
@@ -103,6 +84,25 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 ### Examples of permissions statements
 
 - Article with single permissions statement for multiple procedures: [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
+
+## Product callout
+
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
+
+All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
+
+### How to write a product callout
+
+- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
+- Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
+- Examples:
+  - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
+  - [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
+
+### Examples of articles with product callouts
+
+Check the source files and `gated-features` to see how source content is written.
+- [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
 
 ## Tool switcher
 
