@@ -185,6 +185,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
         : operation.permission_sets || [],
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
+      basicAuth: operation.basic_auth,
     }
   }
 

@@ -93,6 +93,10 @@ export function getShellExample(
     acceptHeader = acceptHeader === `-H "Accept: application/vnd.github+json"` ? '' : acceptHeader
   }
 
+  if (operation?.progAccess?.basicAuth) {
+    authHeader = '-u "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"'
+  }
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
     acceptHeader,
@@ -121,6 +125,9 @@ export function getGHExample(
   currentVersion: string,
   allVersions: Record<string, VersionItem>,
 ) {
+  // Basic authentication is not supported by GH CLI
+  if (operation?.progAccess?.basicAuth) return
+
   const defaultAcceptHeader = getAcceptHeader(codeSample)
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
 
@@ -326,9 +333,12 @@ export function getJSExample(
   }
 
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
-  const require = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
+  const authOctokit = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
+  const oauthOctokit = `import { createOAuthAppAuth } from "@octokit/auth-oauth-app"\n\nconst octokit = new Octokit({\n  authStrategy: createOAuthAppAuth,\n  auth:{\n    clientType: 'oauth-app',\n    clientId: '<YOUR_CLIENT ID>',\n    clientSecret: '<YOUR_CLIENT SECRET>'\n  }\n})\n\n`
+  const isBasicAuth = operation?.progAccess?.basicAuth
+  const authString = isBasicAuth ? oauthOctokit : authOctokit
 
-  return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
+  return `${comment}${authString}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath
   }${queryParameters}', ${stringify(parameters, null, 2)})`
 }
