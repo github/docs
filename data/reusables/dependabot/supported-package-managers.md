@@ -7,7 +7,7 @@ The following table shows, for each package manager:
 Package manager | YAML value      | Supported versions | Private repositories | Private registries | Vendoring
 ---------------|------------------|------------------|:---:|:---:|:---:
 Bundler        | `bundler`        | v1, v2           | {% octicon "x" aria-label="Not supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
+[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}{% ifversion dependabot-updates-cargo-private-registry-support %}{% else %} (Git only){% endif %} | {% octicon "x" aria-label="Not supported" %} |
 Composer       | `composer`       | v1, v2           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-version-updates-devcontainer-support %}[Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% endif %}{% ifversion dependabot-version-updates-enhanced-docker-support %}[Docker](#docker){% else %}Docker{% endif %}         | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -39,7 +39,7 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label
 
 #### Cargo
 
-Private registry support applies to git registries, and doesn't include cargo registries.
+{% ifversion dependabot-updates-cargo-private-registry-support %}Private registry support includes cargo registries, so you can use {% data variables.product.prodname_dependabot %} to keep your Rust dependencies up-to-date. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#cargo)."{% else %}Private registry support applies to Git registries, and doesn't include cargo registries.{% endif %}
 
 {% ifversion dependabot-version-updates-devcontainer-support %}
 

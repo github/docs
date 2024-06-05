@@ -45,10 +45,8 @@ If your organization currently pays for {% data variables.product.prodname_spons
 {% data reusables.profile.org_settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Scroll to the "{% data variables.product.prodname_sponsors %}" section and click **Switch to invoiced billing**.
-1. Fill out the form and click **Continue**.
-1. Read the {% data variables.product.company_short %} Invoiced Sponsor Agreement, select **I, FIRSTNAME LASTNAME, agree to the {% data variables.product.prodname_sponsors %} terms above on behalf of the @ORGANIZATIONNAME organization. By continuing, I certify that I am authorized to enter into this agreement on behalf of the organization** and click **Continue**.
-1. To download a list of your current sponsorships to make it easy to re-sponsor projects with the bulk sponsor tool, click **Download CSV**.
-1. Click **Switch to invoiced billing**.
+1. Compare credit card and invoice billing on the next page. To proceed with changing to invoiced billing, click **Switch to invoiced billing**.
+1. Fill out the form and click **Submit**.
 
 When the process is complete, all organization owners will receive an email with a link to create an invoice.
 

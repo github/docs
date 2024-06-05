@@ -13,6 +13,12 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_github_codespaces %} usage for your personal account
 
 You can see how much of the usage included in your personal account you have used so far in the current monthly billing cycle. If you have set up a payment method, set a spending limit, and used all of your included usage, you can also check your bill for the current month.

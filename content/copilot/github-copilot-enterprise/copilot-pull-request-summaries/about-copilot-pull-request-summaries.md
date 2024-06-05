@@ -28,7 +28,7 @@ The only supported language for {% data variables.product.prodname_copilot_for_p
 
 ### Response generation
 
-The current process uses GPT 4 to initiate the auto-complete process and generate the pull request summary.
+The current process uses a large language model to initiate the auto-complete process and generate the pull request summary.
 
 #### Pipeline approach
 

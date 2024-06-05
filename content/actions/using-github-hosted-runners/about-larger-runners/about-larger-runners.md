@@ -27,10 +27,7 @@ Ubuntu and Windows {% data variables.actions.hosted_runners %} offer autoscaling
 
 The following machines sizes are available for macOS {% data variables.actions.hosted_runners %}.
 
-| Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | YAML workflow label |
-| --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
-| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large</code>, <code>macos-13-large</code> [latest], <code>macos-14-large</code>[Beta] |
-| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>, <code>macos-13-xlarge</code>[latest], <code>macos-14-xlarge</code>[Beta] |
+{% data reusables.actions.larger-runners-table %}
 
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
 
@@ -42,11 +39,11 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% rowheaders %}
 
-| Operating system                             | Ubuntu | Windows | macOS |
-| -------------------------------------------- | ------ | ------- | ----- |
+|                     | Ubuntu | Windows | macOS |
+| ------------------- | ------ | ------- | ----- |
 | Static IP addresses | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Autoscaling | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| Runner groups | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Autoscaling         | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Runner groups       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
@@ -58,11 +55,11 @@ These features can enhance your CI/CD pipelines in the following ways.
 
 ### Runner images
 
-{% data variables.actions.hosted_runner_caps %}s run on virtual machines (VMs), and GitHub installs a virtual hard disk (VHD) on this machine during the VM creation process. You can choose from different VM images to install on your runners.
+{% data variables.actions.hosted_runner_caps %}s run on virtual machines (VMs), and {% data variables.product.prodname_dotcom %} installs a virtual hard disk (VHD) on this machine during the VM creation process. You can choose from different VM images to install on your runners.
 
-**GitHub-owned images:** These images are maintained by GitHub and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
+**{% data variables.product.prodname_dotcom %}-owned images:** These images are maintained by {% data variables.product.prodname_dotcom %} and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 
-**Partner Images:** Partner images are not managed by GitHub and are pulled from the Azure Marketplace. For more info on the Windows 11 desktop image see [Microsoft Windows 11 Desktop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview). For more info on the GPU runner compatible images, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
+**Partner Images:** Partner images are not managed by {% data variables.product.prodname_dotcom %} and are pulled from the Azure Marketplace. For more information about about the Windows 11 desktop image see [Microsoft Windows 11 Desktop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview). For more information about the GPU runner compatible images, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview). For more information about the images for ARM-powered runners, see the [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images). This is also the place to provide feedback or report issues about third-party images.
 
 ### Understanding billing
 
@@ -80,22 +77,33 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 ### Specifications for general {% data variables.actions.hosted_runners %}
 
-| CPU | Memory (RAM)  | Storage (SSD) | Operating system (OS) |
-| --- | ------------- | ------------- | --------------------- |
-| 6   | 14 GB         | 14 GB         | macOS                 |
-| 12  | 30 GB         | 14 GB         | macOS                 |
-| 2   | 8 GB          | 75 GB         | Ubuntu                |
-| 4   | 16 GB         | 150 GB        | Ubuntu, Windows               |
-| 8   | 32 GB         | 300 GB        | Ubuntu, Windows       |
-| 16  | 64 GB         | 600 GB        | Ubuntu, Windows       |
-| 32  | 128 GB        | 1200 GB       | Ubuntu, Windows       |
-| 64  | 256 GB        | 2040 GB       | Ubuntu, Windows       |
+{% note %}
 
->[!NOTE] The 4vcpu Windows runner only works with the Windows 11 Desktop image.
+**Note:** arm64 runners are currently in beta and subject to change.
+
+{% endnote %}
+
+| CPU | Memory (RAM)  | Storage (SSD) | Architecture | Operating system (OS) |
+| --- | ------------- | ------------- | ------------ | --------------------- |
+| 6   | 14 GB         | 14 GB         | arm64        | macOS                 |
+| 12  | 30 GB         | 14 GB         | x64          | macOS                 |
+| 2   | 8 GB          | 75 GB         | x64, arm64   | Ubuntu                |
+| 4   | 16 GB         | 150 GB        | x64, arm64   | Ubuntu, Windows               |
+| 8   | 32 GB         | 300 GB        | x64, arm64   | Ubuntu, Windows       |
+| 16  | 64 GB         | 600 GB        | x64, arm64   | Ubuntu, Windows       |
+| 32  | 128 GB        | 1200 GB       | x64, arm64   | Ubuntu, Windows       |
+| 64  | 208 GB        | 2040 GB       | arm64        | Ubuntu, Windows       |
+| 64  | 256 GB        | 2040 GB       | x64          | Ubuntu, Windows       |
+
+>[!NOTE] The 4-vCPU Windows runner only works with the Windows 11 Desktop image.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 
-{% data reusables.actions.gpu-runner-beta-note %}
+{% note %}
+
+**Note:** GPU runners are currently in beta and subject to change.
+
+{% endnote %}
 
 | CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
 | --- | --- | -------- | ------------ | ----------------- | ------------- | --------------------- |
