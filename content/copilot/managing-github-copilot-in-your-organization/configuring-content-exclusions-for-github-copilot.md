@@ -151,7 +151,7 @@ You can use your organization settings to specify content, in any repository, th
      - ...
    ```
 
-   The following syntax is supported for `REPOSITORY-REFERENCE`:
+   Repositories can be referenced using various protocols. You can use any of the following syntaxes for `REPOSITORY-REFERENCE` and {% data variables.product.prodname_copilot_short %} will match them regardless of how the repository was cloned locally:
 
    ```text
    http[s]://host.xz[:port]/path/to/repo.git/
@@ -166,9 +166,9 @@ You can use your organization settings to specify content, in any repository, th
    {% note %}
 
    **Notes**:
-
    - The `user@` and `:port` parts of the `REPOSITORY-REFERENCE` are ignored in the calculation of which paths to ignore for a repository.
    - Each repository reference can contain a single `*` wildcard. For example, `https://github.com/octo-org/*` matches all repositories in the `octo-org` organization.
+   - There is additional support for Azure DevOps URLs. For more information, see "[Azure DevOps `REPOSITORY-REFERENCE` support](#azure-devops-repository-reference-support)."
 
    {% endnote %}
 
@@ -296,6 +296,10 @@ To reload content exclusions into your JetBrains IDE, either close and reopen th
 1. The "Sign in to {% data variables.product.prodname_dotcom %}" message is displayed showing a device code. Click **Copy and Open**.
 1. On the "Device Activation" page, paste in the device code and click **Continue**.
 1. On the next page, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
+
+### Azure DevOps `REPOSITORY-REFERENCE` support
+
+Both the new (dev.azure.com) and old (visualstudio.com) formats for Azure DevOps are treated as equivalent in the `REPOSITORY-REFERENCE` syntax. You can use either host when specifying `REPOSITORY-REFERENCE`, and {% data variables.product.prodname_copilot_short %} will match them regardless of which host was used to clone the repository locally.
 
 ## Further reading
 

@@ -17,6 +17,13 @@ topics:
   - User account
 shortTitle: View Git LFS usage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 {% data reusables.large_files.owner_quota_only %} {% data reusables.large_files.does_not_carry %}
 
 ## Viewing storage and bandwidth usage for a personal account

@@ -937,7 +937,8 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 
 **Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
 
-- Bundler
+- Bundler{% ifversion dependabot-updates-cargo-private-registry-support %}
+- Cargo{% endif %}
 - Docker
 - Gradle
 - Maven
@@ -980,6 +981,18 @@ updates:
 You must provide the required settings for each configuration `type` that you specify. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
+
+{% ifversion dependabot-updates-cargo-private-registry-support %}
+
+### `cargo-registry`
+
+The `cargo-registry` type supports a token.
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
+{% data reusables.dependabot.cargo-private-registry-config-example %}
+
+{% endif %}
 
 ### `composer-repository`
 

@@ -10,18 +10,13 @@ versions:
   ghec: '*'
 shortTitle: On behalf of an organization
 ---
-{% note %}
-
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
-
-{% endnote %}
 
 To create commits on behalf of an organization:
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
+- You must be a member of the organization indicated in the trailer
+- You must sign the commit
+- Your commit email and the organization email must be in a domain verified by the organization
+- Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
   - `org` is the organization's login
   - `name@organization.com` is in the organization's domain
 

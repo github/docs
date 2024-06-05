@@ -24,7 +24,7 @@ After you create an action, you'll want to continue releasing new features while
 - Indicates how the action can be used, ideally as part of a broader workflow.
 - Signal what type of community contributions you welcome. (For example, issues, pull requests, or vulnerability reports.)
 
-For an applied example of this process, see [github-developer/javascript-action](https://github.com/github-developer/javascript-action).
+For an applied example of this process, see [actions/javascript-action](https://github.com/actions/javascript-action).
 
 ## Developing and releasing actions
 
@@ -48,8 +48,8 @@ JavaScript actions are Node.js repositories with metadata. However, JavaScript a
 
 To support the developer process in the next section, add two {% data variables.product.prodname_actions %} workflows to your repository:
 
-1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-1. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
+1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/actions/javascript-action/blob/main/.github/workflows/ci.yml).
+1. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
 
 ### Example developer process
 
@@ -92,4 +92,4 @@ Examples where similar patterns are employed include:
 
 - [github/super-linter](https://github.com/github/super-linter)
 - [octokit/request-action](https://github.com/octokit/request-action)
-- [github-developer/javascript-action](https://github.com/github-developer/javascript-action)
+- [actions/javascript-action](https://github.com/actions/javascript-action)

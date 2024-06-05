@@ -100,6 +100,7 @@ Depending on the question you ask, and your enterprise and organization settings
    - Give me some examples of regular expressions.
    - Write a bash script to output today's date.
 
+{% data reusables.copilot.stop-response-generation %}
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
@@ -141,6 +142,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
+{% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
 ## Asking a question about a specific file or symbol
@@ -165,6 +167,7 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
+{% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
 ## Asking a question about a knowledge base
@@ -200,6 +203,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
    - What's the process for creating a new REST API?
    - What are our best practices for logging?
 
+{% data reusables.copilot.stop-response-generation %}
 1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
@@ -249,6 +253,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
    ![Screenshot of a response to the question "What does the function at the selected lines do?"](/assets/images/help/copilot/copilot-sample-chat-response.png)
 
+{% data reusables.copilot.stop-response-generation %}
 1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 1. To clear, delete, or rename the current conversation thread, or to start a new thread, type `/` in the "Ask {% data variables.product.prodname_copilot_short %}" box, select from the options that are displayed, then press <kbd>Enter</kbd>.
 
@@ -279,6 +284,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain what'
    - Explain this &#96;do..end&#96; block.
    - What's the purpose of this file?
 
+{% data reusables.copilot.stop-response-generation %}
+
 ## Asking a question about a specific issue
 
 You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue.
@@ -307,6 +314,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
+{% data reusables.copilot.stop-response-generation %}
+
 ## Asking a question about a specific commit
 
 You can ask {% data variables.product.prodname_copilot_short %} to explain the changes in a commit.
@@ -321,8 +330,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
    - Who committed these changes?
    - When was this commit made?
 
-> [!TIP]
-> If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+   > [!TIP]
+   > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+
+{% data reusables.copilot.stop-response-generation %}
 
 ## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
 
@@ -343,6 +354,8 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
 
    The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
+
+{% data reusables.copilot.stop-response-generation %}
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 

@@ -10,9 +10,11 @@ redirect_from:
   - /actions/using-github-hosted-runners/controlling-access-to-larger-runners
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% note %}
 
-{% data reusables.actions.windows-linux-larger-runners-note %}
+**Note:** {% data reusables.actions.windows-linux-larger-runners-note %}
+
+{% endnote %}
 
 ## About runner groups
 
@@ -33,7 +35,7 @@ Runner groups are used to control which repositories can run jobs on your {% dat
 
 For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access to the `octo-org` organization. You must then configure the group at the organization level to allow access to `octo-repo`.
 
-![Diagram that shows a lock between a runner group at the enterprise level and an organization, and between the organization and two repositories owned by the organization.](/assets/images/help/actions/hosted-runner-mgmt.png)
+![Diagram showing a runner group defined at the enterprise level with an organization configuration that allows access for two repositories.](/assets/images/help/actions/hosted-runner-mgmt.png)
 
 ## Creating a runner group for an organization
 
