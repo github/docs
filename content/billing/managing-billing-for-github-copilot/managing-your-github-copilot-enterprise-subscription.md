@@ -11,6 +11,12 @@ topics:
 shortTitle: Your enterprise subscription
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About managing your {% data variables.product.prodname_copilot_enterprise %} subscription
 
 To allow members to benefit from {% data variables.product.prodname_copilot %} features on their local machine and on {% data variables.product.prodname_dotcom_the_website %}, you can set up a subscription to {% data variables.product.prodname_copilot_enterprise %} for an enterprise on {% data variables.product.prodname_ghe_cloud %}. When you set up a subscription, you'll be able to enable {% data variables.product.prodname_copilot_short %} for organizations in your enterprise. Organization owners can then grant access to organization members.

@@ -16,6 +16,12 @@ topics:
 shortTitle: View subscription & usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform-licenses %}
+
+{% endif %}
+
 ## About billing for enterprise accounts
 
 You can view an overview of {% ifversion ghec %}your subscription and paid{% elsif ghes %}the license{% endif %} usage for {% ifversion ghec %}your{% elsif ghes %}the{% endif %} enterprise account on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.{% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account)."{% endif %}

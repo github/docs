@@ -88,6 +88,8 @@ You can manage {% data variables.product.prodname_dependabot %} on self-hosted r
 
 You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_dependabot %} on self-hosted runners for all existing {% ifversion ghec %}private or internal{% else %}private{% endif %} repositories in an organization. Only repositories already configured to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} will be updated to run {% data variables.product.prodname_dependabot %} on self-hosted runners the next time a {% data variables.product.prodname_dependabot %} job is triggered.
 
+> [!NOTE] You need to enable self-hosted runners for your organization if you use {% data variables.actions.hosted_runners %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#enabling-or-disabling-dependabot-on-larger-runners)."
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}

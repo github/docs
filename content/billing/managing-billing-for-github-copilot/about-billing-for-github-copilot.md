@@ -9,6 +9,12 @@ topics:
 shortTitle: Billing for GitHub Copilot
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About billing for {% data variables.product.prodname_copilot %}
 
 You can set up a {% data variables.product.prodname_copilot %} subscription for your personal account, or for an organization or enterprise.

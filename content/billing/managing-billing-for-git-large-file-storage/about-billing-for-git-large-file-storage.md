@@ -14,6 +14,13 @@ topics:
   - Upgrades
 shortTitle: About Git LFS billing
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About billing for {% data variables.large_files.product_name_long %}
 
 {% data reusables.large_files.free-storage-bandwidth-amount %} {% data reusables.large_files.does_not_carry %}
