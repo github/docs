@@ -46,6 +46,12 @@ redirect_from:
 
 {% data reusables.actions.azure-vnet-networking-policies %}
 
+## Managing network configuration policies for organizations in your enterprise
+
+You can give organization owners in your enterprise the ability to set up and maintain organization-level network configurations for {% data variables.product.company_short %}-hosted runners.
+
+For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#enabling-creation-of-network-configurations-for-organizations)."
+
 ## Using {% data variables.product.company_short %}-hosted runners with an Azure VNET
 
 {% data reusables.actions.azure-vnet-next-steps-links %}

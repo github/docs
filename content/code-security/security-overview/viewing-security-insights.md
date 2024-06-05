@@ -81,6 +81,9 @@ Some metrics in the security overview dashboard include a trend indicator, which
 
 {% endif %}
 
+>[!NOTE]
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+
 ### Alert trends graph
 
 The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. {% ifversion security-overview-3-13-overview %}By default, alerts{% else %}Alerts{% endif %} are grouped by severity. You can toggle the graph between open and closed alerts{% ifversion security-overview-3-13-overview %} and change the way alerts are grouped{% endif %}.
