@@ -27,6 +27,9 @@ You can create links in wikis using the standard markup supported by your page, 
 - If your pages are rendered with Markdown, the link syntax is `[Link Text](full-URL-of-wiki-page)`.
 - With MediaWiki syntax, the link syntax is `[[Link Text|nameofwikipage]]`.
 
+> [!NOTE]
+> Links do not work in the editing preview.
+
 ## Adding images
 
 Wikis can display PNG, JPEG, and GIF images.
