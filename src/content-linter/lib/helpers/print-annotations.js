@@ -35,7 +35,13 @@ export function printAnnotationResults(
       annotation += `${bits.join(',')}`
 
       if (flaw.errorDetail) {
-        annotation += `::${flaw.errorDetail}`
+        annotation += flaw.errorDetail.endsWith('.')
+          ? `::${flaw.errorDetail}`
+          : `::${flaw.errorDetail}.`
+      }
+
+      if (flaw.context) {
+        annotation += ` ${flaw.context}`
       }
 
       // Why console.log and not `core.error()` (from @actions/core)?

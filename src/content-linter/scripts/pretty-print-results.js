@@ -81,6 +81,13 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
             `${indentWrappedString(result.errorDetail?.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
           )
         }
+
+        if (result.context) {
+          console.log(
+            label('Context'),
+            `${indentWrappedString(result.context.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
+          )
+        }
       }
       let position = chalk.yellow(result.lineNumber)
       if (isNumber(result.columnNumber) && result.columnNumber !== 1) {

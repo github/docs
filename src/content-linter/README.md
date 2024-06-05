@@ -219,3 +219,18 @@ The downside to using the `search-replace` plugin is that you cannot disable eac
 ```markdown
 docs.github.com <!-- markdownlint-disable-line search-replace -->
 ```
+
+## Adding context to a base rule's error message
+
+If you want to add context to a base rule's error message, go to[`base.js`](/src/content-linter/style/base.js), and add the `context` property to the base rule's object. For e.g. if you wanted to add `context` to `MD040` (the `fenced-code-language` base rule), the object would look like this:
+
+```javascript
+'fenced-code-language': {
+    // MD040
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+    allowed_languages: allowedCodeFenceLanguages,
+    context: `When you add a fenced code block, you must specify the code language. Allowed languages are: ${allowedCodeFenceLanguages.join(', ')}. You can add allowed languages by updating data/code-languages.yml.`,
+  },
+```
