@@ -86,11 +86,11 @@ For {% data variables.product.prodname_copilot %} in {% data variables.product.p
 
 A {% data variables.product.prodname_copilot %} seat is a license to use {% data variables.product.prodname_copilot %}, which is granted to a unique user account through either an organization or enterprise's {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
 
-Seat assignment is managed by owners of organizations{% ifversion ghec %} that have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)" or{% ifversion fpt %}, in the {% data variables.product.prodname_ghe_cloud %} documentation,{% endif %} "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
+Seat assignment is managed by owners of organizations{% ifversion ghec %} that have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level{% endif %}. See "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)" or{% ifversion fpt %}, in the {% data variables.product.prodname_ghe_cloud %} documentation,{% endif %} "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
 
 If you are a member of an organization or enterprise with a {% data variables.product.prodname_copilot %} subscription, to use the subscription, you will need to be assigned a seat by an organization owner.
 
-{% ifversion ghec %}If you are a member of multiple organizations under the same enterprise, you can be assigned {% data variables.product.prodname_copilot %} in more than one organization, but your enterprise will only be billed once.{% endif %}
+{% ifversion ghec %}You can be assigned {% data variables.product.prodname_copilot %} by multiple organizations in an enterprise, but your enterprise will only be billed once per billing cycle. One organization that assigned you {% data variables.product.prodname_copilot_short %} will be chosen at random each month to be billed for your seat.{% endif %}
 
 {% data reusables.copilot.copilot-one-account %}
 
