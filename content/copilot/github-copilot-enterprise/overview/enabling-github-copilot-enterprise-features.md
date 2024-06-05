@@ -56,20 +56,16 @@ If your organization's parent enterprise has selected **No policy** for "{% data
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
 
-   {% note %}
-
-   **Note:** If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)." After {% data variables.product.prodname_copilot_short %} is enabled for the organization, return to this procedure.
-
-   {% endnote %}
+   > [!NOTE] If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)."
 
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
    - **Disabled**: The feature is disabled for all members of the organization.
 
-1. If you select **Enabled**, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed.
+1. If you select **Enabled**, two check boxes are displayed.
 
-   Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
+   {% data reusables.copilot.policies-for-dotcom %}
 
 ## Configuring {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 
@@ -79,13 +75,7 @@ After {% data variables.product.prodname_copilot_enterprise_short %} has been en
 
    {% data variables.product.prodname_copilot_enterprise_short %} works best when repositories have semantic code indexing enabled. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#repo-indexing-note).
 
-   {% note %}
-
-   **Note:**
-
-   Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
-
-   {% endnote %}
+   > [!NOTE] Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates will typically be indexed within 5 minutes.
 
 1. Create at least one knowledge base.
 

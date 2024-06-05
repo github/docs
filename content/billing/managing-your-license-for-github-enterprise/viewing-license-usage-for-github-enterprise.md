@@ -12,6 +12,12 @@ topics:
 shortTitle: View license usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform-licenses %}
+
+{% endif %}
+
 ## About license usage for {% data variables.product.prodname_enterprise %}
 
 You can view license usage for {% data variables.product.product_name %} on {% data variables.location.product_location %}.

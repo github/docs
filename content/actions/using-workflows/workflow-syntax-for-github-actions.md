@@ -313,7 +313,19 @@ env:
 
 ## `jobs.<job_id>.runs-on`
 
-{% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
+{% data reusables.actions.jobs.choosing-runner-overview %}
+
+### Choosing {% data variables.product.prodname_dotcom %}-hosted runners
+
+{% data reusables.actions.jobs.choosing-runner-github-hosted %}
+
+### Choosing self-hosted runners
+
+{% data reusables.actions.jobs.choosing-runner-self-hosted %}
+
+### Choosing runners in a group
+
+{% data reusables.actions.jobs.choosing-runner-group %}
 
 ## `jobs.<job_id>.environment`
 
@@ -1092,8 +1104,6 @@ jobs:
 
 {% endraw %}
 
-{% ifversion actions-inherit-secrets-reusable-workflows %}
-
 ## `jobs.<job_id>.secrets.inherit`
 
 Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
@@ -1131,7 +1141,6 @@ jobs:
 A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
 
 Allowed expression contexts: `github`, `needs`, and `secrets`.
-{% endif %}
 
 ## Filter pattern cheat sheet
 
