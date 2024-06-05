@@ -8,24 +8,15 @@ import features from '@/versions/middleware/features.js'
 import findPage from '@/frame/middleware/find-page.js'
 import { createMinimalProcessor } from '@/content-render/unified/processor.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
+import type { Page } from '@/types'
 
 export type DocsUrls = {
   [identifier: string]: string
 }
 
-type Page = {
-  permalinks: Permalink[]
-  relativePath: string
-  rawIntro: string
-  rawPermissions?: string
-  markdown: string
-}
 type Permalink = {
   href: string
   languageCode: string
-}
-type PageMap = {
-  [href: string]: Page
 }
 type Redirects = {
   [from: string]: string
@@ -48,7 +39,7 @@ export type Check = {
 
 export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = false } = {}) {
   const site = await warmServer(['en'])
-  const pages: PageMap = site.pages
+  const pages = site.pages
   const redirects: Redirects = site.redirects
 
   const checks: Check[] = []

@@ -17,6 +17,24 @@
    {% endnote %}
 {% endif %}
 1. Select the **From** dropdown menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
+
+{%- ifversion ghec or ghes %}
+
+   Adding CC emails to your ticket:
+      - An admin or a support entitled user can add up to 10 additional email addresses to a ticket on CC directly from the ticket form.
+     - To add more email addresses, loop them in directly via email.
+
+   CC recipients’ abilities:
+     - Those on CC can read every conversation and attachment related to the ticket.
+     - They can also send a reply to the ticket.
+  
+   Support Portal visibility:
+     - CCing an email address does not automatically display the ticket in the support portal for that email address.
+
+   Admins, support entitled users:
+      - Admins and support entitled users can view tickets created by members of their enterprise or organization on the portal. However, they still need to be CC’d on such tickets to be able to comment on them.
+{%- endif %}
+
 {%- ifversion ghec or ghes %}
 1. Select the **Product** dropdown menu and click {% ifversion ghes %}**{% data variables.product.prodname_ghe_server %} (self-hosted)**{% else %}**{% data variables.product.prodname_ghe_cloud %}**{% endif %}.
 {%- endif %}

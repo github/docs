@@ -26,6 +26,8 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% ifversion not ghes %}
 
+You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU or ARM processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)."
+
 Using {% data variables.product.prodname_dotcom %}-hosted runners requires network access with at least 70 kilobits per second upload and download speeds.
 
 {% endif %}

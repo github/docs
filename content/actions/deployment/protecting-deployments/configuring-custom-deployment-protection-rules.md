@@ -21,6 +21,8 @@ Custom deployment protection rules are powered by {% data variables.product.prod
 
 After you enable a custom deployment protection rule on an environment, every time a workflow step targets that environment, the deployment protection rule will run automatically. For more information about targeting an environment for deployments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
+When a custom deployment protection rule is triggered it will wait for up to 30 days for a webhook event response before it times out and the workflow job fails.
+
 For more information about creating your own custom deployment protection rules, see "[AUTOTITLE](/actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules)."
 
 {% data reusables.actions.custom-deployment-protection-rules-limits %}

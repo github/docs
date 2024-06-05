@@ -19,6 +19,12 @@ topics:
 shortTitle: View Advanced Security usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform-licenses %}
+
+{% endif %}
+
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
 Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of {% ifversion ghas-billing-UI-update %}licenses {% endif %}that can use these features. Periodically you should check that your use is within your license capacity. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."

@@ -32,6 +32,11 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
   <!-- This note is indented to align with the above reusable. -->
   {% note %}
 
+  **Note:** You can restrict access to the OIDC endpoints by allowing only [AWS IP address ranges](https://docs.aws.amazon.com/vpc/latest/userguide/aws-ip-ranges.html).
+
+  {% endnote %}
+  {% note %}
+
   **Note:** {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
 
   {% endnote %}

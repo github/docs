@@ -140,11 +140,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "codespaces.start_environment",
-    "description": "A codespace was started.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "codespaces.suspend_environment",
     "description": "A codespace was stopped.",
     "docs_reference_links": "N/A"
@@ -162,11 +157,6 @@
   {
     "action": "commit_comment.update",
     "description": "A commit comment was updated.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.access_revoked",
-    "description": "Copilot access was revoked for the organization or enterprise due to its Copilot subscription ending, an issue with billing the entity, the entity being marked spammy, or the entity being suspended.",
     "docs_reference_links": "N/A"
   },
   {
@@ -218,21 +208,6 @@
     "action": "copilot.content_exclusion_changed",
     "description": "The excluded paths for GitHub Copilot were updated.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "custom_hosted_runner.create",
@@ -585,19 +560,9 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "integration.suspend",
-    "description": "A GitHub App was suspended.",
-    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
-  },
-  {
     "action": "integration.transfer",
     "description": "Ownership of a GitHub App was transferred to another user or organization.",
     "docs_reference_links": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
-  },
-  {
-    "action": "integration.unsuspend",
-    "description": "A GitHub App was unsuspended.",
-    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
   {
     "action": "ip_allow_list.disable",
@@ -2828,11 +2793,6 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "secret_scanning_alert.validate",
-    "description": "A secret scanning alert was validated.",
-    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",

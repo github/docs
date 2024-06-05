@@ -1099,22 +1099,6 @@ Job summaries are isolated between steps and each step is restricted to a maximu
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
-{% bash %}
-
-```bash copy
-echo "{path}" >> $GITHUB_PATH
-```
-
-{% endbash %}
-
-{% powershell %}
-
-```powershell copy
-"{path}" | Out-File -FilePath $env:GITHUB_PATH -Append
-```
-
-{% endpowershell %}
-
 ### Example of adding a system path
 
 {% bash %}
