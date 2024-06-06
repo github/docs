@@ -79,7 +79,7 @@ After {% data variables.product.prodname_copilot_enterprise_short %} has been en
 
 1. Create at least one knowledge base.
 
-   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/managing-copilot-knowledge-bases)."
+   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %} and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
 
 ## Further reading
 

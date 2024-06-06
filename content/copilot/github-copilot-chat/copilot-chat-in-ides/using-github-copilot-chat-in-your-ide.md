@@ -49,9 +49,12 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 
 Use chat participants to scope your prompt to a specific domain. To use a chat participant, type `@` in the chat prompt box, followed by a chat participant name. Chat participants include:
 
-- `@workspace`: Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project.
-- `@vscode`: Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}.
-- `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands.
+- `@workspace`: Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project. See "[Ask questions about your project](#ask-questions-about-your-project)."
+- `@vscode`: Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}. See "[Ask questions about {% data variables.product.prodname_vscode %}](#ask-questions-about-visual-studio-code)."
+- `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands. See "[Ask questions about the command line](#ask-questions-about-the-command-line)."
+{% ifversion ghec %}
+- `@github`: Allows you to use {% data variables.product.prodname_dotcom %}-specific {% data variables.product.prodname_copilot_short %} skills. See "[Using {% data variables.product.prodname_dotcom %}  skills for {% data variables.product.prodname_copilot_short %}](#using-github-skills-for-copilot)."
+{% endif %}
 
 To see all available chat participants, type `@` in the chat prompt box. See also [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -152,9 +155,9 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 Use the `@vscode` chat participant to ask specific questions about {% data variables.product.prodname_vscode %}. For example:
 
-- `@vscode how to debug a node.js app`
+- `@vscode tell me how to debug a node.js app`
 - `@vscode how do I change my {% data variables.product.prodname_vscode %} colors`
-- `@vscode how to change key bindings`
+- `@vscode how can I change key bindings`
 
 ### Ask questions about the command line
 
@@ -162,6 +165,58 @@ Use the `@terminal` chat participant to ask specific questions about the command
 
 - `@terminal find the largest file in the src directory`
 - `@terminal #terminalLastCommand` to explain the last command and any errors
+
+{% ifversion ghec %}
+
+## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
+
+{% note %}
+
+**Notes**:
+
+- This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+- The `@github` chat participant is currently in beta and is subject to change.
+
+{% endnote %}
+
+{% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, include `@github` in your question.
+
+When you add `@github` to a question, {% data variables.product.prodname_copilot_short %} dynamically selects an appropriate skill, based on the content of your question. You can also explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use a particular skill. You can do this in two ways:
+- Use natural language to ask {% data variables.product.prodname_copilot_chat_short %} to use a skill. For example, `@github Search the web to find the latest GPT4 model from OpenAI.`
+- To specifically invoke a web search you can include the `#web` variable in your question. For example, `@github #web What is the latest LTS of Node.js?`
+
+### Currently available skills
+
+You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
+
+The skills you can use in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %} include those shown in the table below.
+
+| Skill  | Description | Enabled by default? | Example question |
+| ------- | ----------- | ------------------- | -----------------|
+| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-exploratory-questions-about-a-repository)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
+| **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
+| **Show symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | `@github Write unit tests for the AuthUser method` |
+| **Knowledge base search** | Tell {% data variables.product.prodname_copilot_chat_short %} to answer a question within the context of a knowledge base. To initiate a knowledge base search, first enter `@github #kb`. | Yes | Enter `@github #kb`, then choose your organization's style guide knowledge base, then ask: `What is our coding convention for indentation?` |
+| **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
+
+## Asking a question about a knowledge base
+
+{% note %}
+
+**Note**: This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+
+{% endnote %}
+
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
+
+You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
+
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, type `@github #kb`, then press **Enter** to open the knowledge base selector.
+1. Pick one of your available knowledge bases using the arrow keys, then press **Enter**.
+1. In the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, continue your message with your question, and then press **Enter**.
+1. {% data variables.product.prodname_copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
+
+{% endif %}
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
