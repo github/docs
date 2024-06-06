@@ -53,6 +53,11 @@ export const SIGNAL_RATINGS = [
     name: 'cuss-words-maybe',
     validator: (comment, language) => isMaybeCussWords(comment, language),
   },
+  {
+    reduction: 0.2,
+    name: 'mostly-emoji',
+    validator: (comment) => isMostlyEmoji(comment),
+  },
 ]
 
 export async function analyzeComment(text, language = 'en') {
@@ -120,7 +125,19 @@ function isNotLanguage(text, language_) {
   // attempts to be English, despite the spelling.
   // But are they useful comments? Given that this is just a signal,
   // and not a hard blocker, it's more of a clue than a fact.
-  return bestGuess.alpha2 !== language_
+
+  // We don't want to reduce the score for English comments. English
+  // comments, when evaluated by language, are always valid.
+  return bestGuess.alpha2 !== language_ && bestGuess.alpha2 !== 'en'
+}
+
+function isMostlyEmoji(text) {
+  text = text.replace(/\s/g, '')
+  const emojiRegex = /\p{Emoji}/gu
+  const emojiMatches = text.match(emojiRegex)
+  if (!emojiMatches) return false
+  const emojiRatio = emojiMatches.length / text.length
+  return emojiRatio > 0.25
 }
 
 function getCussWords(lang) {
