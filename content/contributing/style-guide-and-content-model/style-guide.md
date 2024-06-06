@@ -911,7 +911,7 @@ Each release note in a set describes one of the following changes.
 - [Deprecations](#deprecations): removal of a feature or behavior
 - [Errata](#errata): correction to inaccurate release note or documentation
 
-You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
+You can also review guidelines for updating release notes in "[Adding or updating a release note](#adding-or-updating-a-release-note)" and "[Removing a release note](#removing-a-release-note)."
 
 ### Features
 
@@ -1101,6 +1101,10 @@ Errata answers the following questions.
 ### Adding or updating a release note
 
 To signal to readers that you've added or changed a note, or to indicate the publication date of errata, append a datestamp in the format "[Updated: YYYY-MM-DD]".
+
+### Removing a release note
+
+To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See "[Writing errata](#writing-errata)."
 
 ## Reusables and variables
 
