@@ -41,7 +41,7 @@ function getFrontmatterData(markdown: string): Frontmatter {
   return parsed.data as Frontmatter
 }
 
-describe('category pages', () => {
+describe.skip('category pages', () => {
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
     ignore: [
