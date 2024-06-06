@@ -25,7 +25,8 @@ You can add self-hosted runners at various levels in the management hierarchy:
 - Organization-level runners can process jobs for multiple repositories in an organization.
 - Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} {% ifversion fpt or ghec %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs. {% else ifversion ghes %} When a new version is released, the runner application will automatically update within 24 hours. {% endif %}
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
+
 {% ifversion ghes %}
 
 > [!NOTE]
