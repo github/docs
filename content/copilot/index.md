@@ -26,7 +26,7 @@ children:
   - /copilot-individual
   - /copilot-business
   - /github-copilot-enterprise
-  - /managing-github-copilot-in-your-organization
+  - /managing-copilot
   - /github-copilot-chat
   - /github-copilot-in-the-cli
   - /configuring-github-copilot

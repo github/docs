@@ -2,11 +2,13 @@
 title: Reviewing usage data for GitHub Copilot in your organization
 shortTitle: Usage data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
-permissions: Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.
+permissions: 'Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
 ---
 
 ## Reviewing usage data for {% data variables.product.prodname_copilot %} in your organization
