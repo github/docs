@@ -137,6 +137,11 @@ describe('analyzeComment', () => {
       const { signals } = await analyzeComment('english words longer sentence this time')
       expect(signals.includes('not-language')).toBeFalsy()
     }
+    // Always allow English comments even when the page language is non-English
+    {
+      const { signals } = await analyzeComment('english words longer sentence this time', 'fr')
+      expect(signals.includes('not-language')).toBeFalsy()
+    }
     {
       const { signals } = await analyzeComment('Garçon des la voituré', 'fr')
       expect(signals.includes('not-language')).toBeFalsy()
@@ -153,5 +158,25 @@ describe('analyzeComment', () => {
     const { signals, rating } = await analyzeComment('oh s**t'.replace('**', 'hi'))
     expect(signals.includes('cuss-words-maybe')).toBeTruthy()
     expect(rating).toBeLessThan(1.0)
+  })
+
+  test('mostly-emoji', async () => {
+    // Yes
+    {
+      const { signals, rating } = await analyzeComment('Hello World\n 😆 😆 😆 😆 😆 😆\n')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('🌈 🌈 🌧️\n')
+      expect(signals.includes('mostly-emoji')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+
+    // No
+    {
+      const { signals } = await analyzeComment('Great 👍')
+      expect(signals.includes('mostly-emoji')).toBeFalsy()
+    }
   })
 })
