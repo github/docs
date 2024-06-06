@@ -190,3 +190,7 @@ Only the latest {% data variables.product.prodname_copilot_chat_short %} version
 1. Install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in {% data variables.product.prodname_vscode %}. For detailed instructions, see "[Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup)" in the  {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}
+
+## Next steps
+
+- **Get started with {% data variables.product.prodname_copilot_short %}** - Learn how to use {% data variables.product.prodname_copilot_short %} in your preferred coding environment. See "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor)."
