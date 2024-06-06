@@ -46,6 +46,24 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 {% data reusables.security-configurations.apply-configuration %}
 
+{% ifversion enforce-security-configurations %}
+
+## Enforcing the {% data variables.product.prodname_github_security_configuration %}
+
+>[!NOTE]
+> This feature is in beta, and is subject to change.
+
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.security-configurations.view-configurations-page %}
+1. In the "Code security configurations" section, select "{% data variables.product.company_short %} recommended".
+1. In the "Policy" section, next to "Enforce configuration", select **Enforce** from the dropdown menu.
+
+>[!NOTE]
+{% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
+
+{% endif %}
+
 ## Next steps
 
 After you apply the {% data variables.product.prodname_github_security_configuration %}, you can customize your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
