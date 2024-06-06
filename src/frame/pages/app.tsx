@@ -118,7 +118,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     for (const [langCode, langObj] of Object.entries(
       req.context.languages as Record<string, LanguageItem>,
     )) {
-      if (langObj.wip) continue
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,

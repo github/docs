@@ -28,7 +28,6 @@ type Language = {
   code: string
   hreflang: string
   dir: string
-  wip: boolean
 }
 
 export type Languages = {
