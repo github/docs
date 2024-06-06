@@ -16,7 +16,7 @@ To enable users to use {% data variables.product.prodname_copilot_enterprise_sho
 
 Access to {% data variables.product.prodname_copilot_short %} is determined at the enterprise and organization levels:
 
-- Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)."
+- Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
 - Owners of organizations that have been granted access to {% data variables.product.prodname_copilot_short %} can assign {% data variables.product.prodname_copilot_enterprise %} seats to some or all members of their organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 When access to {% data variables.product.prodname_copilot_short %} has been enabled, features such as the ability to use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, can be configured. Features are enabled or disabled at the enterprise or organization level:
@@ -56,7 +56,7 @@ If your organization's parent enterprise has selected **No policy** for "{% data
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
 
-   > [!NOTE] If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)."
+   > [!NOTE] If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
 
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 

@@ -9,6 +9,7 @@ redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-business-in-your-organization
   - /copilot/managing-copilot-for-business/managing-policies-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-policies-for-copilot-business-in-your-organization
+  - /copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization
 topics:
   - Copilot
 shortTitle: Managing policies
@@ -29,7 +30,7 @@ The policy settings selected by an organization owner determine the behavior of 
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level. For more information on managing policies at the enterprise level, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."
+{% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level. For more information on managing policies at the enterprise level, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
 
 {% endif %}
 

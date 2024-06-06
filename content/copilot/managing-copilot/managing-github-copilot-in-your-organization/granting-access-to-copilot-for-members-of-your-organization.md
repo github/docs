@@ -2,7 +2,7 @@
 title: Granting access to Copilot for members of your organization
 shortTitle: Granting access
 intro: 'Grant access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
-permissions: Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.
+permissions: 'Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.'
 versions:
   feature: copilot
 redirect_from:
@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization
   - /copilot/managing-copilot-for-business/managing-access-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-access-for-copilot-business-in-your-organization
+  - /copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization
 topics:
   - Copilot
 ---

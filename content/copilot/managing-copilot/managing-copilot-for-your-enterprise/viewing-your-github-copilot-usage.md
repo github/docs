@@ -8,7 +8,9 @@ versions:
 type: how_to
 topics:
   - Copilot
-shortTitle: View your usage
+shortTitle: View usage
+redirect_from:
+  - /billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage
 ---
 
 {% ifversion enhanced-billing-platform %}
