@@ -23,4 +23,4 @@
    - **Enabled** - Allow {% data variables.product.prodname_copilot_chat_short %} to use Bing search results to provide information for its responses. See "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-general-question-about-software-development)."
    - **Disabled** - Prevent {% data variables.product.prodname_copilot_chat_short %} from accessing Bing.
 
-   > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in beta and is subject to change.
+   > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} and in {% data variables.product.prodname_vscode_shortname %} is currently in beta and is subject to change.
