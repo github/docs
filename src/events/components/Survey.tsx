@@ -215,7 +215,6 @@ export const Survey = () => {
                 {voteState === VoteState.YES && t`comment_yes_label`}
                 {voteState === VoteState.NO && t`comment_no_label`}
               </span>
-              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <textarea
               className="form-control input-sm width-full"
