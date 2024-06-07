@@ -41,11 +41,6 @@
                     "permissions": {
                         "contents": "write"
                     }
-                },
-                "github/rest-api-description": {
-                    "permissions": {
-                        "contents": "read"
-                    }
                 }
             }
         }
