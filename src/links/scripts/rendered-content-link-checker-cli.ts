@@ -10,10 +10,10 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '#src/links/scripts/rendered-content-link-checker.js'
-import { getCoreInject, getUploadArtifactInject } from '#src/links/scripts/action-injections.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import github from '#src/workflows/github.js'
+import renderedContentLinkChecker from './rendered-content-link-checker'
+import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
+import github from '@/workflows/github.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -115,7 +115,7 @@ program
       return resolvedPath
     },
   )
-  .arguments('[files...]', 'Specific files to check')
+  .arguments('[files...]')
   .parse(process.argv)
 
 const opts = program.opts()

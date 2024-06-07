@@ -8,7 +8,9 @@
 
 /* eslint-disable prefer-regex-literals */
 
-export default [
+type ExcludedLink = string | RegExp
+
+const excludedLinks: ExcludedLink[] = [
   // Skip GitHub search links.
   // E.g. https://github.com/search?foo=bar
   regex('https://github.com/search?'),
@@ -79,6 +81,8 @@ export default [
   'https://packages.ubuntu.com/search?keywords=netcat&searchon=names',
 ]
 
+export default excludedLinks
+
 // Return a regular expression from a URL string that matches the URL
 // as a base. It's basically shorthand for "URL.startsWith(BASE_URL)"
 // but as a RegExp object.
@@ -88,6 +92,6 @@ export default [
 //   true
 //   > regex('https://github.com').test('otherhttps://github.com/page')
 //   false
-function regex(url) {
+function regex(url: string) {
   return new RegExp('^' + url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
 }

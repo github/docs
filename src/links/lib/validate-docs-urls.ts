@@ -1,14 +1,15 @@
+import type { Response } from 'express'
 import cheerio from 'cheerio'
 
 import warmServer from '@/frame/lib/warm-server.js'
 import { liquid } from '@/content-render/index.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
-import contextualize from '@/frame/middleware/context/context.js'
+import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import findPage from '@/frame/middleware/find-page.js'
 import { createMinimalProcessor } from '@/content-render/unified/processor.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
-import type { Page } from '@/types'
+import type { ExtendedRequest, Page } from '@/types'
 
 export type DocsUrls = {
   [identifier: string]: string
@@ -116,7 +117,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
     // Here it just exists for the sake of TypeScript.
     context: {},
   }
-  await contextualize(req, res, next)
+  await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req, res, next)
   await findPage(req, res, next)
   await features(req, res, next)

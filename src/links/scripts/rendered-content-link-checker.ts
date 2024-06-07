@@ -2,30 +2,85 @@
 
 import fs from 'fs'
 import path from 'path'
-import cheerio from 'cheerio'
+
+import cheerio, { type CheerioAPI, type Element } from 'cheerio'
 import coreLib from '@actions/core'
 import got, { RequestError } from 'got'
 import chalk from 'chalk'
-import { Low } from 'lowdb'
-import { JSONFile } from 'lowdb/node'
+import { JSONFilePreset } from 'lowdb/node'
+import { type Octokit } from '@octokit/rest'
+import type { Response } from 'express'
 
-import shortVersions from '#src/versions/middleware/short-versions.js'
-import contextualize from '#src/frame/middleware/context/context.js'
-import features from '#src/versions/middleware/features.js'
-import getRedirect from '#src/redirects/lib/get-redirect.js'
-import warmServer from '#src/frame/lib/warm-server.js'
-import { liquid } from '#src/content-render/index.js'
-import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
-import excludedLinks from '#src/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '#src/workflows/get-env-inputs.js'
+import type { ExtendedRequest, Page, Permalink, Context } from '@/types'
+import shortVersions from '@/versions/middleware/short-versions.js'
+import contextualize from '@/frame/middleware/context/context'
+import features from '@/versions/middleware/features.js'
+import getRedirect from '@/redirects/lib/get-redirect.js'
+import warmServer from '@/frame/lib/warm-server.js'
+import { liquid } from '@/content-render/index.js'
+import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
+import excludedLinks from '@/links/lib/excluded-links.js'
+import { getEnvInputs, boolEnvVar } from '@/workflows/get-env-inputs.js'
 import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
-import github from '#src/workflows/github.js'
-import { getActionContext } from '#src/workflows/action-context.js'
-import { createMinimalProcessor } from '#src/content-render/unified/processor.js'
-import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
+import github from '@/workflows/github.js'
+import { getActionContext } from '@/workflows/action-context.js'
+import { createMinimalProcessor } from '@/content-render/unified/processor.js'
+import { createReportIssue, linkReports } from '@/workflows/issue-report.js'
+import { type CoreInject } from '@/links/scripts/action-injections.js'
 
-const STATIC_PREFIXES = {
+type Flaw = {
+  WARNING?: string
+  CRITICAL?: string
+  isExternal?: boolean
+}
+
+type LinkFlaw = {
+  page: Page
+  permalink: Permalink
+  href?: string
+  url?: string
+  text?: string
+  src: string
+  flaw: Flaw
+}
+
+// type Core = CoreInject
+
+type Redirects = Record<string, string>
+type PageMap = Record<string, Page>
+
+type UploadArtifact = (name: string, message: string) => void
+
+type Options = {
+  level?: string
+  files?: string[]
+  random?: boolean
+  language?: string | string[]
+  filter?: string[]
+  version?: string | string[]
+  max?: number
+  linkReports?: boolean
+  actionUrl?: string
+  verbose?: boolean
+  checkExternalLinks?: boolean
+  createReport?: boolean
+  failOnFlaw?: boolean
+  shouldComment?: boolean
+  reportRepository?: string
+  reportAuthor?: string
+  reportLabel?: string
+  checkAnchors?: boolean
+  checkImages?: boolean
+  patient?: boolean
+  externalServerErrorsAsWarning?: string
+  verboseUrl?: string
+  bail?: boolean
+  commentLimitToExternalLinks?: boolean
+  actionContext?: any
+}
+
+const STATIC_PREFIXES: Record<string, string> = {
   assets: path.resolve('assets'),
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
@@ -44,8 +99,22 @@ const EXTERNAL_LINK_CHECKER_MAX_AGE_MS =
 const EXTERNAL_LINK_CHECKER_DB =
   process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
 
-const adapter = new JSONFile(EXTERNAL_LINK_CHECKER_DB)
-const externalLinkCheckerDB = new Low(adapter, { urls: {} })
+// const adapter = new JSONFile(EXTERNAL_LINK_CHECKER_DB)
+type Data = {
+  urls: {
+    [url: string]: {
+      timestamp: number
+      result: {
+        ok: boolean
+        statusCode: number
+      }
+    }
+  }
+}
+const defaultData: Data = { urls: {} }
+const externalLinkCheckerDB = await JSONFilePreset<Data>(EXTERNAL_LINK_CHECKER_DB, defaultData)
+
+type DBType = typeof externalLinkCheckerDB
 
 // Given a number and a percentage, return the same number with a *percentage*
 // max change of making a bit larger or smaller.
@@ -54,7 +123,7 @@ const externalLinkCheckerDB = new Low(adapter, { urls: {} })
 // numbers from the day it started which means that they don't ALL expire
 // on the same day but start to expire in a bit of a "random pattern" so
 // you don't get all or nothing.
-function jitter(base, percentage) {
+function jitter(base: number, percentage: number) {
   const r = percentage / 100
   const negative = Math.random() > 0.5 ? -1 : 1
   return base + base * Math.random() * r * negative
@@ -65,11 +134,12 @@ function jitter(base, percentage) {
 // check.
 function linksToSkipFactory() {
   const set = new Set(excludedLinks.filter((regexOrURL) => typeof regexOrURL === 'string'))
-  const regexes = excludedLinks.filter((regexOrURL) => regexOrURL instanceof RegExp)
-  return (href) => set.has(href) || regexes.some((regex) => regex.test(href))
+  // This `... as RegExp` because TypeScript can't (currently) understand the filtering.
+  const regexes = excludedLinks.filter((regexOrURL) => regexOrURL instanceof RegExp) as RegExp[]
+  return (href: string) => set.has(href) || regexes.some((regex) => regex.test(href))
 }
 
-const linksToSkip = linksToSkipFactory(excludedLinks)
+const linksToSkip = linksToSkipFactory()
 
 const CONTENT_ROOT = path.resolve('content')
 
@@ -105,7 +175,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     }
   }
 
-  const opts = {
+  const opts: Options = {
     level: LEVEL,
     files,
     verbose: true,
@@ -134,7 +204,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     getEnvInputs(['GITHUB_TOKEN'])
   }
 
-  main(coreLib, octokit, uploadArtifactLib, opts, {})
+  main(coreLib, octokit, uploadArtifactLib, opts)
 }
 
 /*
@@ -173,7 +243,13 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  versions {Array<string>} - only certain pages' versions (e.g. )
  *
  */
-async function main(core, octokit, uploadArtifact, opts = {}) {
+
+async function main(
+  core: any,
+  octokit: Octokit,
+  uploadArtifact: UploadArtifact,
+  opts: Options = {},
+) {
   const {
     level = 'warning',
     files = [],
@@ -201,7 +277,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   // If we'd manually do the same operations that `warmServer()` does
   // here (e.g. `loadPageMap()`), we'd end up having to do it all over
   // again, the next time `contextualize()` is called.
-  const { redirects, pages: pageMap, pageList } = await warmServer()
+  const { redirects, pages: pageMap, pageList } = await warmServer([])
 
   if (files.length) {
     core.debug(`Limitting to files list: ${files.join(', ')}`)
@@ -265,7 +341,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
-    pages.map((page) =>
+    pages.map((page: Page) =>
       processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions),
     ),
   )
@@ -288,7 +364,9 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   const uniqueHrefs = new Set(flaws.map((flaw) => flaw.href))
 
   if (flaws.length > 0) {
-    await uploadJsonFlawsArtifact(uploadArtifact, flaws, opts)
+    await uploadJsonFlawsArtifact(uploadArtifact, flaws, {
+      verboseUrl: opts.verboseUrl,
+    })
     core.info(`All flaws written to artifact log.`)
     if (createReport) {
       core.info(`Creating issue for flaws...`)
@@ -344,7 +422,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 }
 
-async function commentOnPR(core, octokit, flaws, opts) {
+async function commentOnPR(core: CoreInject, octokit: Octokit, flaws: LinkFlaw[], opts: Options) {
   const { actionContext = {} } = opts
   const { owner, repo } = actionContext
   const pullNumber = actionContext?.pull_request?.number
@@ -364,7 +442,7 @@ async function commentOnPR(core, octokit, flaws, opts) {
   })
   let previousCommentId
   for (const { body, id } of data) {
-    if (body.includes(findAgainSymbol)) {
+    if (body && body.includes(findAgainSymbol)) {
       previousCommentId = id
     }
   }
@@ -412,12 +490,22 @@ async function commentOnPR(core, octokit, flaws, opts) {
   }
 }
 
-function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
+function flawIssueDisplay(flaws: LinkFlaw[], opts: Options, mentionExternalExclusionList = true) {
   let output = ''
   let flawsToDisplay = 0
 
+  type LinkFlawWithPermalink = {
+    // page?: Page
+    // permalink?: Permalink
+    href?: string
+    url?: string
+    text?: string
+    src: string
+    flaw: Flaw
+    permalinkHrefs: string[]
+  }
   // Group broken links for each page
-  const hrefsOnPageGroup = {}
+  const hrefsOnPageGroup: Record<string, Record<string, LinkFlawWithPermalink>> = {}
   for (const { page, permalink, href, text, src, flaw } of flaws) {
     // When we don't want to include external links in PR comments
     if (opts.commentLimitToExternalLinks && !flaw.isExternal) {
@@ -473,7 +561,7 @@ function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
   if (mentionExternalExclusionList) {
     output +=
       '\n\n---\n\nIf any link reported in this issue is not actually broken ' +
-      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `src/links/lib/excluded-links.js`. ' +
+      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `src/links/lib/excluded-links.ts`. ' +
       'For more information, see [Fixing broken links in GitHub user docs](https://github.com/github/docs/blob/main/src/links/lib/README.md).'
   }
 
@@ -482,7 +570,7 @@ function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
   }links found in [this](${opts.actionUrl}) workflow.\n${output}`
 }
 
-function printGlobalCacheHitRatio(core) {
+function printGlobalCacheHitRatio(core: CoreInject) {
   const hits = globalCacheHitCount
   const misses = globalCacheMissCount
   // It could be that the files that were tested didn't have a single
@@ -498,9 +586,15 @@ function printGlobalCacheHitRatio(core) {
   }
 }
 
-function getPages(pageList, languages, filters, files, max) {
+function getPages(
+  pageList: Page[],
+  languages: string[],
+  filters: string[],
+  files: string[],
+  max: number | undefined,
+) {
   return pageList
-    .filter((page) => {
+    .filter((page: Page) => {
       if (languages.length && !languages.includes(page.languageCode)) {
         return false
       }
@@ -537,7 +631,15 @@ function getPages(pageList, languages, filters, files, max) {
     .slice(0, max ? Math.min(max, pageList.length) : pageList.length)
 }
 
-async function processPage(core, page, pageMap, redirects, opts, db, versions) {
+async function processPage(
+  core: CoreInject,
+  page: Page,
+  pageMap: PageMap,
+  redirects: Redirects,
+  opts: Options,
+  db: DBType,
+  versions: string[],
+) {
   const { verbose, verboseUrl, bail } = opts
   const allFlawsEach = await Promise.all(
     page.permalinks
@@ -567,7 +669,15 @@ async function processPage(core, page, pageMap, redirects, opts, db, versions) {
   return allFlaws
 }
 
-async function processPermalink(core, permalink, page, pageMap, redirects, opts, db) {
+async function processPermalink(
+  core: any,
+  permalink: Permalink,
+  page: Page,
+  pageMap: PageMap,
+  redirects: Redirects,
+  opts: Options,
+  db: DBType,
+) {
   const {
     level = 'critical',
     checkAnchors,
@@ -587,12 +697,12 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     throw error
   }
   const $ = cheerio.load(html, { xmlMode: true })
-  const flaws = []
-  const links = []
+  const flaws: LinkFlaw[] = []
+  const links: Element[] = []
   $('a[href]').each((i, link) => {
     links.push(link)
   })
-  const newFlaws = await Promise.all(
+  const newFlaws: LinkFlaw[] = await Promise.all(
     links.map(async (link) => {
       const { href } = link.attribs
 
@@ -615,7 +725,8 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
         checkAnchors,
         checkExternalLinks,
         externalServerErrorsAsWarning,
-        { verbose, patient, permalink },
+        permalink,
+        { verbose, patient },
         db,
       )
 
@@ -657,7 +768,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
         return globalImageSrcCheckCache.get(src)
       }
 
-      const flaw = checkImageSrc(src, $)
+      const flaw = checkImageSrc(src)
 
       globalImageSrcCheckCache.set(src, flaw)
 
@@ -674,12 +785,19 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
 }
 
 async function uploadJsonFlawsArtifact(
-  uploadArtifact,
-  flaws,
-  { verboseUrl = null } = {},
+  uploadArtifact: UploadArtifact,
+  flaws: LinkFlaw[],
+  { verboseUrl = null }: { verboseUrl?: string | null } = {},
   artifactName = 'all-rendered-link-flaws.json',
 ) {
-  const printableFlaws = {}
+  type PrintableLinkFlaw = {
+    href?: string
+    url?: string
+    text?: string
+    src?: string
+    flaw?: Flaw
+  }
+  const printableFlaws: Record<string, PrintableLinkFlaw[]> = {}
   for (const { page, permalink, href, text, src, flaw } of flaws) {
     const fullPath = prettyFullPath(page.fullPath)
 
@@ -703,7 +821,11 @@ async function uploadJsonFlawsArtifact(
   return uploadArtifact(artifactName, message)
 }
 
-function printFlaws(core, flaws, { verboseUrl = null } = {}) {
+function printFlaws(
+  core: CoreInject,
+  flaws: LinkFlaw[],
+  { verboseUrl }: { verboseUrl?: string | undefined } = {},
+) {
   let previousPage = null
   let previousPermalink = null
 
@@ -743,7 +865,7 @@ function printFlaws(core, flaws, { verboseUrl = null } = {}) {
 // `vi` or `ls` or `code` but if we display it relative to `cwd()` you
 // can still paste it to the next command but it's not taking up so much
 // space.
-function prettyFullPath(fullPath) {
+function prettyFullPath(fullPath: string) {
   return path.relative(process.cwd(), fullPath)
 }
 
@@ -753,17 +875,18 @@ let globalCacheHitCount = 0
 let globalCacheMissCount = 0
 
 async function checkHrefLink(
-  core,
-  href,
-  $,
-  redirects,
-  pageMap,
+  core: any,
+  href: string,
+  $: CheerioAPI,
+  redirects: Redirects,
+  pageMap: PageMap,
   checkAnchors = false,
   checkExternalLinks = false,
-  externalServerErrorsAsWarning = false,
-  { verbose = false, patient = false, permalink } = {},
-  db = null,
-) {
+  externalServerErrorsAsWarning: string | undefined | null = null,
+  permalink: Permalink,
+  { verbose = false, patient = false }: { verbose?: boolean; patient?: boolean } = {},
+  db: DBType | null = null,
+): Promise<Flaw | undefined> {
   // this function handles hrefs in all the following forms:
 
   // same article links:
@@ -860,9 +983,10 @@ async function checkHrefLink(
         }
         return { WARNING: 'Links with a trailing / will always redirect' }
       } else {
-        if (pathname.split('/')[1] in STATIC_PREFIXES) {
+        const firstPart = pathname.split('/')[1]
+        if (STATIC_PREFIXES[firstPart]) {
           const staticFilePath = path.join(
-            STATIC_PREFIXES[pathname.split('/')[1]],
+            STATIC_PREFIXES[firstPart],
             pathname.split(path.sep).slice(2).join(path.sep),
           )
           if (!fs.existsSync(staticFilePath)) {
@@ -914,7 +1038,7 @@ async function checkHrefLink(
 // simply try again later.
 // However, an `ETIMEDOUT` means it could work but it didn't this time but
 // might if we try again a different hour or day.
-function isTemporaryRequestError(requestError) {
+function isTemporaryRequestError(requestError: string | undefined) {
   if (typeof requestError === 'string') {
     // See https://betterstack.com/community/guides/scaling-nodejs/nodejs-errors/
     // for a definition of each one.
@@ -927,7 +1051,12 @@ function isTemporaryRequestError(requestError) {
 // Can't do this memoization within the checkExternalURL because it can
 // return a Promise since it already collates multiple URLs under the
 // same cache key.
-async function checkExternalURLCached(core, href, { verbose, patient }, db) {
+async function checkExternalURLCached(
+  core: CoreInject,
+  href: string,
+  { verbose, patient }: { verbose?: boolean; patient?: boolean },
+  db: DBType | null,
+) {
   const cacheMaxAge = EXTERNAL_LINK_CHECKER_MAX_AGE_MS
   const now = new Date().getTime()
   const url = href.split('#')[0]
@@ -968,7 +1097,11 @@ async function checkExternalURLCached(core, href, { verbose, patient }, db) {
 }
 
 const _fetchCache = new Map()
-async function checkExternalURL(core, url, { verbose = false, patient = false } = {}) {
+async function checkExternalURL(
+  core: CoreInject,
+  url: string,
+  { verbose = false, patient = false } = {},
+) {
   if (!url.startsWith('https://')) throw new Error('Invalid URL')
   const cleanURL = url.split('#')[0]
   if (!_fetchCache.has(cleanURL)) {
@@ -977,7 +1110,7 @@ async function checkExternalURL(core, url, { verbose = false, patient = false } 
   return _fetchCache.get(cleanURL)
 }
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Global for recording which domains we get rate-limited on.
 // For example, if you got rate limited on `something.github.com/foo`
@@ -985,7 +1118,11 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 // it's good to know to now bother yet.
 const _rateLimitedDomains = new Map()
 
-async function innerFetch(core, url, config = {}) {
+async function innerFetch(
+  core: CoreInject,
+  url: string,
+  config: { verbose?: boolean; useGET?: boolean; patient?: boolean; retries?: number } = {},
+) {
   const { verbose, useGET, patient } = config
 
   const { hostname } = new URL(url)
@@ -1039,7 +1176,10 @@ async function innerFetch(core, url, config = {}) {
     if (r.statusCode === 429) {
       let sleepTime = Math.min(
         60_000,
-        Math.max(10_000, getRetryAfterSleep(r.headers['retry-after'])),
+        Math.max(
+          10_000,
+          r.headers['retry-after'] ? getRetryAfterSleep(r.headers['retry-after']) : 1_000,
+        ),
       )
       // Sprinkle a little jitter so it doesn't all start again all
       // at the same time
@@ -1081,16 +1221,17 @@ async function innerFetch(core, url, config = {}) {
 }
 
 // Return number of milliseconds from a `Retry-After` header value
-function getRetryAfterSleep(headerValue) {
+function getRetryAfterSleep(headerValue: string) {
   if (!headerValue) return 0
   let ms = Math.round(parseFloat(headerValue) * 1000)
   if (isNaN(ms)) {
-    ms = Math.max(0, new Date(headerValue) - new Date())
+    const nextDate = new Date(headerValue)
+    ms = Math.max(0, nextDate.getTime() - new Date().getTime())
   }
   return ms
 }
 
-function checkImageSrc(src, $) {
+function checkImageSrc(src: string) {
   if (!src.startsWith('/') && !src.startsWith('http')) {
     return { CRITICAL: 'Image path is not absolute. Should start with a /' }
   }
@@ -1115,7 +1256,7 @@ function checkImageSrc(src, $) {
   }
 }
 
-function summarizeFlaws(core, flaws) {
+function summarizeFlaws(core: CoreInject, flaws: LinkFlaw[]) {
   if (flaws.length) {
     core.info(
       chalk.bold(
@@ -1127,7 +1268,7 @@ function summarizeFlaws(core, flaws) {
   }
 }
 
-function summarizeCounts(core, pages, tookSeconds) {
+function summarizeCounts(core: CoreInject, pages: Page[], tookSeconds: number) {
   const count = pages.map((page) => page.permalinks.length).reduce((a, b) => a + b, 0)
   core.info(
     `Tested ${count.toLocaleString()} permalinks across ${pages.length.toLocaleString()} pages`,
@@ -1139,7 +1280,7 @@ function summarizeCounts(core, pages, tookSeconds) {
   core.info(`~${pagesPerSecond.toFixed(1)} pages per second.`)
 }
 
-function shuffle(array) {
+function shuffle(array: any[]) {
   let currentIndex = array.length
   let randomIndex
 
@@ -1156,19 +1297,21 @@ function shuffle(array) {
   return array
 }
 
-async function renderInnerHTML(page, permalink) {
+async function renderInnerHTML(page: Page, permalink: Permalink) {
   const next = () => {}
   const res = {}
 
   const pagePath = permalink.href
+  const context: Context = {}
   const req = {
     path: pagePath,
     language: permalink.languageCode,
     pagePath,
     cookies: {},
+    context,
   }
   // This will create and set `req.context = {...}`
-  await contextualize(req, res, next)
+  await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req, res, next)
   req.context.page = page
   await features(req, res, next)

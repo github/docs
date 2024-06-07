@@ -1,5 +1,7 @@
 import type { Request } from 'express'
 
+import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d.ts'
+
 // Throughout our codebase we "extend" the Request object by attaching
 // things to it. For example `req.context = { currentCategory: 'foo' }`.
 // This type aims to match all the custom things we do to requests
@@ -12,15 +14,64 @@ export type ExtendedRequest = Request & {
   // Add more properties here as needed
 }
 
+type Product = {
+  id: string
+  name: string
+  href: string
+  dir: string
+  toc: string
+  wip: boolean
+  hidden: boolean
+  versions: string[]
+}
+
+type ProductMap = {
+  [key: string]: Product
+}
+
+export type ProductNames = {
+  [shortName: string]: string
+}
+
+type Redirects = {
+  [key: string]: string
+}
+
 export type Context = {
   currentCategory?: string
   error?: Error
   siteTree?: SiteTree
   pages?: Record<string, Page>
-  redirects?: Record<string, Page>
+  productMap?: ProductMap
+  redirects?: Redirects
   currentLanguage?: string
+  userLanguage?: string
+  currentPath?: string
+  allVersions?: AllVersions
+  currentPathWithoutLanguage?: string
+  currentArticle?: string
+  query?: Record<string, any>
+  relativePath?: string
   page?: Page
+  enPage?: Page
+  productNames?: ProductNames
   currentVersion?: string
+  process?: { env: {} }
+  site?: {
+    data: {
+      ui: any
+    }
+  }
+  currentVersionObj?: Version
+  currentProduct?: string
+  getEnglishPage?: (ctx: Context) => Page
+  getDottedData?: (dottedPath: string) => any
+  initialRestVersioningReleaseDate?: string
+  initialRestVersioningReleaseDateLong?: string
+  nonEnterpriseDefaultVersion?: string
+  enterpriseServerVersions?: string[]
+  enterpriseServerReleases?: typeof enterpriseServerReleases
+  languages?: Languages
 }
 
 type Language = {
@@ -56,6 +107,8 @@ export type Page = {
   title: string
   shortTitle?: string
   intro: string
+  rawIntro?: string
+  rawPermissions?: string
   languageCode: string
   documentType: string
   renderProp: (prop: string, context: any, opts: any) => Promise<string>
@@ -89,9 +142,33 @@ export type UnversionLanguageTree = {
 
 export type Site = {
   pages: Record<string, Page>
-  redirects: Record<string, string>
+  redirects: Redirects
   unversionedTree: UnversionLanguageTree
   siteTree: SiteTree
   pageList: Page[]
   pageMap: Record<string, Page>
+}
+
+export type Version = {
+  version: string
+  versionTitle: string
+  latestVersion: string
+  currentRelease: string
+  openApiVersionName: string
+  miscVersionName: string
+  apiVersions: string[]
+  latestApiVersion: string
+  plan: string
+  planTitle: string
+  shortName: string
+  releases: string[]
+  latestRelease: string
+  hasNumberedReleases: boolean
+  openApiBaseName: string
+  miscBaseName: string
+  nonEnterpriseDefault?: boolean
+}
+
+export type AllVersions = {
+  [name: string]: Version
 }

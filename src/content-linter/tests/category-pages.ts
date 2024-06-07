@@ -1,6 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 
+import type { Response } from 'express'
 import walk from 'walk-sync'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
@@ -10,10 +11,10 @@ import { beforeAll, describe, expect, test } from 'vitest'
 import matter from '@/frame/lib/read-frontmatter.js'
 import { renderContent } from '@/content-render/index.js'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import contextualize from '@/frame/middleware/context/context.js'
+import contextualize from '@/frame/middleware/context/context'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import { ROOT } from '@/frame/lib/constants.js'
-import type { Context, FrontmatterVersions } from '@/types'
+import type { Context, ExtendedRequest, FrontmatterVersions } from '@/types'
 
 const slugger = new GithubSlugger()
 
@@ -27,12 +28,6 @@ type Frontmatter = {
   versions: FrontmatterVersions
   mapTopic?: boolean
   hidden?: boolean
-}
-
-type MockedRequest = {
-  language: string
-  pagePath: string
-  context: Context
 }
 
 function getFrontmatterData(markdown: string): Frontmatter {
@@ -139,13 +134,13 @@ describe.skip('category pages', () => {
           const next = () => {}
           const res = {}
           const context: Context = {}
-          const req: MockedRequest = {
+          const req = {
             language: 'en',
             pagePath: '/en',
             context,
           }
 
-          await contextualize(req, res, next)
+          await contextualize(req as ExtendedRequest, res as Response, next)
           await shortVersions(req, res, next)
 
           // Save the index title for later testing

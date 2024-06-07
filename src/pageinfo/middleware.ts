@@ -11,7 +11,7 @@ import {
   makeLanguageSurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
-import contextualize from '@/frame/middleware/context/context.js'
+import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version.js'
@@ -130,7 +130,7 @@ export async function getPageInfo(page: Page, pathname: string) {
   }
   const next = () => {}
   const res = {}
-  await contextualize(renderingReq, res, next)
+  await contextualize(renderingReq as ExtendedRequest, res as Response, next)
   await shortVersions(renderingReq, res, next)
   renderingReq.context.page = page
   await features(renderingReq, res, next)
