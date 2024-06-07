@@ -133,10 +133,9 @@ function jitter(base: number, percentage: number) {
 // Do this so we can use a `Set` and a `iterable.some()` for a speedier
 // check.
 function linksToSkipFactory() {
-  const set = new Set(excludedLinks.filter((regexOrURL) => typeof regexOrURL === 'string'))
-  // This `... as RegExp` because TypeScript can't (currently) understand the filtering.
-  const regexes = excludedLinks.filter((regexOrURL) => regexOrURL instanceof RegExp) as RegExp[]
-  return (href: string) => set.has(href) || regexes.some((regex) => regex.test(href))
+  const set = new Set(excludedLinks.map(({ is }) => is).filter(Boolean))
+  const arr = excludedLinks.map(({ startsWith }) => startsWith).filter(Boolean)
+  return (href: string) => set.has(href) || arr.some((v) => v && href.startsWith(v))
 }
 
 const linksToSkip = linksToSkipFactory()
