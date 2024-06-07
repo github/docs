@@ -273,17 +273,15 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_ACTION` | The name of the action currently running, or the [`id`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. For example, for an action, `__repo-owner_name-of-action-repo`.<br><br>{% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same script or action more than once in the same job, the name will include a suffix that consists of the sequence number preceded by an underscore. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
 | `GITHUB_ACTION_PATH` | The path where an action is located. This property is only supported in composite actions. You can use this path to change directories to where the action is located and access other files in that same repository. For example, `/home/runner/work/_actions/repo-owner/name-of-action-repo/v1`. |
 | `GITHUB_ACTION_REPOSITORY` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
-| `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}.
+| `GITHUB_ACTIONS` | Always set to `true` when {% data variables.product.prodname_actions %} is running the workflow. You can use this variable to differentiate when tests are being run locally or by {% data variables.product.prodname_actions %}. |
 | `GITHUB_ACTOR` | The name of the person or app that initiated the workflow. For example, `octocat`. |
-{%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_ACTOR_ID` | {% data reusables.actions.actor_id-description %} |
-{%- endif %}
-| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.rest_url %}`.
+| `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.rest_url %}`. |
 | `GITHUB_BASE_REF` | The name of the base ref or target branch of the pull request in a workflow run. This is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `main`. |
 | `GITHUB_ENV` | The path on the runner to the file that sets variables from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_env_87406d6e-4979-4d42-98e1-3dab1f48b13a`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)." |
 | `GITHUB_EVENT_NAME` | The name of the event that triggered the workflow. For example, `workflow_dispatch`. |
 | `GITHUB_EVENT_PATH` | The path to the file on the runner that contains the full event webhook payload. For example, `/github/workflow/event.json`. |
-| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url %}`.
+| `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url %}`. |
 | `GITHUB_HEAD_REF` | The head ref or source branch of the pull request in a workflow run. This property is only set when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. For example, `feature-branch-1`. |
 | `GITHUB_JOB` | The [job_id](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) of the current job. For example, `greeting_job`. |
 | `GITHUB_OUTPUT` | The path on the runner to the file that sets the current step's outputs from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/work/_temp/_runner_file_commands/set_output_a50ef383-b063-46d9-9157-57953fc9f3f0`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)." |
@@ -293,34 +291,22 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `GITHUB_REF_PROTECTED` | {% data reusables.actions.ref_protected-description %} |
 | `GITHUB_REF_TYPE` | {% data reusables.actions.ref_type-description %} |
 | `GITHUB_REPOSITORY` | The owner and repository name. For example, `octocat/Hello-World`. |
-{%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_REPOSITORY_ID` | {% data reusables.actions.repository_id-description %} |
-{%- endif %}
 | `GITHUB_REPOSITORY_OWNER` | The repository owner's name. For example, `octocat`. |
-{%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_REPOSITORY_OWNER_ID` | {% data reusables.actions.repository_owner_id-description %} |
-{%- endif %}
 | `GITHUB_RETENTION_DAYS` | The number of days that workflow run logs and artifacts are kept. For example, `90`. |
 | `GITHUB_RUN_ATTEMPT` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. For example, `3`. |
 | `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
 | `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
-| `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
+| `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`. |
 | `GITHUB_SHA` | {% data reusables.actions.github_sha_description %} |
-{%- ifversion actions-job-summaries %}
 | `GITHUB_STEP_SUMMARY` | The path on the runner to the file that contains job summaries from workflow commands. The path to this file is unique to the current step and changes for each step in a job. For example, `/home/runner/_layout/_work/_temp/_runner_file_commands/step_summary_1cb22d7f-5663-41a8-9ffc-13472605c76c`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)." |
-{%- endif %}
-{%- ifversion actions-stable-actor-ids %}
 | `GITHUB_TRIGGERING_ACTOR` | {% data reusables.actions.github-triggering-actor-description %} |
- {%- endif %}
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |
-{%- ifversion actions-oidc-custom-claims %}
 | `GITHUB_WORKFLOW_REF` | {% data reusables.actions.workflow-ref-description %} |
 | `GITHUB_WORKFLOW_SHA` | {% data reusables.actions.workflow-sha-description %} |
-{%- endif %}
 | `GITHUB_WORKSPACE` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
-{%- ifversion actions-runner-arch-envvars %}
 | `RUNNER_ARCH` | {% data reusables.actions.runner-arch-description %} |
-{%- endif %}
 | `RUNNER_DEBUG` | {% data reusables.actions.runner-debug-description %} |
 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |
 | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` |
