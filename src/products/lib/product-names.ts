@@ -1,6 +1,7 @@
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import type { ProductNames } from '@/types'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
 
-const productNames = {
+const productNames: ProductNames = {
   dotcom: 'GitHub.com',
 }
 

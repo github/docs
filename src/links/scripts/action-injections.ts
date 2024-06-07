@@ -7,21 +7,29 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 
-import github from '#src/workflows/github.js'
+import github from '@/workflows/github.js'
 
+export type CoreInject = {
+  info: (message: string) => void
+  debug: (message: string) => void
+  warning: (message: string) => void
+  error: (message: string) => void
+  setOutput: (name: string, value: any) => void
+  setFailed: (message: string) => void
+}
 // Directs core logging to console
-export function getCoreInject(debug) {
+export function getCoreInject(debug: boolean): CoreInject {
   return {
     info: console.log,
-    debug: (message) => (debug ? console.warn(chalk.blue(message)) : {}),
-    warning: (message) => console.warn(chalk.yellow(message)),
+    debug: (message: string) => (debug ? console.warn(chalk.blue(message)) : {}),
+    warning: (message: string) => console.warn(chalk.yellow(message)),
     error: console.error,
-    setOutput: (name, value) => {
+    setOutput: (name: string, value: any) => {
       if (debug) {
         console.log(`Output "${name}" set to: "${value}"`)
       }
     },
-    setFailed: (message) => {
+    setFailed: (message: string) => {
       if (debug) {
         console.log('setFailed called.')
       }
@@ -36,8 +44,8 @@ const logsPath = path.join(cwd, '..', '..', 'logs')
 if (!fs.existsSync(logsPath)) {
   fs.mkdirSync(logsPath)
 }
-export function getUploadArtifactInject(debug) {
-  return (name, contents) => {
+export function getUploadArtifactInject(debug: boolean) {
+  return (name: string, contents: string) => {
     const logFilename = path.join(logsPath, `${new Date().toISOString().substr(0, 16)}-${name}`)
     if (debug) {
       fs.writeFileSync(logFilename, contents)

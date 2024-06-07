@@ -1,18 +1,22 @@
-import languages from '#src/languages/lib/languages.js'
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { productMap } from '#src/products/lib/all-products.js'
+import type { NextFunction, Response } from 'express'
+
+import type { ExtendedRequest, Context } from '@/types'
+
+import languages from '@/languages/lib/languages.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
+import { productMap } from '@/products/lib/all-products.js'
 import {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
   getPathWithoutVersion,
-} from '#src/frame/lib/path-utils.js'
-import productNames from '#src/products/lib/product-names.js'
-import warmServer from '#src/frame/lib/warm-server.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { getDataByLanguage, getUIDataMerged } from '#src/data-directory/lib/get-data.js'
+} from '@/frame/lib/path-utils.js'
+import productNames from '@/products/lib/product-names.js'
+import warmServer from '@/frame/lib/warm-server.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
+import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
@@ -21,18 +25,24 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
-export default async function contextualize(req, res, next) {
+export default async function contextualize(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   // Ensure that we load some data only once on first request
-  const { redirects, siteTree, pages: pageMap } = await warmServer()
+  const { redirects, siteTree, pages: pageMap } = await warmServer([])
 
-  req.context = {}
+  const context: Context = {}
+  req.context = context
   req.context.process = { env: {} }
 
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
-  req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentVersion = getVersionStringFromPath(req.pagePath) as string
+
   req.context.currentVersionObj = allVersions[req.context.currentVersion]
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
@@ -79,8 +89,8 @@ export default async function contextualize(req, res, next) {
         if (!page) {
           throw new Error("The 'page' has not been put into the context yet.")
         }
-        const enPath = context.currentPath.replace(`/${page.languageCode}`, '/en')
-        const enPage = context.pages[enPath]
+        const enPath = context.currentPath!.replace(`/${page.languageCode}`, '/en')
+        const enPage = context.pages![enPath]
         if (!enPage) {
           throw new Error(`Unable to find equivalent English page by the path '${enPath}'`)
         }

@@ -22,7 +22,7 @@ The results comprise the `page.redirects` object, whose keys are always only the
 Sometimes it contains the specific plan/version (e.g. `/enterprise-server@3.0/v3/integrations` to `enterprise-server@3.0/developers/apps`) and sometimes it's just the plain path
 (e.g. `/articles/viewing-your-repositorys-workflows` to `/actions/monitoring-and-troubleshooting-workflows`)
 
-All of the above are merged into a global redirects object. This object gets added to `req.context` via `src/frame/middleware/context/context.js` and is made accessible on every request.
+All of the above are merged into a global redirects object. This object gets added to `req.context` via `src/frame/middleware/context/context.ts` and is made accessible on every request.
 
 In the `handle-redirects.js` middleware, the language part of the URL is
 removed, looked up, and if matched to something, redirects with language

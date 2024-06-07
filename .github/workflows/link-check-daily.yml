@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: external-link-checker-db.json
-          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
+          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.ts') }}
 
       - name: Insight into external link checker DB json file (before)
         run: |
@@ -87,7 +87,7 @@ jobs:
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
           FAIL_ON_FLAW: false
         timeout-minutes: 30
-        run: node src/links/scripts/rendered-content-link-checker.js
+        run: npm run rendered-content-link-checker
 
       - name: Insight into external link checker DB json file (after)
         run: |

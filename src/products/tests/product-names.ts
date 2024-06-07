@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import productNames from '#src/products/lib/product-names.js'
+import productNames from '@/products/lib/product-names'
 
 describe('productNames module', () => {
   test('is an object with product codes as keys and human-friendly names as values', () => {
