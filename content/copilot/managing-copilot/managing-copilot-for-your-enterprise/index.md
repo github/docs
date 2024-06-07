@@ -11,8 +11,9 @@ children:
   - /managing-policies-and-features-for-copilot-in-your-enterprise
   - /enabling-copilot-for-organizations-in-your-enterprise
   - /disabling-copilot-for-organizations-in-your-enterprise
-  - /viewing-your-github-copilot-usage
+  - /viewing-copilot-usage-for-your-enterprise
   - /upgrading-copilot-for-your-enterprise
   - /downgrading-copilot-for-your-enterprise
   - /canceling-copilot-for-your-enterprise
 ---
+
