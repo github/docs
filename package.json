@@ -303,6 +303,7 @@
     "@types/express": "4.17.21",
     "@types/imurmurhash": "^0.1.4",
     "@types/js-cookie": "^3.0.6",
+    "@types/js-yaml": "^4.0.9",
     "@types/lodash": "^4.17.0",
     "@types/lodash-es": "4.17.12",
     "@types/morgan": "1.9.9",
