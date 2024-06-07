@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -117,11 +117,7 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
             fi
         }
         jwtd $IDTOKEN
-{%- ifversion actions-save-state-set-output-envs %}
         echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
-{%- else %}
-        echo "::set-output name=idToken::${IDTOKEN}"
-{%- endif %}
       id: tokenid
 ```
 
