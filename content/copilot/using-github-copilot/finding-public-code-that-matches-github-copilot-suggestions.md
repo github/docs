@@ -18,7 +18,7 @@ versions:
 
 ## About code referencing in {% data variables.product.prodname_copilot %}
 
-You can opt to allow {% data variables.product.prodname_copilot %} to suggest code completions that match publicly available code on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom#enabling-or-disabling-duplication-detection)."
+You can opt to allow {% data variables.product.prodname_copilot %} to suggest code completions that match publicly available code on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
 
 If you have allowed suggestions that match public code, {% data variables.product.prodname_copilot %} can provide you with details about the matching code when you accept such suggestions. This feature is called code referencing. It is currently only available in {% data variables.product.prodname_vscode %}.
 
@@ -42,7 +42,7 @@ The linked web page includes details of any license identified for the repositor
 
 ## Using code referencing in {% data variables.product.prodname_vscode %}
 
-To use code referencing you must have allowed suggestions matching public code. For more information, see "[Enabling or disabling duplication detection](/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom#enabling-or-disabling-duplication-detection)."
+To use code referencing you must have allowed suggestions matching public code. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
 
 You can access code references from one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
