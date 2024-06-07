@@ -13,7 +13,7 @@ shortTitle: Configure commit merging
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Pull Requests", select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.
+1. Under "`Pull Requests`", select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.
 {% ifversion default-merge-squash-commit-message %}
 1. Optionally, under **Allow merge commits**, select the dropdown menu, then click the format of the commit message presented to contributors when merging.
 
@@ -24,5 +24,5 @@ If you select more than one merge method, collaborators can choose which type of
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
+> - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
+> - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)"
