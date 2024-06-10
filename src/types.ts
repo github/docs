@@ -72,6 +72,7 @@ export type Context = {
   enterpriseServerVersions?: string[]
   enterpriseServerReleases?: typeof enterpriseServerReleases
   languages?: Languages
+  redirectNotFound?: string
 }
 
 type Language = {
@@ -172,3 +173,9 @@ export type Version = {
 export type AllVersions = {
   [name: string]: Version
 }
+
+// Use this when constructing a URLSearchParams object from a `req.query`.
+// E.g. `const sp = new URLSearchParams(req.query as URLSearchParamsTypes)`
+// It's useful because otherwise you might get a TypeScript error that
+// is not possible to happen at runtime.
+export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
