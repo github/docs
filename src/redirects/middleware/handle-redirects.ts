@@ -1,11 +1,15 @@
-import patterns from '#src/frame/lib/patterns.js'
-import { URL } from 'url'
-import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
-import { deprecatedWithFunctionalRedirects } from '#src/versions/lib/enterprise-server-releases.js'
-import getRedirect from '../lib/get-redirect.js'
-import { defaultCacheControl, languageCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { NextFunction, Response } from 'express'
 
-export default function handleRedirects(req, res, next) {
+import patterns from '@/frame/lib/patterns.js'
+import { pathLanguagePrefixed } from '@/languages/lib/languages.js'
+import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases.js'
+import getRedirect from '../lib/get-redirect.js'
+import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control.js'
+import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
+
+export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
+  if (!req.context) throw new Error('Request not contextualized')
+
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
@@ -27,7 +31,7 @@ export default function handleRedirects(req, res, next) {
 
   // begin redirect handling
   let redirect = req.path
-  let queryParams = req._parsedUrl.query
+  let queryParams = req.originalUrl.includes('?') ? req.originalUrl.split('?')[1] : null
 
   // Redirect `/some/uri?q=stuff` to `/en/search?query=stuff`
   // Redirect `/some/uri?query=stuff` to `/en/search?query=stuff`
@@ -43,9 +47,9 @@ export default function handleRedirects(req, res, next) {
   const hasQuery = 'query' in req.query
   if ((hasQ && !hasQuery) || (hasQuery && !onSearch && !onGraphqlExplorer)) {
     const language = getLanguage(req)
-    const sp = new URLSearchParams(req.query)
+    const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
-      sp.set('query', sp.get('q'))
+      sp.set('query', sp.get('q')!)
       sp.delete('q')
     }
 
@@ -87,6 +91,7 @@ export default function handleRedirects(req, res, next) {
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
+    if (!req.context.pages) throw new Error('req.context.pages not yet set')
     if (possibleRedirectTo in req.context.pages || isDeprecatedVersion(req.path)) {
       const language = getLanguage(req)
 
@@ -98,10 +103,11 @@ export default function handleRedirects(req, res, next) {
   }
 
   // do not redirect a path to itself
-  // req._parsedUrl.path includes query params whereas req.path does not
-  if (redirect === req._parsedUrl.path) {
+  if (redirect === req.originalUrl) {
     return next()
   }
+
+  if (!req.context.pages) throw new Error('req.context.pages not yet set')
 
   // do not redirect if the redirected page can't be found
   if (
@@ -127,13 +133,13 @@ export default function handleRedirects(req, res, next) {
   return res.redirect(permanent ? 301 : 302, redirect)
 }
 
-function getLanguage(req, default_ = 'en') {
+function getLanguage(req: ExtendedRequest, default_ = 'en') {
   // req.context.userLanguage, if it truthy, is always a valid supported
   // language. It's whatever was in the user's request in lib/languages.js
-  return req.context.userLanguage || default_
+  return req.context!.userLanguage || default_
 }
 
-function usePermanentRedirect(req) {
+function usePermanentRedirect(req: ExtendedRequest) {
   // If the redirect was to essentially swap `enterprise-server@latest`
   // for `enterprise-server@3.x` then, we definitely don't want to
   // do a permanent redirect.
@@ -152,11 +158,11 @@ function usePermanentRedirect(req) {
   return false
 }
 
-function removeQueryParams(redirect) {
+function removeQueryParams(redirect: string) {
   return new URL(redirect, 'https://docs.github.com').pathname
 }
 
-function isDeprecatedVersion(path) {
+function isDeprecatedVersion(path: string) {
   // When we rewrote how redirects work, from a lookup model to a
   // functional model, the enterprise-server releases that got
   // deprecated since then fall between the cracks. Especially
