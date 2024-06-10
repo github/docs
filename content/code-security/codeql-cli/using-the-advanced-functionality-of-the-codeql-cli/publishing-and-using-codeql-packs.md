@@ -45,15 +45,11 @@ codeql pack publish
 
 The published package will be displayed in the packages section of {% data variables.product.prodname_dotcom %} organization specified by the scope in the `qlpack.yml` file.
 
-{% ifversion code-scanning-without-workflow %}
-
 {% note %}
 
 **Note:** If you're publishing model packs to the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %} in order to extend coverage to all repositories in an organization as part of a default setup configuration, then you need to ensure that repositories running code scanning can access those model packs. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup)" and "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
 
 {% endnote %}
-
-{% endif %}
 
 ## Running `codeql pack download <scope>/<pack>`
 

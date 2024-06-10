@@ -3,7 +3,7 @@ title: CodeQL code scanning for compiled languages
 shortTitle: CodeQL for compiled languages
 intro: 'Understand how {% data variables.product.prodname_codeql %} analyzes compiled languages, the build options available, and learn how you can customize the database generation process if you need to.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for that repository by editing a workflow{% ifversion code-scanning-without-workflow %}, when advanced setup is enabled (admin permission is required to change setup){% endif %}.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for that repository by editing a workflow, when advanced setup is enabled (admin permission is required to change setup).'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages
@@ -394,15 +394,12 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 1. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
 1. Extract all Go code in the repository, similar to running `go build ./...`.
 
-{% ifversion code-scanning-without-workflow %}
-
 {% note %}
 
 **Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 {% endnote %}
 
-{% endif %}
 {% endif %}
 
 ## Building Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
