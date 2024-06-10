@@ -8,7 +8,8 @@ import walk from 'walk-sync'
 
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
-import warmServer, { type Site } from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server.js'
+import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
 
 program
@@ -16,16 +17,6 @@ program
   .argument('[language...]', 'language(s) to compare against')
   .action(main)
 program.parse(process.argv)
-
-type Page = {
-  relativePath: string
-  fullPath: string
-  title: string
-  shortTitle?: string
-  intro: string
-  markdown: string
-  languageCode: string
-}
 
 type Reusables = Map<string, string>
 
@@ -80,7 +71,7 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
 
   console.log(`--- Tallying liquid corruptions in ${languageCode} (${language.name}) ---`)
 
-  const pageList: Page[] = site.pageList
+  const pageList = site.pageList
   const errors = new Map<string, number>()
   const wheres = new Map<string, number>()
   const illegalTags = new Map<string, number>()

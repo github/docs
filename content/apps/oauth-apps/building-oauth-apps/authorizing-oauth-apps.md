@@ -57,14 +57,15 @@ The web application flow to authorize users for your app is:
 
 This endpoint takes the following input parameters.
 
-Parameter name | Type | Description
------|------|--------------
-`client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
-`redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
-`state` | `string` | {% data reusables.apps.state_description %}
-`allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+Query parameter | Type | Required? |Description
+-----|------|---------|-----
+`client_id`|`string` | Required | The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
+`redirect_uri`|`string` |Strongly recommended| The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
+`login` | `string` | Optional| Suggests a specific account to use for signing in and authorizing the app.
+`scope`|`string` |Context dependent| A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
+`state` | `string` |Strongly recommended| {% data reusables.apps.state_description %}
+`allow_signup`|`string` | Optional | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+{% ifversion oauth_account_picker %}`prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. {% endif %}
 
 The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. CORS pre-flight requests (OPTIONS) are not supported at this time.
 
@@ -78,12 +79,12 @@ Exchange this `code` for an access token:
 
 This endpoint takes the following input parameters.
 
-Parameter name | Type | Description
------|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`code` | `string` | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+Parameter name | Type | Required?| Description
+-----|------|---------|-----
+`client_id` | `string` | Required | The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | Required | The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`code` | `string` | Required | The code you received as a response to Step 1.
+`redirect_uri` | `string` | Strongly recommended | The URL in your application where users are sent after authorization. We can use this to match against the URI originally provided when the `code` was issued, to prevent attacks against your service.
 
 By default, the response takes the following form:
 
@@ -123,6 +124,8 @@ For example, in curl you can set the Authorization header like this:
 ```shell
 curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.rest_url %}/user
 ```
+
+Every time you receive an access token, you should use the token to revalidate the user's identity. A user can change which account they are signed into when you send them to authorize your app, and you risk mixing user data if you do not validate the user's identity after every sign in.
 
 ## Device flow
 

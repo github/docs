@@ -91,6 +91,10 @@ By generating explanations and suggesting related documentation, {% data variabl
 
 However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s answers and summaries may not always be accurate or complete, so you'll need to review {% data variables.product.prodname_copilot_chat_short %}'s output for accuracy.
 
+### Finding out about releases and commits
+
+{% data variables.product.prodname_copilot_chat_short %} can help you find out what changed in a specific release and it can explain the changes in a specific commit. This can be useful if, for example, you are new to a project, or you need to work on code that someone else wrote. However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s summaries of releases and commits may not always be accurate or complete.
+
 ## Improving performance for {% data variables.product.prodname_copilot_chat_short %}
 
 {% data variables.product.prodname_copilot_chat_short %} can support a wide range of practical applications like Q&A, code generation, code analysis, and code fixes, each with different performance metrics and mitigation strategies. To enhance performance and address some of the  the limitations of {% data variables.product.prodname_copilot_chat_short %}, there are various measures that you can adopt. For more information on the limitations of {% data variables.product.prodname_copilot_chat_short %}, see "[Limitations of {% data variables.product.prodname_copilot_chat %}](#limitations-of-github-copilot-chat)."
@@ -147,7 +151,7 @@ One of the limitations of {% data variables.product.prodname_copilot_chat_short 
 
 ### Leveraging a web search to answer a question
 
-Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
+Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
 
 When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 

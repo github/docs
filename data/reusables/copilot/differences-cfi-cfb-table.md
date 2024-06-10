@@ -14,7 +14,9 @@
 | Exclude specified files                     | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |{% octicon "check" aria-label="Included" %} |
 | Audit logs                                  | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  |{% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_chat_dotcom_short %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+|{% data variables.product.prodname_copilot_chat_short %} skills in {% data variables.product.prodname_vscode_shortname %} |{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_mobile_short %}|{% octicon "check" aria-label="Included" %}| {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_for_prs %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+|{% data variables.product.prodname_copilot_short %} knowledge bases |{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

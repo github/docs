@@ -50,4 +50,4 @@ jobs:
           # been loaded.
           ENABLED_LANGUAGES: en
           FAIL_ON_FLAW: true
-        run: node src/links/scripts/rendered-content-link-checker.js
+        run: npm run rendered-content-link-checker

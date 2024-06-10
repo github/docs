@@ -7,7 +7,7 @@
 //
 // [end-readme]
 
-import { existsSync } from 'fs'
+import { existsSync, statSync, readdirSync } from 'fs'
 
 import assert from 'assert'
 import { program, Option } from 'commander'
@@ -39,7 +39,10 @@ program
   )
   .option('--no-markers', 'Do not print a marker for each parsed document')
   .option('--filter <MATCH>', 'Filter to only do pages that match this string')
-  .option('-p, --popular-pages <PATH>', 'Popular pages JSON file (defaults to $POPULAR_PAGES_JSON)')
+  .option(
+    '-d, --docs-internal-data <PATH>',
+    'Path to github/docs-internal-data repo (defaults to $DOCS_INTERNAL_DATA)',
+  )
   .argument('<out-directory>', 'where the indexable files should be written')
   .parse(process.argv)
 
@@ -88,19 +91,33 @@ async function main(opts, args) {
     }
   }
 
-  let popularPagesFilePath
-  const { popularPages } = opts
-  const { POPULAR_PAGES_JSON } = process.env
-  if (popularPages) {
-    if (!existsSync(popularPages)) {
-      throw new Error(`'${popularPages}' does not exist`)
+  let docsInternalDataPath
+  const { docsInternalData } = opts
+  const { DOCS_INTERNAL_DATA } = process.env
+
+  // Taking care of legacy
+  if (process.env.POPULAR_PAGES_JSON) {
+    throw new Error('POPULAR_PAGES_JSON is deprecated. Use DOCS_INTERNAL_DATA instead.')
+  }
+
+  if (docsInternalData) {
+    if (!existsSync(docsInternalData)) {
+      throw new Error(`'${docsInternalData}' does not exist`)
     }
-    popularPagesFilePath = popularPages
-  } else if (POPULAR_PAGES_JSON) {
-    if (!existsSync(POPULAR_PAGES_JSON)) {
-      throw new Error(`'${POPULAR_PAGES_JSON}' does not exist`)
+    docsInternalDataPath = docsInternalData
+  } else if (DOCS_INTERNAL_DATA) {
+    if (!existsSync(DOCS_INTERNAL_DATA)) {
+      throw new Error(`'${DOCS_INTERNAL_DATA}' does not exist`)
     }
-    popularPagesFilePath = POPULAR_PAGES_JSON
+    docsInternalDataPath = DOCS_INTERNAL_DATA
+  }
+  if (docsInternalDataPath) {
+    if (!statSync(docsInternalDataPath).isDirectory())
+      throw new Error('docsInternalDataPath must be a directory')
+
+    const files = readdirSync(docsInternalDataPath)
+    if (!files.includes('hydro'))
+      throw new Error(`'${docsInternalDataPath}' must contain a 'hydro' directory`)
   }
 
   // A `--version` or `process.env.VERSION` was specified, we need to convert
@@ -127,7 +144,7 @@ async function main(opts, args) {
   const config = {
     noMarkers: !opts.markers,
     filter: opts.filter,
-    popularPagesFilePath,
+    docsInternalDataPath,
   }
 
   const options = {

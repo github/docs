@@ -14,8 +14,6 @@ topics:
   - Security
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
 ## Overview
 
 This guide explains how to configure security hardening for certain {% data variables.product.prodname_actions %} features. If the {% data variables.product.prodname_actions %} concepts are unfamiliar, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
@@ -170,7 +168,7 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
-You can practice the principal of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+You can practice the principle of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
 
 {% data reusables.actions.org-roles-for-gh-actions %}
 
@@ -214,7 +212,7 @@ The same principles described above for using third-party actions also apply to 
 
 {% ifversion internal-actions %}
 
-## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
+## Allowing workflows to access internal and private repositories
 
 {% data reusables.actions.outside-collaborators-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 
@@ -222,14 +220,11 @@ The same principles described above for using third-party actions also apply to 
 
 {% endif %}
 
-{% ifversion allow-actions-to-approve-pr %}
+## Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
-## Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
+{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to create or approve pull requests could be a security risk if the pull request is merged without proper oversight.
 
-{% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
-
-For more information on how to configure this setting, see {% ifversion allow-actions-to-approve-pr-with-ent-repo %}{% ifversion ghes or ghec %}"[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)",{% endif %}{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating-or-{% endif %}approving-pull-requests)"{% ifversion allow-actions-to-approve-pr-with-ent-repo %}, and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"{% endif %}.
-{% endif %}
+For more information on how to configure this setting, see {% ifversion ghes or ghec %}"[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests),"{% endif %} "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)," and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)."
 
 ## Using OpenSSF Scorecards to secure workflows
 
@@ -239,11 +234,15 @@ For more information on how to configure this setting, see {% ifversion allow-ac
 
 These sections consider some of the steps an attacker can take if they're able to run malicious commands on a {% data variables.product.prodname_actions %} runner.
 
+{% ifversion fpt or ghec %}
+
 {% note %}
 
 **Note:** {% data variables.product.prodname_dotcom %}-hosted runners do not scan for malicious code downloaded by a user during their job, such as a compromised third party library.
 
 {% endnote %}
+
+{% endif %}
 
 ### Accessing secrets
 
@@ -303,21 +302,29 @@ This list describes the recommended approaches for accessing repository data wit
 
 ## Hardening for {% data variables.product.prodname_dotcom %}-hosted runners
 
+{% data reusables.actions.enterprise-github-hosted-runners %}
+
+{% ifversion fpt or ghec %}
+
 {% data variables.product.prodname_dotcom %}-hosted runners take measures to help you mitigate security risks.
 
 {% ifversion actions-sbom %}
 
 ### Reviewing the supply chain for {% data variables.product.prodname_dotcom %}-hosted runners
 
-You can view a software bill of materials (SBOM) to see what software was pre-installed on the {% data variables.product.prodname_dotcom %}-hosted runner image used during your workflow runs. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
+For {% data variables.product.prodname_dotcom %}-hosted runners created from images maintained by {% data variables.product.company_short %}, you can view a software bill of materials (SBOM) to see what software was pre-installed on the runner. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
-SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
+SBOMs are available for Ubuntu, Windows, and macOS runner images maintained by {% data variables.product.company_short %}. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.IMAGE-NAME.json.zip` can be found in the attachments of each release.
+
+For third-party images, such as the images for ARM-powered runners, you can find details of the software that's included in the image in the [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images).
 
 {% endif %}
 
 ### Denying access to hosts
 
 {% data reusables.actions.runners-etc-hosts-file %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+
+{% endif %}
 
 ## Hardening for self-hosted runners
 
@@ -385,7 +392,7 @@ You can use the security log to monitor activity for your user account and the a
 
 For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets.
 
-![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results detail API updates to two secrets that are available to selected repositories.](/assets/images/help/repository/audit-log-entries.png)
+![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results are shown.](/assets/images/help/repository/audit-log-entries.png)
 
 For the full list of events that you can find in the audit log for each account type, see the following articles:
 

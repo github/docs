@@ -26,9 +26,19 @@ type SearchResultsMeta = {
   size: number
 }
 
+type Aggregation = {
+  key: string
+  count: number
+}
+
+export type SearchResultAggregations = {
+  [key: string]: Aggregation[]
+}
+
 export type SearchResultsT = {
   meta: SearchResultsMeta
   hits: SearchResultHitT[]
+  aggregations?: SearchResultAggregations
 }
 
 export type SearchQueryT = {

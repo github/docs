@@ -21,7 +21,7 @@ Some {% data variables.product.prodname_dotcom %} products have features that ar
 
 ## Core languages supported by {% data variables.product.prodname_dotcom %} features
 
-Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
+Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript, PHP, Python, Ruby,{% ifversion dependabot-updates-cargo-private-registry-support %} Rust,{% endif %} Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 
 Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit {% data variables.contact.community_support_forum %}.
 
@@ -35,6 +35,7 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.php %}
 {% data reusables.supported-languages.python %}
 {% data reusables.supported-languages.ruby %}
+{% data reusables.supported-languages.rust %}
 {% data reusables.supported-languages.scala %}
 {%- ifversion codeql-swift-beta or supply-chain-features-swift-support %}
 {% data reusables.supported-languages.swift %}
@@ -44,6 +45,8 @@ Some features are supported for additional languages or package managers. If you
 {% note %}
 
 **Notes:**
+
+{% ifversion fpt or ghec %}- The language support for {% data variables.product.prodname_copilot %} varies depending on the volume and diversity of training data for that language.{% endif %}
 - The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the {% data variables.dependency-submission-api.name %}.
 - PHP and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
 

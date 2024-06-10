@@ -27,7 +27,7 @@ To get started with {% data variables.product.prodname_ghe_cloud %}, decide whic
 
 ### 2. About enterprise accounts
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 
 ### 3. Creating an enterprise account
 
@@ -78,7 +78,7 @@ With {% data variables.product.prodname_emus %}, access and identity is managed 
 
 #### 1. Enabling SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SSO and SCIM provisioning before you can start using your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
+In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SSO and SCIM provisioning before you can start using your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
 
 #### 2. Managing organization and team membership in your {% data variables.enterprise.prodname_emu_enterprise %} with your identity provider
 

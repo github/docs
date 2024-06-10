@@ -21,11 +21,8 @@ topics:
 
 {% data variables.product.prodname_code_scanning_caps %} autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts in pull requests so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
-{% note %}
-
-**Note:** While {% data variables.product.prodname_code_scanning %} autofix is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use autofix. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to autofix.
-
-{% endnote %}
+> [!NOTE]
+> While {% data variables.product.prodname_code_scanning %} autofix is powered by {% data variables.product.prodname_copilot %}, your enterprise does not need a subscription to {% data variables.product.prodname_copilot %} to use autofix. As long as your enterprise has {% data variables.product.prodname_GH_advanced_security %}, you will have access to autofix.
 
 {% data variables.product.prodname_code_scanning_caps %} autofix generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. Autofix uses internal {% data variables.product.prodname_copilot %} APIs and private instances of OpenAI large language models such as GPT-4, which have sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
@@ -90,11 +87,8 @@ The test set contains a broad range of different types of projects and alerts. W
 
 However, each project and codebase is unique, so developers may need to edit a larger percentage of suggested fixes before committing them. Autofix provides valuable information to help you resolve {% data variables.product.prodname_code_scanning %} alerts, but ultimately it remains your responsibility to evaluate the proposed change and ensure the security and accuracy of your code.
 
-{% note %}
-
-**Note:** Fix generation for supported languages is subject to LLM operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
-
-{% endnote %}
+> [!NOTE]
+> Fix generation for supported languages is subject to LLM operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
 
 ## Limitations of autofix suggestions
 

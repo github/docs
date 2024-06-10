@@ -45,7 +45,7 @@ To get the most out of your trial, follow these steps:
    - "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)"
 1. To configure your instance to meet your organization's needs, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-your-enterprise)."
 1. To integrate {% data variables.product.prodname_ghe_server %} with your identity provider, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam)" and "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap)."
-1. Invite an unlimited number of people to join your trial.
+1. Invite people to join your trial.
    - Add users to your {% data variables.product.prodname_ghe_server %} instance using built-in authentication or your configured identity provider. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
    - To invite people to become account administrators, visit the [{% data variables.product.prodname_enterprise %} Web portal](https://enterprise.github.com/login).
 

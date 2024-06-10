@@ -70,7 +70,7 @@ export function RestOperation({ operation }: Props) {
           <RestAuth
             progAccess={operation.progAccess}
             slug={titleSlug}
-            heading={t('fine_grained_access').replace('{{ RESTOperationTitle }}', operation.title)}
+            operationTitle={operation.title}
           />
 
           {hasParameters && (

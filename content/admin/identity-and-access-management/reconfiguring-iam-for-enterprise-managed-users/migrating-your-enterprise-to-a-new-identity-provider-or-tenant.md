@@ -70,7 +70,7 @@ If you don't already have single sign-on recovery codes for your enterprise, dow
 
 ### 4. Disable authentication and provisioning for your enterprise
 
-1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
+1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
 1. Disable authentication and provisioning for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users#disabling-authentication)."
 1. Wait up to an hour for {% data variables.product.product_name %} to reset your enterprise's SCIM records and suspend your enterprise's members.
 

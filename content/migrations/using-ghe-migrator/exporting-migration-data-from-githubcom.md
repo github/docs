@@ -52,7 +52,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
       -X POST \
       -H "Accept: application/vnd.github+json" \
-      -d'{"lock_repositories":true,"repositories":["ORG_NAME</em>/REPO_NAME", "ORG_NAME/REPO_NAME"]}' \
+      -d'{"lock_repositories":true,"repositories":["ORG_NAME/REPO_NAME", "ORG_NAME/REPO_NAME"]}' \
       https://api.github.com/orgs/ORG_NAME/migrations
       ```
 

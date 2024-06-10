@@ -26,7 +26,7 @@ If the commit only exists in your local repository and has not been pushed to {%
 1. In your text editor, edit the commit message, and save the commit.
     - You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
-    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
+    - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)."
 {% endif %}
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push.

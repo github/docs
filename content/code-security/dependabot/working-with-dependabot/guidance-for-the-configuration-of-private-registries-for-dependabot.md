@@ -27,7 +27,8 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
-- [Bundler](#bundler)
+- [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
+- [Cargo](#cargo){% endif %}
 - [Docker](#docker)
 - [Gradle](#gradle)
 - [Maven](#maven)
@@ -87,6 +88,18 @@ registries:
 #### Notes
 
 {% data reusables.dependabot.access-private-dependencies-link %}
+
+{% ifversion dependabot-updates-cargo-private-registry-support %}
+
+### Cargo
+
+Cargo supports username, password  and token-based authentication. For more information, see `cargo-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#cargo-registry)."
+
+The snippet below shows a `dependabot.yml` file configuration that uses a token.
+
+{% data reusables.dependabot.cargo-private-registry-config-example %}
+
+{% endif %}
 
 ### Docker
 

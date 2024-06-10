@@ -104,6 +104,39 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "get-all-cost-centers-for-an-enterprise",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "add-users-to-a-cost-center",
+        "subcategory": "billing",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-users-from-a-cost-center",
+        "subcategory": "billing",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-github-packages-billing-for-an-enterprise",
         "subcategory": "billing",
         "verb": "get",
@@ -123,6 +156,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-billing-usage-report-for-an-enterprise",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/settings/billing/usage",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "enterprise-admin",
@@ -4620,7 +4675,7 @@
       },
       {
         "category": "repos",
-        "slug": "list-tag-protection-states-for-a-repository",
+        "slug": "deprecated---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4631,7 +4686,7 @@
       },
       {
         "category": "repos",
-        "slug": "create-a-tag-protection-state-for-a-repository",
+        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -4642,7 +4697,7 @@
       },
       {
         "category": "repos",
-        "slug": "delete-a-tag-protection-state-for-a-repository",
+        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -4769,7 +4824,7 @@
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": false
       },
       {

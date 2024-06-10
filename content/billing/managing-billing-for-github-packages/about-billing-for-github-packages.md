@@ -14,6 +14,13 @@ topics:
   - Spending limits
 shortTitle: About billing
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About billing for {% data variables.product.prodname_registry %}
 
 {% ifversion billing-auth-and-capture %}

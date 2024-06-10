@@ -129,8 +129,7 @@ export default function handleRedirects(req, res, next) {
 
 function getLanguage(req, default_ = 'en') {
   // req.context.userLanguage, if it truthy, is always a valid supported
-  // language. It's whatever was in the user's request but filtered
-  // based on non-WIP languages in lib/languages.js
+  // language. It's whatever was in the user's request in lib/languages.js
   return req.context.userLanguage || default_
 }
 

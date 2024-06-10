@@ -14,6 +14,8 @@ shortTitle: About GitHub Copilot Individual
 product: '{% data reusables.copilot.copilot-individual-emus %}'
 ---
 
+<a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot+individual&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Start a free trial</span> {% octicon "link-external" height:16 %}</a>
+
 ## About {% data variables.product.prodname_copilot %}
 
 {% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by a generative AI model developed by {% data variables.product.prodname_dotcom %}, OpenAI, and Microsoft.
@@ -62,11 +64,11 @@ When you use {% data variables.product.prodname_copilot %} it will collect usage
 
 #### Prompts
 
-A Prompt is the collection of code and supporting contextual information {% data variables.product.prodname_copilot %} sends to {% data variables.product.company_short %} to generate Suggestions, including data you submit through a chat interface. {% data variables.product.prodname_copilot %} in the code editor retains Prompts unless you have disabled code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Prompts in order to provide the Service.
+A Prompt is the collection of code and supporting contextual information {% data variables.product.prodname_copilot %} sends to {% data variables.product.company_short %} to generate Suggestions, including data you submit through a chat interface. {% data variables.product.prodname_copilot %} in the code editor retains Prompts unless you have disabled code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} and {% data variables.product.prodname_copilot_mobile_short %} retain Prompts in order to provide the Service.
 
 #### Suggestions
 
-A Suggestion is the code, functions, or other output returned to you by {% data variables.product.prodname_copilot %} after a Prompt is received and processed by the AI-model. {% data variables.product.prodname_copilot %} in the code editor retains Suggestions unless you disable code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} retains Suggestions in order to provide the Service.
+A Suggestion is the code, functions, or other output returned to you by {% data variables.product.prodname_copilot %} after a Prompt is received and processed by the AI-model. {% data variables.product.prodname_copilot %} in the code editor retains Suggestions unless you disable code snippet collection in your settings. {% data variables.product.prodname_copilot_cli %} and {% data variables.product.prodname_copilot_mobile_short %} retain Suggestions in order to provide the Service.
 
 ### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
 
