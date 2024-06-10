@@ -9,4 +9,5 @@ versions:
 children:
   - /overview
   - /copilot-pull-request-summaries
+  - /managing-copilot-knowledge-bases
 ---

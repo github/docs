@@ -29,7 +29,7 @@ With {% data variables.product.prodname_copilot_business_short %}, you can manag
 
 ## Enabling and setting up {% data variables.product.prodname_copilot_business_short %}
 
-To use {% data variables.product.prodname_copilot_business_short %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)."
+To use {% data variables.product.prodname_copilot_business_short %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion ghec %}"[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise)."{% else %}"[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization)."{% endif %}
 
 After setting up a subscription, you can enable {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. For more information, see "[AUTOTITLE](/copilot/copilot-business/enabling-and-setting-up-github-copilot-business)."
 
@@ -37,11 +37,7 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 {% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)."
 
-## Requesting or granting access to {% data variables.product.prodname_copilot_short %}
-
-Organization members can request access to {% data variables.product.prodname_copilot %} from their organization's owners.
-
-### Submitting a request for {% data variables.product.prodname_copilot_for_business %}
+## Submitting a request for {% data variables.product.prodname_copilot_for_business %}
 
 As a member of an organization, you can request access to {% data variables.product.prodname_copilot_for_business %} from your organization's owners. This can be done in a couple of different ways:
 
@@ -52,17 +48,6 @@ As a member of an organization, you can request access to {% data variables.prod
 - From an empty repository in the organization
 
   ![Screenshot from the top of an empty repository with the option ask admin for access to {% data variables.product.prodname_copilot_for_business %}.](/assets/images/help/copilot/request-cfb-access-empty-repo.png)
-
-### Managing requests for {% data variables.product.prodname_copilot_for_business %}
-
-As an owner of an organization, you can manage requests for {% data variables.product.prodname_copilot_for_business %} from your organization's settings. Additionally, {% data variables.product.prodname_dotcom %} sends you a weekly email with a summary of all pending requests.
-
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org-list %}
-1. In the "Access" section of the sidebar, click {% octicon "bell" aria-label="The notifications bell" %} **Requests from members**.
-1. To accept the request and grant the member access to {% data variables.product.prodname_copilot_for_business %}, click **Buy {% data variables.product.prodname_copilot_business_short %}**.
-
-All requests for {% data variables.product.prodname_copilot_for_business %} are grouped together under "{% data variables.product.prodname_copilot_business_short %}."
 
 ## Further reading
 

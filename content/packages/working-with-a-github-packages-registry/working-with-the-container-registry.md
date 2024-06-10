@@ -235,3 +235,8 @@ For example, the following {% data variables.product.prodname_actions %} workflo
     push: true
     outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=My multi-arch image
 ```
+
+## Troubleshooting
+
+- The {% data variables.product.prodname_container_registry %} has a 10 GB size limit for each layer.
+- The {% data variables.product.prodname_container_registry %} has a 10 minute timeout limit for uploads.

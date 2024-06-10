@@ -15,7 +15,7 @@ featuredLinks:
   popular:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment
-    - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
+    - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
 layout: product-landing
 versions:
   feature: copilot
@@ -26,7 +26,7 @@ children:
   - /copilot-individual
   - /copilot-business
   - /github-copilot-enterprise
-  - /managing-github-copilot-in-your-organization
+  - /managing-copilot
   - /github-copilot-chat
   - /github-copilot-in-the-cli
   - /configuring-github-copilot
@@ -34,4 +34,3 @@ children:
 topics:
   - Copilot
 ---
-

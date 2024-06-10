@@ -78,7 +78,7 @@ export default async function contextualizeSearch(req, res, next) {
       // In local dev, you get to see the error. In production,
       // you get a "Oops! Something went wrong" which involves a Failbot
       // send.
-      const tags = [`indexName:${search.indexName}`]
+      const tags = [`indexName:${search.indexName}`, `toplevels:${search.toplevel.length}`]
       const timed = statsd.asyncTimer(getSearchResults, 'contextualize.search', tags)
       try {
         if (search.aggregate && search.toplevel && search.toplevel.length > 0) {

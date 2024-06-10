@@ -1,5 +1,7 @@
-import type { Page } from '@/types'
-import contextualize from '@/frame/middleware/context/context.js'
+import type { Response } from 'express'
+
+import type { ExtendedRequest, Page } from '@/types'
+import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 
@@ -63,7 +65,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
         context,
       }
 
-      await contextualize(req, res, next)
+      await contextualize(req as ExtendedRequest, res as Response, next)
       await shortVersions(req, res, next)
       req.context.page = page
       await features(req, res, next)

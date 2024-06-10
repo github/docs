@@ -131,12 +131,8 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - id: random-number-generator{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+    - id: random-number-generator
       run: echo "random-id=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-{%- else %}
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
-{%- endif %}{% raw %}
       shell: bash
 ```
 

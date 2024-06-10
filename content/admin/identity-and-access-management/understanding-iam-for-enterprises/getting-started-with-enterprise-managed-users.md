@@ -2,7 +2,6 @@
 title: 'Getting started with {% data variables.product.prodname_emus %}'
 shortTitle: Get started with managed users
 intro: 'Learn how to create and configure an {% data variables.enterprise.prodname_emu_enterprise %}.'
-product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
 type: overview

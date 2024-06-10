@@ -406,18 +406,10 @@ jobs:
       output1: ${{ steps.step1.outputs.firstword }}
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
-      - id: step1{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+      - id: step1
         run: echo "firstword=hello" >> $GITHUB_OUTPUT
-{%- else %}
-        run: echo "::set-output name=firstword::hello"
-{%- endif %}{% raw %}
-      - id: step2{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+      - id: step2
         run: echo "secondword=world" >> $GITHUB_OUTPUT
-{%- else %}
-        run: echo "::set-output name=secondword::world"
-{%- endif %}{% raw %}
 ```
 
 {% endraw %}

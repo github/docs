@@ -699,6 +699,33 @@ When introducing a list, avoid short, nonspecific sentences using terms like “
 - There are several articles that provide an introduction to {% data variables.product.prodname_dotcom %}. See the following:
 - SMS authentication is supported in 50 countries. These include:
 
+## Permission statements and product callouts
+
+Use permission statements and product callouts to communicate tasks that require specific roles or products to complete.
+
+- [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
+- [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
+
+Together, permission statements and product callouts tell readers who can use the feature being described in an article.
+
+### Guidelines for creating scannable product callouts
+
+#### Define permissions versus product requirements
+
+Consider what information belongs in a permission statement or a product callout.
+
+For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
+
+#### Focus on key information, not explanations
+
+Permission statements and product callouts need to communicate who can perform a task and what product is required. They do not need to explain why a role or product is required.
+
+If multiple roles or products apply to a permission statement or product callout, format them using an unordered list. You can introduce complex permission statements and product callouts with a sentence, but always try to use as few words as necessary to communicate who can do what the article is about.
+
+#### Use inline links
+
+You can use inline links to provide more information about a role or product. The linked text must match the link destination so that it is clear where following the link will lead to.
+
 ## Placeholders
 
 Style any placeholder text in all caps. If a placeholder is multiple words, connect the words with dashes (kebab-case). If you use a placeholder, explain what someone might replace it with. This helps people modify examples to fit their needs and helps identify placeholders for people who use assistive technology.
@@ -884,7 +911,7 @@ Each release note in a set describes one of the following changes.
 - [Deprecations](#deprecations): removal of a feature or behavior
 - [Errata](#errata): correction to inaccurate release note or documentation
 
-You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
+You can also review guidelines for updating release notes in "[Adding or updating a release note](#adding-or-updating-a-release-note)" and "[Removing a release note](#removing-a-release-note)."
 
 ### Features
 
@@ -1074,6 +1101,10 @@ Errata answers the following questions.
 ### Adding or updating a release note
 
 To signal to readers that you've added or changed a note, or to indicate the publication date of errata, append a datestamp in the format "[Updated: YYYY-MM-DD]".
+
+### Removing a release note
+
+To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See "[Writing errata](#writing-errata)."
 
 ## Reusables and variables
 

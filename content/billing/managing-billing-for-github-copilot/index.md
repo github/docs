@@ -6,9 +6,10 @@ versions:
   feature: copilot
 children:
   - /about-billing-for-github-copilot
-  - /managing-your-github-copilot-individual-subscription
-  - /managing-your-github-copilot-business-subscription
-  - /managing-your-github-copilot-enterprise-subscription
-  - /viewing-your-github-copilot-usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}

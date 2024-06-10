@@ -31,8 +31,16 @@ To determine if your {% data variables.product.prodname_custom_security_configur
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the "Code {% data variables.product.prodname_security_configurations %}" section, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to edit.
-1. Edit the name, description, and enablement settings of your {% data variables.product.prodname_custom_security_configuration %} as desired.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
+
+1. Edit the name and description of your {% data variables.product.prodname_custom_security_configuration %} as desired.
+1. In the "Security settings" section, edit the enablement settings of your {% data variables.product.prodname_custom_security_configuration %} as desired.{% ifversion enforce-security-configurations %}
+1. In the "Policy" section, you can modify the configuration's enforcement status. Enforcing a configuration will block repository owners from changing features that are enabled or disabled by the configuration, but features that are not set aren't enforced. Next to "Enforce configuration", select **Enforce** or **Don't enforce** from the dropdown menu. This feature is in beta, and is subject to change.
+
+    >[!NOTE]
+    {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
+
+{% endif %}
 
 1. To apply your changes, click **Update configuration**.
