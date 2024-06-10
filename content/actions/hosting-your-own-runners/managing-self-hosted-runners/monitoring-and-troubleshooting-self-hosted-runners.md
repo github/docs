@@ -46,7 +46,7 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
 ### Checking self-hosted runner network connectivity
 
-You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
+You can use the self-hosted runner application's `config` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
 
 In addition to `--check`, you must provide two arguments to the script:
 
@@ -68,7 +68,7 @@ For example:
 {% windows %}
 
 ```powershell
-run.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
+config.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD1234
 ```
 
 {% endwindows %}
