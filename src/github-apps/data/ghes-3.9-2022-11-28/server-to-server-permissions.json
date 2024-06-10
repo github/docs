@@ -3368,7 +3368,7 @@
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
         "access": "write",
         "user-to-server": true,
-        "server-to-server": false,
+        "server-to-server": true,
         "additional-permissions": false
       },
       {
