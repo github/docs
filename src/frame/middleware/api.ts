@@ -1,11 +1,12 @@
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-import events from '#src/events/middleware.js'
-import anchorRedirect from '#src/rest/api/anchor-redirect.js'
-import search from '#src/search/middleware/search.js'
-import pageInfo from '#src/pageinfo/middleware'
-import webhooks from '#src/webhooks/middleware/webhooks.js'
+import events from '@/events/middleware.js'
+import anchorRedirect from '@/rest/api/anchor-redirect.js'
+import search from '@/search/middleware/search.js'
+import pageInfo from '@/pageinfo/middleware'
+import webhooks from '@/webhooks/middleware/webhooks.js'
+import { ExtendedRequest } from '@/types'
 
 const router = express.Router()
 
@@ -28,14 +29,14 @@ if (process.env.ELASTICSEARCH_URL) {
     createProxyMiddleware({
       target: 'https://docs.github.com',
       changeOrigin: true,
-      pathRewrite: function (path, req) {
+      pathRewrite: function (path, req: ExtendedRequest) {
         return req.originalUrl
       },
     }),
   )
 }
 
-router.get('*', (req, res, next) => {
+router.get('*', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })
 })
 
