@@ -59,13 +59,13 @@ The feed is designed to help you discover relevant content from projects you fol
 
 You can use the {% octicon "filter" aria-hidden="true" %} **Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
 
-- Stars a repository.
-- Follows another user.
-- Creates a public repository.
-- Opens an issue or pull request with `help wanted` or `good first issue` label on a repository you're watching.
-- Pushes commits to a repository you watch.
-- Forks a public repository.
-- Publishes a new release.
+- Stars a repository
+- Follows another user
+- Creates a public repository
+- Opens an issue or pull request with `help wanted` or `good first issue` label on a repository you're watching
+- Pushes commits to a repository you watch
+- Forks a public repository
+- Publishes a new release
 
 {% else %}
 The main section of your dashboard has two activity feeds:
