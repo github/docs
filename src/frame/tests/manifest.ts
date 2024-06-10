@@ -1,8 +1,20 @@
 import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
-import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { get, getDOM } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { get, getDOM } from '@/tests/helpers/e2etest.js'
+
+type Manifest = {
+  name: string
+  short_name: string
+  start_url: string
+  display: string
+  icons: {
+    sizes: string
+    src: string
+    type?: string
+  }[]
+}
 
 describe('manifest', () => {
   test('download manifest from HTML and check content', async () => {
@@ -19,7 +31,7 @@ describe('manifest', () => {
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-key']).toBe(`${SURROGATE_ENUMS.DEFAULT} no-language`)
 
-    const manifest = JSON.parse(res.body)
+    const manifest: Manifest = JSON.parse(res.body)
     expect(manifest.name).toBe('GitHub Docs')
     expect(manifest.short_name).toBe('GitHub Docs')
     expect(manifest.start_url).toBe('/')
