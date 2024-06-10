@@ -110,10 +110,24 @@ describe('analyzeComment', () => {
       expect(signals.includes('too-short')).toBeTruthy()
       expect(rating).toBeLessThan(1.0)
     }
+    {
+      const { signals, rating } = await analyzeComment(' Oneword two words')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('A\nB')
+      expect(signals.includes('too-short')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
 
     // No
     {
-      const { signals } = await analyzeComment('A\nB')
+      const { signals } = await analyzeComment('A\nB\nC\nD')
+      expect(signals.includes('too-short')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment('One two three four ')
       expect(signals.includes('too-short')).toBeFalsy()
     }
   })
@@ -177,6 +191,31 @@ describe('analyzeComment', () => {
     {
       const { signals } = await analyzeComment('Great 👍')
       expect(signals.includes('mostly-emoji')).toBeFalsy()
+    }
+  })
+
+  test('spammy-words', async () => {
+    // Yes
+    {
+      const { signals, rating } = await analyzeComment('Roblox free roblux')
+      expect(signals.includes('spammy-words')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('GOOGLE \n\nGAME')
+      expect(signals.includes('spammy-words')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+
+    // No
+    {
+      const { signals } = await analyzeComment('GitHub is great!')
+      expect(signals.includes('spammy-words')).toBeFalsy()
+    }
+    // No sub-string matches allowed
+    {
+      const { signals } = await analyzeComment('MinecraftFacebook')
+      expect(signals.includes('spammy-words')).toBeFalsy()
     }
   })
 })
