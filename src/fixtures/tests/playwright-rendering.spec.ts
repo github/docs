@@ -615,6 +615,7 @@ test.describe('translations', () => {
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {
     await page.goto('/get-started/start-your-journey/hello-world')
+    await expect(page).toHaveURL('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
     await page.getByRole('menuitemradio', { name: '日本語' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
@@ -631,7 +632,6 @@ test.describe('translations', () => {
     // If you go, with the Japanese cookie, to the English page directly,
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
-    await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
 })
