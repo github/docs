@@ -37,17 +37,7 @@ For more information about the configuration of {% data variables.product.prodna
 
 ### Overview of package permissions
 
-{% ifversion packages-registries-v2 %}
-
 The permissions for a package are either inherited from the repository where the package is hosted, or can be defined for specific users or organizations. Some registries only support permissions inherited from a repository. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)." For more information on package access, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-
-{% else %}
-
-Each package inherits the permissions of the repository where the package is hosted.
-
-For example, anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version.
-
-{% endif %}
 
 ### Overview of package visibility
 
