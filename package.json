@@ -148,7 +148,7 @@
     },
     "extends": [
       "eslint:recommended",
-      "standard",
+      "plugin:github/recommended",
       "plugin:import/errors",
       "prettier"
     ],
@@ -158,7 +158,31 @@
         {
           "packageDir": "."
         }
-      ]
+      ],
+      "import/extensions": "off",
+      "no-console": "off",
+      "github/array-foreach": "off",
+      "camelcase": "off",
+      "i18n-text/no-en": "off",
+      "no-shadow": "off",
+      "prefer-template": "off",
+      "filenames/match-regex": "off",
+      "no-constant-condition": "off",
+      "no-unused-vars": "off",
+      "github/no-then": "off",
+      "import/no-named-as-default-member": "off",
+      "one-var": "off",
+      "import/no-namespace": "off",
+      "import/no-anonymous-default-export": "off",
+      "object-shorthand": "off",
+      "eslint-comments/no-use": "off",
+      "no-empty": "off",
+      "prefer-const": "off",
+      "import/no-named-as-default": "off",
+      "eslint-comments/no-unused-disable": "off",
+      "no-useless-concat": "off",
+      "func-style": "off",
+      "eslint-comments/no-unlimited-disable": "off"
     },
     "overrides": [
       {
@@ -323,13 +347,11 @@
     "csv-parse": "5.5.6",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-github": "^5.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-primer-react": "^5.2.0",
-    "eslint-plugin-promise": "^6.2.0",
     "event-to-promise": "^0.8.0",
     "graphql": "^16.8.1",
     "http-status-code": "^2.1.0",
