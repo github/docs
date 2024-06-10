@@ -1,3 +1,4 @@
+import type { NextFunction, Request, Response } from 'express'
 import fs from 'fs'
 import path from 'path'
 
@@ -17,7 +18,13 @@ const ICONS = [
   './assets/images/site/apple-touch-icon-512x512.png',
 ]
 
-export default async function manifestJson(req, res, next) {
+type Icon = {
+  sizes: string
+  src: string
+  type?: string
+}
+
+export default async function manifestJson(req: Request, res: Response, next: NextFunction) {
   if (!req.url.startsWith('/manifest.json')) {
     return next()
   }
@@ -27,6 +34,8 @@ export default async function manifestJson(req, res, next) {
     defaultCacheControl(res)
     return res.redirect(302, '/manifest.json')
   }
+
+  const icons: Icon[] = []
 
   // This is modelled after https://github.com/manifest.json
   const manifest = {
@@ -40,10 +49,10 @@ export default async function manifestJson(req, res, next) {
     short_name: 'GitHub Docs',
     start_url: '/',
     display: 'standalone',
-    icons: [],
+    icons,
   }
   for (const icon of ICONS) {
-    for (const sizes of path.basename(icon).match(/\d+x\d+/g)) {
+    for (const sizes of path.basename(icon).match(/\d+x\d+/g) || []) {
       const stats = fs.statSync(icon)
       const split = icon.slice(1).split(path.sep)
       const hash = `${stats.size}`
