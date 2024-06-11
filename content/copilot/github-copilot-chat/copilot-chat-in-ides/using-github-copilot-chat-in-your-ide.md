@@ -354,6 +354,38 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 - `Add tests for a JavaScript function that should sum a list of integers`
 
+{% ifversion ghec %}
+
+## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
+
+{% note %}
+
+**Notes**:
+
+- This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+- The `@github` chat participant is currently in beta and is subject to change.
+
+{% endnote %}
+
+{% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}, include `@github` in your question.
+
+When you add `@github` to a question, {% data variables.product.prodname_copilot_short %} dynamically selects an appropriate skill, based on the content of your question. You can also explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use a particular skill. For example, `@github Search the web to find the latest GPT4 model from OpenAI.`
+
+### Currently available skills
+
+You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
+
+The skills you can use in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} include those shown in the table below.
+
+| Skill  | Description | Enabled by default? | Example question |
+| ------- | ----------- | ------------------- | -----------------|
+| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: the repository must be indexed - see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-exploratory-questions-about-a-repository)." | Yes | `@github Where is the logic that controls the user session management, and how does it work?` |
+| **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
+| **Show symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | `@github Write unit tests for the AuthUser method` |
+| **Web search** | Searches the web using the Bing search engine. This skill is useful for teaching Copilot about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
+
+{% endif %}
+
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
 In addition to submitting prompts through the chat window, you can submit prompts inline. To start an inline chat, right click in your editor window and select **Ask {% data variables.product.prodname_copilot_short %}**.
