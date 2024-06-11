@@ -9,7 +9,6 @@ versions:
 shortTitle: About permissions
 ---
 
-{% ifversion packages-registries-v2 %}
 The permissions for packages can be scoped either to a user or an organization or to a repository.
 
 ## Granular permissions for user/organization-scoped packages
@@ -23,13 +22,10 @@ The following {% data variables.product.prodname_registry %} registries support 
 {% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
 {% ifversion packages-rubygems-v2 %}- RubyGems registry{% endif %}
 
-{% endif %}
+## Permissions for repository-scoped packages
 
-## Permissions for {% ifversion packages-registries-v2 %}repository-scoped {% endif %}packages
+A repository-scoped package inherits the permissions and visibility of the repository in which the package is published. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
 
-A {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package inherits the permissions and visibility of the repository in which the package is published. You can find a package scoped to a repository by going to the main page of the repository and clicking the **Packages** link to the right of the page. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."{% endif %}
-
-{% ifversion packages-registries-v2 %}
 The following {% data variables.product.prodname_registry %} registries **only** support repository-scoped permissions.
 
 {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
@@ -41,17 +37,11 @@ The following {% data variables.product.prodname_registry %} registries **only**
 
 For {% ifversion ghes %}the {% data variables.product.prodname_container_registry %}{% else %}other registries{% endif %}, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. {% ifversion docker-ghcr-enterprise-migration %}For information about migration to the {% data variables.product.prodname_container_registry %}, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."{% endif %}
 
-{% endif %}
-
-{% ifversion packages-registries-v2 %}
-
 ## Visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
 
 For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-
-{% endif %}
 
 ## About scopes and permissions for package registries
 
@@ -84,10 +74,10 @@ For more information, see:{% ifversion fpt or ghec %}
 
 You can transfer a repository to another personal account or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
 
-When you transfer a repository, {% ifversion packages-registries-v2 %}{% data variables.product.prodname_dotcom %} may transfer the packages associated with the repository, depending on the registry the packages belong to.
+When you transfer a repository, {% data variables.product.prodname_dotcom %} may transfer the packages associated with the repository, depending on the registry the packages belong to.
 
 - For registries that support granular permissions, packages are scoped to a personal account or organization, and the account associated with the package does not change when you transfer a repository. If you have linked a package to a repository, the link is removed when you transfer the repository to another user. Any {% ifversion fpt or ghec %}codespaces or {% endif %}{% data variables.product.prodname_actions %} workflows associated with the repository will lose access to the package. If the package inherited its access permissions from the linked repository, users will lose access to the package. For the list of these registries, see "[Granular permissions for user/organization-scoped packages](#granular-permissions-for-userorganization-scoped-packages)" above.
-- For registries that only support repository-scoped permissions, packages are published directly to repositories, and {% endif %}{% data variables.product.prodname_dotcom %} transfers the packages associated with a repository as part of the repository transfer. All billable usage associated with the packages will subsequently be billed to the new owner of the repository. If the previous repository owner is removed as a collaborator on the repository, they may no longer be able to access the packages associated with the repository.{% ifversion packages-registries-v2 %} For the list of these registries, see "[Permissions for repository-scoped packages](#permissions-for-repository-scoped-packages)" above.{% endif %}
+- For registries that only support repository-scoped permissions, packages are published directly to repositories, and {% data variables.product.prodname_dotcom %} transfers the packages associated with a repository as part of the repository transfer. All billable usage associated with the packages will subsequently be billed to the new owner of the repository. If the previous repository owner is removed as a collaborator on the repository, they may no longer be able to access the packages associated with the repository. For the list of these registries, see "[Permissions for repository-scoped packages](#permissions-for-repository-scoped-packages)" above.
 
 ## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
 

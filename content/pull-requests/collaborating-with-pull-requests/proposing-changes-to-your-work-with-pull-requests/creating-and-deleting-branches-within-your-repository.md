@@ -25,8 +25,6 @@ You can create a branch in different ways on {% data variables.product.product_n
 
 {% endnote %}
 
-{% ifversion create-branch-from-overview %}
-
 ### Creating a branch via the branches overview
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -39,7 +37,6 @@ You can create a branch in different ways on {% data variables.product.product_n
    - If your repository is a fork, select the repository dropdown menu and click your fork or the upstream repository.
    - Select the branch dropdown menu and click a branch.
 1. Click **Create branch**.
-{% endif %}
 
 ### Creating a branch using the branch dropdown
 

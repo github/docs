@@ -1,3 +1,5 @@
+import fs from 'fs'
+import yaml from 'js-yaml'
 import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
@@ -19,12 +21,12 @@ export const SIGNAL_RATINGS = [
     validator: (comment) => isContainingEmail(comment),
   },
   {
-    reduction: 0.1,
+    reduction: 1.0,
     name: 'url-only',
     validator: (comment) => isURL(comment),
   },
   {
-    reduction: 0.1,
+    reduction: 1.0,
     name: 'numbers-only',
     validator: (comment) => isNumbersOnly(comment),
   },
@@ -57,6 +59,11 @@ export const SIGNAL_RATINGS = [
     reduction: 0.2,
     name: 'mostly-emoji',
     validator: (comment) => isMostlyEmoji(comment),
+  },
+  {
+    reduction: 1.0,
+    name: 'spammy-words',
+    validator: (comment) => isSpammyWordList(comment),
   },
 ]
 
@@ -108,8 +115,7 @@ function isAllUppercase(text) {
 
 function isTooShort(text) {
   const split = text.trim().split(/\s+/)
-  if (split.length <= 1) {
-    // return !isNumbersOnly(text) && !isURL(text) && !isEmailOnly(text) && !isAllUppercase(text)
+  if (split.length <= 3) {
     return true
   }
 }
@@ -172,4 +178,14 @@ const segmenter = new Intl.Segmenter([], { granularity: 'word' })
 function splitWords(text) {
   const segmentedText = segmenter.segment(text)
   return [...segmentedText].filter((s) => s.isWordLike).map((s) => s.segment)
+}
+
+const surveyYaml = yaml.load(fs.readFileSync('data/survey-words.yml', 'utf8'))
+const surveyWords = surveyYaml.words.map((word) => word.toLowerCase())
+
+function isSpammyWordList(text) {
+  const words = text.toLowerCase().split(/(\s+|\\n+)/g)
+  // Currently, we're intentionally not checking for
+  // survey words that are substrings of a comment word.
+  return Boolean(words.some((word) => surveyWords.includes(word)))
 }

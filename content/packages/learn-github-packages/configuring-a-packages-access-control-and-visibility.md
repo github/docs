@@ -13,20 +13,9 @@ shortTitle: Access control & visibility
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-{% ifversion packages-registries-v2 %}
-
 A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
 
 For the list of registries that support granular permissions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
-
-{% else %}
-A package inherits the permissions and visibility of the repository in which the package is published.
-
-For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
-
-{% endif %}
-
-{% ifversion packages-registries-v2 %}
 
 ## About inheritance of access permissions
 
@@ -43,8 +32,6 @@ If you publish a package in a registry that only supports repository-scoped perm
 ## About setting visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
-
-{% endif %}
 
 ## Configuring access to packages for your personal account
 
@@ -70,8 +57,6 @@ If your package is private or internal and scoped to an organization, then you c
 {% data reusables.package_registry.package-settings-user-access %}
 
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
-
-{% ifversion packages-registries-v2 %}
 
 ## Selecting whether a package inherits permissions from a repository
 
@@ -107,8 +92,6 @@ When a package inherits permissions from a repository, to grant or remove access
 {% data reusables.package_registry.package-settings-option %}
 {% data reusables.package_registry.disable-auto-inheritance-step %}
 
-{% endif %}
-
 {% ifversion packages-inherit-permissions %}
 
 ## Disabling automatic inheritance of access permissions in an organization
@@ -124,8 +107,6 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 1. Click **Save**.
 
 {% endif %}
-
-{% ifversion packages-registries-v2 %}
 
 ## Ensuring workflow access to your package
 
@@ -164,7 +145,6 @@ To further customize access to your package, see "[Configuring access to package
 {% data reusables.package_registry.package-settings-actions-access-role-repo %}
 
 To further customize access to your package, see "[Configuring access to packages for an organization](#configuring-access-to-packages-for-an-organization)."
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
