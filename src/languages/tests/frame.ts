@@ -1,9 +1,9 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { blockIndex } from '#src/frame/middleware/block-robots.js'
-import { get, getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
-import Page from '#src/frame/lib/page.js'
+import { languageKeys } from '@/languages/lib/languages.js'
+import { blockIndex } from '@/frame/middleware/block-robots'
+import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest.js'
+import Page from '@/frame/lib/page.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
@@ -23,7 +23,7 @@ describe('frame', () => {
   test.each(langs)('homepage links go to %s pages', async (lang) => {
     const $ = await getDOM(`/${lang}`)
     const $links = $('[data-testid=bump-link]')
-    $links.each((i, el) => {
+    $links.each((i: number, el: Element) => {
       const linkUrl = $(el).attr('href')
       expect(linkUrl.startsWith(`/${lang}/`)).toBe(true)
     })
@@ -96,10 +96,10 @@ describe('release notes', () => {
   //
   // This is useful because if we test every single individual version of
   // every plan the test just takes way too long.
-  const getReleaseNotesVersionCombinations = (langs) => {
+  const getReleaseNotesVersionCombinations = (langs: string[]) => {
     const combinations = []
-    const prefixes = []
-    for (const version of page.applicableVersions) {
+    const prefixes: string[] = []
+    for (const version of page!.applicableVersions) {
       const prefix = version.split('@')[0]
       if (prefixes.includes(prefix)) {
         continue

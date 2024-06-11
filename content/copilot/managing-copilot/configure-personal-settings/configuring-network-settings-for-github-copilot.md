@@ -7,6 +7,8 @@ topics:
   - Copilot
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot
 ---
 
 {% visualstudio %}

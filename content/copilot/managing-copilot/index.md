@@ -10,4 +10,6 @@ children:
   - /managing-copilot-for-your-enterprise
   - /managing-github-copilot-in-your-organization
   - /managing-copilot-as-an-individual-subscriber
+  - /configure-personal-settings
 ---
+

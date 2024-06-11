@@ -1,6 +1,6 @@
 ---
-title: Configuring your personal GitHub Copilot settings on GitHub.com
-shortTitle: Copilot on GitHub.com
+title: Managing Copilot policies as an individual subscriber
+shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.prodname_dotcom_the_website %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
 product: '{% data variables.product.prodname_copilot_for_individuals %}'
 topics:
@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom
   - /github/copilot/about-github-copilot-telemetry
   - /github/copilot/github-copilot-telemetry-terms
+  - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
 ---
 
 ## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.prodname_dotcom_the_website %}
