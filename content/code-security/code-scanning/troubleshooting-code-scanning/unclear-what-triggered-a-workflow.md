@@ -4,7 +4,9 @@ shortTitle: Unclear what triggered a workflow
 intro: 'If you don''t know what triggered an analysis, {% ifversion code-scanning-tool-status-page %} investigate the {% data variables.code-scanning.tool_status_page %} or {% endif %}look at the log for the last scan.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/unclear-what-triggered-a-workflow-run
 ---
