@@ -120,7 +120,7 @@ All custom media types for {% data variables.product.product_name %} look like t
 
 For an example of a request that uses media types, see "[Making a request](#making-a-request)."
 
-However, note that you may require different permissions for different media types. For example, if you are authenticating as a user installation for a Github app, you need `content:read permissions` to access the code diff of a pull request.
+However, note that you may require different permissions for different media types. For example, if you are authenticating as a user installation for a Github app, you need `content:read` permissions to access the code diff of a pull request.
 
 ### Authentication
 
