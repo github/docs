@@ -10,13 +10,14 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible-by-integration
 ---
 
+>[!NOTE]
+>This troubleshooting article is _only_ relevant if you're seeing this error with {% data variables.product.prodname_dependabot %}. If you see this error with other {% data variables.product.company_short %} products and have difficulty troubleshooting it, you can contact {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
+
 ## About this error
 
 ```text
 403: Resource not accessible by integration
 ```
-
-You may see this error when using {% data variables.product.prodname_dependabot %}.
 
 {% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, if the workflow will run with read-only scopes.
 
