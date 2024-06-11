@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest'
 
-import { blockIndex } from '#src/frame/middleware/block-robots.js'
-import { productMap } from '#src/products/lib/all-products.js'
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { blockIndex } from '@/frame/middleware/block-robots'
+import { productMap } from '@/products/lib/all-products.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
 
-function allowIndex(path) {
+function allowIndex(path: string) {
   return !blockIndex(path)
 }
 
@@ -43,6 +43,7 @@ describe('block robots', () => {
 
     hiddenProductIds.forEach((id) => {
       const { versions } = productMap[id]
+      if (!versions) return
       const blockedPaths = versions
         .map((version) => {
           return [`/en/${version}/${id}`, `/en/${version}/${id}/some-early-access-article`]

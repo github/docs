@@ -14,15 +14,15 @@ export type ExtendedRequest = Request & {
   // Add more properties here as needed
 }
 
-type Product = {
+export type Product = {
   id: string
   name: string
   href: string
-  dir: string
-  toc: string
-  wip: boolean
-  hidden: boolean
-  versions: string[]
+  dir?: string
+  toc?: string
+  wip?: boolean
+  hidden?: boolean
+  versions?: string[]
 }
 
 type ProductMap = {
