@@ -18,6 +18,7 @@
   "scripts": {
     "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
     "analyze-text": "node src/search/scripts/analyze-text.js",
+    "analyze-comment": "tsx src/events/scripts/analyze-comment-cli.ts",
     "archive-version": "node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js",
     "audit-log-sync": "tsx src/audit-logs/scripts/sync.ts",
     "build": "next build",

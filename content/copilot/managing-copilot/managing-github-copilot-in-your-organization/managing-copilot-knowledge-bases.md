@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases
   - /copilot/github-copilot-chat/copilot-chat-in-github/managing-copilot-knowledge-bases
+  - /copilot/github-copilot-enterprise/managing-copilot-knowledge-bases
 ---
 
 {% ifversion fpt %}
