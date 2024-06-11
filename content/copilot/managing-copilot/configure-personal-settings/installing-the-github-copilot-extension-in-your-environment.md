@@ -7,6 +7,8 @@ versions:
 defaultTool: vscode
 topics:
   - Copilot
+redirect_from:
+  - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
 ---
 
 {% azure_data_studio %}

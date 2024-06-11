@@ -8,6 +8,7 @@ redirect_from:
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-neovim
+  - /copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment
 topics:
   - Copilot
 versions:
