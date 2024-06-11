@@ -11,7 +11,9 @@ topics:
   - Advanced Security
   - Code scanning
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 ## About configuring default setup at scale

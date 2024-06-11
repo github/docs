@@ -1,8 +1,8 @@
 ---
-title: Customizing {% ifversion code-scanning-without-workflow %}your advanced setup for {% endif %}code scanning
-intro: 'You can customize how {% ifversion code-scanning-without-workflow %}your advanced setup {% else %}{% data variables.product.prodname_dotcom %} {% endif %}scans the code in your project for vulnerabilities and errors.'
+title: Customizing your advanced setup for code scanning
+intro: 'You can customize how your advanced setup scans the code in your project for vulnerabilities and errors.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can customize {% ifversion code-scanning-without-workflow %}advanced setup for {% endif %}{% data variables.product.prodname_code_scanning %}.'
+permissions: 'People with write permissions to a repository can customize advanced setup for {% data variables.product.prodname_code_scanning %}.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning
   - /code-security/secure-coding/configuring-code-scanning
@@ -23,7 +23,7 @@ topics:
   - Pull requests
   - JavaScript
   - Python
-shortTitle: Customize {% ifversion code-scanning-without-workflow %}advanced setup{% else %}code scanning{% endif %}
+shortTitle: Customize advanced setup
 allowTitleToDifferFromFilename: true
 ---
 <!--The CodeQL CLI man pages include a link to a section of the article. If you rename this article,
@@ -37,13 +37,7 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[AUTOTITLE](/actions/learn-github-actions)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
 
-{% ifversion code-scanning-without-workflow %}With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."{% else %}This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
-
-{% ifversion code-scanning-without-workflow %}{% else %}Before you can customize {% data variables.product.prodname_code_scanning %} for a repository, you must configure {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
-
-{% data reusables.code-scanning.edit-workflow %}
-
-{% endif %}
+With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 {% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on  {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-label="The shield symbol" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
 
@@ -249,19 +243,8 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-you
 
 {% data reusables.code-scanning.pull-request-checks %}
 
-{% ifversion code-scanning-without-workflow %}
-
 You can edit which severity and security severity alert levels cause a check failure. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#defining-the-alert-severities-that-cause-a-check-failure-for-a-pull-request)."
 
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghec %}
-1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
-1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
-
-{% endif %}
 {% endif %}
 
 ## Configuring a category for the analysis
