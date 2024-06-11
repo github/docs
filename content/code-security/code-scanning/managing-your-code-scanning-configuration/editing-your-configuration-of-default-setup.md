@@ -4,7 +4,9 @@ shortTitle: Edit default setup
 intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your code security needs.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Code scanning
