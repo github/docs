@@ -94,7 +94,7 @@ router.post(
 
     const { rating, signals } = await analyzeComment(comment, locale)
 
-    res.json({ rating })
+    res.json({ rating, comment })
 
     tags.push(...signals.map((signal) => `signal:${signal}`))
     statsd.increment('events.survey_preview.signals', 1, tags)
