@@ -13,6 +13,7 @@ topics:
 children:
   - /subscribing-to-copilot-for-your-organization
   - /granting-access-to-copilot-for-members-of-your-organization
+  - /managing-copilot-knowledge-bases
   - /managing-requests-for-copilot-access-in-your-organization
   - /revoking-access-to-copilot-for-members-of-your-organization
   - /reviewing-usage-data-for-github-copilot-in-your-organization
@@ -21,3 +22,4 @@ children:
   - /reviewing-audit-logs-for-copilot-business
   - /canceling-copilot-for-your-organization
 ---
+
