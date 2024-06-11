@@ -46,8 +46,10 @@ export default async function contextualizeSearch(req, res, next) {
     }
   }
 
-  // Feature flag for now XXX
-  if (req.context.currentVersion === 'enterprise-cloud@latest') {
+  // Feature flag
+  if (
+    ['enterprise-cloud', 'enterprise-server'].includes(req.context.currentVersion.split('@')[0])
+  ) {
     search.aggregate = ['toplevel']
   }
 
