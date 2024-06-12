@@ -579,6 +579,53 @@ test.describe('survey', () => {
     await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
+
+  test('add survey comment, then modify the survey comment', async ({ page }) => {
+    let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
+    await page.route('**/api/events', (route, request) => {
+      route.fulfill({})
+      expect(request.method()).toBe('POST')
+      fulfilled++
+      // At the time of writing you can't get the posted payload
+      // when you use `navigator.sendBeacon(url, data)`.
+      // So we can't make assertions about the payload.
+      // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.goto('/get-started/foo/for-playwright')
+
+    // The label is visually an SVG. Finding it by its `for` value feels easier.
+    await page.locator('[for=survey-yes]').click()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+
+    await page.locator('[for=survey-comment]').click()
+    await page.locator('[for=survey-comment]').fill('This is a comment')
+    await page.getByRole('button', { name: 'Next' }).click()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).not.toBeVisible()
+
+    await page.locator('[for=survey-comment]').click()
+    await page.locator('[for=survey-comment]').fill('This is a modified comment')
+    // The "Send" button should no longer be visible
+    // and the "Next" button should be visible
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await page.getByRole('button', { name: 'Next' }).click()
+    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Next' })).not.toBeVisible()
+
+    await page.getByRole('button', { name: 'Send' }).click()
+    // One for the page view event, one for the thumbs up click, one for
+    // the submission.
+    expect(fulfilled).toBe(1 + 2)
+    await expect(page.getByTestId('survey-end')).toBeVisible()
+  })
 })
 
 test.describe('rest API reference pages', () => {
@@ -615,6 +662,7 @@ test.describe('translations', () => {
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {
     await page.goto('/get-started/start-your-journey/hello-world')
+    await expect(page).toHaveURL('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
     await page.getByRole('menuitemradio', { name: '日本語' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
@@ -631,7 +679,6 @@ test.describe('translations', () => {
     // If you go, with the Japanese cookie, to the English page directly,
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
-    await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
 })

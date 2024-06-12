@@ -111,13 +111,13 @@ If the relative URI for a result is matched against a file defined using a symli
 
 You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
 
-For each gzip-compressed SARIF file, SARIF upload supports a maximum size of 10 MB. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries.{% ifversion code-scanning-tool-status-page %} For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large)."{% endif %}
+For each gzip-compressed SARIF file, SARIF upload supports a maximum size of 10 MB. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries. For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large)."
 
-{% data variables.product.prodname_code_scanning_caps %} supports uploading a maximum number of entries for the data objects in the following table. If any of these objects exceeds its maximum value the SARIF file is rejected. For some objects, there is also an additional limit on the number of values that will be displayed. Whenever possible the most important values are shown. To get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration (for example, for the {% data variables.product.prodname_codeql %} tool, identify and disable the most noisy queries).{% ifversion code-scanning-tool-status-page %} For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/results-exceed-limit)."{% endif %}
+{% data variables.product.prodname_code_scanning_caps %} supports uploading a maximum number of entries for the data objects in the following table. If any of these objects exceeds its maximum value the SARIF file is rejected. For some objects, there is also an additional limit on the number of values that will be displayed. Whenever possible the most important values are shown. To get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration (for example, for the {% data variables.product.prodname_codeql %} tool, identify and disable the most noisy queries). For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/results-exceed-limit)."
 
 {% data reusables.code-scanning.sarif-limits %}
 
-{% ifversion code-scanning-tool-status-page %}For information about other errors, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)"{% endif %}
+For information about other errors, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)"
 
 ## Uploading more than one SARIF file for a commit
 

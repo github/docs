@@ -88,7 +88,7 @@ This metadata defines one `who-to-greet`  input and one `time` output parameter.
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must {% ifversion actions-save-state-set-output-envs %}write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`{% else %}use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`{% endif %}. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)."
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
@@ -101,11 +101,7 @@ Next, the script gets the current time and sets it as an output variable that ac
 
    echo "Hello $1"
    time=$(date)
-   {%- ifversion actions-save-state-set-output-envs %}
    echo "time=$time" >> $GITHUB_OUTPUT
-   {%- else %}
-   echo "::set-output name=time::$time"
-   {%- endif %}
 
    ```
 
@@ -160,7 +156,7 @@ The time we greeted you.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+uses: actions/hello-world-docker-action@v2
 with:
   who-to-greet: 'Mona the Octocat'
 ```
@@ -204,7 +200,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/hello-world-docker-action@{% ifversion actions-save-state-set-output-envs %}v2{% else %}v1{% endif %}
+        uses: actions/hello-world-docker-action@v2
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step

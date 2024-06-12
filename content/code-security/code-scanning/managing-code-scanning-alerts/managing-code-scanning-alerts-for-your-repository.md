@@ -51,17 +51,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-cod
 
 {% note %}
 
-{% ifversion code-scanning-tool-status-page %}
-
 **Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
-
-{% else %}
-
-**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository.
-
-For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
-
-{% endif %}
 
 {% endnote %}
 
@@ -227,7 +217,6 @@ You may have multiple code scanning configurations on a single repository. When 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"{% ifversion code-scanning-without-workflow %}
-- "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"{% else %}
-- "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)"{% endif %}
+- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"
+- "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
 - "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"

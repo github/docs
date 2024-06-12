@@ -1,4 +1,4 @@
-You can grant certain roles, teams, or apps bypass permissions for your ruleset. The following are eligible for bypass access:
+You can grant certain roles, teams, or apps bypass permissions {% ifversion push-rule-delegated-bypass %} as well as the ability to approve bypass requests {% endif %} for your ruleset. The following are eligible for bypass access:
 
 - Repository admins or organization owners
 - The maintain or write role, or custom repository roles based on the write role

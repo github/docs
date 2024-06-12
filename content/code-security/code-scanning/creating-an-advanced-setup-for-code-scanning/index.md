@@ -1,7 +1,7 @@
 ---
-title: Creating {% ifversion code-scanning-without-workflow %}an advanced setup {% else %}a workflow {% endif %}for {% data variables.product.prodname_code_scanning %}
-shortTitle: '{% ifversion code-scanning-without-workflow %}Create advanced setup{% else %}Create workflow {% data variables.product.prodname_code_scanning %}{% endif %}'
-intro: '{% ifversion code-scanning-without-workflow %}For more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you can secure your code with advanced setup for {% data variables.product.prodname_code_scanning %}.{% else %}Create and customize a {% data variables.product.prodname_actions %} workflow to control the analysis of your codebase.{% endif %}'
+title: Creating an advanced setup for {% data variables.product.prodname_code_scanning %}
+shortTitle: 'Create advanced setup'
+intro: 'For more granular control over your {% data variables.product.prodname_code_scanning %} configuration, you can secure your code with advanced setup for {% data variables.product.prodname_code_scanning %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'

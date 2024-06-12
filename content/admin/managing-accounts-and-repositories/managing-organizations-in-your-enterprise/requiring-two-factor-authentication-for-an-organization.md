@@ -26,6 +26,10 @@ For more information, see "[AUTOTITLE](/authentication/securing-your-account-wit
 
 Before you can require organization members and outside collaborators to use 2FA, you must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) for your own personal account.
 
+Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+
+{% data reusables.two_fa.ghes_ntp %}
+
 {% warning %}
 
 **Warnings:**
@@ -36,7 +40,7 @@ Before you can require organization members and outside collaborators to use 2FA
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+## Requiring two-factor authentication for an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -22,6 +22,14 @@ enum VoteState {
   NO = 'NO',
 }
 
+type EventData = {
+  vote: boolean
+  token?: string
+  comment?: string
+  email?: string
+  rating?: number
+}
+
 export const Survey = () => {
   const { asPath, locale } = useRouter()
   const { t } = useTranslation('survey')
@@ -30,6 +38,8 @@ export const Survey = () => {
   const [isEmailError, setIsEmailError] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
   const [comment, setComment] = useState('')
+  const [email, setEmail] = useState('')
+  const [token, setToken] = useState('')
 
   useEffect(() => {
     // Always reset the form if navigating to a new page because what
@@ -54,7 +64,7 @@ export const Survey = () => {
 
   function vote(vote: VoteState) {
     return () => {
-      trackEvent(getFormData())
+      trackEvent(getEventData(vote === VoteState.YES))
       setVoteState(vote)
     }
   }
@@ -63,16 +73,21 @@ export const Survey = () => {
   // validation of the field, that has accessibility issues (e.g. some screen
   // readers won't read the error message) so we need to do manual validation
   // ourselves.
-  function handleEmailInputChange() {
+  useEffect(() => {
     const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?/i
-    const surveyEmail = getFormData()?.get('survey-email')?.toString()
-
-    if (surveyEmail?.length === 0 || surveyEmail?.match(emailRegex)) {
+    if (!email.trim() || emailRegex.test(email)) {
       setIsEmailError(false)
     } else {
       setIsEmailError(true)
     }
-  }
+  }, [email])
+
+  useEffect(() => {
+    if (state === ViewState.NEXT && data?.comment !== comment.trim()) {
+      setState(ViewState.START)
+      setIsEmailError(false)
+    }
+  }, [comment])
 
   const { data, error, isLoading } = useSWR(
     state === ViewState.NEXT && comment.trim() ? '/api/events/survey/preview/v1' : null,
@@ -88,6 +103,7 @@ export const Survey = () => {
           locale,
           url: `/${locale}${asPath}`,
           vote: voteState,
+          token,
         }),
       })
       if (response.ok) {
@@ -98,12 +114,13 @@ export const Survey = () => {
     },
   )
 
-  const hasPreview = !!data && !error
+  const hasPreview = !!data && !error && ViewState.NEXT
 
   function submit(evt: React.FormEvent) {
     evt.preventDefault()
+    if (voteState === null) return
     if (hasPreview) {
-      trackEvent(getFormData())
+      trackEvent(getEventData(voteState === VoteState.YES))
       if (!isEmailError) {
         setState(ViewState.END)
         setIsEmailError(false)
@@ -114,9 +131,15 @@ export const Survey = () => {
     }
   }
 
-  function getFormData() {
-    if (!formRef.current) return
-    return new FormData(formRef.current)
+  function getEventData(vote: boolean): EventData {
+    const rating = data?.rating
+    return {
+      vote,
+      comment,
+      email,
+      token,
+      rating,
+    }
   }
 
   return (
@@ -130,7 +153,13 @@ export const Survey = () => {
       <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
-      <input type="text" className="d-none" name="survey-token" />
+      <input
+        type="text"
+        className="d-none"
+        name="survey-token"
+        value={token}
+        onChange={(event) => setToken(event.target.value)}
+      />
 
       {state !== ViewState.END && (
         <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">
@@ -193,7 +222,6 @@ export const Survey = () => {
                 {voteState === VoteState.YES && t`comment_yes_label`}
                 {voteState === VoteState.NO && t`comment_no_label`}
               </span>
-              <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
             </label>
             <textarea
               className="form-control input-sm width-full"
@@ -215,7 +243,8 @@ export const Survey = () => {
                 name="survey-email"
                 id="survey-email"
                 placeholder={t`email_placeholder`}
-                onChange={handleEmailInputChange}
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 aria-invalid={isEmailError}
                 {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
               />
@@ -287,15 +316,15 @@ export const Survey = () => {
   )
 }
 
-function trackEvent(formData?: FormData) {
-  if (!formData) return
+function trackEvent(eventData: EventData) {
   // Nota bene: convert empty strings to undefined
   return sendEvent({
     type: EventType.survey,
-    survey_token: (formData.get('survey-token') as string) || undefined, // Honeypot
-    survey_vote: formData.get('survey-vote') === 'Y',
-    survey_comment: (formData.get('survey-comment') as string) || undefined,
-    survey_email: (formData.get('survey-email') as string) || undefined,
+    survey_token: eventData.token || undefined, // Honeypot
+    survey_vote: eventData.vote,
+    survey_comment: eventData.comment || undefined,
+    survey_email: eventData.email || undefined,
     survey_visit_duration: (Date.now() - startVisitTime) / 1000,
+    survey_rating: eventData.rating,
   })
 }

@@ -34,6 +34,8 @@ Docker images previously stored in the Docker registry are being automatically m
 
 When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
+Docker Engine v25 is not compatible with the Docker Registry on {% data variables.product.prodname_ghe_server %}. We recommend using {% data variables.product.prodname_container_registry %} instead. For information on migrating, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)."
+
 ## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}

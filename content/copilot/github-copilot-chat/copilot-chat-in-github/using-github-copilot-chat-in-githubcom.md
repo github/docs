@@ -39,8 +39,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 ## Prerequisites
 
-{% data reusables.copilot.chat-subscription-prerequisite %}
-- To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."
+{% data reusables.copilot.chat-dotcom-prerequisites %}
 
 ## Powered by skills
 
@@ -52,16 +51,14 @@ You can explicitly ask {% data variables.product.prodname_copilot_chat_dotcom %}
 
 ### Currently available skills
 
-{% note %}
+You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
 
-**Note**: You can generate this list yourself by asking {% data variables.product.prodname_copilot_short %}: `What skills do you have available?`
-
-{% endnote %}
+The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom_short %} include those shown in the table below.
 
 | Skill | Description | Enabled by default? | Example question |
-| --- | --- | --- | --- |
+| ----- | ----------- | ------------------- | ---------------- |
 | **Bing web search** (in beta and subject to change) | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_ |
-| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see the note above indexing [below](#repo-indexing-note)). | Yes | _Where is the logic that controls the user session management, and how does it work?_ |
+| **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see the note about indexing [below](#repo-indexing-note)). | Yes | _Where is the logic that controls the user session management, and how does it work?_ |
 | **Commit details** | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions. | Yes | _Explain the changes in the code of this commit_ |
 | **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | _Summarize the conversation on this issue and suggest next steps_ |
 | **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ |
@@ -73,7 +70,7 @@ You can explicitly ask {% data variables.product.prodname_copilot_chat_dotcom %}
 
 You can ask a general question about software development that is not focused on a particular context, such as a repository or a knowledge base.
 
-Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
+Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
 
 {% note %}
 
@@ -100,6 +97,7 @@ Depending on the question you ask, and your enterprise and organization settings
    - Give me some examples of regular expressions.
    - Write a bash script to output today's date.
 
+{% data reusables.copilot.stop-response-generation %}
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
@@ -141,6 +139,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
+{% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
 ## Asking a question about a specific file or symbol
@@ -165,6 +164,7 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
+{% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
 ## Asking a question about a knowledge base
@@ -200,6 +200,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
    - What's the process for creating a new REST API?
    - What are our best practices for logging?
 
+{% data reusables.copilot.stop-response-generation %}
 1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
@@ -249,6 +250,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
    ![Screenshot of a response to the question "What does the function at the selected lines do?"](/assets/images/help/copilot/copilot-sample-chat-response.png)
 
+{% data reusables.copilot.stop-response-generation %}
 1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 1. To clear, delete, or rename the current conversation thread, or to start a new thread, type `/` in the "Ask {% data variables.product.prodname_copilot_short %}" box, select from the options that are displayed, then press <kbd>Enter</kbd>.
 
@@ -279,6 +281,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain what'
    - Explain this &#96;do..end&#96; block.
    - What's the purpose of this file?
 
+{% data reusables.copilot.stop-response-generation %}
+
 ## Asking a question about a specific issue
 
 You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue.
@@ -307,6 +311,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
+{% data reusables.copilot.stop-response-generation %}
+
 ## Asking a question about a specific commit
 
 You can ask {% data variables.product.prodname_copilot_short %} to explain the changes in a commit.
@@ -321,8 +327,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
    - Who committed these changes?
    - When was this commit made?
 
-> [!TIP]
-> If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+   > [!TIP]
+   > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
+
+{% data reusables.copilot.stop-response-generation %}
 
 ## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
 
@@ -343,6 +351,8 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
 
    The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
+
+{% data reusables.copilot.stop-response-generation %}
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 

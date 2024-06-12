@@ -34,7 +34,7 @@ You can target repositories in your organization by custom properties. For more 
 
 1. To target a dynamic list of repositories in your organization by properties, in the "Target repositories" section, select {% octicon "goal" aria-hidden="true" %} **Target: REPOSITORIES**, then click **Dynamic list by property**.
 1. To add a target, in the "Targeting criteria" section, select **Add a target** {% octicon "triangle-down" aria-hidden="true" %}, then click **Include by property** or **Exclude by property**.
-1. In the modal dialog that appears, select a property from the dropdown menu, then select a value for the property.
+1. In the modal dialog that appears, select a custom or system property from the dropdown menu, then select a value for the property.
 1. Click **Add target**.
 
 {% endif %}

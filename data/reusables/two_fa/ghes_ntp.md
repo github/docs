@@ -1,0 +1,1 @@
+{% ifversion ghes %}The verification of two-factor authentication codes requires an accurate time on both the client's device and server. Site administrators should ensure time synchronization is configured and accurate. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-time-synchronization)."{% endif %}

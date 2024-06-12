@@ -6,11 +6,11 @@ export async function get(
   route,
   {
     method = 'get',
-    body,
+    body = undefined,
     followRedirects = false,
     followAllRedirects = false,
-    headers,
-    responseType,
+    headers = {},
+    responseType = '',
     retries = 0,
   } = {},
 ) {
@@ -23,7 +23,7 @@ export async function get(
       retry: { limit: retries },
       throwHttpErrors: false,
       followRedirect: followAllRedirects || followRedirects,
-      responseType,
+      responseType: responseType || undefined,
     },
     isUndefined,
   )

@@ -72,7 +72,7 @@ macOS
 <code>macos-12</code> or <code>macos-11</code>
 </td>
 <td>
-The <code>macos-11</code> label has been deprecated and will no longer be available after 6/28/2024.
+The <code>macos-11</code> label has been deprecated and will no longer be available after 28 June 2024.
 </td>
 </tr>
 <tr>
@@ -189,7 +189,7 @@ macOS
 <code>macos-12</code> or <code>macos-11</code>
 </td>
 <td>
-<!-- expires 2024-06-28 -->The <code>macos-11</code> label has been deprecated and will no longer be available after 6/28/2024.<!-- end expires 2024-06-28 -->
+The <code>macos-11</code> label has been deprecated and will no longer be available after 28 June 2024.
 </td>
 </tr>
 <tr>

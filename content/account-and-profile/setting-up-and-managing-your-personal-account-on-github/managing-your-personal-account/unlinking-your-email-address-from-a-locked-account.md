@@ -42,7 +42,7 @@ Since an email address can only be associated with a single {% data variables.pr
 {% else %}
 1. On the "Two-factor recovery" screen, click **Try recovering your account**.
 {% endif %}
-   In the modal that appears, click **I understand, get started**.
+1. In the modal that appears, click **I understand, get started**.
 1. To send an email containing a one-time password to each email address associated with your account, click **Send one-time password**.
 1. To verify your identity, type the one-time password from your email in the "One-time password" text field, then click **Verify email address**.
 {% data reusables.accounts.unlinking-email-address %}
