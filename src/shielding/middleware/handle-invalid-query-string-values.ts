@@ -1,7 +1,10 @@
-import statsd from '#src/observability/lib/statsd.js'
-import { allTools } from '#src/tools/lib/all-tools.js'
-import { allPlatforms } from '#src/tools/lib/all-platforms.js'
-import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
+
+import { ExtendedRequest } from '@/types'
+import statsd from '@/observability/lib/statsd.js'
+import { allTools } from '@/tools/lib/all-tools.js'
+import { allPlatforms } from '@/tools/lib/all-platforms.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
@@ -29,14 +32,19 @@ const RECOGNIZED_VALUES = {
 //
 const RECOGNIZED_VALUES_KEYS = new Set(Object.keys(RECOGNIZED_VALUES))
 
-export default function handleInvalidQuerystringValues(req, res, next) {
+export default function handleInvalidQuerystringValues(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   const { method, query } = req
   if (method === 'GET' || method === 'HEAD') {
     for (const [key, value] of Object.entries(query)) {
       if (RECOGNIZED_VALUES_KEYS.has(key)) {
-        const validValues = RECOGNIZED_VALUES[key]
-        const values = Array.isArray(query[key]) ? query[key] : [query[key]]
-        if (values.some((value) => !validValues.includes(value))) {
+        const validValues = RECOGNIZED_VALUES[key as keyof typeof RECOGNIZED_VALUES]
+        const value = query[key]
+        const values = Array.isArray(value) ? value : [value]
+        if (values.some((value) => typeof value === 'string' && !validValues.includes(value))) {
           if (process.env.NODE_ENV === 'development') {
             console.warn(
               'Warning! Invalid query string *value* detected. %O is not one of %O',
@@ -46,7 +54,7 @@ export default function handleInvalidQuerystringValues(req, res, next) {
           }
           // Some value is not recognized. Redirect to the current URL
           // but with that query string key removed.
-          const sp = new URLSearchParams(query)
+          const sp = new URLSearchParams(query as any)
           sp.delete(key)
 
           defaultCacheControl(res)

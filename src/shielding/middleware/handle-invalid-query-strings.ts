@@ -1,5 +1,8 @@
-import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl, defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
+
+import statsd from '@/observability/lib/statsd.js'
+import { noCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystrings'
 
@@ -37,7 +40,11 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'utm_campaign',
 ])
 
-export default function handleInvalidQuerystrings(req, res, next) {
+export default function handleInvalidQuerystrings(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   const { method, query, path } = req
   if (method === 'GET' || method === 'HEAD') {
     const originalKeys = Object.keys(query)
@@ -99,7 +106,7 @@ export default function handleInvalidQuerystrings(req, res, next) {
         )
       }
       defaultCacheControl(res)
-      const sp = new URLSearchParams(query)
+      const sp = new URLSearchParams(query as any)
       keys.forEach((key) => sp.delete(key))
       let newURL = req.path
       if (sp.toString()) newURL += `?${sp}`

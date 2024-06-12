@@ -22,9 +22,16 @@
 
 import fs from 'fs'
 
-import { errorCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
 
-export default function handleOldNextDataPaths(req, res, next) {
+import { ExtendedRequest } from '@/types'
+import { errorCacheControl } from '@/frame/middleware/cache-control.js'
+
+export default function handleOldNextDataPaths(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (req.path.startsWith('/_next/data/') && !req.path.startsWith('/_next/data/development/')) {
     const requestBuildId = req.path.split('/')[3]
     if (requestBuildId !== getCurrentBuildID()) {
@@ -35,7 +42,7 @@ export default function handleOldNextDataPaths(req, res, next) {
   return next()
 }
 
-let _buildId
+let _buildId: string
 function getCurrentBuildID() {
   // Simple memoization
   if (!_buildId) {

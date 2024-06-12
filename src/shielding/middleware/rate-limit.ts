@@ -1,7 +1,9 @@
+import type { Request } from 'express'
+
 import rateLimit from 'express-rate-limit'
 
-import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl } from '#src/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd.js'
+import { noCacheControl } from '@/frame/middleware/cache-control.js'
 
 const EXPIRES_IN_AS_SECONDS = 60
 
@@ -33,7 +35,7 @@ export default rateLimit({
     // the `x-forwarded-for` is always the origin IP with a port number
     // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
     // This port number portion changes with every request, so we strip it.
-    ip = ip.replace(ipv4WithPort, '$1')
+    ip = (ip || '').replace(ipv4WithPort, '$1')
 
     return ip
   },
@@ -112,7 +114,7 @@ const MISC_KEYS = [
  * @param {Request} req
  * @returns boolean
  */
-function isSuspiciousRequest(req) {
+function isSuspiciousRequest(req: Request) {
   const keys = Object.keys(req.query)
 
   // Since this function can only speculate by query strings (at the

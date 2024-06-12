@@ -1,4 +1,7 @@
-import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
+
+import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { ExtendedRequest } from '@/types'
 
 // We'll check if the current request path is one of these, or ends with
 // one of these.
@@ -31,7 +34,7 @@ const JUNK_BASENAMES = new Set([
   '.env',
 ])
 
-function isJunkPath(path) {
+function isJunkPath(path: string) {
   if (JUNK_PATHS.has(path)) return true
 
   for (const junkPath of JUNK_ENDS) {
@@ -42,8 +45,8 @@ function isJunkPath(path) {
 
   const basename = path.split('/').pop()
   // E.g. `/billing/.env.local` or `/billing/.env_sample`
-  if (/^\.env(.|_)[\w.]+/.test(basename)) return true
-  if (JUNK_BASENAMES.has(basename)) return true
+  if (basename && /^\.env(.|_)[\w.]+/.test(basename)) return true
+  if (basename && JUNK_BASENAMES.has(basename)) return true
 
   // Prevent various malicious injection attacks targeting Next.js
   if (path.match(/^\/_next[^/]/) || path === '/_next/data' || path === '/_next/data/') {
@@ -60,7 +63,11 @@ function isJunkPath(path) {
   return false
 }
 
-export default function handleInvalidPaths(req, res, next) {
+export default function handleInvalidPaths(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (isJunkPath(req.path)) {
     // We can all the CDN to cache these responses because they're
     // they're not going to suddenly work in the next deployment.

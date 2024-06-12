@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 import {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
   MAX_UNFAMILIAR_KEYS_REDIRECT,
-} from '#src/shielding/middleware/handle-invalid-query-strings.js'
+} from '@/shielding/middleware/handle-invalid-query-strings.js'
 
 const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 const alphabet = alpha.map((x) => String.fromCharCode(x))
@@ -82,7 +82,7 @@ describe('invalid query strings', () => {
   })
 })
 
-function randomCharacters(length) {
+function randomCharacters(length: number) {
   let s = ''
   const pool = `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`
   while (s.length < length) {

@@ -63,7 +63,7 @@ import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '@/search/middleware/contextualize.js'
-import shielding from '@/shielding/middleware/index.js'
+import shielding from '@/shielding/middleware'
 import tracking from '@/tracking/middleware/index.js'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 

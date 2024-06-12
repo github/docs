@@ -1,9 +1,16 @@
-import statsd from '#src/observability/lib/statsd.js'
-import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
+
+import statsd from '@/observability/lib/statsd.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_invalid_nextjs_paths'
 
-export default function handleInvalidNextPaths(req, res, next) {
+export default function handleInvalidNextPaths(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   // For example, `/_next/bin/junk.css`.
   // The reason for depending on checking NODE_ENV is that in development,
   // the Nextjs server will send things like /_next/static/webpack/...

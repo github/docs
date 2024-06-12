@@ -1,3 +1,7 @@
+import type { Response, NextFunction } from 'express'
+
+import { ExtendedRequest } from '@/types'
+
 const INVALID_HEADER_KEYS = [
   // Next.js will pick this up and override the status code.
   // We don't want that to happen because `x-invoke-status: 203` can
@@ -7,7 +11,11 @@ const INVALID_HEADER_KEYS = [
   'x-invoke-status',
 ]
 
-export default function handleInvalidNextPaths(req, res, next) {
+export default function handleInvalidNextPaths(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   const header = INVALID_HEADER_KEYS.find((key) => req.headers[key])
   if (header) {
     // There's no point attempting to set a cache-control on this.
