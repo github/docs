@@ -1,7 +1,7 @@
 ---
 title: Unclear what triggered a workflow run
 shortTitle: Unclear what triggered a workflow
-intro: 'If you don''t know what triggered an analysis, {% ifversion code-scanning-tool-status-page %} investigate the {% data variables.code-scanning.tool_status_page %} or {% endif %}look at the log for the last scan.'
+intro: 'If you don''t know what triggered an analysis, investigate the {% data variables.code-scanning.tool_status_page %} or look at the log for the last scan.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

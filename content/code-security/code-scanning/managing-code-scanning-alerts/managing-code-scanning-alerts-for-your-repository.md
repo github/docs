@@ -51,17 +51,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-cod
 
 {% note %}
 
-{% ifversion code-scanning-tool-status-page %}
-
 **Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
-
-{% else %}
-
-**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository.
-
-For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
-
-{% endif %}
 
 {% endnote %}
 

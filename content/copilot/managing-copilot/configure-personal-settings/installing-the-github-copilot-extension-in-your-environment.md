@@ -56,24 +56,7 @@ The following procedure will guide you through installation of the {% data varia
 
 1. Make sure you have a JetBrains IDE that is compatible with {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
-   - IntelliJ IDEA (Ultimate, Community, Educational)
-   - Android Studio
-   - AppCode
-   - CLion
-   - Code With Me Guest
-   - DataGrip
-   - DataSpell
-   - GoLand
-   - JetBrains Client
-   - MPS
-   - PhpStorm
-   - PyCharm (Professional, Community, Educational)
-   - Rider
-   - RubyMine
-   - RustRover
-   - WebStorm
-
-   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
+   {% data reusables.copilot.jetbrains-compatible-ides %}
 
 1. Install the {% data variables.product.prodname_copilot %} plugin for JetBrains. See [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) in the JetBrains Marketplace.
 
@@ -161,7 +144,7 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 
-1. Make sure you have a compatible version of {% data variables.product.prodname_vs %} installed. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have version 2022 17.6 or later of {% data variables.product.prodname_vs %} for Windows. Note that {% data variables.product.prodname_copilot_short %} is not currently available in {% data variables.product.prodname_vs %} for Mac. For more information, see "[Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio)" in the Microsoft documentation.
+1. Make sure you have a compatible version of {% data variables.product.prodname_vs %} installed. {% data reusables.copilot.visual-studio-version %}
 
 1. Install the {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %} See "[Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states)" in the Microsoft documentation.
 

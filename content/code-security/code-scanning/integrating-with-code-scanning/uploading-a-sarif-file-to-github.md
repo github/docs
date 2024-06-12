@@ -152,7 +152,7 @@ jobs:
 
 ## Further reading
 
-{% ifversion code-scanning-tool-status-page %}- "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)"{% endif %}
+- "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)"
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)"
 - "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)"

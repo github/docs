@@ -36,26 +36,9 @@ The examples in this guide use Java, however other languages will work similarly
 
 - **Compatible JetBrains IDE**. To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
-   - IntelliJ IDEA (Ultimate, Community, Educational)
-   - Android Studio
-   - AppCode
-   - CLion
-   - Code With Me Guest
-   - DataGrip
-   - DataSpell
-   - GoLand
-   - JetBrains Client
-   - MPS
-   - PhpStorm
-   - PyCharm (Professional, Community, Educational)
-   - Rider
-   - RubyMine
-   - RustRover
-   - WebStorm
+  {% data reusables.copilot.jetbrains-compatible-ides %}
 
-   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
-
-- **{% data variables.product.prodname_copilot %} plugin for JetBrains**. To use {% data variables.product.prodname_copilot %} in JetBrains, you must install the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot). For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
+{% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
 ## Getting code suggestions
 
@@ -153,9 +136,7 @@ The examples in this guide use C#, however other languages will work similarly. 
 
 - **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 
-- **Compatible version of {% data variables.product.prodname_vs %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have version 2022 17.6 or later of {% data variables.product.prodname_vs %} for Windows installed. Note that {% data variables.product.prodname_copilot %} is not currently available in {% data variables.product.prodname_vs %} for Mac. For more information, see "[Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio)" in the Microsoft documentation.
-
-- **{% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vs %}**. {% data reusables.copilot.link-to-vs-install-docs %}
+{% data reusables.copilot.visual-studio-prerequisites %}
 
 ## Getting code suggestions
 
