@@ -1,4 +1,4 @@
----
+--.devcontainer/Dockerfile
 title: About commit signature verification
 intro: 'Using GPG, SSH, or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can be confident that the changes come from a trusted source.'
 redirect_from:
