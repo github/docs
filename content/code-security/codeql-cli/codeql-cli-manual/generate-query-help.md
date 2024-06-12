@@ -86,6 +86,11 @@ How to handle warnings from the query help renderer. One of:
 
 `error`: Treat warnings as errors.
 
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
 ### Options for finding QL packs (which may be necessary to resolve query suites)
 
 #### `--search-path=<dir>[:<dir>...]`
