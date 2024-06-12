@@ -41,9 +41,9 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Node.js".
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Node.js".
 1. Filter the selection of workflows by clicking **Continuous integration**.
-1. On the "Node.js" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. On the "Node.js" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
