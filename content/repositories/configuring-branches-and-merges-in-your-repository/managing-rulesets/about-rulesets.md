@@ -30,6 +30,12 @@ You can use rulesets to target branches or tags in a repository or to block push
 
 {% endif %}
 
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.about-push-rule-delegated-bypass %}
+
+{% endif %}
+
 ### Branch and tag rulesets
 
 You can create rulesets to control how people can interact with selected branches and tags in a repository. You can control things like who can push commits to a certain branch{% ifversion repo-rules-enterprise %} and how the commits must be formatted{% endif %}, or who can delete or rename a tag. For example, you could set up a ruleset for your repository's `feature` branch that requires signed commits and blocks force pushes for all users except repository administrators.
