@@ -1,6 +1,8 @@
+import type { Request, Response } from 'express'
+
 import { noCacheControl } from './cache-control.js'
 
-export default function remoteIp(req, res) {
+export default function remoteIp(req: Request, res: Response) {
   noCacheControl(res)
   res.json({
     ip: req.ip,

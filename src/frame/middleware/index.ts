@@ -29,7 +29,7 @@ import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-ent
 import api from './api'
 import healthz from './healthz'
 import manifestJson from './manifest-json'
-import remoteIP from './remote-ip.js'
+import remoteIP from './remote-ip'
 import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions.js'
 import robots from './robots.js'
