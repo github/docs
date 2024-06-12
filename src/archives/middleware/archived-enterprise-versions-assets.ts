@@ -1,14 +1,16 @@
 import path from 'path'
 
 import got from 'got'
+import type { Response, NextFunction } from 'express'
 
-import patterns from '#src/frame/lib/patterns.js'
-import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
+import patterns from '@/frame/lib/patterns.js'
+import isArchivedVersion from '@/archives/lib/is-archived-version.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl } from '#src/frame/middleware/cache-control.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { archivedCacheControl } from '@/frame/middleware/cache-control.js'
+import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
@@ -21,7 +23,11 @@ import { archivedCacheControl } from '#src/frame/middleware/cache-control.js'
 //
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
-export default async function archivedEnterpriseVersionsAssets(req, res, next) {
+export default async function archivedEnterpriseVersionsAssets(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   // Only match asset paths
   // This can be true on /enterprise/2.22/_next/static/foo.css
   // or /_next/static/foo.css
@@ -37,8 +43,8 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
     !(
       patterns.getEnterpriseVersionNumber.test(req.path) ||
       patterns.getEnterpriseServerNumber.test(req.path) ||
-      patterns.getEnterpriseVersionNumber.test(req.get('referrer')) ||
-      patterns.getEnterpriseServerNumber.test(req.get('referrer'))
+      patterns.getEnterpriseVersionNumber.test(req.get('referrer') || '') ||
+      patterns.getEnterpriseServerNumber.test(req.get('referrer') || '')
     )
   ) {
     return next()
@@ -76,7 +82,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
     // Primarily for the developers working on tests that mock
     // requests. If you don't set up `nock` correctly, you might
     // not realize that and think it failed for other reasons.
-    if (err.toString().includes('Nock: No match for request')) {
+    if (err instanceof Error && err.toString().includes('Nock: No match for request')) {
       throw err
     }
 

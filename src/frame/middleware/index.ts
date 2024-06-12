@@ -25,7 +25,7 @@ import languageCodeRedirects from '@/redirects/middleware/language-code-redirect
 import handleRedirects from '@/redirects/middleware/handle-redirects'
 import findPage from './find-page.js'
 import blockRobots from './block-robots'
-import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 import api from './api'
 import healthz from './healthz'
 import manifestJson from './manifest-json'
