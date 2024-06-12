@@ -17,11 +17,9 @@ shortTitle: Use Copilot Chat
 ## Prerequisites
 
 - **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-- **Latest version of {% data variables.product.prodname_vscode %}**. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/).
-- **{% data variables.product.prodname_copilot_chat %} extension**. This is automatically installed when you install the {% data variables.product.prodname_copilot %} extension. See the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) in the Visual Studio Marketplace.
-- **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vscode %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
+{% data reusables.copilot.vscode-prerequisites %}
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_chat %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."
+{% data reusables.copilot.chat-access-denied %}
 
 ## Submitting prompts
 
@@ -252,12 +250,12 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 ## Prerequisites
 
 - **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-- **{% data variables.product.prodname_vs %} 2022 version 17.8 or higher**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
+- **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
 - **{% data variables.product.prodname_copilot %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
 - **{% data variables.product.prodname_copilot_chat %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
 - **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_chat %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."
+{% data reusables.copilot.chat-access-denied %}
 
 ## Submitting prompts
 
@@ -424,26 +422,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 - **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 - **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
-  - IntelliJ IDEA (Ultimate, Community, Educational)
-  - Android Studio
-  - AppCode
-  - CLion
-  - DataGrip
-  - DataSpell
-  - GoLand
-  - MPS
-  - PhpStorm
-  - PyCharm (Professional, Community, Educational)
-  - Rider
-  - RubyMine
-  - RustRover
-  - WebStorm
 
-   See the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder to download.
-- **{% data variables.product.prodname_copilot %} plugin**. See the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) in the JetBrains Marketplace. For installation instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
-- **Sign in to {% data variables.product.company_short %} in your JetBrains IDE**. For authentication instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
+  {% data reusables.copilot.jetbrains-compatible-ides %}
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_chat %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."
+{% data reusables.copilot.jetbrains-plugin-prerequisites %}
+
+{% data reusables.copilot.chat-access-denied %}
 
 ## Submitting prompts
 
