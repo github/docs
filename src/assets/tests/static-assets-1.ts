@@ -1,31 +1,47 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
 
-import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
-import { setDefaultFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import archivedEnterpriseVersionsAssets from '#src/archives/middleware/archived-enterprise-versions-assets.js'
+import { checkCachingHeaders } from '@/tests/helpers/caching-headers.js'
+import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key.js'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
 
-function mockRequest(path, { headers }) {
+function mockRequest(path: string, { headers }: { headers?: Record<string, string> } = {}) {
   const _headers = Object.fromEntries(
     Object.entries(headers || {}).map(([key, value]) => [key.toLowerCase(), value]),
   )
   return {
     path,
     url: path,
-    get: (header) => {
+    get: (header: string) => {
       return _headers[header.toLowerCase()]
     },
-    set: (header, value) => {
+    set: (header: string, value: string) => {
       _headers[header.toLowerCase()] = value
     },
 
     headers,
   }
 }
+
+type MockResponse = {
+  status: number
+  statusCode: number
+  json?: (payload: any) => void
+  send?: (body: any) => void
+  _json?: string
+  _send?: string
+  headers: Record<string, string>
+  set?: (key: string | Object, value: string) => void
+  removeHeader?: (key: string) => void
+  hasHeader?: (key: string) => boolean
+}
+
 const mockResponse = () => {
-  const res = {}
-  res.status = 404
-  res.statusCode = 404
+  const res: MockResponse = {
+    status: 404,
+    statusCode: 404,
+    headers: {},
+  }
   res.json = (payload) => {
     res._json = payload
   }
@@ -34,7 +50,6 @@ const mockResponse = () => {
     res.statusCode = 200
     res._send = body
   }
-  res.headers = {}
   res.set = (key, value) => {
     if (typeof key === 'string') {
       res.headers[key.toLowerCase()] = value
@@ -71,19 +86,19 @@ describe('archived enterprise static assets', () => {
       .get('/help-docs-archived-enterprise-versions/2.21/_next/static/foo.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
-        'content-length': sampleCSS.length,
+        'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
       .get('/help-docs-archived-enterprise-versions/2.21/_next/static/only-on-proxy.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
-        'content-length': sampleCSS.length,
+        'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
       .get('/help-docs-archived-enterprise-versions/2.3/_next/static/only-on-2.3.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
-        'content-length': sampleCSS.length,
+        'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
       .get('/help-docs-archived-enterprise-versions/2.3/_next/static/fourofour.css')
@@ -110,7 +125,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req, res, next)
+    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -126,7 +141,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req, res, next)
+    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -142,7 +157,7 @@ describe('archived enterprise static assets', () => {
       throw new Error('did not expect this to ever happen')
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req, res, next)
+    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res, false, 60)
   })
@@ -159,7 +174,7 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, next)
-    await archivedEnterpriseVersionsAssets(req, res, next)
+    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
     expect(res.statusCode).toBe(404)
     // It didn't exit in that middleware but called next() to move on
     // with any other middlewares.
@@ -178,7 +193,7 @@ describe('archived enterprise static assets', () => {
       nexted = true
     }
     setDefaultFastlySurrogateKey(req, res, () => {})
-    await archivedEnterpriseVersionsAssets(req, res, next)
+    await archivedEnterpriseVersionsAssets(req as any, res as any, next)
     // It tried to go via the proxy, but it wasn't there, but then it
     // tried "our disk" and it's eventually there.
     expect(nexted).toBe(true)
