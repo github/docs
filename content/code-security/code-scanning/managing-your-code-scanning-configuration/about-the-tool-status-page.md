@@ -5,7 +5,9 @@ allowTitleToDifferFromFilename: true
 intro: The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  feature: code-scanning-tool-status-page
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
 type: overview
@@ -119,4 +121,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning){% ifversion code-scanning-tool-status-page %}" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads){% endif %}."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)."
