@@ -1,0 +1,67 @@
+name: Clone translations
+
+description: Clone all remote translations so they're available
+
+inputs:
+  token:
+    description: PAT
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Clone Simplified Chinese
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.zh-cn
+        token: ${{ inputs.token }}
+        path: translations/zh-cn
+
+    - name: Clone Spanish
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.es-es
+        token: ${{ inputs.token }}
+        path: translations/es-es
+
+    - name: Clone Portuguese
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.pt-br
+        token: ${{ inputs.token }}
+        path: translations/pt-br
+
+    - name: Clone Russian
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.ru-ru
+        token: ${{ inputs.token }}
+        path: translations/ru-ru
+
+    - name: Clone Japanese
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.ja-jp
+        token: ${{ inputs.token }}
+        path: translations/ja-jp
+
+    - name: Clone French
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.fr-fr
+        token: ${{ inputs.token }}
+        path: translations/fr-fr
+
+    - name: Clone German
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.de-de
+        token: ${{ inputs.token }}
+        path: translations/de-de
+
+    - name: Clone Korean
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      with:
+        repository: github/docs-internal.ko-kr
+        token: ${{ inputs.token }}
+        path: translations/ko-kr

@@ -1,0 +1,6 @@
+# Issue 7052
+# Adding a previous (release) tag for users when creating a new release and autogenerating release notes
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'

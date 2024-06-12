@@ -1,0 +1,5 @@
+# Reference: Issue #10199 - Dependabot: automatic, rolling opt-out for inactivity (Version updates, Security updates) - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

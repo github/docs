@@ -1,0 +1,1 @@
+- **API requests** - You can execute up to {% ifversion ghec %}15,000{% else %}1,000{% endif %} requests to the GitHub API in an hour across all actions within a repository. If requests are exceeded, additional API calls will fail which might cause jobs to fail.

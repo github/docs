@@ -1,1 +1,0 @@
-ワークフローに追加したアクションに対して{% data variables.product.prodname_dependabot_version_updates %}を有効化することもできます。 詳しい情報については「[{% data variables.product.prodname_dependabot %}でアクションを最新に保つ](/github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot)」を参照してください。

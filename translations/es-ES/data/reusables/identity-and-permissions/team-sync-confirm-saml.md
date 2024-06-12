@@ -1,1 +1,0 @@
-3. Confirma que el SSO de SAML esté habilitado. Para obtener más información, consulta "[Administrar el inicio de sesión único de SAML para tu organización](/organizations/managing-saml-single-sign-on-for-your-organization/)".

@@ -1,0 +1,6 @@
+# Reference: Issue #6631 - Dependabot alerts: surface information about development dependencies - [GA]
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'

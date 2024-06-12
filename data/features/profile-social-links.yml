@@ -1,0 +1,5 @@
+# Issue 8663
+# Profile social links
+versions:
+  fpt: '*'
+  ghec: '*'

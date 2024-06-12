@@ -1,0 +1,5 @@
+# Versions that support the `config` input in the `github/codeql-action/init` action
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

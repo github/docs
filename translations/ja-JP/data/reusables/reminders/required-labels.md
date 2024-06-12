@@ -1,1 +1,0 @@
-1. "Required labels（必須のラベル）"の下で、カンマ区切りのラベルのリストを入力してください。 スケジュールされたリマインダーは、これらのラベルを1つ以上上含むプルリクエストで、すでに無視されてはいないものだけを含みます。 ![必須ラベルのフィールド](/assets/images/help/settings/scheduled-reminders-required-labels-field.png)

@@ -1,0 +1,60 @@
+name: Headless Tests
+
+# **What it does**: This runs our browser tests to test things that depend
+#                   on client-side JavaScript.
+# **Why we have it**: Because most automated vitest tests only test static
+#                     input and outputs.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: http://localhost:9200/
+
+jobs:
+  playwright-tests:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    strategy:
+      # When we're comfortable a11y tests aren't generating false positives and helping,
+      # let's remove the matrix and just run playwright in a single job.
+      matrix:
+        node:
+          - playwright-rendering
+          - playwright-a11y
+      fail-fast: false
+    timeout-minutes: 60
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/setup-elasticsearch
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/cache-nextjs
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Index fixtures into the local Elasticsearch
+        run: npm run index-test-fixtures
+
+      - name: Run Playwright tests
+        env:
+          PLAYWRIGHT_WORKERS: ${{ fromJSON('[1, 4]')[github.repository == 'github/docs-internal'] }}
+        # Run playwright rendering tests and a11y tests (axe scans) as distinct checks
+        # so that we can run them without blocking merges until we can be confident
+        # results for a11y tests are meaningul and scenarios we're testing are correct.
+        run: npm run playwright-test -- ${{ matrix.node }} --reporter list

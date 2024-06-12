@@ -1,0 +1,6 @@
+# Reference: #7945
+# Documentation for linking existing branches to issue
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

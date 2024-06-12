@@ -6,16 +6,16 @@ redirect_from:
   - /articles/moderating-comments-and-conversations
   - /github/building-a-strong-community/moderating-comments-and-conversations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Community
 children:
   - /managing-disruptive-comments
   - /locking-conversations
   - /limiting-interactions-in-your-repository
-  - /limiting-interactions-for-your-user-account
+  - /limiting-interactions-for-your-personal-account
   - /limiting-interactions-in-your-organization
   - /tracking-changes-in-a-comment
   - /managing-how-contributors-report-abuse-in-your-organizations-repository

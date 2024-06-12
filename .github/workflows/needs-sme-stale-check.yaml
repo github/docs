@@ -1,0 +1,41 @@
+name: Stale check for issues or PRs with "needs SME" label
+
+# **What it does**: Provides stale checks on issues/PRs that need SME(subject matter expert) review on open source docs repo.
+# **Why we have it**: In the open repo, we want we want frequent checks on issues/PRs that are waiting on SME review.
+# **Who does it impact**: Anyone working in the open repo.
+
+on:
+  schedule:
+    - cron: '20 16 * * *' # Run each day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale_needs-sme:
+    if: ${{ github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
+        with:
+          only-labels: needs SME
+          remove-stale-when-updated: true
+          days-before-stale: 28 # adds stale label if no activity for 7 days - temporarily changed to 28 days as we work through the backlog
+          stale-issue-message: 'This is a gentle bump for the docs team that this issue is waiting for technical review.'
+          stale-issue-label: SME stale
+          days-before-issue-close: -1 # never close
+          stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for technical review.'
+          stale-pr-label: SME stale
+          days-before-pr-close: -1 # never close
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

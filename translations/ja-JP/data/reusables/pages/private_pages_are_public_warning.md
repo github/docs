@@ -1,5 +1,0 @@
-{% warning %}
-
-**警告**: {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}サイト管理者がPublic Pagesを有効化したなら、{% endif %}{% data variables.product.prodname_pages %}サイトは{% if currentVersion == "free-pro-team@latest" %}デフォルトで{% endif %}、サイトのリポジトリがプライベートもしくはインターナルであっても、インターネット上で公開利用できます。{% if currentVersion == "free-pro-team@latest" %} {% data reusables.pages.about-private-publishing %}そうでない場合は、もし{% else %}もし{% endif %}センシティブなデータがサイトのリポジトリにあるなら、公開前にそのデータを削除しておくとよいでしょう。 詳しい情報については、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 「[Enterpriseの{% data variables.product.prodname_pages %}の設定](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)」及び{% endif %}「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility){% if currentVersion == "free-pro-team@latest" %}」及び「[{% data variables.product.prodname_pages %}サイトの可視性の変更](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)」{% else %}」{% endif %}を参照してください。
-
-{% endwarning %}

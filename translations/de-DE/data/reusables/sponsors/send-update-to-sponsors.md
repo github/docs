@@ -1,1 +1,0 @@
-5. Um Deine E-Mail optional an Sponsoren für bestimmte Stufen zu senden, verwende das Dropdownmenü **All sponsors** (Alle Sponsoren) und wähle eine oder mehrere Stufen. ![Dropdownmenü „Select sponsor tiers" (Auswahl der Sponsorenstufen)](/assets/images/help/sponsors/select-tiers-email.png)

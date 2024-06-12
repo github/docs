@@ -1,0 +1,6 @@
+# Reference: #6035 #6036 #6037
+# Documentation for enterprise policies that define where forks can be created.
+
+versions:
+  ghec: '*'
+  ghes: '>3.6'

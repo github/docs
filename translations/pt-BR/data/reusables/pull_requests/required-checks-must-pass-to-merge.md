@@ -1,1 +1,0 @@
-Se as verificações de status forem necessárias para um repositório, as verificações de status necessárias devem passar antes que você possa fazer merge do seu branch no branch protegido. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)".

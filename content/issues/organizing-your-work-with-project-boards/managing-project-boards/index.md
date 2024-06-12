@@ -1,11 +1,9 @@
 ---
-title: Managing project boards
-shortTitle: Managing project boards
-intro: 'Learn how to create and manage project boards'
+title: 'Managing {% data variables.product.prodname_projects_v1 %}'
+shortTitle: 'Managing {% data variables.product.prodname_projects_v1 %}'
+intro: 'Learn how to create and manage {% data variables.projects.projects_v1_boards %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: projects-v1
 topics:
   - Issues
   - Projects
@@ -16,12 +14,13 @@ children:
   - /linking-a-repository-to-a-project-board
   - /about-automation-for-project-boards
   - /configuring-automation-for-project-boards
-  - /copying-a-project-board
   - /changing-project-board-visibility
   - /closing-a-project-board
   - /reopening-a-closed-project-board
   - /deleting-a-project-board
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards
+allowTitleToDifferFromFilename: true
 ---
 
+{% data reusables.projects.project_boards_old %}

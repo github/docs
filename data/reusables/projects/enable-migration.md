@@ -1,0 +1,1 @@
+{% ifversion projects-v2-migration-behind-feature-preview %}1. Enable "Project migration" in feature preview. For more information, see "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}

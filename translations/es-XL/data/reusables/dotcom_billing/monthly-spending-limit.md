@@ -1,1 +1,0 @@
-1. Debajo de "límite mensual de gastos", elige limitar los gastos o permitir los gastos ilimitados. ![Botones radiales para limitar los gastos o permitir gastos ilimitados](/assets/images/help/billing/limit-or-unlimited.png)

@@ -1,0 +1,7 @@
+# Reference: Issue #8544
+# Title: Dependabot support for updating Docker image tags in Kubernetes manifests
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

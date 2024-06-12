@@ -1,0 +1,6 @@
+# Issue 7617
+# Users can easily exclude CodeQL queries from code scanning analyses - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'

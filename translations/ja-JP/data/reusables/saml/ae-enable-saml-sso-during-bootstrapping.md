@@ -1,1 +1,0 @@
-初期化の間にSAML IdPの詳細を入力することによって、{% data variables.product.product_name %}のアイデンティティとアクセスの管理を設定することになります。 詳しい情報については「[{% data variables.product.prodname_ghe_managed %}の初期化](/admin/configuration/initializing-github-ae#connecting-your-idp-to-your-enterprise)」を参照してください。

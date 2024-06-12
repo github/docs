@@ -1,0 +1,1 @@
+Add the email address to your account on {% data variables.product.product_name %}, so that your commits are attributed to you and appear in your contributions graph. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."

@@ -1,1 +1,0 @@
-{% data variables.product.prodname_enterprise %}をMicrosoft Enterprise Agreementを通じて購入した場合、AzureのサブスクリプションIDをEnterpriseアカウントに接続し、アカウントに含まれている額を超えて{% data variables.product.prodname_actions %}及び{% data variables.product.prodname_registry %}の支払いを行えるようにすることができます。

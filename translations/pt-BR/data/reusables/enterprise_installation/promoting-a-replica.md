@@ -1,1 +1,0 @@
-Promover uma réplica não configura automaticamente a replicação para appliances existentes. Depois de promover uma réplica, se desejar, você pode configurar a replicação do novo principal para os appliances existentes e o principal anterior.

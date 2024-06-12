@@ -1,0 +1,1 @@
+{% data variables.product.product_name %} normalizes a value from your {% ifversion ghec %}IdP{% elsif ghes %}external authentication provider{% endif %} to determine the username for each new personal account {% ifversion ghec %}in your enterprise on {% data variables.location.product_location %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}.

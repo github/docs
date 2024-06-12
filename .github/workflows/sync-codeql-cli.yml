@@ -1,0 +1,111 @@
+name: Sync CodeQl CLI
+
+# **What it does**: This workflow is run manually approximately every two weeks.
+#   When run, this workflow syncs the CodeQL CLI automated pipeline with the semmle-code
+#   repository, and creates a pull request if there are updates.
+# **Why we have it**: So we can automate CodeQL CLI documentation.
+# **Who does it impact**: Anyone making CodeQL CLI changes in `github/semmle-code`, and wanting to get them published on the docs site.
+
+on:
+  workflow_dispatch:
+    inputs:
+      SOURCE_BRANCH:
+        description: 'Branch to pull the source files from in the semmle-code repo.'
+        type: string
+        required: true
+        default: 'main'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  generate-codeql-files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+        # Check out a nested repository inside of previous checkout
+      - name: Checkout semmle-code repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          repository: github/semmle-code
+          path: semmle-code
+          ref: ${{ inputs.SOURCE_BRANCH }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Get the semmle-code SHA being synced
+        id: semmle-code
+        run: |
+          cd semmle-code
+          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/semmle-code repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+
+      - name: Install pandoc
+        run: |
+          # Remove all previous pandoc versions
+          sudo apt-get purge --auto-remove pandoc
+          # Download pandoc
+          wget https://github.com/jgm/pandoc/releases/download/3.0.1/pandoc-3.0.1-1-amd64.deb
+          # Install pandoc
+          sudo dpkg -i pandoc-3.0.1-1-amd64.deb
+          # Output the pandoc version installed
+          pandoc -v
+          rm pandoc-3.0.1-1-amd64.deb
+
+      - name: Sync the CodeQL CLI data
+        run: |
+          src/codeql-cli/scripts/sync.js
+          git status
+          echo "Deleting the cloned github/semmle-code repo..."
+          rm -rf semmle-code
+
+      - name: Create pull request
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit after running src/codeql/scripts/sync.js. Exiting..."
+            exit 0
+          fi
+
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          branchname=codeql-cli-update-${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }}
+
+          branchCheckout=$(git checkout -b $branchname)
+          if [[! $? -eq 0 ]]; then
+            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+            exit 0
+          fi
+          git add .
+          git commit -m "Update CodeQL CLI data"
+          git push origin $branchname
+
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Update CodeQL CLI manual" \
+            --body '👋 humans. This PR updates the CodeQL CLI manual Markdown pages with the latest changes in preparation for the next **CodeQL CLI** release.
+
+            This will be reviewed and merged by the Code scanning and GHAS focus team as part of the release of CodeQL CLI. (Synced from semmle-code@${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }})
+
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            --repo github/docs-internal \
+            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"

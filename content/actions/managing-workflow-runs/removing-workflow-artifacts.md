@@ -1,48 +1,41 @@
 ---
 title: Removing workflow artifacts
 intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+shortTitle: Remove workflow artifacts
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
 
-### Deleting an artifact
+## Deleting an artifact
 
 {% warning %}
 
-**Warning:** Once you delete an artifact, it can not be restored.
+**Warning:** Once you delete an artifact, it cannot be restored.
 
 {% endwarning %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
-    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@latest" %}
-    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact-updated.png)
-    {% else %}
-    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
-    {% endif %}
+1. Under **Artifacts**, click {% octicon "trash" aria-label="Remove artifact ARTIFACT-NAME" %} next to the artifact you want to remove.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-### Setting the retention period for an artifact
+    ![Screenshot showing artifacts created during a workflow run. A trash can icon, used to remove an artifact, is outlined in dark orange.](/assets/images/help/repository/actions-delete-artifact-updated.png)
 
-Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."
+## Setting the retention period for an artifact
 
-You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see "[Storing workflow data as artifacts](/actions/guides/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)."
+Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."
 
-### Finding the expiration date of an artifact
+You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)."
 
-You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by "[List artifacts for a repository](/rest/reference/actions#artifacts)."
-{% endif %}
+## Finding the expiration date of an artifact
+
+You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by the REST API. For more information, see "[AUTOTITLE](/rest/actions/artifacts)."

@@ -1,1 +1,0 @@
-Ein Team, das mit einer [LDAP-Gruppe synchronisiert](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) ist, wird durch einen speziellen LDAP-Badge angegeben. Die Mitgliederliste für ein LDAP-synchronisiertes Team kann nur über die LDAP-Gruppe verwaltet werden, der sie zugeordnet ist.

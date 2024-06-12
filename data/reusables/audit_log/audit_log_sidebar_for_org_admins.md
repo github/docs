@@ -1,2 +1,1 @@
-1. In the Settings sidebar, click **Audit log**.
-![Org audit log settings in sidebar](/assets/images/help/organizations/org-settings-audit-log.png)
+1. In the "Archives" section of the  sidebar, click {% octicon "log" aria-hidden="true" %} **Logs**, then click **Audit log**.

@@ -1,1 +1,0 @@
-如果通过发票支付您的企业帐户，则不能在 {% data variables.product.product_name %} 上管理企业帐户的支出限额。 如果想允许您的企业帐户拥有的组织在其帐户包含的存储或数据传输之外使用 {% data variables.product.prodname_actions %} ， 您可以预付超限费用。 由于超限必须预付，因此不能对按发票付费的帐户启用无限制支出。 您的支出限额将是您预付金额的 150%。 如有任何问题，请[联系我们的客户管理团队](https://enterprise.github.com/contact)。

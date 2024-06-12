@@ -1,0 +1,45 @@
+{
+    "/en/foo": {
+        "objectID": "/en/foo",
+        "breadcrumbs": "fooing",
+        "title": "Foo",
+        "headings": "Heading 1",
+        "content": "This is a fixture with the silly foo word.",
+        "topics": ["Test", "Fixture"],
+        "popularity": 0.5,
+        "intro": "Has an intro",
+        "toplevel": "Fooing"
+    },
+    "/en/bar": {
+        "objectID": "/en/bar",
+        "breadcrumbs": "baring",
+        "title": "Bar",
+        "headings": "Sub-heading This Sub-heading That",
+        "content": "Can't have foo if you don't also have bar.",
+        "topics": ["Test", "Fixture", "Get started"],
+        "popularity": 0.6,
+        "intro": "Has no intro",
+        "toplevel": "Baring"
+    },
+    "/en/breadcrumbless": {
+        "objectID": "/en/bar",
+        "breadcrumbs": "",
+        "title": "Breadcrumbless",
+        "headings": "Introduction",
+        "content": "Not all pages have a breadcrumb. Fact of life.",
+        "topics": [],
+        "popularity": 0.1,
+        "intro": "",
+        "toplevel": "Baring"
+    },
+    "/en/get-started/foo/for-playwright": {
+        "objectID": "/en/get-started/foo/for-playwright",
+        "breadcrumbs": "Get started Foo",
+        "title": "For Playwright",
+        "headings": "Opening",
+        "content": "This page exists to serve a Playwright test to view an article page",
+        "popularity": 0.5,
+        "intro": "Exists for a Playwright test",
+        "toplevel": "Fooing"
+    }
+}

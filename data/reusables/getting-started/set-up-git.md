@@ -1,0 +1,1 @@
+Synchronizing {% data variables.product.prodname_dotcom %} repositories with your computer allows you to work locally and push your changes to {% data variables.product.prodname_dotcom %}. For more information, see “[Set up Git](/get-started/getting-started-with-git/set-up-git).”

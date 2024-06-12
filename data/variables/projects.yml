@@ -1,0 +1,26 @@
+projects_v2: 'projects'
+projects_v2_caps: 'Projects'
+project_v2: 'project'
+project_v2_caps: 'Project'
+
+projects_v1_board: >-
+  project (classic)
+projects_v1_board_caps: >-
+  Project (classic)
+projects_v1_boards: >-
+  projects (classic)
+projects_v1_boards_caps: >-
+  Projects (classic)
+
+command-palette-shortcut: '<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)'
+
+# Use feature flags to return which projects versions are available.
+projects_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.projects_v2 %}{% ifversion projects-v1 %} and {% data variables.projects.projects_v1_boards %}{% endif %}{% else %}{% data variables.projects.projects_v1_boards %}{% endif %}'
+project_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.project_v2 %}{% ifversion projects-v1 %} and {% data variables.projects.projects_v1_board %}{% endif %}{% else %}{% data variables.projects.projects_v1_board %}{% endif %}'
+projects_v2_and_v1_if_create: '{% data variables.projects.projects_v2 %}{% ifversion projects-v1-can-create %} and {% data variables.projects.projects_v1_boards %}{% endif %}'
+
+# Limits
+item_limit: '1,200'
+archived_item_limit: '10,000'
+
+tasklists: 'tasklists (beta)'

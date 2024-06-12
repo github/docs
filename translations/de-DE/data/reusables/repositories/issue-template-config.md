@@ -1,1 +1,0 @@
-Du kannst die Issue-Vorlagenauswahl anpassen, die Personen sehen, wenn sie einen neuen Issue in Deinem Repository erstellen, indem Du eine *config.yml*-Datei zum `.github/ISSUE_TEMPLATE`-Verzeichnis hinzufügst.

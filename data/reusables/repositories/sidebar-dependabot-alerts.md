@@ -1,2 +1,4 @@
-1. In the security sidebar, click **{% data variables.product.prodname_dependabot_alerts %}**.{% if currentVersion == "free-pro-team@latest" %}
-![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/repository/dependabot-alerts-tab.png){% elsif %}![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/repository/dependabot-alerts-tab.png){% endif %}
+1. In the "Vulnerability alerts" sidebar of security overview, click **{% data variables.product.prodname_dependabot %}**. If this option is missing, it means you don't have access to security alerts and need to be given access. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."{% ifversion fpt or ghec %}
+
+   ![Screenshot of security overview, with the "Dependabot" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-tab.png){% else %}
+   ![Screenshot of security overview, with the "Dependabot" tab highlighted with a dark orange outline.](/assets/images/enterprise/repository/dependabot-alerts-tab.png){% endif %}

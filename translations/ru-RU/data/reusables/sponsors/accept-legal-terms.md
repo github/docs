@@ -1,1 +1,0 @@
-1. Review the [{% data variables.product.prodname_sponsors %} Additional Terms](/github/site-policy/github-sponsors-additional-terms) and [{% data variables.product.prodname_dotcom %} Privacy Statement](/articles/github-privacy-statement), then click **Join the waitlist**.

@@ -1,0 +1,6 @@
+# Reference: #9014.
+# Versioning for enterprise/organization/repository policy settings for workflow permissions granted to GITHUB_TOKEN to be readonly by default and not allow GitHub Actions to create or approve pull requests.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

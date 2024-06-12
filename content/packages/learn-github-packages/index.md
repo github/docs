@@ -9,9 +9,9 @@ redirect_from:
   - /packages/publishing-and-managing-packages
   - /packages/manage-packages
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 children:
   - /introduction-to-github-packages
   - /about-permissions-for-github-packages
@@ -21,7 +21,5 @@ children:
   - /viewing-packages
   - /installing-a-package
   - /deleting-and-restoring-a-package
-  - /deleting-a-package
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}

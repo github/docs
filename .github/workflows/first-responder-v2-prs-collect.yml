@@ -1,0 +1,95 @@
+name: Add docs-internal PRs to the docs-content FR project v2
+
+# **What it does**: Adds docs-internal pull requests that were opened by people outside of the docs team to the docs-content FR project v2
+# **Why we have it**: So we don't lose track of new pull requests for docs-content to review
+# **Who does it impact**: Docs content
+
+on:
+  pull_request:
+    types:
+      - reopened
+      - opened
+      - ready_for_review
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  first-responder-triage-pr:
+    name: Add PR to FR project v2
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync' && !contains(github.event.pull_request.labels.*.name, 'skip FR board')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if the event originated from a team member
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        id: check-membership
+        with:
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          result-encoding: string
+          script: |
+            const repoName = context.payload.repository.name
+            const ownerName = context.payload.repository.owner.login
+            const prAuthor = context.payload.pull_request.user.login
+            const teamMembers = await github.request(
+              `/orgs/github/teams/docs/members?per_page=100`
+            )
+            const teamLogins = teamMembers.data.map(member => member.login)
+            if (teamLogins.some(login => login === prAuthor)) {
+              console.log(`This pull request was authored by a member of the github/docs team.`)
+              return 'true'
+            }
+            console.log(`This pull request was authored by an external contributor.`)
+            return 'false'
+
+      # Check if docs-bot authored the PR
+      # If yes, set Type field to "Maintenance"
+      # If no, set Type field to "External contributor PR"
+      - name: Check if docs-bot is PR author
+        env:
+          PR_AUTHOR_ID: ${{ github.event.pull_request.user.id }}
+        run: |
+          if [ $PR_AUTHOR_ID == 77750099 ]; then
+            echo "TYPE_FIELD_VALUE=3f142cf2" >> $GITHUB_ENV
+          else
+            echo "TYPE_FIELD_VALUE=bbd0922a" >> $GITHUB_ENV
+          fi
+
+      - name: Add the docs-content-fr label
+        if: ${{ steps.check-membership.outputs.result == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit $PR_URL --add-label docs-content-fr
+
+      # Add to the FR project
+      # and set type to "Maintenance" or "External contributor PR"
+      # and set date to now
+      - name: Triage to docs-content FR project
+        if: steps.check-membership.outputs.result == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PROJECT_NUMBER: 11672
+          PROJECT_ID: PVT_kwDNJr_OAGNkBg
+          TYPE_FIELD_ID: PVTSSF_lADNJr_OAGNkBs4D-Nyn
+          DATE_FIELD_ID: PVTF_lADNJr_OAGNkBs4D-N1h
+        run: |
+          echo "Adding item to project..."
+
+          ITEM_ID=$(gh project item-add $PROJECT_NUMBER --owner github --url $PR_URL --format json | jq .id)
+
+          echo "Editing type..."
+
+          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $TYPE_FIELD_ID --single-select-option-id ${{ env.TYPE_FIELD_VALUE }}
+
+          echo "Editing date..."
+
+          DATE=$(date '+%Y-%m-%d')
+
+          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $DATE_FIELD_ID --date $DATE
+
+          echo "done editing"

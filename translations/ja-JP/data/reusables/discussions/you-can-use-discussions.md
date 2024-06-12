@@ -1,1 +1,0 @@
-ディスカッションでは、質問、質問への回答、情報の共有、発表、 プロジェクトについて会話を実施したり参加したりすることができます。 詳しい情報については「[ディスカッションについて](/discussions/collaborating-with-your-community-using-discussions/about-discussions)」を参照してください。

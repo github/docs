@@ -1,23 +1,24 @@
 ---
-title: GitHub Packages Documentation
-shortTitle: GitHub Packages
+title: '{% data variables.product.prodname_registry %} documentation'
+shortTitle: '{% data variables.product.prodname_registry %}'
 intro: 'Learn to safely publish and consume packages, store your packages alongside your code, and share your packages privately with your team or publicly with the open source community. You can also automate your packages with {% data variables.product.prodname_actions %}.'
 introLinks:
   quickstart: /packages/quickstart
-  reference: /packages/manage-packages
+  reference: /packages/learn-github-packages
 featuredLinks:
-  guides:
+  startHere:
     - /packages/learn-github-packages
     - /packages/managing-github-packages-using-github-actions-workflows
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - /packages/working-with-a-github-packages-registry/working-with-the-docker-registry
-    - /packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-container-registry
+    - '{% ifversion packages-npm-v2 %}/packages/working-with-a-github-packages-registry/working-with-the-npm-registry{% endif %}'
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
   label: packages
@@ -28,9 +29,9 @@ redirect_from:
   - /github/managing-packages-with-github-package-registry
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 children:
   - /quickstart
   - /learn-github-packages

@@ -1,0 +1,1 @@
+--header "X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}"

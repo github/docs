@@ -4,22 +4,22 @@ intro: You can downgrade your sponsorship to a lower tier or cancel your sponsor
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
   - /articles/downgrading-a-sponsorship
-  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-a-sponsorship
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-sponsors/downgrading-a-sponsorship
 versions:
-  free-pro-team: '*'
+  fpt: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Cancellation
   - Downgrades
   - Sponsors
 ---
-{% data reusables.sponsors.org-sponsors-release-phase %} 
 
-### About sponsorship downgrades
+## About sponsorship downgrades
 
 When you downgrade or cancel a sponsorship, the change will become effective on your next billing date. {% data reusables.sponsors.no-refunds %}
 
-### Downgrading a sponsorship
+## Downgrading a sponsorship
 
 {% data reusables.sponsors.navigate-to-sponsored-account %}
 {% data reusables.sponsors.sponsorship-dashboard %}
@@ -27,12 +27,20 @@ When you downgrade or cancel a sponsorship, the change will become effective on 
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Canceling a sponsorship
+## Canceling a sponsorship
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.sponsors.billing-switcher %}
-3. Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="The down triangle octicon" %} next to your sponsored amount, then click **Cancel sponsorship**.
-  ![Cancel sponsorship button](/assets/images/help/billing/edit-sponsor-billing.png)
-4. Review the information about canceling your sponsorship, then click **OK**.
-  ![Cancellation confirmation box](/assets/images/help/billing/confirm-sponsorship-cancellation.png)
+1. Under "{% data variables.product.prodname_sponsors %}", next to the sponsored account, click your current tier amount, then click **Cancel sponsorship**.
+1. Review the alert about canceling your sponsorship, then click **OK**.
+
+## Canceling a scheduled sponsorship
+
+Organizations that pay for {% data variables.product.prodname_sponsors %} by invoice can schedule the first payment for the next billing date. You can cancel the scheduled sponsorship before it becomes active.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. Under "{% data variables.product.prodname_sponsors %}", in the yellow banner with the start date, click **Undo**.
+1. Review the alert about undoing the activation of the sponsorship, then click **OK**.

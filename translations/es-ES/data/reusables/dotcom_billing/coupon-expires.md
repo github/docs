@@ -1,1 +1,0 @@
-Si utilizas un cupón para pagar una suscripción, cuando este venza, se hará un cobro a tu método de pago por el costo total de tu suscripción. Si no tienes un método de pago guardado, tu cuenta bajará de categoría a {% data variables.product.prodname_free_user %} para cuentas de usuario o a {% data variables.product.prodname_free_team %} para organizaciones.

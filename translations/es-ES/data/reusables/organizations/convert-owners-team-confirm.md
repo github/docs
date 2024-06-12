@@ -1,1 +1,0 @@
-1. Debajo de la descripción del nuevo rol de propietario, da clic en **Ok, entendido**. ![Descripción de los roles de los nuevos propietarios con botón resaltado de "Ok, entendido"](/assets/images/help/teams/okay-got-it.png)

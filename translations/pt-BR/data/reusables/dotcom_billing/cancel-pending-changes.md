@@ -1,1 +1,0 @@
-1. Ao lado da alteração pendente que você deseja cancelar, clique em **Cancel** (Cancelar). ![Link Cancel (Cancelar) ao lado da alteração de assinatura pendente](/assets/images/help/billing/cancel-pending-changes-link.png)

@@ -1,0 +1,6 @@
+# Reference: Issue #7673 - Dependabot alerts: optional comment with dismissal - [GA]
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'

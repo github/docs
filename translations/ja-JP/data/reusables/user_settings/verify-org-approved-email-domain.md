@@ -1,1 +1,0 @@
-あなたがメンバーになっているOrganizationがメール通知を承認されたメールドメインに制限しているなら、メールアドレスを検証して、そのドメインでOrganization内のアクティビティに関するメール通知を受けるようにしなければなりません。 詳しい情報については「[メール通知を承認済みドメインに制限する](/articles/restricting-email-notifications-to-an-approved-domain)」を参照してください。

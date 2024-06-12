@@ -1,1 +1,0 @@
-Este procedimento remove permanentemente o executor auto-hospedado. Se você só quiser impedir temporariamente que um executor seja designado a trabalhos, você pode desligar a máquina ou parar o aplicativo `run`. O executor permanecerá atribuído em um estado "Offline" e não executará nenhum trabalho até que você reinicie o executor usando o aplicativo `run`.

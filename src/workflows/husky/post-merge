@@ -1,0 +1,12 @@
+#!/bin/sh
+[ -n "$CI" ] && exit 0
+
+# Same process in husky/post-checkout
+echo "Checking if packages need to be installed..."
+if node src/workflows/cmp-files.js package-lock.json .installed.package-lock.json; then
+  echo "Packages are up-to-date"
+else
+  echo "Installing packages..."
+  npm install
+  echo "Packages are now up-to-date"
+fi

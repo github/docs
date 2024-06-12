@@ -1,1 +1,0 @@
-Organizationがスポンサーするアカウントからの更新を受信するメールアドレスを指定できます。 詳しい情報については「[Organizationがスポンサーするアカウントからの更新の管理](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)」を参照してください。

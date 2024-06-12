@@ -1,0 +1,1 @@
+1. Click {% octicon "triangle-down" aria-label="Row actions" %} (in table{% ifversion projects-v2-roadmaps %} or roadmap{% endif %} layout) or {% octicon "kebab-horizontal" aria-hidden="true" %} (in board layout).

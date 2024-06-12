@@ -1,1 +1,0 @@
-Codespaces sind für Benutzerkonten mit {% data variables.product.prodname_free_user %} oder {% data variables.product.prodname_pro %} verfügbar. {% data reusables.gated-features.more-info-org-products %}

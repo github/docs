@@ -1,1 +1,0 @@
-1. Opcionalmente, para enviar lembretes para os autores do pull request após o atendimento das solicitações de revisão, selecione **Lembrar os autores após as revisões** e escolha o número de revisões necessárias antes de um lembrete ser enviado. ![Caixa de seleção para lembrar os autores depois da revisão](/assets/images/help/settings/scheduled-reminders-remind-authors.png)

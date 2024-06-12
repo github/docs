@@ -1,0 +1,5 @@
+# Reference issue: 10015
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.11'

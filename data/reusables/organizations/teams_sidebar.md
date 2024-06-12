@@ -1,2 +1,1 @@
-1. In the Settings sidebar, click **Teams**.
-  ![Teams tab in the organization settings sidebar](/assets/images/help/settings/settings-sidebar-team-settings.png)
+1. In the "Access" section of the sidebar, click **{% octicon "comment-discussion" aria-hidden="true" %} Team discussions**.

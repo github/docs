@@ -1,1 +1,0 @@
-2. No prompt, carregue seu arquivo de licença e defina uma senha de gerenciamento do console. Para obter mais informações, consulte "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license/)."

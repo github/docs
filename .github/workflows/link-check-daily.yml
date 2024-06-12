@@ -1,0 +1,106 @@
+name: 'Link Checker: Daily'
+
+# **What it does**: This script once a day checks all English links and reports in issue if any are broken.
+# **Why we have it**: We want to know if any links break internally or externally.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check_all_english_links:
+    name: Check all links
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Check that gh CLI is installed
+        run: gh --version
+
+      - name: Check out repo's default branch
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Figure out which docs-early-access branch to checkout, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        id: check-early-access
+        env:
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: node src/early-access/scripts/what-docs-early-access-branch.js
+
+      - name: Check out docs-early-access too, if internal repo
+        if: ${{ github.repository == 'github/docs-internal' }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-early-access
+          ref: ${{ steps.check-early-access.outputs.branch }}
+
+      - name: Merge docs-early-access repo's folders
+        if: ${{ github.repository == 'github/docs-internal' }}
+        run: src/early-access/scripts/merge-early-access.sh
+
+      - name: Restore disk-cache file for external link checking
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        with:
+          path: external-link-checker-db.json
+          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.ts') }}
+
+      - name: Insight into external link checker DB json file (before)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
+
+      - name: Run link checker
+        env:
+          DISABLE_REWRITE_ASSET_URLS: true
+          LEVEL: 'critical'
+          # Set this to true in repo scope to enable debug logs
+          # ACTIONS_RUNNER_DEBUG = true
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          REPORT_AUTHOR: docs-bot
+          REPORT_LABEL: broken link report
+          REPORT_REPOSITORY: github/docs-content
+          CREATE_REPORT: true
+          CHECK_EXTERNAL_LINKS: true
+          PATIENT: true
+          # This means that we'll *re-check* external URLs once a week.
+          # But mind you that the number has a 10% chance of "jitter"
+          # to avoid a stampeding herd when they all expire some day.
+          EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS: 7
+          # If we're unable to connect or the server returns a 50x error,
+          # treat it as a warning and not as a broken link.
+          EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
+          FAIL_ON_FLAW: false
+        timeout-minutes: 30
+        run: npm run rendered-content-link-checker
+
+      - name: Insight into external link checker DB json file (after)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

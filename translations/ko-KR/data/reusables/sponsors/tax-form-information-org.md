@@ -1,1 +1,0 @@
-For more information about the tax form organizations need to complete, see [Instructions for Form W-8BEN-E](https://www.irs.gov/pub/irs-pdf/iw8bene.pdf) on the United States Internal Revenue Service website.

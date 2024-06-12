@@ -1,0 +1,1 @@
+PATH-TO-KEY | If your Bitbucket Server instance runs on Linux, the path to your SSH private key, such as `~/.ssh/id_rsa`. For SSH key requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)".

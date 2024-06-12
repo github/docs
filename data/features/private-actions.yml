@@ -1,0 +1,6 @@
+# Reference: #7079.
+# Allow sharing Actions and workflows in private repos
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

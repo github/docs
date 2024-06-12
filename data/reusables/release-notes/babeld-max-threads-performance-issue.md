@@ -1,0 +1,1 @@
+Instances experiencing a high sustained number of concurrent Git requests may experience performance issues. If you suspect that this issue is affecting your instance, contact {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."

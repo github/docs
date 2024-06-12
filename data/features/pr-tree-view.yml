@@ -1,0 +1,6 @@
+# Issue 5892
+# PR file tree view
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'

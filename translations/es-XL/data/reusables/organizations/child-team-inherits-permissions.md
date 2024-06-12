@@ -1,1 +1,0 @@
-Los equipos hijo heredan los permisos de acceso del equipo padre. Para obtener más información sobre las jerarquías de equipos, consulta la sección "[Acerca de los equipos](/articles/about-teams#nested-teams)".

@@ -1,1 +1,0 @@
-1. "Compare plans（プランの比較）"の下で、各プランの機能を比較できます。 現在のプランと選択したプランに応じて、**Upgrade to Team（Teamへのアップグレード）**あるいは**Upgrade to Enterprise（Enterpriseへのアップグレード）**をクリックしてください。 ![プランの比較とアップグレード](/assets/images/help/billing/settings-compare-and-upgrade-plans.png)

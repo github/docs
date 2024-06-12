@@ -1,1 +1,0 @@
-1. Klicke auf der App-Seite unter „Pricing and setup" (Preise und Einrichtung) auf den gewünschten Tarifplan, den Du verwenden möchtest. ![Liste der verfügbaren Tarifpläne der App](/assets/images/help/marketplace/marketplace-choose-plan.png)

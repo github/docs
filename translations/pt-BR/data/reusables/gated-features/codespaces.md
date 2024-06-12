@@ -1,1 +1,0 @@
-Os espaços de códigos estão disponíveis para contas de usuário usando {% data variables.product.prodname_free_user %} ou {% data variables.product.prodname_pro %}. {% data reusables.gated-features.more-info-org-products %}

@@ -1,1 +1,0 @@
-Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_actions %} y del {% data variables.product.prodname_registry %} más allá de las cantidades que se incluyen en tu cuenta.

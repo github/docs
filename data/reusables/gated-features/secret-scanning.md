@@ -1,6 +1,11 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" or currentVersion == "github-ae@next" %}{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_secret_scanning_caps %} is available as part of {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
-{%- else %}
-{% data variables.product.prodname_secret_scanning_caps %} is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{%- ifversion fpt or ghec %}
+{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom %}.
+
+{% data variables.secret-scanning.user_alerts_caps %} are available for {% ifversion ghec %}user-owned {% endif %}public repositories for free. Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable {% data variables.secret-scanning.user_alerts %} on their private and internal repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
+
+{%- elsif ghes %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories{% ifversion secret-scanning-user-owned-repos %}, and in beta for user-owned repositories{% endif %} in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- endif %} {% data reusables.advanced-security.more-info-ghas-secret-scanning %}
+
+{% data reusables.advanced-security.ghas-trial %}

@@ -1,0 +1,6 @@
+# Reference: #8287
+# Slack and Teams integrations (now available for GHES)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

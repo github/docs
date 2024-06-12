@@ -1,0 +1,1 @@
+{% data variables.enterprise.prodname_managed_users_caps %} cannot fork repositories from outside of the enterprise. {% data variables.enterprise.prodname_managed_users_caps %} can fork private or internal repositories owned by organizations in the enterprise into their user account namespace or other organizations owned by the enterprise, as specified by enterprise policy.

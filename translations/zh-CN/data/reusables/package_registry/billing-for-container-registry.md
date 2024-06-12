@@ -1,3 +1,0 @@
-在 {% data variables.product.prodname_github_container_registry %} 测试期间，新的 {% data variables.product.prodname_container_registry %} 和现有的 {% data variables.product.prodname_registry %} Docker 注册表都是免费的。 有关 {% data variables.product.prodname_registry %} Docker 注册表的更多信息，请参阅“[配置 Docker 与 {% data variables.product.prodname_registry %} 一起使用](/packages/guides/configuring-docker-for-use-with-github-packages)”。
-
-测试后，其他 {% data variables.product.prodname_registry %} 注册表使用的计费和存储率将适用于容器注册表。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)”。

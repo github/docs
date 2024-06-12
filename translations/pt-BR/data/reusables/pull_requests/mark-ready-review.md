@@ -1,1 +1,0 @@
-Quando você estiver pronto para receber feedback sobre seu pull request, você poderá marcar seu rascunho de pull request como pronto para revisão. Marcar um pull request como pronto para revisão irá solicitar revisões de qualquer proprietário de código.

@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot_for_individuals %}{% ifversion ghec %}, {% elsif fpt %} or {% endif %} {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %}, or {% data variables.product.prodname_copilot_enterprise %}{% endif %}.

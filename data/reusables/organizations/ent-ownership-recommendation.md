@@ -1,0 +1,1 @@
+If an enterprise only has one owner, the enterprise's resources can become inaccessible if the owner is unreachable. To protect access to your resources, we recommend that at least two people within the enterprise have the owner role.

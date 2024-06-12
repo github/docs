@@ -1,0 +1,1 @@
+The content in the `contributing` directory has been deprecated. See "[Working on a GitHub Docs in a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)" in the GitHub Docs for the maintained version of this article.

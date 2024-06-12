@@ -1,1 +1,0 @@
-1. Unter Deinem Organisationsnamen klicke auf {% octicon "organization" aria-label="The People icon" %} **People** (Personen). ![Registerkarte „The People" (Die Personen)](/assets/images/help/organizations/organization-people-tab.png)

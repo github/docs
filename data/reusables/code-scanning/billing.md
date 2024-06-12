@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %}Using actions to run {% data variables.product.prodname_code_scanning %} will use minutes. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}

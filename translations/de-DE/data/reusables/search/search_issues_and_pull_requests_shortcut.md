@@ -1,1 +1,0 @@
-Du kannst Deinen Mauszeiger mit einem Tastaturkürzel auf die Suchleiste über dem Issue oder Pull Request fokussieren. Weitere Informationen findest Du unter „[Tastaturkürzel](/articles/keyboard-shortcuts/#issue-and-pull-request-lists).“

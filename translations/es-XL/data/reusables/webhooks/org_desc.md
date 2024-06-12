@@ -1,1 +1,0 @@
-`organization` | `object` | Las cargas útiles de webhook contienen el objeto [`organization`](/v3/orgs/#get-an-organization) cuando el webhook se configura para para una organización o cuando el evento ocurre desde una actividad en un repositorio que pertenezca a la organización.

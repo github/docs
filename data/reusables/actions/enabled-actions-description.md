@@ -1,0 +1,1 @@
+When you enable {% data variables.product.prodname_actions %}, workflows are able to run actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} located within your repository and any other{% ifversion fpt %} public{% elsif ghec or ghes %} public or internal{% endif %} repository.

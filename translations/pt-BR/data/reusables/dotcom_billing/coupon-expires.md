@@ -1,1 +1,0 @@
-If you use a coupon to pay for a subscription, when the coupon expires, your payment method will be charged the full cost of your subscription. If you do not have a saved payment method, your account will be downgraded to {% data variables.product.prodname_free_user %} for user accounts or {% data variables.product.prodname_free_team %} for organizations.

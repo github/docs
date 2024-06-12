@@ -1,0 +1,5 @@
+# Webhooks for Projects
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

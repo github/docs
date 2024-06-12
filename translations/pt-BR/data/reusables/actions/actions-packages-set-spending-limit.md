@@ -1,1 +1,0 @@
-Você pode definir um limite de gastos específico ou, em algumas contas, permitir gastos ilimitados. O limite de gastos aplica-se aos seus excessos conjuntos para {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}.

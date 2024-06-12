@@ -1,1 +1,0 @@
-Los administradores de repositorio pueden requerir que las solicitudes de cambios reciban una cantidad específica de revisiones de aprobación antes de que alguien fusione la solicitud de extracción en una rama protegida. Puedes requerir revisiones de aprobación de personas con permisos de escritura en el repositorio o de un propietario de código designado.

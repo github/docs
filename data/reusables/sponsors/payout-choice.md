@@ -1,0 +1,3 @@
+1. Decide whether to receive sponsorship payouts via a bank account or through a fiscal host. For more information about setting up and using fiscal hosts, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/using-a-fiscal-host-to-receive-github-sponsors-payouts)."
+
+    Note that you can only set up your fiscal host information at the time you sign up for {% data variables.product.prodname_sponsors %}. If you decide you want to switch to using a fiscal host after your profile has been set up, please contact us through the {% data variables.contact.contact_support_portal %}.

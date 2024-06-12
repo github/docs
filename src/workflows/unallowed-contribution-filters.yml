@@ -1,0 +1,19 @@
+notAllowed:
+  - '.devcontainer/**'
+  - '.github/workflows/**'
+  - '.github/CODEOWNERS'
+  - 'assets/fonts/**'
+  - 'data/reusables/rai/**'
+  - 'Dockerfile*'
+  - 'src/*/scripts/**'
+  - 'src/**.json'
+  - 'src/**.graphql'
+  - 'src/workflows/**'
+  - 'lib/redirects/**'
+  - 'package*.json'
+  - 'content/actions/deployment/security-hardening-your-deployments/**'
+contentTypes:
+  - 'content/**'
+# allows getting a list of just added files from the dorny/paths-filter action
+added:
+  - added: 'content/**'
