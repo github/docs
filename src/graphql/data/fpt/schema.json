@@ -13615,7 +13615,7 @@
             },
             {
               "name": "since",
-              "description": "<p>Allows specifying a beginning time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying a beginning time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
@@ -13625,7 +13625,7 @@
             },
             {
               "name": "until",
-              "description": "<p>Allows specifying an ending time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying an ending time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
