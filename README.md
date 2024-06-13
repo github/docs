@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# GitHub Docs
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
@@ -50,6 +50,6 @@ All other code in this repository is licensed under the [MIT license](LICENSE-CO
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
+## Thanks 
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+Thanks for all contributions and efforts towards improving the GitHub documentation. Love is the Key, develop and created by Isabel Schoeps Thiel
