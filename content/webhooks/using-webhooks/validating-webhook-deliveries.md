@@ -196,7 +196,7 @@ const handleWebhook = async (req, res) => {
 
 For example, you can define the following `verifySignature` function and call it when you receive a wehook payload:
 
-```go
+```golang
 func verifySignature(secret string, header string, payload []byte) bool {
 	hash := hmac.New(sha256.New, []byte(secret))
 	hash.Write(payload)
