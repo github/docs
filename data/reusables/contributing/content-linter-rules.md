@@ -3,7 +3,7 @@
 | Rule ID | Rule Name(s) | Description | Severity | Tags |
 | ------- | ------------ | ----------- | -------- | ---- |
 | [MD001](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md001.md) | heading-increment | Heading levels should only increment by one level at a time | error | headings |
-| [MD004](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md004.md) | ul-style | Unordered list style | error | bullet, ul |
+| [MD004](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md004.md) | ul-style | Unordered list style | warning | bullet, ul |
 | [MD009](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md009.md) | no-trailing-spaces | Trailing spaces | error | whitespace |
 | [MD011](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md011.md) | no-reversed-links | Reversed link syntax | error | links |
 | [MD012](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md012.md) | no-multiple-blanks | Multiple consecutive blank lines | error | whitespace, blank_lines |
