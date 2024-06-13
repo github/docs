@@ -22,18 +22,18 @@ The {% data variables.product.prodname_actions %} service supports a subset of a
 
 Azure private networking supports GPU runners in the following regions.
 
-- `EastUs`
-- `WestUs`
-- `NorthCentralUs`
-- `SouthCentralUs`
+* `EastUs`
+* `WestUs`
+* `NorthCentralUs`
+* `SouthCentralUs`
 
 Azure private networking supports arm64 runners in the following regions.
 
-- `EastUs`
-- `EastUs2`
-- `WestUs2`
-- `NorthCentralUs`
-- `SouthCentralUs`
+* `EastUs`
+* `EastUs2`
+* `WestUs2`
+* `NorthCentralUs`
+* `SouthCentralUs`
 
 > [!NOTE]
 > GPU and arm64 runners are currently in beta and subject to change.
