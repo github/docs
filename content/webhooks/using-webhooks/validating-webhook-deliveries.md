@@ -192,6 +192,23 @@ const handleWebhook = async (req, res) => {
 };
 ```
 
+#### Go example
+
+For example, you can define the following `verifySignature` function and call it when you receive a wehook payload:
+
+```go
+func verifySignature(secret string, header string, payload []byte) bool {
+	hash := hmac.New(sha256.New, []byte(secret))
+	hash.Write(payload)
+	expectedSum := hash.Sum(nil)
+	inputSignature, err := hex.DecodeString(strings.TrimPrefix(header, "sha256="))
+	if err != nil {
+		return false
+	}
+	return hmac.Equal(expectedSum, inputSignature)
+}
+```
+
 ## Troubleshooting
 
 {% data reusables.webhooks.signature-troubleshooting %}
