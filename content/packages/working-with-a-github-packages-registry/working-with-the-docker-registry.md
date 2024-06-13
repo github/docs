@@ -13,7 +13,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Docker registry
+shortTitle: Docker registry:
 ---
 
 <!-- Main versioning block. Short page for dotcom -->
