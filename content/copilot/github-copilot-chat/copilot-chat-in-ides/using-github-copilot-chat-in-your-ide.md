@@ -360,8 +360,8 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 **Notes**:
 
-- This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-- The `@github` chat participant is currently in beta and is subject to change.
+* This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+* The `@github` chat participant is currently in beta and is subject to change.
 
 {% endnote %}
 
