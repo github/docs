@@ -11,9 +11,9 @@ topics:
 
 {% data reusables.emus.guest-collaborators-note %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can use the role of guest collaborator to grant limited access to vendors and contractors. For more information, see "[AUTOTITLE](/admin/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
+{% data reusables.emus.about-guest-collaborators %}
 
-All repository access for organization members, including guest collaborators, is governed by the base permission policy for the organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+All repository access for organization members, including guest collaborators, is governed by the base permission policy for the organization. See "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
 
 If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML authentication, or if you use Entra ID for OIDC authentication, you may need to update your IdP application to use guest collaborators.
 
@@ -89,4 +89,13 @@ For more information about adding guest collaborators with SCIM using GitHub's R
 
 After you enable guest collaborators, you can add guest collaborators to your enterprise as you would any other user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups)."
 
-{% data reusables.emus.giving-access-to-guest-collaborators %}
+When you have added a guest collaborator to your enterprise, to give the user access to repositories in the enterprise, you can do either of the following things.
+
+- To give the user access to repositories in an organization, add the user as a **member of the organization**.
+
+  The base permission policy for the organization determines whether the guest collaborator has access to internal and private repositories. If the base permission is set to "No permission", the guest collaborator will not have access to internal and private repositories unless added directly to one of the repositories as a collaborator, or through an authorized team. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+- To give the user access to specific repositories, add the guest collaborator to the repositories as a **repository collaborator**.
+
+  This gives the user access to the repository without giving them access to other internal or private repositories in the same organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
+
+Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
