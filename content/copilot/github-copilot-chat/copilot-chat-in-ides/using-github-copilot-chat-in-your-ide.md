@@ -420,33 +420,10 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Prerequisites
 
-<<<<<<< HEAD
-* **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
-  * IntelliJ IDEA (Ultimate, Community, Educational)
-  * Android Studio
-  * AppCode
-  * CLion
-  * DataGrip
-  * DataSpell
-  * GoLand
-  * MPS
-  * PhpStorm
-  * PyCharm (Professional, Community, Educational)
-  * Rider
-  * RubyMine
-  * RustRover
-  * WebStorm
-
-   See the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder to download.
-* **{% data variables.product.prodname_copilot %} plugin**. See the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) in the JetBrains Marketplace. For installation instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
-* **Sign in to {% data variables.product.company_short %} in your JetBrains IDE**. For authentication instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
-=======
 - **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 - **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
->>>>>>> main
 
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
