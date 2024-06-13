@@ -8,5 +8,5 @@
 1. In the bottom-right corner of {% data variables.product.prodname_vs %} Installer, click **Modify**.
 1. When the modification is complete, close the {% data variables.product.prodname_vs %} Installer and launch {% data variables.product.prodname_vs %}.
 1. Optionally, to modify the installation or add more components, launch {% data variables.product.prodname_vs %} Installer from the Windows Start menu.
-    - To the right of your installed version of {% data variables.product.prodname_vs %}, click **Modify**.
-    - Make your desired changes, and in the bottom right corner click **Modify** again to apply them.
+    * To the right of your installed version of {% data variables.product.prodname_vs %}, click **Modify**.
+    * Make your desired changes, and in the bottom right corner click **Modify** again to apply them.

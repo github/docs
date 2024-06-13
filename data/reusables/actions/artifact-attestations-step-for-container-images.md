@@ -1,4 +1,4 @@
-- name: Generate artifact attestation
+* name: Generate artifact attestation
   uses: actions/attest-build-provenance@v1
   with:
     subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}

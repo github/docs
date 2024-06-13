@@ -2,8 +2,8 @@ The job or workflow run requires a `permissions` setting with [`id-token: write`
 
 The `id-token: write` setting allows the JWT to be requested from {% data variables.product.prodname_dotcom %}'s OIDC provider using one of these approaches:
 
-- Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
-- Using `getIDToken()` from the Actions toolkit.
+* Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
+* Using `getIDToken()` from the Actions toolkit.
 
 If you need to fetch an OIDC token for a workflow, then the permission can be set at the workflow level. For example:
 

@@ -1,10 +1,17 @@
+import type { NextFunction, Response } from 'express'
 import { uniq } from 'lodash-es'
 
-export default function earlyAccessContext(req, res, next) {
+import type { ExtendedRequest } from '@/types'
+
+export default function earlyAccessContext(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   // Use req.pagePath instead of req.path because req.path is the path
   // normalized after "converting" that `/_next/data/...` path to the
   // equivalent path if it had *not* been a client-side routing fetch.
-  const url = req.pagePath.split('/').slice(2)
+  const url = req.pagePath!.split('/').slice(2)
   if (
     !(
       // Is it `/early-access` or `/enterprise-cloud@latest/early-access`?
@@ -20,6 +27,8 @@ export default function earlyAccessContext(req, res, next) {
     return next(404)
   }
 
+  if (!req.context || !req.context.pages) throw new Error('request not contextualized')
+
   // Get a list of all hidden pages per version
   const earlyAccessPageLinks = uniq(
     Object.values(req.context.pages)
@@ -33,7 +42,7 @@ export default function earlyAccessContext(req, res, next) {
       .flat(),
   )
     // Get links for the current version
-    .filter((permalink) => req.context.currentVersion === permalink.pageVersion)
+    .filter((permalink) => req.context!.currentVersion === permalink.pageVersion)
     .sort()
     // Create Markdown links
     .map((permalink) => `- [${permalink.title}](${permalink.href})`)
