@@ -73,6 +73,7 @@ export type Context = {
   enterpriseServerReleases?: typeof enterpriseServerReleases
   languages?: Languages
   redirectNotFound?: string
+  earlyAccessPageLinks?: string
 }
 
 type Language = {
@@ -109,6 +110,7 @@ export type Page = {
   shortTitle?: string
   intro: string
   rawIntro?: string
+  hidden?: boolean
   rawPermissions?: string
   languageCode: string
   documentType: string
