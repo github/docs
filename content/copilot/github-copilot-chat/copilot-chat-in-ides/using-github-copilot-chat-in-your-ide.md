@@ -249,19 +249,11 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 ## Prerequisites
 
-<<<<<<< HEAD
 * **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-* **{% data variables.product.prodname_vs %} 2022 version 17.8 or higher**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
+* **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
 * **{% data variables.product.prodname_copilot %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
 * **{% data variables.product.prodname_copilot_chat %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
-=======
-- **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-- **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install Visual Studio](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
-- **{% data variables.product.prodname_copilot %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-- **{% data variables.product.prodname_copilot_chat %} extension**. See [Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-- **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
->>>>>>> main
 
 {% data reusables.copilot.chat-access-denied %}
 
@@ -368,8 +360,8 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 **Notes**:
 
-- This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-- The `@github` chat participant is currently in beta and is subject to change.
+* This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+* The `@github` chat participant is currently in beta and is subject to change.
 
 {% endnote %}
 
@@ -428,33 +420,10 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Prerequisites
 
-<<<<<<< HEAD
 * **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
-  * IntelliJ IDEA (Ultimate, Community, Educational)
-  * Android Studio
-  * AppCode
-  * CLion
-  * DataGrip
-  * DataSpell
-  * GoLand
-  * MPS
-  * PhpStorm
-  * PyCharm (Professional, Community, Educational)
-  * Rider
-  * RubyMine
-  * RustRover
-  * WebStorm
-
-   See the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder to download.
-* **{% data variables.product.prodname_copilot %} plugin**. See the [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) in the JetBrains Marketplace. For installation instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
-* **Sign in to {% data variables.product.company_short %} in your JetBrains IDE**. For authentication instructions, see "[AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment)."
-=======
-- **Access to {% data variables.product.prodname_copilot %}**. See "[AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot)."
-- **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
->>>>>>> main
 
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
