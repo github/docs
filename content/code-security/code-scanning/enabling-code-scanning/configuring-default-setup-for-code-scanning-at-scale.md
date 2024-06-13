@@ -21,9 +21,9 @@ versions:
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
 
 You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
-- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
-- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
-- On a weekly schedule.{% endif %}
+* On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+* On a weekly schedule.{% endif %}
 
 For more information, see "[Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization)."
 
@@ -46,12 +46,12 @@ For repositories that are not eligible for default setup, you can configure adva
 
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
-- {% ifversion fpt %}{% data variables.product.prodname_code_scanning_caps %}{% else %}Advanced setup for {% data variables.product.prodname_code_scanning %}{% endif %} is not already enabled.
-- {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}{% elsif code-scanning-default-setup-recommended-languages %}
-- Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% ifversion fpt %}
-- Publicly visible.{%- elsif ghec %}
-- Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-- {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+* {% ifversion fpt %}{% data variables.product.prodname_code_scanning_caps %}{% else %}Advanced setup for {% data variables.product.prodname_code_scanning %}{% endif %} is not already enabled.
+* {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}{% elsif code-scanning-default-setup-recommended-languages %}
+* Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% ifversion fpt %}
+* Publicly visible.{%- elsif ghec %}
+* Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
+* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
@@ -94,9 +94,9 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% note %}
 
 **Notes:**
-  - {% data reusables.code-scanning.limitation-org-enable-all %}
-  - Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% ifversion default-setup-pre-enablement %}
-  - Enabling default setup for all eligible repositories in an organization includes eligible repositories without {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.{% endif %}
+  * {% data reusables.code-scanning.limitation-org-enable-all %}
+  * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[Configuring default setup for a subset of repositories in an organization](#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% ifversion default-setup-pre-enablement %}
+  * Enabling default setup for all eligible repositories in an organization includes eligible repositories without {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.{% endif %}
 
 {% endnote %}
 
@@ -149,8 +149,8 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 {% data reusables.security-overview.security-overview-coverage-view %}
 1. You can use the search bar to narrow down visible repositories in the "Security coverage" view based on name, or on the enablement status of security features. For example, to filter for repositories that are eligible for default setup and do not currently have default setup enabled, search for `code-scanning-default-setup:eligible`.
 1. In the list of repositories, select each repository you want to enable {% data variables.product.prodname_code_scanning %} for.
-   - To enable {% data variables.product.prodname_code_scanning %} for all repositories on the page, select the checkbox next to **NUMBER Active**.
-   - To enable {% data variables.product.prodname_code_scanning %} for all repositories that match the current search, select the checkbox next to **NUMBER Active**, then click **Select all NUMBER repos**.
+   * To enable {% data variables.product.prodname_code_scanning %} for all repositories on the page, select the checkbox next to **NUMBER Active**.
+   * To enable {% data variables.product.prodname_code_scanning %} for all repositories that match the current search, select the checkbox next to **NUMBER Active**, then click **Select all NUMBER repos**.
 1. Click **Security settings** next to **NUMBER selected**.
 1. In the side panel, in the "{% data variables.product.prodname_codeql %} Default Setup" section, select **No change**, then click **Enable**.{% ifversion bulk-code-scanning-query-suite %}
 1. Optionally, to choose a different query suite than your organization's default query suite, select **Query suite: SUITE NAME**, then click the query suite your configuration of default setup should use. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% endif %}
@@ -160,8 +160,8 @@ You can select all of the displayed repositories, or a subset of them, and enabl
   {% note %}
 
   **Notes:**
-  - Enabling {% data variables.product.prodname_code_scanning %} for multiple repositories in an organization using security overview will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
-  - You can enable default setup for eligible repositories that do not contain {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.
+  * Enabling {% data variables.product.prodname_code_scanning %} for multiple repositories in an organization using security overview will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
+  * You can enable default setup for eligible repositories that do not contain {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.
 
   {% endnote %}
 {% else %}

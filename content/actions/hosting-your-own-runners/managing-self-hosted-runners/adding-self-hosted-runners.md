@@ -119,6 +119,6 @@ For more information on changing runner group access settings, see "[AUTOTITLE](
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+* "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
 
 {% endif %}

@@ -23,11 +23,11 @@ The {% data variables.product.prodname_vscode_command_palette_shortname %} is on
 
 You can access the {% data variables.product.prodname_vscode_command_palette_shortname %} in a number of ways.
 
-- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+* <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 
   Note that this command is a reserved keyboard shortcut in Firefox.
-- <kbd>F1</kbd>
-- From the Application Menu, click **View > Command Palette**.
+* <kbd>F1</kbd>
+* From the Application Menu, click **View > Command Palette**.
 
 ## Commands for {% data variables.product.prodname_codespaces %}
 
@@ -69,4 +69,4 @@ To retrieve the logs for {% data variables.product.prodname_github_codespaces %}
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"

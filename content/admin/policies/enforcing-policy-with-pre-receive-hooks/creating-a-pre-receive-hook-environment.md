@@ -72,9 +72,9 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    {% note %}
 
    **Notes:**
-   - Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
-   - `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
-   - Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
+   * Do not include leading directory paths of files within the tar archive, such as `/path/to/chroot`.
+   * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
+   * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
 
    {% endnote %}
 

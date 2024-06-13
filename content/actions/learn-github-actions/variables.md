@@ -23,8 +23,8 @@ You can set your own custom variables or use the default environment variables t
 
 You can set a custom variable in two ways.
 
-- To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file.  For more information, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)".
-- To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see "[Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows)".
+* To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file.  For more information, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)".
+* To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see "[Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows)".
 
 {% warning %}
 
@@ -36,9 +36,9 @@ You can set a custom variable in two ways.
 
 To set a custom environment variable for a single workflow, you can define it using the `env` key in the workflow file. The scope of a custom variable set by this method is limited to the element in which it is defined. You can define variables that are scoped for:
 
-- The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
-- The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
-- A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
+* The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
+* The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
+* A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
 {% raw %}
 
@@ -157,9 +157,9 @@ You can store up to 1,000 organization variables, 500 variables per repository, 
 
 A workflow created in a repository can access the following number of variables:
 
-- Up to 500 repository variables, if the total size of repository variables is less than 10 MB. If the total size of repository variables exceeds 10 MB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-- Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 10 MB. If the total combined size of organization and repository variables exceeds 10 MB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-- Up to 100 environment-level variables.
+* Up to 500 repository variables, if the total size of repository variables is less than 10 MB. If the total size of repository variables exceeds 10 MB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 10 MB. If the total combined size of organization and repository variables exceeds 10 MB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+* Up to 100 environment-level variables.
 
 {% note %}
 
@@ -175,9 +175,9 @@ You can store up to 1,000 organization variables, 500 variables per repository, 
 
 A workflow created in a repository can access the following number of variables:
 
-- Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-- Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-- Up to 100 environment-level variables.
+* Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+* Up to 100 environment-level variables.
 
 {% note %}
 

@@ -17,9 +17,9 @@ shortTitle: Install on GCP
 ---
 ## Prerequisites
 
-- {% data reusables.enterprise_installation.software-license %}
-- You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform documentation](https://cloud.google.com/docs/).
-- Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) installation and setup guide in the Google documentation.
+* {% data reusables.enterprise_installation.software-license %}
+* You must have a Google Cloud Platform account capable of launching Google Compute Engine (GCE) virtual machine (VM) instances. For more information, see the [Google Cloud Platform website](https://cloud.google.com/) and the [Google Cloud Platform documentation](https://cloud.google.com/docs/).
+* Most actions needed to launch your instance may also be performed using the [Google Cloud Platform Console](https://cloud.google.com/compute/docs/console). However, we recommend installing the gcloud compute command-line tool for initial setup. Examples using the gcloud compute command-line tool are included below. For more information, see the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) installation and setup guide in the Google documentation.
 
 ## Hardware considerations
 
@@ -108,5 +108,5 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

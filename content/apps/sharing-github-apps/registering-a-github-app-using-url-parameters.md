@@ -28,8 +28,8 @@ Alternatively, you can create a {% data variables.product.prodname_github_app %}
 
 To create a custom configuration URL for a {% data variables.product.prodname_github_app %} on a personal or organization account, add query parameters after the following base URLs.
 
-- To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
-- To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
+* To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
 
 On the app registration page, the person registering the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person registering the app will need to input a value before they can register the app.
 

@@ -54,15 +54,15 @@ For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-
 
 This example `cluster.conf` defines a cluster with 11 nodes.
 
-- Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
-- Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
-- Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
-- Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
+* Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
+* Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
+* Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
+* Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
 
 You must choose a valid and unique hostname and IPv4 address for each node. To ensure that nodes are locally resolvable to each other, {% data variables.product.prodname_ghe_server %} will add a record for each node's hostname to `/etc/hosts` on every node.
 
-- For more information about valid hostnames for {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance)."
-- Each IPv4 address must be an address on a private network. See [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) on the IETF website.
+* For more information about valid hostnames for {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance)."
+* Each IPv4 address must be an address on a private network. See [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) on the IETF website.
 
 Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 

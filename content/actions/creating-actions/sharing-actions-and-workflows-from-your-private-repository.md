@@ -19,8 +19,8 @@ Any actions or reusable workflows stored in the private repository can be used i
 {% warning %}
 
 **Warning**:
-- If you make a private repository accessible to {% data variables.product.prodname_actions %} workflows in other repositories, outside collaborators on the other repositories can indirectly access the private repository, even though they do not have direct access to these repositories. The outside collaborators can view logs for workflow runs when actions or workflows from the private repository are used.
-- {% data reusables.actions.scoped-token-note %}
+* If you make a private repository accessible to {% data variables.product.prodname_actions %} workflows in other repositories, outside collaborators on the other repositories can indirectly access the private repository, even though they do not have direct access to these repositories. The outside collaborators can view logs for workflow runs when actions or workflows from the private repository are used.
+* {% data reusables.actions.scoped-token-note %}
 
 {% endwarning %}
 
@@ -31,4 +31,4 @@ Any actions or reusable workflows stored in the private repository can be used i
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"
+* "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"

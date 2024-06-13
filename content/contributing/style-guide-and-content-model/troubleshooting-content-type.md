@@ -19,26 +19,26 @@ Product and feature owners (PMs and EMs) should help plan and review known issue
 
 Use known issues to explain the following situations.
 
-- Product behavior that regularly contradicts people's expectations, but is not yet prioritized for remediation.
-- Behavior that regularly prevents the use of the product or feature for a common purpose.
-- Rare or severe bugs that {% data variables.product.prodname_dotcom %} has not yet prioritized fixing, and that are not explained in the product or by existing content on {% data variables.product.prodname_docs %}.
+* Product behavior that regularly contradicts people's expectations, but is not yet prioritized for remediation.
+* Behavior that regularly prevents the use of the product or feature for a common purpose.
+* Rare or severe bugs that {% data variables.product.prodname_dotcom %} has not yet prioritized fixing, and that are not explained in the product or by existing content on {% data variables.product.prodname_docs %}.
 
 ## How to write troubleshooting content
 
-- Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
-- Whenever possible, keep troubleshooting content contained within procedural content or guides.
-- You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
-- You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example "[AUTOTITLE](/authentication/troubleshooting-ssh)."
+* Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
+* Whenever possible, keep troubleshooting content contained within procedural content or guides.
+* You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
+* You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example "[AUTOTITLE](/authentication/troubleshooting-ssh)."
 
 ## Title guidelines for troubleshooting content
 
-- Troubleshooting FEATURE
-- Error: ERROR NAME
-- Known issues for PRODUCT
+* Troubleshooting FEATURE
+* Error: ERROR NAME
+* Known issues for PRODUCT
 
 ## Examples of troubleshooting content
 
-- "[AUTOTITLE](/authentication/troubleshooting-ssh)"
-- "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)"
-- "[Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues)" in the {% data variables.product.prodname_ghe_server %} release notes
-- "[AUTOTITLE](/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)"
+* "[AUTOTITLE](/authentication/troubleshooting-ssh)"
+* "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)"
+* "[Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues)" in the {% data variables.product.prodname_ghe_server %} release notes
+* "[AUTOTITLE](/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)"

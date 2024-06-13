@@ -32,5 +32,5 @@ Some authenticators allow passkeys to be used with nearby devices. For example, 
 
 ## Further reading
 
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)

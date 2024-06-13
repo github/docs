@@ -31,8 +31,8 @@ To help you decide which choice is best for your enterprise, see "[AUTOTITLE](/a
 
 Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}.
 
-- [Enterprise administrator documentation](/admin)
-- [User documentation](/)
+* [Enterprise administrator documentation](/admin)
+* [User documentation](/)
 
 {% data reusables.docs.ghec-docs %}
 
@@ -42,5 +42,5 @@ You can sign up for a free, 30-day trial of {% data variables.product.product_na
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
+* [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository

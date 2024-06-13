@@ -39,6 +39,6 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 ## Further reading
 
-- [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)
-- [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment){% ifversion fpt or ghec %}
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"{% endif %}
+* [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)
+* [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment){% ifversion fpt or ghec %}
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"{% endif %}

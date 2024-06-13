@@ -20,25 +20,25 @@ shortTitle: Verify your email address
 You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
 
 If you do not verify your email address, you will not be able to:
-- Create or fork repositories
-- Create issues or pull requests
-- Comment on issues, pull requests, or commits
-- Authorize {% data variables.product.prodname_oauth_app %} applications
-- Generate {% data variables.product.pat_generic %}s
-- Receive email notifications
-- Star repositories
-- Create or update projects
-- Create or update gists
-- Create or use {% data variables.product.prodname_actions %}
-- Sponsor developers with {% data variables.product.prodname_sponsors %}
-- Accept organization invitations
+* Create or fork repositories
+* Create issues or pull requests
+* Comment on issues, pull requests, or commits
+* Authorize {% data variables.product.prodname_oauth_app %} applications
+* Generate {% data variables.product.pat_generic %}s
+* Receive email notifications
+* Star repositories
+* Create or update projects
+* Create or update gists
+* Create or use {% data variables.product.prodname_actions %}
+* Sponsor developers with {% data variables.product.prodname_sponsors %}
+* Accept organization invitations
 
 {% warning %}
 
 **Warnings**:
 
-- {% data reusables.user-settings.no-verification-disposable-emails %}
-- {% data reusables.user-settings.verify-org-approved-email-domain %}
+* {% data reusables.user-settings.no-verification-disposable-emails %}
+* {% data reusables.user-settings.verify-org-approved-email-domain %}
 
 {% endwarning %}
 
@@ -70,4 +70,4 @@ If you click on the link in the confirmation email within 24 hours and you are d
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"

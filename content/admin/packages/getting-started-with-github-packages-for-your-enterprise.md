@@ -29,12 +29,12 @@ We recommend reviewing the levels of activity for users and automations on the i
 
 For more information about minimum hardware requirements for {% data variables.location.product_location %}, see the hardware considerations for your instance's platform.
 
-- [AWS](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
-- [Azure](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
-- [Google Cloud Platform](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
-- [Hyper-V](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
-- [OpenStack KVM](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
-- [VMware](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
+* [AWS](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws#hardware-considerations)
+* [Azure](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-azure#hardware-considerations)
+* [Google Cloud Platform](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-google-cloud-platform#hardware-considerations)
+* [Hyper-V](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-hyper-v#hardware-considerations)
+* [OpenStack KVM](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-openstack-kvm#hardware-considerations)
+* [VMware](/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#hardware-considerations)
 
 For more information about adjusting resources for an existing instance, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
 
@@ -45,14 +45,14 @@ For more information about adjusting resources for an existing instance, see "[A
 After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
 
 Supported external storage providers
-- Amazon Web Services (AWS) S3 {% ifversion ghes %}
-- Azure Blob Storage {% endif %}
-- MinIO
+* Amazon Web Services (AWS) S3 {% ifversion ghes %}
+* Azure Blob Storage {% endif %}
+* MinIO
 
 To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)"
+* "[AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+* "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)"
 
 ## Step 4: Specify the package ecosystems to support on your instance
 

@@ -87,8 +87,8 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-- Install a package required by the application.
-- Install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+* Install a package required by the application.
+* Install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 

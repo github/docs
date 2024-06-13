@@ -36,9 +36,9 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 {% data reusables.security-configurations.view-configurations-page %}
 1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table)."
 1. In the repository table, select repositories with one of three methods:
-     - Select each individual repository you would like to apply the {% data variables.product.prodname_security_configuration %} to.
-     - To select all repositories on the current page of the repository table, select **NUMBER repositories**.
-     - After selecting **NUMBER repositories**, to select all repositories in your organization that match your filter criteria, click **Select all**.
+     * Select each individual repository you would like to apply the {% data variables.product.prodname_security_configuration %} to.
+     * To select all repositories on the current page of the repository table, select **NUMBER repositories**.
+     * After selecting **NUMBER repositories**, to select all repositories in your organization that match your filter criteria, click **Select all**.
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% data variables.product.company_short %} recommended**.
 {% data reusables.security-configurations.apply-configuration-by-default %}
 

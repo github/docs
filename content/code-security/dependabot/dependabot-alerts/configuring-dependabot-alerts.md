@@ -25,10 +25,10 @@ topics:
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
-- Your personal account
-- Your repository
-- Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes %}
-- Your enterprise{% endif %}
+* Your personal account
+* Your repository
+* Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes %}
+* Your enterprise{% endif %}
 
 {% ifversion dependabot-auto-triage-rules %}
 

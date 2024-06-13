@@ -29,9 +29,9 @@ versions:
 ## About default setup
 
 Default setup for {% data variables.product.prodname_code_scanning %} is the quickest, easiest, most low-maintenance way to enable {% data variables.product.prodname_code_scanning %} for your repository. Based on the code in your repository, default setup will automatically create a custom {% data variables.product.prodname_code_scanning %} configuration. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in your repository will be scanned:
-- On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
-- When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
-- On a weekly schedule.
+* On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+* On a weekly schedule.
 
 {% ifversion code-scanning-default-setup-exclude-dormant-repos %}
 {% note %}
@@ -49,12 +49,12 @@ If you need more granular control over your {% data variables.product.prodname_c
 ### Requirements for using default setup
 
 Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}{% else %}{% ifversion code-scanning-without-workflow-310 %}
-- It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% else %}
-- It includes only the following {% data variables.product.prodname_codeql %}-supported languages: {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% endif %}
-- {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-- It is publicly visible.{%- elsif ghec %}
-- It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-- {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% else %}
+* It includes only the following {% data variables.product.prodname_codeql %}-supported languages: {% ifversion code-scanning-default-setup-go %}Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% endif %}{% endif %}
+* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
+* It is publicly visible.{%- elsif ghec %}
+* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
+* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
@@ -123,8 +123,8 @@ At least one {% data variables.product.prodname_codeql %}-supported language's a
    {% endif %}
 
 1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click {% octicon "pencil" aria-hidden="true" %} **Edit**.
-   - To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. {% ifversion code-scanning-default-setup-recommended-languages %}If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.{% endif %}
-   - To specify the {% data variables.product.prodname_codeql %} query suite you would like to use, select your preferred query suite in the "Query suites" section.
+   * To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. {% ifversion code-scanning-default-setup-recommended-languages %}If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.{% endif %}
+   * To specify the {% data variables.product.prodname_codeql %} query suite you would like to use, select your preferred query suite in the "Query suites" section.
 
 {%- else -%}
 

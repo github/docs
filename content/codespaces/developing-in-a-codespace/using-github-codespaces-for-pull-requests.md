@@ -21,9 +21,9 @@ Using a codespace to work on a pull request gives you all the benefits of {% dat
 
 {% data variables.product.prodname_github_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
 
-- [Create a pull request](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the "Source Control" view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the "Source Control" view.
-- [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
-- [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_github_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
+* [Create a pull request](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the "Source Control" view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the "Source Control" view.
+* [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
+* [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_github_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
 
 ## Opening a pull request in {% data variables.product.prodname_codespaces %}
 

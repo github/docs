@@ -33,4 +33,4 @@ You can reorder the items in the "Pinned" section. In the upper-right corner of 
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"

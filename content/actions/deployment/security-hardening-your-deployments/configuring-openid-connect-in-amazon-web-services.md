@@ -46,8 +46,8 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 
 To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-- For the provider URL: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
-- For the "Audience": Use `sts.amazonaws.com` if you are using the [official action](https://github.com/aws-actions/configure-aws-credentials).
+* For the provider URL: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
+* For the "Audience": Use `sts.amazonaws.com` if you are using the [official action](https://github.com/aws-actions/configure-aws-credentials).
 
 ### Configuring the role and trust policy
 
@@ -122,9 +122,9 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 The `aws-actions/configure-aws-credentials` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from AWS. For more information, see the AWS [documentation](https://github.com/aws-actions/configure-aws-credentials).
 
-- `<example-bucket-name>`: Add the name of your S3 bucket here.
-- `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWS region here.
+* `<example-bucket-name>`: Add the name of your S3 bucket here.
+* `<role-to-assume>`: Replace the example with your AWS role.
+* `<example-aws-region>`: Add the name of your AWS region here.
 
 ```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch

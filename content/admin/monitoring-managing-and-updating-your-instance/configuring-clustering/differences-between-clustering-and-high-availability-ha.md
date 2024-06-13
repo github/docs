@@ -22,9 +22,9 @@ shortTitle: Choosing cluster or HA
 
 You can deploy the virtual machines for a {% data variables.product.prodname_ghe_server %} instance in different topologies depending on your environment and user needs.
 
-- To support a plan for disaster recovery and supplement backups, or to improve network and write performance for geographically distributed users, you can configure high availability. In a high-availability configuration, one node acts as a primary, while others act as replicas. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+* To support a plan for disaster recovery and supplement backups, or to improve network and write performance for geographically distributed users, you can configure high availability. In a high-availability configuration, one node acts as a primary, while others act as replicas. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
 
-- To provide horizontal scaling for environments with tens of thousands of developers, a cluster topology is available. Clustering addresses situations where a single primary node would routinely experience resource exhaustion. This configuration requires careful planning and additional administrative overhead. {% data variables.product.company_short %} will work with you to determine your eligibility for clustering. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
+* To provide horizontal scaling for environments with tens of thousands of developers, a cluster topology is available. Clustering addresses situations where a single primary node would routinely experience resource exhaustion. This configuration requires careful planning and additional administrative overhead. {% data variables.product.company_short %} will work with you to determine your eligibility for clustering. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
 
 ## Failure scenarios
 

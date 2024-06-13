@@ -84,4 +84,4 @@ You can check which access policies are applied to a development environment sec
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)"

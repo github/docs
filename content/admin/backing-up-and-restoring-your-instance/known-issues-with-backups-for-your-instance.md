@@ -37,9 +37,9 @@ If you've restored an existing backup from {% data variables.product.prodname_en
 
 To ensure users can sign into the new target instance, ensure that your environment meets the following requirements.
 
-- The source {% data variables.product.product_name %} instance must be running and accessible via SSH.
-- You must have an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.9 %}3.7.0, 3.8.0, or 3.9.0{% endif %}.
-- You must have provisioned a new target {% data variables.product.product_name %} instance and restored the backup. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance)."
+* The source {% data variables.product.product_name %} instance must be running and accessible via SSH.
+* You must have an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.9 %}3.7.0, 3.8.0, or 3.9.0{% endif %}.
+* You must have provisioned a new target {% data variables.product.product_name %} instance and restored the backup. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance)."
 
 1. SSH into the source {% data variables.product.product_name %} instance that you backed up. If your instance comprises multiple nodes, for example if high availability or geo-replication are configured, SSH into the primary node. If you use a cluster, you can SSH into any node. Replace HOSTNAME with the actual hostname of your instance. For more information about SSH access, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 

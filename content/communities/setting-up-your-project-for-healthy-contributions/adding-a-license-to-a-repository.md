@@ -54,4 +54,4 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"

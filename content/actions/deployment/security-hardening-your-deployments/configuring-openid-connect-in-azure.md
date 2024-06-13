@@ -34,7 +34,7 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 
   {% endnote %}
 
-- Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
+* Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 {% endif %}
 
 ## Adding the federated credentials to Azure
@@ -51,8 +51,8 @@ To configure the OIDC identity provider in Azure, you will need to perform the f
 
 Additional guidance for configuring the identity provider:
 
-- For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
-- For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
+* For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
+* For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 

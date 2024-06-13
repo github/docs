@@ -174,8 +174,8 @@ For the original starter workflow, see [`aws.yml`](https://github.com/actions/st
 
 For more information on the services used in these examples, see the following documentation:
 
-- "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
-- Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
-- Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
-- Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
-- Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.
+* "[Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)" in the Amazon AWS documentation.
+* Official AWS "[Configure AWS Credentials](https://github.com/aws-actions/configure-aws-credentials)" action.
+* Official AWS [Amazon ECR "Login"](https://github.com/aws-actions/amazon-ecr-login) action.
+* Official AWS [Amazon ECS "Render Task Definition"](https://github.com/aws-actions/amazon-ecs-render-task-definition) action.
+* Official AWS [Amazon ECS "Deploy Task Definition"](https://github.com/aws-actions/amazon-ecs-deploy-task-definition) action.

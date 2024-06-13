@@ -27,5 +27,5 @@ You can apply the `good first issue` label to issues in your public repository s
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories)"

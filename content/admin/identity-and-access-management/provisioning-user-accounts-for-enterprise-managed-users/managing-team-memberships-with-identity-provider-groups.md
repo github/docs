@@ -100,7 +100,7 @@ If a team cannot sync with the group on your IdP, the team will display an error
 
 The way a member is added to an organization owned by your enterprise determines how they must be removed from an organization.
 
-- **If a member was added to an organization manually, you must remove them manually.** Unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization.
-- **If a user became an organization member because they were added to IdP groups, remove them from _all_ of the mapped IdP groups** associated with the organization.
+* **If a member was added to an organization manually, you must remove them manually.** Unassigning them from the {% data variables.product.prodname_emu_idp_application %} application on your IdP will suspend the user but not remove them from the organization.
+* **If a user became an organization member because they were added to IdP groups, remove them from _all_ of the mapped IdP groups** associated with the organization.
 
 To discover how a member was added to an organization, you can filter the member list by type. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#filtering-by-member-type-in-an-enterprise-with-managed-users)."

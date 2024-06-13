@@ -97,8 +97,8 @@ You can filter the view to show only alerts where {% data variables.product.prod
 
 For alerts where vulnerable calls are detected, the alert details page shows additional information:
 
-- One or more code blocks showing where the function is used.
-- An annotation listing the function itself, with a link to the line where the function is called.
+* One or more code blocks showing where the function is used.
+* An annotation listing the function itself, with a link to the line where the function is called.
 
 ![Screenshot showing a {% data variables.product.prodname_dependabot %} alert with a "Vulnerable call" label. A code block, showing "Vulnerable function called", and a link, titled "See all your affected repositories", are highlighted with a dark orange outline.](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 

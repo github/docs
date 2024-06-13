@@ -29,17 +29,17 @@ Alongside {% data variables.product.prodname_security_configurations %}, which d
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_dependabot %}:
 
-- [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
-- [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
-- [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
-- [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
-- [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
+* [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
+* [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
+* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
+* [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
+* [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
 
 ### Creating and managing {% data variables.dependabot.auto_triage_rules %}
 
 You can create and manage {% data variables.dependabot.auto_triage_rules %} to instruct {% data variables.product.prodname_dependabot %} to automatically dismiss or snooze {% data variables.product.prodname_dependabot_alerts %}, and even open pull requests to attempt to resolve them. To configure {% data variables.dependabot.auto_triage_rules %}, click {% octicon "gear" aria-label="Configure {% data variables.product.prodname_dependabot %} rules" %}, then create or edit a rule:
-  - You can create a new rule by clicking **New rule**, then entering the details for your rule and clicking **Create rule**.
-  - You can edit an existing rule by clicking {% octicon "pencil" aria-label="Edit CURATED-OR-CUSTOM rule" %}, then making the desired changes and clicking **Save rule**.
+  * You can create a new rule by clicking **New rule**, then entering the details for your rule and clicking **Create rule**.
+  * You can edit an existing rule by clicking {% octicon "pencil" aria-label="Edit CURATED-OR-CUSTOM rule" %}, then making the desired changes and clicking **Save rule**.
 
 For more information on {% data variables.dependabot.auto_triage_rules %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)" and "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-organization)."
 
@@ -67,9 +67,9 @@ To update private dependencies of repositories in your organization, {% data var
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
-- [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
-- [Enabling autofix for {% data variables.product.prodname_codeql %}](#enabling-autofix-for-codeql) {% endif %}
-- [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
+* [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
+* [Enabling autofix for {% data variables.product.prodname_codeql %}](#enabling-autofix-for-codeql) {% endif %}
+* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
 
 ### Recommending the extended query suite for default setup
 
@@ -94,10 +94,10 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
-- [Verifying partner pattern secrets automatically](#verifying-partner-pattern-secrets-automatically){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
-- [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
-- [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
-- [Defining custom patterns](#defining-custom-patterns){% endif %}
+* [Verifying partner pattern secrets automatically](#verifying-partner-pattern-secrets-automatically){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+* [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
+* [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
+* [Defining custom patterns](#defining-custom-patterns){% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 

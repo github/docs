@@ -19,10 +19,10 @@ You can remove an organization that is owned by your enterprise account, so the 
 {% warning %}
 
 **Warning**: When you remove an organization from your enterprise:
-- Billing, identity management, 2FA requirements, and other policies for the organization will no longer be governed by your enterprise.
-- The organization will be downgraded to the free plan.
-- The organization will be governed by our standard Terms of Service.
-- Any internal repositories within the organization will be converted to private repositories.
+* Billing, identity management, 2FA requirements, and other policies for the organization will no longer be governed by your enterprise.
+* The organization will be downgraded to the free plan.
+* The organization will be governed by our standard Terms of Service.
+* Any internal repositories within the organization will be converted to private repositories.
 
 {% endwarning %}
 
@@ -37,4 +37,4 @@ You can remove an organization that is owned by your enterprise account, so the 
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"

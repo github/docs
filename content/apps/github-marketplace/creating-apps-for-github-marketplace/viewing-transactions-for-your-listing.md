@@ -26,17 +26,17 @@ You can view or download the transaction data to keep track of your subscription
 
 ## Transaction data fields
 
-- **date:** The date of the transaction in `yyyy-mm-dd` format.
-- **app_name:** The app name.
-- **user_login:** The login of the user with the subscription.
-- **user_id:** The id of the user with the subscription.
-- **user_type:** The type of GitHub account, either `User` or `Organization`.
-- **country:** The three letter country code.
-- **amount_in_cents:** The amount of the transaction in cents. When a value is less the plan amount, the user upgraded and the new plan is prorated. A value of zero indicates the user canceled their plan.
-- **renewal_frequency:** The subscription renewal frequency, either `Monthly` or `Yearly`.
-- **marketplace_listing_plan_id:** The `id` of the subscription plan.
-- **region:** The name of the region present in billing address.
-- **postal_code:** The postal code value present in billing address.
+* **date:** The date of the transaction in `yyyy-mm-dd` format.
+* **app_name:** The app name.
+* **user_login:** The login of the user with the subscription.
+* **user_id:** The id of the user with the subscription.
+* **user_type:** The type of GitHub account, either `User` or `Organization`.
+* **country:** The three letter country code.
+* **amount_in_cents:** The amount of the transaction in cents. When a value is less the plan amount, the user upgraded and the new plan is prorated. A value of zero indicates the user canceled their plan.
+* **renewal_frequency:** The subscription renewal frequency, either `Monthly` or `Yearly`.
+* **marketplace_listing_plan_id:** The `id` of the subscription plan.
+* **region:** The name of the region present in billing address.
+* **postal_code:** The postal code value present in billing address.
 
 ![Screenshot of the "Transactions" tab in the {% data variables.product.prodname_marketplace %} listing for an app. Transactions from the past week are listed in a table layout, with a search bar labeled "Search this file...".](/assets/images/marketplace/marketplace-transactions.png)
 

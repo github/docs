@@ -85,9 +85,9 @@ You can also remove the secret if the secret appears in an earlier commit in the
      my first commit message
 
 1. Focusing only on the commits that contain the secret, use the output of `git log` to identify which commit comes _earliest_ in your Git history.
-   - In the example, commit `8728dbe67` was the first commit to contain the secret.
+   * In the example, commit `8728dbe67` was the first commit to contain the secret.
 1. Start an interactive rebase with `git rebase -i <COMMIT-ID>~1`.
-   - For `<COMMIT-ID>`, use the commit identified in step 3. For example, `git rebase -i 8728dbe67~1`.
+   * For `<COMMIT-ID>`, use the commit identified in step 3. For example, `git rebase -i 8728dbe67~1`.
 1. In the editor, choose to edit the commit identified in step 3 by changing `pick` to `edit` on the first line of the text.
 
    ```text
@@ -112,6 +112,6 @@ Alternatively, if you determine that it's safe to allow the secret, use the opti
 
 # Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"{% ifversion secret-scanning-push-protection-for-users %}
-- "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)"{% endif %}
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"{% ifversion secret-scanning-push-protection-for-users %}
+* "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)"{% endif %}

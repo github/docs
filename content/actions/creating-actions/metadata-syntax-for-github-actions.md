@@ -164,7 +164,7 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-- Use {% ifversion actions-node20-support %}`node20` for Node.js v20{% else %}`node16` for Node.js v16{% endif %}.
+* Use {% ifversion actions-node20-support %}`node20` for Node.js v20{% else %}`node16` for Node.js v16{% endif %}.
 
 ### `runs.main`
 
@@ -317,9 +317,9 @@ steps:
 **Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+* Using the commit SHA of a released action version is the safest for stability and security.
+* Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
+* Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Some actions require inputs that you must set using the [`with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 

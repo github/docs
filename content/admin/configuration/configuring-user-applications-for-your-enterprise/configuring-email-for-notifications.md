@@ -27,15 +27,15 @@ shortTitle: Configure email notifications
 1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 1. Type the settings for your SMTP server.
-      - In the **Server address** field, type the address of your SMTP server.
-      - In the **Port** field, type the port that your SMTP server uses to send email.
-      - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-      - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-      - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
+      * In the **Server address** field, type the address of your SMTP server.
+      * In the **Port** field, type the port that your SMTP server uses to send email.
+      * In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
+      * Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
+      * In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 1. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
 1. Under **Support**, select a type of link to offer additional support to your users.
-    - **Email:** An internal email address.
-    - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
+    * **Email:** An internal email address.
+    * **URL:** A link to an internal support site. You must include either `http://` or `https://`.
 1. [Test email delivery](#testing-email-delivery).
 
 ## Testing email delivery
@@ -116,10 +116,10 @@ TLS connection started
 
 This log shows that the appliance:
 
-- Opened a connection with the SMTP server (`Connection opened: smtp.yourdomain.com:587`).
-- Successfully made a connection and chose to use TLS (`TLS connection started`).
-- The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
-- The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
+* Opened a connection with the SMTP server (`Connection opened: smtp.yourdomain.com:587`).
+* Successfully made a connection and chose to use TLS (`TLS connection started`).
+* The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
+* The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
 
 ### Check {% data variables.location.product_location %} logs
 

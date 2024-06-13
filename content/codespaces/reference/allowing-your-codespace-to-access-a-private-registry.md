@@ -15,8 +15,8 @@ shortTitle: Access a private registry
 ## About private registries and {% data variables.product.prodname_github_codespaces %}
 
 A registry is a secure space for storing, managing, and fetching container images or other packages. There are many examples of registries, such as:
-- {% data variables.product.company_short %}'s {% data variables.product.prodname_container_registry %}, the Azure Container Registry, and DockerHub for container images
-- The {% data variables.product.prodname_npm_registry %} for Node.js packages.
+* {% data variables.product.company_short %}'s {% data variables.product.prodname_container_registry %}, the Azure Container Registry, and DockerHub for container images
+* The {% data variables.product.prodname_npm_registry %} for Node.js packages.
 
 Certain {% data variables.product.prodname_registry %} registries, including the {% data variables.product.prodname_container_registry %}, can be configured to allow packages to be pulled seamlessly into {% data variables.product.prodname_github_codespaces %} during codespace creation, without having to provide any authentication credentials.
 
@@ -58,9 +58,9 @@ We recommend publishing packages via {% data variables.product.prodname_actions 
 
 You can define secrets to allow {% data variables.product.prodname_github_codespaces %} to access container image registries other than {% data variables.product.company_short %}'s {% data variables.product.prodname_container_registry %}. If you are accessing a container image from a registry that doesn't support seamless access, {% data variables.product.prodname_github_codespaces %} checks for the presence of three secrets, which define the server name, username, and {% data variables.product.pat_generic %} for a registry. If these secrets are found, {% data variables.product.prodname_github_codespaces %} will make the registry available inside your codespace.
 
-- `<*>_CONTAINER_REGISTRY_SERVER`
-- `<*>_CONTAINER_REGISTRY_USER`
-- `<*>_CONTAINER_REGISTRY_PASSWORD`
+* `<*>_CONTAINER_REGISTRY_SERVER`
+* `<*>_CONTAINER_REGISTRY_USER`
+* `<*>_CONTAINER_REGISTRY_PASSWORD`
 
 You can store secrets at the user, repository, or organization-level, allowing you to share them securely between different codespaces. When you create a set of secrets for a private image registry, you need to replace the "<*>" in the name with a consistent identifier. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)."
 
@@ -120,11 +120,11 @@ For more information, see AWS ECR's "[Private registry authentication documentat
 
 Some of the common image registry servers are listed below:
 
-- [DockerHub](https://docs.docker.com/engine/reference/commandline/info/) - `https://index.docker.io/v1/`
-- [GitHub Container Registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
-- [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
-- [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
+* [DockerHub](https://docs.docker.com/engine/reference/commandline/info/) - `https://index.docker.io/v1/`
+* [GitHub Container Registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry) - `ghcr.io`
+* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) - `<registry name>.azurecr.io`
+* [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
+* [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
 ## Debugging private image registry access
 

@@ -16,9 +16,9 @@ In some articles, we write content tailored to different tools (the {% data vari
 
 People can use the tool switcher in two ways when reading the docs.
 
-- **Exploring** - For tasks that can be completed with different tools, the tool switcher signals to people that there are multiple ways a task can be done. For example, using the {% data variables.product.prodname_cli %} or {% data variables.product.prodname_desktop %}, instead of the {% data variables.product.prodname_dotcom %} UI.
+* **Exploring** - For tasks that can be completed with different tools, the tool switcher signals to people that there are multiple ways a task can be done. For example, using the {% data variables.product.prodname_cli %} or {% data variables.product.prodname_desktop %}, instead of the {% data variables.product.prodname_dotcom %} UI.
 
-- **Getting to the point** - When someone knows how they want to do a task and doesn’t need to see additional options, the tool switcher removes less relevant content, so they can find exactly what they need.
+* **Getting to the point** - When someone knows how they want to do a task and doesn’t need to see additional options, the tool switcher removes less relevant content, so they can find exactly what they need.
 
 ## Using tool tags
 

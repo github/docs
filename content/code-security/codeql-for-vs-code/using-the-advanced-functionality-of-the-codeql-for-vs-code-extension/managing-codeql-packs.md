@@ -20,13 +20,13 @@ redirect_from:
 
 With the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, you can:
 
-- Write {% data variables.product.prodname_codeql %} query packs without needing to check out the standard libraries in your workspace.
+* Write {% data variables.product.prodname_codeql %} query packs without needing to check out the standard libraries in your workspace.
 
-- Install dependencies for {% data variables.product.prodname_codeql %} query packs inside your {% data variables.product.prodname_vscode_shortname %} workspace.
+* Install dependencies for {% data variables.product.prodname_codeql %} query packs inside your {% data variables.product.prodname_vscode_shortname %} workspace.
 
-- Download {% data variables.product.prodname_codeql %} query packs.
+* Download {% data variables.product.prodname_codeql %} query packs.
 
-- View a {% data variables.product.prodname_codeql %} query pack and all of its dependencies.
+* View a {% data variables.product.prodname_codeql %} query pack and all of its dependencies.
 
 For more information about creating and editing {% data variables.product.prodname_codeql %} query and library packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
 
@@ -52,9 +52,9 @@ For more information about creating and editing {% data variables.product.prodna
 
 1. To view the full definition of an element of a query, you can right-click and select **Go to Definition**.
 
-   - If the library pack is present within the same {% data variables.product.prodname_vscode %} workspace, this will take you to the definition within the workspace.
+   * If the library pack is present within the same {% data variables.product.prodname_vscode %} workspace, this will take you to the definition within the workspace.
 
-   - Otherwise, you will see the definition stored in your package cache, where downloaded dependencies are saved. The package cache is a shared location that is stored in your home directory by default.
+   * Otherwise, you will see the definition stored in your package cache, where downloaded dependencies are saved. The package cache is a shared location that is stored in your home directory by default.
 
 {% ifversion codeql-model-packs %}
 

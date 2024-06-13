@@ -81,9 +81,9 @@ You can create a codespace from any template repository, then publish your work 
 
 When a codespace is published, you have access to a greater range of options to customize your {% data variables.product.prodname_github_codespaces %} experience. For example, you can:
 
-- Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
-- Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
+* Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
+* Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
+* Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)").
 
 ### Publishing from {% data variables.product.prodname_dotcom_the_website %}
 
@@ -102,6 +102,6 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)"
-- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)"
+* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)"

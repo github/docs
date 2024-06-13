@@ -60,12 +60,12 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
     ```
 
 1. Customize the parameters in your workflow file:
-   - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
+   * In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
      To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="Column menu" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
      If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different {% data variables.projects.projects_v1_boards %}.
-   - Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
+   * Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
 1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
@@ -82,5 +82,5 @@ Test your workflow out by moving an issue on your {% data variables.projects.pro
 
 ## Next steps
 
-- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
-- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
+* To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
+* [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.

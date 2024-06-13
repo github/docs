@@ -92,9 +92,9 @@ If you have installed the autoscaling runner set, but the listener pod is not cr
 
 Once a workflow run is canceled, the following events happen.
 
-- The cancellation signal is sent to the runners directly.
-- The runner application terminates, which also terminates the runner pods.
-- On the next poll, the cancellation signal is received by the listener.
+* The cancellation signal is sent to the runners directly.
+* The runner application terminates, which also terminates the runner pods.
+* On the next poll, the cancellation signal is received by the listener.
 
 There might be a slight delay between when the runners receive the signal and when the listener receives the signal. When runner pods start terminating, the listener tries to bring up new runners to match the desired number of runners according to the state it's in. However, when the listener receives the cancellation signal, it will act to reduce the number of runners. Eventually the listener will scale back down to the desired number of runners. In the meantime, you may see extra runners.
 
@@ -116,7 +116,7 @@ You may see this error if you're using Kubernetes mode with persistent volumes. 
 
 To fix this, you can do one of the following things.
 
-- Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
+* Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
 
     ```yaml copy
     spec:
@@ -128,7 +128,7 @@ To fix this, you can do one of the following things.
         command: ["/home/runner/run.sh"]
     ```
 
-- If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
+* If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
 
     ```yaml copy
     template:

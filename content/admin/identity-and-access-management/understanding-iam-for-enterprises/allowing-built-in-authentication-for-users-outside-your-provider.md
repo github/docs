@@ -56,6 +56,6 @@ When a user accepts the invitation, they can use their username and password to 
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"

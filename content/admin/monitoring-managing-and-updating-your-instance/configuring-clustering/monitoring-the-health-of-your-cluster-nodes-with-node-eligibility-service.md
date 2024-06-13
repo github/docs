@@ -34,19 +34,19 @@ To determine whether to emit a warning or automatically adjust the configuration
 
 Each node has a health state and an eligibility state.
 
-- Health refers to the accessibility of the node within the cluster and has three possible states: `healthy`, `warning`, or `critical`.
-- Eligibility refers to the ability of the node to work in the cluster and has two possible states: `eligible` or `ineligible`.
+* Health refers to the accessibility of the node within the cluster and has three possible states: `healthy`, `warning`, or `critical`.
+* Eligibility refers to the ability of the node to work in the cluster and has two possible states: `eligible` or `ineligible`.
 
 {% data variables.product.prodname_nes %} provides a configurable TTL setting for two states, `warn` and `fail`.
 
-- `warn`: The node has been offline for a short period of time. This may indicate something is wrong with the node and that administrators should investigate. The default setting is 15 minutes.
-- `fail`: The node has been offline for a long period of time, and reintroduction into the cluster could cause performance issues due to resynchronization. The default setting is 60 minutes.
+* `warn`: The node has been offline for a short period of time. This may indicate something is wrong with the node and that administrators should investigate. The default setting is 15 minutes.
+* `fail`: The node has been offline for a long period of time, and reintroduction into the cluster could cause performance issues due to resynchronization. The default setting is 60 minutes.
 
 For each node, {% data variables.product.prodname_nes %} determines health and eligibility for participation in the cluster in the following ways.
 
-- If a node has been observed to be healthy, the health state is `healthy` and the eligibility state is `eligible`.
-- If a node hasn't been observed to be healthy for longer than the `warn` TTL, the health state is `warning` and the eligibility state is `eligible`.
-- If a node hasn't been observed to be healthy for longer than the `fail` TTL, the health state is `critical` and its eligibility state is `ineligible`.
+* If a node has been observed to be healthy, the health state is `healthy` and the eligibility state is `eligible`.
+* If a node hasn't been observed to be healthy for longer than the `warn` TTL, the health state is `warning` and the eligibility state is `eligible`.
+* If a node hasn't been observed to be healthy for longer than the `fail` TTL, the health state is `critical` and its eligibility state is `ineligible`.
 
 ## Enabling {% data variables.product.prodname_nes %} for your cluster
 
@@ -105,13 +105,13 @@ To manage whether {% data variables.product.prodname_nes %} can take a node and 
 
 {% data reusables.enterprise_installation.ssh-into-cluster-node %}
 1. To configure whether {% data variables.product.prodname_nes %} can take a node offline, run one of the following commands.
-   - To allow the service to automatically take administrative action when a node goes offline, run the following command. Replace HOSTNAME with the node's hostname.
+   * To allow the service to automatically take administrative action when a node goes offline, run the following command. Replace HOSTNAME with the node's hostname.
 
      ```shell copy
      nes set-node-adminaction approved HOSTNAME
      ```
 
-   - To revoke {% data variables.product.prodname_nes %}'s ability to take a node offline, run the following command. Replace HOSTNAME with the node's hostname.
+   * To revoke {% data variables.product.prodname_nes %}'s ability to take a node offline, run the following command. Replace HOSTNAME with the node's hostname.
 
      ```shell copy
      nes set-node-adminaction none HOSTNAME
@@ -121,8 +121,8 @@ To manage whether {% data variables.product.prodname_nes %} can take a node and 
 
 To view an overview of your nodes' health using {% data variables.product.prodname_nes %}, use one of the following methods.
 
-- SSH into any node in the cluster, then run `nes get-cluster-health`.
-- Navigate to the {% data variables.enterprise.management_console %}'s "Status" page. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console)."
+* SSH into any node in the cluster, then run `nes get-cluster-health`.
+* Navigate to the {% data variables.enterprise.management_console %}'s "Status" page. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console)."
 
 ## Re-enabling an ineligible node to join the cluster
 
@@ -147,7 +147,7 @@ After {% data variables.product.prodname_nes %} detects that a node has exceeded
    nomad node status
    ```
 
-   - If the node's status is `ineligible`, make the node eligible by connecting to the node via SSH and running the following command.
+   * If the node's status is `ineligible`, make the node eligible by connecting to the node via SSH and running the following command.
 
      ```shell copy
      nomad node eligibility -enable -self
@@ -178,13 +178,13 @@ You can view logs for {% data variables.product.prodname_nes %} from any node in
 
 1. Alternatively, you can view logs for {% data variables.product.prodname_nes %} on the node that runs the service. The service writes logs to the systemd journal.
 
-   - To determine which node runs {% data variables.product.prodname_nes %}, run the following command.
+   * To determine which node runs {% data variables.product.prodname_nes %}, run the following command.
 
      ```shell copy
      nomad job status "nes" | grep running | grep "${nomad_node_id}" | awk 'NR==2{ print $1 }' | xargs nomad alloc status | grep "Node Name"
      ```
 
-   - To view logs on the node, connect to the node via SSH, then run the following command.
+   * To view logs on the node, connect to the node via SSH, then run the following command.
 
      ```shell copy
      journalctl -t nes
@@ -192,4 +192,4 @@ You can view logs for {% data variables.product.prodname_nes %} from any node in
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#nes)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#nes)"

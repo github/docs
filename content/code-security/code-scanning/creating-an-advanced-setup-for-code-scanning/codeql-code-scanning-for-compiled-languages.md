@@ -64,9 +64,9 @@ In {% data variables.product.product_name %} {{ allVersions[currentVersion].curr
 
 The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
 
-- `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported in beta for {% data variables.code-scanning.no_build_support %}).
-- `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
-- `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
+* `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported in beta for {% data variables.code-scanning.no_build_support %}).
+* `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
+* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
 
 ### Comparison of the build modes
 
@@ -133,7 +133,7 @@ For information about the languages, libraries, and frameworks that are supporte
 {% data variables.product.prodname_codeql %} creates a Java database without requiring a build when one or both of the following conditions is true:
 
 -`build-mode` is set to `none`.
-- Default setup is configured and Java code (but not Kotlin code) was present when {% data variables.product.prodname_codeql %} was enabled.
+* Default setup is configured and Java code (but not Kotlin code) was present when {% data variables.product.prodname_codeql %} was enabled.
 
 {% data variables.product.prodname_codeql %} will attempt to run Gradle or Maven first in order to extract accurate dependency information (but not to invoke a build), before creating a database from all Java files present.
 
@@ -141,8 +141,8 @@ You can read about the system requirements to run Maven or Gradle, and the rules
 
 Creating a {% data variables.product.prodname_codeql %} Java database without a build may produce less accurate results than using `autobuild` or manual build steps if:
 
-- Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
-- The analyzed code includes code that was generated during the build process.
+* Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
+* The analyzed code includes code that was generated during the build process.
 
 To use `autobuild` or manual build steps, you can use advanced setup.
 
@@ -156,9 +156,9 @@ If `build-mode` is set to `none` and Kotlin code is found in the repository, it 
 
 The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
-- Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (beta release supported for {% data variables.code-scanning.no_build_support %}).
-- Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
-- Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
+* Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (beta release supported for {% data variables.code-scanning.no_build_support %}).
+* Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
+* Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
 
 {% endif %}
 
@@ -280,12 +280,12 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %} If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 or default-setup-self-hosted-runners-GHEC %} For self-hosted runners, you should install dependencies directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}
 
-- [Building C/C++](#building-cc)
-- [Building C#](#building-c){% ifversion codeql-go-autobuild %}
-- [Building Go](#building-go){% endif %}{% ifversion codeql-kotlin-beta %}
-- [Building Java and Kotlin](#building-java--and-kotlin){% else %}
-- [Building Java](#building-java){% endif %}{% ifversion codeql-swift-beta %}
-- [Building Swift](#building-swift){% endif %}
+* [Building C/C++](#building-cc)
+* [Building C#](#building-c){% ifversion codeql-go-autobuild %}
+* [Building Go](#building-go){% endif %}{% ifversion codeql-kotlin-beta %}
+* [Building Java and Kotlin](#building-java--and-kotlin){% else %}
+* [Building Java](#building-java){% endif %}{% ifversion codeql-swift-beta %}
+* [Building Swift](#building-swift){% endif %}
 
 {% note %}
 
@@ -406,8 +406,8 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports the following build modes.
 
-- Java: `none`, `autobuild`, or `manual`
-- Kotlin: `autobuild` or `manual`
+* Java: `none`, `autobuild`, or `manual`
+* Kotlin: `autobuild` or `manual`
 
 When you first enable default setup for a repository, if only Java code is detected then the build mode is set to `none`. If Kotlin or a combination of Java and Kotlin code is detected, then the build mode is set to `autobuild`.
 
@@ -432,15 +432,15 @@ The `autobuild` process tries to determine the build system for Java codebases b
 
 If you're using self-hosted runners, the required version(s) of Java should be present:
 
-- If the runner will be used for analyzing repositories that need a single version of Java, then the appropriate JDK version needs to be installed, and needs to be present in the PATH variable (so that `java` and `javac` can be found).
+* If the runner will be used for analyzing repositories that need a single version of Java, then the appropriate JDK version needs to be installed, and needs to be present in the PATH variable (so that `java` and `javac` can be found).
 
-- If the runner will be used for analyzing repositories that need multiple versions of Java, then the appropriate JDK versions need to be installed, and can be specified via the `toolchains.xml` file. This is a configuration file, typically used by Apache Maven, that allows you to specify the location of the tools, the version of the tools, and any additional configuration that is required to use the tools. For more information, see "[Guide to Using Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html)" in the Apache Maven documentation.
+* If the runner will be used for analyzing repositories that need multiple versions of Java, then the appropriate JDK versions need to be installed, and can be specified via the `toolchains.xml` file. This is a configuration file, typically used by Apache Maven, that allows you to specify the location of the tools, the version of the tools, and any additional configuration that is required to use the tools. For more information, see "[Guide to Using Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html)" in the Apache Maven documentation.
 
 The following executables will likely be required for a range of Java projects, and should be present in the PATH variable, but they will not be essential in all cases:
 
-- `mvn` (Apache Maven)
-- `gradle` (Gradle)
-- `ant` (Apache Ant)
+* `mvn` (Apache Maven)
+* `gradle` (Gradle)
+* `ant` (Apache Ant)
 
 You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 

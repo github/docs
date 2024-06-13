@@ -36,9 +36,9 @@ If your workflow fails with `Error: "No source code was seen during the build"` 
 
 1. _Compilation not detected by {% data variables.product.prodname_codeql %}:_ Your compiled code (in C, C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} or Java) was compiled successfully, but {% data variables.product.prodname_codeql %} was unable to detect the compiler invocations. The most common causes are:
 
-   - Running your build process in a separate container to {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container)."
-   - Building using a distributed build system external to GitHub Actions, using a daemon process.
-   - {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
+   * Running your build process in a separate container to {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container)."
+   * Building using a distributed build system external to GitHub Actions, using a daemon process.
+   * {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
 
   If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_support %}.
 

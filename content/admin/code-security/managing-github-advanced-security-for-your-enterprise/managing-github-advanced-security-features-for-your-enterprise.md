@@ -45,7 +45,7 @@ When you enable one or more security and analysis features for existing reposito
 1. In the left sidebar, click **Code security & analysis**.
 1. Optionally, enable or disable a feature for all existing repositories.
 
-   - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+   * To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
      {% ifversion ghec %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-with-user-namespace.png)
@@ -55,7 +55,7 @@ When you enable one or more security and analysis features for existing reposito
 
      {% else %}
      ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png){% endif %}
-   - To confirm the change, click the **Enable/Disable all** or **Enable/Disable for eligible repositories** button in the dialog that is displayed.
+   * To confirm the change, click the **Enable/Disable all** or **Enable/Disable for eligible repositories** button in the dialog that is displayed.
 1. Optionally, to enable or disable a feature automatically when new private and internal repositories{% ifversion secret-scanning-user-owned-repos %}, user namespace repositories {% ifversion ghec %}belonging to {% data variables.product.prodname_emus %}{% endif %}{% endif %}, or public repositories and repositories with {% data variables.product.prodname_GH_advanced_security %} enabled are created, select the checkbox below the feature.
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to automatically allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret by sending it to the relevant partner, select the relevant checkbox under "{% data variables.product.prodname_secret_scanning_caps %}". You can also enable the validity check for a single repository or organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)," and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."

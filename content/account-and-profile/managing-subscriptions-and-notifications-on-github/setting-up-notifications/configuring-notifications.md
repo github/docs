@@ -27,9 +27,9 @@ topics:
 
 You can receive notifications for activity on {% data variables.product.prodname_dotcom %} in the following locations.
 
-- The notifications inbox in the {% data variables.product.prodname_dotcom %} web interface
-- The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox in the web interface
-- An email client that uses a verified email address, which can also sync with the notifications inbox in the web interface and {% data variables.product.prodname_mobile %}
+* The notifications inbox in the {% data variables.product.prodname_dotcom %} web interface
+* The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox in the web interface
+* An email client that uses a verified email address, which can also sync with the notifications inbox in the web interface and {% data variables.product.prodname_mobile %}
 
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 
@@ -38,14 +38,14 @@ You can receive notifications for activity on {% data variables.product.prodname
 ### Benefits of the notifications inbox
 
 The notifications inbox includes triaging options designed specifically for your {% data variables.product.prodname_dotcom %} notifications flow, including options to:
-- Triage multiple notifications at once.
-- Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
-- Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
-- Unsubscribe and remove a notification from your inbox.
-- Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
-- See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
-- Create custom filters to focus on different notifications when you want.
-- Group notifications in your inbox by repository or date to get a quick overview with less context switching
+* Triage multiple notifications at once.
+* Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
+* Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
+* Unsubscribe and remove a notification from your inbox.
+* Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
+* See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
+* Create custom filters to focus on different notifications when you want.
+* Group notifications in your inbox by repository or date to get a quick overview with less context switching
 
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[AUTOTITLE](/get-started/using-github/github-mobile)."
 
@@ -82,8 +82,8 @@ For conversations you're watching or participating in, you can choose whether yo
 ![Screenshot of the "Notification settings" page. The "Participating" and "Watching" settings are shown, each with two checkbox options, titled "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
 For example, on your "Notification settings" page:
-- If you don't want notifications to be sent to your email, deselect **email** for participating and watching notifications.
-- If you want to receive notifications by email when you've participated in a conversation, then select **email** under "Participating".
+* If you don't want notifications to be sent to your email, deselect **email** for participating and watching notifications.
+* If you want to receive notifications by email when you've participated in a conversation, then select **email** under "Participating".
 
 {% ifversion update-notification-settings-22 %}If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
 
@@ -106,10 +106,10 @@ If you're using Gmail, you can click a button beside the notification email to v
 {% endif %}
 
 Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.prodname_dotcom %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
-- Comments on issues and pull requests.
-- Pull request reviews.
-- Pull request pushes.
-- Your own updates, such as when you open, comment on, or close an issue or pull request.
+* Comments on issues and pull requests.
+* Pull request reviews.
+* Pull request pushes.
+* Your own updates, such as when you open, comment on, or close an issue or pull request.
 
 Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
 
@@ -138,11 +138,11 @@ Email notifications from {% data variables.product.prodname_dotcom %} contain he
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 1. On the notifications settings page, choose how you receive notifications when:
-    - There are updates in repositories {% ifversion team-discussions %}or team discussions{% endif %} you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
-    - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
-    - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
-    - There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."
+    * There are updates in repositories {% ifversion team-discussions %}or team discussions{% endif %} you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
+    * You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
+    * There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
+    * There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
+    * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see "[Organization alerts notification options](#organization-alerts-notification-options)."
 
 ## Automatic watching
 
@@ -251,10 +251,10 @@ If you're an organization owner, you'll receive email notifications by default w
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 
 When you install {% data variables.product.prodname_mobile %}, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
-- Direct mentions
-- Assignments to issues or pull requests
-- Requests to review a pull request
-- Requests to approve a deployment
+* Direct mentions
+* Assignments to issues or pull requests
+* Requests to review a pull request
+* Requests to approve a deployment
 
 You can also schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device.
 

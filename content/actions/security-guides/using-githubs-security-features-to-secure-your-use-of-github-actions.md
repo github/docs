@@ -20,9 +20,9 @@ You can use the dependency graph to explore the actions that the workflows in yo
 
 The dependency graph shows the following information about actions used in workflows:
 
-- The account or organization that owns the action.
-- The workflow file that references the action.
-- The version or SHA the action is pinned to.
+* The account or organization that owns the action.
+* The workflow file that references the action.
+* The version or SHA the action is pinned to.
 
 In the dependency graph, dependencies are automatically sorted by vulnerability severity. If any of the actions you use have security advisories, they will display at the top of the list. You can navigate to the advisory from the dependency graph and access instructions for resolving the vulnerability.
 
@@ -34,8 +34,8 @@ For actions available on the marketplace, {% data variables.product.prodname_dot
 
 You can set up your repositories so that you:
 
-- Receive alerts when actions used in your workflows receive a vulnerability report. For more information, see "[Monitoring the actions in your workflows](#monitoring-the-actions-in-your-workflows)."
-- Are warned about existing advisories when you add or update an action in a workflow. For more information, see "[Screening actions for vulnerabilities in new or updated workflows](#screening-actions-for-vulnerabilities-in-new-or-updated-workflows)."
+* Receive alerts when actions used in your workflows receive a vulnerability report. For more information, see "[Monitoring the actions in your workflows](#monitoring-the-actions-in-your-workflows)."
+* Are warned about existing advisories when you add or update an action in a workflow. For more information, see "[Screening actions for vulnerabilities in new or updated workflows](#screening-actions-for-vulnerabilities-in-new-or-updated-workflows)."
 
 ### Monitoring the actions in your workflows
 
@@ -67,8 +67,8 @@ For more information about dependency review, see "[AUTOTITLE](/code-security/su
 
 The following features can automatically update the actions in your workflows.
 
-- **{% data variables.product.prodname_dependabot_version_updates %}** open pull requests to update actions to the latest version when a new version is released.
-- **{% data variables.product.prodname_dependabot_security_updates %}** open pull requests to update actions with reported vulnerabilities to the minimum patched version.
+* **{% data variables.product.prodname_dependabot_version_updates %}** open pull requests to update actions to the latest version when a new version is released.
+* **{% data variables.product.prodname_dependabot_security_updates %}** open pull requests to update actions with reported vulnerabilities to the minimum patched version.
 
 {% note %}
 
@@ -90,7 +90,7 @@ For information on how to configure {% data variables.product.prodname_dependabo
 
 If you are someone who maintains an action that is used in other projects, you can use the following {% data variables.product.prodname_dotcom %} features to enhance the security of the actions you've published.
 
-- Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view)."
-- Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository)" and "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
+* Use the dependants view in the Dependency graph to see which projects depend on your code. If you receive a vulnerability report, this will give you an idea of who you need to communicate with about the vulnerability and how to fix it. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view)."
+* Use repository security advisories to create a security advisory, privately collaborate to fix the vulnerability in a temporary private fork, and publish a security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository)" and "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
 
 {% endif %}

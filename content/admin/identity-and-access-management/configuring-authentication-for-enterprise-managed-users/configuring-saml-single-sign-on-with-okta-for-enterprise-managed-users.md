@@ -35,9 +35,9 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
 1. On the "Sign on" tab, under "SAML 2.0," click **More details**.
 1. In order to configure your enterprise on {% data variables.product.product_name %} later, note down the following items:
 
-   - "Sign on URL"
-   - "Issuer"
-   - "Signing certificate"
+   * "Sign on URL"
+   * "Issuer"
+   * "Signing certificate"
 
 ## Configuring your enterprise
 

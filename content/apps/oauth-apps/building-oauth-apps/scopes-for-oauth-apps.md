@@ -40,8 +40,8 @@ X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```
 
-- `X-OAuth-Scopes` lists the scopes your token has authorized.
-- `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
+* `X-OAuth-Scopes` lists the scopes your token has authorized.
+* `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
 
 ## Available scopes
 

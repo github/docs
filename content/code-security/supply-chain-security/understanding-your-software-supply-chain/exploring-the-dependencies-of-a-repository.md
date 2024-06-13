@@ -79,10 +79,10 @@ For public repositories, the dependents view shows how the repository is used by
 ## Changing the "Used by" package
 
 You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-- The dependency graph is enabled for the repository (see the above section for more details).
-- Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
-- Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
-- More than 100 repositories depend on your package.
+* The dependency graph is enabled for the repository (see the above section for more details).
+* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
+* Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+* More than 100 repositories depend on your package.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
@@ -110,8 +110,8 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/privacy-on-github)"
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% ifversion ghec %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/get-started/privacy-on-github)"
 {% endif %}

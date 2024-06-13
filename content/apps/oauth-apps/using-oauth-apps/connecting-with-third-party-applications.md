@@ -28,8 +28,8 @@ If the developer has chosen to supply further information, the right-hand side o
 
 Applications can have _read_ or _write_ access to your {% data variables.product.product_name %} data.
 
-- **Read access** only allows an application to _look at_ your data.
-- **Write access** allows an application to _change_ your data.
+* **Read access** only allows an application to _look at_ your data.
+* **Write access** allows an application to _change_ your data.
 
 ### About OAuth scopes
 
