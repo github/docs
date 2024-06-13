@@ -560,40 +560,39 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
+Links are used to connect people to additional information and to progress through tasks that require reading multiple articles.
+
+**Be frugal with links.** Including too many links can distract from the main content or steal people's focus. All links should be considered in the context of the user journey: why might we send someone to this link and how do we get them back on track to complete their task?
+
+Before adding a link, decide if someone must visit the link to understand the content or be successful using {% data variables.product.prodname_dotcom %}.
+
+* If the link is not necessary, remove it.
+* If the link relates to the main topic of an article and lets someone continue learning, but isn't necessary to complete the task, consider moving the link to the end of the article as further reading.
+* If the link takes someone to the next step in a process, include the link in a next steps section at the end of the article.
+* If the link provides information that can be critical to completing a task or troubleshooting a step, include the link in the main body of the article.
+
 Links must be consistent, accessible to as many people as possible, translatable, and clear. People need to know where a link leads to and how it relates to what they want to accomplish.
 
-Before adding a link, decide if someone must visit the link to understand the content. If the link is not necessary, consider removing it or including it at the end of the article as further reading.
+Some best practices for using links:
+* Links should be meaningful and provide high value to the user’s journey. Link out thoughtfully.
+* Do not repeat the same link more than once in the same article.
+* Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
+
+### Formatting links
 
 You can introduce links with just the verb "see" if the context makes it clear what the link is for. If the context is not clear, use a phrase or sentence to introduce the link such as "For more information, see" or "To learn more about X, see Y."
 
 Use the title of the documentation article, or external web page, as the link text. For any link that points to another article on the {% data variables.product.prodname_docs %} site, use the special keyword `AUTOTITLE` for the link text. See details in the [content markup reference](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#internal-links-with-autotitle).
 
-Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and can be harder to read.
-
-* **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
-* **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
-
-Usage examples:
-
 * For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
 * For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
-* For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
-Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
-
-For links to an external page (any website that isn't managed by {% data variables.product.prodname_dotcom %}), type out the full page title and destination site.
-
-* **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
-* **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
-* **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
+Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and read.
 
 Do not include quotation marks within a hyperlink.
 
-Some best practices for using links:
-* Links should be meaningful and provide high value to the user’s journey—link out carefully.
-* Move links that are helpful but not necessary to an article’s further reading section.
-* Do not repeat the same link more than once in the same article or under the same H2 header.
-* Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
+* **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+* **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 ### Links between versions
 
@@ -623,13 +622,15 @@ To link to a specific version, you must include the version in the path (e.g., `
 
 ### Links to specific sections of articles
 
-When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
+Links to specific sections of articles must be descriptive enough that someone understands that they are in the correct spot after following a link.
 
 To link to a specific header in the same article, use this format:
 
 ```markdown
 For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 ```
+
+Same-page section links do **not** work with `AUTOTITLE`. Instead, you must type out the full header text.
 
 To link to a specific header in a different article, use this format:
 
@@ -645,7 +646,7 @@ For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and
 
 ### Links to a specific tool
 
-When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
+If you link to content with a specific tool selected, make sure that it is clear that the link will be for a specific tool even if someone doesn't interact with the tool switcher tab in the article.
 
 ```markdown
 For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
@@ -661,9 +662,15 @@ For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
 
 ### Links to external resources
 
-When linking to an external site, choose the most useful resource for the context of the link—you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
+When linking to an external site, choose the most useful resource for the context of the link. You can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
 
 It's not necessary to link to an external product’s website when we mention an external product.
+
+For links to an external page (any website that isn't managed by {% data variables.product.prodname_dotcom %}), type out the full page title and destination site. Do not put the link in quotation marks.
+
+* **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+* **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
+* **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
 
 ### Adding anchors to preserve links
 

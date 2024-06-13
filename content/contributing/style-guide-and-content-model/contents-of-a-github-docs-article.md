@@ -150,16 +150,42 @@ Procedural content helps people complete tasks. For more information, see "[AUTO
 
 Troubleshooting content helps people avoid or work through errors. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type)" in the content model.
 
+## Next steps
+
+When an article describes one step in a larger process or has a logical next step that most people will want to do, include a next steps section. You can link people to articles or other {% data variables.product.prodname_dotcom %} resources.
+
+### Examples of next steps sections
+
+```markdown
+## Next steps
+
+- You can monitor self-hosted runners and troubleshoot common issues. See "Monitoring and troubleshooting self hosted runners."
+
+- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. See "Security hardening for {% data variables.product.prodname_actions %}."
+```
+
+In this example from "[AUTOTITLE](/enterprise-cloud@latest/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps)," the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
+
+```markdown
+## Next steps
+
+After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. Follow the "Get started with your enterprise account" learning path.
+```
+
+In this example from "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account#next-steps)," the next step links to where most people who just finished creating an enterprise account would want to go next.
+
 ## Further reading
 
-Further reading sections highlight additional targeted articles that aren’t already included within the article’s content. Use further reading sections sparingly when they provide real value.
+If there are additional articles that help people complete their task or learn to use the topic described in the current article, include them in a further reading section. Only include links to articles that have not already been linked to within the content of the article.
+
+Only include links that help people with the task or topic at hand. It is better to be focused and provide people with valuable resources than to offer them every possible link.
 
 Format further reading sections using unordered lists. See "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)" for how to write links.
 
 ### Title and format for further reading sections
 
 ```markdown
-### Further reading
+## Further reading
 - "[Article title](article-URL)"
 - [External resource title](external-resource-URL) in External Resource Name
 ```
