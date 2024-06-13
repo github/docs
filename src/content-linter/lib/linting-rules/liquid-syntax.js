@@ -91,7 +91,9 @@ export const liquidSyntax = {
 }
 
 function getErrorMessageInfo(message) {
-  const [errorDescription, lineString, columnString] = message.split(',')
+  const [errorDescription, lineString, columnString] = message
+    .match(/(.*?),\s*(line:\d+),\s*(col:\d+)/)
+    .slice(1, 4)
   // There has to be a line number so we'll default to line 1 if the message
   // doesn't contain a line number.
   if (!columnString || !lineString)
