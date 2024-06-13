@@ -119,7 +119,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for all of 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %}, including when you use push protection{% endif %}. For example, you can exclude directories that contain tests or randomly generated content.
+You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For example, you can exclude directories that contain tests or randomly generated content.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
