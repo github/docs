@@ -161,7 +161,8 @@ function getCussWords(lang) {
 
 function isLikelyCussWords(text, language_, rating = 2) {
   const cussWords = getCussWords(language_)
-  for (const word of splitWords(text, language_ || 'en')) {
+  const words = splitWords(text, language_ || 'en').map((word) => word.toLowerCase())
+  for (const word of words) {
     if (cussWords[word] && cussWords[word] === rating) {
       return true
     }
