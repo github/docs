@@ -68,6 +68,10 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
         redirects,
         pages,
       })
+      if (redirect && isEnterpriseCloudRedirectOnly(pageURL, redirect)) {
+        // Ignore this one. It just added enterprise-cloud@latest to the URL.
+        continue
+      }
       if (redirect) {
         redirectedPage = pages[redirect]
         if (!redirectedPage) {
@@ -101,6 +105,12 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
     checks.push(check)
   }
   return checks
+}
+
+function isEnterpriseCloudRedirectOnly(originalUrl: string, redirectUrl: string) {
+  // A lot of URLs don't work in free-pro-team so all they do is redirect
+  // from {OLD-URL} to "/enterprise-count@latest/{OLD-URL}"
+  return redirectUrl.replace('/enterprise-cloud@latest', '') === originalUrl
 }
 
 async function renderInnerHTML(page: Page, permalink: Permalink) {
