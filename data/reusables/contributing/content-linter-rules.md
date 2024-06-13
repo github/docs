@@ -3,7 +3,7 @@
 | Rule ID | Rule Name(s) | Description | Severity | Tags |
 | ------- | ------------ | ----------- | -------- | ---- |
 | [MD001](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md001.md) | heading-increment | Heading levels should only increment by one level at a time | error | headings |
-| [MD004](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md004.md) | ul-style | Unordered list style | error | bullet, ul |
+| [MD004](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md004.md) | ul-style | Unordered list style | warning | bullet, ul |
 | [MD009](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md009.md) | no-trailing-spaces | Trailing spaces | error | whitespace |
 | [MD011](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md011.md) | no-reversed-links | Reversed link syntax | error | links |
 | [MD012](https://github.com/DavidAnson/markdownlint/blob/v0.34.0/doc/md012.md) | no-multiple-blanks | Multiple consecutive blank lines | error | whitespace, blank_lines |
@@ -48,7 +48,7 @@
 | GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
 | GHD016 | liquid-quoted-conditional-arg | Liquid conditional tags should not quote the conditional argument | error | liquid, format |
 | GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |
-| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must have the correct number of arguments and spacing | error | liquid, format |
+| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must be correctly formatted and have the correct number of arguments and spacing | error | liquid, format |
 | GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
 | GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
 | GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |

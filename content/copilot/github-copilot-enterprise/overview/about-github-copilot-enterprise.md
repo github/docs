@@ -2,7 +2,7 @@
 title: About GitHub Copilot Enterprise
 shortTitle: About Copilot Enterprise
 intro: 'Learn about {% data variables.product.prodname_copilot_enterprise %} and how it compares to other {% data variables.product.prodname_copilot_short %} plans.'
-product: '{% data reusables.gated-features.copilot-billing %}'
+product: '{% data reusables.gated-features.copilot-enterprise %}'
 versions:
   feature: copilot
 topics:
@@ -31,7 +31,7 @@ Enterprise owners can allow some or all organizations in the enterprise to acces
 
 ## Setting up and enabling {% data variables.product.prodname_copilot_enterprise_short %}
 
-To use {% data variables.product.prodname_copilot_enterprise_short %}, you need to set up a subscription for your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
+To use {% data variables.product.prodname_copilot_enterprise_short %}, you need to set up a subscription for your enterprise account. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization)."
 
 After setting up a subscription, enterprise owners and organization owners can enable {% data variables.product.prodname_copilot_enterprise_short %} for their enterprise or organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."
 
@@ -47,5 +47,5 @@ Access to {% data variables.product.prodname_copilot %} is managed at the organi
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
-- "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"
+* "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+* "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"

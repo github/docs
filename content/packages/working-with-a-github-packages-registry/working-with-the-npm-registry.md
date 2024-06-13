@@ -104,8 +104,8 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 
 **Note:**
 
-- Package names and scopes must only use lowercase letters.
-- The tarball for an npm version must be smaller than 256MB in size.
+* Package names and scopes must only use lowercase letters.
+* The tarball for an npm version must be smaller than 256MB in size.
 
 {% endnote %}
 {% else %}

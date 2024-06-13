@@ -120,10 +120,10 @@ Select output format, either `text` _(default)_ or `json`.
 List of CodeQL pack groups to include or exclude from this operation. A
 qlpack in the given workspace is included if:
 
-- It is in at least one of the groups listed without a minus sign (this
+* It is in at least one of the groups listed without a minus sign (this
   condition is automatically satisfied if there are no groups listed
   without a minus sign), and
-- It is not in any group listed with a minus sign
+* It is not in any group listed with a minus sign
 
 ### Options to set up compilation environment
 

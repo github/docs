@@ -21,17 +21,17 @@ The time required to failover depends on how long it takes to manually promote t
 
 1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
 
-   - Put the appliance into maintenance mode.
+   * Put the appliance into maintenance mode.
 
-     - To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
+     * To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
 
-     - You can also use the `ghe-maintenance -s` command.
+     * You can also use the `ghe-maintenance -s` command.
 
        ```shell
        ghe-maintenance -s
        ```
 
-   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
+   * When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
 
      {% note %}
 
@@ -39,7 +39,7 @@ The time required to failover depends on how long it takes to manually promote t
 
      {% endnote %}
 
-   - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
+   * To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
      ```shell
      ghe-repl-status -vv
@@ -63,13 +63,13 @@ The time required to failover depends on how long it takes to manually promote t
 1. Notify users that they can resume normal operations.
 1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
 1. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
-    - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
+    * On the former appliances, get their UUID via `cat /data/user/common/uuid`.
 
       ```shell
       cat /data/user/common/uuid
       ```
 
-    - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace `UUID` with a UUID you retrieved in the previous step.
+    * On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace `UUID` with a UUID you retrieved in the previous step.
 
       ```shell
       ghe-repl-teardown -u  UUID
@@ -77,4 +77,4 @@ The time required to failover depends on how long it takes to manually promote t
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)"
+* "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)"

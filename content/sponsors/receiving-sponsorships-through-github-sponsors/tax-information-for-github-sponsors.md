@@ -73,4 +73,4 @@ In the EU and most other countries and regions, B2C sales are subject to sales t
 
 ## Further reading
 
-- "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)"
+* "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)"

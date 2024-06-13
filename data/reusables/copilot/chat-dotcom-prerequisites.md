@@ -1,0 +1,1 @@
+To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been assigned a seat as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."

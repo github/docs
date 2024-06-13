@@ -16,13 +16,13 @@ To enable users to use {% data variables.product.prodname_copilot_enterprise_sho
 
 Access to {% data variables.product.prodname_copilot_short %} is determined at the enterprise and organization levels:
 
-- Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)."
-- Owners of organizations that have been granted access to {% data variables.product.prodname_copilot_short %} can assign {% data variables.product.prodname_copilot_enterprise %} seats to some or all members of their organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
+* Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
+* Owners of organizations that have been granted access to {% data variables.product.prodname_copilot_short %} can assign {% data variables.product.prodname_copilot_enterprise %} seats to some or all members of their organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 When access to {% data variables.product.prodname_copilot_short %} has been enabled, features such as the ability to use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, can be configured. Features are enabled or disabled at the enterprise or organization level:
 
-- Enterprise owners can set {% data variables.product.prodname_copilot_short %} features to be enabled or disabled for all organizations in the enterprise that have access to {% data variables.product.prodname_copilot_short %}. Alternatively, they can allow each organization to set its own policy for each feature.
-- If the enterprise owner has permitted it, organization owners can enable or disable {% data variables.product.prodname_copilot_short %} features for their organization.
+* Enterprise owners can set {% data variables.product.prodname_copilot_short %} features to be enabled or disabled for all organizations in the enterprise that have access to {% data variables.product.prodname_copilot_short %}. Alternatively, they can allow each organization to set its own policy for each feature.
+* If the enterprise owner has permitted it, organization owners can enable or disable {% data variables.product.prodname_copilot_short %} features for their organization.
 
 This article explains how to enable or disable the features of {% data variables.product.prodname_copilot_enterprise %} at the enterprise level, and for an individual organization.
 
@@ -56,20 +56,16 @@ If your organization's parent enterprise has selected **No policy** for "{% data
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
 
-   {% note %}
-
-   **Note:** If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)." After {% data variables.product.prodname_copilot_short %} is enabled for the organization, return to this procedure.
-
-   {% endnote %}
+   > [!NOTE] If the side panel only contains the **Access** option under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, it indicates that {% data variables.product.prodname_copilot_short %} is not currently available in the organization. An enterprise admin must enable {% data variables.product.prodname_copilot_short %} for your organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
 
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
-   - **Enabled**: The feature is enabled for all members of the organization.
-   - **Disabled**: The feature is disabled for all members of the organization.
+   * **Enabled**: The feature is enabled for all members of the organization.
+   * **Disabled**: The feature is disabled for all members of the organization.
 
-1. If you select **Enabled**, the option **Give {% data variables.product.prodname_copilot_short %} access to Bing** is displayed.
+1. If you select **Enabled**, two check boxes are displayed.
 
-   Select **Give {% data variables.product.prodname_copilot_short %} access to Bing** to allow {% data variables.product.prodname_copilot_chat_short %} to use search results from Bing to answer questions where appropriate.
+   {% data reusables.copilot.policies-for-dotcom %}
 
 ## Configuring {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 
@@ -79,18 +75,12 @@ After {% data variables.product.prodname_copilot_enterprise_short %} has been en
 
    {% data variables.product.prodname_copilot_enterprise_short %} works best when repositories have semantic code indexing enabled. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#repo-indexing-note).
 
-   {% note %}
-
-   **Note:**
-
-   Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
-
-   {% endnote %}
+   > [!NOTE] Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates will typically be indexed within 5 minutes.
 
 1. Create at least one knowledge base.
 
-   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/managing-copilot-knowledge-bases)."
+   Knowledge bases bring together Markdown documentation across one or more repositories and make them available through {% data variables.product.prodname_copilot_enterprise_short %}. Once created, organization members can specify a knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %} and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"

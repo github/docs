@@ -23,8 +23,8 @@ You can programmatically fork a repository using the REST API. For more informat
 
 If your use case meets any of the following criteria, you can't use forking instead of directly importing your repository.
 
-- You want the imported repository to be owned by the same user or organization as the source repository.
-- You want one user or organization to be able to import the same source repository multiple times.
+* You want the imported repository to be owned by the same user or organization as the source repository.
+* You want one user or organization to be able to import the same source repository multiple times.
 
 ## Using repository templates
 
@@ -58,4 +58,4 @@ If the source repository is a Git repository, you can call the {% data variables
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/repos/repos)"
+* "[AUTOTITLE](/rest/repos/repos)"

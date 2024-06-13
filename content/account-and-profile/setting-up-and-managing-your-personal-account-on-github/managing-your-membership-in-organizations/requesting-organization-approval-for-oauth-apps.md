@@ -31,4 +31,4 @@ Organization members can always request owner approval for {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
+* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"

@@ -58,9 +58,9 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 {% warning %}
 
 **Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
+* Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+* Using `!` to negate a pattern
+* Using `[ ]` to define a character range
 
 {% endwarning %}
 
@@ -174,8 +174,8 @@ To protect a repository fully against unauthorized changes, you also need to def
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

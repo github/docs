@@ -12,15 +12,15 @@ shortTitle: Share with your organization
 
 ## About {% data variables.product.prodname_actions %} access to private {% ifversion internal-actions %} or internal {% endif %}repositories
 
-You can share actions and reusable workflows within your organization, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access a private {% ifversion internal-actions %} or internal {% endif %}repository that contains the action or reusable workflow.
+You can share actions and reusable workflows within your organization, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access a private {% ifversion internal-actions %}  {% endif %}repository that contains the action or reusable workflow.
 
-Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private {% ifversion internal-actions %} or internal {% endif %}repositories owned by the same organization. Actions and reusable workflows stored in internal repositories cannot be used in public repositories {% ifversion private-actions %}and actions and reusable workflows stored in private repositories cannot be used in public or internal repositories{% endif %}.
+Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private repositories owned by the same organization. Actions and reusable workflows stored in private repositories cannot be used in public repositories.
 
 {% warning %}
 
 **Warning**:
-- {% data reusables.actions.outside-collaborators-actions %}
-- {% data reusables.actions.scoped-token-note %}
+* {% data reusables.actions.outside-collaborators-actions %}
+* {% data reusables.actions.scoped-token-note %}
 
 {% endwarning %}
 
@@ -31,4 +31,4 @@ Any actions or reusable workflows stored in the private repository can be used i
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"
+* "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"

@@ -17,9 +17,9 @@ shortTitle: Filter by milestone
 
 **Tips:**
 
-- If you'd rather filter issues and pull requests using the Search bar, you can use the milestone search syntax. For a milestone called My Milestone, the search syntax would be: `milestone:"My Milestone"`.
-- To clear your filter selection, click **Clear current search query, filters, and sorts**.
-- You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
+* If you'd rather filter issues and pull requests using the Search bar, you can use the milestone search syntax. For a milestone called My Milestone, the search syntax would be: `milestone:"My Milestone"`.
+* To clear your filter selection, click **Clear current search query, filters, and sorts**.
+* You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 
@@ -32,5 +32,5 @@ shortTitle: Filter by milestone
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"

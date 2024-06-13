@@ -64,23 +64,23 @@ In order to test your webhook locally, you can use a webhook proxy URL to forwar
 
 1. Create a webhook with the following settings. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
 
-   - For the URL, use your webhook proxy URL from earlier.
-   - If you have an option to choose the content type, use JSON.
+   * For the URL, use your webhook proxy URL from earlier.
+   * If you have an option to choose the content type, use JSON.
 
 ## Write code to handle webhook deliveries
 
 In order to handle webhook deliveries, you need to write code that will:
 
-- Initialize your server to listen for requests to your webhook URL
-- Read the HTTP headers and body from the request
-- Take the desired action in response to the request
+* Initialize your server to listen for requests to your webhook URL
+* Read the HTTP headers and body from the request
+* Take the desired action in response to the request
 
 You can use any programming language that you can run on your server.
 
 The following examples print a message when a webhook delivery is received. However, you can modify the code to take another action, such as making a request to the {% data variables.product.company_short %} API or sending a Slack message.
 
-- [Ruby example](#ruby-example)
-- [JavaScript example](#javascript-example)
+* [Ruby example](#ruby-example)
+* [JavaScript example](#javascript-example)
 
 ### Ruby example
 
@@ -282,14 +282,14 @@ Now that you have tested out your code locally, you can make changes to use your
 
 If you don't see the expected results described in the testing steps, try the following:
 
-- Make sure that your webhook is using your webhook proxy URL (Smee.io URL). For more information about your webhook proxy URL, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)." For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-- Make sure that your webhook uses the JSON content type, if you have a choice about what content type to use. For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-- Make sure that both the smee client and your local server are running. You will have these processes running in two separate terminal windows.
-- Make sure that your server is listening to the same port where smee.io is forwarding webhooks. All of the examples in this article use port 3000.
-- Make sure that the path where smee.io is forwarding webhooks matches a route that is defined in your code. All of the examples in this article use the `/webhooks` path.
-- Check for error messages in the terminal windows where you are running the smee client and your local server.
-- Check {% data variables.product.company_short %} to verify that a webhook delivery was triggered. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
-- Check your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
+* Make sure that your webhook is using your webhook proxy URL (Smee.io URL). For more information about your webhook proxy URL, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)." For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+* Make sure that your webhook uses the JSON content type, if you have a choice about what content type to use. For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+* Make sure that both the smee client and your local server are running. You will have these processes running in two separate terminal windows.
+* Make sure that your server is listening to the same port where smee.io is forwarding webhooks. All of the examples in this article use port 3000.
+* Make sure that the path where smee.io is forwarding webhooks matches a route that is defined in your code. All of the examples in this article use the `/webhooks` path.
+* Check for error messages in the terminal windows where you are running the smee client and your local server.
+* Check {% data variables.product.company_short %} to verify that a webhook delivery was triggered. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+* Check your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
 
 ## Next steps
 
@@ -299,10 +299,10 @@ This article demonstrated how to write code to handle webhook deliveries. It als
 
 This article gave basic examples that print a message when a webhook delivery is received. You may want to modify the code to take some other action. For example, you could modify the code to:
 
-- Make a request to the {% data variables.product.company_short %} API
-- Send a message on Slack
-- Log events
-- Update an external project management tool
+* Make a request to the {% data variables.product.company_short %} API
+* Send a message on Slack
+* Log events
+* Update an external project management tool
 
 ### Verify that the delivery is from {% data variables.product.company_short %}
 
@@ -326,5 +326,5 @@ You should aim to follow best practices with your webhooks. For more information
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)"
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)"
+* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"

@@ -10,20 +10,15 @@ versions:
   ghec: '*'
 shortTitle: On behalf of an organization
 ---
-{% note %}
-
-**Note:** The ability to create a commit on behalf of an organization is currently in public beta and is subject to change.
-
-{% endnote %}
 
 To create commits on behalf of an organization:
 
-- you must be a member of the organization indicated in the trailer
-- you must sign the commit
-- your commit email and the organization email must be in a domain verified by the organization
-- your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
-  - `org` is the organization's login
-  - `name@organization.com` is in the organization's domain
+* You must be a member of the organization indicated in the trailer
+* You must sign the commit
+* Your commit email and the organization email must be in a domain verified by the organization
+* Your commit message must end with the commit trailer `on-behalf-of: @org <name@organization.com>`
+  * `org` is the organization's login
+  * `name@organization.com` is in the organization's domain
 
 Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
 
@@ -67,7 +62,7 @@ The new commit, message, and badge will appear on {% data variables.location.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
-- "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)"
-- "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
+* "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/viewing-a-projects-contributors)"
+* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)"

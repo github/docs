@@ -23,22 +23,22 @@ You can block non-members from within your organization's settings or from a spe
 {% endtip %}
 
 At the time that you block a user from your organization:
-- The user stops watching your organization's repositories
-- The user's stars and issue assignments are removed from your repositories
-- The user's votes on discussions or comments in your organization's repositories are deleted
-- The user is removed as a collaborator on your organization's repositories
-- The user's contributions to your organization's repositories are no longer counted as contributions for them
-- Any pending repository or organization invitations to the blocked user are canceled
+* The user stops watching your organization's repositories
+* The user's stars and issue assignments are removed from your repositories
+* The user's votes on discussions or comments in your organization's repositories are deleted
+* The user is removed as a collaborator on your organization's repositories
+* The user's contributions to your organization's repositories are no longer counted as contributions for them
+* Any pending repository or organization invitations to the blocked user are canceled
 
 After you've blocked a user from your organization, they cannot:
-- Cross-reference your organization's repositories in comments
-- Fork, watch, pin, or star your organization's repositories
+* Cross-reference your organization's repositories in comments
+* Fork, watch, pin, or star your organization's repositories
 
 In your organization's repositories, blocked users also cannot:
-- Open issues
-- Send, close, or merge pull requests
-- Comment on issues, pull requests, or commits
-- Add or edit wiki pages
+* Open issues
+* Send, close, or merge pull requests
+* Comment on issues, pull requests, or commits
+* Add or edit wiki pages
 
 ## Blocking a user in a comment
 
@@ -66,8 +66,8 @@ In your organization's repositories, blocked users also cannot:
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

@@ -110,8 +110,8 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
-- [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
+* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+* [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
 {%- ifversion scim-for-ghes %}
-- [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
+* [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
 {%- endif %}

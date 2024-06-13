@@ -24,9 +24,9 @@ topics:
 ## About accounts on {% data variables.product.product_name %}
 
 With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
-- Personal accounts
-- Organization accounts
-- Enterprise accounts
+* Personal accounts
+* Organization accounts
+* Enterprise accounts
 
 Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
 
@@ -50,7 +50,7 @@ Most people will use one personal account for all their work on {% data variable
 
 ## Organization accounts
 
-Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once.
+Organizations are shared accounts where a large number of people can collaborate across many projects at once.
 
 Like personal accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign into an organization. Instead, each person signs into their own personal account, and any actions the person takes on organization resources are attributed to their personal account. Each personal account can be a member of multiple organizations.
 
@@ -71,16 +71,16 @@ For more information about all the features of organizations, see "[AUTOTITLE](/
 ## Enterprise accounts
 
 {% ifversion fpt %}
-{% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} include enterprise accounts, which allow administrators to centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} include enterprise accounts, which allow administrators to centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {% elsif ghec %}
-Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 {% elsif ghes %}
-Your enterprise account is a collection of all the organizations {% ifversion ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+Your enterprise account is a collection of all the organizations {% ifversion ghes %}on{% endif %} {% data variables.location.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 {% endif %}
 
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"{% endif %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
-- [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
+* "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"{% endif %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
+* [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources

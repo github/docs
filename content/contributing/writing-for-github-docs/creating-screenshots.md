@@ -18,9 +18,9 @@ Therefore, we only add screenshots to {% data variables.product.prodname_docs %}
 
 Use a screenshot to complement text instructions when an element of the user interface (UI) is hard to find:
 
-- The element is small or visually subtle.
-- The element is not immediately visible. For example, the element is contained in a dropdown menu.
-- The interface has multiple competing choices that can cause confusion.
+* The element is small or visually subtle.
+* The element is not immediately visible. For example, the element is contained in a dropdown menu.
+* The interface has multiple competing choices that can cause confusion.
 
 Do not use screenshots for procedural steps where text alone is clear, or to show code commands or outputs.
 
@@ -78,8 +78,8 @@ Text instructions are adequate to help the user complete the step.
 
 There are also two accessibility implications of including the full sentence of text below the checkbox in the screenshot:
 
-- The sentence is hard to read for low-sighted users, because it's small and not as crisp as HTML text.
-- A person using a screen reader won't have access to the information, because it will not fit within alt text character limits. Including the text in the instructions would remedy this, but would be unnecessarily wordy.
+* The sentence is hard to read for low-sighted users, because it's small and not as crisp as HTML text.
+* A person using a screen reader won't have access to the information, because it will not fit within alt text character limits. Including the text in the instructions would remedy this, but would be unnecessarily wordy.
 
 ## Requirements for screenshots
 
@@ -87,32 +87,32 @@ In addition to the criteria for inclusion, screenshots must meet the following r
 
 ### Technical specifications
 
-- PNG file format
-- Static images only (no GIFs)
-- 144 dpi
-- 750–1000 pixels wide for full-column images
-- File size of 250 KB or less
-- Descriptive file names, such as `gist-embed-link.png` instead of `right_side_page_03.png`
+* PNG file format
+* Static images only (no GIFs)
+* 144 dpi
+* 750–1000 pixels wide for full-column images
+* File size of 250 KB or less
+* Descriptive file names, such as `gist-embed-link.png` instead of `right_side_page_03.png`
 
 ### Accessibility
 
 To meet the needs of more users, screenshots must:
 
-- Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
-- Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-- Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
-- Be clear and crisp, with text and UI elements as legible as possible.
+* Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
+* Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
+* Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
+* Be clear and crisp, with text and UI elements as legible as possible.
 
 ### Visual style
 
-- Show a UI element with just enough surrounding context to help people know where to find the element on their screen.
-- Reduce negative space by resizing your browser window until optimal.
-- Show interfaces in light theme wherever possible.
-  - For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
-  - For VSCode, select "GitHub light default" in the free [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) extension.
-  - If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
-- If your username and avatar appear, replace them with @octocat's username and [avatar](https://avatars.githubusercontent.com/u/583231?v=4). Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with `https://avatars.githubusercontent.com/u/583231?v=4`.
-- Do not include a cursor.
+* Show a UI element with just enough surrounding context to help people know where to find the element on their screen.
+* Reduce negative space by resizing your browser window until optimal.
+* Show interfaces in light theme wherever possible.
+  * For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+  * For VSCode, select "GitHub light default" in the free [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) extension.
+  * If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
+* If your username and avatar appear, replace them with @octocat's username and [avatar](https://avatars.githubusercontent.com/u/583231?v=4). Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with `https://avatars.githubusercontent.com/u/583231?v=4`.
+* Do not include a cursor.
 
 #### Visual style for dropdown menus
 
@@ -147,8 +147,8 @@ The stroke is the color `fg.severe` in the [Primer Design System](https://primer
 1. Open a screenshot in Snagit.
 1. To set pixel depth (resolution) and pixel width, below the image canvas, open the "Resize image" dialog.
 
-   - Pixel depth: 144dpi (equivalent to "2x" on Snagit for Mac)
-   - Pixel width: 1000 pixels maximum
+   * Pixel depth: 144dpi (equivalent to "2x" on Snagit for Mac)
+   * Pixel width: 1000 pixels maximum
 
    {% note %}
 

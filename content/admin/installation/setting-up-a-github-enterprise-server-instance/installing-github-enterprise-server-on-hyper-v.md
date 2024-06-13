@@ -17,9 +17,9 @@ shortTitle: Install on Hyper-V
 ---
 ## Prerequisites
 
-- {% data reusables.enterprise_installation.software-license %}
-- You must have Windows Server 2008 through Windows Server 2022, which supports Hyper-V.
-- Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). However, we recommend using the Windows PowerShell command-line shell for initial setup. Examples using PowerShell are included below. For more information, see the Microsoft guide [Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1).
+* {% data reusables.enterprise_installation.software-license %}
+* You must have Windows Server 2008 through Windows Server 2022, which supports Hyper-V.
+* Most actions needed to create your virtual machine (VM) may also be performed using the [Hyper-V Manager](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/remotely-manage-hyper-v-hosts). However, we recommend using the Windows PowerShell command-line shell for initial setup. Examples using PowerShell are included below. For more information, see the Microsoft guide [Getting Started with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/getting-started/getting-started-with-windows-powershell?view=powershell-5.1).
 
 ## Hardware considerations
 
@@ -82,5 +82,5 @@ shortTitle: Install on Hyper-V
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -51,12 +51,12 @@ Organization owners can set a policy to restrict the access of {% data variables
 
 {% data variables.product.pat_v2_caps %}s have several security advantages over {% data variables.product.pat_v1_plural %}:
 
-- Each token can only access resources owned by a single user or organization.
-- Each token can only access specific repositories.
-- Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
-- Each token must have an expiration date.
-- Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes %}
-- Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
+* Each token can only access resources owned by a single user or organization.
+* Each token can only access specific repositories.
+* Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
+* Each token must have an expiration date.
+* Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes %}
+* Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
 
 #### {% data variables.product.pat_v1_caps_plural %}
 
@@ -75,8 +75,8 @@ If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it
 
 {% data variables.product.pat_generic_caps %}s are like passwords, and they share the same inherent security risks. Before creating a new {% data variables.product.pat_generic %}, consider if there is a more secure method of authentication available to you:
 
-- To access {% data variables.product.company_short %} from the command line, you can use [{% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
-- When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+* To access {% data variables.product.company_short %} from the command line, you can use [{% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
+* When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another CLI service to store your token securely.
 
@@ -179,5 +179,5 @@ Instead of manually entering your {% data variables.product.pat_generic %} for e
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"

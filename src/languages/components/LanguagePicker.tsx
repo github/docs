@@ -20,7 +20,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
 
   const { t } = useTranslation('picker')
   // Remember, in this context `languages` is only the active ones
-  // that are available. I.e. no wip ones.
+  // that are available.
   // Also, if the current context has a page and that page has own ideas
   // about which languages it's available in (e.g. early-access)
   // it would already have been paired down.

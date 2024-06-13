@@ -69,6 +69,6 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 
 ## Further reading
 
-- "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
-- [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
-- [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation
+* "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
+* [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
+* [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation

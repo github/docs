@@ -41,7 +41,7 @@ After you finish the guide, {% ifversion ghec %}members of your enterprise{% els
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-- Your enterprise must own at least one organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+* Your enterprise must own at least one organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
 ## 1. Configure policies for {% data variables.product.prodname_actions %}
 
@@ -116,18 +116,18 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 ## Next steps
 
-- You can monitor self-hosted runners and troubleshoot common issues. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+* You can monitor self-hosted runners and troubleshoot common issues. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
 
-- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+* {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
-- {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %}, you{% elsif ghes %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
+* {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %}, you{% elsif ghes %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
 
-  - "[AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"{% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
-  - "[AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"{% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
+  * "[AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)"{% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
+  * "[AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"{% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
 
-- You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
+* You can customize the software available on your self-hosted runner machines, or configure your runners to run software similar to {% data variables.product.company_short %}-hosted runners{% ifversion ghes %} available for customers using {% data variables.product.prodname_dotcom_the_website %}{% endif %}. The software that powers runner machines for {% data variables.product.prodname_actions %} is open source. For more information, see the [`actions/runner`](https://github.com/actions/runner) and [`actions/runner-images`](https://github.com/actions/runner-images) repositories.
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service)"
-- "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)"
+* "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service)"
+* "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)"

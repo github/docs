@@ -52,11 +52,11 @@ A repository administrator can choose to disable {% data variables.product.prodn
 ## Enabling additional features for {% data variables.secret-scanning.user_alerts %}
 
 You can enable the following additional {% data variables.product.prodname_secret_scanning %} feature{% ifversion ghec or ghes %}s{% endif %} through your repository's "Code security and analysis" settings:
-- **Push protection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-secret-scanning-as-a-push-protection-for-a-repository)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-- **Validity checks for partner patterns**. For more infomation, see "[Enabling validity checks for partner patterns](#enabling-validity-checks-for-partner-patterns)."{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
-- **Scanning for non-provider patterns**. For more information, see "[Enabling scanning for non-provider patterns](#enabling-scanning-for-non-provider-patterns)."{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection%}
-- **AI-powered generic secret detection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)."{% endif %}{% ifversion secret-scanning-push-protection-custom-patterns %}
-- **Scanning for custom patterns**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{% endif %}
+* **Push protection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-secret-scanning-as-a-push-protection-for-a-repository)."{% ifversion secret-scanning-validity-check-partner-patterns %}
+* **Validity checks for partner patterns**. For more infomation, see "[Enabling validity checks for partner patterns](#enabling-validity-checks-for-partner-patterns)."{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+* **Scanning for non-provider patterns**. For more information, see "[Enabling scanning for non-provider patterns](#enabling-scanning-for-non-provider-patterns)."{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection%}
+* **AI-powered generic secret detection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)."{% endif %}{% ifversion secret-scanning-push-protection-custom-patterns %}
+* **Scanning for custom patterns**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
@@ -119,7 +119,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for all of 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %}, including when you use push protection{% endif %}. For example, you can exclude directories that contain tests or randomly generated content.
+You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For example, you can exclude directories that contain tests or randomly generated content.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
@@ -136,8 +136,8 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
     {% note %}
 
     **Notes:**
-    - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    - If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
+    * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
 
     {% endnote %}
 
@@ -147,6 +147,6 @@ You can also ignore individual alerts from {% data variables.product.prodname_se
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
-- "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+* "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)"
 {% endif %}

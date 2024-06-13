@@ -389,8 +389,8 @@ on:
 
 **Notes**:
 
-- {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
-- {% data reusables.actions.merge-group-event-with-required-checks %}
+* {% data reusables.developer-site.multiple_activity_types %} Although only the `checks_requested` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+* {% data reusables.actions.merge-group-event-with-required-checks %}
 
 {% endnote %}
 
@@ -591,15 +591,15 @@ on:
 {% note %}
 
 **Notes**:
-- {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
+* {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
 
-- Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
+* Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
 
   Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
 
-- The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
+* The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
 
-- The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
+* The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
 {% endnote %}
 
@@ -1154,8 +1154,8 @@ jobs:
 
 **Notes**:
 
-- The maximum number of top-level properties in `client_payload` is 10.
-- The payload can contain a maximum of 65,535 characters.
+* The maximum number of top-level properties in `client_payload` is 10.
+* The payload can contain a maximum of 65,535 characters.
 
 {% endnote %}
 
@@ -1169,11 +1169,11 @@ jobs:
 
 **Notes:**
 
-- {% data reusables.actions.schedule-delay %}
-- This event will only trigger a workflow run if the workflow file is on the default branch.
-- Scheduled workflows will only run on the default branch.
-- In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
-- When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
+* {% data reusables.actions.schedule-delay %}
+* This event will only trigger a workflow run if the workflow file is on the default branch.
+* Scheduled workflows will only run on the default branch.
+* In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see "[AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow)."
+* When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
 
   **Example:**
 

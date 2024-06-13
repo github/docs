@@ -25,14 +25,14 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 
 ### Pros of SSH agent forwarding
 
-- You do not have to generate or keep track of any new keys.
-- There is no key management; users have the same permissions on the server that they do locally.
-- No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
+* You do not have to generate or keep track of any new keys.
+* There is no key management; users have the same permissions on the server that they do locally.
+* No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
 
 ### Cons of SSH agent forwarding
 
-- Users **must** SSH in to deploy; automated deploy processes can't be used.
-- SSH agent forwarding can be troublesome to run for Windows users.
+* Users **must** SSH in to deploy; automated deploy processes can't be used.
+* SSH agent forwarding can be troublesome to run for Windows users.
 
 ### Set up SSH agent forwarding
 
@@ -46,18 +46,18 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 ### Pros of HTTPS cloning with OAuth tokens
 
-- Anyone with access to the server can deploy the repository.
-- Users don't have to change their local SSH settings.
-- Multiple tokens (one for each user) are not needed; one token per server is enough.
-- A token can be revoked at any time, turning it essentially into a one-use password.
+* Anyone with access to the server can deploy the repository.
+* Users don't have to change their local SSH settings.
+* Multiple tokens (one for each user) are not needed; one token per server is enough.
+* A token can be revoked at any time, turning it essentially into a one-use password.
 {% ifversion ghes %}
-- Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations/oauth-authorizations#create-a-new-authorization).
+* Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
 ### Cons of HTTPS cloning with OAuth tokens
 
-- You must make sure that you configure your token with the correct access scopes.
-- Tokens are essentially passwords, and must be protected the same way.
+* You must make sure that you configure your token with the correct access scopes.
+* Tokens are essentially passwords, and must be protected the same way.
 
 ### Set up HTTPS cloning with OAuth tokens
 
@@ -71,15 +71,15 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 
 ### Pros of deploy keys
 
-- Anyone with access to the repository and server has the ability to deploy the project.
-- Users don't have to change their local SSH settings.
-- Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
+* Anyone with access to the repository and server has the ability to deploy the project.
+* Users don't have to change their local SSH settings.
+* Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
 
 ### Cons of deploy keys
 
-- Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
-- Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
-- If the user who created the deploy key is removed from the repository, the deploy key will still be active as it isn't tied to the specific user, but rather to the repository.
+* Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
+* Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
+* If the user who created the deploy key is removed from the repository, the deploy key will still be active as it isn't tied to the specific user, but rather to the repository.
 
 ### Set up deploy keys
 
@@ -111,9 +111,9 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-- `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-- `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-- `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
@@ -129,15 +129,15 @@ Since {% data variables.product.prodname_github_apps %} are a first class actor 
 
 ### Pros of installation access tokens
 
-- Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
-- Dedicated rate limits that grow with your organization.
-- Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any licensed seats.
-- Never granted a password, so cannot be directly signed in to.
+* Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API).
+* Dedicated rate limits that grow with your organization.
+* Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any licensed seats.
+* Never granted a password, so cannot be directly signed in to.
 
 ### Cons of installation access tokens
 
-- Additional setup is needed to create the {% data variables.product.prodname_github_app %}.
-- Installation access tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
+* Additional setup is needed to create the {% data variables.product.prodname_github_app %}.
+* Installation access tokens expire after 1 hour, and so need to be re-generated, typically on-demand using code.
 
 ### Set up installation access tokens
 
@@ -173,14 +173,14 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 ### Pros of machine users
 
-- Anyone with access to the repository and server has the ability to deploy the project.
-- No (human) users need to change their local SSH settings.
-- Multiple keys are not needed; one per server is adequate.
+* Anyone with access to the repository and server has the ability to deploy the project.
+* No (human) users need to change their local SSH settings.
+* Multiple keys are not needed; one per server is adequate.
 
 ### Cons of machine users
 
-- Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
-- Machine user keys, like deploy keys, are usually not protected by a passphrase.
+* Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
+* Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
 ### Set up machine users
 
@@ -196,4 +196,4 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 ## Further reading
 
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+* [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

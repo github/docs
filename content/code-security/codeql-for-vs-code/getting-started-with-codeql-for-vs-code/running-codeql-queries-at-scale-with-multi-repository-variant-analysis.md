@@ -31,13 +31,13 @@ The {% data variables.product.prodname_codeql %} extension builds a {% data vari
 
 ### Prerequisites
 
-- You must define a controller repository before you can run your first multi-repository variant analysis.
+* You must define a controller repository before you can run your first multi-repository variant analysis.
 
-- Controller repositories can be empty, but they must have at least one commit.
+* Controller repositories can be empty, but they must have at least one commit.
 
-- The controller repository visibility can be "public" if you plan to analyze public repositories. The variant analysis will be free.
+* The controller repository visibility can be "public" if you plan to analyze public repositories. The variant analysis will be free.
 
-- The controller repository visibility must be "private" if you need to analyze any private or internal repositories. {% ifversion fpt or ghec %} Any actions minutes used by variant analysis, above the free limit, will be charged to the repository owner. For more information about free minutes and billing, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+* The controller repository visibility must be "private" if you need to analyze any private or internal repositories. {% ifversion fpt or ghec %} Any actions minutes used by variant analysis, above the free limit, will be charged to the repository owner. For more information about free minutes and billing, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 ## Setting up a controller repository for MRVA
 
@@ -73,9 +73,9 @@ The name of the controller repository is saved in your settings for the {% data 
 
 When you run MRVA, there are two key places where errors and warnings are displayed:
 
-- {% data variables.product.prodname_vscode %} errors: any problems with creating a {% data variables.product.prodname_codeql %} pack and sending the analysis to {% data variables.product.prodname_dotcom_the_website %} are reported as {% data variables.product.prodname_vscode %} errors in the bottom right corner of the application. Information is also available in the "Problems" view.
+* {% data variables.product.prodname_vscode %} errors: any problems with creating a {% data variables.product.prodname_codeql %} pack and sending the analysis to {% data variables.product.prodname_dotcom_the_website %} are reported as {% data variables.product.prodname_vscode %} errors in the bottom right corner of the application. Information is also available in the "Problems" view.
 
-- "Variant Analysis Results": any problems with the variant analysis run are reported in this view.
+* "Variant Analysis Results": any problems with the variant analysis run are reported in this view.
 
 ## Exploring your results
 
@@ -87,13 +87,13 @@ When your variant analysis run is scheduled, the "Results" view automatically op
 
 For each repository, you can see:
 
-- Number of results found by the query
+* Number of results found by the query
 
-- Visibility of the repository
+* Visibility of the repository
 
-- Whether analysis is still running or has finished
+* Whether analysis is still running or has finished
 
-- Number of stars the repository has on {% data variables.product.company_short %}
+* Number of stars the repository has on {% data variables.product.company_short %}
 
 ### Seeing the results for a repository
 

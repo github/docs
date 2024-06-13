@@ -31,4 +31,4 @@ As you're working on issues and pull requests, you can [track the progress of yo
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"

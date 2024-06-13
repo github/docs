@@ -69,8 +69,8 @@ For more information, see "[AUTOTITLE](/actions/security-guides/security-hardeni
 
 ## Next steps
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"

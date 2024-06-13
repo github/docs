@@ -30,8 +30,8 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% data variables.product.prodname_oauth_apps %} can have _read_ or _write_ access to your {% data variables.product.product_name %} data.
 
-- **Read access** only allows an app to _look at_ your data.
-- **Write access** allows an app to _change_ your data.
+* **Read access** only allows an app to _look at_ your data.
+* **Write access** allows an app to _change_ your data.
 
 {% tip %}
 
@@ -67,8 +67,10 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
-| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |{% ifversion projects-oauth-scope %}
-| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |{% endif %}
+| Repository delete | Apps can request to delete repositories that you administer, but they won't have access to your code. |
+| {% ifversion projects-oauth-scope %} |
+| Projects | Access to user and organization {% data variables.projects.projects_v2 %}. Apps can request either read/write or read only access. |
+| {% endif %} |
 
 ## Requesting updated permissions
 
@@ -80,9 +82,9 @@ When {% data variables.product.prodname_oauth_apps %} request new access permiss
 
 When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
 
-- **For organizations _with_ {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization owners approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization owner, you can [approve the application](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) yourself.
+* **For organizations _with_ {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization owners approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization owner, you can [approve the application](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) yourself.
 
-- **For organizations _without_ {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
+* **For organizations _without_ {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
 
 If you belong to any organizations with SAML single sign-on (SSO) enabled, and you have created a linked identity for that organization by authenticating via SAML in the past, you must have an active SAML session for each organization each time you authorize an {% data variables.product.prodname_oauth_app %}.
 
@@ -94,8 +96,8 @@ If you belong to any organizations with SAML single sign-on (SSO) enabled, and y
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
-- "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
-- "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
+* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
+* "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
+* "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
 
 {% endif %}

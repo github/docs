@@ -59,31 +59,31 @@ The feed is designed to help you discover relevant content from projects you fol
 
 You can use the {% octicon "filter" aria-hidden="true" %} **Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
 
-- Stars a repository.
-- Follows another user.
-- Creates a public repository.
-- Opens an issue or pull request with `help wanted` or `good first issue` label on a repository you're watching.
-- Pushes commits to a repository you watch.
-- Forks a public repository.
-- Publishes a new release.
+* Stars a repository
+* Follows another user
+* Creates a public repository
+* Opens an issue or pull request with `help wanted` or `good first issue` label on a repository you're watching
+* Pushes commits to a repository you watch
+* Forks a public repository
+* Publishes a new release
 
 {% else %}
 The main section of your dashboard has two activity feeds:
 
-- Following: Activity by people you follow and from repositories you watch.
-- For you: Activity and recommendations based on your {% data variables.product.product_name %} network.
+* Following: Activity by people you follow and from repositories you watch.
+* For you: Activity and recommendations based on your {% data variables.product.product_name %} network.
 
 ### Following feed
 
 This feed shows activity from repositories and users you have shown a direct interest in, by following a user or watching a repository. For example, you'll see updates when a user you follow:
 
-- Stars a repository.
-- Follows another user.
-- Creates a public repository.
-- Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
-- Pushes commits to a repository you watch.
-- Forks a public repository.
-- Publishes a new release.
+* Stars a repository.
+* Follows another user.
+* Creates a public repository.
+* Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
+* Pushes commits to a repository you watch.
+* Forks a public repository.
+* Publishes a new release.
 
 For more information about following people and starring repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
@@ -97,11 +97,11 @@ For more information about following people and starring repositories, see "[AUT
 
 This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
 
-- Repositories you have starred
-- Repositories you've contributed to
-- Users you follow or sponsor
-- Users you've collaborated with
-- Organizations you follow
+* Repositories you have starred
+* Repositories you've contributed to
+* Users you follow or sponsor
+* Users you've collaborated with
+* Organizations you follow
 
 {% endif %}
 
@@ -111,4 +111,4 @@ In the "Explore repositories" section on the right side of your dashboard, you c
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)"

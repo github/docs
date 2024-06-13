@@ -15,11 +15,11 @@ topics:
 
  {% data variables.product.product_name %} reserves certain usernames for internal use. You cannot assign reserved usernames to users or organizations on your instance. For example, the following words are reserved:
 
-- `admin`
-- `enterprise`
-- `login`
-- `staff`
-- `support`
+* `admin`
+* `enterprise`
+* `login`
+* `staff`
+* `support`
 
 ## Viewing reserved username
 

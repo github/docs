@@ -26,17 +26,21 @@ For more information, see "[AUTOTITLE](/authentication/securing-your-account-wit
 
 Before you can require organization members and outside collaborators to use 2FA, you must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) for your own personal account.
 
+Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+
+{% data reusables.two_fa.ghes_ntp %}
+
 {% warning %}
 
 **Warnings:**
 
-- When your require two-factor authentication, members and outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can [reinstate their access privileges and settings](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
-- When 2FA is required, organization members or outside collaborators who disable 2FA will automatically be removed from the organization.
-- If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
+* When your require two-factor authentication, members and outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories, including their forks of private repositories. If they enable 2FA for their personal account within three months of being removed from the organization, you can [reinstate their access privileges and settings](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
+* When 2FA is required, organization members or outside collaborators who disable 2FA will automatically be removed from the organization.
+* If you're the sole owner of an organization that requires two-factor authentication, you won't be able to disable 2FA for your personal account without disabling required two-factor authentication for the organization.
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
+## Requiring two-factor authentication for an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -52,11 +56,11 @@ To view people who were automatically removed from your organization for non-com
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 1. Enter your search query using `reason:two_factor_requirement_non_compliance`. To narrow your search for:
-   - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
-   - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
+   * Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
+   * Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
 
    You can also view people removed from a particular organization by using the organization name in your search:
-   - `org:octo-org AND reason:two_factor_requirement_non_compliance`
+   * `org:octo-org AND reason:two_factor_requirement_non_compliance`
 1. Click **Search**.
 
 ## Helping removed members and outside collaborators rejoin your organization
@@ -65,7 +69,7 @@ If any members or outside collaborators are removed from the organization when y
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)"
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/reinstating-a-former-outside-collaborators-access-to-your-organization)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)"
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/reinstating-a-former-outside-collaborators-access-to-your-organization)"

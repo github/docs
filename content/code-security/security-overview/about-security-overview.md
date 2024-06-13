@@ -36,9 +36,9 @@ topics:
 
 Security overview shows which security features are enabled for repositories and includes repository and alert-focused views so you can quickly investigate security issues and take action to remediate them.
 
-- Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories.
-- Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %} and for public repositories{% endif %}.{% ifversion security-overview-dashboard %}
-- An organization-level dashboard of insights from security features is shown for enterprise-owned organizations that use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %} and for public repositories{% endif %}.{% endif %}
+* Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories.
+* Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %} and for public repositories{% endif %}.{% ifversion security-overview-dashboard %}
+* An organization-level dashboard of insights from security features is shown for enterprise-owned organizations that use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %} and for public repositories{% endif %}.{% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
@@ -69,10 +69,10 @@ You can find security overview on the **Security** tab for any organization that
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
 {% ifversion security-overview-dashboard %}
-- Use "Overview" to view insights about your organization's security landscape and progress.{% endif %}
-- Use "Coverage" to assess the adoption of code security features across repositories in the organization.
-- Use "Risk" to assess the risk from security alerts of all types for one or more repositories in the organization.
-- Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.
+* Use "Overview" to view insights about your organization's security landscape and progress.{% endif %}
+* Use "Coverage" to assess the adoption of code security features across repositories in the organization.
+* Use "Risk" to assess the risk from security alerts of all types for one or more repositories in the organization.
+* Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -105,10 +105,10 @@ You can find security overview on the **Code Security** tab for your enterprise.
 As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore enablement and alert data.
 
 {% ifversion security-overview-dashboard-enterprise %}
-- Use the "Overview" view to see insights about your enterprise's security landscape and progress.{% endif %}
-- Use the "Coverage" view to assess the adoption of code security features across organizations in the enterprise.
-- Use the "Risk" view to assess the risk from security alerts of all types across organizations in the enterprise.
-- Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.{% else %}You can view repositories owned by your enterprise that have security alerts, view all security alerts, or view security feature-specific alerts from across your enterprise.{% endif %}
+* Use the "Overview" view to see insights about your enterprise's security landscape and progress.{% endif %}
+* Use the "Coverage" view to assess the adoption of code security features across organizations in the enterprise.
+* Use the "Risk" view to assess the risk from security alerts of all types across organizations in the enterprise.
+* Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.{% else %}You can view repositories owned by your enterprise that have security alerts, view all security alerts, or view security feature-specific alerts from across your enterprise.{% endif %}
 
 For more information about these views, see {% ifversion security-overview-dashboard-enterprise %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights)," {% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
 
@@ -181,7 +181,7 @@ In the enterprise-level security overview, you can see data for all organization
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/code-security/getting-started/securing-your-organization)"
-- "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-organization)"
+* "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
 {% endif %}

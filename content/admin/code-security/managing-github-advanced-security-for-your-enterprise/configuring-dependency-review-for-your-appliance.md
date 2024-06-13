@@ -25,11 +25,11 @@ Some additional features, such as license checks, blocking of pull requests, and
 
 ## Prerequisites for dependency review
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
+* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)").{% endif %}
 
-- The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
+* The dependency graph enabled for the instance. Site administrators can enable the dependency graph via the management console or the administrative shell (see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)").
 
-- {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)").
+* {% data variables.product.prodname_github_connect %} enabled to download and synchronize vulnerabilities from the {% data variables.product.prodname_advisory_database %}. This is usually configured as part of setting up {% data variables.product.prodname_dependabot %} (see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)").
 
 ## Enabling and disabling dependency review
 

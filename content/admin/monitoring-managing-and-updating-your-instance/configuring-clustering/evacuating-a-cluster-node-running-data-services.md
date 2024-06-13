@@ -27,9 +27,9 @@ For more information about nodes and service tiers for {% data variables.product
 
 **Warnings**:
 
-- To avoid data loss during replacement of a node, {% data variables.product.company_short %} strongly recommends evacuation of the applicable data services on the node before you take the node offline.
+* To avoid data loss during replacement of a node, {% data variables.product.company_short %} strongly recommends evacuation of the applicable data services on the node before you take the node offline.
 
-- To ensure redundancy for any data service on your cluster, copies of data should exist on at least three nodes. For example, when four or more nodes store Git data, during evacuation, evacuated repository data will move from the node you're evacuating to the other three nodes. If you only have three nodes that store data for a service, evacuation of one node could fail and result in under-replicated data.
+* To ensure redundancy for any data service on your cluster, copies of data should exist on at least three nodes. For example, when four or more nodes store Git data, during evacuation, evacuated repository data will move from the node you're evacuating to the other three nodes. If you only have three nodes that store data for a service, evacuation of one node could fail and result in under-replicated data.
 
 {% endwarning %}
 
@@ -52,48 +52,48 @@ If you plan to take a node offline and the node runs any of the following roles,
 
 1. For each applicable service on the node, to determine the initial data counts, run the following commands. For each command, replace UUID with the UUID from the previous step.
 
-   - `git-server`:
+   * `git-server`:
 
      {% ifversion ghe-spokes-deprecation-phase-1 %}
-     - Command:
+     * Command:
 
        ```shell
        ghe-spokesctl server status git-server-UUID
        ```
 
-     - Relevant output: `NETWORKS`, `GISTS`
+     * Relevant output: `NETWORKS`, `GISTS`
      {% else %}
-     - Command:
+     * Command:
 
        ```shell
        ghe-spokes evac-status git-server-UUID
        ```
 
-     - Relevant output: `Networks`, `Gists`
+     * Relevant output: `Networks`, `Gists`
      {% endif %}
-   - `pages-server`:
+   * `pages-server`:
 
-     - Command:
+     * Command:
 
        ```shell
        echo "select count(*) from pages_replicas where host = 'pages-server-UUID'" | ghe-dbconsole -y
        ```
 
-   - `storage-server`:
+   * `storage-server`:
 
-     - Command:
+     * Command:
 
        ```shell
        ghe-storage evacuation-status storage-server-UUID
        ```
 
-     - Relevant output: `Remaining item(s)`
+     * Relevant output: `Remaining item(s)`
 
 1. To evacuate an applicable service on the node, run the following commands. For each command, replace UUID with the UUID from the earlier step.
 
-   - `git-server`:
+   * `git-server`:
 
-     - Command (replace REASON FOR EVACUATION with the reason for evacuation):
+     * Command (replace REASON FOR EVACUATION with the reason for evacuation):
 
         {%- ifversion ghe-spokes-deprecation-phase-1 %}
 
@@ -109,15 +109,15 @@ If you plan to take a node offline and the node runs any of the following roles,
 
        {%- endif %}
 
-   - `pages-server`:
+   * `pages-server`:
 
-     - Command:
+     * Command:
 
        ```shell
        ghe-dpages evacuate pages-server-UUID
        ```
 
-   - `storage-server`:
+   * `storage-server`:
 
      1. Take the node's service offline by running the following command.
 
@@ -139,7 +139,7 @@ If you plan to take a node offline and the node runs any of the following roles,
 
    {% endwarning %}
 
-   - `git-server`:
+   * `git-server`:
 
      {%- ifversion ghe-spokes-deprecation-phase-1 %}
 
@@ -155,13 +155,13 @@ If you plan to take a node offline and the node runs any of the following roles,
 
      {%- endif %}
 
-   - `pages-server`:
+   * `pages-server`:
 
      ```shell
      echo "select count(*) from pages_replicas where host = 'pages-server-UUID'" | ghe-dbconsole -y
      ```
 
-   - `storage-server`:
+   * `storage-server`:
 
       ```shell
       ghe-storage evacuation-status storage-server-UUID

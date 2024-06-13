@@ -18,10 +18,10 @@ topics:
 
 To maintain the security of your account when you perform a potentially sensitive action on {% data variables.location.product_location %}, you must authenticate even though you're already signed in. For example, {% data variables.product.company_short %} considers the following actions sensitive because each action could allow a new person or system to access your account.
 
-- Modification of an associated email address
-- Authorization of a third-party application
-- Addition of a new SSH key
-- Creation of a PAT or application
+* Modification of an associated email address
+* Authorization of a third-party application
+* Addition of a new SSH key
+* Creation of a PAT or application
 
 After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} has a two-hour session timeout period before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
@@ -51,15 +51,15 @@ After you authenticate to perform a sensitive action, your session is temporaril
 To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge %}can{% else %}must{% endif %} authenticate with your password.{% ifversion totp-and-mobile-sudo-challenge %} Optionally, you can use a different authentication method, like {% ifversion passkeys %}a passkey, {% endif %}{% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.{% endif %}
 
 {%- ifversion passkeys %}
-- [Confirming access using a passkey key](#confirming-access-using-a-passkey)
+* [Confirming access using a passkey key](#confirming-access-using-a-passkey)
 {%- endif %}
 {%- ifversion totp-and-mobile-sudo-challenge %}
-- [Confirming access using a security key](#confirming-access-using-a-security-key)
+* [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
-- [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
+* [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
 {%- endif %}
-- [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
-- [Confirming access using your password](#confirming-access-using-your-password)
+* [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
+* [Confirming access using your password](#confirming-access-using-your-password)
 {%- endif %}
 
 {% ifversion passkeys %}

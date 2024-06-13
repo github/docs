@@ -639,13 +639,13 @@ gh api graphql -f query='
 
 **Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
 
-- [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-- [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-- [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-- [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-- [updateIssue](/graphql/reference/mutations#updateissue)
-- [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-- [transferIssue](/graphql/reference/mutations#transferissue)
+* [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+* [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+* [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+* [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+* [updateIssue](/graphql/reference/mutations#updateissue)
+* [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+* [transferIssue](/graphql/reference/mutations#transferissue)
 
 {% endnote %}
 
@@ -653,10 +653,10 @@ gh api graphql -f query='
 
 The following example will update the value of a single select field for an item.
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
-- `OPTION_ID` - Replace this with the ID of the desired single select option.
+* `PROJECT_ID` - Replace this with the node ID of your project.
+* `ITEM_ID` - Replace this with the node ID of the item you want to update.
+* `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
+* `OPTION_ID` - Replace this with the ID of the desired single select option.
 
 {% curl %}
 
@@ -697,10 +697,10 @@ gh api graphql -f query='
 
 The following example will update the value of an iteration field for an item.
 
-- `PROJECT_ID` - Replace this with the node ID of your project.
-- `ITEM_ID` - Replace this with the node ID of the item you want to update.
-- `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
-- `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
+* `PROJECT_ID` - Replace this with the node ID of your project.
+* `ITEM_ID` - Replace this with the node ID of the item you want to update.
+* `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
+* `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
 
 {% curl %}
 

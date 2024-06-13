@@ -49,4 +49,4 @@ topics:
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)"
+* "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)"

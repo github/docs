@@ -28,8 +28,8 @@ You can see all current enterprise members and enterprise administrators{% ifver
 
 If {% data variables.product.prodname_github_connect %} is configured for your enterprise, when you filter a list of people in your enterprise, the following limitations apply.
 
-- The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
-- If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
+* The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
+* If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
 
 For more information about {% data variables.product.prodname_github_connect %}, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
 
@@ -115,19 +115,19 @@ The "Deployment" column groups users by the type of deployment they are using. F
 
 You may be able to view the email addresses for members of your enterprise on either {% data variables.location.product_location %} or an external identity system. The visibility of the email addresses depends on your enterprise's authentication method, domains, and potentially the member's user profile configuration.
 
-- If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
+* If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
 
-- If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+* If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 
-- If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
+* If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
 
 1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 1. Export the membership report for your enterprise on {% data variables.product.prodname_dotcom %}. The report may contain the user's email address, stored as the following values.
 
-   - `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)")
-   - `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)")
+   * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)")
+   * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)")
 
    For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
 {% data reusables.saml.use-api-to-get-externalidentity %}
@@ -233,4 +233,4 @@ You can see which people in your enterprise have enabled two-factor authenticati
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

@@ -20,8 +20,8 @@ The content on this site uses Markdown rendering powered by [`/src/content-rende
 
 In a list item, the general rules for additional content after the first paragraph are:
 
-- Images and subsequent paragraphs should each be on their own line and separated by a blank line.
-- All subsequent lines in a list item must match up with the first text after the list marker.
+* Images and subsequent paragraphs should each be on their own line and separated by a blank line.
+* All subsequent lines in a list item must match up with the first text after the list marker.
 
 ### Example usage of a list
 
@@ -146,9 +146,9 @@ Octicons are icons used across {% data variables.product.prodname_dotcom %}’s 
 
 If you're referencing an Octicon that appears in the UI, identify whether the Octicon is the entire label of the UI element (for example, a button that is labeled only with "+") or whether it's only decorative, in addition to another label (for example, a button is labeled "+ Add message").
 
- - If the Octicon is the entire label, use your browser's developer tools to inspect the Octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (for example, `{% raw %}{% octicon "plus" aria-label="Add file" %}{% endraw %}`). Occasionally, in the UI, the Octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
-   - Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% raw %}{% octicon "trash" aria-label="Delete Policy A" %}{% endraw %}` and `{% raw %}{% octicon "trash" aria-label="Delete Policy B" %}{% endraw %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% raw %}{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}{% endraw %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
- - If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% raw %}{% octicon "plus" aria-hidden="true" %} Add message"{% endraw %}`).
+ * If the Octicon is the entire label, use your browser's developer tools to inspect the Octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (for example, `{% raw %}{% octicon "plus" aria-label="Add file" %}{% endraw %}`). Occasionally, in the UI, the Octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
+   * Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% raw %}{% octicon "trash" aria-label="Delete Policy A" %}{% endraw %}` and `{% raw %}{% octicon "trash" aria-label="Delete Policy B" %}{% endraw %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% raw %}{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}{% endraw %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
+ * If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% raw %}{% octicon "plus" aria-hidden="true" %} Add message"{% endraw %}`).
 
 If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables)."
 
@@ -402,17 +402,17 @@ Because the site is dynamic, it does not build HTML files for each different ver
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 
-- `/en/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-cloud@latest/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-server@3.10/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-server@3.9/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-server@3.8/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-server@3.7/get-started/getting-started-with-git/set-up-git`
-- `/en/enterprise-server@3.6/get-started/getting-started-with-git/set-up-git`
+* `/en/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-cloud@latest/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-server@3.10/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-server@3.9/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-server@3.8/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-server@3.7/get-started/getting-started-with-git/set-up-git`
+* `/en/enterprise-server@3.6/get-started/getting-started-with-git/set-up-git`
 
 An article that is not available in {% data variables.product.prodname_ghe_server %} will have just one permalink:
 
-- `/en/get-started/getting-started-with-git/set-up-git`
+* `/en/get-started/getting-started-with-git/set-up-git`
 
 {% note %}
 
@@ -426,9 +426,9 @@ When linking to another {% data variables.product.prodname_docs %} page, use sta
 
 #### Example usage of internal links with AUTOTITLE
 
-- `For more information, see "[AUTOTITLE](/path/to/page)."`
-- `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
-- `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
+* `For more information, see "[AUTOTITLE](/path/to/page)."`
+* `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
+* `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
 
 {% note %}
 
@@ -440,8 +440,8 @@ When linking to another {% data variables.product.prodname_docs %} page, use sta
 
 Sometimes you may want to link from an article to the same article in a different product version. For example:
 
-- You mention some functionality that is not available for free, pro, or team plans and you want to link to the {% data variables.product.prodname_ghe_cloud %} version of the same page.
-- The {% data variables.product.prodname_ghe_server %} version of an article describes a feature that shipped with that version, but site administrators can upgrade to the latest version of the feature that's in use on {% data variables.product.prodname_ghe_cloud %}.
+* You mention some functionality that is not available for free, pro, or team plans and you want to link to the {% data variables.product.prodname_ghe_cloud %} version of the same page.
+* The {% data variables.product.prodname_ghe_server %} version of an article describes a feature that shipped with that version, but site administrators can upgrade to the latest version of the feature that's in use on {% data variables.product.prodname_ghe_cloud %}.
 
 You can link directly to a different version of the page using the `currentArticle` property. This means that the link will continue to work directly even if the article URL changes.
 

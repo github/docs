@@ -1,4 +1,7 @@
-import contextualize from '@/frame/middleware/context/context.js'
+import type { Response } from 'express'
+
+import type { ExtendedRequest, Page } from '@/types'
+import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 
@@ -17,24 +20,6 @@ export type AllDocument = {
   version: string
   language: string
   documents: Document[]
-}
-
-type Permalink = {
-  languageCode: string
-  pageVersion: string
-  title: string
-  href: string
-}
-
-type Page = {
-  permalinks: Permalink[]
-  fullPath: string
-  title: string
-  shortTitle?: string
-  intro: string
-  languageCode: string
-  documentType: string
-  renderProp: (prop: string, context: any, opts: any) => Promise<string>
 }
 
 type Options = {
@@ -80,7 +65,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
         context,
       }
 
-      await contextualize(req, res, next)
+      await contextualize(req as ExtendedRequest, res as Response, next)
       await shortVersions(req, res, next)
       req.context.page = page
       await features(req, res, next)

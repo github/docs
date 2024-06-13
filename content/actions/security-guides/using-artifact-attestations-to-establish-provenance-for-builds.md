@@ -41,8 +41,8 @@ You can use {% data variables.product.prodname_actions %} to generate artifact a
 
 To generate an artifact attestation, you must:
 
-- Ensure you have the appropriate permissions configured in your workflow.
-- Include a step in your workflow that uses the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance).
+* Ensure you have the appropriate permissions configured in your workflow.
+* Include a step in your workflow that uses the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance).
 
 When you run your updated workflows, they will build your artifacts and generate an artifact attestation that establishes build provenance. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-build-provenance`](https://github.com/actions/attest-build-provenance) repository.
 
@@ -101,9 +101,9 @@ You can generate signed SBOM attestations for workflow artifacts.
 
 To generate an attestation for an SBOM, you must:
 
-- Ensure you have the appropriate permissions configured in your workflow.
-- Create an SBOM for your artifact. For more information, see [`anchore-sbom-action`](https://github.com/marketplace/actions/anchore-sbom-action) in the {% data variables.product.prodname_marketplace %}.
-- Include a step in your workflow that uses the [`attest-sbom` action](https://github.com/actions/attest-sbom).
+* Ensure you have the appropriate permissions configured in your workflow.
+* Create an SBOM for your artifact. For more information, see [`anchore-sbom-action`](https://github.com/marketplace/actions/anchore-sbom-action) in the {% data variables.product.prodname_marketplace %}.
+* Include a step in your workflow that uses the [`attest-sbom` action](https://github.com/actions/attest-sbom).
 
 When you run your updated workflows, they will build your artifacts and generate an SBOM attestation. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-sbom` action](https://github.com/actions/attest-sbom) repository.
 

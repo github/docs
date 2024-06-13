@@ -33,6 +33,6 @@ Contributors can always report disruptive content to {% data variables.contact.g
 
 ## Further reading
 
-- "[Your Code of Conduct](https://opensource.guide/code-of-conduct/)" from the Open Source Guides
-- "[Building Welcoming Communities](https://opensource.guide/building-community/)" from the Open Source Guides
-- "[Leadership and Governance](https://opensource.guide/leadership-and-governance/)" from the Open Source Guides
+* "[Your Code of Conduct](https://opensource.guide/code-of-conduct/)" from the Open Source Guides
+* "[Building Welcoming Communities](https://opensource.guide/building-community/)" from the Open Source Guides
+* "[Leadership and Governance](https://opensource.guide/leadership-and-governance/)" from the Open Source Guides

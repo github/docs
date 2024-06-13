@@ -68,8 +68,8 @@ When you have finished creating your app, you can share it with other users by p
 
 You can access metrics and transactions for your listing. For more information, see:
 
-- "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-metrics-for-your-listing)"
-- "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing)"
+* "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-metrics-for-your-listing)"
+* "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing)"
 
 ## Contacting Support
 

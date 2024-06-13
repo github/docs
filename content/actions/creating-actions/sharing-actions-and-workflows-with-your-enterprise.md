@@ -19,8 +19,8 @@ Any actions or reusable workflows stored in the internal {% ifversion private-ac
 {% warning %}
 
 **Warning**:
-- {% data reusables.actions.outside-collaborators-actions %}
-- {% data reusables.actions.scoped-token-note %}
+* {% data reusables.actions.outside-collaborators-actions %}
+* {% data reusables.actions.scoped-token-note %}
 
 {% endwarning %}
 
@@ -31,5 +31,5 @@ Any actions or reusable workflows stored in the internal {% ifversion private-ac
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
-- "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"
+* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"

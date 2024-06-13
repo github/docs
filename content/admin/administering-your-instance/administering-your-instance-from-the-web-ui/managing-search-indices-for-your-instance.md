@@ -21,8 +21,8 @@ For more information about search for {% data variables.product.product_name %},
 
 {% data variables.product.product_name %} reconciles the state of the search index with data on the instance automatically and regularly, including:
 
-- Issues, pull requests, repositories, and users in the database
-- Git repositories (source code) on disk
+* Issues, pull requests, repositories, and users in the database
+* Git repositories (source code) on disk
 
 In normal use, enterprise owners do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.
 
@@ -46,13 +46,13 @@ In normal use, enterprise owners do not need to create new indices or schedule r
 
 When you view an existing search index in the site admin dashboard, you can perform the following actions:
 
-- Make the index searchable.
-- Make the index writable.
-- Update the index.
-- Delete the index.
-- Reset the index repair state.
-- Start a new index repair job.
-- Enable or disable index repair jobs.
+* Make the index searchable.
+* Make the index writable.
+* Update the index.
+* Delete the index.
+* Reset the index repair state.
+* Start a new index repair job.
+* Enable or disable index repair jobs.
 
 ## Managing code search
 
@@ -66,9 +66,9 @@ You can enable or disable both search and index operations for source code. For 
 
 Your instance uses repair jobs to reconcile the data, and schedules a repair job in the background when the following events occur:
 
-- A new search index is created.
-- Missing data needs to be backfilled.
-- Old search data needs to be updated.
+* A new search index is created.
+* Missing data needs to be backfilled.
+* Old search data needs to be updated.
   
 In the "Repair" section of the search index, a progress bar shows the current status of a repair job across background workers. You can ignore the value shown in the progress bar after a repair job has completed. The progress bar shows the difference between the repair offset and the highest record ID in the database, and will decrease as more repositories are added to {% data variables.location.product_location %} even though those repositories are actually indexed.
 

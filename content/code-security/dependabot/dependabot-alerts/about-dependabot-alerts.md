@@ -36,14 +36,14 @@ If your code depends on a package with a security vulnerability, this can cause 
 {% data variables.product.prodname_dependabot %} performs a scan of the default branch of your repository to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}
-- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
-- New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+* A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
+* New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   {% note %}
 
   **Note:** Only advisories that have been reviewed by {% data variables.product.company_short %} will trigger {% data variables.product.prodname_dependabot_alerts %}.
 
   {% endnote %}
-- The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+* The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 {% note %}
 
@@ -108,7 +108,7 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+* "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)"
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/get-started/privacy-on-github)"{% endif %}

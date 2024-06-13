@@ -110,8 +110,8 @@ Here are the currently supported color models.
 
 **Notes:**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+* A supported color model cannot have any leading or trailing spaces within the backticks.
+* The visualization of the color is only supported in issues, pull requests, and discussions.
 
 {% endnote %}
 
@@ -399,7 +399,7 @@ For more information on backslashes, see Daring Fireball's "[Markdown Syntax](ht
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

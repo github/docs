@@ -16,10 +16,10 @@ By RSVP'ing to or attending a GitHub event, including any of the events or activ
 
 In order to participate in the Event, you represent that
 
-- You have the requisite capacity and authority to enter into these Event Terms;
-- You have read and understood these Event Terms and the [AUTOTITLE](/site-policy/github-terms/github-terms-of-service);
-- You agree to abide by the [Event Code of Conduct](/site-policy/github-terms/github-event-code-of-conduct); and
-- If alcohol is being served at the Event, you are at least 21 years old or over the legal drinking age at the location where the Event is being held.
+* You have the requisite capacity and authority to enter into these Event Terms;
+* You have read and understood these Event Terms and the [AUTOTITLE](/site-policy/github-terms/github-terms-of-service);
+* You agree to abide by the [Event Code of Conduct](/site-policy/github-terms/github-event-code-of-conduct); and
+* If alcohol is being served at the Event, you are at least 21 years old or over the legal drinking age at the location where the Event is being held.
 
 If asked to stop behavior deemed harassing or prohibited, you must comply immediately. If you violate the [Event Code of Conduct](/site-policy/github-terms/github-event-code-of-conduct) or these Event Terms, the Event organizers may take any action they deem appropriate in their discretion, including warnings or expulsion from the Event with no refund. You must at all times obey the instructions or directions of the Event organizers.
 

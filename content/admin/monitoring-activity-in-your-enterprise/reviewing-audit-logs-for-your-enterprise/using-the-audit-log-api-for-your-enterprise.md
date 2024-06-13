@@ -24,9 +24,9 @@ topics:
 
 You can maintain compliance for your enterprise and secure your intellectual property by interacting with the audit log using the REST API. For more information about the specific events that you can access via the audit log API, see the following articles.
 
-- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 
 {% data reusables.audit_log.retention-periods %}
 

@@ -128,6 +128,6 @@ Signature verification for bots will only work if the request is verified and au
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
-- "[AUTOTITLE](/authentication/troubleshooting-commit-signature-verification)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* "[AUTOTITLE](/authentication/troubleshooting-commit-signature-verification)"

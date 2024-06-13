@@ -24,4 +24,4 @@ If you opt out of the {% data variables.product.prodname_archive %} for a reposi
 
 ## Further reading
 
-- [{% data variables.product.prodname_archive %} FAQ](https://archiveprogram.github.com/faq/)
+* [{% data variables.product.prodname_archive %} FAQ](https://archiveprogram.github.com/faq/)

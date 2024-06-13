@@ -41,9 +41,9 @@ Administrators who configure a {% data variables.product.product_name %} instanc
 
 When you create an enterprise on {% data variables.product.product_name %}, you can decide how people authenticate to access your resources on {% data variables.product.prodname_dotcom_the_website %}, and who controls the user accounts.
 
-- [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
-- [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
-- [Authentication with {% data variables.product.prodname_emus %} and federation](#authentication-with-enterprise-managed-users-and-federation)
+* [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
+* [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
+* [Authentication with {% data variables.product.prodname_emus %} and federation](#authentication-with-enterprise-managed-users-and-federation)
 
 ### Authentication through {% data variables.location.product_location %}
 
@@ -63,8 +63,8 @@ If you need more control of the accounts for your enterprise members on {% data 
 
 The following authentication methods are available for {% data variables.product.product_name %}.
 
-- [Built-in authentication](#built-in-authentication)
-- [External authentication](#external-authentication)
+* [Built-in authentication](#built-in-authentication)
+* [External authentication](#external-authentication)
 
 ### Built-in authentication
 
@@ -74,9 +74,9 @@ The following authentication methods are available for {% data variables.product
 
 If you use an external directory or identity provider (IdP) to centralize access to multiple web applications, you may be able to configure external authentication for {% data variables.location.product_location %}. For more information, see the following articles.
 
-- "[AUTOTITLE](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 
 {% data reusables.enterprise.saml-or-ldap %}
 
@@ -112,9 +112,9 @@ If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
-- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
+* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
 {%- ifversion ghec %}
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
-- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)"
 {%- endif %}

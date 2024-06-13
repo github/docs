@@ -12,7 +12,7 @@ export type ProductT = {
   nameRendered: string
 }
 
-type VersionItem = {
+export type VersionItem = {
   // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string

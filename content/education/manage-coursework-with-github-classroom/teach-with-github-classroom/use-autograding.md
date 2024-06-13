@@ -87,13 +87,13 @@ You can add, edit, or delete autograding tests for an existing assignment. All c
 {% data reusables.classroom.assignments-click-pencil %}
 1. In the left sidebar, click **Grading and feedback**.
 1. Add, edit, or delete an autograding test.
-    - To add a test, under "Add autograding tests", select the **Add test** dropdown menu, then click the grading method you want to use.
+    * To add a test, under "Add autograding tests", select the **Add test** dropdown menu, then click the grading method you want to use.
       Configure the test, then click **Save test case**.
 
-    - To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
+    * To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
       Configure the test, then click **Save test case**.
 
-    - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
+    * To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
 
 1. At the bottom of the page, click **Update assignment**.
 
@@ -106,9 +106,9 @@ By default, autograding tests will automatically run whenever a student pushes t
 {% data reusables.classroom.assignments-click-pencil %}
 1. In the left sidebar, click **Grading and feedback**.
 1. Below your list of autograding tests, you can configure when autograding tests are run.
-    - **Every time a student submits an assignment**: This is the default behavior.
-    - **On a schedule**: You can set a time every day or every week for autograding tests to be run.
-    - **Manually**: Autograding test runs will be manually triggered by you from the assignment dashboard.
+    * **Every time a student submits an assignment**: This is the default behavior.
+    * **On a schedule**: You can set a time every day or every week for autograding tests to be run.
+    * **Manually**: Autograding test runs will be manually triggered by you from the assignment dashboard.
 
 ## Viewing and downloading results from autograding tests
 
@@ -126,4 +126,4 @@ You can also download a CSV of your students' autograding scores via the "Downlo
 
 ## Further reading
 
-- [{% data variables.product.prodname_actions %} documentation](/actions)
+* [{% data variables.product.prodname_actions %} documentation](/actions)

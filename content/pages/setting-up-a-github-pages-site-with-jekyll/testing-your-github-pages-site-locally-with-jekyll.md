@@ -21,8 +21,8 @@ Anyone with read permissions for a repository can test a {% data variables.produ
 ## Prerequisites
 
 Before you can use Jekyll to test a site, you must:
-- Install [Jekyll](https://jekyllrb.com/docs/installation/).
-- Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
+* Install [Jekyll](https://jekyllrb.com/docs/installation/).
+* Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -64,9 +64,9 @@ Jekyll is an active open source project that is updated frequently. If the `gith
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Update the `github-pages` gem.
-    - If you installed Bundler, run `bundle update github-pages`.
-    - If you don't have Bundler installed, run `gem update github-pages`.
+    * If you installed Bundler, run `bundle update github-pages`.
+    * If you don't have Bundler installed, run `gem update github-pages`.
 
 ## Further reading
 
-- [{% data variables.product.prodname_pages %}](https://jekyllrb.com/docs/github-pages/) in the Jekyll documentation
+* [{% data variables.product.prodname_pages %}](https://jekyllrb.com/docs/github-pages/) in the Jekyll documentation

@@ -109,14 +109,14 @@ After you've finished reviewing all the files you want in the pull request, subm
 {% data reusables.repositories.review-summary-comment %}
 1. Select the type of review you'd like to leave:
 
-    - Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
-    - Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
-    - Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
+    * Select **Comment** to leave general feedback without explicitly approving the changes or requesting additional changes.
+    * Select **Approve** to submit your feedback and approve merging the changes proposed in the pull request.
+    * Select **Request changes** to submit feedback that must be addressed before the pull request can be merged.
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)"
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)"
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

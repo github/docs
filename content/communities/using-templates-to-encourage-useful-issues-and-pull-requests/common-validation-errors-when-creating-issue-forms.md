@@ -658,5 +658,5 @@ body:
 
 ## Further reading
 
-- [YAML](https://yaml.org/)
-- [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)
+* [YAML](https://yaml.org/)
+* [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

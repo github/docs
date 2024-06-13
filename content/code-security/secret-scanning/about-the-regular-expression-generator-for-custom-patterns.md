@@ -61,18 +61,18 @@ Note that the {% data variables.secret-scanning.custom-pattern-regular-expressio
 
 ## Next steps
 
-- [AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)
-- [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
 
 ## Further reading
 
 {% ifversion fpt %}
-- [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
-- [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
-- [AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)
-- [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
 {% endif %}

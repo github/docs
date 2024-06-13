@@ -10,9 +10,11 @@ redirect_from:
   - /actions/using-github-hosted-runners/controlling-access-to-larger-runners
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
+{% note %}
 
-{% data reusables.actions.windows-linux-larger-runners-note %}
+**Note:** {% data reusables.actions.windows-linux-larger-runners-note %}
+
+{% endnote %}
 
 ## About runner groups
 
@@ -28,12 +30,12 @@ redirect_from:
 
 Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must manage access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
 
-- **Runners at the enterprise level**: {% data reusables.actions.about-enterprise-level-runner-groups %}
-- **Runners at the organization level**: {% data reusables.actions.about-organization-level-runner-groups %}
+* **Runners at the enterprise level**: {% data reusables.actions.about-enterprise-level-runner-groups %}
+* **Runners at the organization level**: {% data reusables.actions.about-organization-level-runner-groups %}
 
 For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access to the `octo-org` organization. You must then configure the group at the organization level to allow access to `octo-repo`.
 
-![Diagram that shows a lock between a runner group at the enterprise level and an organization, and between the organization and two repositories owned by the organization.](/assets/images/help/actions/hosted-runner-mgmt.png)
+![Diagram showing a runner group defined at the enterprise level with an organization configuration that allows access for two repositories.](/assets/images/help/actions/hosted-runner-mgmt.png)
 
 ## Creating a runner group for an organization
 
@@ -81,8 +83,8 @@ For runner groups in an organization, you can change what repositories in the or
 
 {% data reusables.actions.about-restricting-workflow-access-with-runner-groups %}
 
-- [Changing which workflows can access an organization runner group](#changing-which-workflows-can-access-an-organization-runner-group)
-- [Changing which workflows can access an enterprise runner group](#changing-which-workflows-can-access-an-enterprise-runner-group)
+* [Changing which workflows can access an organization runner group](#changing-which-workflows-can-access-an-organization-runner-group)
+* [Changing which workflows can access an enterprise runner group](#changing-which-workflows-can-access-an-enterprise-runner-group)
 
 ### Changing which workflows can access an organization runner group
 
@@ -111,8 +113,8 @@ If you have configured your {% ifversion ghec %}enterprise or {% endif %}organiz
 {% ifversion ghec %}
 You can rename runner groups at the enterprise and organization levels.
 
-- [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
-- [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
+* [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
+* [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
 
@@ -134,8 +136,8 @@ You can rename runner groups at the enterprise and organization levels.
 {% data reusables.actions.about-moving-a-runner-to-a-group %}
 {% ifversion ghec %}
 
-- [Moving an organization runner to a group](#moving-an-organization-runner-to-a-group)
-- [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
+* [Moving an organization runner to a group](#moving-an-organization-runner-to-a-group)
+* [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
 
 ### Moving an organization runner to a group
 
@@ -162,8 +164,8 @@ You can rename runner groups at the enterprise and organization levels.
 {% data reusables.actions.about-removing-a-runner-group %}
 {% ifversion ghec %}
 
-- [Removing a runner group from an organization](#removing-a-runner-group-from-an-organization)
-- [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
+* [Removing a runner group from an organization](#removing-a-runner-group-from-an-organization)
+* [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
 
 ### Removing a runner group from an organization
 

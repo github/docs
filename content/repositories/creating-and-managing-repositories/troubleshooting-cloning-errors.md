@@ -110,9 +110,9 @@ If you are trying to clone a private repository but do not have permission to vi
 
 Make sure that you have access to the repository in one of these ways:
 
-- The owner of the repository
-- A [collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) on the repository
-- A [member of a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
+* The owner of the repository
+* A [collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository) on the repository
+* A [member of a team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) that has access to the repository (if the repository belongs to an organization)
 
 ### Check your SSH access
 

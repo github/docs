@@ -17,18 +17,18 @@ shortTitle: Install on AWS
 ---
 ## Prerequisites
 
-- {% data reusables.enterprise_installation.software-license %}
-- You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
-- Most actions needed to launch {% data variables.location.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides [Working with the AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html) and [What is the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+* {% data reusables.enterprise_installation.software-license %}
+* You must have an AWS account capable of launching EC2 instances and creating EBS volumes. For more information, see the [Amazon Web Services website](https://aws.amazon.com/).
+* Most actions needed to launch {% data variables.location.product_location %} may also be performed using the AWS management console. However, we recommend installing the AWS command line interface (CLI) for initial setup. Examples using the AWS CLI are included below. For more information, see Amazon's guides [Working with the AWS Management Console](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html) and [What is the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 
 This guide assumes you are familiar with the following AWS concepts:
 
-- [Launching EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
-- [Managing EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
-- [Using Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
-- [Elastic IP Addresses (EIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
-- [EC2 and Virtual Private Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
-- [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
+* [Launching EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/LaunchingAndUsingInstances.html)
+* [Managing EBS Volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html)
+* [Using Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) (For managing network access to your instance)
+* [Elastic IP Addresses (EIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) (Strongly recommended for production environments)
+* [EC2 and Virtual Private Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
+* [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
 
 For a diagram that provides an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/enterprise/enterprise-server/installing-github-enterprise-server-on-aws.png)."
 
@@ -145,5 +145,5 @@ Both primary and replica instances should be assigned separate EIPs in productio
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

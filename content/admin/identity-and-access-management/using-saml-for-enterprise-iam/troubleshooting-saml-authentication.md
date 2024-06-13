@@ -32,8 +32,8 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 
 **Warnings**:
 
-- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
-- Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+* Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+* Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
 

@@ -27,8 +27,8 @@ Configuring self-hosted runners is only one step in the middle of the process fo
 {% else %}
 Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
 
-- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+* Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+* Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
 ## Configuring self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
@@ -50,13 +50,13 @@ If your {% data variables.product.prodname_ghe_server %} instance uses a self-si
 1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 1. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
-   - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
-     - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-     - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
-     - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-   - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
-   - Install any self-signed certificates for your {% data variables.product.prodname_ghe_server %} instance or for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
-     - Configure Node.js to use the same certificate. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#configuring-nodejs-to-use-the-certificate)."
+   * Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
+     * [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+     * Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
+     * Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+   * Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
+   * Install any self-signed certificates for your {% data variables.product.prodname_ghe_server %} instance or for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
+     * Configure Node.js to use the same certificate. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#configuring-nodejs-to-use-the-certificate)."
 
 1. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
 

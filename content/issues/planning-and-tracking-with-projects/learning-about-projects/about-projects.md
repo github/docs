@@ -29,11 +29,11 @@ To learn more about managing items in your project, see "[AUTOTITLE](/issues/pla
 
 You can use custom fields to add metadata to your issues, pull requests, and draft issues and build a richer view of item attributes. You’re not limited to the built-in metadata (assignee, milestone, labels, etc.) that currently exists for issues and pull requests. For example, you can add the following metadata as custom fields:
 
-- A date field to track target ship dates.
-- A number field to track the complexity of a task.
-- A single select field to track whether a task is Low, Medium, or High priority.
-- A text field to add a quick note.
-- An iteration field to plan work week-by-week, including support for breaks.
+* A date field to track target ship dates.
+* A number field to track the complexity of a task.
+* A single select field to track whether a task is Low, Medium, or High priority.
+* A text field to add a quick note.
+* An iteration field to plan work week-by-week, including support for breaks.
 
 To learn more about the different fields you can add to a project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields)."
 

@@ -42,7 +42,7 @@ jobs:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
         with:
           login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
           username: ${{ secrets.PROD_REGISTRY_USERNAME }}
@@ -90,7 +90,7 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@2cdde995de11925a030ce8070c3d77a52ffcf1c0
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25
         with:
           context: .
           push: true

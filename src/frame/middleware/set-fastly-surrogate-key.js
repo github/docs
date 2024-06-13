@@ -37,7 +37,7 @@ export function setLanguageFastlySurrogateKey(req, res, next) {
   return next()
 }
 
-export function makeLanguageSurrogateKey(langCode = null) {
+export function makeLanguageSurrogateKey(langCode) {
   if (!langCode) {
     return 'no-language'
   }

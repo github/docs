@@ -36,5 +36,5 @@ You can unfollow an organization if you do not wish to see their {% ifversion fp
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)"
+* "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)"
 {% endif %}

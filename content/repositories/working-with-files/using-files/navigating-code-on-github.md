@@ -51,8 +51,8 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
 
 {% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
-- Search-based - searches all definitions and references across a repository to find entities with a given name
-- Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+* Search-based - searches all definitions and references across a repository to find entities with a given name
+* Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
 
 To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
@@ -75,7 +75,7 @@ Symbol search is a feature of code search. For more information, see "[AUTOTITLE
 
 1. Click the symbol you would like to find from the symbols pane or within the file itself.
 
-   - To search for a symbol in the repository as a whole, in the symbols pane, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
+   * To search for a symbol in the repository as a whole, in the symbols pane, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
 
 1. To navigate between references to a symbol, click {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} or {% octicon "chevron-up" aria-label="The upwards-facing chevron icon" %}.
 1. To navigate to a specific reference to a symbol, click a result of the symbol search under {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} **In this file**.
@@ -113,9 +113,9 @@ Cross-repo code navigation is available for languages that are supported by prec
 ## Troubleshooting code navigation
 
 If code navigation is enabled for you but you don't see links to the definitions of functions and methods:
-- Code navigation only works for active branches. Push to the branch and try again.
-- Code navigation only works for repositories with fewer than 100,000 files.
+* Code navigation only works for active branches. Push to the branch and try again.
+* Code navigation only works for repositories with fewer than 100,000 files.
 
 ## Further reading
 
-- "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"
+* "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"

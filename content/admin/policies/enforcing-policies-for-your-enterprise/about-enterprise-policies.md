@@ -26,4 +26,4 @@ Another way to enforce standards within your enterprise is to use pre-receive ho
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"

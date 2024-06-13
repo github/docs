@@ -32,7 +32,7 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 
 ## Prerequisites
 
-- Your enterprise on {% data variables.location.product_location %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+* Your enterprise on {% data variables.location.product_location %} must currently be configured to use SAML for authentication, with Entra ID as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 {% data reusables.emus.migration-roles-prereq %}
 {% data reusables.emus.migration-schedule-downtime %}
 

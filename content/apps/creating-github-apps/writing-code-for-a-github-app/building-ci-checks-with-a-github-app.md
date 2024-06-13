@@ -25,8 +25,8 @@ This tutorial uses Ruby, but you can use any programming language that you can r
 
 This tutorial is broken into two parts:
 
-- In part one, you'll learn how to set up the framework for a CI server using {% data variables.product.prodname_dotcom %}'s REST API, create new check runs for CI tests when a repository receives newly pushed commits, and re-run check runs when a user requests that action on {% data variables.product.prodname_dotcom %}.
-- In part two, you'll add functionality to your CI test, by adding a linter test to your CI server. You'll also create annotations that are displayed in the **Checks** and **Files Changed** tab of a pull request, and automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
+* In part one, you'll learn how to set up the framework for a CI server using {% data variables.product.prodname_dotcom %}'s REST API, create new check runs for CI tests when a repository receives newly pushed commits, and re-run check runs when a user requests that action on {% data variables.product.prodname_dotcom %}.
+* In part two, you'll add functionality to your CI test, by adding a linter test to your CI server. You'll also create annotations that are displayed in the **Checks** and **Files Changed** tab of a pull request, and automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
 
 ### About continuous integration (CI)
 
@@ -40,9 +40,9 @@ A CI server hosts code that runs CI tests such as code linters (which check styl
 
 Checks include check runs, check suites, and commit statuses.
 
-- A _check run_ is an individual CI test that runs on a commit.
-- A _check suite_ is a group of check runs.
-- A _commit status_ marks the state of a commit, for example `error`, `failure`, `pending`, or `success`, and is visible in a pull request on {% data variables.product.prodname_dotcom %}. Both check suites and check runs contain commit statuses.
+* A _check run_ is an individual CI test that runs on a commit.
+* A _check suite_ is a group of check runs.
+* A _commit status_ marks the state of a commit, for example `error`, `failure`, `pending`, or `success`, and is visible in a pull request on {% data variables.product.prodname_dotcom %}. Both check suites and check runs contain commit statuses.
 
 {% data variables.product.prodname_dotcom %} automatically creates `check_suite` events for new code commits in a repository using the default flow, although you can change the default settings. For more information, see "[AUTOTITLE](/rest/checks/suites#update-repository-preferences-for-check-suites)." Here's how the default flow works:
 
@@ -58,9 +58,9 @@ This tutorial assumes you have a basic understanding of the [Ruby programming la
 
 Before you get started, you may want to familiarize yourself with the following concepts:
 
-- [{% data variables.product.prodname_github_apps %}](/apps)
-- [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
-- [REST API checks endpoints](/rest/checks)
+* [{% data variables.product.prodname_github_apps %}](/apps)
+* [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
+* [REST API checks endpoints](/rest/checks)
 
 Checks are also available to use with the GraphQL API, but this tutorial focuses on the REST API. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) in the GraphQL documentation.
 
@@ -68,9 +68,9 @@ Checks are also available to use with the GraphQL API, but this tutorial focuses
 
 The following sections will lead you through setting up the following components:
 
-- A repository to store the code for your app.
-- A way to receive webhooks locally.
-- A {% data variables.product.prodname_github_app %} that is subscribed to "Check suite" and "Check run" webhook events, has write permission for checks, and uses a webhook URL that you can receive locally.
+* A repository to store the code for your app.
+* A way to receive webhooks locally.
+* A {% data variables.product.prodname_github_app %} that is subscribed to "Check suite" and "Check run" webhook events, has write permission for checks, and uses a webhook URL that you can receive locally.
 
 ### Create a repository to store code for your {% data variables.product.prodname_github_app %}
 
@@ -134,10 +134,10 @@ We recommend leaving this terminal window open and keeping Smee connected while 
 
 For this tutorial, you must register a {% data variables.product.prodname_github_app %} that:
 
-- Has webhooks active
-- Uses a webhook URL that you can receive locally
-- Has the "Checks" repository permission
-- Subscribes to the "Check suite" and "Check run" webhook events
+* Has webhooks active
+* Uses a webhook URL that you can receive locally
+* Has the "Checks" repository permission
+* Subscribes to the "Check suite" and "Check run" webhook events
 
 The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
@@ -358,12 +358,12 @@ Open the `server.rb` file in a text editor. You'll see comments throughout the f
 
 Below the list of required files, the first code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your {% data variables.product.prodname_github_app %} inside this class. The following sections explain in detail what the code does inside this class.
 
-- [Set the port](#set-the-port)
-- [Read the environment variables](#read-the-environment-variables)
-- [Turn on logging](#turn-on-logging)
-- [Define a `before` filter](#define-a-before-filter)
-- [Define the route handler](#define-a-route-handler)
-- [Define the helper methods](#define-the-helper-methods)
+* [Set the port](#set-the-port)
+* [Read the environment variables](#read-the-environment-variables)
+* [Turn on logging](#turn-on-logging)
+* [Define a `before` filter](#define-a-before-filter)
+* [Define the route handler](#define-a-route-handler)
+* [Define the helper methods](#define-the-helper-methods)
 
 #### Set the port
 
@@ -458,16 +458,16 @@ To make API calls, you'll be using the Octokit library. Doing anything interesti
 
 {% data variables.product.prodname_github_apps %} have three methods of authentication:
 
-- Authenticating as a {% data variables.product.prodname_github_app %} using a [JSON Web Token (JWT)](https://jwt.io/introduction).
-- Authenticating as a specific installation of a {% data variables.product.prodname_github_app %} using an installation access token.
-- Authenticating on behalf of a user. This tutorial won't use this method of authentication.
+* Authenticating as a {% data variables.product.prodname_github_app %} using a [JSON Web Token (JWT)](https://jwt.io/introduction).
+* Authenticating as a specific installation of a {% data variables.product.prodname_github_app %} using an installation access token.
+* Authenticating on behalf of a user. This tutorial won't use this method of authentication.
 
 You'll learn about authenticating as an installation in the next section, "[Authenticating as an installation](#authenticating-as-an-installation)."
 
 Authenticating as a {% data variables.product.prodname_github_app %} lets you do a couple of things:
 
- - You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
- - You can request access tokens for an installation of the app.
+ * You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
+ * You can request access tokens for an installation of the app.
 
 For example, you would authenticate as a {% data variables.product.prodname_github_app %} to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a {% data variables.product.prodname_github_app %} first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
@@ -521,8 +521,8 @@ The `create_app_installation_access_token` Octokit method creates an installatio
 
 This method accepts two arguments:
 
-- Installation (integer): The ID of a {% data variables.product.prodname_github_app %} installation
-- Options (hash, defaults to `{}`): A customizable set of options
+* Installation (integer): The ID of a {% data variables.product.prodname_github_app %} installation
+* Options (hash, defaults to `{}`): A customizable set of options
 
 Any time a {% data variables.product.prodname_github_app %} receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a {% data variables.product.prodname_github_app %}, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
 
@@ -778,9 +778,9 @@ RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that 
 
 RuboCop has three primary functions:
 
-- Linting to check code style
-- Code formatting
-- Replaces the native Ruby linting capabilities using `ruby -w`
+* Linting to check code style
+* Code formatting
+* Replaces the native Ruby linting capabilities using `ruby -w`
 
 Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 

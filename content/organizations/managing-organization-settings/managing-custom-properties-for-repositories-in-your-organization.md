@@ -21,8 +21,8 @@ You can use repository properties to determine which repositories to target with
 
 Custom property names and values may only contain certain characters:
 
-- Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
-- Values: All printable ASCII characters except `"`.
+* Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
+* Values: All printable ASCII characters except `"`.
 
 ## Adding custom properties
 
@@ -36,7 +36,7 @@ You can add custom properties to your organization and set values for those prop
 1. To add a new custom property, click **New property** in the upper right corner.
 1. In the "Name" field, type the name you'd like to use for your custom property. The name can't contain spaces.
 1. Optionally, in the "Description" field, fill in a description of your custom property.
-1. Under "Type", select the type of property you'd like to add. This can either be a string or a single select field.
+1. Under "Type", select the type of property you'd like to add. This can either be a text string, a single select field, a multi select field, or a true/false boolean.
 1. Optionally, you can select **Allow repository actors to set this property**. When enabled, repository users and apps with the repository-level "custom properties" fine-grained permission will be able to set and update the property value for their repository.
 1. Optionally, you can select **Require this property for all repositories** and add a default value. This means that you require that all repositories in your organization have a value for this property. Repositories that don’t have an explicit value for this property will inherit the default value.
 1. Click **Save property**.
