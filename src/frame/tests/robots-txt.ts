@@ -1,16 +1,17 @@
+import type { Response } from 'got'
 import { beforeAll, describe, expect, test, vi } from 'vitest'
-import robotsParser from 'robots-parser'
+import robotsParser, { type Robot } from 'robots-parser'
 
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { get } from '#src/tests/helpers/e2etest.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 describe('robots.txt', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  let res, robots
+  let res: Response<string>, robots: Robot
   beforeAll(async () => {
     res = await get('/robots.txt', {
       headers: {
@@ -18,7 +19,7 @@ describe('robots.txt', () => {
       },
     })
     expect(res.statusCode).toBe(200)
-    robots = robotsParser('https://docs.github.com/robots.txt', res.text)
+    robots = robotsParser('https://docs.github.com/robots.txt', res.body)
   })
 
   test('allows indexing of the homepage and English content', async () => {
@@ -45,7 +46,7 @@ describe('robots.txt', () => {
   test('is cached by headers', () => {
     expect(res.headers['cache-control']).toMatch(/public, max-age=/)
 
-    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    const surrogateKeySplit = (res.headers['surrogate-key'] as string).split(/\s/g)
     expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
     expect(surrogateKeySplit.includes(makeLanguageSurrogateKey('en'))).toBeTruthy()
   })

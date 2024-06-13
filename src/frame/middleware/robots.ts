@@ -1,11 +1,14 @@
+import type { NextFunction, Response } from 'express'
+
 import { defaultCacheControl } from './cache-control.js'
+import type { ExtendedRequest } from '@/types'
 
 const defaultResponse = 'User-agent: *'
 
 const disallowAll = `User-agent: *
 Disallow: /`
 
-export default function robots(req, res, next) {
+export default function robots(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (req.path !== '/robots.txt') return next()
 
   res.type('text/plain')

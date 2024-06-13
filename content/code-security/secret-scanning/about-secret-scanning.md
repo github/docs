@@ -43,11 +43,7 @@ If your project communicates with an external service, you might use a token or 
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
 
-{% ifversion secret-scanning-push-protection %}
-
 {% data reusables.secret-scanning.push-protection-high-level %} To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-
-{% endif %}
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
