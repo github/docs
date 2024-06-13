@@ -682,29 +682,31 @@ Capitalize the first letter in each line of a list. Use periods at the end of li
 
 When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
 
-- `foo`: Something that provides bar.
-- `bar`: Something provided by foo.
+* `foo`: Something that provides bar.
+* `bar`: Something provided by foo.
 
 Formatting unordered lists:
-- If the order of items in the list is not important, alphabetize the list items.
-- If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
+
+* If the order of items in the list is not important, alphabetize the list items.
+* If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
+* Use asterisks (`*`) for list items.
 
 When introducing a list, avoid short, nonspecific sentences using terms like “the following” or “these”, which are difficult to localize without context. Instead, create a descriptive sentence that clearly conveys the subject of the list, yet allows the list to scale or change without having to update the description.
 
 **Use:**
-- For an introduction to {% data variables.product.prodname_dotcom %}, see the following articles:
-- SMS authentication is supported in these countries:
+* For an introduction to {% data variables.product.prodname_dotcom %}, see the following articles:
+* SMS authentication is supported in these countries:
 
 **Avoid:**
-- There are several articles that provide an introduction to {% data variables.product.prodname_dotcom %}. See the following:
-- SMS authentication is supported in 50 countries. These include:
+* There are several articles that provide an introduction to {% data variables.product.prodname_dotcom %}. See the following:
+* SMS authentication is supported in 50 countries. These include:
 
 ## Permission statements and product callouts
 
 Use permission statements and product callouts to communicate tasks that require specific roles or products to complete.
 
-- [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
-- [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
+* [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
+* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
 
 Together, permission statements and product callouts tell readers who can use the feature being described in an article.
 
@@ -731,13 +733,13 @@ You can use inline links to provide more information about a role or product. Th
 Style any placeholder text in all caps. If a placeholder is multiple words, connect the words with dashes (kebab-case). If you use a placeholder, explain what someone might replace it with. This helps people modify examples to fit their needs and helps identify placeholders for people who use assistive technology.
 
 **Use:**
-- In the following example, replace YOUR-REPOSITORY with the name of your repository. `git init YOUR-REPOSITORY`
-- Click **Add USERNAME.** Where USERNAME is the username of the person you want to add.
+* In the following example, replace YOUR-REPOSITORY with the name of your repository. `git init YOUR-REPOSITORY`
+* Click **Add USERNAME.** Where USERNAME is the username of the person you want to add.
 
 **Avoid:**
-- `git init your repository`
-- `git init <your-repository>`
-- Click **Add _username_.**
+* `git init your repository`
+* `git init <your-repository>`
+* Click **Add _username_.**
 
 ## Procedural steps
 
@@ -754,11 +756,11 @@ Use a consistent order to present information within each step.
 **Use:** Optionally, to `REASON`, in `LOCATION`, take `ACTION`.
 
 Examples:
-- Click **Payment information**.
-- Under your organization name, click **Settings**.
-- To confirm your change, click **Remove credit card**.
-- Optionally, to see your plan’s details, click **Show details**.
-- Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="More options" %} next to your sponsored amount, then click **Change tier**.
+* Click **Payment information**.
+* Under your organization name, click **Settings**.
+* To confirm your change, click **Remove credit card**.
+* Optionally, to see your plan’s details, click **Show details**.
+* Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="More options" %} next to your sponsored amount, then click **Change tier**.
 
 ## Product names
 
@@ -767,8 +769,8 @@ Use full product names. Do not abbreviate or shorten product names unless direct
 Use product name variables to render product names—do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the [data directory](https://github.com/github/docs/tree/main/data) of the [`github/docs`](https://github.com/github/docs) repository.
 
 Product names are always singular.
-- **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
-- **Avoid:** {% data variables.product.prodname_actions %} help you automate your software development workflows.
+* **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
+* **Avoid:** {% data variables.product.prodname_actions %} help you automate your software development workflows.
 
 Take care to distinguish between product names and product features. Product features are always lowercase.
 
@@ -836,7 +838,7 @@ steps:
 ```
 
 Examples:
-- See the code block in "[Publishing to package registries](/actions/guides/building-and-testing-python#publishing-to-package-registries)"
+* See the code block in "[Publishing to package registries](/actions/guides/building-and-testing-python#publishing-to-package-registries)"
 
 #### Pinning version numbers to SHA
 
@@ -859,8 +861,8 @@ For more information, see "[Using SHAs](/actions/learn-github-actions/finding-an
 ### {% data variables.product.prodname_codespaces %}
 
 When referring to the product {% data variables.product.prodname_codespaces %}, always include "{% data variables.product.company_short %}", except in these circumstances:
-- In the `shortTitle` front matter.
-- In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
+* In the `shortTitle` front matter.
+* In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
 
 Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% endraw %}` ("GitHub Codespaces") and `{% raw %}{% data variables.product.prodname_codespaces %}{% endraw %}` ("Codespaces").
 
@@ -880,14 +882,14 @@ We used to use the term `seats` to describe the number of accounts that can use 
 
 {% data variables.product.company_short %} has two types of {% data variables.product.pat_generic_plural %}:
 
-- {% data variables.product.pat_v2_caps %}s: Offer granular control over repository access and permissions
-- {% data variables.product.pat_v1_caps %}: Use scopes and grant access to all repositories that the token owner can access
+* {% data variables.product.pat_v2_caps %}s: Offer granular control over repository access and permissions
+* {% data variables.product.pat_v1_caps %}: Use scopes and grant access to all repositories that the token owner can access
 
 You should use variables to refer to these types of tokens, as well as to {% data variables.product.pat_generic_plural %} in general:
 
-- Use `{% raw %}{% data variables.product.pat_generic %}{% endraw %}`or `{% raw %}{% data variables.product.pat_generic_caps %}{% endraw %}` to refer to {% data variables.product.pat_generic %} in general. Use `{% raw %}{% data variables.product.pat_generic_title_case %}{% endraw %}` if the phrase should be in title case ("{% data variables.product.pat_generic_title_case %}") in order to match UI text.
-- Use `{% raw %}{% data variables.product.pat_v2 %}{% endraw %}` or `{% raw %}{% data variables.product.pat_v2_caps %}{% endraw %}` to refer to {% data variables.product.pat_v2 %}s.
-- Use `{% raw %}{% data variables.product.pat_v1 %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_plural %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_caps %}{% endraw %}`, or `{% raw %}{% data variables.product.pat_v1_caps_plural %}{% endraw %}` to refer to {% data variables.product.pat_v1 %}.
+* Use `{% raw %}{% data variables.product.pat_generic %}{% endraw %}`or `{% raw %}{% data variables.product.pat_generic_caps %}{% endraw %}` to refer to {% data variables.product.pat_generic %} in general. Use `{% raw %}{% data variables.product.pat_generic_title_case %}{% endraw %}` if the phrase should be in title case ("{% data variables.product.pat_generic_title_case %}") in order to match UI text.
+* Use `{% raw %}{% data variables.product.pat_v2 %}{% endraw %}` or `{% raw %}{% data variables.product.pat_v2_caps %}{% endraw %}` to refer to {% data variables.product.pat_v2 %}s.
+* Use `{% raw %}{% data variables.product.pat_v1 %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_plural %}{% endraw %}`, `{% raw %}{% data variables.product.pat_v1_caps %}{% endraw %}`, or `{% raw %}{% data variables.product.pat_v1_caps_plural %}{% endraw %}` to refer to {% data variables.product.pat_v1 %}.
 
 For more information about {% data variables.product.prodname_dotcom %}'s {% data variables.product.pat_generic_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens)."
 
@@ -903,13 +905,13 @@ A good release note is a few sentences that sequentially answer the reader's que
 
 Each release note in a set describes one of the following changes.
 
-- [Features](#features): brand-new behavior or functionality
-- [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
-- [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
-- [Changes](#changes): notable changes to past behavior
-- [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
-- [Deprecations](#deprecations): removal of a feature or behavior
-- [Errata](#errata): correction to inaccurate release note or documentation
+* [Features](#features): brand-new behavior or functionality
+* [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
+* [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
+* [Changes](#changes): notable changes to past behavior
+* [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
+* [Deprecations](#deprecations): removal of a feature or behavior
+* [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in "[Adding or updating a release note](#adding-or-updating-a-release-note)" and "[Removing a release note](#removing-a-release-note)."
 
@@ -928,18 +930,18 @@ A release note for a feature answers the following questions.
 
 > _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_](/)" (**4**).
 
-- Categorize each feature in a section, under a feature heading.
-- Write in the present tense.
-- To reduce repetition and unnecessary words, "now" is usually implied.
-- To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
+* Write in the present tense.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
 
 #### Examples of feature release notes
 
-- > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+* > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
 
-- > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+* > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
 
-- > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
+* > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
 
 ### Security fixes
 
@@ -959,9 +961,9 @@ A release note for a security fix answers the following questions.
 
 #### Examples of release notes for security fixes
 
-- > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+* > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
 
-- > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
+* > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
 
 #### Base image and package updates
 
@@ -982,19 +984,19 @@ A release note for a bug fix answers the following questions.
 
 > _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
 
-- Because the bug is now fixed, write in the past tense.
-- Language like "fixed a bug…" or "fixed an issue…" is implied and unnecessary.
-- To reduce repetition and unnecessary words, "now" is usually implied.
-- To clarify actors and impact, avoid passive language when possible.
-- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
+* Because the bug is now fixed, write in the past tense.
+* Language like "fixed a bug…" or "fixed an issue…" is implied and unnecessary.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
 
 #### Examples of release notes for bug fixes
 
-- > After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
+* > After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
 
-- > On an instance with {% data variables.product.prodname_actions %} enabled, a workflow job for {% data variables.product.prodname_actions %} would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
+* > On an instance with {% data variables.product.prodname_actions %} enabled, a workflow job for {% data variables.product.prodname_actions %} would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
 
-- > Commands that site administrators ran via SSH on any of the instances nodes were not logged in ``/var/log/ssh-console-audit.log``.
+* > Commands that site administrators ran via SSH on any of the instances nodes were not logged in ``/var/log/ssh-console-audit.log``.
 
 ### Changes
 
@@ -1011,19 +1013,19 @@ A release note for a change answers the following questions.
 
 > _AUDIENCE_ (**1**) / _DESCRIPTION OF PROBLEM CHANGE SOLVES_ (**2**) _DESCRIPTION OF NEW BEHAVIOR_ (**3**) _DESCRIPTION OF OLD BEHAVIOR_ (**4**).
 
-- Because the change applies to the release in question, write notes for changes in the present tense.
-- To reduce repetition and unnecessary words, "now" is usually implied.
-- To clarify actors and impact, avoid passive language when possible.
-- Often, the audience is implied.
-- If useful, include relevant links to GitHub Docs.
+* Because the change applies to the release in question, write notes for changes in the present tense.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Often, the audience is implied.
+* If useful, include relevant links to GitHub Docs.
 
 #### Examples of release notes for changes
 
-- > On an instance with a {% data variables.product.prodname_GH_advanced_security %} license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+* > On an instance with a {% data variables.product.prodname_GH_advanced_security %} license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
 
-- > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+* > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
 
-- > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, {% data variables.product.prodname_ghe_server %} checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
+* > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, {% data variables.product.prodname_ghe_server %} checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
 
 ### Known issues
 
@@ -1039,17 +1041,17 @@ A release note for a known issue answers the following questions.
 
 > _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
 
-- To clarify actors and impact, avoid passive language when possible.
-- To reduce repetition and unnecessary words, "now" is usually implied.
-- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
-- If useful, include relevant links to GitHub Docs.
-- Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
+* To clarify actors and impact, avoid passive language when possible.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
+* If useful, include relevant links to GitHub Docs.
+* Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
 
 #### Examples of release notes for known issues
 
-- > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
+* > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
 
-- > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+* > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
 
 ### Deprecations
 
@@ -1066,16 +1068,16 @@ A release note for a deprecation answers the following questions.
 
 > _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_](/)" (**4**).
 
-- Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
-- To reduce repetition and unnecessary words, "now" is usually implied.
-- To clarify actors and impact, avoid passive language when possible.
-- Categorize each feature in a section, under a feature heading.
+* Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
+* To reduce repetition and unnecessary words, "now" is usually implied.
+* To clarify actors and impact, avoid passive language when possible.
+* Categorize each feature in a section, under a feature heading.
 
 #### Examples of release notes for deprecations
 
-- > **Upcoming deprecation**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+* > **Upcoming deprecation**: In {% data variables.product.prodname_ghe_server %} 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
 
-- > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+* > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
 ### Errata
 
@@ -1092,11 +1094,11 @@ Errata answers the following questions.
 
 > _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
 
-- Format the publication date according to the guidance in [Adding or updating a release note](#adding-or-updating-a-release-note).
+* Format the publication date according to the guidance in [Adding or updating a release note](#adding-or-updating-a-release-note).
 
 #### Example of errata
 
-- > "[Features](/)" incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+* > "[Features](/)" incorrectly indicated that users of the {% data variables.product.prodname_advisory_database %} can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
 
 ### Adding or updating a release note
 
@@ -1127,9 +1129,9 @@ Sectional TOCs must be introduced with a sentence or paragraph that helps people
 
 Set up your application according to your operating system.
 
-- [Setting up for macOS](#setting-up-for-macOS)
-- [Setting up for Windows](#setting-up-for-windows)
-- [Setting up for Linux](#setting-up-for-linux)
+* [Setting up for macOS](#setting-up-for-macOS)
+* [Setting up for Windows](#setting-up-for-windows)
+* [Setting up for Linux](#setting-up-for-linux)
 
 ### Setting up for macOS
 
@@ -1139,9 +1141,9 @@ TEXT
 
 The application is supported for all versions of Windows, but the set up steps differ.
 
-- [Windows 98](#windows-98)
-- [Windows Vista](#windows-vista)
-- [Windows 11](#windows-11)
+* [Windows 98](#windows-98)
+* [Windows Vista](#windows-vista)
+* [Windows 11](#windows-11)
 
 #### Windows 98
 
@@ -1174,9 +1176,9 @@ A table’s data and why it is important should be clear from any preceding cont
 
 For example, in "[AUTOTITLE](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions)," a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
 
-- **Use:** "Different size limits per repository apply depending on your GHES version."
-- **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
-- **Avoid:** “The table below shows what kind of migration data is exported.”
+* **Use:** "Different size limits per repository apply depending on your GHES version."
+* **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
+* **Avoid:** “The table below shows what kind of migration data is exported.”
 
 ### Use proper markup for row and column headers
 
@@ -1233,10 +1235,10 @@ For tables with row headers, the first cell (cell "A1") should describe the row 
 
 For tables that use symbols:
 
-- Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
-- Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
-- Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[AUTOTITLE](/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
 
@@ -1329,18 +1331,18 @@ For further guidance, see “[Formatting titles](https://docs.microsoft.com/styl
 
 We use short titles to populate the sidebar navigation. Since short titles appear in the sidebar navigation, they can use context to convey meaning and be slightly less precise than full titles. The goal of short titles is to help people find the content that they are looking for without having sidebar navigation items that are too long. Short titles give people contextual understanding of an article and align to the following standards.
 
-- Short titles are 2-3 words long.
-  - For categories, short titles must be less than 27 characters.
-  - For map topics, short titles must be less than 30 characters.
-  - For articles, short titles must be less than 31 characters and are ideally between 20 and 25 characters.
-- Short titles use the base form of verbs instead of gerunds.
-  - **Use:** "Configure notifications" instead of "Configuring notifications."
-- Short titles for categories, map topics, and articles can omit product and feature names if it is clear what product or feature they relate to.
-  - **Use:** "Configure notifications" as the short title for "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)" since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
-- Short titles do not introduce new words that are not in the full title.
-- Short titles should be parallel to short titles for similar content.
-  - **Use:** "Organizations and teams" and "Enterprise accounts"
-  - **Avoid:** "Organizations and teams" and "Managing enterprise accounts"
+* Short titles are 2-3 words long.
+  * For categories, short titles must be less than 27 characters.
+  * For map topics, short titles must be less than 30 characters.
+  * For articles, short titles must be less than 31 characters and are ideally between 20 and 25 characters.
+* Short titles use the base form of verbs instead of gerunds.
+  * **Use:** "Configure notifications" instead of "Configuring notifications."
+* Short titles for categories, map topics, and articles can omit product and feature names if it is clear what product or feature they relate to.
+  * **Use:** "Configure notifications" as the short title for "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)" since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
+* Short titles do not introduce new words that are not in the full title.
+* Short titles should be parallel to short titles for similar content.
+  * **Use:** "Organizations and teams" and "Enterprise accounts"
+  * **Avoid:** "Organizations and teams" and "Managing enterprise accounts"
 
 Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
 
@@ -1355,57 +1357,57 @@ Site policy content otherwise uses the same style and content models as the rest
 ### Boldface
 
 Use bold to describe UI elements that can be interacted with.
-- In the left sidebar, click **Billing**.
-- Look in the merge box at the bottom of the pull request's **Conversation** tab.
-- Next to **Title**, add a descriptive label for your new key.
+* In the left sidebar, click **Billing**.
+* Look in the merge box at the bottom of the pull request's **Conversation** tab.
+* Next to **Title**, add a descriptive label for your new key.
 
 ### Branch names
 
 Use code formatting for branch names.
-- `main`
-- `USERNAME.github.io`
+* `main`
+* `USERNAME.github.io`
 
 ### Buttons
 
 Format button names in bold and, whenever possible, omit the word “button.” To describe using a button, write “click”, not push or press.
-- **Use:** Click **Pull request**.
-- **Avoid:** Press the Pull request button.
+* **Use:** Click **Pull request**.
+* **Avoid:** Press the Pull request button.
 
 ### Checkboxes
 
 Format checkbox names in bold and omit the word “checkbox.” To describe choosing or clearing a checkbox, use “select” or “deselect.”
-- **Use:** Select **Enable for all new repositories**.
-- **Avoid:** Check the “Enable for all new repositories” checkbox.
+* **Use:** Select **Enable for all new repositories**.
+* **Avoid:** Check the “Enable for all new repositories” checkbox.
 
 ### Dynamic text
 
 Use capital letters to indicate text that changes in the user interface or that the user needs to supply in a command or code snippet.
-- **Use:** Click **Add USERNAME to REPONAME**.
+* **Use:** Click **Add USERNAME to REPONAME**.
 
 ### Lists and list items
 
 Format lists and clickable list items in bold. To describe interacting with a list, such as a dropdown menu or UI element that expands, regardless of whether the list name is a word or an octicon, write "select." To describe choosing a list item, write "click."
-- **Use:** Select the **Backup email addresses** dropdown menu and click **Only allow primary email**.
-- **Avoid:** Click the "Backup email addresses" dropdown menu and click **Only allow primary email**.
+* **Use:** Select the **Backup email addresses** dropdown menu and click **Only allow primary email**.
+* **Avoid:** Click the "Backup email addresses" dropdown menu and click **Only allow primary email**.
 
 ### Location
 
 Describe a user interface element’s location with standard terms.
-- Under or above
-- Next to
-- Upper-left, upper-right, lower-left, lower-right
-- Top of the page, bottom of the page, right side of the page, left side of the page
+* Under or above
+* Next to
+* Upper-left, upper-right, lower-left, lower-right
+* Top of the page, bottom of the page, right side of the page, left side of the page
 
 ### Panels
 
 When possible, avoid referring to panels. Instead, describe what someone needs to do.
-- **Use:** Click **View charts and graphs** for your repository, then select the time period you want to view from the dropdown menu.
-- **Avoid:** Click the **View charts and graphs** to open the panel for your selected repository, then select the time period you want to view from the dropdown menu.
+* **Use:** Click **View charts and graphs** for your repository, then select the time period you want to view from the dropdown menu.
+* **Avoid:** Click the **View charts and graphs** to open the panel for your selected repository, then select the time period you want to view from the dropdown menu.
 
 If you need to refer to a panel to describe a change to the UI or to explain how to interact with the UI, format the panel name as [user interface text](#user-interface-text). Only include the word panel if it adds clarity or if the panel has no name in the UI.
 
-- **Use:** In the "Security coverage" panel, select **Enable** or **Disable**.
-- **Use:** In the panel, select **Enable** or **Disable**.
+* **Use:** In the "Security coverage" panel, select **Enable** or **Disable**.
+* **Use:** In the panel, select **Enable** or **Disable**.
 
 ### Radio buttons
 
@@ -1414,23 +1416,23 @@ Format radio button labels in bold and omit the words “radio button” or any 
 ### Repository names
 
 Style repository names in monospace font using backticks. Provide a link to repositories when people are expected to navigate to them.
-- **Use:** See the [`github/docs`](https://github.com/github/docs) repository for more information.
+* **Use:** See the [`github/docs`](https://github.com/github/docs) repository for more information.
 
 ### Responsive elements
 
 We only document the responsive states of UI elements when they create ambiguity or confusion. If a task is unclear because of a responsive UI element, describe the interaction that someone must do to achieve the goal of the task. Do not just describe the visual state of the UI element.
 
-- **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
+* **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
 
 ### User interface text
 
 When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
-- **Use:** Under “IP allow list”, click **Edit**.
+* **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
 
 Microsoft Style Guide:
-- [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
+* [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
 ## Videos
 
@@ -1457,24 +1459,24 @@ For general guidance and GitHub-specific terms, see our "[Glossary](/get-started
 ### Abbreviations
 
 Spell out words except when referring to a word that’s explicitly shortened in the product itself.
-- **Use:** Repository
-- **Avoid:** Repo
-- **Use:** Administrator, people with admin permissions
-- **Avoid:** Admins
+* **Use:** Repository
+* **Avoid:** Repo
+* **Use:** Administrator, people with admin permissions
+* **Avoid:** Admins
 
 Do not use symbols or octicons that aren’t used in GitHub’s user interface.
-- **Use:** Click **File**, then click **Edit**.
-- **Avoid:** Click **File > Edit**.
+* **Use:** Click **File**, then click **Edit**.
+* **Avoid:** Click **File > Edit**.
 
 ### Accounts
 
 #### Product names and accounts
 
 To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of accounts available in GitHub's products, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
-- **Use:** Your organization on {% data variables.product.prodname_ghe_cloud %}
-- **Avoid:** Your {% data variables.product.prodname_ghe_cloud %} account
-- **Avoid:** Your {% data variables.product.prodname_ghe_server %} organization
-- **Use:** You can highlight your work on {% data variables.product.prodname_ghe_server %} by sending the contribution counts to your GitHub.com profile.
+* **Use:** Your organization on {% data variables.product.prodname_ghe_cloud %}
+* **Avoid:** Your {% data variables.product.prodname_ghe_cloud %} account
+* **Avoid:** Your {% data variables.product.prodname_ghe_server %} organization
+* **Use:** You can highlight your work on {% data variables.product.prodname_ghe_server %} by sending the contribution counts to your GitHub.com profile.
 
 #### Individual people's accounts on {% data variables.product.company_short %}
 
@@ -1482,36 +1484,36 @@ We refer to an account that an individual person signs into in various ways depe
 
 Unless the content is about administering an enterprise product, describe an individual person's account on {% data variables.product.company_short %} as a "personal account." This creates consistency with the UI and prevents readers from being confused by seeing two terms that mean the same thing.
 
-- **Use:** Managing scheduled reminders for your personal account
-- **Avoid:** Managing scheduled reminders for your user account
+* **Use:** Managing scheduled reminders for your personal account
+* **Avoid:** Managing scheduled reminders for your user account
 
 #### Accounts for enterprise products
 
 With {% data variables.product.company_short %}'s enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
 
-- [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-- [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+* [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
-- {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
-  - **Use:** With {% data variables.product.prodname_emus %}, you can create and manage user accounts for your enterprise members.
-  - **Avoid:** With {% data variables.product.prodname_emus %}, you can create and manage the personal accounts for your enterprise members.
-- {% data variables.product.prodname_ghe_server %}
-  - **Use:** If you need to temporarily take over a user account…
-  - **Avoid:** If you need to temporarily take over a personal account…
+* {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
+  * **Use:** With {% data variables.product.prodname_emus %}, you can create and manage user accounts for your enterprise members.
+  * **Avoid:** With {% data variables.product.prodname_emus %}, you can create and manage the personal accounts for your enterprise members.
+* {% data variables.product.prodname_ghe_server %}
+  * **Use:** If you need to temporarily take over a user account…
+  * **Avoid:** If you need to temporarily take over a personal account…
 
 The following documentation should reference "user accounts."
 
-- The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
-- Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
-- Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
-- Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+* The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
+* Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
+* Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
+* Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.
 
-- **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on {% data variables.product.prodname_dotcom_the_website %}.
-- **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on {% data variables.product.prodname_dotcom_the_website %}.
+* **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on {% data variables.product.prodname_dotcom_the_website %}.
+* **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on {% data variables.product.prodname_dotcom_the_website %}.
 
 Documentation that describes {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %} is generally in the "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
 
@@ -1526,31 +1528,31 @@ Spell out acronyms the first time they’re used in an article, except in titles
 ### Apps
 
 Use "app" or "application" in general content.
-- **Use:** Publish and list your app in {% data variables.product.prodname_marketplace %}
+* **Use:** Publish and list your app in {% data variables.product.prodname_marketplace %}
 
 Use "app" when referring to {% data variables.product.prodname_oauth_apps %} since these are not a product.
-- **Use:** Register an {% data variables.product.prodname_oauth_app %}
-- **Avoid:** Register an OAuth App
+* **Use:** Register an {% data variables.product.prodname_oauth_app %}
+* **Avoid:** Register an OAuth App
 
 Use "App" when referring to {% data variables.product.prodname_github_apps %} since this is a product.
-- **Use:** Register a {% data variables.product.prodname_github_app %}
+* **Use:** Register a {% data variables.product.prodname_github_app %}
 
 {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} consist of two parts: the app registration, and the code that makes the app do something.
 
-- To refer to just the {% data variables.product.prodname_github_app %} settings/configuration in the {% data variables.product.prodname_dotcom %} UI, use terminology like "register" and "{% data variables.product.prodname_github_app %} registration".
-   - **Use:** Register a {% data variables.product.prodname_github_app %}
-   - **Use:** Update a {% data variables.product.prodname_github_app %} registration
-   - **Avoid:** Create a {% data variables.product.prodname_github_app %}
-   - **Avoid:** Modify a {% data variables.product.prodname_github_app %}
+* To refer to just the {% data variables.product.prodname_github_app %} settings/configuration in the {% data variables.product.prodname_dotcom %} UI, use terminology like "register" and "{% data variables.product.prodname_github_app %} registration".
+   * **Use:** Register a {% data variables.product.prodname_github_app %}
+   * **Use:** Update a {% data variables.product.prodname_github_app %} registration
+   * **Avoid:** Create a {% data variables.product.prodname_github_app %}
+   * **Avoid:** Modify a {% data variables.product.prodname_github_app %}
 
-- To refer to just the code for the app, use terminology like "code for your app" or "your app's code".
-   - **Use:** code for your app
-   - **Use:** code for your {% data variables.product.prodname_github_app %}
-   - **Use:** your app's code
-   - **Avoid:** Your {% data variables.product.prodname_github_app %}
-   - **Avoid:** Your {% data variables.product.prodname_oauth_app %}
+* To refer to just the code for the app, use terminology like "code for your app" or "your app's code".
+   * **Use:** code for your app
+   * **Use:** code for your {% data variables.product.prodname_github_app %}
+   * **Use:** your app's code
+   * **Avoid:** Your {% data variables.product.prodname_github_app %}
+   * **Avoid:** Your {% data variables.product.prodname_oauth_app %}
 
-- To refer to the whole app collectively (registration + code), refer to it as a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}.
+* To refer to the whole app collectively (registration + code), refer to it as a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}.
 
 {% data variables.product.prodname_github_apps %} can be installed on organization and user accounts. To refer to an installation of the app, use "{% data variables.product.prodname_github_app %} installation" instead of "{% data variables.product.prodname_github_app %}."
 
@@ -1559,25 +1561,25 @@ Use "App" when referring to {% data variables.product.prodname_github_apps %} si
 When referring to dollars, cents, amounts of currency or using the `$` sign, ensure the currency used is defined even if the amount is zero. Use the [ISO standard currency name](https://www.iso.org/iso-4217-currency-codes.html), and the [ISO standard currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes) where possible.
 
 Use lowercase for currency names, but capitalize the reference to the country or region.
-- **Use:** US dollar.
-- **Avoid:** US Dollar, $USD dollar.
+* **Use:** US dollar.
+* **Avoid:** US Dollar, $USD dollar.
 
 Use uppercase for currency codes.
-- **Use:** USD.
+* **Use:** USD.
 
 Where there is only one reference in an article, use the currency name without a `$` sign preceding the amount.
-- **Use:** `10 US dollars` for a single reference to currency.
+* **Use:** `10 US dollars` for a single reference to currency.
 
 Where an article contains several references to the same currency, ensure that the first reference uses the currency name without a `$` sign preceding the amount and includes the currency code in parentheses following the currency name.
 
 For subsequent references to currency in an article or where appropriate (such as when space is a consideration, or when several amounts are presented in a table or list), include the `$` sign preceding the amount and use the ISO standard currency code following the amount.
-- **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
-- **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
+* **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
+* **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
 
 Where the first reference concerns cents or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
 
-- **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
-- **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
+* **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
+* **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
 
 ### Permissions
 
@@ -1585,27 +1587,27 @@ A **permission** is the ability to perform a specific action. For example, the a
 
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
-- Accounts (e.g., organization owner, billing manager for an enterprise account)
-- Resources (e.g., write for a repository, admin for a security advisory)
-- Teams (e.g., team maintainer)
+* Accounts (e.g., organization owner, billing manager for an enterprise account)
+* Resources (e.g., write for a repository, admin for a security advisory)
+* Teams (e.g., team maintainer)
 
 A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
 
 Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
 
-- **Use:** To create a custom repository role, you choose an inherited role and then add individual permissions.
-- **Use:** Managing a team's access to your organization's repository
-- **Use:** If your team membership gives you a different level of access than your role as organization owner…
-- **Use:** People with write access can…
-- **Avoid:** People with the write access can...
-- **Avoid:** People with the write role can…
-- **Avoid:** People with write permissions can…
-- **Avoid:** People with write privileges can…
+* **Use:** To create a custom repository role, you choose an inherited role and then add individual permissions.
+* **Use:** Managing a team's access to your organization's repository
+* **Use:** If your team membership gives you a different level of access than your role as organization owner…
+* **Use:** People with write access can…
+* **Avoid:** People with the write access can...
+* **Avoid:** People with the write role can…
+* **Avoid:** People with write permissions can…
+* **Avoid:** People with write privileges can…
 
 When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
 
-- **Use:** People with write access to a repository can do X to the repository.
-- **Avoid:** Organization owners and people with write access can do X to the repository.
+* **Use:** People with write access to a repository can do X to the repository.
+* **Avoid:** Organization owners and people with write access can do X to the repository.
 
 For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
 
@@ -1640,34 +1642,34 @@ See the “[Product names](#product-names)” section of this guide.
 
 When a task is required, or one option is preferred to another, avoid using ambiguous modal auxiliary verbs such as "may," "might," "ought," "should," "could," "would," and "can." These verbs can be interpreted as either a command or a suggestion. Instead, use verbs that clearly indicate whether the action is required or optional. If something is an option or suggestion, you can use these verbs so long as you make it clear that the action is optional.
 
-- **Use:** You can decide which keyboard shortcuts to use.
-- **Use:** Use the `git clone` command to clone a repository.
-- **Avoid:** You can use the `git clone` command to clone a repository.
-- **Avoid:** You could delete the branch.
+* **Use:** You can decide which keyboard shortcuts to use.
+* **Use:** Use the `git clone` command to clone a repository.
+* **Avoid:** You can use the `git clone` command to clone a repository.
+* **Avoid:** You could delete the branch.
 
 ### Invisible plurals
 
 Avoid invisible plurals, which are words that have ambiguous meaning because they can be interpreted as singular or plural. For example, "file retrieval" could refer to retrieving a single file or multiple files.
 
-- **Use:** After the file is retrieved, select where to save it.
-- **Avoid:** After file retrieval, select where to save it.
+* **Use:** After the file is retrieved, select where to save it.
+* **Avoid:** After file retrieval, select where to save it.
 
 ### Nominalizations
 
 Avoid nominalizations, which are nouns created from verbs or adjectives. Nominalizations can make sentences longer, harder to understand, and harder to translate.
 
-- **Use:** After the workflow concludes, the package will be visible.
-- **Avoid:** After the workflow has reached its conclusion, the package will be visible.
+* **Use:** After the workflow concludes, the package will be visible.
+* **Avoid:** After the workflow has reached its conclusion, the package will be visible.
 
 ### Strings of nouns
 
 Avoid stacked modifiers (strings of nouns), which can lead to incorrect translations because translations may not be able to tell which word is modifying the other. You can rephrase the string of nouns using a preposition. If using a stacked modifier is essential, make sure the background information and context are clear so that readers and the translator can understand what is being modified.
-- **Use:** Default source settings for public repositories
-- **Avoid:** Public repository default source settings
+* **Use:** Default source settings for public repositories
+* **Avoid:** Public repository default source settings
 
 ### Vague nouns and pronouns
 
 If a pronoun seems to refer to more than one antecedent, either reword the sentence to make the antecedent clear or replace the pronoun with a noun to eliminate ambiguity.
 
-- **Use:** After you make your final commit to your branch and merge your pull request, you can delete your branch.
-- **Avoid:** After you make your final commit to your branch and merge your pull request, you can delete it.
+* **Use:** After you make your final commit to your branch and merge your pull request, you can delete your branch.
+* **Avoid:** After you make your final commit to your branch and merge your pull request, you can delete it.
