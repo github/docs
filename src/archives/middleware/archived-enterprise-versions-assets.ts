@@ -9,7 +9,7 @@ import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
 } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl } from '@/frame/middleware/cache-control.js'
+import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
 import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
@@ -60,6 +60,18 @@ export default async function archivedEnterpriseVersionsAssets(
   if (!isArchived) return next()
 
   const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
+
+  // Just to be absolutely certain that the path can not contain
+  // a URL that might trip up the GET we're about to make.
+  if (
+    assetPath.includes('..') ||
+    assetPath.includes('://') ||
+    (assetPath.includes(':') && assetPath.includes('@'))
+  ) {
+    defaultCacheControl(res)
+    return res.status(404).type('text/plain').send('Asset path not valid')
+  }
+
   const proxyPath = path.join('/', requestedVersion, assetPath)
 
   try {
