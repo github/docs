@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!-- omit in toc RICKYYYC -->
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
@@ -48,8 +48,9 @@ The GitHub product documentation in the assets, content, and data folders are li
 
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/RICKYYYC ).
 
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+rickyyyc001@gmail.com 
