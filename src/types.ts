@@ -74,6 +74,18 @@ export type Context = {
   languages?: Languages
   redirectNotFound?: string
   earlyAccessPageLinks?: string
+  secretScanningData?: SecretScanningData[]
+}
+
+export type SecretScanningData = {
+  provider: string
+  supportedSecret: string
+  secretType: string
+  versions: Record<string, string>
+  isPublic: boolean
+  isPrivateWithGhas: boolean
+  hasPushProtection: boolean
+  hasValidityCheck: boolean | string
 }
 
 type Language = {
