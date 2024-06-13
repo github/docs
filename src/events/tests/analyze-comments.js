@@ -132,6 +132,35 @@ describe('analyzeComment', () => {
     }
   })
 
+  test('single-word', async () => {
+    // Yes
+    {
+      const { signals, rating } = await analyzeComment('  Word ')
+      expect(signals.includes('single-word')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('.!?')
+      expect(signals.includes('single-word')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+    {
+      const { signals, rating } = await analyzeComment('www.example.com/some/path')
+      expect(signals.includes('single-word')).toBeTruthy()
+      expect(rating).toBeLessThan(1.0)
+    }
+
+    // No
+    {
+      const { signals } = await analyzeComment('One two')
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+    {
+      const { signals } = await analyzeComment('  one   two\tthree ')
+      expect(signals.includes('single-word')).toBeFalsy()
+    }
+  })
+
   test('not-language', async () => {
     // Yes
     {
@@ -163,7 +192,8 @@ describe('analyzeComment', () => {
   })
 
   test('cuss-words-likely', async () => {
-    const { signals, rating } = await analyzeComment('f*ck you'.replace('*', 'u'))
+    // The "CK" makes the final word a mix or lower and upper case.
+    const { signals, rating } = await analyzeComment('f*CK you'.replace('*', 'u'))
     expect(signals.includes('cuss-words-likely')).toBeTruthy()
     expect(rating).toBeLessThan(1.0)
   })
