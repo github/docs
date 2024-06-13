@@ -15,15 +15,15 @@ shortTitle: Changes to GitHub plans
 
 GitHub announced the following plans and pricing changes:
 
-- GitHub Free for organizations is immediately available and includes private repositories for unlimited users
-- All organizations previously using Team for Open Source now have GitHub Free
-- GitHub Free for individual developers now includes unlimited collaborators
-- Organizations and individuals using GitHub Free will receive GitHub Community Support
-- GitHub Pro will now include 2GB of Packages storage and 10GB of data transfer
-- GitHub Pro now has a reduced monthly price of $4
-- GitHub Team now has a reduced monthly price of $4 per user
-- GitHub Team no longer has a required five-seat minimum
-- GitHub Team includes 3,000 Actions minutes per month for private repositories
+* GitHub Free for organizations is immediately available and includes private repositories for unlimited users
+* All organizations previously using Team for Open Source now have GitHub Free
+* GitHub Free for individual developers now includes unlimited collaborators
+* Organizations and individuals using GitHub Free will receive GitHub Community Support
+* GitHub Pro will now include 2GB of Packages storage and 10GB of data transfer
+* GitHub Pro now has a reduced monthly price of $4
+* GitHub Team now has a reduced monthly price of $4 per user
+* GitHub Team no longer has a required five-seat minimum
+* GitHub Team includes 3,000 Actions minutes per month for private repositories
 
 ## How can I upgrade my plan?
 
@@ -35,16 +35,16 @@ To downgrade your personal account or organizations's plan, see "[AUTOTITLE](/bi
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
 
-- Required reviewers in private repositories
-- Protected branches in private repositories
-- Code owners in private repositories
-- GitHub Pages in private repositories
-- Wikis in private repositories
-- Multiple assignees for issues and pull requests in private repositories
-- Multiple pull request reviewers in private repositories
-- Draft pull requests in private repositories
-- Autolinked references in private repositories
-- Standard support
+* Required reviewers in private repositories
+* Protected branches in private repositories
+* Code owners in private repositories
+* GitHub Pages in private repositories
+* Wikis in private repositories
+* Multiple assignees for issues and pull requests in private repositories
+* Multiple pull request reviewers in private repositories
+* Draft pull requests in private repositories
+* Autolinked references in private repositories
+* Standard support
 
 ## How can I create a GitHub Free or GitHub Team organization?
 

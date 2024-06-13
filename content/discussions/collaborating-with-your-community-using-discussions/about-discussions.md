@@ -10,11 +10,11 @@ versions:
 
 With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository or organization. Discussions empower a project's maintainers, contributors, and visitors to gather and accomplish the following goals in a central location, without third-party tools.
 
-- Share announcements and information, gather feedback, plan, and make decisions
-- Ask questions, discuss and answer the questions, and mark the discussions as answered
-- Create polls to gauge community opinion
-- Upvote discussions and comments to give higher visibility to ideas you find valuable
-- Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
+* Share announcements and information, gather feedback, plan, and make decisions
+* Ask questions, discuss and answer the questions, and mark the discussions as answered
+* Create polls to gauge community opinion
+* Upvote discussions and comments to give higher visibility to ideas you find valuable
+* Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
 ![Screenshot of the "Discussions" page for a {% data variables.product.company_short %} repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
@@ -71,8 +71,8 @@ You can share your feedback about {% data variables.product.prodname_discussions
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)"
-- "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"{% endif %}
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)"
+* "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"{% endif %}

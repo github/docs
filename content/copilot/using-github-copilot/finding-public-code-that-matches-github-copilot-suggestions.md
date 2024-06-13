@@ -30,9 +30,9 @@ The linked web page includes details of any license identified for the repositor
 
 **Notes**:
 
-- Code referencing does not currently apply to code completion suggestions that you add to your code using {% data variables.product.prodname_copilot_chat %}.
-- Code referencing currently only looks for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Matches to code you have written, or {% data variables.product.prodname_copilot_short %} suggestions you have altered, is not checked for matches to public code.
-- Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many of the suggestions you accept.
+* Code referencing does not currently apply to code completion suggestions that you add to your code using {% data variables.product.prodname_copilot_chat %}.
+* Code referencing currently only looks for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Matches to code you have written, or {% data variables.product.prodname_copilot_short %} suggestions you have altered, is not checked for matches to public code.
+* Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many of the suggestions you accept.
 
 {% endnote %}
 
@@ -57,12 +57,12 @@ You can access code references from one of the {% data variables.product.prodnam
 
    The log entry includes the following details:
 
-   - The date and time you accepted the suggestion.
-   - The name of the file in which the suggestion was added.
-   - A message telling you that similar code was found, with the number and type of licenses.
-   - A link to a page on {% data variables.product.prodname_dotcom_the_website %}.
-   - The location in the file where the suggestion was added.
-   - A snippet of part of the code that was suggested and added.
+   * The date and time you accepted the suggestion.
+   * The name of the file in which the suggestion was added.
+   * A message telling you that similar code was found, with the number and type of licenses.
+   * A link to a page on {% data variables.product.prodname_dotcom_the_website %}.
+   * The location in the file where the suggestion was added.
+   * A snippet of part of the code that was suggested and added.
 
    ![Screenshot of the Output window showing a code referencing log entry.](/assets/images/help/copilot/copilot-code-referencing-log.png)
 

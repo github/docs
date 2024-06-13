@@ -54,13 +54,13 @@ You can register your Canvas installation with {% data variables.product.prodnam
 1. Go to https://classroom.github.com/register-lms.
 1. Fill in the following information:
 
-   - Under "LMS Type", choose "Canvas" from the dropdown menu.
-   - "Issuer Identifier": `https://canvas.instructure.com`
-   - "Domain": The base URL to your Canvas instance
-   - "Client ID": The "Client ID" under "Details" from the developer key you created
-   - "OIDC Authorization end-point": The base URL to your Canvas instance with `/api/lti/authorize_redirect` appended at the end.
-   - "OAuth 2.0 Token Retrieval URL": The base URL to your Canvas instance with `/login/oauth2/token` appended at the end.
-   - "Key Set URL": The base URL to your Canvas instance with `/api/lti/security/jwks` appended at the end.
+   * Under "LMS Type", choose "Canvas" from the dropdown menu.
+   * "Issuer Identifier": `https://canvas.instructure.com`
+   * "Domain": The base URL to your Canvas instance
+   * "Client ID": The "Client ID" under "Details" from the developer key you created
+   * "OIDC Authorization end-point": The base URL to your Canvas instance with `/api/lti/authorize_redirect` appended at the end.
+   * "OAuth 2.0 Token Retrieval URL": The base URL to your Canvas instance with `/login/oauth2/token` appended at the end.
+   * "Key Set URL": The base URL to your Canvas instance with `/api/lti/security/jwks` appended at the end.
 
 1. Click **Register**.
 1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
@@ -111,13 +111,13 @@ You must be using Moodle version 3.0 or greater.
 1. Go to https://classroom.github.com/register-lms.
 1. Fill in the following information:
 
-   - Under "LMS Type", choose "Moodle" from the dropdown menu.
-   - "Issuer Identifier": The "Platform ID" from the "Tool configuration details" of the external tool you created in Moodle
-   - "Domain": The base URL to your Moodle instance
-   - "Client ID": The "Client ID" from the "Tool configuration details" of the external tool you created in Moodle
-   - "Authentication request URL": The "Authentication Request URL" from the "Tool configuration details" of the external tool you created in Moodle
-   - "Access token URL": The "Access token URL" from the "Tool configuration details" of the external tool you created in Moodle
-   - "Key Set URL": The "Public keyset URL" from the "Tool configuration details" of the external tool you created in Moodle
+   * Under "LMS Type", choose "Moodle" from the dropdown menu.
+   * "Issuer Identifier": The "Platform ID" from the "Tool configuration details" of the external tool you created in Moodle
+   * "Domain": The base URL to your Moodle instance
+   * "Client ID": The "Client ID" from the "Tool configuration details" of the external tool you created in Moodle
+   * "Authentication request URL": The "Authentication Request URL" from the "Tool configuration details" of the external tool you created in Moodle
+   * "Access token URL": The "Access token URL" from the "Tool configuration details" of the external tool you created in Moodle
+   * "Key Set URL": The "Public keyset URL" from the "Tool configuration details" of the external tool you created in Moodle
 
 1. Click **Register**.
 1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
@@ -148,13 +148,13 @@ You must be using Moodle version 3.0 or greater.
 
 1. Go to https://classroom.github.com/register-lms.
 1. Fill in the following information:
-   - Under "LMS Type", choose "Sakai" from the dropdown menu.
-   - "LTI 1.3 Platform Issuer": The "LTI 1.3 Platform Issuer" field as provided by Sakai
-   - "Domain": The base URL to your Sakai instance
-   - "LTI 1.3 Client ID": The "LTI 1.3 Client ID" field as provided by Sakai
-   - "LTI 1.3 Platform OIDC Authentication URL":  The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
-   - "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL": The "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL" field as provided by Sakai
-   - "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL": The "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL" field as provided by Sakai
+   * Under "LMS Type", choose "Sakai" from the dropdown menu.
+   * "LTI 1.3 Platform Issuer": The "LTI 1.3 Platform Issuer" field as provided by Sakai
+   * "Domain": The base URL to your Sakai instance
+   * "LTI 1.3 Client ID": The "LTI 1.3 Client ID" field as provided by Sakai
+   * "LTI 1.3 Platform OIDC Authentication URL":  The "LTI 1.3 Platform OIDC Authentication URL" field as provided by Sakai
+   * "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL": The "LTI 1.3 Platform OAuth2 Bearer Token Retrieval URL" field as provided by Sakai
+   * "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL": The "LTI 1.3 Platform OAuth2 Well-Known/KeySet URL" field as provided by Sakai
 
 1. Click **Register**.
 1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've  registered your LMS instance and teachers can now link their classrooms.

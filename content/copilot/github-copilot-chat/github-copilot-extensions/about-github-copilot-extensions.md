@@ -22,9 +22,9 @@ After you install a {% data variables.product.prodname_copilot_extension_short %
 
 {% data variables.product.prodname_copilot_extensions_short %} provide several benefits, including:
 
-- Interaction with external tools using natural language
-- Reduced context switching
-- Customization of your {% data variables.product.prodname_copilot_chat_short %} experience for your developer flow
+* Interaction with external tools using natural language
+* Reduced context switching
+* Customization of your {% data variables.product.prodname_copilot_chat_short %} experience for your developer flow
 
 **{% data variables.product.prodname_copilot_extensions_short %} are included in all {% data variables.product.prodname_copilot_short %} subscriptions**, and can be used with:
 

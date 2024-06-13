@@ -28,8 +28,8 @@ You may want to prevent certain files from being available to {% data variables.
 
 When you specify content exclusions it has two effects:
 
-- The content of the affected files will not be used by {% data variables.product.prodname_copilot %} to inform the code completion suggestions it makes in other files.
-- {% data variables.product.prodname_copilot %} code completion will not be available in the affected files.
+* The content of the affected files will not be used by {% data variables.product.prodname_copilot %} to inform the code completion suggestions it makes in other files.
+* {% data variables.product.prodname_copilot %} code completion will not be available in the affected files.
 
 {% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to your IDE](#propagating-content-exclusion-changes-to-your-ide)."
 
@@ -165,9 +165,9 @@ You can use your organization settings to specify content, in any repository, th
    {% note %}
 
    **Notes**:
-   - The `user@` and `:port` parts of the `REPOSITORY-REFERENCE` are ignored in the calculation of which paths to ignore for a repository.
-   - Each repository reference can contain a single `*` wildcard. For example, `https://github.com/octo-org/*` matches all repositories in the `octo-org` organization.
-   - There is additional support for Azure DevOps URLs. For more information, see "[Azure DevOps `REPOSITORY-REFERENCE` support](#azure-devops-repository-reference-support)."
+   * The `user@` and `:port` parts of the `REPOSITORY-REFERENCE` are ignored in the calculation of which paths to ignore for a repository.
+   * Each repository reference can contain a single `*` wildcard. For example, `https://github.com/octo-org/*` matches all repositories in the `octo-org` organization.
+   * There is additional support for Azure DevOps URLs. For more information, see "[Azure DevOps `REPOSITORY-REFERENCE` support](#azure-devops-repository-reference-support)."
 
    {% endnote %}
 
@@ -302,5 +302,5 @@ Both the new (dev.azure.com) and old (visualstudio.com) formats for Azure DevOps
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business)"
-- "[AUTOTITLE](/enterprise-cloud@latest/copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot#github-copilot-content-exclusions-are-not-being-applied)"
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business)"
+* "[AUTOTITLE](/enterprise-cloud@latest/copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot#github-copilot-content-exclusions-are-not-being-applied)"

@@ -21,10 +21,10 @@ redirect_from:
 To run a migration, you need sufficient access to both the source and the destination for your migration. The source is the organization on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_server %} from which you want to migrate data. The destination is either an organization account on {% data variables.product.prodname_dotcom_the_website %}, if you're migrating repositories, or an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, if you're migrating an entire organization.
 
 To have sufficient access for the migration, for both the source and the destination, you need the following things.
-- A required role in the organization or enterprise account
-- A {% data variables.product.pat_generic %} that can access the organization or enterprise account
-  - The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
-  - If the source or destination uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
+* A required role in the organization or enterprise account
+* A {% data variables.product.pat_generic %} that can access the organization or enterprise account
+  * The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
+  * If the source or destination uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
 
 Additionally, if you use IP allow lists with the source or destination, you may need to configure the allow lists to allow access by {% data variables.product.prodname_importer_proper_name %}.
 
@@ -37,9 +37,9 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.8 or
 {% note %}
 
 **Notes:**
-- If you're migrating a repository between two organizations on {% data variables.product.prodname_dotcom_the_website %}, you can grant the migrator role to the same person or team for both organizations, but you must grant each separately.
-- You cannot grant the migrator role for enterprise accounts. Therefore, you can only run an organization migration if you're an owner of the destination enterprise. However, you can grant the migrator role to that enterprise owner for the source organization.
-- The {% data variables.product.prodname_cli %} does not support granting the migrator role for organizations on {% data variables.product.prodname_ghe_server %}, so you must be an organization owner of the source organization to migrate repositories from {% data variables.product.prodname_ghe_server %}.
+* If you're migrating a repository between two organizations on {% data variables.product.prodname_dotcom_the_website %}, you can grant the migrator role to the same person or team for both organizations, but you must grant each separately.
+* You cannot grant the migrator role for enterprise accounts. Therefore, you can only run an organization migration if you're an owner of the destination enterprise. However, you can grant the migrator role to that enterprise owner for the source organization.
+* The {% data variables.product.prodname_cli %} does not support granting the migrator role for organizations on {% data variables.product.prodname_ghe_server %}, so you must be an organization owner of the source organization to migrate repositories from {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 
@@ -97,8 +97,8 @@ To allow someone other than an organization owner to run a repository migration 
 
 You can grant the migrator role using either the {% data variables.product.prodname_gei_cli %} or the GraphQL API.
 
-- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)"
-- "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+* "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-gei-extension)"
+* "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
 
 ### Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}
 
@@ -132,4 +132,4 @@ If the source of your migration is {% data variables.product.prodname_ghe_server
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"

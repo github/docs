@@ -66,8 +66,8 @@ If your course already has a roster, you can update the students on the roster o
 
 1. Provide the student identifiers for your roster.
 
-   - To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
-   - To create a roster manually, type your student identifiers in the text field.
+   * To import a roster by uploading a file containing student identifiers, click **Upload a CSV or text file**.
+   * To create a roster manually, type your student identifiers in the text field.
 
 1. Click **Create roster**.
 
@@ -80,13 +80,13 @@ Your classroom must have an existing roster to add students to the roster. For m
 {% data reusables.classroom.click-students %}
 1. To the right of "Classroom roster", click **Update students**. If you have already linked your classroom to an LMS course, then you will see a **Sync from...** button instead.
 1. Follow the instructions to add students to the roster.
-   - To import students from an LMS, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Sync from...** button. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+   * To import students from an LMS, your LMS administrator will first need to register your LMS instance and then you will need to connect your LMS course to your classroom. Once connected, you can click the **Sync from...** button. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
      {% note %}
 
      **Note:** {% data reusables.classroom.google-classroom-note %}
 
      {% endnote %}
-   - To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
+   * To manually add students, under "Manually add students", click **Upload a CSV or text file** or type the identifiers for the students, then click **Add roster entries**.
 
 ## Renaming a classroom
 
@@ -130,4 +130,4 @@ You can archive a classroom that you no longer use on {% data variables.product.
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)"

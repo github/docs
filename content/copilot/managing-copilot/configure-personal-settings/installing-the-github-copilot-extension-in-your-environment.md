@@ -29,8 +29,8 @@ To see instructions for other popular coding environments, use the tool switcher
 
 1. If a popup window in Azure Data Studio prompts you to sign in to use {% data variables.product.prodname_copilot %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and follow the instructions on screen.
 
-   - If you have previously authorized Azure Data Studio for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
-   - If you don't get the prompt to authorize, you can view notifications by clicking the bell icon in the bottom panel of the Azure Data Studio window.
+   * If you have previously authorized Azure Data Studio for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
+   * If you don't get the prompt to authorize, you can view notifications by clicking the bell icon in the bottom panel of the Azure Data Studio window.
 
 1. If you are following the authorization steps, in your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize Azure Data Studio**.
 
@@ -96,28 +96,28 @@ To see instructions for other popular coding environments, use the tool switcher
 
 1. Install {% data variables.product.prodname_copilot %} using the built-in plugin manager:
 
-   - For **Vim on macOS or Linux**, run the following command in the terminal.
+   * For **Vim on macOS or Linux**, run the following command in the terminal.
 
      ```shell copy
      git clone https://github.com/github/copilot.vim \
      ~/.vim/pack/github/start/copilot.vim
      ```
 
-   - For **Vim on Windows**, run the following command in Git Bash:
+   * For **Vim on Windows**, run the following command in Git Bash:
 
      ```shell copy
      git clone https://github.com/github/copilot.vim.git \
      $HOME/vimfiles/pack/github/start/copilot.vim
      ```
 
-   - For **Neovim on macOS or Linux**, run the following command in the terminal.
+   * For **Neovim on macOS or Linux**, run the following command in the terminal.
 
      ```shell copy
      git clone https://github.com/github/copilot.vim \
      ~/.config/nvim/pack/github/start/copilot.vim
      ```
 
-   - For **Neovim on Windows**, run the following command in Git Bash:
+   * For **Neovim on Windows**, run the following command in Git Bash:
 
      ```shell copy
      git clone https://github.com/github/copilot.vim.git \
@@ -178,4 +178,4 @@ Only the latest {% data variables.product.prodname_copilot_chat_short %} version
 
 ## Next steps
 
-- **Get started with {% data variables.product.prodname_copilot_short %}** - Learn how to use {% data variables.product.prodname_copilot_short %} in your preferred coding environment. See "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor)."
+* **Get started with {% data variables.product.prodname_copilot_short %}** - Learn how to use {% data variables.product.prodname_copilot_short %} in your preferred coding environment. See "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor)."

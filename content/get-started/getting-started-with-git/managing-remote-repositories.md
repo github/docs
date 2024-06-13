@@ -29,8 +29,8 @@ shortTitle: Manage remote repositories
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
 The `git remote add` command takes two arguments:
-- A remote name, for example, `origin`
-- A remote URL, for example, `https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git`
+* A remote name, for example, `origin`
+* A remote URL, for example, `https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git`
 
 For example:
 
@@ -56,9 +56,9 @@ $ git remote add origin https://{% data variables.product.product_url %}/octocat
 ```
 
 To fix this, you can:
-- Use a different name for the new remote.
-- Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
-- Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
+* Use a different name for the new remote.
+* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
+* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
 
 ## Changing a remote repository's URL
 
@@ -72,15 +72,15 @@ The `git remote set-url` command changes an existing remote repository URL.
 
 The `git remote set-url` command takes two arguments:
 
-- An existing remote name. For example, `origin` or `upstream` are two common choices.
-- A new URL for the remote. For example:
-  - If you're updating to use HTTPS, your URL might look like:
+* An existing remote name. For example, `origin` or `upstream` are two common choices.
+* A new URL for the remote. For example:
+  * If you're updating to use HTTPS, your URL might look like:
 
   ```shell
   https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git
   ```
 
-  - If you're updating to use SSH, your URL might look like:
+  * If you're updating to use SSH, your URL might look like:
 
   ```shell
   git@{% data variables.product.product_url %}:OWNER/REPOSITORY.git
@@ -160,8 +160,8 @@ Check that you've correctly typed the remote name.
 Use the `git remote rename` command to rename an existing remote.
 
 The `git remote rename` command takes two arguments:
-- An existing remote name, for example, `origin`
-- A new name for the remote, for example, `destination`
+* An existing remote name, for example, `origin`
+* A new name for the remote, for example, `destination`
 
 ### Example of renaming a remote repository
 
@@ -204,7 +204,7 @@ This error means that the remote name you want to use already exists. To solve t
 Use the `git remote rm` command to remove a remote URL from your repository.
 
 The `git remote rm` command takes one argument:
-- A remote name, for example, `destination`
+* A remote name, for example, `destination`
 
 Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
 
@@ -248,4 +248,4 @@ Check that you've correctly typed the remote name.
 
 ## Further reading
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)

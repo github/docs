@@ -53,11 +53,11 @@ Knowledge bases you create will be accessible by all organization members with a
 
 1. Optionally, you can define which paths within the selected repositories to index.
 
-      - Click **Edit file paths**.
+      * Click **Edit file paths**.
 
       ![Screenshot of the list of selected repositories. The "Edit file paths" link is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-select-paths-button.png)
 
-      - List the paths you want to include in the knowledge base, one path per line. When you're finished, click **Apply**.
+      * List the paths you want to include in the knowledge base, one path per line. When you're finished, click **Apply**.
 
 1. Click **Create knowledge base**.
 

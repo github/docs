@@ -26,10 +26,10 @@ redirect_from:
 
 ## Prerequisites
 
-- {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
-- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
-- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-- In both the source and destination organization, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+* {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+* {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+* In both the source and destination organization, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
 {% api %}
 

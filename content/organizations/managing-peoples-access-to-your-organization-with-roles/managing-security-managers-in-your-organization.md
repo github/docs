@@ -18,11 +18,11 @@ permissions: Organization owners can assign the security manager role.
 
 Members of a team with the security manager role have only the permissions required to effectively manage code security for the organization.
 
-- Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization {% ifversion not fpt %}
-- Access to view and configure all repositories in the organization's security overview {% endif %}
-- The ability to configure code security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
-- The ability to configure code security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+* Read access on all repositories in the organization, in addition to any existing repository access
+* Write access on all security alerts in the organization {% ifversion not fpt %}
+* Access to view and configure all repositories in the organization's security overview {% endif %}
+* The ability to configure code security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+* The ability to configure code security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 
 {% ifversion fpt %}
 Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).

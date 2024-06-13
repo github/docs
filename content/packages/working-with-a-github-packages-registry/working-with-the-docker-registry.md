@@ -299,6 +299,6 @@ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 
 ## Further reading
 
-- "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
 
 {% endif %}  <!-- End of main versioning block -->

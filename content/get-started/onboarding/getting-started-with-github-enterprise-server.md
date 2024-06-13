@@ -9,8 +9,8 @@ This guide will walk you through setting up, configuring and managing {% data va
 
 {% data variables.product.company_short %} provides two ways to deploy {% data variables.product.prodname_enterprise %}.
 
-- **{% data variables.product.prodname_ghe_cloud %}**
-- **{% data variables.product.prodname_ghe_server %}**
+* **{% data variables.product.prodname_ghe_cloud %}**
+* **{% data variables.product.prodname_ghe_server %}**
 
 {% data variables.product.company_short %} hosts {% data variables.product.prodname_ghe_cloud %}. You can deploy and host {% data variables.product.prodname_ghe_server %} in your own datacenter or a supported cloud provider.
 

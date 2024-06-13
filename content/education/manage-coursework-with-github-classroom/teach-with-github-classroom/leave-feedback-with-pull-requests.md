@@ -30,4 +30,4 @@ To create and access the feedback pull request, you must enable the feedback pul
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"

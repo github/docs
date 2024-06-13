@@ -62,8 +62,8 @@ After creating an assignment, you can edit many aspects of the assignment to bet
     {% endnote %}
 
 1. To set up or change the template repository for your assignment, in the "Add a template repository to give students starter code" section, select the **Select a repository** dropdown menu.
-   - To choose a template repository, begin typing the repository name in the text field, then click the repository in the search results.
-   - To remove a template repository, delete any text in the text field.
+   * To choose a template repository, begin typing the repository name in the text field, then click the repository in the search results.
+   * To remove a template repository, delete any text in the text field.
 
    {% note %}
 
@@ -97,5 +97,5 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"

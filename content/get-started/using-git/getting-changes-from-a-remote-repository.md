@@ -39,11 +39,11 @@ You can choose from [several different URLs](/get-started/getting-started-with-g
 {% endif %}
 
 When you run `git clone`, the following actions occur:
-- A new folder called `repo` is made
-- It is initialized as a Git repository
-- A remote named `origin` is created, pointing to the URL you cloned from
-- All of the repository's files and commits are downloaded there
-- The default branch is checked out
+* A new folder called `repo` is made
+* It is initialized as a Git repository
+* A remote named `origin` is created, pointing to the URL you cloned from
+* All of the repository's files and commits are downloaded there
+* The default branch is checked out
 
 For every branch `foo` in the remote repository, a corresponding remote-tracking branch
 `refs/remotes/origin/foo` is created in your local repository. You can usually abbreviate
@@ -90,5 +90,5 @@ to take the branch back to where it was in before you pulled.
 
 ## Further reading
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
+* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}

@@ -62,9 +62,9 @@ You can choose how to sort the list of discussions.
 
    ![Screenshot of a row of buttons for sorting discussions. A button labeled "Sort by: Latest activity" is highlighted with an orange outline.](/assets/images/help/discussions/sort-discussions-buttons.png)
 
-    - Sort by **Latest activity** to display the discussions with the most recent activity at the top of the list.
-    - Sort by **Date created** to display the discussions that were created most recently at the top of the list.
-    - Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
+    * Sort by **Latest activity** to display the discussions with the most recent activity at the top of the list.
+    * Sort by **Date created** to display the discussions that were created most recently at the top of the list.
+    * Sort by **Top** to display the discussions with the most upvotes at the top of the list. You can limit the list to only display discussions from a specific time period.
 
 ## Sorting top-level comments in discussions
 
@@ -77,9 +77,9 @@ You can choose how to sort top-level comments in discussions. Comment threads do
 
    ![Screenshot of a discussion. The buttons for sorting comments in discussions are outlined in dark orange.](/assets/images/help/discussions/sort-comments-buttons.png)
 
-    - Sort by **Oldest** to display the oldest top-level comments first.
-    - Sort by **Newest** to display the newest top-level comments first.
-    - Sort by **Top** to display the most upvoted top-level comments first.
+    * Sort by **Oldest** to display the oldest top-level comments first.
+    * Sort by **Newest** to display the newest top-level comments first.
+    * Sort by **Top** to display the most upvoted top-level comments first.
 
 ## Converting an issue to a discussion
 
@@ -87,7 +87,7 @@ You can choose how to sort top-level comments in discussions. Comment threads do
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
 {%- ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github)"
 {%- endif %}

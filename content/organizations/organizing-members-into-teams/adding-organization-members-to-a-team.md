@@ -51,4 +51,4 @@ To add a new member to a team synced to an LDAP group, add the user as a member 
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)"

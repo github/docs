@@ -56,15 +56,15 @@ The page that's displayed allows you to enable or disable all security and analy
 You can enable or disable features for all repositories.
 {% ifversion fpt or ghec %}The impact of your changes on repositories in your organization is determined by their visibility:
 
-- **Private vulnerability reporting** - Your changes affect public repositories only.
-- **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
-- **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
-- **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
+* **Private vulnerability reporting** - Your changes affect public repositories only.
+* **Dependency graph** - Your changes affect only private repositories because the feature is always enabled for public repositories.
+* **{% data variables.product.prodname_dependabot_alerts %}** - Your changes affect all repositories.
+* **{% data variables.product.prodname_dependabot_security_updates %}** - Your changes affect all repositories.
 {%- ifversion ghec %}
-- **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.{% endif %}
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories and public npm packages these repositories may depend on.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
+* **{% data variables.product.prodname_GH_advanced_security %}** - Your changes affect only private repositories because {% data variables.product.prodname_GH_advanced_security %} and the related features are always enabled for public repositories.{% endif %}
+* **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories and public npm packages these repositories may depend on.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
 
-- **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
+* **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 {% endif %}
 
@@ -100,14 +100,14 @@ You can use security overview to find a set of repositories and enable or disabl
 
 1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 1. Optionally, in your feature's section of the security and analysis settings, select additional enablement settings. Additional enablement settings may include:
-     - Automatic enablement for a specific type of repository
-     - Feature-specific settings, such as recommending the extended query suite for {% data variables.product.prodname_code_scanning %} default setup throughout your organization, or automatic secret validation for {% data variables.product.prodname_secret_scanning %}
+     * Automatic enablement for a specific type of repository
+     * Feature-specific settings, such as recommending the extended query suite for {% data variables.product.prodname_code_scanning %} default setup throughout your organization, or automatic secret validation for {% data variables.product.prodname_secret_scanning %}
 
    {% note %}
 
    **Notes:**
-   - {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
-   - Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
+   * {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
+   * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
 
    {% endnote %}
 
@@ -184,7 +184,7 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
-- "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
+* "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"

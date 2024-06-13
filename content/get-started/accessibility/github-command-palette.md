@@ -29,8 +29,8 @@ The ability to run commands directly from your keyboard, without navigating thro
 ## Opening the {% data variables.product.prodname_command_palette %}
 
 Open the command palette using one of the following default keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
-- Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
+* Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
+* Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
 
 You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
 
@@ -41,8 +41,8 @@ When you open the command palette, it shows your location at the top left and us
 {% note %}
 
 **Notes:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-- If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."{% endif %}
+* If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
+* If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."{% endif %}
 
 {% endnote %}
 
@@ -76,10 +76,10 @@ You can use the command palette to search for anything on {% data variables.loca
 
 1. Optionally, use keystrokes to find specific types of resource:
 
-   - <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
-   - <kbd>!</kbd> Search for projects
-   - <kbd>@</kbd> Search for users, organizations, and repositories
-   - <kbd>/</kbd> Search for files within a repository scope
+   * <kbd>#</kbd> Search for issues, pull requests, discussions, and projects
+   * <kbd>!</kbd> Search for projects
+   * <kbd>@</kbd> Search for users, organizations, and repositories
+   * <kbd>/</kbd> Search for files within a repository scope
 
 1. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
 
@@ -95,8 +95,8 @@ You can use the command palette to search for anything on {% data variables.loca
 
 You can use the {% data variables.product.prodname_command_palette %} to run commands. For example, you can create a new repository or issue, or change your theme. When you run a command, the location for its action is determined by either the underlying page or the scope shown in the command palette.
 
-- Pull request and issue commands always run on the underlying page.
-- Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
+* Pull request and issue commands always run on the underlying page.
+* Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
 
 For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
@@ -112,8 +112,8 @@ For a full list of supported commands, see "[{% data variables.product.prodname_
 
 When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
 
-- Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
-- Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
+* Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
+* Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
 
 If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.
 

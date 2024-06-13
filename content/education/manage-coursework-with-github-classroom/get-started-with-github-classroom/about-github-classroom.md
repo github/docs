@@ -38,5 +38,5 @@ Optionally, you can connect a learning management system (LMS) to {% data variab
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)"
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/learn-with-github-classroom)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/learn-with-github-classroom)"

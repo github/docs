@@ -115,7 +115,7 @@ The following example uses JavaScript, however other languages will work similar
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
-- **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see "[Best practices for using {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/prompt-crafting)" in the {% data variables.product.prodname_vscode %} documentation.
+* **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see "[Best practices for using {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/prompt-crafting)" in the {% data variables.product.prodname_vscode %} documentation.
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}
@@ -133,7 +133,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-- **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 {% data reusables.copilot.visual-studio-prerequisites %}
 
@@ -165,7 +165,7 @@ The following example uses JavaScript, however other languages will work similar
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
-- **Prompt like a pro** - Watch "[{% data variables.product.prodname_vs %} Prompt Engineering with {% data variables.product.prodname_copilot %}](https://www.youtube.com/watch?v=9hZsOeIINg8&list=PLReL099Y5nRckZDdcQ21UigO9pKa14yxC)" on YouTube.
+* **Prompt like a pro** - Watch "[{% data variables.product.prodname_vs %} Prompt Engineering with {% data variables.product.prodname_copilot %}](https://www.youtube.com/watch?v=9hZsOeIINg8&list=PLReL099Y5nRckZDdcQ21UigO9pKa14yxC)" on YouTube.
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvisualstudio %}
@@ -183,9 +183,9 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
-- **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
-- **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains)."
+* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains)."
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
 ## Chat with {% data variables.product.prodname_copilot %}

@@ -21,4 +21,4 @@ If you want to edit your most recent commit message, or combine new changes with
 
 ## Further reading
 
-- [Git Tools - Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified) in the Git documentation
+* [Git Tools - Reset Demystified](https://git-scm.com/book/en/v2/Git-Tools-Reset-Demystified) in the Git documentation

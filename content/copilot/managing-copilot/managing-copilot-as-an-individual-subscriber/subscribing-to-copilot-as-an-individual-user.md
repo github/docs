@@ -24,5 +24,5 @@ Before you can start using {% data variables.product.prodname_copilot_for_indivi
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-individual)"
-- "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)"
+* "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-individual)"
+* "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)"
