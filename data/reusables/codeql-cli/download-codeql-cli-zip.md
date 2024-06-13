@@ -5,9 +5,9 @@ Conditions](https://securitylab.github.com/tools/codeql/license).
 
 You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
 
-- {% data variables.product.prodname_codeql_cli %} product
-- A compatible version of the queries and libraries from https://github.com/github/codeql
-- Precompiled versions of all the queries included in the bundle
+* {% data variables.product.prodname_codeql_cli %} product
+* A compatible version of the queries and libraries from https://github.com/github/codeql
+* Precompiled versions of all the queries included in the bundle
 
 {% ifversion ghes %}
 

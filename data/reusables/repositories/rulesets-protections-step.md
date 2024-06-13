@@ -3,7 +3,7 @@ In the "Branch protections" or "Tag protections" section, select the rules you w
 {% note %}
 
 **Notes:** If you select **Require status checks before merging**, in the "Additional settings" section:
-- You can enter the name of each status check you would like to require. To finish adding the status check as a requirement, you must click {% octicon "plus" aria-label="Add selected status checks" %}.
-- If you select **Require branches to be up to date before merging**, you must define a check for the protection to take effect.
+* You can enter the name of each status check you would like to require. To finish adding the status check as a requirement, you must click {% octicon "plus" aria-label="Add selected status checks" %}.
+* If you select **Require branches to be up to date before merging**, you must define a check for the protection to take effect.
 
 {% endnote %}

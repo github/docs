@@ -2,13 +2,13 @@ You will use a script to automate configuring your Azure resources.
 
 ### Prerequisites
 
-- Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on Microsoft Learn.
+* Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on Microsoft Learn.
 
-- To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
+* To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
 
-- To ensure resource availability/data residency, resources must be created in the same Azure region.
+* To ensure resource availability/data residency, resources must be created in the same Azure region.
 
-- Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
+* Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
   {% note %}
 

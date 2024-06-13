@@ -13,11 +13,11 @@ The `branches`, `branches-ignore`, `tags`, and `tags-ignore` keywords accept glo
 
 The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event to:
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
+* A branch named `main` (`refs/heads/main`)
+* A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+* A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+* A tag named `v2` (`refs/tags/v2`)
+* A tag whose name starts with `v1.`, like `v1.9.1` (`refs/tags/v1.9.1`)
 
 ```yaml
 on:
@@ -37,10 +37,10 @@ on:
 
 When a pattern matches the `branches-ignore` or `tags-ignore` pattern, the workflow will not run. The patterns defined in `branches` and `tags` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `push` event, unless the `push` event is to:
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
-- A tag named `v2` (`refs/tags/v2`)
-- A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
+* A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+* A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
+* A tag named `v2` (`refs/tags/v2`)
+* A tag whose name starts with `v1.`, like `v1.9` (`refs/tags/v1.9`)
 
 ```yaml
 on:
@@ -63,8 +63,8 @@ If you define a branch with the `!` character, you must also define at least one
 
 The order that you define patterns matters.
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
-- A matching positive pattern after a negative match will include the Git ref again.
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+* A matching positive pattern after a negative match will include the Git ref again.
 
 The following workflow will run on pushes to `releases/10` or `releases/beta/mona`, but not on `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 
