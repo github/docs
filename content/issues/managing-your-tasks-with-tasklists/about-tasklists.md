@@ -13,8 +13,8 @@ topics:
 
 **Notes:**
 
-- Tasklists are in private beta and subject to change. We have currently paused onboarding to the beta. Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
-- For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
+* Tasklists are in private beta and subject to change. We have currently paused onboarding to the beta. Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+* For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
 
 {% endnote %}
 

@@ -20,8 +20,8 @@ You can use {% data variables.product.prodname_dependabot_updates %} to fix vuln
 {% data reusables.dependabot.private-registry-support %} Alternatively, if {% data variables.location.product_location %} has limited or no internet access, you can configure {% data variables.product.prodname_dependabot %} to use only private registries as a source for security and version updates. For information on which ecosystems are supported as private registries, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries#about-configuring-dependabot-to-only-access-private-registries)."
 
 The instructions below assume that you need to set up {% data variables.product.prodname_dependabot %} runners with the following limitations.
-- No internet access.
-- Access to limited internal resources, such as private registries for {% data variables.product.prodname_dependabot %}.
+* No internet access.
+* Access to limited internal resources, such as private registries for {% data variables.product.prodname_dependabot %}.
 
 ## Restricting internet access for {% data variables.product.prodname_dependabot %} runners
 

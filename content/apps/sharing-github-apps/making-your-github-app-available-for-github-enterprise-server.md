@@ -35,7 +35,7 @@ Organizations owned by a {% data variables.product.prodname_ghe_server %} instan
 
 ## The app code must be able to access the {% data variables.product.prodname_github_app %} credentials for the instance
 
-You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app.
+Your app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app.
 
 ### Get the credentials from the {% data variables.product.prodname_ghe_server %} instance
 
@@ -43,14 +43,14 @@ The instance can share their {% data variables.product.prodname_github_app %} cr
 
 Advantages:
 
-- The app developer controls the infrastructure that the app runs on.
-- The app developer has more control over app updates.
-- The app developer may have more insight into app performance.
+* The app developer controls the infrastructure that the app runs on.
+* The app developer has more control over app updates.
+* The app developer may have more insight into app performance.
 
 Disadvantages:
 
-- The app developer must take precautions to avoid leaking data from the instance.
-- The site administrator may need to open firewall exceptions for your application to reach the instance, and they may be reluctant to do so.
+* The app developer must take precautions to avoid leaking data from the instance.
+* The site administrator may need to open firewall exceptions for your application to reach the instance, and they may be reluctant to do so.
 
 ### Have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app
 
@@ -60,14 +60,14 @@ The method by which the self-hostable version of the app is created and shared i
 
 Advantages:
 
-- The instance remains more secure because they aren't sharing their app credentials.
-- The app developer doesn't need to worry about leaking data from the instance.
+* The instance remains more secure because they aren't sharing their app credentials.
+* The app developer doesn't need to worry about leaking data from the instance.
 
 Disadvantages:
 
-- The app developer relies on the site administrator to provide infrastructure for the app and set things up correctly.
-- Releasing updates to the app code may be more complex.
-- The app developer may lose visibility about app performance.
+* The app developer relies on the site administrator to provide infrastructure for the app and set things up correctly.
+* Releasing updates to the app code may be more complex.
+* The app developer may lose visibility about app performance.
 
 ## The app code must use the correct URLs
 

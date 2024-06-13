@@ -113,4 +113,4 @@ The `is` qualifier matches commits from repositories with the specified visibili
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

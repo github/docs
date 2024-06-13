@@ -24,8 +24,8 @@ layout: inline
 {% data variables.product.product_name %} maintains these different sets of default {% data variables.product.prodname_secret_scanning %} patterns:
 
 1. **Partner patterns.** Used to detect potential secrets in all public repositories as well as public npm packages.{% data reusables.secret-scanning.partner-program-link %}
-1. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. {% ifversion secret-scanning-push-protection %}
-1. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.{% endif %}
+1. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled.
+1. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.
 
 {% ifversion fpt %}
 Owners of public repositories, as well as organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %}, can enable {% data variables.secret-scanning.user_alerts %} on their repositories.
@@ -49,8 +49,8 @@ Partner alerts are alerts that are sent to the secret providers whenever a secre
 
 {% ifversion secret-scanning-non-provider-patterns %}{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts can be of the following types:
 
-- High confidence alerts, which relate to supported patterns and specified custom patterns.
-- Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys.
+* High confidence alerts, which relate to supported patterns and specified custom patterns.
+* Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys.
 
 {% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
 
@@ -72,8 +72,6 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% endnote %}
 {% endif %}
 
-{% ifversion secret-scanning-push-protection %}
-
 ## About push protection alerts
 
 Push protection alerts are user alerts that are reported by push protection. {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by some service providers.
@@ -84,29 +82,26 @@ Push protection alerts are user alerts that are reported by push protection. {% 
 
 {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
-{% endif %}
-
 ## Supported secrets
 
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token{% ifversion secret-scanning-validity-check %}, as well as whether a validity check is performed on the token{% endif %}.
-- **Provider**—name of the token provider.{% ifversion fpt or ghec %}
-- **Partner**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
-- **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
-  - Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_secret_scanning %}.
-  - Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
-  - For {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns, the detection of non-provider patterns must be enabled for the repository or the organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
+* **Provider**—name of the token provider.{% ifversion fpt or ghec %}
+* **Partner**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
+* **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
+  * Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_secret_scanning %}.
+  * Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
+  * For {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns, the detection of non-provider patterns must be enabled for the repository or the organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
   {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}{% endif %}{% ifversion ghes %}
-- **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
-  - Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} are enabled.
-  - Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% else %} Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% endif %}
-{% ifversion secret-scanning-push-protection %}
-- **Push protection**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
+* **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
+  * Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} are enabled.
+  * Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% else %} Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% endif %}
+* **Push protection**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
   {% note %}
 
   **Note:** {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
-  {% endnote %}{% endif %}{% ifversion secret-scanning-validity-check %}
-- **Validity check**—token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see "[{% data variables.product.prodname_advanced_security %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)" in the Site Policy documentation.{% else %} {% ifversion ghes %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %} {% ifversion fpt %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens, and not shown in the table. For more information about validity check support see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}{% endif %}
+  {% endnote %}{% ifversion secret-scanning-validity-check %}
+* **Validity check**—token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see "[{% data variables.product.prodname_advanced_security %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)" in the Site Policy documentation.{% else %} {% ifversion ghes %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %} {% ifversion fpt %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens, and not shown in the table. For more information about validity check support see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}{% endif %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
@@ -165,10 +160,10 @@ Push protection and validity checks are not supported for non-provider patterns.
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
 {%- ifversion fpt or ghec %}
-- "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partner-program)"
+* "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partner-program)"
 {%- else %}
-- "[AUTOTITLE](/free-pro-team@latest/code-security/secret-scanning/secret-scanning-partner-program)" in the {% data variables.product.prodname_ghe_cloud %} documentation
+* "[AUTOTITLE](/free-pro-team@latest/code-security/secret-scanning/secret-scanning-partner-program)" in the {% data variables.product.prodname_ghe_cloud %} documentation
 {% endif %}

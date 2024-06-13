@@ -28,4 +28,4 @@ If possible, you should only amend a commit that you haven't pushed to the remot
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"

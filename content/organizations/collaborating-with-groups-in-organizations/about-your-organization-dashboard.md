@@ -35,14 +35,14 @@ In the "All activity" section of your news feed, you can view updates from other
 The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)."
 
 For instance, the organization news feed shows updates when someone in the organization:
-- Creates a new branch.
-- Comments on an issue or pull request.
-- Submits a pull request review comment.
-- Forks a repository.
-- Creates a wiki page.
-- Pushes commits.
-- Creates a public repository.
+* Creates a new branch.
+* Comments on an issue or pull request.
+* Submits a pull request review comment.
+* Forks a repository.
+* Creates a wiki page.
+* Pushes commits.
+* Creates a public repository.
 
 ## Further information
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)"

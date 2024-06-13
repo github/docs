@@ -47,8 +47,6 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
 #### Download information for macOS "Catalina" (or newer) users
 
 {% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}
@@ -76,8 +74,8 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases:
 
-- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
-- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+* `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
+* `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
 You should see output similar to the extract below, if successful:
 

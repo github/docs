@@ -157,5 +157,5 @@ You can also use the REST API to create a webhook for a {% data variables.produc
 
 ## Further reading
 
-- "[AUTOTITLE](/webhooks/about-webhooks)"
-- "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"
+* "[AUTOTITLE](/webhooks/about-webhooks)"
+* "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"

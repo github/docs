@@ -13,6 +13,10 @@ topics:
   - Fundamentals
 ---
 
+{% data reusables.billing.us-sales-tax-note %} For more information about updating your billing information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
+>
+>If you're exempt from sales tax, you will need to upload a sales tax exemption certificate to your account. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-a-sales-tax-certificate)."
+
 ## About billing on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.company_short %} bills separately for each account. This means that you will receive a separate bill for your personal account and for each organization or enterprise account you own. For more information about account types, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."

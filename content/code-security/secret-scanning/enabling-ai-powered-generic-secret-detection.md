@@ -29,5 +29,5 @@ For information on how to view alerts for generic secrets that have been detecte
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)
-- [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)

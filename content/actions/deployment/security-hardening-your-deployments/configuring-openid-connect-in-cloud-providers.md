@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -42,6 +42,8 @@ If your cloud provider doesn't yet offer an official action, you can update your
 ### Using official actions
 
 If your cloud provider has created an official action for using OIDC with {% data variables.product.prodname_actions %}, it will allow you to easily exchange the OIDC token for an access token. You can then update your workflows to use this token when accessing cloud resources.
+
+For example, Alibaba Cloud created [`aliyun/configure-aliyun-credentials-action`](https://github.com/aliyun/configure-aliyun-credentials-action) to integrate with using OIDC with {% data variables.product.prodname_dotcom %}.
 
 ## Using custom actions
 
@@ -115,11 +117,7 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
             fi
         }
         jwtd $IDTOKEN
-{%- ifversion actions-save-state-set-output-envs %}
         echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
-{%- else %}
-        echo "::set-output name=idToken::${IDTOKEN}"
-{%- endif %}
       id: tokenid
 ```
 
@@ -134,6 +132,9 @@ The steps for exchanging the OIDC token for an access token will vary for each c
 ### Accessing resources in your cloud provider
 
 Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
+
+For example, Alibaba Cloud maintains their own instructions for OIDC authentication. For more information, see [Overview of OIDC-based SSO](https://www.alibabacloud.com/help/en/ram/user-guide/overview-of-oidc-based-sso) in the Alibaba Cloud documentation.
+
 In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
 
 ## Further reading

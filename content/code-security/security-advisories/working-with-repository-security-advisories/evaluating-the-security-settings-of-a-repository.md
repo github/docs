@@ -36,10 +36,10 @@ If you would like to evaluate the security posture of repositories at scale, you
 1. A SECURITY.md file will be created in the repository's default branch. The file will contain a template for a security policy. You can edit the file to add your suggested security policy.
 1. When you are done, click **Commit changes**.
 1. Fill out the **Commit changes** dialog.
-    - Under "Commit message", enter a commit message.
-    - Optionally, under "Extended description", describe the changes being made.
-    - Select "Create a new branch for this commit and start a pull request"
-    - Click **Commit changes**.
+    * Under "Commit message", enter a commit message.
+    * Optionally, under "Extended description", describe the changes being made.
+    * Select "Create a new branch for this commit and start a pull request"
+    * Click **Commit changes**.
 1. Click **Create pull request**.
 1. Optionally, leave a comment.
 1. Click **Create pull request**.

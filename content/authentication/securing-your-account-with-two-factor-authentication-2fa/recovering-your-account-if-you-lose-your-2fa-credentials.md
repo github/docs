@@ -21,7 +21,7 @@ shortTitle: Recover an account with 2FA
 
 **Warnings**:
 
-- {% data reusables.two_fa.support-may-not-help %}
+* {% data reusables.two_fa.support-may-not-help %}
 
 {% endwarning %}
 
@@ -129,4 +129,4 @@ Alternatively, if no recovery methods are available, you can choose to unlink yo
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"

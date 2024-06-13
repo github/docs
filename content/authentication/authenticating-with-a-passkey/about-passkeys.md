@@ -37,6 +37,6 @@ You can share your feedback on passkeys with {% data variables.product.company_s
 
 ## Further reading
 
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
-- [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)

@@ -44,12 +44,12 @@ If you do not wish to create and clone a tutorial repository, you can create a n
 
 1. Click **Create a New Repository on your Hard Drive...**.
 1. In the "Create a New Repository" window, fill in the fields and select your preferred options.
-   - "Name" defines the name of your repository both locally and on {% data variables.product.product_name %}.
-   - "Description" is an optional field that you can use to provide more information about the purpose of your repository.
-   - "Local path" sets the location of your repository on your computer. By default, {% data variables.product.prodname_desktop %} creates a _GitHub_ folder inside your _Documents_ folder to store your repositories, but you can choose any location on your computer. Your new repository will be a folder inside the chosen location. For example, if you name your repository `Tutorial`, a folder named _Tutorial_ is created inside the folder you selected for your local path. {% data variables.product.prodname_desktop %} remembers your chosen location the next time you create or clone a new repository.
-   - **Initialize this repository with a README** creates an initial commit with a _README.md_ file. READMEs helps people understand the purpose of your project, so we recommend selecting this and filling it out with helpful information. When someone visits your repository on {% data variables.product.product_name %}, the README is the first thing they'll see as they learn about your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
-   - The **Git ignore** drop-down menu lets you add a custom file to ignore specific files in your local repository that you don't want to store in version control. If there's a specific language or framework that you'll be using, you can select an option from the available list. If you're just getting started, feel free to skip this selection. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
-   - The **License** drop-down menu lets you add an open-source license to a LICENSE file in your repository. You don't need to worry about adding a license right away. For more information about available open-source licenses and how to add them to your repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
+   * "Name" defines the name of your repository both locally and on {% data variables.product.product_name %}.
+   * "Description" is an optional field that you can use to provide more information about the purpose of your repository.
+   * "Local path" sets the location of your repository on your computer. By default, {% data variables.product.prodname_desktop %} creates a _GitHub_ folder inside your _Documents_ folder to store your repositories, but you can choose any location on your computer. Your new repository will be a folder inside the chosen location. For example, if you name your repository `Tutorial`, a folder named _Tutorial_ is created inside the folder you selected for your local path. {% data variables.product.prodname_desktop %} remembers your chosen location the next time you create or clone a new repository.
+   * **Initialize this repository with a README** creates an initial commit with a _README.md_ file. READMEs helps people understand the purpose of your project, so we recommend selecting this and filling it out with helpful information. When someone visits your repository on {% data variables.product.product_name %}, the README is the first thing they'll see as they learn about your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+   * The **Git ignore** drop-down menu lets you add a custom file to ignore specific files in your local repository that you don't want to store in version control. If there's a specific language or framework that you'll be using, you can select an option from the available list. If you're just getting started, feel free to skip this selection. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
+   * The **License** drop-down menu lets you add an open-source license to a LICENSE file in your repository. You don't need to worry about adding a license right away. For more information about available open-source licenses and how to add them to your repository, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
 1. Click **Create repository**.
 
 ## Part 3: Exploring {% data variables.product.prodname_desktop %}
@@ -62,9 +62,9 @@ At the top of the {% data variables.product.prodname_desktop %} app, you will se
 
 ![Screenshot of the GitHub Desktop app. A bar displaying details for the "hello-world" repository spans the top of the window, and is outlined in orange.](/assets/images/help/desktop/explore-github-desktop.png)
 
-- **Current repository** shows the name of the repository you're working on. You can click **Current repository** to switch to a different repository in {% data variables.product.prodname_desktop %}.
-- **Current branch** shows the name of the branch you're working on. You can click **Current branch** to view all the branches in your repository, switch to a different branch, or create a new branch. Once you create pull requests in your repository, you can also view these by clicking on **Current branch**.
-- **Publish repository** appears because you haven't published your repository to {% data variables.product.product_name %} yet, which you'll do later in the next step. This section of the bar will change based on the status of your current branch and repository. Different context dependent actions will be available that let you exchange data between your local and remote repositories.
+* **Current repository** shows the name of the repository you're working on. You can click **Current repository** to switch to a different repository in {% data variables.product.prodname_desktop %}.
+* **Current branch** shows the name of the branch you're working on. You can click **Current branch** to view all the branches in your repository, switch to a different branch, or create a new branch. Once you create pull requests in your repository, you can also view these by clicking on **Current branch**.
+* **Publish repository** appears because you haven't published your repository to {% data variables.product.product_name %} yet, which you'll do later in the next step. This section of the bar will change based on the status of your current branch and repository. Different context dependent actions will be available that let you exchange data between your local and remote repositories.
 
 ### Changes and History
 
@@ -72,8 +72,8 @@ In the left sidebar, you'll find the **Changes** and **History** views.
 
 ![Screenshot of the GitHub Desktop app. A sidebar on the left-hand side, with tabs labeled "Changes" and "History", is highlighted with an orange outline.](/assets/images/help/desktop/changes-and-history.png)
 
-- The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
-- The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, LICENSE, or README files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file
+* The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
+* The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, LICENSE, or README files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file
 
 ## Part 4: Publishing your repository to {% data variables.product.product_name %}
 
@@ -82,9 +82,9 @@ When you create a new repository, it only exists on your computer and you are th
 1. In the repository bar, click **Publish repository**.
     ![Screenshot of the repository bar. A button, labeled "Publish repository", is highlighted with an orange outline.](/assets/images/help/desktop/publish-repository.png)
 1. In the "Publish Repository" window, enter details for your new repository.
-   - {% data variables.product.prodname_desktop %} automatically fills the "Name" and "Description" fields with the information you entered when you created the repository.
-   - **Keep this code private** lets you control who can view your project. If you leave this option unselected, other users on {% data variables.product.product_name %} will be able to view your code. If you select this option, your code will not be publicly available.
-   - The **Organization** drop-down menu, if present, lets you publish your repository to a specific organization that you belong to on {% data variables.product.product_name %}.
+   * {% data variables.product.prodname_desktop %} automatically fills the "Name" and "Description" fields with the information you entered when you created the repository.
+   * **Keep this code private** lets you control who can view your project. If you leave this option unselected, other users on {% data variables.product.product_name %} will be able to view your code. If you select this option, your code will not be publicly available.
+   * The **Organization** drop-down menu, if present, lets you publish your repository to a specific organization that you belong to on {% data variables.product.product_name %}.
    1. Click **Publish Repository**.
    1. You can access the repository on {% data variables.product.prodname_dotcom_the_website %} from within {% data variables.product.prodname_desktop %}. In the file menu, click **Repository**, then click **View on GitHub**. This will take you directly to the repository in your default browser.
 
@@ -105,8 +105,8 @@ Now that you've created and published your repository, you're ready to make chan
 1. To push your changes to the remote repository on {% data variables.product.product_name %}, click **Push origin**.
    ![Screenshot of the "Repository" menu bar. A button, labeled "Push origin", is highlighted with an orange outline.](/assets/images/help/desktop/push-to-origin.png)
 
-   - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
-   - The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. Until you push any new commits to {% data variables.product.product_name %}, there will be differences between your project's repository on your computer and your project's repository on {% data variables.product.prodname_dotcom_the_website %}. This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.
+   * The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
+   * The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. Until you push any new commits to {% data variables.product.product_name %}, there will be differences between your project's repository on your computer and your project's repository on {% data variables.product.prodname_dotcom_the_website %}. This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.
 1. In the window to the right of the **Changes** view, you'll see suggestions for actions you can do next. To open the repository on {% data variables.product.product_name %} in your browser, click **View on {% data variables.product.product_name %}**.
    ![Screenshot of the "No local changes" screen. In a list of suggestions, a button, labeled "View on GitHub", is highlighted with an orange outline.](/assets/images/help/desktop/available-actions.png)
 1. In your browser, click **2 commits**. You'll see a list of the commits in this repository on {% data variables.product.product_name %}. The first commit should be the commit you just made in {% data variables.product.prodname_desktop %}.
@@ -118,6 +118,6 @@ You've now created a repository, published the repository to {% data variables.p
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/getting-started-with-git)"
-- "[AUTOTITLE](/get-started/learning-about-github)"
-- "[AUTOTITLE](/get-started)"
+* "[AUTOTITLE](/get-started/getting-started-with-git)"
+* "[AUTOTITLE](/get-started/learning-about-github)"
+* "[AUTOTITLE](/get-started)"

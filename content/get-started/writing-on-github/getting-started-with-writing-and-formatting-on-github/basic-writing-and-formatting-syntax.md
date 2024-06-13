@@ -73,14 +73,14 @@ Use `git status` to list all new or modified files that haven't yet been committ
 
 To format code or text into its own distinct block, use triple backticks.
 
-<pre>
+````markdown
 Some basic Git commands are:
 ```
 git status
 git add
 git commit
 ```
-</pre>
+````
 
 ![Screenshot of rendered GitHub Markdown showing a code block. The words "git status," "git add," and "git commit" appear in a fixed-width typeface, highlighted in light gray.](/assets/images/help/writing/code-block-rendered.png)
 
@@ -110,8 +110,8 @@ Here are the currently supported color models.
 
 **Notes:**
 
-- A supported color model cannot have any leading or trailing spaces within the backticks.
-- The visualization of the color is only supported in issues, pull requests, and discussions.
+* A supported color model cannot have any leading or trailing spaces within the backticks.
+* The visualization of the color is only supported in issues, pull requests, and discussions.
 
 {% endnote %}
 
@@ -250,8 +250,6 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
-{% ifversion task-lists-v1 %}
-
 ## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
@@ -261,7 +259,6 @@ If a task list item description begins with a parenthesis, you'll need to escape
 `- [ ] \(Optional) Open a followup issue`
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
-{% endif %}
 
 ## Mentioning people and teams
 
@@ -376,9 +373,9 @@ Here are the rendered alerts:
 
 You can tell {% data variables.product.product_name %} to hide content from the rendered Markdown by placing the content in an HTML comment.
 
-<pre>
-&lt;!-- This content will not appear in the rendered Markdown --&gt;
-</pre>
+```text
+<!-- This content will not appear in the rendered Markdown -->
+```
 
 ## Ignoring Markdown formatting
 
@@ -402,7 +399,7 @@ For more information on backslashes, see Daring Fireball's "[Markdown Syntax](ht
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
+* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"

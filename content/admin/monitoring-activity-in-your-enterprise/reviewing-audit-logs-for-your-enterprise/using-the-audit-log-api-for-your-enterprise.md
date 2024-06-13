@@ -24,9 +24,9 @@ topics:
 
 You can maintain compliance for your enterprise and secure your intellectual property by interacting with the audit log using the REST API. For more information about the specific events that you can access via the audit log API, see the following articles.
 
-- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 
 {% data reusables.audit_log.retention-periods %}
 
@@ -49,7 +49,7 @@ The query below searches for audit log events created on Jan 1st, 2022 in the `a
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
+"{% data variables.product.rest_url %}/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
 {% else %}
@@ -59,15 +59,15 @@ The query below searches for audit log events created on Jan 1st, 2022 in the `a
 ```shell
 curl --include -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
+"{% data variables.product.rest_url %}/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
 ```
 
 If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
 ```text
-link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
-<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
-<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+link: <{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
 Copy the corresponding pagination link into your next request. For example:
@@ -75,7 +75,7 @@ Copy the corresponding pagination link into your next request. For example:
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+"{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
 
 {% endif %}
@@ -89,7 +89,7 @@ The query below searches for audit log events for pull requests, where the event
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
+"{% data variables.product.rest_url %}/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
 
 ## Example 3: Events for Git activity in an enterprise, for a specific date and actor
@@ -101,5 +101,5 @@ The query below searches for audit log events for Git activity, where the event 
 ```shell
 curl -H "Authorization: Bearer TOKEN" \
 --request GET \
-"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:>=2024-01-01+actor:octocat&include=git"
+"{% data variables.product.rest_url %}/enterprises/avocado-corp/audit-log?phrase=created:>=2024-01-01+actor:octocat&include=git"
 ```

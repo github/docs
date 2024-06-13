@@ -27,8 +27,8 @@ This guide shows you how to create a workflow that performs continuous integrati
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
-- "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
 
 We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
 
@@ -43,8 +43,8 @@ We recommend that you have a basic understanding of Java and the Maven framework
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Java with Maven".
-1. On the "Java with Maven" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Java with Maven".
+1. On the "Java with Maven" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 

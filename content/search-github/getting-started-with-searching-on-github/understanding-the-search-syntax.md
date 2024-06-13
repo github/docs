@@ -15,7 +15,7 @@ topics:
 shortTitle: Understand search syntax
 ---
 
-{% ifversion code-search-code-view %}
+{% ifversion code-search-upgrade %}
   {% note %}
 
   **Note:** The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
@@ -91,8 +91,8 @@ Query  | Example
 
 If your search query contains whitespace, you will need to surround it with quotation marks. For example:
 
-- [cats NOT "hello world"](https://github.com/search?utf8=✓&q=cats+NOT+"hello+world"&type=Repositories) matches repositories with the word "cats" but not the words "hello world."
-- [build label:"bug fix"](https://github.com/search?utf8=%E2%9C%93&q=build+label%3A%22bug+fix%22&type=Issues) matches issues with the word "build" that have the label "bug fix."
+* [cats NOT "hello world"](https://github.com/search?utf8=✓&q=cats+NOT+"hello+world"&type=Repositories) matches repositories with the word "cats" but not the words "hello world."
+* [build label:"bug fix"](https://github.com/search?utf8=%E2%9C%93&q=build+label%3A%22bug+fix%22&type=Issues) matches issues with the word "build" that have the label "bug fix."
 
 {% ifversion ghes %} Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.{% endif %}
 

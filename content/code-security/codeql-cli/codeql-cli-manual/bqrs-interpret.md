@@ -133,6 +133,11 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
 
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
 #### `--no-group-results`
 
 \[SARIF formats only] Produce one result per message, rather than one

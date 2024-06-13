@@ -48,9 +48,9 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
 
 1. Replace the placeholders in the markup with the URLs of your chosen images. Alternatively, to try the feature first, you can copy the URLs from our example below.
 
-   - Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
-   - Replace `YOUR-LIGHTMODE-IMAGE` with the URL of an image to display for visitors using light mode.
-   - Replace `YOUR-DEFAULT-IMAGE` with the URL of an image to display in case neither of the other images can be matched, for example if the visitor is using a browser that does not support the `prefers-color-scheme` feature.
+   * Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
+   * Replace `YOUR-LIGHTMODE-IMAGE` with the URL of an image to display for visitors using light mode.
+   * Replace `YOUR-DEFAULT-IMAGE` with the URL of an image to display in case neither of the other images can be matched, for example if the visitor is using a browser that does not support the `prefers-color-scheme` feature.
 1. To make the image accessible for visitors who are using a screen reader, replace `YOUR-ALT-TEXT` with a description of the image.
 1. To check the image has rendered correctly, click the **Preview** tab.
 
@@ -191,20 +191,20 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 
 1. Two lines below the `## About me` header, insert a comment by using the following markup.
 
-   <pre>
-   &lt;!-- COMMENT --&gt;
-   </pre>
+   ```text
+   <!-- COMMENT -->
+   ```
 
    Replace `COMMENT` with a "to-do" item you remind yourself to do something later (for example, to add more items to the table).
 1. To check your comment is hidden in the output, click the **Preview** tab.
 
 ### Example of a comment
 
-<pre>
+```markdown
 ## About me
 
-&lt;!-- TO DO: add more details about me later --&gt;
-</pre>
+<!-- TO DO: add more details about me later -->
+```
 
 ## Saving your work
 
@@ -214,5 +214,5 @@ Committing directly to the `main` branch will make your changes visible to any v
 
 ## Next steps
 
-- Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github)."
+* Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+* Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github)."

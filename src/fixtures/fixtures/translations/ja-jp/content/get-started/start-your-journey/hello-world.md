@@ -23,3 +23,11 @@ recover from it.
 ## Use of a reusable that might have auto-title links
 
 {% data reusables.gated-features.more-info %}
+
+If you type in "bar" into Google Translate (English to Japanese)
+you get "バー". The translation guidelines says that when you're
+mentioning an English word, you should leave it and translate it
+using the same character composition used for regular Markdown
+links. Here's one such example:
+
+[[Bar](バー)](/get-started/foo/bar)

@@ -18,9 +18,9 @@ This tutorial demonstrates how to build a command line interface (CLI) backed by
 
 The CLI will have three commands:
 
-- `help`: Outputs the usage instructions.
-- `login`: Generates a user access token that the app can use to make API requests on behalf of the user.
-- `whoami`: Returns information about the logged in user.
+* `help`: Outputs the usage instructions.
+* `login`: Generates a user access token that the app can use to make API requests on behalf of the user.
+* `whoami`: Returns information about the logged in user.
 
 This tutorial uses Ruby, but you can write a CLI and use the device flow to generate a user access token with any programming language.
 
@@ -490,7 +490,7 @@ Now that your app can generate a user access token, you can make API requests on
 
    ```ruby copy
    def whoami
-     uri = URI("{% data variables.product.api_url_code %}/user")
+     uri = URI("{% data variables.product.rest_url %}/user")
 
      begin
        token = File.read("./.token").strip
@@ -675,7 +675,7 @@ This is the full code example that was outlined in the previous section. Replace
    end
 
    def whoami
-     uri = URI("{% data variables.product.api_url_code %}/user")
+     uri = URI("{% data variables.product.rest_url %}/user")
 
      begin
        token = File.read("./.token").strip

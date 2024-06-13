@@ -11,7 +11,13 @@ shortTitle: Manage rulesets
 
 ## About managing rulesets for an organization
 
-After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to the "Default Branch" of a repository will no longer allow the repository administrator to make updates to the default branch of the targeted repository.
+After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.about-push-rule-delegated-bypass %}
+
+{% endif %}
 
 You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
 
@@ -71,3 +77,9 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 1. On the "Rule insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
 {% data reusables.repositories.rulesets-view-rule-runs %}
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.managing-delegated-bypass %}
+
+{% endif %}

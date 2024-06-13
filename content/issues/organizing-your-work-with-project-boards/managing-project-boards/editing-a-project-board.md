@@ -15,11 +15,15 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
+{% ifversion projects-v1-can-create %}
+
 {% tip %}
 
 **Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endtip %}
+
+{% endif %}
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
 {% data reusables.project-management.click-menu %}
@@ -28,6 +32,6 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"

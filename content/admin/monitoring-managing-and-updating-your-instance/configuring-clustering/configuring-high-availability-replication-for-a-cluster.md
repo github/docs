@@ -58,9 +58,9 @@ To create a high availability replica for your cluster, use the `ghe-cluster-rep
 
    **Notes:**
 
-   - By default, the utility will use the name of the primary datacenter in `cluster.conf`.
-   - If no name for the primary datacenter is defined, the utility will use `mona`.
-   - If no name for the secondary datacenter is defined, the utility will use `hubot`.
+   * By default, the utility will use the name of the primary datacenter in `cluster.conf`.
+   * If no name for the primary datacenter is defined, the utility will use `mona`.
+   * If no name for the secondary datacenter is defined, the utility will use `hubot`.
 
    {% endnote %}
 
@@ -93,7 +93,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
       primary-datacenter = primary
     ```
 
-    - Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
+    * Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
 
 1. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
 
@@ -131,10 +131,10 @@ After {% data variables.product.prodname_ghe_server %} returns you to the prompt
 
 To configure high availability, you must define a corresponding replica node for every active node in your cluster. To create a new cluster configuration that defines both active and replica nodes, you'll complete the following tasks.
 
-- Create a copy of the active cluster configuration file.
-- Edit the copy to define replica nodes that correspond to the active nodes, adding the IP addresses of the new virtual machines that you provisioned.
-- Merge the modified copy of the cluster configuration back into your active configuration.
-- Apply the new configuration to start replication.
+* Create a copy of the active cluster configuration file.
+* Edit the copy to define replica nodes that correspond to the active nodes, adding the IP addresses of the new virtual machines that you provisioned.
+* Merge the modified copy of the cluster configuration back into your active configuration.
+* Apply the new configuration to start replication.
 
 For an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
@@ -187,9 +187,9 @@ For an example configuration, see "[Review an example configuration](#3-review-a
 
 1. In each section within the temporary cluster configuration file, update the node's configuration. {% data reusables.enterprise_clustering.configuration-file-heading %}
 
-    - Change the quoted hostname in the section heading and the value for `hostname` within the section to the replica node's hostname, per the pattern you chose in step 7 above.
-    - Add a new key named `ipv4`, and set the value to the replica node's static IPv4 address.
-    - Add a new key-value pair, `replica = enabled`.
+    * Change the quoted hostname in the section heading and the value for `hostname` within the section to the replica node's hostname, per the pattern you chose in step 7 above.
+    * Add a new key named `ipv4`, and set the value to the replica node's static IPv4 address.
+    * Add a new key-value pair, `replica = enabled`.
 
     ```shell
     [cluster "NEW REPLICA NODE HOSTNAME"]
@@ -218,17 +218,17 @@ For an example configuration, see "[Review an example configuration](#3-review-a
 
     **Warning**: Review your cluster configuration file before proceeding.
 
-    - In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the replica nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    - In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
-      - `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
-      - `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
-    - Ensure that for each active node, the configuration has **one** corresponding section for **one** replica node with the same roles. In each section for a replica node, double-check each key-value pair.
-      - `datacenter` should match all other replica nodes.
-      - `consul-datacenter` should match all other replica nodes.
-      - `hostname` should match the hostname in the section heading.
-      - `ipv4` should match the node's unique, static IPv4 address.
-      - `replica` should be configured as `enabled`.
-    - Take the opportunity to remove sections for offline nodes that are no longer in use.
+    * In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the replica nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
+    * In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
+      * `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
+      * `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
+    * Ensure that for each active node, the configuration has **one** corresponding section for **one** replica node with the same roles. In each section for a replica node, double-check each key-value pair.
+      * `datacenter` should match all other replica nodes.
+      * `consul-datacenter` should match all other replica nodes.
+      * `hostname` should match the hostname in the section heading.
+      * `ipv4` should match the node's unique, static IPv4 address.
+      * `replica` should be configured as `enabled`.
+    * Take the opportunity to remove sections for offline nodes that are no longer in use.
 
     To review an example configuration, see "[Review an example configuration](#3-review-an-example-configuration)."
 
@@ -297,9 +297,9 @@ The configuration for an active node in your cluster's storage tier should look 
 
 The configuration for the corresponding replica node in the storage tier should look like the following example.
 
-- Important differences from the corresponding active node are **bold**.
-- {% data variables.product.prodname_ghe_server %} assigns the value for `uuid` automatically, so you shouldn't define this value for replica nodes that you will initialize.
-- The server roles, defined by `*-server` keys, match the corresponding active node.
+* Important differences from the corresponding active node are **bold**.
+* {% data variables.product.prodname_ghe_server %} assigns the value for `uuid` automatically, so you shouldn't define this value for replica nodes that you will initialize.
+* The server roles, defined by `*-server` keys, match the corresponding active node.
 
 ```shell
 ...
@@ -342,8 +342,8 @@ You can use `ghe-cluster-status` to review the overall health of your cluster. F
 
 After you fail over from the cluster's active nodes to the cluster's replica nodes, you can reconfigure high availability in one of two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
 
-- Provision and configure a new set of replica nodes for each of the new active nodes in your secondary datacenter.
-- Use the original active nodes as the new replica nodes.
+* Provision and configure a new set of replica nodes for each of the new active nodes in your secondary datacenter.
+* Use the original active nodes as the new replica nodes.
 
 The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
 

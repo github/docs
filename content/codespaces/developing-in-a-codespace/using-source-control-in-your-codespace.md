@@ -38,11 +38,11 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-- From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
-- In your codespace, create a new branch to work on.
-- Make your changes and save them.
-- Commit the change.
-- Raise a pull request.
+* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+* In your codespace, create a new branch to work on.
+* Make your changes and save them.
+* Commit the change.
+* Raise a pull request.
 
 {% note %}
 
@@ -64,15 +64,15 @@ If you make a commit from the command line, you will see a prompt asking if you 
 
 **Notes:**
 
-- If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
-- If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
+* If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+* If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
 
 {% endnote %}
 
 When {% data variables.product.prodname_github_codespaces %} creates a fork, or links your codespace to an existing fork, the following things happen.
 
-- The access token associated with your codespace is updated to include `read` and `write` permission to your fork, in addition to `read` permission to the upstream repository.
-- In your Git settings, the upstream repository is reassigned to the name `upstream`, and the fork is added as a new remote repository under the name `origin`.
+* The access token associated with your codespace is updated to include `read` and `write` permission to your fork, in addition to `read` permission to the upstream repository.
+* In your Git settings, the upstream repository is reassigned to the name `upstream`, and the fork is added as a new remote repository under the name `origin`.
 
 By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
 
@@ -109,7 +109,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
    ![Screenshot of the status bar, with the tooltip for the branch name displayed. The branch icon and name, "main," are highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-branch-button.png)
 
 1. In the pop-up menu, do one of the following:
-   - **To create a new branch based on the current branch**, click **New Branch**.
+   * **To create a new branch based on the current branch**, click **New Branch**.
 
      ![Screenshot of the branches pop-up menu with the "New Branch" option selected.](/assets/images/help/codespaces/jetbrains-new-branch-option.png)
 
@@ -117,7 +117,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
      ![Screenshot of the "Create New Branch" dialog, with "Create" and "Cancel" buttons. "my-branch" has been entered as a branch name.](/assets/images/help/codespaces/jetbrains-create-branch-dialog.png)
 
-   - **To check out an existing branch**, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
+   * **To check out an existing branch**, start typing the name of the branch you want to check out. Click the branch from the list, then click **Checkout**.
 
      ![Screenshot of the branches pop-up menu with the "origin/templates" branch selected and "Checkout" selected in the submenu.](/assets/images/help/codespaces/jetbrains-checkout-submenu.png)
 

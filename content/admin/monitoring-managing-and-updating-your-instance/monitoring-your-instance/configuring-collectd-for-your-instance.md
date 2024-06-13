@@ -23,7 +23,7 @@ topics:
 
 ## About collectd for {% data variables.product.product_name %}
 
-`collectd` is a service that runs on {% data variables.location.product_location %} to gather and provide metrics about the system's performance. Common metrics that `collectd` gathers includes CPU utilization, memory and disk consumption, network interface traffic and errors, and a system's overall load. You can also forward the data to another `collectd` server. For more information see the [collectd wiki](https://collectd.org/wiki/index.php/Main_Page).
+`collectd` is a service that runs on {% data variables.location.product_location %} to gather and provide metrics about the system's performance. Common metrics that `collectd` gathers includes CPU utilization, memory and disk consumption, network interface traffic and errors, and a system's overall load. You can also forward the data to another `collectd` server. For more information see the [collectd wiki](https://github.com/collectd/collectd/wiki).
 
 Your instance uses metrics from `collectd` to display graphs in the {% data variables.enterprise.management_console %}'s monitor dashboard. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/accessing-the-monitor-dashboard)."
 

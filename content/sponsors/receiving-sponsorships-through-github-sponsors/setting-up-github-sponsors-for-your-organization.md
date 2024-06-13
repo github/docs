@@ -92,5 +92,5 @@ Before your organization can become a sponsored organization, you must enable 2F
 
 ## Further reading
 
-- "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
+* "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+* "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"

@@ -34,32 +34,22 @@ import path from 'path'
 import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 
+import type { Page } from '@/types'
 import warmServer from '@/frame/lib/warm-server.js'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
 
+const EXCEPTIONS = new Set([
+  // From data/features/placeholder.yml. Used by tests.
+  'placeholder',
+])
+
 type Options = {
   sourceDirectory: string
   output?: string
   verbose?: boolean
-}
-
-type Page = {
-  permalinks: Permalink[]
-  relativePath: string
-  fullPath: string
-  title: string
-  shortTitle?: string
-  intro: string
-  markdown: string
-  languageCode: string
-  versions: Record<string, string>
-}
-type Permalink = {
-  href: string
-  languageCode: string
 }
 
 export async function find(options: Options) {
@@ -75,7 +65,9 @@ export async function find(options: Options) {
   }
   const site = await warmServer([])
 
-  const features = new Set(Object.keys(getDeepDataByLanguage('features', 'en')))
+  const features = new Set(
+    Object.keys(getDeepDataByLanguage('features', 'en')).filter((f) => !EXCEPTIONS.has(f)),
+  )
   if (options.verbose) {
     console.log(`Found ${features.size} features`)
   }
@@ -104,7 +96,9 @@ export async function find(options: Options) {
   )
   if (options.output) {
     if (options.output.endsWith('.json')) {
-      fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      if (remaining.length) {
+        fs.writeFileSync(options.output, JSON.stringify(remaining, null, 2))
+      }
     } else {
       fs.writeFileSync(options.output, remaining.join('\n'))
     }
@@ -229,7 +223,11 @@ function checkString(
   }: { page?: Page; filePath?: string; languageCode?: string; verbose?: boolean } = {},
 ) {
   try {
-    for (const token of getLiquidTokens(string)) {
+    // The reason for the `noCache: true` is that we're going to be sending
+    // a LOT of different strings in and the cache will fill up rapidly
+    // when testing every possible string in every possible language for
+    // every page.
+    for (const token of getLiquidTokens(string, { noCache: true })) {
       if (token.name === 'ifversion' || token.name === 'elsif') {
         for (const arg of token.args.split(/\s+/)) {
           if (IGNORE_ARGS.has(arg)) continue

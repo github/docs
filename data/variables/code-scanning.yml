@@ -13,7 +13,8 @@ no_build_support: 'Java'
 compiled_languages: 'C/C++, C#, {% ifversion codeql-go-autobuild %} Go,{% endif %} {% ifversion codeql-swift-beta %} Java, and Swift{% else %} and Java{% endif %}'
 
 # List of languages where the libraries support expansion using CodeQL model packs at the repository level.
-codeql_model_packs_support: 'Java/Kotlin and C#'
+
+codeql_model_packs_support: '{% ifversion fpt or ghec or ghes > 3.12 %}C#, Java/Kotlin, and Ruby{% elsif ghes > 3.10 %}Java/Kotlin{% endif %}'
 
 # List of that allow threat models to be configurable for code scanning
 code_scanning_threat_model_support: 'Java/Kotlin{% ifversion fpt or ghec or ghes > 3.12 %} and C#{% endif %}'

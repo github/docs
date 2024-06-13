@@ -13,8 +13,8 @@ shortTitle: Maximum push limit
 
 If you hit this limit, you may see one of the following error messages:
 
-- `fatal: the remote end hung up unexpectedly`
-- `remote: fatal: pack exceeds maximum allowed size`
+* `fatal: the remote end hung up unexpectedly`
+* `remote: fatal: pack exceeds maximum allowed size`
 
 You can either split up your push into smaller parts, or delete the Git history and start from scratch. If you have made a single commit that's larger than 2 GB and you can't delete the Git history and start from scratch, then you will need to perform an interactive rebase to split the large commit into multiple smaller ones.
 

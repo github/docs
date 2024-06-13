@@ -61,7 +61,7 @@ jobs:
       - name: Create issue using REST API
         run: |
           curl --request POST \
-          --url {% data variables.product.api_url_code %}/repos/${% raw %}{{ github.repository }}{% endraw %}/issues \
+          --url {% data variables.product.rest_url %}/repos/${% raw %}{{ github.repository }}{% endraw %}/issues \
           --header 'authorization: Bearer ${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}' \
           --header 'content-type: application/json' \
           --data '{
@@ -82,6 +82,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
+| {% ifversion artifact-attestations %}     |
+| attestations  | read/write  | none | read |
+| {% endif %}                               |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
 | deployments   | read/write  | none | read |{% ifversion fpt or ghec %}
@@ -100,9 +103,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 {% note %}
 
 **Notes:**
-- When a workflow is triggered by the [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target) event, the `GITHUB_TOKEN` is granted read/write repository permission, even when it is triggered from a public fork. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
-- Private repositories can control whether pull requests from forks can run workflows, and can configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
-- {% data reusables.actions.workflow-runs-dependabot-note %}
+* When a workflow is triggered by the [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target) event, the `GITHUB_TOKEN` is granted read/write repository permission, even when it is triggered from a public fork. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
+* Private repositories can control whether pull requests from forks can run workflows, and can configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+* {% data reusables.actions.workflow-runs-dependabot-note %}
 
 {% endnote %}
 
@@ -136,4 +139,4 @@ If you need a token that requires permissions that aren't available in the `GITH
 
 ### Further reading
 
-- "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"
+* "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"

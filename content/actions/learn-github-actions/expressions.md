@@ -92,15 +92,15 @@ env:
   {% note %}
 
   **Notes:**
-  - {% data variables.product.company_short %} ignores case when comparing strings.
-  - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
-  - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+  * {% data variables.product.company_short %} ignores case when comparing strings.
+  * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
 
   {% endnote %}
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
-- If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
 
   | Type    | Result |
   | ---     | ---    |
@@ -109,9 +109,9 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-- When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-- {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-- Objects and arrays are only considered equal when they are the same instance.
+* When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
+* Objects and arrays are only considered equal when they are the same instance.
 
 {% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
 
@@ -245,7 +245,7 @@ This workflow sets a JSON matrix in one job, and passes it to the next job using
 
 {% raw %}
 
-```yaml
+```yaml copy
 name: build
 on: push
 jobs:
@@ -254,19 +254,15 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+      - id: set-matrix
         run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
-{%- else %}
-        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-{%- endif %}{% raw %}
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
-      - run: build
+      - run: echo "Matrix - Project ${{ matrix.project }}, Config ${{ matrix.config }}"
 ```
 
 {% endraw %}
@@ -275,7 +271,7 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-```yaml
+```yaml copy
 name: print
 on: push
 env:

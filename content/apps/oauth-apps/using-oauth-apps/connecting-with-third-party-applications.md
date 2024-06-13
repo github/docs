@@ -20,7 +20,7 @@ When a third-party application wants to identify you by your {% data variables.p
 
 ## Contacting the application developer
 
-Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. If you have questions or concerns about an application, you should contact the application developer. To find contact information for an application, you can click the account name of the developer at the top of of the app's authorization page.
+Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. If you have questions or concerns about an application, you should contact the application developer. To find contact information for an application, you can click the account name of the developer at the top of the app's authorization page.
 
 If the developer has chosen to supply further information, the right-hand side of the authorization page may also provide a detailed description of the application, as well as its associated website.
 
@@ -28,8 +28,8 @@ If the developer has chosen to supply further information, the right-hand side o
 
 Applications can have _read_ or _write_ access to your {% data variables.product.product_name %} data.
 
-- **Read access** only allows an application to _look at_ your data.
-- **Write access** allows an application to _change_ your data.
+* **Read access** only allows an application to _look at_ your data.
+* **Write access** allows an application to _change_ your data.
 
 ### About OAuth scopes
 

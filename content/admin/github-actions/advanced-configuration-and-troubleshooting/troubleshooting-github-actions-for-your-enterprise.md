@@ -60,8 +60,8 @@ If you deploy {% data variables.product.prodname_ghe_server %} in your environme
 
 You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.location.product_location %}. Each self-hosted runner will require one of the following procedures:
 
-- In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-- Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
+* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
+* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 ## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
 
@@ -81,12 +81,12 @@ If the overall "System Health" CPU and memory usage is OK, scroll down the monit
 
 Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
 
-- `mps_frontend`
-- `mps_backend`
-- `token_frontend`
-- `token_backend`
-- `actions_frontend`
-- `actions_backend`
+* `mps_frontend`
+* `mps_backend`
+* `token_frontend`
+* `token_backend`
+* `actions_frontend`
+* `actions_backend`
 
 If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
 
@@ -122,9 +122,9 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
 
-   - `mps.hcl.ctmpl`
-   - `token.hcl.ctmpl`
-   - `actions.hcl.ctmpl`
+   * `mps.hcl.ctmpl`
+   * `token.hcl.ctmpl`
+   * `actions.hcl.ctmpl`
 1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
 
    ```text
@@ -159,15 +159,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
-After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.location.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
-
-By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.
-
-There are three ways to resolve this problem:
-
-1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
-1. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events)."
-1. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+{% data reusables.dependabot.dependabot-on-actions-troubleshooting-workflows %} For more information, see "[Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
 
 ### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
 
@@ -199,8 +191,8 @@ A part of the Actions setup had problems and needs an administrator to resolve.
 To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
 
 1. Identify an organization that will store the official bundled actions and starter workflows. You can create a new organization or reuse an existing one.
-    - To create a new organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-    - For assistance with choosing a name for this organization, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)."
+    * To create a new organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+    * For assistance with choosing a name for this organization, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)."
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.

@@ -82,14 +82,14 @@ To learn more about enabling 2FA on your own account, see "[AUTOTITLE](/authenti
 Enterprise owners may be able to require 2FA for all {% ifversion ghes %}users on{% elsif ghec %}members of{% endif %} the {% ifversion ghes %}instance{% elsif ghec %}enterprise{% endif %}. The availability of 2FA policies on {% data variables.product.product_name %} depends on how {% ifversion ghes %}users{% else %}members{% endif %} authenticate to access your {% ifversion ghes %}instance{% elsif ghec %}enterprise's resources{% endif %}.
 
 {% ifversion ghes %}
-- If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
+* If you sign into {% data variables.location.product_location %} through an external IdP using CAS or SAML SSO, you
 {% elsif ghec %}
 If your enterprise uses {% data variables.product.prodname_emus %} or SAML authentication is enforced for your enterprise, you
 {%- endif %} cannot configure 2FA on {% data variables.product.product_name %}. Someone with administrative access to your IdP must configure 2FA for the IdP.
 
 {% ifversion ghes %}
 
-- If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
+* If you sign into {% data variables.location.product_location %} through an external LDAP directory, you can require 2FA for your enterprise on {% data variables.product.product_name %}. If you allow built-in authentication for users outside of your directory, individual users can enable 2FA, but you cannot require 2FA for your enterprise.
 
 {% endif %}
 
@@ -141,7 +141,7 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 
 ## Next steps
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
-- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"

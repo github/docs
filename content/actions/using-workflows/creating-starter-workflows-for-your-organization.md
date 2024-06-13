@@ -24,9 +24,12 @@ topics:
 
 {% data reusables.actions.starter-workflow-categories %}
 
+> [!NOTE]
+> Because starter workflows require a public `.github` repository, they are not available for {% data variables.product.prodname_emus %}.
+
 ## Creating a starter workflow
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+Starter workflows can be created by users with write access to the organization's _public_ `.github` repository. These can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
 Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization).
@@ -40,7 +43,7 @@ Starter workflows created by users can only be used to create workflows in publi
 
 This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
 
-1. If it doesn't already exist, create a new public repository named `.github` in your organization.
+1. If it doesn't already exist, create a new _public_ repository named `.github` in your organization.
 1. Create a directory named `workflow-templates`.
 1. Create your new workflow file inside the `workflow-templates` directory.
 
@@ -51,9 +54,9 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
 
    **Note:** The following values in the `runs-on` key are also treated as placeholders:
 
-   - "ubuntu-latest" is replaced with "[ self-hosted ]"
-   - "windows-latest" is replaced with "[ self-hosted, windows ]"
-   - "macos-latest" is replaced with "[ self-hosted, macOS ]"
+   * "ubuntu-latest" is replaced with "[ self-hosted ]"
+   * "windows-latest" is replaced with "[ self-hosted, windows ]"
+   * "macos-latest" is replaced with "[ self-hosted, macOS ]"
 
    {% endnote %}{% endif %}
 
@@ -97,17 +100,17 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
    }
    ```
 
-   - `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-   - `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-   - `iconName` - **Optional.** Specifies an icon for the workflow that is displayed in the list of workflows. `iconName` can one of the following types:
-     - An SVG file that is stored in the `workflow-templates` directory. To reference a file, the value must be the file name without the file extension. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-     - An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
-   - `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
-     - General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-     - Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
-     - Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
+   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
+   * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
+   * `iconName` - **Optional.** Specifies an icon for the workflow that is displayed in the list of workflows. `iconName` can one of the following types:
+     * An SVG file that is stored in the `workflow-templates` directory. To reference a file, the value must be the file name without the file extension. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
+     * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
+   * `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
+     * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
+     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
+     * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
 
-   - `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
 To add another starter workflow, add your files to the same `workflow-templates` directory.
 

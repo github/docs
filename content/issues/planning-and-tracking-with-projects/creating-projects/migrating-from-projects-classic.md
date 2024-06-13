@@ -15,12 +15,12 @@ allowTitleToDifferFromFilename: true
 
 **Notes:**
 
-- If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
-- Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#showing-and-hiding-fields)."
-- Automation will not be migrated.
-- Triage, archive, and activity will not be migrated.
-- After migration, the new migrated project and old project will not be kept in sync.
-- {% data reusables.projects.migration-permissions-warning %}
+* If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
+* Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#showing-and-hiding-fields)."
+* Automation will not be migrated.
+* Triage, archive, and activity will not be migrated.
+* After migration, the new migrated project and old project will not be kept in sync.
+* {% data reusables.projects.migration-permissions-warning %}
 
 {% endnote %}
 
@@ -30,7 +30,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating an organization {% data variables.projects.projects_v1_board %}
 
-{% data reusables.projects.enable-migration %}
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
@@ -39,7 +38,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 ## Migrating a user {% data variables.projects.projects_v1_board %}
 
-{% data reusables.projects.enable-migration %}
 1. In the upper-right corner of {% data variables.product.prodname_dotcom_the_website %}, select your profile photo, then click **Your projects**.
 
    ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
@@ -57,7 +55,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
 {% endnote %}
 
-{% data reusables.projects.enable-migration %}
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click {% octicon "table" aria-hidden="true" %} **Projects**.
 1. In the left sidebar, click **Projects (classic)**.

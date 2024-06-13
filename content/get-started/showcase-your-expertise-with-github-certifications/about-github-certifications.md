@@ -24,34 +24,34 @@ With {% data variables.product.prodname_certifications %}, you can showcase your
 
 With the {% data variables.product.prodname_dotcom %} Foundations certificate, you can highlight your understanding of the foundational topics and concepts of collaborating, contributing, and working on {% data variables.product.prodname_dotcom %}. This exam covers:
 
-- Collaboration
-- {% data variables.product.prodname_dotcom %} products
-- Git basics
-- Working within {% data variables.product.prodname_dotcom %} repositories
+* Collaboration
+* {% data variables.product.prodname_dotcom %} products
+* Git basics
+* Working within {% data variables.product.prodname_dotcom %} repositories
 
 ### {% data variables.product.prodname_actions %} Certification
 
 You can certify your proficiency in automating workflows and accelerating development with {% data variables.product.prodname_actions %} by earning a {% data variables.product.prodname_actions %} certificate. This exam covers:
 
-- Streamlining workflows
-- Automating tasks
-- Optimizing software pipelines
+* Streamlining workflows
+* Automating tasks
+* Optimizing software pipelines
 
 ### {% data variables.product.prodname_GH_advanced_security %} Certification
 
 You can highlight your code security knowledge with the {% data variables.product.prodname_GH_advanced_security %} certificate. This exam covers:
 
-- Vulnerability identification
-- Workflow security
-- Security implementation
+* Vulnerability identification
+* Workflow security
+* Security implementation
 
 ### {% data variables.product.prodname_dotcom %} Administration Certification
 
 You can certify your ability to optimize and manage a healthy {% data variables.product.prodname_dotcom %} environment with the {% data variables.product.prodname_dotcom %} Admin exam. This exam covers:
 
-- Repository management
-- Workflow optimization
-- Efficient collaboration
+* Repository management
+* Workflow optimization
+* Efficient collaboration
 
 ## Getting started with {% data variables.product.prodname_certifications %}
 
@@ -63,5 +63,5 @@ After successful completion of a certificate exam, you will receive a Credly bad
 
 ## Further reading
 
-- [{% data variables.product.prodname_certifications %} Program FAQs](https://examregistration.github.com/faq)
-- [{% data variables.product.prodname_certifications %} - Candidate Handbook](https://examregistration.github.com/handbook)
+* [{% data variables.product.prodname_certifications %} Program FAQs](https://examregistration.github.com/faq)
+* [{% data variables.product.prodname_certifications %} - Candidate Handbook](https://examregistration.github.com/handbook)

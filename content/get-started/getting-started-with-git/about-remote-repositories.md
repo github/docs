@@ -22,8 +22,8 @@ A remote URL is Git's fancy way of saying "the place where your code is stored."
 
 You can only push to two types of URL addresses:
 
-- An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
-- An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
+* An HTTPS URL like `https://{% data variables.product.product_url %}/user/repo.git`
+* An SSH URL, like `git@{% data variables.product.product_url %}:user/repo.git`
 
 Git associates a remote URL with a name, and your default remote is usually called `origin`.
 
@@ -59,8 +59,8 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 {% tip %}
 
 **Tips**:
-- You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)."
-- To clone a repository without authenticating to {% data variables.product.product_name %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+* You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)."
+* To clone a repository without authenticating to {% data variables.product.product_name %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% endtip %}
 

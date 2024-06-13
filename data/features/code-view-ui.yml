@@ -1,0 +1,7 @@
+# Reference: #6672 and #13856
+# The code view UI refresh in repositories
+# For the new code search experience, see code-search-upgrade.yml
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.13'

@@ -45,9 +45,9 @@ If you are making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests
 
 If you receive a rate limit error, you should stop making requests temporarily according to these guidelines:
 
-- If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed.
-- If the `x-ratelimit-remaining` header is `0`, you should not make another request until after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header is in UTC epoch seconds.
-- Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
+* If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed.
+* If the `x-ratelimit-remaining` header is `0`, you should not make another request until after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header is in UTC epoch seconds.
+* Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
@@ -75,13 +75,13 @@ Most endpoints return an `etag` header, and many endpoints return a `last-modifi
 For example, if a previous request returned an `etag` header value of `644b5b0155e6404a9cc4bd9d8b1ae730`, you can use the `if-none-match` header in a future request:
 
 ```shell
-curl {% data variables.product.api_url_pre %}/meta --include --header 'if-none-match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+curl {% data variables.product.rest_url %}/meta --include --header 'if-none-match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 ```
 
 For example, if a previous request returned a `last-modified` header value of `Wed, 25 Oct 2023 19:17:59 GMT`, you can use the `if-modified-since` header in a future request:
 
 ```shell
-curl {% data variables.product.api_url_pre %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
+curl {% data variables.product.rest_url %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
 ```
 
 ## Do not ignore errors
@@ -92,5 +92,5 @@ Intentionally ignoring repeated validation errors may result in the suspension o
 
 ## Further reading
 
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
-- "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"

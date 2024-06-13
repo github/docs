@@ -18,6 +18,7 @@ children:
   - /about-cluster-nodes
   - /cluster-network-configuration
   - /initializing-the-cluster
+  - /deferring-database-seeding
   - /upgrading-a-cluster
   - /monitoring-the-health-of-your-cluster
   - /monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service

@@ -24,6 +24,10 @@ Once you complete this project, you should understand how to build your own comp
 
 {% data reusables.actions.context-injection-warning %}
 
+### Composite actions and reusable workflows
+
+Composite actions allow you to collect a series of workflow job steps into a single action which you can then run as a single job step in multiple workflows. Reusable workflows provide another way of avoiding duplication, by allowing you to run a complete workflow from within other workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/avoiding-duplication)."
+
 ## Prerequisites
 
 Before you begin, you'll create a repository on {% data variables.location.product_location %}.
@@ -177,6 +181,6 @@ From your repository, click the **Actions** tab, and select the latest workflow 
 
 You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
 
-- [microsoft/action-python](https://github.com/microsoft/action-python)
-- [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
-- [tailscale/github-action](https://github.com/tailscale/github-action)
+* [microsoft/action-python](https://github.com/microsoft/action-python)
+* [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
+* [tailscale/github-action](https://github.com/tailscale/github-action)

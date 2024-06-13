@@ -33,7 +33,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
    ```
 
 1. Switch to or create a topic branch.
-   - To start a new project, create a new topic branch from `main`.
+   * To start a new project, create a new topic branch from `main`.
 
      ```shell
      git checkout -b YOUR-TOPIC-BRANCH
@@ -49,7 +49,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      {% endnote %}
 
-   - To work on an existing project, switch to your topic branch and merge changes from `main`.
+   * To work on an existing project, switch to your topic branch and merge changes from `main`.
 
      ```shell
      git checkout YOUR-TOPIC-BRANCH
@@ -81,7 +81,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. Stage the changed files so that they're ready to be committed to your topic branch.
 
-   - If you created new files or updated existing files, use `git add FILENAME [FILENAME...]`. For example:
+   * If you created new files or updated existing files, use `git add FILENAME [FILENAME...]`. For example:
 
      ```shell
      git add example-new-file.md example-changed-file.md
@@ -89,7 +89,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      This adds the updated version of the files to Git's staging area, from which changes can be committed. To unstage a file, use `git reset HEAD FILENAME`. For example, `git reset HEAD example-changed-file.md`.
 
-   - If you deleted files, use `git rm FILENAME [FILENAME...]`. For example:
+   * If you deleted files, use `git rm FILENAME [FILENAME...]`. For example:
 
      ```shell
      git rm example-deleted-file.md
@@ -111,13 +111,13 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-   - The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
+   * The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
 
      ```shell
      git push --set-upstream origin YOUR-TOPIC-BRANCH
      ```
 
-   - If you've pushed this branch before, and set an upstream tracking branch you can use:
+   * If you've pushed this branch before, and set an upstream tracking branch you can use:
 
      ```shell
      git push
@@ -125,25 +125,25 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 ### Best practices for commits
 
-- Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
-- If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
-- If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
+* Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
+* If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
+* If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
   {% note %}
 
   **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
   {% endnote %}
-- Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
-- Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
-- Only push up to {% data variables.product.prodname_dotcom_the_website %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
+* Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
+* Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
+* Only push up to {% data variables.product.prodname_dotcom_the_website %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
 
 ## Resolving merge conflicts
 
 When you try to merge two branches that contain different changes to the same part of a file, you will get a merge conflict. In our workflow, this most often occurs when merging `main` down into a local topic branch.
 
 There are two ways to handle merge conflicts:
-- Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-- [Resolve the merge conflicts on {% data variables.product.prodname_dotcom_the_website %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+* Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
+* [Resolve the merge conflicts on {% data variables.product.prodname_dotcom_the_website %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 ### Resolving merge conflicts by editing the file and committing the changes
 

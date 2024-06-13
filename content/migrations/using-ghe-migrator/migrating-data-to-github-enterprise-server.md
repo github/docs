@@ -41,8 +41,8 @@ shortTitle: Migrate data
    ghe-migrator prepare /home/admin/MIGRATION-GUID.tar.gz
    ```
 
-   - To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
-   - {% data reusables.enterprise_migrations.specify-staging-path %}
+   * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
+   * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ## Generating a list of migration conflicts
 
@@ -52,7 +52,7 @@ shortTitle: Migrate data
    ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
    ```
 
-   - If no conflicts are reported, you can safely import the data.
+   * If no conflicts are reported, you can safely import the data.
 
 1. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
 
@@ -165,8 +165,8 @@ The same process can be used to create mappings for each record that supports cu
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 1. Using the `ghe-migrator import` command, start the import process. You'll need:
-   - Your Migration GUID. For more information, see "[Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data)."
-   - Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   * Your Migration GUID. For more information, see "[Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data)."
+   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    ```shell
    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -175,14 +175,14 @@ The same process can be used to create mappings for each record that supports cu
    > Import 100% complete /
    ```
 
-   - {% data reusables.enterprise_migrations.specify-staging-path %}
+   * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ## Reviewing migration data
 
 By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
 
-- The types of records.
-- The state of the records.
+* The types of records.
+* The state of the records.
 
 The record types match those found in the [migrated data](/migrations/using-ghe-migrator/about-ghe-migrator#migrated-data).
 
@@ -273,9 +273,9 @@ After your migration is applied to your target instance and you have reviewed th
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
-- Your access token for authentication
-- The unique `id` of the migration
-- The name of the repository to unlock
+* Your access token for authentication
+* The unique `id` of the migration
+* The name of the repository to unlock
 
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \

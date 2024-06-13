@@ -66,4 +66,4 @@ Log output will appear in the terminal and `/tmp/convert_public_ghes_repos_to_in
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"

@@ -113,13 +113,13 @@ For a full list of actions in your enterprise audit log, see "[AUTOTITLE](/admin
 
 To search for specific events, use the `action` qualifier in your query. For example:
 
-- `action:team` finds all events grouped within the team category.
-- `-action:hook` excludes all events in the webhook category.
+* `action:team` finds all events grouped within the team category.
+* `-action:hook` excludes all events in the webhook category.
 
 Each category has a set of associated actions that you can filter on. For example:
 
-- `action:team.create` finds all events where a team was created.
-- `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+* `action:team.create` finds all events where a team was created.
+* `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
 Actions that can be found in your enterprise audit log are grouped within the following categories:
 
@@ -135,18 +135,18 @@ Use the `created` qualifier to filter events in the audit log based on when they
 
 For example:
 
-- `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-- `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-- `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-- `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+* `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+* `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+* `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+* `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 ### Search based on location
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-- `country:de` finds all events that occurred in Germany.
-- `country:Mexico` finds all events that occurred in Mexico.
-- `country:"United States"` all finds events that occurred in the United States.
+* `country:de` finds all events that occurred in Germany.
+* `country:Mexico` finds all events that occurred in Mexico.
+* `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion token-audit-log %}
 

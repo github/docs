@@ -34,10 +34,16 @@ If you need search engines to index your content, you can use [{% data variables
 {% endnote %}
 {% endif %}
 
+{% note %}
+
+**Note:** For performance reasons, wikis have a soft limit of 5,000 pages. If you exceed this limit, some pages may be inaccessible to users.
+
+{% endnote %}
+
 ## Further reading
 
-- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
-- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
-- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
-- "[AUTOTITLE](/communities/documenting-your-project-with-wikis/viewing-a-wikis-history-of-changes)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-wikis)"
+* "[AUTOTITLE](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
+* "[AUTOTITLE](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
+* "[AUTOTITLE](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
+* "[AUTOTITLE](/communities/documenting-your-project-with-wikis/viewing-a-wikis-history-of-changes)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-wikis)"

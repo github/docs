@@ -49,11 +49,11 @@ The top-level `updates` key is mandatory. You use it to configure how {% data va
 
 These options fit broadly into the following categories.
 
-- Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
-- Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
-- Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
-- Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
+* Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
+* Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
+* Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
+* Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
+* Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
 In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {% data variables.product.prodname_dependabot %} can open.
 
@@ -193,11 +193,11 @@ updates:
 
 Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
-- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters.
-     - For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`; for example: `org.kohsuke:github-api`.
-     - For Docker image tags, the format is the full name of the repository; for example, for an image tag of `<account ID>.dkr.ecr.us-west-2.amazonaws.com/base/foo/bar/ruby:3.1.0-focal-jemalloc`, use `base/foo/bar/ruby`.
+* `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters.
+     * For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`; for example: `org.kohsuke:github-api`.
+     * For Docker image tags, the format is the full name of the repository; for example, for an image tag of `<account ID>.dkr.ecr.us-west-2.amazonaws.com/base/foo/bar/ruby:3.1.0-focal-jemalloc`, use `base/foo/bar/ruby`.
 
-- `dependency-type`—use to allow updates for dependencies of specific types.
+* `dependency-type`—use to allow updates for dependencies of specific types.
 
   | Dependency types | Supported by package managers | Allow updates |
   |------------------|-------------------------------|--------|
@@ -276,12 +276,12 @@ Supported options
 
 {% endnote %}
 
-- `prefix` specifies a prefix for all commit messages.
+* `prefix` specifies a prefix for all commit messages.
    When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.
    The code snippet below provides examples of both in the same configuration file.
 
-- `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-- `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
+* `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
+* `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -353,9 +353,9 @@ The `applies-to` key is used to specify whether a set of grouping rules is inten
 If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal. {% data variables.product.prodname_dotcom %} reports in the logs if a group is empty. For more information, see "[{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-fails-to-group-a-set-of-dependencies-into-a-single-pull-request)."
 
 When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
-- If all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
-- If all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
-- If the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+* If all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
+* If all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+* If the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
 You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
 
@@ -372,9 +372,9 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 {% warning %}
 
 **Warning**:
-- We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+* We recommend you do _not_ use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries. This may work for some ecosystems but we have no means of knowing whether package managers require access to all dependencies to be able to successfully perform updates, which makes this method unreliable. The supported way to handle private dependencies is to give {% data variables.product.prodname_dependabot %} access to private registries or private repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
 
-- For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
+* For {% data variables.product.prodname_actions %} and Docker, you may use `ignore` to prevent {% data variables.product.prodname_dependabot %} from accessing private registries.
 
 {% endwarning %}
 
@@ -439,6 +439,40 @@ updates:
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
 {% endnote %}
+
+The following examples show how `ignore` can be used to customize which dependencies are updated.
+
+##### Ignore updates beyond a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "lodash:*"
+       versions: [ ">=1.0.0" ]
+   ```
+
+##### Ignore updates beyond a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "sphinx"
+       versions: [ "[1.1,)" ]
+   ```
+
+##### Ignore patch updates
+
+   ```yaml
+   ignore:
+     - dependency-name: "@types/node"
+       update-types: ["version-update:semver-patch"]
+   ```
+
+##### Ignore updates for a specific version
+
+   ```yaml
+   ignore:
+     - dependency-name: "django*"
+       versions: [ "11" ]
+   ```
 
 ### `insecure-external-code-execution`
 
@@ -608,14 +642,14 @@ By default, {% data variables.product.prodname_dependabot %} automatically rebas
 
 Available rebase strategies
 
-- `auto` to use the default behavior and rebase open pull requests when changes are detected.
-- `disabled` to disable automatic rebasing.
+* `auto` to use the default behavior and rebase open pull requests when changes are detected.
+* `disabled` to disable automatic rebasing.
 
 When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_dependabot %} attempts to rebase pull requests in the following cases.
-- When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
-- When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
-- When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
-- When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
+* When you use {% data variables.product.prodname_dependabot_version_updates %}, for any open {% data variables.product.prodname_dependabot %} pull request when your schedule runs.
+* When you reopen a closed {% data variables.product.prodname_dependabot %} pull request.
+* When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
+* When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
 
 {% ifversion dependabot-updates-rebase-30-days-cutoff %}
 {% else %}
@@ -716,13 +750,13 @@ When you set a `weekly` update schedule, by default, {% data variables.product.p
 
 Supported values
 
-- `monday`
-- `tuesday`
-- `wednesday`
-- `thursday`
-- `friday`
-- `saturday`
-- `sunday`
+* `monday`
+* `tuesday`
+* `wednesday`
+* `thursday`
+* `friday`
+* `saturday`
+* `sunday`
 
 ```yaml
 # Specify the day for weekly checks
@@ -903,26 +937,18 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 
 **Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
 
-- Bundler
-- Docker
-- Gradle
-- Maven
-- npm
-- Nuget{% ifversion dependabot-updates-pub-private-registry %}
-- pub{% endif %}
-- Python
-- Yarn
+* Bundler{% ifversion dependabot-updates-cargo-private-registry-support %}
+* Cargo{% endif %}
+* Docker
+* Gradle
+* Maven
+* npm
+* Nuget{% ifversion dependabot-updates-pub-private-registry %}
+* pub{% endif %}
+* Python
+* Yarn
 
 {% endnote %}
-
-{% else %}
-
-{% note %}
-
-**Note:** Private registries behind firewalls on private networks are not supported.
-
-{% endnote %}
-
 {% endif %}
 
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
@@ -955,6 +981,18 @@ updates:
 You must provide the required settings for each configuration `type` that you specify. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
+
+{% ifversion dependabot-updates-cargo-private-registry-support %}
+
+### `cargo-registry`
+
+The `cargo-registry` type supports a token.
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
+{% data reusables.dependabot.cargo-private-registry-config-example %}
+
+{% endif %}
 
 ### `composer-repository`
 

@@ -22,6 +22,16 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
 
+  // For a short while we injected `replacedomain` into code snippets
+  // to activate the Domain Edit functionality. That was in `main` for a
+  // while and was later removed in English. But during that window of
+  // time, some translations picked it up. Let's remove it. For now.
+  // The day we re-instate editable domain, delete these lines.
+  if (content.includes('replacedomain')) {
+    content = content.replaceAll('```text replacedomain copy', '```text copy')
+    content = content.replaceAll('```shell replacedomain', '```shell')
+  }
+
   if (context.code === 'ru') {
     // Low-hanging fruit for the data tag
     content = content.replaceAll('{% данных variables', '{% data variables')
@@ -67,6 +77,38 @@ export function correctTranslatedContentStrings(content, englishContent, context
       '- % data variables.product.prodname_copilot_enterprise %}',
       '- {% data variables.product.prodname_copilot_enterprise %}',
     )
+
+    // This might not be exclusive to Japanese but put here because, at
+    // the time of writing, it only happens on the Japanse translations.
+    // According to the Microsoft translation guidelines, they're not
+    // supposed to translate words that will be seen in the UI, but
+    // instead mention then like this:
+    //
+    //    [Save changes](THE TRANSLATION OF "Save changes" IN JAPANESE)
+    //
+    // The problem is when these are wrapped in a deliberate Markdown link.
+    // For example:
+    //
+    //    [[Save changes](THE TRANSLATION OF "Save changes" IN JAPANESE)](#some-section)
+    //
+    // A real observed example is:
+    //
+    //    [[Allow deletions](削除を許可)](#allow-deletions)
+    //
+    // Here, because "削除を許可" contains no spaces, the Markdown parser
+    // thinks "削除を許可" is the URL! But in actuality,
+    // `[Allow deletions](削除を許可)` is the text and `#allow-deletions`
+    // is the URL.
+    // This problem does not exhibit if the text "削除を許可" were to contain
+    // a space character. But we can't assume that we can just add a space.
+    // For example "削除 を許可" would be incorrect. And where do you put the
+    // space? Between which characters.
+    // Instead, we can inject a "hair space" whitespace character between
+    // the `]` and the `(`. Then, the Markdown processor does not get confused
+    // and the link is rendered correctly.
+    // The `\u200A` is the "hair space" character. Technically whitespace
+    // but not wide enough to visually appear as a space.
+    content = content.replace(/\[(\[.*?\])(\(\S+\)\]\()/g, '[$1\u200A$2')
   }
 
   if (context.code === 'zh') {
@@ -86,6 +128,11 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('용어집 %}의 용어집에 대한 {%', '{% for glossary in glossaries %}')
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ 용어집.description }}', '{{ glossary.description }}')
+  }
+
+  if (context.code === 'es') {
+    // Seen these a few times in the Spanish translations.
+    content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
   }
 
   // We have seen a lot of Markdown tables, that may have Liquid tags

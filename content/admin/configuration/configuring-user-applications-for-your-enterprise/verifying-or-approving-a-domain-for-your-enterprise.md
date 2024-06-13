@@ -57,17 +57,25 @@ Organization owners can also approve additional domains for their organizations.
 
 To verify your enterprise account's domain, you must have access to modify domain records with your domain hosting service.
 
+For successful domain verification, make sure that the TXT record needed for the verification can be checked directly from your domain's main name servers. You can verify this by running the command: `dig DOMAIN +nostats +nocomments +nocmd TXT @AUTHORITATIVE-NAMESERVER`. This helps avoid problems from CNAME records that might point somewhere else.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
 {% data reusables.enterprise-accounts.add-a-domain %}
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
-1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ENTERPRISE-ACCOUNT` with the name of your enterprise account, and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.
+1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `TXT-RECORD-NAME` with the name of the TXT record created in your DNS configuration. You should see your new TXT record listed in the command output.
 
    ```shell
-   dig _github-challenge-ENTERPRISE-ACCOUNT.DOMAIN-NAME +nostats +nocomments +nocmd TXT
+   dig TXT-RECORD-NAME +nostats +nocomments +nocmd TXT
    ```
+
+1. To make sure that the TXT record can be checked directly from your domain's main name servers, run the following command.
+
+    ```shell
+    dig DOMAIN +nostats +nocomments +nocmd TXT @AUTHORITATIVE-NAMESERVER
+    ```
 
 1. After confirming your TXT record is added to your DNS, follow steps one through four above to navigate to your enterprise account's approved and verified domains.
 {% data reusables.enterprise-accounts.continue-verifying-domain %}

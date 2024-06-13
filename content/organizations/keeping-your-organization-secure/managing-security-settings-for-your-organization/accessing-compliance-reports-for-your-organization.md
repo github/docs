@@ -2,6 +2,7 @@
 title: Accessing compliance reports for your organization
 intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your organization.'
 versions:
+  fpt: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -19,13 +20,6 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## Accessing compliance reports for your organization
 
-{% note %}
-
-**Note:** To view compliance reports, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-If you are not using {% data variables.product.prodname_ghe_cloud %}, you can find similar reports at [GitHub Security](https://www.github.com/security).
-{% endnote %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.compliance %}
@@ -33,6 +27,10 @@ If you are not using {% data variables.product.prodname_ghe_cloud %}, you can fi
 
    {% data reusables.security.compliance-report-screenshot %}
 
+{% ifversion ghec %}
+
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+* "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
+
+{% endif %}

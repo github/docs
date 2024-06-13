@@ -49,13 +49,13 @@ You can then add the token as an environment variable in a codespace, or as a se
 
 To use the token to authenticate in your codespace, you have the following options.
 
-- When you create the environment variable or secret, you can use the name `GH_TOKEN`. The `GH_TOKEN` variable is used by default in {% data variables.product.prodname_cli %} operations, so you can clone the repository using the command `gh repo clone OWNER/REPO`.
+* When you create the environment variable or secret, you can use the name `GH_TOKEN`. The `GH_TOKEN` variable is used by default in {% data variables.product.prodname_cli %} operations, so you can clone the repository using the command `gh repo clone OWNER/REPO`.
 
   However, if you then try to push to the repository using `git push`, Git's credential helper will try to use the existing `GITHUB_TOKEN` to authenticate, and authentication will fail. You can override the helper, but this may introduce friction when you try to interact with the original repository from which you created the codespace.
-- You can clone the repository with a URL that includes the access token. Replace `YOUR-VARIABLE` with the name of the environment variable or secret you created.
+* You can clone the repository with a URL that includes the access token. Replace `YOUR-VARIABLE` with the name of the environment variable or secret you created.
 
   ```shell
-  git clone https://PAT:$YOUR-VARIABLE@github.com/OWNER/REPO`
+  git clone https://USERNAME:$YOUR-VARIABLE@github.com/OWNER/REPO`
   ```
 
   This will store the access token for the specific repository, so you will be able to push to and pull from the repository without overriding the existing credential helper.

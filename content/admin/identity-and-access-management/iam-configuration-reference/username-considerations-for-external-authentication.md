@@ -47,7 +47,7 @@ If you use an enterprise with {% data variables.product.prodname_emus %}, member
 
 ## About usernames for {% data variables.enterprise.prodname_managed_users %}
 
-When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@SHORT-CODE_admin**.
+When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **SHORT-CODE_admin**.
 
 When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@IDP-USERNAME_SHORT-CODE**. The IDP-USERNAME component is formed by normalizing the SCIM `userName` attribute value sent from the IdP.
 
@@ -58,11 +58,11 @@ When you provision a new user from your identity provider, the new {% data varia
 
 These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Entra ID, the following UPNs will result in the same username:
 
-- `bob@contoso.com`
-- `bob@fabrikam.com`
-- `bob#EXT#fabrikamcom@contoso.com`
-- `bob_example#EXT#fabrikamcom@contoso.com`
-- `bob_example.com#EXT#fabrikamcom@contoso.com`
+* `bob@contoso.com`
+* `bob@fabrikam.com`
+* `bob#EXT#fabrikamcom@contoso.com`
+* `bob_example#EXT#fabrikamcom@contoso.com`
+* `bob_example.com#EXT#fabrikamcom@contoso.com`
 
 This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
 {% endif %}
@@ -71,10 +71,10 @@ Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} m
 
 ## About username normalization
 
-Usernames for user accounts on {% ifversion ghes %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} can only contain alphanumeric characters and dashes (`-`).
+Usernames for user accounts on {% data variables.product.prodname_dotcom %} can only contain alphanumeric characters and dashes (`-`).
 
 {% ifversion ghec %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom_the_website %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 {% elsif ghes %}
 When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 {% endif %}
@@ -132,9 +132,9 @@ When a new user is being provisioned, if the username is longer than 39 characte
 
 To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
 
-- Change the `userName` attribute value for individual users that are causing problems
-- Change the `userName` attribute mapping for all users
-- Configure a custom `userName` attribute for all users
+* Change the `userName` attribute value for individual users that are causing problems
+* Change the `userName` attribute mapping for all users
+* Configure a custom `userName` attribute for all users
 
 When you change the attribute mapping, usernames of existing {% data variables.enterprise.prodname_managed_users %} will be updated, but nothing else about the accounts will change, including activity history.
 
@@ -154,8 +154,8 @@ To resolve username problems in Entra ID, either modify the User Principal Name 
 1. Expand **Mappings**, then click **Provision Entra ID Users**.
 1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping.
 1. Change the attribute mapping.
-   - To map an existing attribute in Entra ID to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
-   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/app-provisioning/functions-for-customizing-application-data) on Microsoft Learn.
+   * To map an existing attribute in Entra ID to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
+   * To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](https://learn.microsoft.com/entra/identity/app-provisioning/functions-for-customizing-application-data) on Microsoft Learn.
 
 ### Resolving username problems with Okta
 

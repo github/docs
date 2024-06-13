@@ -9,11 +9,11 @@ versions:
   ghes: '*'
 ---
 
-{% note %}
+{% ifversion tag-protection-rules-deprecation %}
 
-**Note:** Tag protection rules are currently in beta and subject to change.
+>[!NOTE] Tag protection rules will be deprecated on August 30, 2024 in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
 
-{% endnote %}
+{% endif %}
 
 ## About tag protection rules
 
@@ -30,10 +30,10 @@ You can import existing tag protection rules into repository rulesets. This will
 
 Rulesets have the following advantages over tag protection rules.
 
-- Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering)."
-- Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
-- Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-- With rulesets, you can restrict tag names on an organization-wide basis.
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering)."
+* Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
+* Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
+* With rulesets, you can restrict tag names on an organization-wide basis.
 
 {% endif %}
 

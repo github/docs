@@ -30,8 +30,8 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 
 We recommend that you have a basic understanding of Python, and pip. For more information, see:
 
-- [Getting started with Python](https://www.python.org/about/gettingstarted/)
-- [Pip package manager](https://pypi.org/project/pip/)
+* [Getting started with Python](https://www.python.org/about/gettingstarted/)
+* [Pip package manager](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
@@ -44,8 +44,8 @@ We recommend that you have a basic understanding of Python, and pip. For more in
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Python application".
-1. On the "Python application" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Python application".
+1. On the "Python application" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 

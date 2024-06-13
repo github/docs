@@ -63,6 +63,7 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
 
+When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
 {% endwarning %}
 
 ### Example
@@ -96,6 +97,30 @@ jobs:
 Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
 {% data reusables.pull_requests.path-filtering-required-workflows %}
+
+{% ifversion merge-queue %}
+
+### Status checks with {% data variables.product.prodname_actions %} and a Merge queue
+
+You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
+
+{% note %}
+
+**Note:** {% data reusables.actions.merge-group-event-with-required-checks %}
+
+{% endnote %}
+
+A workflow that reports a check which is required by the target branch's protections would look like this:
+
+```yaml
+on:
+  pull_request:
+  merge_group:
+```
+
+For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
+
+{% endif %}
 
 ## Required status checks from unexpected sources
 

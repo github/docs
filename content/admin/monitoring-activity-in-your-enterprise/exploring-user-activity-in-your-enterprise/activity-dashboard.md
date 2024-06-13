@@ -14,15 +14,15 @@ topics:
   - Enterprise
 ---
 The Activity dashboard provides weekly, monthly, and yearly graphs of the number of:
-- New pull requests
-- Merged pull requests
-- New issues
-- Closed issues
-- New issue comments
-- New repositories
-- New user accounts
-- New organizations
-- New teams
+* New pull requests
+* Merged pull requests
+* New issues
+* Closed issues
+* New issue comments
+* New repositories
+* New user accounts
+* New organizations
+* New teams
 
 ## Accessing the Activity dashboard
 

@@ -31,9 +31,9 @@ The first instruction in the `Dockerfile` must be `FROM`, which selects a Docker
 
 These are some best practices when setting the `FROM` argument:
 
-- It's recommended to use official Docker images. For example, `python` or `ruby`.
-- Use a version tag if it exists, preferably with a major version. For example, use `node:10` instead of `node:latest`.
-- It's recommended to use Docker images based on the [Debian](https://www.debian.org/) operating system.
+* It's recommended to use official Docker images. For example, `python` or `ruby`.
+* Use a version tag if it exists, preferably with a major version. For example, use `node:10` instead of `node:latest`.
+* It's recommended to use Docker images based on the [Debian](https://www.debian.org/) operating system.
 
 ### WORKDIR
 

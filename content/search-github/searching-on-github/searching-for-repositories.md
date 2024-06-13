@@ -36,7 +36,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -220,5 +220,5 @@ You can search for repositories that have a funding file using the `has:funding-
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"

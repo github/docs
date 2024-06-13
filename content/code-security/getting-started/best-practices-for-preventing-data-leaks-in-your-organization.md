@@ -20,9 +20,9 @@ As an organization owner, preventing exposure of private or sensitive data shoul
 
 There are several key components when it comes to defending against data leaks:
 
-- Taking a proactive approach towards prevention
-- Early detection of possible leaks
-- Maintaining a mitigation plan when an incident occurs
+* Taking a proactive approach towards prevention
+* Early detection of possible leaks
+* Maintaining a mitigation plan when an incident occurs
 
 The best approach will depend on the type of organization you're managing. For example, an organization that focuses on open source development might require looser controls than a fully commercial organization, to allow for external collaboration. This article provide high level guidance on the {% data variables.product.prodname_dotcom %} features and settings to consider, which you should implement according to your needs.
 
@@ -32,13 +32,13 @@ Protect your organization's repositories and settings by implementing security b
 
 {% ifversion ghec %}- Enabling secure authentication processes by using SAML and SCIM integrations, as well as 2FA authentication whenever possible. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)," "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)," and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)." {% endif %}
 
-- Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure authentication.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+* Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure authentication.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
-- Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."{% ifversion secret-scanning-push-protection-for-users %}
+* Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."{% ifversion secret-scanning-push-protection-for-users %}
 
-- Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."{% endif %}
+* Encouraging your users to keep push protection for users enabled in their personal account settings, so that no matter which public repository they push to, they are protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."{% endif %}
 
-- Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+* Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 For more detailed information about securing accounts, see "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)."
 
@@ -69,15 +69,15 @@ No matter how well you tighten your organization to prevent data leaks, some may
 {% ifversion fpt or ghec %}
 There are two forms of {% data variables.product.prodname_secret_scanning %} available: **{% data variables.secret-scanning.partner_alerts_caps %}** and **{% data variables.secret-scanning.user_alerts_caps %}**.
 
-- {% data variables.secret-scanning.partner_alerts_caps %}—These are enabled by default and automatically run on all public repositories and public npm packages.
-- {% data variables.secret-scanning.user_alerts_caps %}—To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
+* {% data variables.secret-scanning.partner_alerts_caps %}—These are enabled by default and automatically run on all public repositories and public npm packages.
+* {% data variables.secret-scanning.user_alerts_caps %}—To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
 
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
-   - Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
-   - Public repositories owned by organizations
-   - Private and internal repositories owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
-   - Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
-   - Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+   * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
+   * Public repositories owned by organizations
+   * Private and internal repositories owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
+   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
+   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 {% endif %}
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."{% endif %}
@@ -117,5 +117,5 @@ counter notice form and alert GitHub Support. For more information, see [DMCA co
 
 ## Next steps
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

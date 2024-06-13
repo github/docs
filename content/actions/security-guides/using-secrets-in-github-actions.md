@@ -80,7 +80,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Secrets" tab is outlined in dark orange.](/assets/images/help/repository/actions-secrets-tab.png)
 1. Click **New repository secret**.
 1. In the **Name** field, type a name for your secret.
 1. In the **Secret** field, enter the value for your secret.
@@ -156,7 +156,7 @@ gh secret list --env ENV_NAME
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-secrets-tab %}
 
-   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png)
+   ![Screenshot of the "Actions secrets and variables" page. The "Secrets" tab is outlined in dark orange.](/assets/images/help/repository/actions-secrets-tab.png)
 
    {% data reusables.actions.secrets-and-variables-org-permissions %}
 
@@ -221,9 +221,9 @@ You can check which access policies are being applied to a secret in your organi
 
 **Notes:**
 
-- {% data reusables.actions.forked-secrets %}
+* {% data reusables.actions.forked-secrets %}
 
-- Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
+* Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
 
 {% endnote %}
 
@@ -301,9 +301,9 @@ You can store up to 1,000 organization secrets, 100 repository secrets, and 100 
 
 A workflow created in a repository can access the following number of secrets:
 
-- All 100 repository secrets.
-- If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-- All 100 environment secrets.
+* All 100 repository secrets.
+* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+* All 100 environment secrets.
 
 Secrets are limited to 48 KB in size. To store larger secrets, see the "[Storing large secrets](#storing-large-secrets)" workaround below.
 

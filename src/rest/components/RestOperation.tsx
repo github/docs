@@ -30,8 +30,11 @@ export function RestOperation({ operation }: Props) {
   const titleSlug = slug(operation.title)
   const { t } = useTranslation('rest_reference')
   const router = useRouter()
-
-  const headers = [DEFAULT_ACCEPT_HEADER]
+  // omit the default header if ghes specific api
+  const headers =
+    operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes'
+      ? []
+      : [DEFAULT_ACCEPT_HEADER]
   const numPreviews = operation.previews.length
   const hasStatusCodes = operation.statusCodes.length > 0
   const hasCodeSamples = operation.codeExamples.length > 0
@@ -67,7 +70,7 @@ export function RestOperation({ operation }: Props) {
           <RestAuth
             progAccess={operation.progAccess}
             slug={titleSlug}
-            heading={t('fine_grained_access').replace('{{ RESTOperationTitle }}', operation.title)}
+            operationTitle={operation.title}
           />
 
           {hasParameters && (

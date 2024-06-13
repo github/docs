@@ -140,6 +140,20 @@ async function testSiteSearch() {
     assert(/0 Search results for "gobligook"/.test($('h1').text()))
     assert($('[data-testid="search-result"]').length === 0)
   }
+  // Using the search API
+  {
+    const res = await get('/api/search?query=github')
+    const results = JSON.parse(res.body)
+    assert(results.meta)
+    assert(results.hits)
+  }
+  // Using the autocomplete search API
+  {
+    const res = await get('/api/search/autocomplete?query=gi')
+    const results = JSON.parse(res.body)
+    assert(results.meta)
+    assert(results.hits)
+  }
 }
 
 async function testViewingPages() {

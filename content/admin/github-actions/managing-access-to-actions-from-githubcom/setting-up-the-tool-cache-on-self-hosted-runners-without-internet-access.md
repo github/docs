@@ -34,9 +34,9 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 ## Prerequisites
 
-- Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 14 and 16.
-- Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
-- Access to your self-hosted runner's file system to populate the tool cache folder.
+* Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 14 and 16.
+* Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
+* Access to your self-hosted runner's file system to populate the tool cache folder.
 
 ## Populating the tool cache for a self-hosted runner
 

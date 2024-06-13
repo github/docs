@@ -13,7 +13,7 @@ topics:
   - Ruby
 shortTitle: Build & test Ruby
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -24,8 +24,8 @@ This guide shows you how to create a continuous integration (CI) workflow that b
 
 We recommend that you have a basic understanding of Ruby, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
-- [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
+* [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
+* [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
 ## Using a Ruby starter workflow
 
@@ -36,9 +36,9 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "ruby".
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "ruby".
 1. Filter the selection of workflows by clicking **Continuous integration**.
-1. On the "Ruby" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. On the "Ruby" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
@@ -289,8 +289,10 @@ jobs:
           ruby-version: '2.6'
       - run: bundle install
       - name: Rubocop
-        run: rubocop
+        run: rubocop -f github
 ```
+
+Specifying `-f github` means that the RuboCop output will be in {% data variables.product.prodname_dotcom %}'s annotation format. Any linting errors will show inline in the **Files changed** tab of the pull request that introduces them.
 
 ## Publishing Gems
 

@@ -37,9 +37,9 @@ Query metadata is included at the top of each query file. It provides users with
 
 When running queries with the `database analyze` command, you must include the following two properties to ensure that the results are interpreted correctly:
 
-- Query identifier (`@id`): a sequence of words composed of lowercase letters or digits, delimited by `/` or `-`, identifying and classifying the query.
+* Query identifier (`@id`): a sequence of words composed of lowercase letters or digits, delimited by `/` or `-`, identifying and classifying the query.
 
-- Query type (`@kind`): identifies the query as a simple alert (`@kind problem`), an alert documented by a sequence of code locations (`@kind path-problem`), for extractor troubleshooting (`@kind diagnostic`), or a summary metric (`@kind metric` and `@tags summary`).
+* Query type (`@kind`): identifies the query as a simple alert (`@kind problem`), an alert documented by a sequence of code locations (`@kind path-problem`), for extractor troubleshooting (`@kind diagnostic`), or a summary metric (`@kind metric` and `@tags summary`).
 
 For more information about these metadata properties, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)" and the [Query metadata style guide](https://github.com/github/codeql/blob/main/docs/query-metadata-style-guide.md).
 
@@ -52,10 +52,6 @@ For more information about these metadata properties, see "[Metadata for {% data
 {% ifversion codeql-packs %}
 
 ## Packaging custom QL queries
-
-{% data reusables.codeql-cli.beta-note-package-management %}
-
-<!-- using reusable re-created by Felicity -->
 
 When you write your own queries with the intention to share them with others, you should save them in a custom {% data variables.product.prodname_codeql %} pack. You can publish the pack as a {% data variables.product.prodname_codeql %} pack to {% data variables.product.prodname_registry %} - the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 
@@ -94,4 +90,4 @@ If you would like to share your query with other {% data variables.product.prodn
 
 ## Further reading
 
-- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+* "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"

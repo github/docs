@@ -1,7 +1,7 @@
 ---
 title: Creating a repository security advisory
 intro: You can create a draft security advisory to privately discuss and fix a security vulnerability in your open source project.
-permissions: Anyone with admin permissions to a repository, or with a security manager role within the repository, can create a security advisory.
+permissions: Anyone with admin permissions to a public repository, or with a security manager role within the repository, can create a security advisory.
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory
@@ -18,8 +18,6 @@ topics:
   - Vulnerabilities
 shortTitle: Create repository advisories
 ---
-
-{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
@@ -41,11 +39,11 @@ You can also use the REST API to create repository security advisories. For more
 {% data reusables.repositories.security-advisory-edit-cwe %}
 1. Optionally, under "Credits", add credits by searching for a {% data variables.product.prodname_dotcom %} username, the email address associated with their {% data variables.product.prodname_dotcom %} account, or their full name.
 {% ifversion security-advisories-credit-types %}
-   - Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see the [About credits for repository security advisories](#about-credits-for-repository-security-advisories) section.
+   * Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see the [About credits for repository security advisories](#about-credits-for-repository-security-advisories) section.
 
      ![Screenshot of a draft security advisory. A dropdown menu, labeled "Choose a credit type," is highlighted with an orange outline.](/assets/images/help/security/security-advisories-choose-credit-type.png)
 
-   - Optionally, to remove someone, click {% octicon "x" aria-label="The icon to remove someone's credit" %} next to the credit type.{% endif %}
+   * Optionally, to remove someone, click {% octicon "x" aria-label="The icon to remove someone's credit" %} next to the credit type.{% endif %}
 1. Click **Create draft security advisory**.
 
 {% data reusables.repositories.security-advisory-credits-notification %}
@@ -81,8 +79,8 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 
 ## Next steps
 
-- Comment on the draft security advisory to discuss the vulnerability with your team.
-- Add collaborators to the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
-- Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
-- Add individuals who should receive credit for contributing to the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
-- Publish the security advisory to notify your community of the security vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory)."
+* Comment on the draft security advisory to discuss the vulnerability with your team.
+* Add collaborators to the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
+* Privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+* Add individuals who should receive credit for contributing to the security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
+* Publish the security advisory to notify your community of the security vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory)."

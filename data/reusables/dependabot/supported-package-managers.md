@@ -1,13 +1,13 @@
 The following table shows, for each package manager:
-- The YAML value to use in the `dependabot.yml` file
-- The supported versions of the package manager
-- Whether dependencies in private {% data variables.product.prodname_dotcom %} repositories or registries are supported
-- Whether vendored dependencies are supported
+* The YAML value to use in the `dependabot.yml` file
+* The supported versions of the package manager
+* Whether dependencies in private {% data variables.product.prodname_dotcom %} repositories or registries are supported
+* Whether vendored dependencies are supported
 
 Package manager | YAML value      | Supported versions | Private repositories | Private registries | Vendoring
 ---------------|------------------|------------------|:---:|:---:|:---:
 Bundler        | `bundler`        | v1, v2           | {% octicon "x" aria-label="Not supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
+[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}{% ifversion dependabot-updates-cargo-private-registry-support %}{% else %} (Git only){% endif %} | {% octicon "x" aria-label="Not supported" %} |
 Composer       | `composer`       | v1, v2           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-version-updates-devcontainer-support %}[Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% endif %}{% ifversion dependabot-version-updates-enhanced-docker-support %}[Docker](#docker){% else %}Docker{% endif %}         | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -27,7 +27,7 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label
 {% endif %}poetry         | `pip`            | v1               | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pub](#pub)           | `pub`            | v2  | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} |{% ifversion dependabot-updates-swift-support %}
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |{% endif %}
-[Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.7.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+[Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.8.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 {% ifversion dependabot-yarn-v3-update %}[yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|{% else %}yarn           | `npm`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |  |
 {% endif %}
 
@@ -39,7 +39,7 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label
 
 #### Cargo
 
-Private registry support applies to git registries, and doesn't include cargo registries.
+{% ifversion dependabot-updates-cargo-private-registry-support %}Private registry support includes cargo registries, so you can use {% data variables.product.prodname_dependabot %} to keep your Rust dependencies up-to-date. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#cargo)."{% else %}Private registry support applies to Git registries, and doesn't include cargo registries.{% endif %}
 
 {% ifversion dependabot-version-updates-devcontainer-support %}
 
@@ -85,9 +85,9 @@ For more information about using {% data variables.product.prodname_dependabot_v
 {% ifversion dependabot-security-updates-gradle-support %}{% else %}Gradle is supported for {% data variables.product.prodname_dependabot_version_updates %} only.{% endif %}
 
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
-- `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
-- `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
-- Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+* `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
+* `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
+* Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 {% ifversion dependabot-security-updates-gradle-support %}
 For {% data variables.product.prodname_dependabot_security_updates %}, Gradle support is limited to manual uploads of the dependency graph data using the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
@@ -96,8 +96,8 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 **Notes:**
 
-- When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
-- {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
+* When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
+* {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
 
 {% endnote %}
 {% endif %}
@@ -148,9 +148,9 @@ Private registry support applies to git registries only. Swift registries are no
 #### Terraform
 
 Terraform support includes:
-- Modules hosted on Terraform Registry or a publicly reachable Git repository.
-- Terraform providers.
-- Private Terraform Registry. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
+* Modules hosted on Terraform Registry or a publicly reachable Git repository.
+* Terraform providers.
+* Private Terraform Registry. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
 
 #### yarn
 

@@ -43,5 +43,5 @@ For more information about managing your preferences for Settings Sync, see "[AU
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"

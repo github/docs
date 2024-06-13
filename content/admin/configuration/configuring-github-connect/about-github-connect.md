@@ -48,18 +48,18 @@ When {% data variables.product.prodname_github_connect %} is enabled, a record o
 
 When you enable {% data variables.product.prodname_github_connect %} or specific {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_ghe_cloud %} stores the following information about the connection.
 {% ifversion ghes %}
-- The public key portion of your {% data variables.product.prodname_ghe_server %} license
-- A hash of your {% data variables.product.prodname_ghe_server %} license
-- The customer name on your {% data variables.product.prodname_ghe_server %} license
-- The version of {% data variables.location.product_location_enterprise %}{% endif %}
-- The hostname of {% data variables.location.product_location %}
-- The enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
-- The authentication token that's used by {% data variables.location.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
-- If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}{% ifversion ghes %}
-- The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
-- The dormancy threshold for your enterprise
-- The number of dormant users for your enterprise
-- A count of license-consuming seats, which does not include suspended users
+* The public key portion of your {% data variables.product.prodname_ghe_server %} license
+* A hash of your {% data variables.product.prodname_ghe_server %} license
+* The customer name on your {% data variables.product.prodname_ghe_server %} license
+* The version of {% data variables.location.product_location_enterprise %}{% endif %}
+* The hostname of {% data variables.location.product_location %}
+* The enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
+* The authentication token that's used by {% data variables.location.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
+* If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}{% ifversion ghes %}
+* The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
+* The dormancy threshold for your enterprise
+* The number of dormant users for your enterprise
+* A count of license-consuming seats, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, starting from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 
@@ -79,4 +79,4 @@ Unified contributions | Contribution counts | From {% data variables.product.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation
+* "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation

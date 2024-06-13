@@ -22,5 +22,5 @@ Use the `https://` read-only URL for your submodules, including nested submodule
 
 ## Further reading
 
-- "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
-- "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
+* "[Git Tools - Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" from the _Pro Git_ book
+* "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)"

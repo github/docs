@@ -14,14 +14,14 @@ describe('render Markdown image tags', () => {
     const sources = $('source', pictures)
     expect(sources.length).toBe(1)
     const srcset = sources.attr('srcset')
-    expect(srcset).toBe(`/assets/cb-914945/mw-${MAX_WIDTH}/images/_fixtures/screenshot.webp 2x`)
+    expect(srcset).toBe(`/assets/cb-646451/mw-${MAX_WIDTH}/images/_fixtures/screenshot.webp 2x`)
     const type = sources.attr('type')
     expect(type).toBe('image/webp')
 
     const imgs = $('img', pictures)
     expect(imgs.length).toBe(1)
     const src = imgs.attr('src')
-    expect(src).toBe('/assets/cb-914945/images/_fixtures/screenshot.png')
+    expect(src).toBe('/assets/cb-646451/images/_fixtures/screenshot.png')
     const alt = imgs.attr('alt')
     expect(alt).toBe('This is the alt text')
 

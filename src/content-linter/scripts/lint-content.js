@@ -2,7 +2,6 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
-
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
@@ -469,8 +468,13 @@ function formatResult(object, isPrecommit) {
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
+  if (!allConfig[ruleName]) {
+    throw new Error(`Rule not found in allConfig: '${ruleName}'`)
+  }
   formattedResult.severity =
     allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
+
+  formattedResult.context = allConfig[ruleName].context || ''
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {

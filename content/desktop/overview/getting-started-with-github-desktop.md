@@ -17,9 +17,9 @@ This guide will help you get started with {% data variables.product.prodname_des
 
 You might find it helpful to have a basic understanding of Git and {% data variables.product.prodname_dotcom %} before getting started with {% data variables.product.prodname_desktop %}. For more information, see the following articles.
 
-- "[AUTOTITLE](/get-started/using-git)"
-- "[AUTOTITLE](/get-started/learning-about-github)"
-- "[AUTOTITLE](/get-started)"
+* "[AUTOTITLE](/get-started/using-git)"
+* "[AUTOTITLE](/get-started/learning-about-github)"
+* "[AUTOTITLE](/get-started)"
 
 {% data variables.product.prodname_desktop %} is an open source project. You can see the roadmap, contribute to the project, or open an issue to provide feedback or feature requests. For more information, see the [`desktop/desktop`](https://github.com/desktop/desktop) repository.
 

@@ -11,5 +11,7 @@ children:
   - /using-secrets-in-github-actions
   - /using-githubs-security-features-to-secure-your-use-of-github-actions
   - /automatic-token-authentication
+  - /using-artifact-attestations-to-establish-provenance-for-builds
+  - /using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
 ---
 

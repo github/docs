@@ -8,6 +8,8 @@ export const DEFAULT_HIGHLIGHT_FIELDS = ['title', 'content']
 
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
 
+const MAX_AGGREGATE_SIZE = 30
+
 const isDevMode = process.env.NODE_ENV !== 'production'
 
 function getClient() {
@@ -47,6 +49,8 @@ export async function getSearchResults({
   usePrefixSearch,
   highlights,
   include,
+  toplevel,
+  aggregate,
 }) {
   if (topics && !Array.isArray(topics)) {
     throw new Error("'topics' has to be an array")
@@ -57,6 +61,14 @@ export async function getSearchResults({
     }
     if (!include.every((value) => typeof value === 'string')) {
       throw new Error("Every entry in the 'include' must be a string")
+    }
+  }
+  if (toplevel) {
+    if (!Array.isArray(toplevel)) {
+      throw new Error("'toplevel' has to be an array")
+    }
+    if (!toplevel.every((value) => typeof value === 'string')) {
+      throw new Error("Every entry in the 'toplevel' must be a string")
     }
   }
   const t0 = new Date()
@@ -74,6 +86,8 @@ export async function getSearchResults({
   const matchQuery = {
     bool: {
       should: matchQueries,
+      // This allows filtering by toplevel later.
+      minimum_should_match: 1,
     },
   }
 
@@ -90,6 +104,14 @@ export async function getSearchResults({
     matchQuery.bool.filter = topicsFilter
   }
 
+  if (toplevel && toplevel.length) {
+    matchQuery.bool.filter = {
+      terms: {
+        toplevel,
+      },
+    }
+  }
+
   const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
   // These acts as an alias convenience
   if (highlightFields.includes('content')) {
@@ -97,18 +119,21 @@ export async function getSearchResults({
   }
   const highlight = getHighlightConfiguration(query, highlightFields)
 
+  const aggs = getAggregations(aggregate)
+
   const searchQuery = {
     index: indexName,
     highlight,
     from,
     size,
+    aggs,
 
     // Since we know exactly which fields from the source we're going
     // need we can specify that here. It's an inclusion list.
     // We can save precious network by not having to transmit fields
     // stored in Elasticsearch to here if it's not going to be needed
     // anyway.
-    _source_includes: ['title', 'url', 'breadcrumbs', 'popularity'],
+    _source_includes: ['title', 'url', 'breadcrumbs', 'popularity', 'toplevel'],
   }
 
   if (includeTopics) {
@@ -168,6 +193,7 @@ export async function getSearchResults({
     highlightFields,
     include,
   })
+  const aggregations = getAggregationsResult(aggregate, result.aggregations)
   const t1 = new Date()
 
   const meta = {
@@ -178,6 +204,80 @@ export async function getSearchResults({
     },
     page,
     size,
+  }
+
+  return { meta, hits, aggregations }
+}
+
+function getAggregations(aggregate) {
+  if (!aggregate || !aggregate.length) return undefined
+
+  const aggs = {}
+  for (const key of aggregate) {
+    aggs[key] = {
+      terms: {
+        field: key,
+        size: MAX_AGGREGATE_SIZE,
+      },
+    }
+  }
+  return aggs
+}
+
+function getAggregationsResult(aggregate, result) {
+  if (!aggregate || !aggregate.length) return
+  return Object.fromEntries(
+    aggregate.map((key) => [
+      key,
+      result[key].buckets
+        .map((bucket) => {
+          return {
+            key: bucket.key,
+            count: bucket.doc_count,
+          }
+        })
+        .sort((a, b) => a.key.localeCompare(b.key)),
+    ]),
+  )
+}
+
+export async function getAutocompleteSearchResults({ indexName, query, size }) {
+  const client = getClient()
+
+  const matchQueries = getAutocompleteMatchQueries(query.trim(), {
+    fuzzy: {
+      minLength: 3,
+      maxLength: 20,
+    },
+  })
+  const matchQuery = {
+    bool: {
+      should: matchQueries,
+    },
+  }
+
+  const highlight = getHighlightConfiguration(query, ['term'])
+
+  const searchQuery = {
+    index: indexName,
+    highlight,
+    size,
+    query: matchQuery,
+    // Send absolutely minimal from Elasticsearch to here. Less data => faster.
+    _source_includes: ['term'],
+  }
+  const result = await client.search(searchQuery)
+
+  const hitsAll = result.hits
+  const hits = hitsAll.hits.map((hit) => {
+    return {
+      term: hit._source.term,
+      highlights: (hit.highlight && hit.highlight.term) || [],
+    }
+  })
+
+  const meta = {
+    found: hitsAll.total,
   }
 
   return { meta, hits }
@@ -371,6 +471,46 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   return matchQueries
 }
 
+function getAutocompleteMatchQueries(query, { fuzzy }) {
+  const BOOST_PHRASE = 4.0
+  const BOOST_REGULAR = 2.0
+  const BOOST_FUZZY = 0.1 // make it always last in ranking
+  const matchQueries = []
+
+  // If the query input is multiple words, it's good to know because you can
+  // make the query do `match_phrase` and you can make `match` query
+  // with the `AND` operator (`OR` is the default).
+  const isMultiWordQuery = query.includes(' ') || query.includes('-')
+
+  if (isMultiWordQuery) {
+    matchQueries.push({
+      match_phrase_prefix: {
+        term: {
+          query,
+          boost: BOOST_PHRASE,
+        },
+      },
+    })
+  }
+  matchQueries.push({
+    match_bool_prefix: {
+      term: {
+        query,
+        boost: BOOST_REGULAR,
+      },
+    },
+  })
+  if (query.length > fuzzy.minLength && query.length < fuzzy.maxLength) {
+    matchQueries.push({
+      fuzzy: {
+        term: { value: query, boost: BOOST_FUZZY, fuzziness: 'AUTO' },
+      },
+    })
+  }
+
+  return matchQueries
+}
+
 function getHits(hits, { indexName, debug, includeTopics, highlightFields, include }) {
   return hits.map((hit) => {
     // Return `hit.highlights[...]` based on the highlight fields requested.
@@ -464,7 +604,16 @@ function getHighlightConfiguration(query, highlights) {
       },
     }
   }
-
+  if (highlights.includes('term')) {
+    fields.term = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
+      // fragment_size: 200,
+      // number_of_fragments: 1,
+    }
+  }
   return {
     pre_tags: ['<mark>'],
     post_tags: ['</mark>'],

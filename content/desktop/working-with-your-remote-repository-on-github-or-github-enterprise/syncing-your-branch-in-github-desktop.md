@@ -97,6 +97,6 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
 ## Further Reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary

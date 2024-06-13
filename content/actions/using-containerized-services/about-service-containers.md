@@ -151,5 +151,5 @@ jobs:
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/using-containerized-services/creating-redis-service-containers)"
-- "[AUTOTITLE](/actions/using-containerized-services/creating-postgresql-service-containers)"
+* "[AUTOTITLE](/actions/using-containerized-services/creating-redis-service-containers)"
+* "[AUTOTITLE](/actions/using-containerized-services/creating-postgresql-service-containers)"

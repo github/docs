@@ -95,5 +95,5 @@ Additionally, you are ultimately responsible for the commands executed by {% dat
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

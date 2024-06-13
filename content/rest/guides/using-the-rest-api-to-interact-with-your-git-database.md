@@ -26,13 +26,13 @@ the Pro Git book.
 As an example, if you wanted to commit a change to a file in your
 repository, you would:
 
-- Get the current commit object
-- Retrieve the tree it points to
-- Retrieve the content of the blob object that tree has for that particular file path
-- Change the content somehow and post a new blob object with that new content, getting a blob SHA back
-- Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
-- Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
-- Update the reference of your branch to point to the new commit SHA
+* Get the current commit object
+* Retrieve the tree it points to
+* Retrieve the content of the blob object that tree has for that particular file path
+* Change the content somehow and post a new blob object with that new content, getting a blob SHA back
+* Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
+* Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
+* Update the reference of your branch to point to the new commit SHA
 
 It might seem complex, but it's actually pretty simple when you understand
 the model and it opens up a ton of things you could potentially do with the API.

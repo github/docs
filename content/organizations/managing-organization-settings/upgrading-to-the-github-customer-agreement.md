@@ -27,6 +27,6 @@ You can upgrade to the {% data variables.product.company_short %} Customer Agree
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
-- The [GitHub Customer Terms](https://github.com/customer-terms)
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+* The [GitHub Customer Terms](https://github.com/customer-terms)
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"

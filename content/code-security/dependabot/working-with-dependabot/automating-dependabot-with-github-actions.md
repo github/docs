@@ -26,14 +26,18 @@ redirect_from:
 
 {% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date, and you can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modifying the pull request.
 
+{% ifversion dependabot-on-actions-opt-in %}
+>[!NOTE] This article explains how to automate {% data variables.product.prodname_dependabot %}-related tasks using {% data variables.product.prodname_actions %}. For more information about running {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)" instead.
+{% endif %}
+
 ## Responding to events
 
 {% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
 
-- `GITHUB_TOKEN` has read-only permissions by default.
-- Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
+* `GITHUB_TOKEN` has read-only permissions by default.
+* Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
 
@@ -269,9 +273,9 @@ jobs:
 
 If your workflow run fails, check the following:
 
-- You are running the workflow only when the correct actor triggers it.
-- You are checking out the correct `ref` for your `pull_request`.
-- Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
-- You have a `GITHUB_TOKEN` with the correct permissions.
+* You are running the workflow only when the correct actor triggers it.
+* You are checking out the correct `ref` for your `pull_request`.
+* Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
+* You have a `GITHUB_TOKEN` with the correct permissions.
 
 For information on writing and debugging {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."

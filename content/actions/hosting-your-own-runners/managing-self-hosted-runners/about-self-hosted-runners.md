@@ -21,18 +21,16 @@ A self-hosted runner is a system that you deploy and manage to execute jobs from
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
 You can add self-hosted runners at various levels in the management hierarchy:
-- Repository-level runners are dedicated to a single repository.
-- Organization-level runners can process jobs for multiple repositories in an organization.
-- Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
+* Repository-level runners are dedicated to a single repository.
+* Organization-level runners can process jobs for multiple repositories in an organization.
+* Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
-
+{% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} {% ifversion fpt or ghec %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs. {% else ifversion ghes %} When a new version is released, the runner application will automatically update within 24 hours. {% endif %}
 {% ifversion ghes %}
-{% note %}
 
-**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+> [!NOTE]
+> {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-auto-removal %}
@@ -44,27 +42,27 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 {% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted runners are a highly configurable way to run workflows in your own custom environment.
 
 **{% data variables.product.prodname_dotcom %}-hosted runners:**
-- Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
-- Are managed and maintained by {% data variables.product.prodname_dotcom %}.
-- Provide a clean instance for every job execution.
-- Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
+* Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
+* Are managed and maintained by {% data variables.product.prodname_dotcom %}.
+* Provide a clean instance for every job execution.
+* Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**
-- Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
-- Can use cloud services or local machines that you already pay for.
-- Are customizable to your hardware, operating system, software, and security requirements.
-- Don't need to have a clean instance for every job execution.
-- Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes %}
-- Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+* Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
+* Can use cloud services or local machines that you already pay for.
+* Are customizable to your hardware, operating system, software, and security requirements.
+* Don't need to have a clean instance for every job execution.
+* Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes %}
+* Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
 
 ## Requirements for self-hosted runner machines
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-- You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-- The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-- The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-- If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
 ## Autoscaling your self-hosted runners
 
@@ -76,11 +74,11 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
 {% ifversion fpt or ghec or ghes > 3.12 %}- **Job execution time** - Each job in a workflow can run for up to 5 days of execution time. If a job reaches this limit, the job is terminated and fails to complete.{% endif %}
 {% data reusables.actions.usage-workflow-run-time %}
-- **Job queue time** - Each job for self-hosted runners that has been queued for at least 24 hours will be canceled. The actual time in queue can reach up to 48 hours before cancellation occurs. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+* **Job queue time** - Each job for self-hosted runners that has been queued for at least 24 hours will be canceled. The actual time in queue can reach up to 48 hours before cancellation occurs. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-api-requests %}
-- **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
+* **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
-- **Registering self-hosted runners** - You can have a maximum of 10,000 self-hosted runners in one runner group. If this limit is reached, adding a new runner will not be possible.
+* **Registering self-hosted runners** - You can have a maximum of 10,000 self-hosted runners in one runner group. If this limit is reached, adding a new runner will not be possible.
 
 ## Workflow continuity for self-hosted runners
 
@@ -92,35 +90,35 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### Linux
 
-- Red Hat Enterprise Linux 8 or later
-- CentOS 8 or later
-- Oracle Linux 8 or later
-- Fedora 29 or later
-- Debian 10 or later
-- Ubuntu 20.04 or later
-- Linux Mint 20 or later
-- openSUSE 15.2 or later
-- SUSE Enterprise Linux (SLES) 15 SP2 or later
+* Red Hat Enterprise Linux 8 or later
+* CentOS 8 or later
+* Oracle Linux 8 or later
+* Fedora 29 or later
+* Debian 10 or later
+* Ubuntu 20.04 or later
+* Linux Mint 20 or later
+* openSUSE 15.2 or later
+* SUSE Enterprise Linux (SLES) 15 SP2 or later
 
 ### Windows
 
-- Windows 10 64-bit
-- Windows 11 64-bit
-- Windows Server 2016 64-bit
-- Windows Server 2019 64-bit
-- Windows Server 2022 64-bit
+* Windows 10 64-bit
+* Windows 11 64-bit
+* Windows Server 2016 64-bit
+* Windows Server 2019 64-bit
+* Windows Server 2022 64-bit
 
 ### macOS
 
-- macOS 11.0 (Big Sur) or later
+* macOS 11.0 (Big Sur) or later
 
 ### Architectures
 
 The following processor architectures are supported for the self-hosted runner application.
 
-- `x64` - Linux, macOS, Windows.
-- `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
-- `ARM32` - Linux.
+* `x64` - Linux, macOS, Windows.
+* `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
+* `ARM32` - Linux.
 
 {% ifversion ghes %}
 
@@ -157,61 +155,9 @@ You must ensure that the machine has the appropriate network access with at leas
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. For more information about the domains and IP addresses used, see "[AUTOTITLE](/rest/meta/meta)."
 
-{% note %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
-**Note:** Some of the domains listed below are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed below will remain constant.
-
-{% endnote %}
-
-**Needed for essential operations:**
-
-```shell copy
-github.com
-api.github.com
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading actions:**
-
-```shell copy
-codeload.github.com
-```
-
-**Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
-
-```shell copy
-results-receiver.actions.githubusercontent.com
-*.blob.core.windows.net
-```
-
-**Needed for runner version updates:**
-
-```shell copy
-objects.githubusercontent.com
-objects-origin.githubusercontent.com
-github-releases.githubusercontent.com
-github-registry-files.githubusercontent.com
-```
-
-**Needed for retrieving OIDC tokens:**
-
-```shell copy
-*.actions.githubusercontent.com
-```
-
-**Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
-
-```shell copy
-*.pkg.github.com
-ghcr.io
-```
-
-**Needed for {% data variables.large_files.product_name_long %}**
-
-```shell copy
-github-cloud.githubusercontent.com
-github-cloud.s3.amazonaws.com
-```
+{% data reusables.actions.runner-essential-communications %}
 
 In addition, your workflow may require access to other network resources.
 
@@ -239,13 +185,11 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
+ghcr.io
+*.actions.githubusercontent.com
 ```
 
-{% note %}
-
-**Note:** Some of the domains listed above are configured using `CNAME` records. Some firewalls might require you to add rules recursively for all `CNAME` records. Note that the `CNAME` records might change in the future, and that only the domains listed above will remain constant.
-
-{% endnote %}
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
 {% endif %}
 
@@ -265,10 +209,10 @@ This is not an issue with {% data variables.product.prodname_dotcom %}-hosted ru
 
 Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
-- Malicious programs running on the machine.
-- Escaping the machine's runner sandbox.
-- Exposing access to the machine's network environment.
-- Persisting unwanted or dangerous data on the machine.
+* Malicious programs running on the machine.
+* Escaping the machine's runner sandbox.
+* Exposing access to the machine's network environment.
+* Persisting unwanted or dangerous data on the machine.
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
@@ -284,6 +228,6 @@ For more information about security hardening for self-hosted runners, see "[AUT
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
+* "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
 
 {% endif %}

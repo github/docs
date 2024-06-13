@@ -23,11 +23,11 @@ shortTitle: Repository roles
 You can give organization members, outside collaborators, and teams of people different levels of access to repositories owned by an organization by assigning them to roles. Choose the role that best fits each person or team's function in your project without giving people more access to the project than they need.
 
 From least access to most access, the roles for an organization repository are:
-- **Read**: Recommended for non-code contributors who want to view or discuss your project
-- **Triage**: Recommended for contributors who need to proactively manage issues{% ifversion discussions-moderators-control-who-can-report %}, discussions,{% endif %} and pull requests without write access
-- **Write**: Recommended for contributors who actively push to your project
-- **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
-- **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
+* **Read**: Recommended for non-code contributors who want to view or discuss your project
+* **Triage**: Recommended for contributors who need to proactively manage issues{% ifversion discussions-moderators-control-who-can-report %}, discussions,{% endif %} and pull requests without write access
+* **Write**: Recommended for contributors who actively push to your project
+* **Maintain**: Recommended for project managers who need to manage the repository without access to sensitive or destructive actions
+* **Admin**: Recommended for people who need full access to the project, including sensitive and destructive actions like managing security or deleting a repository
 
 {% ifversion fpt %}
 If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
@@ -183,6 +183,6 @@ In this section, you can find the access required for security features, such as
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"

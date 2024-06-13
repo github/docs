@@ -65,5 +65,5 @@ The "app manager" role in an organization does not give a person the ability to 
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-- "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
+* "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)"

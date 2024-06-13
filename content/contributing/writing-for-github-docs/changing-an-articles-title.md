@@ -16,7 +16,7 @@ Sometimes, it's necessary to change the title of a help article. There are sever
 
 The title of the article corresponds directly to the name of the Markdown file that contains that article, for a couple of reasons:
 
-- **SEO:** When we use real words that correlate to the content of the article in a URL, our articles are weighted more heavily for search engines. For more information, see "Improve the structure of your URLs" in the [Google Search Engine Optimization Starter Guide](http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf).
+* **SEO:** When we use real words that correlate to the content of the article in a URL, our articles are weighted more heavily for search engines. For more information, see "Improve the structure of your URLs" in the [Google Search Engine Optimization Starter Guide](http://static.googleusercontent.com/media/www.google.com/en//webmasters/docs/search-engine-optimization-starter-guide.pdf).
 
 ## Places you should consider updating when you change a title
 
@@ -37,8 +37,8 @@ redirect_from:
 
 #### Frontmatter update checklist
 
-- Update title using sentence case
-- Update redirects. Almost every time we retitle an article, we should add a redirect referencing the article's old URL and make sure we keep any redirects in the old article's frontmatter.
+* Update title using sentence case
+* Update redirects. Almost every time we retitle an article, we should add a redirect referencing the article's old URL and make sure we keep any redirects in the old article's frontmatter.
 
 ### Filename
 

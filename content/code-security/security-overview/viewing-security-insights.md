@@ -29,13 +29,13 @@ Both the enterprise and organization-level security overviews have a dashboard. 
 
 You can view a variety of metrics about the security alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}. The dashboard displays trending data that tracks alert counts and activity over time, as well as snapshot data that reflects the current state.
 
-- The top section of the dashboard shows information about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, as well as data about secrets that have been blocked or bypassed.
-- The "Remediation" section shows information about how alerts are resolved and alert activity over time.
-- The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
+* The top section of the dashboard shows information about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, as well as data about secrets that have been blocked or bypassed.
+* The "Remediation" section shows information about how alerts are resolved and alert activity over time.
+* The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
 
 You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
-Enterprise members can access the overview page for organizations in their enterprise. The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
+{% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
 
 ### Limitations
 
@@ -64,15 +64,15 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Understanding the overview dashboard
 
-- [Alert trends graph](#alert-trends-graph)
-- [Age of alerts](#age-of-alerts)
-- [Secrets bypassed or blocked](#secrets-bypassed-or-blocked)
-- [Mean time to remediate](#mean-time-to-remediate)
-- [Net resolve rate](#net-resolve-rate)
-- [Alert activity graph](#alert-activity-graph){% ifversion security-overview-additional-tools %}
-- [Impact analysis table](#impact-analysis-table)
-- [Reopened alerts](#reopened-alerts){% else %}
-- [Impact analysis for repositories](#impact-analysis-for-repositories)
+* [Alert trends graph](#alert-trends-graph)
+* [Age of alerts](#age-of-alerts)
+* [Secrets bypassed or blocked](#secrets-bypassed-or-blocked)
+* [Mean time to remediate](#mean-time-to-remediate)
+* [Net resolve rate](#net-resolve-rate)
+* [Alert activity graph](#alert-activity-graph){% ifversion security-overview-additional-tools %}
+* [Impact analysis table](#impact-analysis-table)
+* [Reopened alerts](#reopened-alerts){% else %}
+* [Impact analysis for repositories](#impact-analysis-for-repositories)
 {% endif %}
 
 {% ifversion security-overview-additional-tools %}
@@ -81,9 +81,12 @@ Some metrics in the security overview dashboard include a trend indicator, which
 
 {% endif %}
 
+>[!NOTE]
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+
 ### Alert trends graph
 
-The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. Alerts are grouped by severity. You can toggle the graph between open and closed alerts.
+The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. {% ifversion security-overview-3-13-overview %}By default, alerts{% else %}Alerts{% endif %} are grouped by severity. You can toggle the graph between open and closed alerts{% ifversion security-overview-3-13-overview %} and change the way alerts are grouped{% endif %}.
 
 Open alerts include both newly created and existing open security alerts. New alerts are represented on their creation date, while alerts that existed before the chosen time period are represented at the start of the period. Once an alert is remediated or dismissed, it is not included in the graph. Instead, the alert will move to the closed alerts graph.
 
@@ -107,9 +110,9 @@ The age of each open alert is calculated by subtracting the date the alert was c
 
 The "Reopened alerts" metric is the total open alerts that were reopened during the chosen time period. Only alerts that are open at the end of the reporting period are reported. This includes:
 
-- Alerts that were closed as of the day before the chosen time period, and that remain open at the end of the period.
-- Newly created alerts that were closed, and then reopened, during the chosen time period.
-- Alerts that were open at the start of the chosen time period, but closed and then reopened within the same period.
+* Alerts that were closed as of the day before the chosen time period, and that remain open at the end of the period.
+* Newly created alerts that were closed, and then reopened, during the chosen time period.
+* Alerts that were open at the start of the chosen time period, but closed and then reopened within the same period.
 
 {% endif %}
 
@@ -173,9 +176,9 @@ Green bars represent the number of new alerts created during the segmented time 
 
 The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
 
-- The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
+* The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 
-- The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
+* The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
 
 {% else %}
 

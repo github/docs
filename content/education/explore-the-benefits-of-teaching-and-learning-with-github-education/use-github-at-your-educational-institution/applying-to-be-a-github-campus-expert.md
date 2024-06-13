@@ -13,10 +13,10 @@ To apply to the {% data variables.product.prodname_student_leader_program %} pro
 {% note %}
 
 **Note:** The application process helps us get to know the applicant. Here are some things we want to learn about you:
-- Motivation: What makes you tick? What drives you?
-- Interest: Why do you want to be part of the program?
-- Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
-- Contribution: What impact do you want to make on your campus?
+* Motivation: What makes you tick? What drives you?
+* Interest: Why do you want to be part of the program?
+* Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
+* Contribution: What impact do you want to make on your campus?
 
 {% endnote %}
 
@@ -24,12 +24,12 @@ To apply to the {% data variables.product.prodname_student_leader_program %} pro
 
 To become a {% data variables.product.prodname_student_leader_program_singular %}, you must:
 
-- Be a {% data variables.product.prodname_dotcom %} user for at least six months.
-- Be at least 18 years of age.
-- Be enrolled in a formal higher education institution.
-- Have more than one year left as a student before graduating.
-- Not be enrolled in the {% data variables.product.prodname_dotcom %} Campus Advisors Program.
-- Validate your student status through the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+* Be a {% data variables.product.prodname_dotcom %} user for at least six months.
+* Be at least 18 years of age.
+* Be enrolled in a formal higher education institution.
+* Have more than one year left as a student before graduating.
+* Not be enrolled in the {% data variables.product.prodname_dotcom %} Campus Advisors Program.
+* Validate your student status through the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 ### Submitting your application form
 

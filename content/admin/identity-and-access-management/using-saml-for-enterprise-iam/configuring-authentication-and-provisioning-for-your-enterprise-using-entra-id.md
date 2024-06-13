@@ -29,22 +29,22 @@ Entra ID is a service from Microsoft that allows you to centrally manage user ac
 
 After you enable SAML SSO and SCIM for {% data variables.product.product_name %} using Entra ID, you can accomplish the following from your Entra ID tenant.
 
-- Assign the {% data variables.product.product_name %} application on Entra ID to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
-- Unassign the {% data variables.product.product_name %} application to a user account on Entra ID to deactivate the corresponding user account on {% data variables.product.product_name %}.
-- Assign the {% data variables.product.product_name %} application to an IdP group on Entra ID to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
-- Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
+* Assign the {% data variables.product.product_name %} application on Entra ID to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
+* Unassign the {% data variables.product.product_name %} application to a user account on Entra ID to deactivate the corresponding user account on {% data variables.product.product_name %}.
+* Assign the {% data variables.product.product_name %} application to an IdP group on Entra ID to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
+* Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
 For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
 
 ## Prerequisites
 
-- To configure authentication and user provisioning for {% data variables.product.product_name %} using Entra ID, you must have an Entra ID account and tenant. For more information, see the [Entra ID website](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) and [Quickstart: Set up a tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant) in the Microsoft Docs.
+* To configure authentication and user provisioning for {% data variables.product.product_name %} using Entra ID, you must have an Entra ID account and tenant. For more information, see the [Entra ID website](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) and [Quickstart: Set up a tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant) in the Microsoft Docs.
 
 {%- ifversion scim-for-ghes %}
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %}
+* {% data reusables.saml.ghes-you-must-configure-saml-sso %}
 {%- endif %}
 
-- {% data reusables.saml.create-a-machine-user %}
+* {% data reusables.saml.create-a-machine-user %}
 
 ## Configuring authentication and user provisioning with Entra ID
 

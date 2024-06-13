@@ -18,10 +18,10 @@ topics:
 
 There are various disadvantages to this approach:
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
-- WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard.
-- You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
+* To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
+* WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
+* This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard.
+* You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
 
 There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.
 
@@ -30,13 +30,13 @@ There are some advantages too, as you can run WireGuard on an existing server so
 This example workflow configures WireGuard to connect to a private service.
 
 For this example, the WireGuard instance running in the private network has this configuration:
-- Overlay network IP address of `192.168.1.1`
-- Public IP address and port of `1.2.3.4:56789`
-- Public key `examplepubkey1234...`
+* Overlay network IP address of `192.168.1.1`
+* Public IP address and port of `1.2.3.4:56789`
+* Public key `examplepubkey1234...`
 
 The WireGuard instance in the {% data variables.product.prodname_actions %} runner has this configuration:
-- Overlay network IP address of `192.168.1.2`
-- Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
+* Overlay network IP address of `192.168.1.2`
+* Private key stores as an {% data variables.product.prodname_actions %} secret under `WIREGUARD_PRIVATE_KEY`
 
 ```yaml
 name: WireGuard example
@@ -50,7 +50,7 @@ jobs:
     steps:
       - run: sudo apt install wireguard
 
-      - run: echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
+      - run: echo {% raw %}"${{ secrets.WIREGUARD_PRIVATE_KEY }}"{% endraw %} > privatekey
 
       - run: sudo ip link add dev wg0 type wireguard
 

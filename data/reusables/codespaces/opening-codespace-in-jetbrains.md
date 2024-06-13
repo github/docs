@@ -9,10 +9,6 @@ Alternatively, you can also open the JetBrains Gateway and select an existing co
 
    ![Screenshot of the JetBrains Gateway home page, showing the "Connect to Codespaces" button.](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
-1. The first time you connect, you're prompted to choose whether you want to allow {% data variables.product.prodname_dotcom %} to collect anonymized usage data, to improve functionality and user experience. Click **Allow** or **Deny**.
-
-   You can change your choice later, if required, in the settings for the {% data variables.product.prodname_github_codespaces %} plugin, which you can access within the JetBrains Gateway settings.
-
 1. In the "Your Codespaces" list, click the codespace you want to work in.
 
    ![Screenshot of the "Your Codespaces" list in the JetBrains Gateway.](/assets/images/help/codespaces/jetbrains-gateway-codespaces.png)
@@ -27,10 +23,10 @@ Alternatively, you can also open the JetBrains Gateway and select an existing co
 
    **Notes**:
 
-   - If you chose Rider as your JetBrains IDE and the repository contains multiple solution files, the "Set Solution Path" dialog is displayed prompting you to choose which solution you want to work in. Choose a solution file from the dropdown menu and click **OK**.
+   * If you chose Rider as your JetBrains IDE and the repository contains multiple solution files, the "Set Solution Path" dialog is displayed prompting you to choose which solution you want to work in. Choose a solution file from the dropdown menu and click **OK**.
 
      If the repository doesn't have a solution file, Rider opens in a basic project directory view and will have limited capabilities. For instance, you won't get .NET-specific code navigation. If there is just a single solution file in the repository it will be used automatically, without the prompt being displayed. For more information, see "[Create and open projects and solutions](https://www.jetbrains.com/help/rider/Creating_and_Opening_Projects_and_Solutions.html)" in the JetBrains documentation.<br><br>
 
-   - If you are running a firewall, then the first time you connect to a remote resource you may be prompted to allow the JetBrains Gateway to communicate across your network.
+   * If you are running a firewall, then the first time you connect to a remote resource you may be prompted to allow the JetBrains Gateway to communicate across your network.
 
    {% endnote %}

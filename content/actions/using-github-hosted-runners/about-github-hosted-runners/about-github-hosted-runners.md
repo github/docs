@@ -26,17 +26,16 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% ifversion not ghes %}
 
+You can choose one of the standard {% data variables.product.prodname_dotcom %}-hosted runner options or, if you are on the {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can provision a runner with more cores, or a runner that's powered by a GPU or ARM processor. These machines are referred to as "{% data variables.actions.hosted_runner %}." For more information, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)."
+
 Using {% data variables.product.prodname_dotcom %}-hosted runners requires network access with at least 70 kilobits per second upload and download speeds.
 
 {% endif %}
 
 {% ifversion github-hosted-runners-emus-entitlements %}
 
-{% note %}
-
-**Note:** {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -54,8 +53,8 @@ The following diagram demonstrates how two jobs in a workflow are executed on tw
 
 The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-PSScriptAnalyzer-on-Windows`. When this workflow is triggered, {% data variables.product.prodname_dotcom %} provisions a new virtual machine for each job.
 
-- The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
-- The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
+* The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
+* The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
 
 ```yaml copy
 name: Run commands on different operating systems
@@ -122,11 +121,8 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data variables.product.prodname_dotcom %}-hosted Linux runners support hardware acceleration for Android SDK tools, which makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
 
-{% note %}
-
-**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
-
-{% endnote %}
+> [!NOTE]
+> The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% warning %}
 
@@ -171,8 +167,8 @@ You can also view a software bill of materials (SBOM) for each build of the Wind
 ### Using preinstalled software
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
-- Usually, actions provide more flexible functionality like version selection, ability to pass arguments, and parameters
-- It ensures the tool versions used in your workflow will remain the same regardless of software updates
+* Usually, actions provide more flexible functionality like version selection, ability to pass arguments, and parameters
+* It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
 If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
 
@@ -208,6 +204,16 @@ Since there are so many IP address ranges for {% data variables.product.prodname
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
+## Communication requirements for {% data variables.product.prodname_dotcom %}-hosted runners and {% data variables.product.product_name %}
+
+A {% data variables.product.prodname_dotcom %}-hosted runner must establish connections to {% data variables.product.prodname_dotcom %}-owned endpoints to perform essential communication operations. In addition, your runner may require access to additional networks that you specify or utilize within an action.
+
+To ensure proper communications for {% data variables.product.prodname_dotcom %}-hosted runners between networks within your configuration, ensure that the following communications are allowed.
+
+{% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
+
+{% data reusables.actions.runner-essential-communications %}
+
 ## The `etc/hosts` file
 
 {% data reusables.actions.runners-etc-hosts-file %}
@@ -230,13 +236,13 @@ Actions that run in Docker containers have static directories under the `/github
 
 {% data variables.product.prodname_dotcom %} reserves the `/github` path prefix and creates three directories for actions.
 
-- `/github/home`
-- `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
-- `/github/workflow`
+* `/github/home`
+* `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
+* `/github/workflow`
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
-- You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
+* You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% endif %}

@@ -13,8 +13,8 @@ redirect_from:
 
 As of July 13 2021, Repl.it integration is no longer available. Here’s what’s changed:
 
-- New private and public repls can no longer be created from within GitHub Classroom.
-- Replit Hacker benefits, such as Always On and Boosts, are no longer available for new GitHub Classroom users.
+* New private and public repls can no longer be created from within GitHub Classroom.
+* Replit Hacker benefits, such as Always On and Boosts, are no longer available for new GitHub Classroom users.
 
 ## What does this mean for existing assignments?
 
@@ -26,4 +26,4 @@ We know cloud IDE integrations are important to your classroom and are working h
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"

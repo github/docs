@@ -68,8 +68,8 @@ quantities, dates, or to exclude results, see "[AUTOTITLE](/search-github/gettin
 ### Limitations on query length
 
 You cannot use queries that:
-- are longer than 256 characters (not including operators or qualifiers).
-- have more than five `AND`, `OR`, or `NOT` operators.
+* are longer than 256 characters (not including operators or qualifiers).
+* have more than five `AND`, `OR`, or `NOT` operators.
 
 These search queries will return a "Validation failed" error message.
 
@@ -125,7 +125,7 @@ request would look like this:
 
 ``` shell
 curl -H 'Accept: application/vnd.github.text-match+json' \
-'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug \
+'{% data variables.product.rest_url %}/search/issues?q=windows+label:bug \
 +language:python+state:open&sort=created&order=asc'
 ```
 

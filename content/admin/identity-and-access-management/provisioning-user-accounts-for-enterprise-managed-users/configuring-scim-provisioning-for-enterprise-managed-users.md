@@ -28,16 +28,16 @@ If you use a partner IdP, you can simplify the configuration of SCIM provisionin
 
 {% endif %}
 
-SCIM manages the lifecycle of user accounts in your enterprise. When you update information associated with a user's identity on your IdP, your IdP will update the user's account on {% data variables.product.prodname_dotcom_the_website %}. When you unassign the user from the IdP application for {% data variables.product.prodname_emus %} or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the IdP application for {% data variables.product.prodname_emus %} or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} on {% data variables.product.prodname_dotcom %} will be reactivated, and the username will be restored.
+SCIM manages the lifecycle of user accounts in your enterprise. When you update information associated with a user's identity on your IdP, your IdP will update the user's account on {% data variables.product.prodname_dotcom %}. When you unassign the user from the IdP application for {% data variables.product.prodname_emus %} or deactivate a user's account on your IdP, your IdP will communicate with {% data variables.product.prodname_dotcom %} to invalidate any sessions and disable the member's account. The disabled account's information is maintained and their username is changed to a hash of their original username with the short code appended. If you reassign a user to the IdP application for {% data variables.product.prodname_emus %} or reactivate their account on your IdP, the {% data variables.enterprise.prodname_managed_user %} on {% data variables.product.prodname_dotcom %} will be reactivated, and the username will be restored.
 
 To configure team and organization membership, repository access, and permissions on {% data variables.product.product_name %}, you can use groups on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
 ## Prerequisites
 
-- {% data reusables.scim.emu-prerequisite-authentication %}
+* {% data reusables.scim.emu-prerequisite-authentication %}
 
 {%- ifversion emu-public-scim-schema %}
-- {% data reusables.scim.emu-understand-types-and-support %}
+* {% data reusables.scim.emu-understand-types-and-support %}
 {%- endif %}
 
 ## Creating a {% data variables.product.pat_generic %}
@@ -50,7 +50,7 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 {% endwarning %}
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
+1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
@@ -69,8 +69,8 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your IdP. {% ifversion emu-public-scim-schema %} The instructions you should follow differ depending on whether you use a partner IdP's application for both authentication and provisioning.
 
-- [Configuring provisioning if you use a partner IdP's application](#configuring-provisioning-if-you-use-a-partner-idps-application)
-- [Configuring provisioning for other identity management systems](#configuring-provisioning-for-other-identity-management-systems)
+* [Configuring provisioning if you use a partner IdP's application](#configuring-provisioning-if-you-use-a-partner-idps-application)
+* [Configuring provisioning for other identity management systems](#configuring-provisioning-for-other-identity-management-systems)
 
 ### Configuring provisioning if you use a partner IdP's application
 

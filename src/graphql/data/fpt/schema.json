@@ -106,6 +106,50 @@
       ]
     },
     {
+      "name": "enterpriseMemberInvitation",
+      "type": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitee and enterprise.</p>",
+      "args": [
+        {
+          "name": "enterpriseSlug",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The slug of the enterprise the user was invited to join.</p>"
+        },
+        {
+          "name": "userLogin",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The login of the user invited to join the business.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enterpriseMemberInvitationByToken",
+      "type": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation token.</p>",
+      "args": [
+        {
+          "name": "invitationToken",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The invitation token sent with the invitation email.</p>"
+        }
+      ]
+    },
+    {
       "name": "license",
       "type": "License",
       "kind": "objects",
@@ -965,6 +1009,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of accepting an administrator invitation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "acceptEnterpriseMemberInvitation",
+      "kind": "mutations",
+      "id": "acceptenterprisememberinvitation",
+      "href": "/graphql/reference/mutations#acceptenterprisememberinvitation",
+      "description": "<p>Accepts a pending invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AcceptEnterpriseMemberInvitationInput!",
+          "id": "acceptenterprisememberinvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#acceptenterprisememberinvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The invitation that was accepted.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of accepting an unaffiliated member invitation.</p>"
         }
       ]
     },
@@ -1889,6 +1975,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of canceling an administrator invitation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "cancelEnterpriseMemberInvitation",
+      "kind": "mutations",
+      "id": "cancelenterprisememberinvitation",
+      "href": "/graphql/reference/mutations#cancelenterprisememberinvitation",
+      "description": "<p>Cancels a pending invitation for an unaffiliated member to join an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CancelEnterpriseMemberInvitationInput!",
+          "id": "cancelenterprisememberinvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#cancelenterprisememberinvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The invitation that was canceled.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of canceling an member invitation.</p>"
         }
       ]
     },
@@ -4659,6 +4787,40 @@
       ]
     },
     {
+      "name": "inviteEnterpriseMember",
+      "kind": "mutations",
+      "id": "inviteenterprisemember",
+      "href": "/graphql/reference/mutations#inviteenterprisemember",
+      "description": "<p>Invite someone to become an unaffiliated member of the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "InviteEnterpriseMemberInput!",
+          "id": "inviteenterprisememberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#inviteenterprisememberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The created enterprise member invitation.</p>"
+        }
+      ]
+    },
+    {
       "name": "linkProjectV2ToRepository",
       "kind": "mutations",
       "id": "linkprojectv2torepository",
@@ -5163,6 +5325,48 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectcolumnedge",
           "description": "<p>The new edge of the moved column.</p>"
+        }
+      ]
+    },
+    {
+      "name": "pinEnvironment",
+      "kind": "mutations",
+      "id": "pinenvironment",
+      "href": "/graphql/reference/mutations#pinenvironment",
+      "description": "<p>Pin an environment to a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "PinEnvironmentInput!",
+          "id": "pinenvironmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#pinenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment",
+          "description": "<p>The environment that was pinned.</p>"
+        },
+        {
+          "name": "pinnedEnvironment",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment",
+          "description": "<p>The pinned environment if we pinned.</p>"
         }
       ]
     },
@@ -5881,6 +6085,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest",
           "description": "<p>The pull request that was reopened.</p>"
+        }
+      ]
+    },
+    {
+      "name": "reorderEnvironment",
+      "kind": "mutations",
+      "id": "reorderenvironment",
+      "href": "/graphql/reference/mutations#reorderenvironment",
+      "description": "<p>Reorder a pinned repository environment.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReorderEnvironmentInput!",
+          "id": "reorderenvironmentinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#reorderenvironmentinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "environment",
+          "type": "Environment",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment",
+          "description": "<p>The environment that was reordered.</p>"
         }
       ]
     },
@@ -12899,6 +13137,56 @@
       ]
     },
     {
+      "name": "CodeScanningParameters",
+      "kind": "objects",
+      "id": "codescanningparameters",
+      "href": "/graphql/reference/objects#codescanningparameters",
+      "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "fields": [
+        {
+          "name": "codeScanningTools",
+          "description": "<p>Tools that must provide code scanning results for this rule to pass.</p>",
+          "type": "[CodeScanningTool!]!",
+          "id": "codescanningtool",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#codescanningtool"
+        }
+      ]
+    },
+    {
+      "name": "CodeScanningTool",
+      "kind": "objects",
+      "id": "codescanningtool",
+      "href": "/graphql/reference/objects#codescanningtool",
+      "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "fields": [
+        {
+          "name": "alertsThreshold",
+          "description": "<p>The severity level at which code scanning results that raise alerts block a\nreference update. For more information on alert severity levels, see \"<a href=\"$%7BexternalDocsUrl%7D/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\".</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "securityAlertsThreshold",
+          "description": "<p>The severity level at which code scanning results that raise security alerts\nblock a reference update. For more information on security severity levels,\nsee \"<a href=\"$%7BexternalDocsUrl%7D/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\".</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "tool",
+          "description": "<p>The name of a code scanning tool.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CommentDeletedEvent",
       "kind": "objects",
       "id": "commentdeletedevent",
@@ -13489,7 +13777,7 @@
             },
             {
               "name": "since",
-              "description": "<p>Allows specifying a beginning time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying a beginning time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
@@ -13499,7 +13787,7 @@
             },
             {
               "name": "until",
-              "description": "<p>Allows specifying an ending time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying an ending time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
@@ -16083,6 +16371,47 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "CopilotEndpoints",
+      "kind": "objects",
+      "id": "copilotendpoints",
+      "href": "/graphql/reference/objects#copilotendpoints",
+      "description": "<p>Copilot endpoint information.</p>",
+      "fields": [
+        {
+          "name": "api",
+          "description": "<p>Copilot API endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "originTracker",
+          "description": "<p>Copilot origin tracker endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "proxy",
+          "description": "<p>Copilot proxy endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "telemetry",
+          "description": "<p>Copilot telemetry endpoint.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -20535,6 +20864,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -21546,6 +21883,136 @@
           "id": "enterprisemember",
           "kind": "unions",
           "href": "/graphql/reference/unions#enterprisemember"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>An invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "email",
+          "description": "<p>The email of the person who was invited to the enterprise.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterprise",
+          "description": "<p>The enterprise the invitation is for.</p>",
+          "type": "Enterprise!",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the EnterpriseMemberInvitation object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "invitee",
+          "description": "<p>The user who was invited to the enterprise.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "inviter",
+          "description": "<p>The user who created the invitation.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitationConnection",
+      "kind": "objects",
+      "id": "enterprisememberinvitationconnection",
+      "href": "/graphql/reference/objects#enterprisememberinvitationconnection",
+      "description": "<p>The connection type for EnterpriseMemberInvitation.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseMemberInvitationEdge]",
+          "id": "enterprisememberinvitationedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[EnterpriseMemberInvitation]",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitationEdge",
+      "kind": "objects",
+      "id": "enterprisememberinvitationedge",
+      "href": "/graphql/reference/objects#enterprisememberinvitationedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation"
         }
       ]
     },
@@ -23394,6 +23861,76 @@
           ]
         },
         {
+          "name": "pendingUnaffiliatedMemberInvitations",
+          "description": "<p>A list of pending unaffiliated member invitations for the enterprise.</p>",
+          "type": "EnterpriseMemberInvitationConnection!",
+          "id": "enterprisememberinvitationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pending enterprise member invitations returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseMemberInvitationOrder",
+                "id": "enterprisememberinvitationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterprisememberinvitationorder"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "repositoryProjectsSetting",
           "description": "<p>The setting value for whether repository projects are enabled in this enterprise.</p>",
           "type": "EnterpriseEnabledDisabledSettingValue!",
@@ -25065,12 +25602,36 @@
           "href": "/graphql/reference/scalars#id"
         },
         {
+          "name": "isPinned",
+          "description": "<p>Indicates whether or not this environment is currently pinned to the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "latestCompletedDeployment",
+          "description": "<p>The latest completed deployment with status success, failure, or error if it exists.</p>",
+          "type": "Deployment",
+          "id": "deployment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#deployment"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the environment.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pinnedPosition",
+          "description": "<p>The position of the environment if it is pinned, null if it is not pinned.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "protectionRules",
@@ -25461,6 +26022,40 @@
           "name": "username",
           "description": "<p>The userName of the SCIM identity.</p>",
           "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FileExtensionRestrictionParameters",
+      "kind": "objects",
+      "id": "fileextensionrestrictionparameters",
+      "href": "/graphql/reference/objects#fileextensionrestrictionparameters",
+      "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "fields": [
+        {
+          "name": "restrictedFileExtensions",
+          "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FilePathRestrictionParameters",
+      "kind": "objects",
+      "id": "filepathrestrictionparameters",
+      "href": "/graphql/reference/objects#filepathrestrictionparameters",
+      "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "fields": [
+        {
+          "name": "restrictedFilePaths",
+          "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -31078,6 +31673,40 @@
       ]
     },
     {
+      "name": "MaxFilePathLengthParameters",
+      "kind": "objects",
+      "id": "maxfilepathlengthparameters",
+      "href": "/graphql/reference/objects#maxfilepathlengthparameters",
+      "description": "<p>Prevent commits that include file paths that exceed a specified character limit\nfrom being pushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "fields": [
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>The maximum amount of characters allowed in file paths.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MaxFileSizeParameters",
+      "kind": "objects",
+      "id": "maxfilesizeparameters",
+      "href": "/graphql/reference/objects#maxfilesizeparameters",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the\ncommit. NOTE: This rule is in beta and subject to change.</p>",
+      "fields": [
+        {
+          "name": "maxFileSize",
+          "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "MemberFeatureRequestNotification",
       "kind": "objects",
       "id": "memberfeaturerequestnotification",
@@ -31093,7 +31722,7 @@
       "fields": [
         {
           "name": "body",
-          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "description": "<p>Represents member feature request body containing entity name and the number of feature requests.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -38667,6 +39296,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -43222,6 +43859,136 @@
           "id": "pinneddiscussion",
           "kind": "objects",
           "href": "/graphql/reference/objects#pinneddiscussion"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironment",
+      "kind": "objects",
+      "id": "pinnedenvironment",
+      "href": "/graphql/reference/objects#pinnedenvironment",
+      "description": "<p>Represents a pinned environment on a given repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the pinned environment was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "environment",
+          "description": "<p>Identifies the environment associated.</p>",
+          "type": "Environment!",
+          "id": "environment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#environment"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the PinnedEnvironment object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "position",
+          "description": "<p>Identifies the position of the pinned environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository that this environment was pinned to.</p>",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentConnection",
+      "kind": "objects",
+      "id": "pinnedenvironmentconnection",
+      "href": "/graphql/reference/objects#pinnedenvironmentconnection",
+      "description": "<p>The connection type for PinnedEnvironment.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[PinnedEnvironmentEdge]",
+          "id": "pinnedenvironmentedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironmentedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[PinnedEnvironment]",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentEdge",
+      "kind": "objects",
+      "id": "pinnedenvironmentedge",
+      "href": "/graphql/reference/objects#pinnedenvironmentedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "PinnedEnvironment",
+          "id": "pinnedenvironment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironment"
         }
       ]
     },
@@ -59841,6 +60608,17 @@
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#environments"
               }
+            },
+            {
+              "name": "pinnedEnvironmentFilter",
+              "defaultValue": "ALL",
+              "description": "<p>Filter to control pinned environments return.</p>",
+              "type": {
+                "name": "EnvironmentPinnedFilterField",
+                "id": "environmentpinnedfilterfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#environmentpinnedfilterfield"
+              }
             }
           ]
         },
@@ -60886,6 +61664,66 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pinnedEnvironments",
+          "description": "<p>A list of pinned environments for this repository.</p>",
+          "type": "PinnedEnvironmentConnection",
+          "id": "pinnedenvironmentconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pinnedenvironmentconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the environments.</p>",
+              "type": {
+                "name": "PinnedEnvironmentOrder",
+                "id": "pinnedenvironmentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#pinnedenvironmentorder"
               }
             }
           ]
@@ -63286,6 +64124,14 @@
           "id": "repositoryrulesetbypassactorbypassmode",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode"
+        },
+        {
+          "name": "deployKey",
+          "description": "<p>This actor represents the ability for a deploy key to bypass.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "id",
@@ -73099,6 +73945,14 @@
           ]
         },
         {
+          "name": "copilotEndpoints",
+          "description": "<p>The user's Copilot endpoint information.</p>",
+          "type": "CopilotEndpoints",
+          "id": "copilotendpoints",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#copilotendpoints"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -77743,6 +78597,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "announcementCreatedAt",
+          "description": "<p>The date the announcement was created.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "announcementExpiresAt",
           "description": "<p>The expiration date of the announcement, if any.</p>",
           "type": "DateTime",
@@ -81938,6 +82800,10 @@
       "description": "<p>The possible protection rule types.</p>",
       "values": [
         {
+          "name": "BRANCH_POLICY",
+          "description": "<p>Branch policy.</p>"
+        },
+        {
           "name": "REQUIRED_REVIEWERS",
           "description": "<p>Required reviewers.</p>"
         },
@@ -82332,6 +83198,19 @@
       ]
     },
     {
+      "name": "EnterpriseMemberInvitationOrderField",
+      "kind": "enums",
+      "id": "enterprisememberinvitationorderfield",
+      "href": "/graphql/reference/enums#enterprisememberinvitationorderfield",
+      "description": "<p>Properties by which enterprise member invitation connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise member invitations by creation time.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseMemberOrderField",
       "kind": "enums",
       "id": "enterprisememberorderfield",
@@ -82565,6 +83444,27 @@
         {
           "name": "NAME",
           "description": "<p>Order environments by name.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnvironmentPinnedFilterField",
+      "kind": "enums",
+      "id": "environmentpinnedfilterfield",
+      "href": "/graphql/reference/enums#environmentpinnedfilterfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "ALL",
+          "description": "<p>All environments will be returned.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>Environments exclude pinned will be returned.</p>"
+        },
+        {
+          "name": "ONLY",
+          "description": "<p>Only pinned environment will be returned.</p>"
         }
       ]
     },
@@ -84129,6 +85029,19 @@
       ]
     },
     {
+      "name": "PinnedEnvironmentOrderField",
+      "kind": "enums",
+      "id": "pinnedenvironmentorderfield",
+      "href": "/graphql/reference/enums#pinnedenvironmentorderfield",
+      "description": "<p>Properties by which pinned environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "POSITION",
+          "description": "<p>Order pinned environments by position.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectCardArchivedState",
       "kind": "enums",
       "id": "projectcardarchivedstate",
@@ -85611,6 +86524,10 @@
           "description": "<p>Branch name pattern.</p>"
         },
         {
+          "name": "CODE_SCANNING",
+          "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>"
+        },
+        {
           "name": "COMMITTER_EMAIL_PATTERN",
           "description": "<p>Committer email pattern.</p>"
         },
@@ -85631,8 +86548,24 @@
           "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
         },
         {
+          "name": "FILE_EXTENSION_RESTRICTION",
+          "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: Thie rule is in beta and subject to change.</p>"
+        },
+        {
+          "name": "FILE_PATH_RESTRICTION",
+          "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: Thie rule is in beta and subject to change.</p>"
+        },
+        {
           "name": "LOCK_BRANCH",
           "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
+        },
+        {
+          "name": "MAX_FILE_PATH_LENGTH",
+          "description": "<p>Prevent commits that include file paths that exceed a specified character\nlimit from being pushed to the commit graph. NOTE: Thie rule is in beta and\nsubject to change.</p>"
+        },
+        {
+          "name": "MAX_FILE_SIZE",
+          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to\nthe commit. NOTE: Thie rule is in beta and subject to change.</p>"
         },
         {
           "name": "MAX_REF_UPDATES",
@@ -85726,11 +86659,15 @@
       "kind": "enums",
       "id": "repositoryrulesettarget",
       "href": "/graphql/reference/enums#repositoryrulesettarget",
-      "description": "<p>The targets supported for rulesets.</p>",
+      "description": "<p>The targets supported for rulesets. NOTE: The push target is in beta and subject to change.</p>",
       "values": [
         {
           "name": "BRANCH",
           "description": "<p>Branch.</p>"
+        },
+        {
+          "name": "PUSH",
+          "description": "<p>Push.</p>"
         },
         {
           "name": "TAG",
@@ -88020,6 +88957,11 @@
           "href": "/graphql/reference/objects#commit"
         },
         {
+          "name": "ProjectV2",
+          "id": "projectv2",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
           "name": "PullRequest",
           "id": "pullrequest",
           "href": "/graphql/reference/objects#pullrequest"
@@ -89626,6 +90568,11 @@
           "href": "/graphql/reference/objects#branchnamepatternparameters"
         },
         {
+          "name": "CodeScanningParameters",
+          "id": "codescanningparameters",
+          "href": "/graphql/reference/objects#codescanningparameters"
+        },
+        {
           "name": "CommitAuthorEmailPatternParameters",
           "id": "commitauthoremailpatternparameters",
           "href": "/graphql/reference/objects#commitauthoremailpatternparameters"
@@ -89639,6 +90586,26 @@
           "name": "CommitterEmailPatternParameters",
           "id": "committeremailpatternparameters",
           "href": "/graphql/reference/objects#committeremailpatternparameters"
+        },
+        {
+          "name": "FileExtensionRestrictionParameters",
+          "id": "fileextensionrestrictionparameters",
+          "href": "/graphql/reference/objects#fileextensionrestrictionparameters"
+        },
+        {
+          "name": "FilePathRestrictionParameters",
+          "id": "filepathrestrictionparameters",
+          "href": "/graphql/reference/objects#filepathrestrictionparameters"
+        },
+        {
+          "name": "MaxFilePathLengthParameters",
+          "id": "maxfilepathlengthparameters",
+          "href": "/graphql/reference/objects#maxfilepathlengthparameters"
+        },
+        {
+          "name": "MaxFileSizeParameters",
+          "id": "maxfilesizeparameters",
+          "href": "/graphql/reference/objects#maxfilesizeparameters"
         },
         {
           "name": "PullRequestParameters",
@@ -89909,6 +90876,32 @@
       "id": "acceptenterpriseadministratorinvitationinput",
       "href": "/graphql/reference/input-objects#acceptenterpriseadministratorinvitationinput",
       "description": "<p>Autogenerated input type of AcceptEnterpriseAdministratorInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "invitationId",
+          "description": "<p>The id of the invitation being accepted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AcceptEnterpriseMemberInvitationInput",
+      "kind": "inputObjects",
+      "id": "acceptenterprisememberinvitationinput",
+      "href": "/graphql/reference/input-objects#acceptenterprisememberinvitationinput",
+      "description": "<p>Autogenerated input type of AcceptEnterpriseMemberInvitation.</p>",
       "inputFields": [
         {
           "name": "clientMutationId",
@@ -91036,6 +92029,32 @@
       ]
     },
     {
+      "name": "CancelEnterpriseMemberInvitationInput",
+      "kind": "inputObjects",
+      "id": "cancelenterprisememberinvitationinput",
+      "href": "/graphql/reference/input-objects#cancelenterprisememberinvitationinput",
+      "description": "<p>Autogenerated input type of CancelEnterpriseMemberInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "invitationId",
+          "description": "<p>The Node ID of the pending enterprise member invitation.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CancelSponsorshipInput",
       "kind": "inputObjects",
       "id": "cancelsponsorshipinput",
@@ -91759,6 +92778,56 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "CodeScanningParametersInput",
+      "kind": "inputObjects",
+      "id": "codescanningparametersinput",
+      "href": "/graphql/reference/input-objects#codescanningparametersinput",
+      "description": "<p>Choose which tools must provide code scanning results before the reference is\nupdated. When configured, code scanning must be enabled and have results for\nboth the commit and the reference being updated.</p>",
+      "inputFields": [
+        {
+          "name": "codeScanningTools",
+          "description": "<p>Tools that must provide code scanning results for this rule to pass.</p>",
+          "type": "[CodeScanningToolInput!]!",
+          "id": "codescanningtoolinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#codescanningtoolinput"
+        }
+      ]
+    },
+    {
+      "name": "CodeScanningToolInput",
+      "kind": "inputObjects",
+      "id": "codescanningtoolinput",
+      "href": "/graphql/reference/input-objects#codescanningtoolinput",
+      "description": "<p>A tool that must provide code scanning results for this rule to pass.</p>",
+      "inputFields": [
+        {
+          "name": "alertsThreshold",
+          "description": "<p>The severity level at which code scanning results that raise alerts block a\nreference update. For more information on alert severity levels, see \"<a href=\"$%7BexternalDocsUrl%7D/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\".</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "securityAlertsThreshold",
+          "description": "<p>The severity level at which code scanning results that raise security alerts\nblock a reference update. For more information on security severity levels,\nsee \"<a href=\"$%7BexternalDocsUrl%7D/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels\">About code scanning alerts</a>.\".</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "tool",
+          "description": "<p>The name of a code scanning tool.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -95259,6 +96328,31 @@
       ]
     },
     {
+      "name": "EnterpriseMemberInvitationOrder",
+      "kind": "inputObjects",
+      "id": "enterprisememberinvitationorder",
+      "href": "/graphql/reference/input-objects#enterprisememberinvitationorder",
+      "description": "<p>Ordering options for enterprise administrator invitation connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise member invitations by.</p>",
+          "type": "EnterpriseMemberInvitationOrderField!",
+          "id": "enterprisememberinvitationorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterprisememberinvitationorderfield"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseMemberOrder",
       "kind": "inputObjects",
       "id": "enterprisememberorder",
@@ -95494,6 +96588,40 @@
           "name": "path",
           "description": "<p>The path to delete.</p>",
           "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FileExtensionRestrictionParametersInput",
+      "kind": "inputObjects",
+      "id": "fileextensionrestrictionparametersinput",
+      "href": "/graphql/reference/input-objects#fileextensionrestrictionparametersinput",
+      "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "inputFields": [
+        {
+          "name": "restrictedFileExtensions",
+          "description": "<p>The file extensions that are restricted from being pushed to the commit graph.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "FilePathRestrictionParametersInput",
+      "kind": "inputObjects",
+      "id": "filepathrestrictionparametersinput",
+      "href": "/graphql/reference/input-objects#filepathrestrictionparametersinput",
+      "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "inputFields": [
+        {
+          "name": "restrictedFilePaths",
+          "description": "<p>The file paths that are restricted from being pushed to the commit graph.</p>",
+          "type": "[String!]!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -95757,6 +96885,48 @@
           "id": "enterpriseadministratorrole",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseadministratorrole"
+        }
+      ]
+    },
+    {
+      "name": "InviteEnterpriseMemberInput",
+      "kind": "inputObjects",
+      "id": "inviteenterprisememberinput",
+      "href": "/graphql/reference/input-objects#inviteenterprisememberinput",
+      "description": "<p>Autogenerated input type of InviteEnterpriseMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "email",
+          "description": "<p>The email of the person to invite as an unaffiliated member.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise to which you want to invite an unaffiliated member.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "invitee",
+          "description": "<p>The login of a user to invite as an unaffiliated member.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -96269,6 +97439,40 @@
       ]
     },
     {
+      "name": "MaxFilePathLengthParametersInput",
+      "kind": "inputObjects",
+      "id": "maxfilepathlengthparametersinput",
+      "href": "/graphql/reference/input-objects#maxfilepathlengthparametersinput",
+      "description": "<p>Prevent commits that include file paths that exceed a specified character limit\nfrom being pushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "inputFields": [
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>The maximum amount of characters allowed in file paths.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MaxFileSizeParametersInput",
+      "kind": "inputObjects",
+      "id": "maxfilesizeparametersinput",
+      "href": "/graphql/reference/input-objects#maxfilesizeparametersinput",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the\ncommit. NOTE: This rule is in beta and subject to change.</p>",
+      "inputFields": [
+        {
+          "name": "maxFileSize",
+          "description": "<p>The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "MergeBranchInput",
       "kind": "inputObjects",
       "id": "mergebranchinput",
@@ -96656,6 +97860,40 @@
       ]
     },
     {
+      "name": "PinEnvironmentInput",
+      "kind": "inputObjects",
+      "id": "pinenvironmentinput",
+      "href": "/graphql/reference/input-objects#pinenvironmentinput",
+      "description": "<p>Autogenerated input type of PinEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pinned",
+          "description": "<p>The desired state of the environment. If true, environment will be pinned. If false, it will be unpinned.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "PinIssueInput",
       "kind": "inputObjects",
       "id": "pinissueinput",
@@ -96678,6 +97916,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "PinnedEnvironmentOrder",
+      "kind": "inputObjects",
+      "id": "pinnedenvironmentorder",
+      "href": "/graphql/reference/input-objects#pinnedenvironmentorder",
+      "description": "<p>Ordering options for pinned environments.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order pinned environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order pinned environments by.</p>",
+          "type": "PinnedEnvironmentOrderField!",
+          "id": "pinnedenvironmentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pinnedenvironmentorderfield"
         }
       ]
     },
@@ -97842,6 +99105,40 @@
       ]
     },
     {
+      "name": "ReorderEnvironmentInput",
+      "kind": "inputObjects",
+      "id": "reorderenvironmentinput",
+      "href": "/graphql/reference/input-objects#reorderenvironmentinput",
+      "description": "<p>Autogenerated input type of ReorderEnvironment.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "environmentId",
+          "description": "<p>The ID of the environment to modify.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "position",
+          "description": "<p>The desired position of the environment.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "RepositoryIdConditionTargetInput",
       "kind": "inputObjects",
       "id": "repositoryidconditiontargetinput",
@@ -98096,7 +99393,7 @@
       "kind": "inputObjects",
       "id": "repositoryrulesetbypassactorinput",
       "href": "/graphql/reference/input-objects#repositoryrulesetbypassactorinput",
-      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, or <code>organization_admin</code> should be specified.</p>",
+      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, <code>organization_admin</code>, or <code>deploy_key</code>\nshould be specified.</p>",
       "inputFields": [
         {
           "name": "actorId",
@@ -98113,6 +99410,14 @@
           "id": "repositoryrulesetbypassactorbypassmode",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode"
+        },
+        {
+          "name": "deployKey",
+          "description": "<p>For deploy key bypasses, true. Can only use ALWAYS as the bypass mode.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "organizationAdmin",
@@ -98480,6 +99785,14 @@
           "href": "/graphql/reference/input-objects#branchnamepatternparametersinput"
         },
         {
+          "name": "codeScanning",
+          "description": "<p>Parameters used for the <code>code_scanning</code> rule type.</p>",
+          "type": "CodeScanningParametersInput",
+          "id": "codescanningparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#codescanningparametersinput"
+        },
+        {
           "name": "commitAuthorEmailPattern",
           "description": "<p>Parameters used for the <code>commit_author_email_pattern</code> rule type.</p>",
           "type": "CommitAuthorEmailPatternParametersInput",
@@ -98502,6 +99815,38 @@
           "id": "committeremailpatternparametersinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#committeremailpatternparametersinput"
+        },
+        {
+          "name": "fileExtensionRestriction",
+          "description": "<p>Parameters used for the <code>file_extension_restriction</code> rule type.</p>",
+          "type": "FileExtensionRestrictionParametersInput",
+          "id": "fileextensionrestrictionparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#fileextensionrestrictionparametersinput"
+        },
+        {
+          "name": "filePathRestriction",
+          "description": "<p>Parameters used for the <code>file_path_restriction</code> rule type.</p>",
+          "type": "FilePathRestrictionParametersInput",
+          "id": "filepathrestrictionparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#filepathrestrictionparametersinput"
+        },
+        {
+          "name": "maxFilePathLength",
+          "description": "<p>Parameters used for the <code>max_file_path_length</code> rule type.</p>",
+          "type": "MaxFilePathLengthParametersInput",
+          "id": "maxfilepathlengthparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#maxfilepathlengthparametersinput"
+        },
+        {
+          "name": "maxFileSize",
+          "description": "<p>Parameters used for the <code>max_file_size</code> rule type.</p>",
+          "type": "MaxFileSizeParametersInput",
+          "id": "maxfilesizeparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#maxfilesizeparametersinput"
         },
         {
           "name": "pullRequest",

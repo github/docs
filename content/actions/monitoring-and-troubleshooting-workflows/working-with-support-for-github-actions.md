@@ -20,7 +20,7 @@ The contents of private and internal repositories are not visible to {% data var
 
 Some information that {% data variables.contact.github_support %} will request can include, but is not limited to, the following:
 
-- The URL of the workflow run.
+* The URL of the workflow run.
 
   {% ifversion ghes %}
   For example: `https://DOMAIN/ORG/REPO/actions/runs/0123456789`
@@ -28,9 +28,9 @@ Some information that {% data variables.contact.github_support %} will request c
   For example: `https://github.com/ORG/REPO/actions/runs/0123456789`
   {% endif %}
   
-- The workflow `.yml` file(s) attached to the ticket as `.txt` files. For more information about workflows, see "[AUTOTITLE](/actions/using-workflows/about-workflows#about-workflows)."
-- A copy of your workflow run logs for an example workflow run failure. For more information about workflow run logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)."
-- {% ifversion ghes %}A copy of your runner logs, {% else %}If you are running this workflow on a self-hosted runner, self-hosted runner logs{% endif %} which can be found under the `_diag` folder within the runner. For more information about self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
+* The workflow `.yml` file(s) attached to the ticket as `.txt` files. For more information about workflows, see "[AUTOTITLE](/actions/using-workflows/about-workflows#about-workflows)."
+* A copy of your workflow run logs for an example workflow run failure. For more information about workflow run logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)."
+* {% ifversion ghes %}A copy of your runner logs, {% else %}If you are running this workflow on a self-hosted runner, self-hosted runner logs{% endif %} which can be found under the `_diag` folder within the runner. For more information about self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
 
   Self-hosted runner log file names are be formatted: `Runner_YYYY####-xxxxxx-utc.log` and `Worker_YYYY####-xxxxxx-utc.log`.
 
@@ -52,9 +52,13 @@ If the information you provide is unreadable due to the loss of formatting by im
 Depending on the nature of your inquiry, {% data variables.contact.github_support %} may also request that you generate and upload a support bundle for further review and analysis. For more information about providing data to {% data variables.contact.github_support %} and support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 {% endif %}
 
+### Ephemeral Runner Application Log Files
+
+{% data variables.contact.github_support %} may request the runner application log files from ephemeral runners. {% data variables.product.prodname_dotcom %} expects and recommends that you have implemented a mechanism to forward and preserve the runner application log files from self-hosted ephemeral runners. For more information about runner application log files and troubleshooting self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
+
 ### {% data variables.product.prodname_actions_runner_controller %}
 
-If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the logs for the complete controller and runner set listeners. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener)."
+If you are using {% data variables.product.prodname_actions_runner_controller %} (ARC), {% data variables.contact.github_support %} may ask you to submit the complete logs for the controller, listeners, and runner pods. For more information about collecting {% data variables.product.prodname_actions_runner_controller %}'s logs, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener)."
 
 For more information about the scope of support for {% data variables.product.prodname_actions_runner_controller %}, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller)."
 

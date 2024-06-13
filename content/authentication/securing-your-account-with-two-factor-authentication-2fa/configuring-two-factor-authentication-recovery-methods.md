@@ -32,9 +32,9 @@ If you generate new recovery codes or disable and re-enable 2FA, the recovery co
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 1. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
-    - To save your recovery codes on your device, click **Download**.
-    - To save a hard copy of your recovery codes, click **Print**.
-    - To copy your recovery codes for storage in a password manager, click **Copy**.
+    * To save your recovery codes on your device, click **Download**.
+    * To save a hard copy of your recovery codes, click **Print**.
+    * To copy your recovery codes for storage in a password manager, click **Copy**.
 
 ## Generating a new set of recovery codes
 
@@ -51,13 +51,13 @@ Most TOTP apps support backups. If you lose access to your authentication device
 
 The process of configuring backups is different for each TOTP app. For some examples from popular TOTP apps, see the following documentation:
 
-- [1Password](https://support.1password.com/backups/)
-- [Google Authenticator](https://security.googleblog.com/2023/04/google-authenticator-now-supports.html)
-- [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40)
+* [1Password](https://support.1password.com/backups/)
+* [Google Authenticator](https://security.googleblog.com/2023/04/google-authenticator-now-supports.html)
+* [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40)
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
+* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"

@@ -21,8 +21,8 @@ permissions: Team maintainers and organization owners can configure code review 
 {% ifversion only-notify-requested-members %}
 To reduce noise for your team and clarify individual responsibility for pull request reviews, you can configure code review settings.
 
-- Team notifications
-- Auto assignment
+* Team notifications
+* Auto assignment
 
 ## About team notifications
 

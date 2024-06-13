@@ -104,15 +104,15 @@ You can enable Settings Sync to sync extensions and other settings across device
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
 
-- "[AUTOTITLE](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
+* "[AUTOTITLE](/codespaces/getting-started/deep-dive)": This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)": These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)": This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)"
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

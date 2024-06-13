@@ -3,7 +3,7 @@ title: Using GitHub Code Search
 intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom_the_website %}."
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
@@ -45,8 +45,8 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 1. To finish creating your saved search, click **Create saved search**.
 1. To see your saved search, click the search bar. Your saved search will be in the "Saved queries" section. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
 1. To manage a saved search, type `saved:` in the search bar, then click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
-    - To edit a saved search, to the right of the search, click {% octicon "pencil" aria-label="The pencil icon" %}.
-    - To delete a saved search, to the right of the search, click {% octicon "trash" aria-label="The trash icon" %}.
+    * To edit a saved search, to the right of the search, click {% octicon "pencil" aria-label="The pencil icon" %}.
+    * To delete a saved search, to the right of the search, click {% octicon "trash" aria-label="The trash icon" %}.
 
 ## Using the search results view
 

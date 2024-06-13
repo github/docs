@@ -38,9 +38,9 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
 
 Under the workflow `env` key, change the following values:
-- `APP_LOCATION` to the location of your client code
-- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
-- `OUTPUT_LOCATION` to the location of your client code build output
+* `APP_LOCATION` to the location of your client code
+* `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
+* `OUTPUT_LOCATION` to the location of your client code build output
 
 For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
 
@@ -105,6 +105,6 @@ jobs:
 
 The following resources may also be useful:
 
-- For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-- The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
-- For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* For the original starter workflow, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

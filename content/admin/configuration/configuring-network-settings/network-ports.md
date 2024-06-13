@@ -30,6 +30,9 @@ Some administrative ports are required to configure {% data variables.location.p
 | 1194/UDP | VPN | Secure replication network tunnel in high availability configuration. Required to be open for communication between all nodes in the configuration.|
 | 123/UDP| NTP | Required for time protocol operation. |
 | 161/UDP | SNMP | Required for network monitoring protocol operation. |
+| {% ifversion ghes > 3.11 %} |
+| 9103/TCP | HTTP | Required for future support of Prometheus scraping. |
+| {% endif %} |
 
 ## Application ports for end users
 
@@ -69,4 +72,4 @@ If you enable {% data variables.product.prodname_github_connect %}, the connecti
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)"
+* "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)"

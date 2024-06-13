@@ -19,9 +19,9 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ## Prerequisites
 
-- {% data reusables.enterprise_installation.software-license %}
-- You must have an Azure account capable of provisioning new machines. For more information, see the [Microsoft Azure website](https://azure.microsoft.com).
-- Most actions needed to launch your virtual machine (VM) may also be performed using the Azure Portal. However, we recommend installing the Azure command line interface (CLI) for initial setup. Examples using the Azure CLI 2.0 are included below. For more information, see Azure's guide [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* {% data reusables.enterprise_installation.software-license %}
+* You must have an Azure account capable of provisioning new machines. For more information, see the [Microsoft Azure website](https://azure.microsoft.com).
+* Most actions needed to launch your virtual machine (VM) may also be performed using the Azure Portal. However, we recommend installing the Azure command line interface (CLI) for initial setup. Examples using the Azure CLI 2.0 are included below. For more information, see Azure's guide [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Hardware considerations
 
@@ -115,5 +115,5 @@ Because {% data variables.product.product_name %} runs a customized Linux operat
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

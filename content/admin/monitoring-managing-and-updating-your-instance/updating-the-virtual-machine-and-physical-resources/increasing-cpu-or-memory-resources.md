@@ -30,16 +30,16 @@ To add CPU or memory resources for an instance on AWS, you must change the insta
 
 You can review resizing considerations, see supported instance types, and learn how to resize an instance on AWS.
 
-- [Resizing considerations for AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-considerations-for-aws)
-- [Supported instance types on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-instance-types-on-aws)
-- [Resizing an instance on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-an-instance-on-aws)
+* [Resizing considerations for AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-considerations-for-aws)
+* [Supported instance types on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-instance-types-on-aws)
+* [Resizing an instance on AWS](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-an-instance-on-aws)
 
 ### Resizing considerations for AWS
 
 Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign an Elastic IP address to the instance**. If you haven't assigned an Elastic IP to your instance, you'll have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in public IP address. Once your instance restarts, the instance keeps the Elastic IP if you launched the instance in a virtual private cloud (VPC). If you create the instance in an EC2-Classic network, you must manually reassign the Elastic IP to the instance.
+* **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+* **Assign an Elastic IP address to the instance**. If you haven't assigned an Elastic IP to your instance, you'll have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in public IP address. Once your instance restarts, the instance keeps the Elastic IP if you launched the instance in a virtual private cloud (VPC). If you create the instance in an EC2-Classic network, you must manually reassign the Elastic IP to the instance.
 
 ### Supported instance types on AWS
 
@@ -67,16 +67,16 @@ To add CPU or memory resources for an instance on Microsoft Azure, you must chan
 
 You can review resizing considerations, see supported instance types, and learn how to resize an instance on Microsoft Azure.
 
-- [Resizing considerations for Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-considerations-for-microsoft-azure)
-- [Supported instance types on Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-instance-types-on-microsoft-azure)
-- [Resizing an instance on Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-an-instance-on-microsoft-azure)
+* [Resizing considerations for Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-considerations-for-microsoft-azure)
+* [Supported instance types on Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#supported-instance-types-on-microsoft-azure)
+* [Resizing an instance on Microsoft Azure](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources#resizing-an-instance-on-microsoft-azure)
 
 ### Resizing considerations for Microsoft Azure
 
 Before increasing CPU or memory resources for {% data variables.location.product_location %}, review the following recommendations.
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
+* **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+* **Assign a static IP address to the instance**. If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your {% data variables.product.prodname_ghe_server %} host after the restart to account for the change in IP address.
 
 ### Supported instance types on Microsoft Azure
 

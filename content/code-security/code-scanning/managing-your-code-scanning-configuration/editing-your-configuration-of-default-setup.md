@@ -4,7 +4,9 @@ shortTitle: Edit default setup
 intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your code security needs.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Code scanning
@@ -14,9 +16,9 @@ topics:
 ## About editing your configuration of default setup
 
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit{% ifversion code-scanning-without-workflow-310 %}:
-- Which languages default setup will analyze.
-- {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
-- The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the beta, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
+* Which languages default setup will analyze.
+* {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."{% ifversion codeql-threat-models %}
+* The threat models (beta) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the beta, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see "[Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup)."
 {% endif %}
 
 {% ifversion codeql-model-packs %}
@@ -56,6 +58,16 @@ If you need to change any other aspects of your {% data variables.product.prodna
 
 ## Defining the alert severities that cause a check failure for a pull request
 
+{% ifversion code-scanning-merge-protection-rulesets %}
+
+You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection)." For more general information about rulesets, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% else %}
+
 {% data reusables.code-scanning.pull-request-checks %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -63,6 +75,8 @@ If you need to change any other aspects of your {% data variables.product.prodna
 {% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghec %}
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
 1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
+
+{% endif %}
 
 {% ifversion codeql-threat-models %}
 

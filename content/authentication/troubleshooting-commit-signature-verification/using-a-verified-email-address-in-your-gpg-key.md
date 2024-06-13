@@ -23,4 +23,4 @@ If you need to change your committer or tagger email address, see "[AUTOTITLE](/
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"

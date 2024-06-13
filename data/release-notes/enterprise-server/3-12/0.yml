@@ -78,6 +78,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3227
         - |
           Users can set up organization-wide rules to enforce their CI/CD workflows, ensuring workflows pass before pull requests can be merged into target repositories. You can fine-tune your rule by selecting a specific branch, tag, or SHA, and provide maximum control over the version expected to run. To reduce risk, you can "evaluate" workflow rules to validate rules are working correctly. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)".
@@ -159,6 +162,9 @@ sections:
     # https://github.com/github/releases/issues/3561
     - |
       The REST API's `/rate_limit` endpoint is now subject to rate limits. Requests will not consume the primary rate limit quotas for the authenticated user. However, making a very high number of requests in a short period of time will trigger the secondary rate limits if secondary rate limits are enabled on your instance. For more information, see "[AUTOTITLE](/rest/rate-limit/rate-limit)" in the REST API documentation and "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
+    # https://github.com/github/docs-content/issues/14386
+    - |
+      TCP port 9103 is opened for future administrative features related to support for Prometheus scraping.
 
   known_issues:
     - |

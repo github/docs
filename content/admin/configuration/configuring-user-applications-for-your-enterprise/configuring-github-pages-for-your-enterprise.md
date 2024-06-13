@@ -75,5 +75,5 @@ You can add or override response headers for {% data variables.product.prodname_
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
 {% endif %}

@@ -24,11 +24,11 @@ You can use [Probot](https://probot.github.io/) to get started with GitHub App M
 
 Here are some scenarios where you might use GitHub App Manifests to register pre-configured apps:
 
-- Help new team members come up-to-speed quickly when developing GitHub Apps.
-- Allow others to extend a GitHub App using the GitHub APIs without requiring them to configure an app.
-- Create GitHub App reference designs to share with the GitHub community.
-- Ensure you deploy GitHub Apps to development and production environments using the same configuration.
-- Track revisions to a GitHub App configuration.
+* Help new team members come up-to-speed quickly when developing GitHub Apps.
+* Allow others to extend a GitHub App using the GitHub APIs without requiring them to configure an app.
+* Create GitHub App reference designs to share with the GitHub community.
+* Ensure you deploy GitHub Apps to development and production environments using the same configuration.
+* Track revisions to a GitHub App configuration.
 
 ## Implementing the GitHub App Manifest flow
 

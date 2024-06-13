@@ -43,9 +43,9 @@ If there are existing files in your repository that you'd like to use {% data va
 
    **Note:** We strongly suggest that you commit your local _.gitattributes_ file into your repository.
 
-   - Relying on a global _.gitattributes_ file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
-   - Including the _.gitattributes_ file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
-   - Including the _.gitattributes_ file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
+   * Relying on a global _.gitattributes_ file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
+   * Including the _.gitattributes_ file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
+   * Including the _.gitattributes_ file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
 
    {% endnote %}
 
@@ -72,5 +72,5 @@ If there are existing files in your repository that you'd like to use {% data va
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

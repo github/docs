@@ -56,14 +56,14 @@ Because this commit is only on the base branch and not the head branch, the comm
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
 You aren't able to automatically rebase and merge on {% data variables.location.product_location %} when:
-- The pull request has merge conflicts.
-- Rebasing the commits from the base branch into the head branch runs into conflicts.
-- Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+* The pull request has merge conflicts.
+* Rebasing the commits from the base branch into the head branch runs into conflicts.
+* Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
 
 If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.location.product_location %} you must:
-- Rebase the topic branch (or head branch) onto the base branch locally on the command line
-- [Resolve any merge conflicts on the command line](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
-- Force-push the rebased commits to the pull request's topic branch (or remote head branch).
+* Rebase the topic branch (or head branch) onto the base branch locally on the command line
+* [Resolve any merge conflicts on the command line](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line).
+* Force-push the rebased commits to the pull request's topic branch (or remote head branch).
 
 Anyone with write permissions in the repository, can then [merge the changes](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) using the rebase and merge button on {% data variables.location.product_location %}.
 
@@ -71,9 +71,9 @@ Anyone with write permissions in the repository, can then [merge the changes](/p
 
 A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
 
-- Branch `main` is at commit **C**.
-- Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
-- Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
+* Branch `main` is at commit **C**.
+* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
+* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
 
 If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged _automatically_ because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark _both_ pull requests as merged.
 
@@ -85,5 +85,5 @@ Pull requests that are merged indirectly are marked as `merged` even if [branch 
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"
