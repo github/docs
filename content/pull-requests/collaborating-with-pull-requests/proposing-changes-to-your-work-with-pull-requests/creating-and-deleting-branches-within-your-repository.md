@@ -34,8 +34,8 @@ You can create a branch in different ways on {% data variables.product.product_n
    ![Screenshot of the "Branches" page for a repository. A green button, labeled "New branch", is highlighted with an orange outline.](/assets/images/help/branches/new-branch-button.png)
 1. Under "Branch name", type a name for the branch.
 1. Under "Branch source", choose a source for your branch.
-   - If your repository is a fork, select the repository dropdown menu and click your fork or the upstream repository.
-   - Select the branch dropdown menu and click a branch.
+   * If your repository is a fork, select the repository dropdown menu and click your fork or the upstream repository.
+   * Select the branch dropdown menu and click a branch.
 1. Click **Create branch**.
 
 ### Creating a branch using the branch dropdown
@@ -91,6 +91,6 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)"
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request)"

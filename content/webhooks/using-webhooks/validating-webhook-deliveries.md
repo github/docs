@@ -32,8 +32,8 @@ To do this, you need to:
 
 You can create a new webhook with a secret token, or you can add a secret token to an existing webhook. When creating a secret token, you should choose a random string of text with high entropy.
 
-- _To create a new webhook with a secret token_, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-- _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
+* _To create a new webhook with a secret token_, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+* _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
 
 ## Securely storing the secret token
 
@@ -47,23 +47,23 @@ In your code that handles webhook deliveries, you should calculate a hash using 
 
 There are a few important things to keep in mind when validating webhook payloads:
 
-- {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash.
-- The hash signature always starts with `sha256=`.
-- The hash signature is generated using your webhook's secret token and the payload contents.
-- If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
-- Never use a plain `==` operator. Instead consider using a method like [`secure_compare`](https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare) or [`crypto.timingSafeEqual`](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b), which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
+* {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash.
+* The hash signature always starts with `sha256=`.
+* The hash signature is generated using your webhook's secret token and the payload contents.
+* If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
+* Never use a plain `==` operator. Instead consider using a method like [`secure_compare`](https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare) or [`crypto.timingSafeEqual`](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b), which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
 
 ### Testing the webhook payload validation
 
 You can use the following `secret` and `payload` values to verify that your implementation is correct:
 
-- `secret`: "It's a Secret to Everybody"
-- `payload`: "Hello, World!"
+* `secret`: "It's a Secret to Everybody"
+* `payload`: "Hello, World!"
 
 If your implementation is correct, the signatures that you generate should match the following signature values:
 
-- signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
-- X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
+* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
+* X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
 
 ### Examples
 
@@ -198,5 +198,5 @@ const handleWebhook = async (req, res) => {
 
 ## Further reading
 
-- "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"
+* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"

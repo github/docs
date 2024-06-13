@@ -22,13 +22,13 @@ Deploy keys can either be set up using the following API endpoints, or by using 
 
 There are a few cases when a deploy key will be deleted by other activity:
 
-- If the deploy key is created with a {% data variables.product.pat_generic %}, deleting the {% data variables.product.pat_generic %} will also delete the deploy key. Regenerating the {% data variables.product.pat_generic %} will not delete the deploy key.
-- If the deploy key is created with an {% data variables.product.prodname_oauth_app %} token, revoking the token will also delete the deploy key.
+* If the deploy key is created with a {% data variables.product.pat_generic %}, deleting the {% data variables.product.pat_generic %} will also delete the deploy key. Regenerating the {% data variables.product.pat_generic %} will not delete the deploy key.
+* If the deploy key is created with an {% data variables.product.prodname_oauth_app %} token, revoking the token will also delete the deploy key.
 
 Conversely, these activities will not delete a deploy key:
 
-- If the deploy key is created with a {% data variables.product.prodname_github_app %} user access token, revoking the token will not delete the deploy key.
-- If the deploy key is created with a {% data variables.product.prodname_github_app %} installation access token, uninstalling or deleting the app will not delete the deploy key.
-- If the deploy key is created with a {% data variables.product.pat_generic %}, regenerating the {% data variables.product.pat_generic %} will not delete the deploy key.
+* If the deploy key is created with a {% data variables.product.prodname_github_app %} user access token, revoking the token will not delete the deploy key.
+* If the deploy key is created with a {% data variables.product.prodname_github_app %} installation access token, uninstalling or deleting the app will not delete the deploy key.
+* If the deploy key is created with a {% data variables.product.pat_generic %}, regenerating the {% data variables.product.pat_generic %} will not delete the deploy key.
 
 <!-- Content after this section is automatically generated -->

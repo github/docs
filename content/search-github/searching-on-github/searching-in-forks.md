@@ -34,6 +34,6 @@ The `fork:true` qualifier finds all results that match your search query, includ
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories#listing-the-forks-of-a-repository)"
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+* "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories#listing-the-forks-of-a-repository)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"

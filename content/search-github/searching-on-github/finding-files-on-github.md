@@ -16,8 +16,8 @@ topics:
 
 **Tips:**
 
-- By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-upgrade %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
-- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
+* By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-upgrade %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}. Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).
+* You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% endtip %}
 
@@ -43,15 +43,15 @@ topics:
 
 By default, file finder results do not include files in the following directories if they exist at your repository root:
 
-- `.git`
-- `.hg`
-- `.sass-cache`
-- `.svn`
-- `build`
-- `dot_git`
-- `log`
-- `tmp`
-- `vendor`
+* `.git`
+* `.hg`
+* `.sass-cache`
+* `.svn`
+* `build`
+* `dot_git`
+* `log`
+* `tmp`
+* `vendor`
 
 You can override these default exclusions using a `.gitattributes` file.
 
@@ -67,6 +67,6 @@ Note that this override requires the use of the recursive glob pattern (`**`). F
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
-- [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
+* [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation

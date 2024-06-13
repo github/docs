@@ -50,11 +50,11 @@ It tracks the `version` of {% data variables.large_files.product_name_short %} y
 {% note %}
 
 **Notes**:
-- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
+* {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+* {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
 {% endnote %}
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"

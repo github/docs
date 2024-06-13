@@ -65,26 +65,26 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 
 **3.3**	Developer will not engage in any activity with Marketplace, including attempting to distribute any Developer Product, that violates GitHub's Terms of Service including [Acceptable Use Policies](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies). Additionally, Developer will not attempt to distribute any Developer Product that:
 
-- 1\. Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
-- 2\. Enables the unauthorized download of streaming content or media; or
-- 3\. Diverts End Users or provides links to any other site that mimics Marketplace or passes itself off as Marketplace
+* 1\. Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
+* 2\. Enables the unauthorized download of streaming content or media; or
+* 3\. Diverts End Users or provides links to any other site that mimics Marketplace or passes itself off as Marketplace
 
 **3.4** With respect to Developer Products that interact with generative AI technology, including GitHub Copilot Extensions, Developer will:
 
-- 1\. Test the Developer Product using various inputs to ensure that outputs do not violate this Agreement;
-- 2\. Notify users when they are interacting with generative AI content;
-- 3\. Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
-- 4\. Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
+* 1\. Test the Developer Product using various inputs to ensure that outputs do not violate this Agreement;
+* 2\. Notify users when they are interacting with generative AI content;
+* 3\. Have a mechanism for End Users to report feedback to GitHub and Developer related to errors, bugs, improper, or undesired outputs; and
+* 4\. Inform End Users the appropriate use cases, best practices, and limitations of the Developer Product.
   
 **3.5**	Developer shall not by any means repackage or resell Marketplace, a GitHub API, Personal Data, or Usage Data. Developer is not permitted to use a GitHub API or any Personal Data or Usage Data in any manner that does or could undermine the security of the Service, a GitHub API, Usage Data or any other data or information stored or transmitted using Marketplace. In addition, Developer shall not (a) interfere with, modify or disable any features, functionality or security controls of  Marketplace or a GitHub API; (b) circumvent in any fashion any protection mechanisms for Marketplace or a GitHub API; or (c) reverse engineer, decompile, disassemble or derive the source code, underlying ideas, algorithms, structure or organizational form from Marketplace or a GitHub API.
 
 **3.6**	Developer acknowledges that Developer is solely responsible, and that GitHub has no responsibility or liability of any kind, for any aspect of Developer Products. Developer will be solely responsible for:
-- (i) providing End Users instructions on installing and using its Developer Products;
-- (ii) creating and displaying information and content on, through or within its Developer Products;
-- (iii) ensuring that its Developer Products do not violate or infringe the intellectual property rights of any third party;
-- (iv) ensuring that Developer Products are not offensive, profane, obscene, libelous or otherwise illegal;
-- (v) ensuring that its Developer Products do not contain or introduce malicious software into Marketplace, a GitHub API, any Usage Data or other data stored or transmitted using Marketplace; and
-- (vi) ensuring that its Developer Products are not designed to or utilized for the purpose of sending commercial electronic messages to any GitHub.com users, agents or End Users without their consent.
+* (i) providing End Users instructions on installing and using its Developer Products;
+* (ii) creating and displaying information and content on, through or within its Developer Products;
+* (iii) ensuring that its Developer Products do not violate or infringe the intellectual property rights of any third party;
+* (iv) ensuring that Developer Products are not offensive, profane, obscene, libelous or otherwise illegal;
+* (v) ensuring that its Developer Products do not contain or introduce malicious software into Marketplace, a GitHub API, any Usage Data or other data stored or transmitted using Marketplace; and
+* (vi) ensuring that its Developer Products are not designed to or utilized for the purpose of sending commercial electronic messages to any GitHub.com users, agents or End Users without their consent.
 
 **3.7**	Developer will respect and comply with the technical and policy-implemented limitations of a GitHub API and the restrictions of this Agreement in designing and implementing Developer Products. Developer shall not violate any explicit rate limitations on calling or otherwise utilizing a GitHub API.
 
@@ -98,10 +98,10 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 
 If GitHub is notified by you or otherwise becomes aware and determines, in its sole discretion, that a Listing or any portion thereof or your Brand Features:
 
-- (a) violates the terms of this Agreement or the ToS;
-- (b) the display of the Listing is impacting the integrity of GitHub servers (i.e., users are unable to access such content or otherwise experience difficulty);
-- (c) is deemed by GitHub to add undue risk to Marketplace End Users’ data or impair the user experience of Marketplace or GitHub; or
-- (d) is subject to End User complaints in regards to your breach of your EULA,
+* (a) violates the terms of this Agreement or the ToS;
+* (b) the display of the Listing is impacting the integrity of GitHub servers (i.e., users are unable to access such content or otherwise experience difficulty);
+* (c) is deemed by GitHub to add undue risk to Marketplace End Users’ data or impair the user experience of Marketplace or GitHub; or
+* (d) is subject to End User complaints in regards to your breach of your EULA,
 
 GitHub may: suspend the transfer of Personal Data to your Developer Product; prohibit the collection and processing of Personal Data via your Developer Product; remove the Listing from Marketplace; flag, filter, or modify related materials (including but not limited to descriptions, screenshots, or metadata); or reclassify the Listing at its sole discretion. If GitHub takes any of these actions on your Listing, you may appeal GitHub's action through the [GitHub Appeal and Reinstatement Process](https://docs.github.com/en/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)
 
@@ -112,9 +112,9 @@ GitHub may: suspend the transfer of Personal Data to your Developer Product; pro
 ## 5.	REPRESENTATIONS, WARRANTIES AND COVENANTS
 
 **5.1**	Developer must inform End Users of the Personal Data that will be transmitted to the Developer Application from the Service and that Developer terms will control the privacy, security or integrity of such Personal Data. To the extent Developer’s Applications store, process or transmit Personal Data, neither Developer nor Developer’s Application will, without appropriate prior user consent or except to the extent required by applicable law,
-- (i) modify the content of Personal Data in a manner that adversely affects the integrity of the Personal Data;
-- (ii) disclose the Personal Data to any third party; or
-- (iii) use the Personal Data for any purpose other than providing the Developer Application functionality to users of such Developer Application.
+* (i) modify the content of Personal Data in a manner that adversely affects the integrity of the Personal Data;
+* (ii) disclose the Personal Data to any third party; or
+* (iii) use the Personal Data for any purpose other than providing the Developer Application functionality to users of such Developer Application.
 
 Developer shall maintain and handle all Personal Data in accordance with privacy and security measures reasonably adequate to preserve the confidentiality and security of all such Personal Data and all applicable privacy laws and regulations.
 
@@ -206,34 +206,34 @@ GitHub maintains Personal Data from individuals all over the world, some of whom
 
 **A1-2. Definitions**
 
-- (a) “Applicable Data Protection Laws” means any laws, regulations, regulatory frameworks, or other legislations relating to the processing and use of Personal Data, as applicable to the Agreement, including:
-   - The EU General Data Protection Regulation 2016/679 (“GDPR”), along with any implementing or corresponding equivalent national laws or regulations;
-   - The California Consumer Privacy Act of 2018, Cal. Civ. Code §§1798.100 et seq. ("CCPA"); and
-   - The UK Data Protection Act 2018 and implementation of GDPR contained therein.
-- (b) “Personal Data” means any information which relates to an individual GitHub End User, customer or employee which could, alone or together with other information,  identify them, whether supplied by GitHub for processing by the Developer or whether generated by the Developer in the course of performing its obligations under this Agreement.
-- (c) “Processing” means any operation or set of operations performed on Personal Data, whether by manual or automatic means, including collection, recording, organization, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, blocking, erasure, or destruction.
+* (a) “Applicable Data Protection Laws” means any laws, regulations, regulatory frameworks, or other legislations relating to the processing and use of Personal Data, as applicable to the Agreement, including:
+   * The EU General Data Protection Regulation 2016/679 (“GDPR”), along with any implementing or corresponding equivalent national laws or regulations;
+   * The California Consumer Privacy Act of 2018, Cal. Civ. Code §§1798.100 et seq. ("CCPA"); and
+   * The UK Data Protection Act 2018 and implementation of GDPR contained therein.
+* (b) “Personal Data” means any information which relates to an individual GitHub End User, customer or employee which could, alone or together with other information,  identify them, whether supplied by GitHub for processing by the Developer or whether generated by the Developer in the course of performing its obligations under this Agreement.
+* (c) “Processing” means any operation or set of operations performed on Personal Data, whether by manual or automatic means, including collection, recording, organization, storage, adaptation, alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, blocking, erasure, or destruction.
 
 **A1-3. Compliance with Data Transfer Laws**
 
-- (a) GitHub Compliance. GitHub complies with Applicable Data Protection Laws. GitHub relies on Standard Contractual Clauses ("SCCs") for all transfers out of the European Union, European Economic Area, United Kingdom, and Switzerland to provide its services. GitHub also complies with the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce. GitHub has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of Personal Data received from the European Union in reliance on the EU-U.S. DPF and from the United Kingdom (and Gibraltar) in reliance on the UK Extension to the EU-U.S. DPF. GitHub has certified to the U.S. Department of Commerce that it adheres to the Swiss-U.S. Data Privacy Framework Principles (Swiss-U.S. DPF Principles) with regard to the processing of Personal Data received from Switzerland in reliance on the Swiss-U.S. DPF.
-- (b) Developer Compliance. Developer represents and warrants that it will (i) comply with Applicable Data Protection Laws; and (ii) abide by the requirements of European Economic Area and Swiss data protection laws regarding the collection, use, transfer, retention, and other processing of Personal Data from the European Economic Area, United Kingdom, and Switzerland. All transfers of Personal Data to a third country or an international organization will be subject to appropriate safeguards as described in Article 46 of the GDPR and such transfers and safeguards will be documented according to Article 30(2) of the GDPR.
+* (a) GitHub Compliance. GitHub complies with Applicable Data Protection Laws. GitHub relies on Standard Contractual Clauses ("SCCs") for all transfers out of the European Union, European Economic Area, United Kingdom, and Switzerland to provide its services. GitHub also complies with the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce. GitHub has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of Personal Data received from the European Union in reliance on the EU-U.S. DPF and from the United Kingdom (and Gibraltar) in reliance on the UK Extension to the EU-U.S. DPF. GitHub has certified to the U.S. Department of Commerce that it adheres to the Swiss-U.S. Data Privacy Framework Principles (Swiss-U.S. DPF Principles) with regard to the processing of Personal Data received from Switzerland in reliance on the Swiss-U.S. DPF.
+* (b) Developer Compliance. Developer represents and warrants that it will (i) comply with Applicable Data Protection Laws; and (ii) abide by the requirements of European Economic Area and Swiss data protection laws regarding the collection, use, transfer, retention, and other processing of Personal Data from the European Economic Area, United Kingdom, and Switzerland. All transfers of Personal Data to a third country or an international organization will be subject to appropriate safeguards as described in Article 46 of the GDPR and such transfers and safeguards will be documented according to Article 30(2) of the GDPR.
 
 **A1-4. Data Protection**
 
-- (a) Notice. Developer must provide End Users their privacy policy which identifies itself as responsible for the collection, processing, privacy, security, and integrity of all data it collects from the End User. Developer must not hold itself out as collecting any Personal Data on GitHub’s behalf. Developer’s privacy policy must provide End User’s all legally required information regarding access, collection, storage, and processing purpose of Personal Data, with whom the Personal Data is shared, and in which country or countries the Personal Data will be stored.
-- (b) Purpose Limitation.
-   - (i) GitHub will provide Developer with Personal Data elements for the purpose of establishing and facilitating a relationship between the Developer and the End User, and permitting Developer to provide services to the End User. Developer must limit its usage of the Personal Data to that purpose, unless the End User agrees to allow different uses.
-   - (ii) Developer must process and communicate the Personal Data to third parties only for the limited and specific purposes of providing its services to the End User as described in its agreement with the End User, unless the End User agrees to allow different uses.
-- (c) Data Quality and Proportionality. Developer must keep the Personal Data accurate and up to date. Developer must only collect Personal Data appropriate and necessary to provide the service.
-- (d) Security. Developer must take all reasonable security measures appropriate to the risks, such as against accidental or unlawful destruction, or accidental loss, alteration, unauthorized disclosure or access, presented by processing the Personal Data.
-- (e) Data Retention and Deletion. Upon GitHub’s reasonable request, unless prohibited by law, Developer must return or destroy all Personal Data and related data at all locations where it is stored after it is no longer needed for the limited and specified purposes for which it was collected.
-- (f) Subprocessing and Onward Transfer. Developer is liable for onward transfers of Personal Data to its subprocessors. In the event that Developer must transfer the Personal Data to a third party, or Developer installs, uses, or enables third party services to process the Personal Data on Developer’s behalf, Developer must ensure that the third party will provide at least the same level of privacy protection as is required herein.
+* (a) Notice. Developer must provide End Users their privacy policy which identifies itself as responsible for the collection, processing, privacy, security, and integrity of all data it collects from the End User. Developer must not hold itself out as collecting any Personal Data on GitHub’s behalf. Developer’s privacy policy must provide End User’s all legally required information regarding access, collection, storage, and processing purpose of Personal Data, with whom the Personal Data is shared, and in which country or countries the Personal Data will be stored.
+* (b) Purpose Limitation.
+   * (i) GitHub will provide Developer with Personal Data elements for the purpose of establishing and facilitating a relationship between the Developer and the End User, and permitting Developer to provide services to the End User. Developer must limit its usage of the Personal Data to that purpose, unless the End User agrees to allow different uses.
+   * (ii) Developer must process and communicate the Personal Data to third parties only for the limited and specific purposes of providing its services to the End User as described in its agreement with the End User, unless the End User agrees to allow different uses.
+* (c) Data Quality and Proportionality. Developer must keep the Personal Data accurate and up to date. Developer must only collect Personal Data appropriate and necessary to provide the service.
+* (d) Security. Developer must take all reasonable security measures appropriate to the risks, such as against accidental or unlawful destruction, or accidental loss, alteration, unauthorized disclosure or access, presented by processing the Personal Data.
+* (e) Data Retention and Deletion. Upon GitHub’s reasonable request, unless prohibited by law, Developer must return or destroy all Personal Data and related data at all locations where it is stored after it is no longer needed for the limited and specified purposes for which it was collected.
+* (f) Subprocessing and Onward Transfer. Developer is liable for onward transfers of Personal Data to its subprocessors. In the event that Developer must transfer the Personal Data to a third party, or Developer installs, uses, or enables third party services to process the Personal Data on Developer’s behalf, Developer must ensure that the third party will provide at least the same level of privacy protection as is required herein.
 
 **A1-5. Use of Personal Data**
 
-- (a) Permitted Use. Developer may process the Personal Data only for the purposes set out in Section 4(b)(i), and no other purpose.
-- (b) No Use in Marketing. Developer must not use the Personal Data for the purposes of advertising any third party goods or services, and may not sell the Personal Data to any third party.
-- (c) Automated Decisions. In the event that the Developer makes automated decisions affecting End User’s rights, including employment, legal, credit, or health, the Developer must provide notice to the End User.
+* (a) Permitted Use. Developer may process the Personal Data only for the purposes set out in Section 4(b)(i), and no other purpose.
+* (b) No Use in Marketing. Developer must not use the Personal Data for the purposes of advertising any third party goods or services, and may not sell the Personal Data to any third party.
+* (c) Automated Decisions. In the event that the Developer makes automated decisions affecting End User’s rights, including employment, legal, credit, or health, the Developer must provide notice to the End User.
 
 **A1-6. Compliance**
 
@@ -241,18 +241,18 @@ Developer will make its Privacy Statement, Privacy Policy, Privacy Notice, or an
 
 **A1-7. Termination**
 
-- (a) Takedown. In the event that Developer is in breach of its obligations to maintain an adequate level of privacy protection, GitHub may take action in accordance with Section 4 (Takedowns) or Section 10 (Termination).
-- (b) Termination. GitHub may terminate this Agreement without prejudice to any other claims at law or in equity in the event that:
-   - (i) the Developer notifies GitHub that it can no longer meet its privacy obligations, including loss of Developer Privacy Shield certification;
-   - (ii) the transfer, collection, or processing of Personal Data has been temporarily suspended for longer than one month pursuant to 7(a);
-   - (iii) the Developer is in substantial or persistent breach of any warranties or representations under this Data Protection Addendum;
-   - (iv) the Developer is no longer carrying on business, is dissolved, enters receivership, or a winding up order is made on behalf of Developer.
-- (c) Notification. In the event that Developer determines that it can no longer meet its privacy obligations under this Agreement, it must notify GitHub immediately.
+* (a) Takedown. In the event that Developer is in breach of its obligations to maintain an adequate level of privacy protection, GitHub may take action in accordance with Section 4 (Takedowns) or Section 10 (Termination).
+* (b) Termination. GitHub may terminate this Agreement without prejudice to any other claims at law or in equity in the event that:
+   * (i) the Developer notifies GitHub that it can no longer meet its privacy obligations, including loss of Developer Privacy Shield certification;
+   * (ii) the transfer, collection, or processing of Personal Data has been temporarily suspended for longer than one month pursuant to 7(a);
+   * (iii) the Developer is in substantial or persistent breach of any warranties or representations under this Data Protection Addendum;
+   * (iv) the Developer is no longer carrying on business, is dissolved, enters receivership, or a winding up order is made on behalf of Developer.
+* (c) Notification. In the event that Developer determines that it can no longer meet its privacy obligations under this Agreement, it must notify GitHub immediately.
 In the event that Developer was certified under Privacy Shield and allows that certification to lapse or otherwise cannot remain certified under Privacy Shield, Developer must notify GitHub immediately.
-- (d) Upon Termination, Developer must:
-   - (i) take reasonable and appropriate steps to stop processing of Personal Data;
-   - (ii) within thirty days of Termination, delete any Personal Data Developer stores on GitHub’s behalf; and
-   - (iii) provide GitHub with reasonable assurance that Developer has stopped processing the Personal Data and deleted stored Personal Data.
+* (d) Upon Termination, Developer must:
+   * (i) take reasonable and appropriate steps to stop processing of Personal Data;
+   * (ii) within thirty days of Termination, delete any Personal Data Developer stores on GitHub’s behalf; and
+   * (iii) provide GitHub with reasonable assurance that Developer has stopped processing the Personal Data and deleted stored Personal Data.
 
 **A1-8. Liability for Data Processing**
-- Direct Liability. Developer will be liable to GitHub for actual damages caused by any breach of this Addendum subject to the terms in Section 8, Limitation on Liability.
+* Direct Liability. Developer will be liable to GitHub for actual damages caused by any breach of this Addendum subject to the terms in Section 8, Limitation on Liability.

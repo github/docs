@@ -77,5 +77,5 @@ The `sort:updated` qualifier sorts by how recently the items were updated.
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

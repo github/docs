@@ -45,10 +45,10 @@ link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <
 
 The `link` header provides the URL for the previous, next, first, and last page of results:
 
-- The URL for the previous page is followed by `rel="prev"`.
-- The URL for the next page is followed by `rel="next"`.
-- The URL for the last page is followed by `rel="last"`.
-- The URL for the first page is followed by `rel="first"`.
+* The URL for the previous page is followed by `rel="prev"`.
+* The URL for the next page is followed by `rel="next"`.
+* The URL for the last page is followed by `rel="last"`.
+* The URL for the first page is followed by `rel="first"`.
 
 In some cases, only a subset of these links are available. For example, the link to the previous page won't be included if you are on the first page of results, and the link to the last page won't be included if it can't be calculated.
 

@@ -26,9 +26,9 @@ Review, build, and test your own pull request before submitting it. This will al
 
 Write clear titles and descriptions for your pull requests so that reviewers can quickly understand what the pull request does. In the pull request body, include:
 
-- the purpose of the pull request
-- an overview of what changed
-- links to any additional context such as tracking issues or previous conversations
+* the purpose of the pull request
+* an overview of what changed
+* links to any additional context such as tracking issues or previous conversations
 
 To help reviewers, share the type of feedback you need. For example, do you need a quick look or a deeper critique?
 

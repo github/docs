@@ -26,6 +26,6 @@ After installing {% data variables.large_files.product_name_short %} and configu
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"

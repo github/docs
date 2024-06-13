@@ -27,15 +27,15 @@ When someone pushes code to a repository, GitHub creates a check suite for the l
 The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
-- `action_required`
-- `cancelled`
-- `timed_out`
-- `failure`
-- `neutral`
-- `skipped`
-- `stale`
-- `startup_failure`
-- `success`
+* `action_required`
+* `cancelled`
+* `timed_out`
+* `failure`
+* `neutral`
+* `skipped`
+* `stale`
+* `startup_failure`
+* `success`
 
 The check suite reports the highest priority check run `conclusion` in the check suite's `conclusion`. For example, if three check runs have conclusions of `timed_out`, `success`, and `neutral` the check suite conclusion will be `timed_out`.
 
@@ -56,13 +56,13 @@ A check run is an individual test that is part of a check suite. Each run includ
 The `status` can be `queued`, `in_progress`, `requested`, `waiting`, `pending`, or `completed`. Only {% data variables.product.prodname_actions %} can set a status of `requested`, `waiting`, or `pending`.
 
 If the status is `completed`, the conclusion can be any of the following:
-- `action_required`
-- `cancelled`
-- `timed_out`
-- `failure`
-- `neutral`
-- `skipped`
-- `success`
+* `action_required`
+* `cancelled`
+* `timed_out`
+* `failure`
+* `neutral`
+* `skipped`
+* `success`
 
 If a check run is in an incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/checks#create-a-check-run--parameters).
 
