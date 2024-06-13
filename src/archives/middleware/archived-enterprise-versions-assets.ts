@@ -4,7 +4,7 @@ import got from 'got'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns.js'
-import isArchivedVersion from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
@@ -57,7 +57,7 @@ export default async function archivedEnterpriseVersionsAssets(
   // Referrer header also indicates that the request for this static
   // asset came from a page
   const { isArchived, requestedVersion } = isArchivedVersion(req)
-  if (!isArchived) return next()
+  if (!isArchived || !requestedVersion) return next()
 
   const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
 
