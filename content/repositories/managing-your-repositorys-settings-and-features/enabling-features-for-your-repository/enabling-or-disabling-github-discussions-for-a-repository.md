@@ -21,5 +21,5 @@ You can also use organization discussions to facilitate conversations that span 
 
 ## Further reading
 
-- "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"
+* "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+* "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"

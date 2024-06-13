@@ -27,8 +27,8 @@ This guide shows you how to create a workflow that performs continuous integrati
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
-- "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
 
 We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
 

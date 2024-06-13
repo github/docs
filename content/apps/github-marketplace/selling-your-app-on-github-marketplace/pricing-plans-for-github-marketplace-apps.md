@@ -43,9 +43,9 @@ If you add a paid plan to an app that you've already listed in {% data variables
 
 There are two types of paid pricing plan:
 
-- Flat rate pricing plans charge a set fee on a monthly and yearly basis.
+* Flat rate pricing plans charge a set fee on a monthly and yearly basis.
 
-- Per-unit pricing plans charge a set fee on either a monthly or yearly basis for each user in an organization.
+* Per-unit pricing plans charge a set fee on either a monthly or yearly basis for each user in an organization.
 
 You may also want to offer free trials. These provide free, 14-day trials of OAuth or GitHub Apps to customers. When you set up a Marketplace pricing plan, you can select the option to provide a free trial for flat-rate or per-unit pricing plans.
 

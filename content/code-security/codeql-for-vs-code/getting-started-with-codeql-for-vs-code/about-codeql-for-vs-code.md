@@ -21,13 +21,13 @@ You can run {% data variables.product.prodname_codeql %} queries on databases ge
 
 With the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, you can:
 
-- Write custom {% data variables.product.prodname_codeql %} queries and supporting libraries.
-- Directly view and use the {% data variables.product.prodname_codeql %} security queries from the large, open-source [`github/codeql`](https://github.com/github/codeql) repository.
-- Run queries over one or more {% data variables.product.prodname_codeql %} databases.
-- Track the flow of data through a program, highlighting areas that are potential security vulnerabilities.
-- View, create, and edit all types of {% data variables.product.prodname_codeql %} packs of queries or libraries that you can use or publish to share with others.
-- Run unit tests for {% data variables.product.prodname_codeql %} queries.
-- Use a dedicated editor for viewing, creating, and editing {% data variables.product.prodname_codeql %} model packs, which are used to extend standard {% data variables.product.prodname_codeql %} analysis.
+* Write custom {% data variables.product.prodname_codeql %} queries and supporting libraries.
+* Directly view and use the {% data variables.product.prodname_codeql %} security queries from the large, open-source [`github/codeql`](https://github.com/github/codeql) repository.
+* Run queries over one or more {% data variables.product.prodname_codeql %} databases.
+* Track the flow of data through a program, highlighting areas that are potential security vulnerabilities.
+* View, create, and edit all types of {% data variables.product.prodname_codeql %} packs of queries or libraries that you can use or publish to share with others.
+* Run unit tests for {% data variables.product.prodname_codeql %} queries.
+* Use a dedicated editor for viewing, creating, and editing {% data variables.product.prodname_codeql %} model packs, which are used to extend standard {% data variables.product.prodname_codeql %} analysis.
 
 The {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension also adds a {% data variables.product.prodname_codeql %} sidebar view to {% data variables.product.prodname_vscode_shortname %}. This contains a list of local {% data variables.product.prodname_codeql %} databases, an overview of the queries that you have run in the current session, and a variant analysis view for large-scale analysis.
 
@@ -35,10 +35,10 @@ The {% data variables.product.prodname_codeql %} for {% data variables.product.p
 
 The extension provides standard IntelliSense features for query files (extension `.ql`) and library files (extension `.qll`) that you open in the {% data variables.product.prodname_vscode_shortname %} editor. These include:
 
-- Syntax highlighting
-- Right-click options (such as **Go To Definition**)
-- Autocomplete suggestions
-- Hover information
+* Syntax highlighting
+* Right-click options (such as **Go To Definition**)
+* Autocomplete suggestions
+* Hover information
 
 For more information about Intellisense in {% data variables.product.prodname_vscode_shortname %}, see [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) in the {% data variables.product.prodname_vscode %} documentation.
 

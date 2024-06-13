@@ -27,6 +27,6 @@ shortTitle: Manage a team discussion
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
-- "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-- "[AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)"
+* "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
+* "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
+* "[AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)"

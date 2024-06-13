@@ -133,12 +133,12 @@ To let people know how to use your action, you can create a README file. A READM
 
 In your `hello-world-javascript-action` directory, create a `README.md` file that specifies the following information:
 
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+* A detailed description of what the action does.
+* Required input and output arguments.
+* Optional input and output arguments.
+* Secrets the action uses.
+* Environment variables the action uses.
+* An example of how to use your action in a workflow.
 
 ````markdown copy
 # Hello world javascript action
@@ -282,12 +282,12 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} provides template repositories for creating JavaScript and TypeScript actions. You can use these templates to quickly get started with creating a new action that includes tests, linting, and other recommended practices.
 
-- [`javascript-action` template repository](https://github.com/actions/javascript-action)
-- [`typescript-action` template repository](https://github.com/actions/typescript-action)
+* [`javascript-action` template repository](https://github.com/actions/javascript-action)
+* [`typescript-action` template repository](https://github.com/actions/typescript-action)
 
 ## Example JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}
 
 You can find many examples of JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}.
 
-- [DevExpress/testcafe-action](https://github.com/DevExpress/testcafe-action)
-- [duckduckgo/privacy-configuration](https://github.com/duckduckgo/privacy-configuration)
+* [DevExpress/testcafe-action](https://github.com/DevExpress/testcafe-action)
+* [duckduckgo/privacy-configuration](https://github.com/duckduckgo/privacy-configuration)

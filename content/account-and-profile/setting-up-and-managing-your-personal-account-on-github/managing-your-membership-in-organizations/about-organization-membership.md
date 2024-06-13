@@ -20,13 +20,13 @@ You can access organizations you're a member of on your profile page. For more i
 
 When you accept an invitation to join an organization, the organization owners may be able to see:
 
-- Your public profile information
-- Your email address
-- If you have two-factor authorization enabled
-- Repositories you have access to within the organization, and your access level
-- Certain activity within the organization
-- Country of request origin
-- Your IP address
+* Your public profile information
+* Your email address
+* If you have two-factor authorization enabled
+* Repositories you have access to within the organization, and your access level
+* Certain activity within the organization
+* Country of request origin
+* Your IP address
 
 For more information, see the [{% data variables.product.prodname_dotcom %} Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement).
 
@@ -48,5 +48,5 @@ You can leave an organization at any time. For more information, see "[AUTOTITLE
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations)"

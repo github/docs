@@ -36,8 +36,8 @@ redirect_from:
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
 
-- `GITHUB_TOKEN` has read-only permissions by default.
-- Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
+* `GITHUB_TOKEN` has read-only permissions by default.
+* Secrets are populated from {% data variables.product.prodname_dependabot %} secrets. {% data variables.product.prodname_actions %} secrets are not available.
 
 For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`) using the `pull_request_target` event, if the base ref of the pull request was created by {% data variables.product.prodname_dependabot %} (`github.actor == 'dependabot[bot]'`), the `GITHUB_TOKEN` will be read-only and secrets are not available.
 
@@ -273,9 +273,9 @@ jobs:
 
 If your workflow run fails, check the following:
 
-- You are running the workflow only when the correct actor triggers it.
-- You are checking out the correct `ref` for your `pull_request`.
-- Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
-- You have a `GITHUB_TOKEN` with the correct permissions.
+* You are running the workflow only when the correct actor triggers it.
+* You are checking out the correct `ref` for your `pull_request`.
+* Your secrets are available in {% data variables.product.prodname_dependabot %} secrets rather than as {% data variables.product.prodname_actions %} secrets.
+* You have a `GITHUB_TOKEN` with the correct permissions.
 
 For information on writing and debugging {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions)."

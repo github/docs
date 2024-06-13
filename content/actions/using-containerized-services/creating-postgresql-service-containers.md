@@ -30,8 +30,8 @@ This guide shows you workflow examples that configure a service container using 
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and PostgreSQL. For more information, see:
 
-- "[AUTOTITLE](/actions/learn-github-actions)"
-- "[PostgreSQL tutorial](https://www.postgresqltutorial.com/)" in the PostgreSQL documentation
+* "[AUTOTITLE](/actions/learn-github-actions)"
+* "[PostgreSQL tutorial](https://www.postgresqltutorial.com/)" in the PostgreSQL documentation
 
 ## Running jobs in containers
 

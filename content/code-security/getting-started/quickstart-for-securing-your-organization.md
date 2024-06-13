@@ -25,8 +25,8 @@ Your organization's security needs are unique. You may want to enable a feature 
 
 You can enable security features across multiple repositories in an organization at the same time. For each feature you want to enable, you must decide how to roll out the feature across your organization's repositories. Different features have different effects on your organization and its contributors, so it's important to assess the impact each feature will have. For example:
 
-- Some features can generate notifications to inform your organization's members about specific vulnerabilities: to ensure these notifications are targeted and relevant, you may want to ask members to check their notification settings before you enable a feature. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
-- Some features can consume resources for each repository in which they're enabled. For example, enabling {% data variables.product.prodname_code_scanning %} in a private repository may consume a {% data variables.product.prodname_GH_advanced_security %} license, and running {% data variables.product.prodname_code_scanning %} analysis in a repository will incur usage of {% data variables.product.prodname_actions %} or another CI system.
+* Some features can generate notifications to inform your organization's members about specific vulnerabilities: to ensure these notifications are targeted and relevant, you may want to ask members to check their notification settings before you enable a feature. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+* Some features can consume resources for each repository in which they're enabled. For example, enabling {% data variables.product.prodname_code_scanning %} in a private repository may consume a {% data variables.product.prodname_GH_advanced_security %} license, and running {% data variables.product.prodname_code_scanning %} analysis in a repository will incur usage of {% data variables.product.prodname_actions %} or another CI system.
 
 As an organization owner, you can give certain users permission to enable or disable security features by assigning the "security manager" role to a team. Security managers can configure security settings and monitor usage of security features across your organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
@@ -52,7 +52,7 @@ There are some features you must configure for each repository individually. For
 When you have decided to enable a security feature, the next step is to decide how to roll out that feature across your organization.
 
 {% ifversion security-configurations %}
-- If you want to enable multiple security features at scale, you can use the {% data variables.product.prodname_github_security_configuration %}, a collection of security enablement settings you can apply to repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
+* If you want to enable multiple security features at scale, you can use the {% data variables.product.prodname_github_security_configuration %}, a collection of security enablement settings you can apply to repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
 
     {% note %}
 
@@ -60,8 +60,8 @@ When you have decided to enable a security feature, the next step is to decide h
 
     {% endnote %}
 {% endif %}
-- If you want to roll out a {% ifversion security-configurations %}single {% endif %}feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
-- If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
+* If you want to roll out a {% ifversion security-configurations %}single {% endif %}feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
+* If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
 
 When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-new-repositories)."
 
@@ -75,9 +75,9 @@ The quickest way to roll out a security feature is to enable it for all reposito
 
 Before you enable a feature for all repositories, you should consider the impact this action will have. If you're not sure about the effects a feature will have, it is safest to start by enabling the feature for a limited selection of repositories. Enabling a feature for all repositories at once is likely to be a suitable option in the following situations.
 
-- You have an overview of all the repositories in your organization, and you're confident that they'll all benefit from a certain feature.
-- If a feature requires resources such as {% data variables.product.prodname_GH_advanced_security %} licenses or {% data variables.product.prodname_actions %} minutes, you have assessed the resources that will be required and are happy to proceed.{% ifversion ghec %} You can take part in a free trial of {% data variables.product.prodname_GH_advanced_security %} to test a {% data variables.product.prodname_GH_advanced_security %} feature across your repositories. For more information about setting up a free trial, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."{% endif %}
-- If the feature generates notifications or pull requests, you're confident that these will be targeted and relevant for the members who receive them or have to review them.
+* You have an overview of all the repositories in your organization, and you're confident that they'll all benefit from a certain feature.
+* If a feature requires resources such as {% data variables.product.prodname_GH_advanced_security %} licenses or {% data variables.product.prodname_actions %} minutes, you have assessed the resources that will be required and are happy to proceed.{% ifversion ghec %} You can take part in a free trial of {% data variables.product.prodname_GH_advanced_security %} to test a {% data variables.product.prodname_GH_advanced_security %} feature across your repositories. For more information about setting up a free trial, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."{% endif %}
+* If the feature generates notifications or pull requests, you're confident that these will be targeted and relevant for the members who receive them or have to review them.
 
 When you're ready to proceed, follow these steps to enable a feature for all repositories.
 

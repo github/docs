@@ -60,4 +60,4 @@ If you do not wish to allow all of the IP ranges for all of your enterprise's ap
 
 ## Further reading
 
-- [Using the location condition in a Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/location-condition) on Microsoft Learn
+* [Using the location condition in a Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/location-condition) on Microsoft Learn

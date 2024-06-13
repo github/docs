@@ -51,10 +51,10 @@ If you create a codespace from a repository, the codespace will be associated wi
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
-- Step 1: VM and storage are assigned to your codespace.
-- Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
-- Step 4: Codespace continues with post-creation setup.
+* Step 1: VM and storage are assigned to your codespace.
+* Step 2: Container is created and your repository is cloned.
+* Step 3: You can connect to the codespace.
+* Step 4: Codespace continues with post-creation setup.
 
 For more information on what happens when you create a codespace, see "[AUTOTITLE](/codespaces/getting-started/deep-dive)."
 
@@ -83,11 +83,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
 
-   - **Use the default options**
+   * **Use the default options**
 
       To create a codespace using the default options, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}. <br/><br/>
 
-   - **Configure advanced options**
+   * **Configure advanced options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
@@ -105,11 +105,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          **Notes**
 
-         - You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         - The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         - For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-         - For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-         - {% data reusables.codespaces.codespaces-machine-type-availability %}
+         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+         * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         * {% data reusables.codespaces.codespaces-machine-type-availability %}
 
          {% endnote %}
 
@@ -167,6 +167,6 @@ For full details of the options for this command, see [the {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)"
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
-- "[AUTOTITLE](/rest/codespaces/organizations)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)"
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
+* "[AUTOTITLE](/rest/codespaces/organizations)"

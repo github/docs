@@ -69,14 +69,14 @@ If you're upgrading to a new feature release, you must take a VM snapshot. If yo
 
 There are two types of snapshots:
 
-- **VM snapshots** save your entire VM state, including user data and configuration data. This snapshot method requires a large amount of disk space and is time consuming.
-- **Data disk snapshots** only save your user data.
+* **VM snapshots** save your entire VM state, including user data and configuration data. This snapshot method requires a large amount of disk space and is time consuming.
+* **Data disk snapshots** only save your user data.
 
    {% note %}
 
    **Notes:**
-    - Some platforms don't allow you to take a snapshot of just your data disk. For these platforms, you'll need to take a snapshot of the entire VM.
-    - If your hypervisor does not support full VM snapshots, you should take a snapshot of the root disk and data disk in quick succession.
+    * Some platforms don't allow you to take a snapshot of just your data disk. For these platforms, you'll need to take a snapshot of the entire VM.
+    * If your hypervisor does not support full VM snapshots, you should take a snapshot of the root disk and data disk in quick succession.
 
    {% endnote %}
 
@@ -94,12 +94,12 @@ You can upgrade a {% data variables.product.product_name %} instance to a new pa
 
 A {% data variables.product.product_name %} instance comprises one or more nodes. The upgrade process you must follow depends on how many nodes your instance has. For more information, see "[AUTOTITLE](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
 
-- [Upgrading with a hotpatch](#upgrading-with-a-hotpatch)
-  - [Upgrading a standalone instance using a hotpatch](#upgrading-a-standalone-instance-using-a-hotpatch)
-  - [Upgrading an instance with multiple nodes using a hotpatch](#upgrading-an-instance-with-multiple-nodes-using-a-hotpatch)
-- [Upgrading with an upgrade package](#upgrading-with-an-upgrade-package)
-  - [Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)
-  - [Upgrading an instance with multiple nodes using an upgrade package](#upgrading-an-instance-with-multiple-nodes-using-an-upgrade-package)
+* [Upgrading with a hotpatch](#upgrading-with-a-hotpatch)
+  * [Upgrading a standalone instance using a hotpatch](#upgrading-a-standalone-instance-using-a-hotpatch)
+  * [Upgrading an instance with multiple nodes using a hotpatch](#upgrading-an-instance-with-multiple-nodes-using-a-hotpatch)
+* [Upgrading with an upgrade package](#upgrading-with-an-upgrade-package)
+  * [Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)
+  * [Upgrading an instance with multiple nodes using an upgrade package](#upgrading-an-instance-with-multiple-nodes-using-an-upgrade-package)
 
 ## Upgrading with a hotpatch
 
@@ -111,21 +111,21 @@ Using the {% data variables.enterprise.management_console %}, you can install a 
 
 **Notes**:
 
-- If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
+* If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch.
 
-- Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available for clusters. To install a hotpatch for a cluster, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+* Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available for clusters. To install a hotpatch for a cluster, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 
-- [Upgrading a standalone instance using a hotpatch](#upgrading-a-standalone-instance-using-a-hotpatch)
-- [Upgrading an instance with multiple nodes using a hotpatch](#upgrading-an-instance-with-multiple-nodes-using-a-hotpatch)
+* [Upgrading a standalone instance using a hotpatch](#upgrading-a-standalone-instance-using-a-hotpatch)
+* [Upgrading an instance with multiple nodes using a hotpatch](#upgrading-an-instance-with-multiple-nodes-using-a-hotpatch)
 
 ### Upgrading a standalone instance using a hotpatch
 
 If you're upgrading an instance with one node using a hotpatch, and your target is a patch release, you can upgrade using {% data variables.enterprise.management_console %}. To upgrade to a feature release, you must use the administrative shell.
 
-- [Installing a hotpatch using the {% data variables.enterprise.management_console %}](#installing-a-hotpatch-using-the-management-console)
-- [Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)
+* [Installing a hotpatch using the {% data variables.enterprise.management_console %}](#installing-a-hotpatch-using-the-management-console)
+* [Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)
 
 #### Installing a hotpatch using the {% data variables.enterprise.management_console %}
 
@@ -138,8 +138,8 @@ If the upgrade target you're presented with is a feature release instead of a pa
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
 1. When a new hotpatch has been downloaded, select the **Install package** dropdown menu.
-    - To install immediately, click **Now**.
-    - To install later, select a later date.
+    * To install immediately, click **Now**.
+    * To install later, select a later date.
 1. Click **Install**.
 
 #### Installing a hotpatch using the administrative shell
@@ -162,8 +162,8 @@ If the upgrade target you're presented with is a feature release instead of a pa
 
 If you are installing a hotpatch, you do not need to enter maintenance mode or stop replication.
 
-- [Upgrading the primary node using a hotpatch](#upgrading-the-primary-node-using-a-hotpatch)
-- [Upgrading additional nodes using a hotpatch](#upgrading-additional-nodes-using-a-hotpatch)
+* [Upgrading the primary node using a hotpatch](#upgrading-the-primary-node-using-a-hotpatch)
+* [Upgrading additional nodes using a hotpatch](#upgrading-additional-nodes-using-a-hotpatch)
 
 #### Upgrading the primary node using a hotpatch
 
@@ -182,8 +182,8 @@ For instructions to upgrade the primary node, see "[Installing a hotpatch using 
 
 While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example to upgrade from 2.11.10 to 2.12.4 you must use an upgrade package since these are in different feature series. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements)."
 
-- [Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)
-- [Upgrading an instance with multiple nodes using an upgrade package](#upgrading-an-instance-with-multiple-nodes-using-an-upgrade-package)
+* [Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)
+* [Upgrading an instance with multiple nodes using an upgrade package](#upgrading-an-instance-with-multiple-nodes-using-an-upgrade-package)
 
 ### Upgrading a standalone instance using an upgrade package
 
@@ -248,8 +248,8 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
 To upgrade an instance that comprises multiple nodes using an upgrade package, you must upgrade the primary node, then upgrade any additional nodes.
 
-- [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)
-- [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package)
+* [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)
+* [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package)
 
 #### Upgrading the primary node with an upgrade package
 
@@ -278,13 +278,13 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    **Notes:**
 
-   - While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
+   * While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
 
      ```text
      CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
      ```
 
-   - If {% data variables.product.prodname_actions %} is enabled on {% data variables.location.product_location %}, you may see a message like the following. This message is expected when replication is paused due to maintenance mode being set on the primary appliance. Once maintenance mode is unset, this message should be resolved.
+   * If {% data variables.product.prodname_actions %} is enabled on {% data variables.location.product_location %}, you may see a message like the following. This message is expected when replication is paused due to maintenance mode being set on the primary appliance. Once maintenance mode is unset, this message should be resolved.
 
      ```text
      CRITICAL: mssql replication is down, didn't find Token_Configuration!
@@ -317,5 +317,5 @@ To roll back from a feature release, restore from a VM snapshot to ensure that r
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"
 {% endif %}

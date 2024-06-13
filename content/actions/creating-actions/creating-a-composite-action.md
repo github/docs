@@ -181,6 +181,6 @@ From your repository, click the **Actions** tab, and select the latest workflow 
 
 You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
 
-- [microsoft/action-python](https://github.com/microsoft/action-python)
-- [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
-- [tailscale/github-action](https://github.com/tailscale/github-action)
+* [microsoft/action-python](https://github.com/microsoft/action-python)
+* [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
+* [tailscale/github-action](https://github.com/tailscale/github-action)

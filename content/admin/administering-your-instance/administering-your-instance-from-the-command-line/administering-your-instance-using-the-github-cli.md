@@ -19,4 +19,4 @@ You can use the `gh es` extension to manage the root site administrator password
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)"
+* "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)"

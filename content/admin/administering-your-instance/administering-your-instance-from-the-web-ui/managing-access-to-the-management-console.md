@@ -44,8 +44,8 @@ Only {% data variables.enterprise.management_console %} users with the operator 
 
 The root site administrator can provision one of two roles for {% data variables.enterprise.management_console %} users:
 
-- **Editor**: A {% data variables.enterprise.management_console %} user with the editor role can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %}. Editors cannot add public SSH keys to the {% data variables.enterprise.management_console %} to grant administrative SSH access to the instance.
-- **Operator**: A {% data variables.enterprise.management_console %} user with the operator role
+* **Editor**: A {% data variables.enterprise.management_console %} user with the editor role can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %}. Editors cannot add public SSH keys to the {% data variables.enterprise.management_console %} to grant administrative SSH access to the instance.
+* **Operator**: A {% data variables.enterprise.management_console %} user with the operator role
 {%- else %}
 {% data variables.enterprise.management_console %} users, sometimes called operators,
 {%- endif %} can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %} and can add SSH keys to the {% data variables.enterprise.management_console %} to grant administrative access to the instance via SSH.

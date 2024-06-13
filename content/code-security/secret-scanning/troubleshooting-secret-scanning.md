@@ -36,8 +36,8 @@ If push protection did not detect a secret that you think should have been detec
 
 If your secret is in the supported list, there are various reasons why push protection may not detect it.
 
-- Push protection only blocks leaked secrets on a subset of the most identifiable user-alerted patterns. Contributors can trust security defenses when such secrets are blocked as these are the patterns that have the lowest number of false positives.
-- The version of your secret may be old. {% data reusables.secret-scanning.push-protection-older-tokens %}
-- The push may be too large, for example, if you're trying to push thousands of large files. A push protection scan may time out and not block a user if the push is too large. {% data variables.product.prodname_dotcom %} will still scan and create alerts, if needed, after the push.
-- If the push results in the detection of over five new secrets, we will only show you the first five (we will always show you a maximum of five secrets at one time).
-- If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push.
+* Push protection only blocks leaked secrets on a subset of the most identifiable user-alerted patterns. Contributors can trust security defenses when such secrets are blocked as these are the patterns that have the lowest number of false positives.
+* The version of your secret may be old. {% data reusables.secret-scanning.push-protection-older-tokens %}
+* The push may be too large, for example, if you're trying to push thousands of large files. A push protection scan may time out and not block a user if the push is too large. {% data variables.product.prodname_dotcom %} will still scan and create alerts, if needed, after the push.
+* If the push results in the detection of over five new secrets, we will only show you the first five (we will always show you a maximum of five secrets at one time).
+* If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push.

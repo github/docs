@@ -56,8 +56,8 @@ For more information about authenticating in a {% data variables.product.prodnam
 
    **Notes:**
 
-   - {% data reusables.actions.actions-not-certified-by-github %}
-   - {% data reusables.actions.actions-use-sha-pinning %}
+   * {% data reusables.actions.actions-not-certified-by-github %}
+   * {% data reusables.actions.actions-use-sha-pinning %}
 
    {% endnote %}{% endif %}
 

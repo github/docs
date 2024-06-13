@@ -35,11 +35,11 @@ You create a new query file from a template for a given language, which imports 
 
 You can read about how to create queries for supported languages in the {% data variables.product.prodname_codeql %} documentation:
 
-- [{% data variables.product.prodname_codeql %} for C and C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
-- [{% data variables.product.prodname_codeql %} for C#](https://codeql.github.com/docs/codeql-language-guides/codeql-for-csharp/)
-- [{% data variables.product.prodname_codeql %} for Go](https://codeql.github.com/docs/codeql-language-guides/codeql-for-go/)
-- [{% data variables.product.prodname_codeql %} for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/)
-- [{% data variables.product.prodname_codeql %} for JavaScript and TypeScript](https://codeql.github.com/docs/codeql-language-guides/codeql-for-javascript/)
-- [{% data variables.product.prodname_codeql %} for Python](https://codeql.github.com/docs/codeql-language-guides/codeql-for-python/)
-- [{% data variables.product.prodname_codeql %} for Ruby](https://codeql.github.com/docs/codeql-language-guides/codeql-for-ruby/)
-- [{% data variables.product.prodname_codeql %} for Swift](https://codeql.github.com/docs/codeql-language-guides/codeql-for-swift/)
+* [{% data variables.product.prodname_codeql %} for C and C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
+* [{% data variables.product.prodname_codeql %} for C#](https://codeql.github.com/docs/codeql-language-guides/codeql-for-csharp/)
+* [{% data variables.product.prodname_codeql %} for Go](https://codeql.github.com/docs/codeql-language-guides/codeql-for-go/)
+* [{% data variables.product.prodname_codeql %} for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/)
+* [{% data variables.product.prodname_codeql %} for JavaScript and TypeScript](https://codeql.github.com/docs/codeql-language-guides/codeql-for-javascript/)
+* [{% data variables.product.prodname_codeql %} for Python](https://codeql.github.com/docs/codeql-language-guides/codeql-for-python/)
+* [{% data variables.product.prodname_codeql %} for Ruby](https://codeql.github.com/docs/codeql-language-guides/codeql-for-ruby/)
+* [{% data variables.product.prodname_codeql %} for Swift](https://codeql.github.com/docs/codeql-language-guides/codeql-for-swift/)

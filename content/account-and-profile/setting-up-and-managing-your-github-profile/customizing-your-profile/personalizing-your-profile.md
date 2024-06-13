@@ -36,7 +36,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 **Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
 
-- {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
 {% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
 
 {% endnote %}
@@ -114,8 +114,8 @@ Add pronouns to your public user profile to share information about yourself wit
 ## Setting your location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-- On your {% data variables.product.product_name %} profile page.
-- When people hover over your username or avatar on {% data variables.product.product_name %}.
+* On your {% data variables.product.product_name %} profile page.
+* When people hover over your username or avatar on {% data variables.product.product_name %}.
 
 ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
 
@@ -124,8 +124,8 @@ When you view your profile, you will see your location, local time, and your tim
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Location" field, type the location you want to be displayed on your profile.
 1. Optionally, display the current local time on your profile.
-   - Select **Display current local time**.
-   - Select the **Time zone** dropdown menu, then click your local time zone.
+   * Select **Display current local time**.
+   * Select the **Time zone** dropdown menu, then click your local time zone.
 {% data reusables.profile.update-profile %}
 
 {% endif %}
@@ -157,10 +157,10 @@ If you're a researcher with an ORCID iD, you can identify yourself by adding you
 ## Setting a status
 
 You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
-- On your {% data variables.product.product_name %} profile page
-- When people hover over your username or avatar on {% data variables.product.product_name %}
-- On a team page for a team where you're a team member. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages)."
-- On the organization dashboard in an organization where you're a member. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)."
+* On your {% data variables.product.product_name %} profile page
+* When people hover over your username or avatar on {% data variables.product.product_name %}
+* On a team page for a team where you're a team member. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages)."
+* On the organization dashboard in an organization where you're a member. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)."
 
 When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
 
@@ -295,4 +295,4 @@ The Mars 2020 Helicopter Contributor achievement was given to those who had auth
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"

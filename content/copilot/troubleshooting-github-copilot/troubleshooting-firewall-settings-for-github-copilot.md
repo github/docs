@@ -32,6 +32,6 @@ Additional domains and URLs may require allowlisting, depending on your organiza
 
 ## Further reading
 
-- [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)
-- [Install and use Visual Studio and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server)
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)
+* [Install and use Visual Studio and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server)
+* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"

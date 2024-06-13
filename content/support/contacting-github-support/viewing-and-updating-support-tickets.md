@@ -75,4 +75,4 @@ If your account includes {% data variables.contact.premium_support %}, you can r
 
 ## Further reading
 
-- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
+* "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"

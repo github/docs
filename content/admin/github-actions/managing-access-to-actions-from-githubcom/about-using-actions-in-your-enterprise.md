@@ -30,11 +30,11 @@ We recommend allowing automatic access to all actions from {% data variables.pro
 {% data reusables.actions.actions-bundled-with-ghes %}
 
 The bundled official actions include the following, among others.
-- `actions/checkout`
-- `actions/upload-artifact`
-- `actions/download-artifact`
-- `actions/labeler`
-- Various `actions/setup-` actions
+* `actions/checkout`
+* `actions/upload-artifact`
+* `actions/download-artifact`
+* `actions/labeler`
+* Various `actions/setup-` actions
 
 To see all the official actions included on your enterprise instance, browse to the `actions` organization on your instance: <code>https://<em>HOSTNAME</em>/actions</code>.
 
@@ -45,8 +45,8 @@ Each action is a repository in the `actions` organization, and each action repos
 {% note %}
 
 **Notes:**
-- When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
-- When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
+* When using setup actions (such as `actions/setup-LANGUAGE`) on {% data variables.product.product_name %} with self-hosted runners, you might need to set up the tools cache on runners that do not have internet access. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)."
+* When {% data variables.product.product_name %} is updated, bundled actions are automatically replaced with default versions in the upgrade package.
 
 {% endnote %}
 

@@ -13,10 +13,10 @@ topics:
 
 When you contact {% data variables.contact.github_support %}, {% data variables.product.company_short %} will choose a priority for the ticket:
 
-- {% data variables.product.support_ticket_priority_low %}
-- {% data variables.product.support_ticket_priority_normal %}
-- {% data variables.product.support_ticket_priority_high %}
-- {% data variables.product.support_ticket_priority_urgent %} {% ifversion ghec %}([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %}
+* {% data variables.product.support_ticket_priority_low %}
+* {% data variables.product.support_ticket_priority_normal %}
+* {% data variables.product.support_ticket_priority_high %}
+* {% data variables.product.support_ticket_priority_urgent %} {% ifversion ghec %}([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %}
 
 {% data reusables.support.zendesk-old-tickets %}
 
@@ -69,4 +69,4 @@ If you are uncertain if the issue is out of scope, contact {% data variables.con
 
 ## Further reading
 
-- "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
+* "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"

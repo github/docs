@@ -176,8 +176,8 @@ If you want to provide the VM for your primary MySQL node with more resources, o
 {% data reusables.enterprise_clustering.open-configuration-file %}
 1. {% data reusables.enterprise_clustering.configuration-file-heading %} Add a new heading for the node and enter the key-value pairs for configuration, replacing the placeholders with actual values.
 
-   - Ensure that you include the `mysql-server = true` key-value pair.
-   - The following section is an example, and your node's configuration may differ.
+   * Ensure that you include the `mysql-server = true` key-value pair.
+   * The following section is an example, and your node's configuration may differ.
 
    <pre>
    ...
@@ -220,8 +220,8 @@ If you want to provide the VM for your primary MySQL node with more resources, o
 
 1. After the GTIDs on the primary and secondary MySQL nodes match, update the cluster configuration by opening the cluster configuration file at `/data/user/common/cluster.conf` in a text editor.
 
-   - Create a backup of the `cluster.conf` file before you edit the file.
-   - In the top-level `[cluster]` section, remove the hostname for the node you replaced from the `mysql-master` key-value pair, then assign the new node instead. If the new node is also a primary Redis node, adjust the `redis-master` key-value pair.
+   * Create a backup of the `cluster.conf` file before you edit the file.
+   * In the top-level `[cluster]` section, remove the hostname for the node you replaced from the `mysql-master` key-value pair, then assign the new node instead. If the new node is also a primary Redis node, adjust the `redis-master` key-value pair.
 
    <pre>
    [cluster]

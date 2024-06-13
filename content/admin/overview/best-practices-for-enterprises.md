@@ -58,5 +58,5 @@ You can manage the display of usernames within your enterprise's private reposit
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)"
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"

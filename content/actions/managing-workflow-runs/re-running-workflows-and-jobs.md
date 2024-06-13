@@ -27,9 +27,9 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, re-run jobs.
 
-   - If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
+   * If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
-   - If no jobs failed, click **Re-run all jobs**.
+   * If no jobs failed, click **Re-run all jobs**.
 
 {% data reusables.actions.enable-debug-logging %}
 

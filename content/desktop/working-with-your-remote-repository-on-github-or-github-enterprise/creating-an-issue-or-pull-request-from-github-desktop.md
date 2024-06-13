@@ -21,9 +21,9 @@ After you create a branch and make changes to files in a project, you can create
 ## Prerequisites
 
 Before you create a pull request, you'll need to push changes to a branch on {% data variables.product.prodname_dotcom %}.
-- Save and commit any changes on your local branch. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
-- Push your local commits to the remote repository. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)."
-- Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
+* Save and commit any changes on your local branch. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
+* Push your local commits to the remote repository. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)."
+* Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
 
 ## Creating an issue
 
@@ -79,7 +79,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 ## Further reading
 
-- "[Issue](/get-started/learning-about-github/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Pull request](/get-started/learning-about-github/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Base branch](/get-started/learning-about-github/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Topic branch](/get-started/learning-about-github/github-glossary#topic-branch)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[Issue](/get-started/learning-about-github/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[Pull request](/get-started/learning-about-github/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[Base branch](/get-started/learning-about-github/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[Topic branch](/get-started/learning-about-github/github-glossary#topic-branch)" in the {% data variables.product.prodname_dotcom %} glossary

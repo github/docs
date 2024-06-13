@@ -618,13 +618,13 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+* Using PowerShell version 6 and higher:
 
   ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
-- Using PowerShell version 5.1 and below:
+* Using PowerShell version 5.1 and below:
 
   ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append

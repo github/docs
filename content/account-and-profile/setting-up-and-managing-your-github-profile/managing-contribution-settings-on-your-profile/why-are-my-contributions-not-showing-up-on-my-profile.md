@@ -30,18 +30,18 @@ Issues, pull requests, and discussions will appear on your contribution graph if
 ### Commits
 
 Commits will appear on your contributions graph if they meet **all** of the following conditions:
-- The email address used for the commits is associated with your account on {% data variables.product.prodname_dotcom %}.
-- The commits were made in a standalone repository, not a fork.
-- The commits were made:
-  - In the repository's default branch
-  - In the `gh-pages` branch (for repositories with project sites)
+* The email address used for the commits is associated with your account on {% data variables.product.prodname_dotcom %}.
+* The commits were made in a standalone repository, not a fork.
+* The commits were made:
+  * In the repository's default branch
+  * In the `gh-pages` branch (for repositories with project sites)
 
 For more information on project sites, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 In addition, **at least one** of the following must be true:
-- You are a collaborator on the repository or are a member of the organization that owns the repository.
-- You have forked the repository.
-- You have opened a pull request or issue in the repository.
+* You are a collaborator on the repository or are a member of the organization that owns the repository.
+* You have forked the repository.
+* You have opened a pull request or issue in the repository.
 
 ## Common reasons that contributions are not counted
 
@@ -85,8 +85,8 @@ Generic email addresses, such as `jane@computer.local`, cannot be added to {% da
 Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
-- [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
-- [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
+* [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
+* [Change the default branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 
@@ -100,5 +100,5 @@ Commits made in a fork will not count toward your contributions. To make them co
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"

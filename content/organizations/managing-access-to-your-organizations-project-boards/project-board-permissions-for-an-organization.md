@@ -26,9 +26,9 @@ There are three levels of permissions to a {% data variables.projects.projects_v
 Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. An outside collaborator is someone who is not an organization member but given permissions to collaborate in your organization.
 
 Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
-- Set default {% data variables.projects.projects_v1_board %} permissions for all organization members.
-- Manage access to the {% data variables.projects.projects_v1_board %} for organization members, teams, and outside collaborators. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)", "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)", or "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
-- Manage {% data variables.projects.projects_v1_board %} visibility. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
+* Set default {% data variables.projects.projects_v1_board %} permissions for all organization members.
+* Manage access to the {% data variables.projects.projects_v1_board %} for organization members, teams, and outside collaborators. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)", "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)", or "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
+* Manage {% data variables.projects.projects_v1_board %} visibility. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
 
 ## Cascading permissions for {% data variables.projects.projects_v1_boards %}
 
@@ -44,7 +44,7 @@ For example, if an organization owner has given all organization members read pe
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)"

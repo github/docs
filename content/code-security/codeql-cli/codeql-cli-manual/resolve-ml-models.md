@@ -49,9 +49,9 @@ It now returns an empty list of machine learning models.
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:
 
-- `scope/name` is the qualified name of a CodeQL pack.
-- `range` is a semver range.
-- `path` is a file system path.
+* `scope/name` is the qualified name of a CodeQL pack.
+* `range` is a semver range.
+* `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A

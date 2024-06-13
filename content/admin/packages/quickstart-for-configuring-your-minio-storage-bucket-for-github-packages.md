@@ -78,7 +78,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
 1. Run MinIO in your chosen mode.
 
-   - Run MinIO using Docker on a single host:
+   * Run MinIO using Docker on a single host:
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -90,7 +90,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
      For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
 
-   - Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
+   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
@@ -102,7 +102,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
 1. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
 
-   - Local deployments example:
+   * Local deployments example:
 
      ```shell
      export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
@@ -111,7 +111,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
      This example can be used for MinIO standalone.
 
-   - Clustered deployments example:
+   * Clustered deployments example:
 
      ```shell
      export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"

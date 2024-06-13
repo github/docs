@@ -51,24 +51,24 @@ By default, the restrictions of a branch protection rule don't apply to people w
 ## About branch protection settings
 
 For each branch protection rule, you can choose to enable or disable the following settings.
-- [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
-- [Require status checks before merging](#require-status-checks-before-merging)
-- [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
-- [Require signed commits](#require-signed-commits)
-- [Require linear history](#require-linear-history)
+* [Require pull request reviews before merging](#require-pull-request-reviews-before-merging)
+* [Require status checks before merging](#require-status-checks-before-merging)
+* [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
+* [Require signed commits](#require-signed-commits)
+* [Require linear history](#require-linear-history)
 {% ifversion merge-queue %}
-- [Require merge queue](#require-merge-queue)
+* [Require merge queue](#require-merge-queue)
 {% endif %}
 {%- ifversion required-deployments %}
-- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+* [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 {%- endif %}
 {%- ifversion lock-branch %}
-- [Lock branch](#lock-branch)
+* [Lock branch](#lock-branch)
 {%- endif %}
 {% ifversion bypass-branch-protections %}- [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings){% else %}- [Include administrators](#include-administrators){% endif %}
-- [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
-- [Allow force pushes](#allow-force-pushes)
-- [Allow deletions](#allow-deletions)
+* [Restrict who can push to matching branches](#restrict-who-can-push-to-matching-branches)
+* [Allow force pushes](#allow-force-pushes)
+* [Allow deletions](#allow-deletions)
 
 For more information on how to set up branch protection, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
@@ -138,8 +138,8 @@ When you enable required commit signing on a branch, contributors {% ifversion f
 {% ifversion fpt or ghec %}
 **Notes:**
 
-- If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
-- If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.

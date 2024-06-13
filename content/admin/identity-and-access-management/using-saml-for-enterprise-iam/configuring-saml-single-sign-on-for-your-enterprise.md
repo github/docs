@@ -140,10 +140,10 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 ## Further reading
 
 {%- ifversion ghec %}
-- "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)"
+* "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)"
 {%- endif %}
 {%- ifversion ghes %}
-- "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)"
+* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)"
 {%- endif %}
 
 {% endif %}

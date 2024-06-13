@@ -27,9 +27,9 @@ If you want to use these endpoints for a repository that belongs to an organizat
 
 {% ifversion ghec %}
 
-- If repository is owned by an organization on {% data variables.product.prodname_team %}, you must be an organization owner or billing manager. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)".
-- If repository is owned by an organization that is on {% data variables.product.prodname_ghe_cloud %} and is not owned by an enterprise account, you must be an organization owner or billing manager. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)."
-- If repository is owned by an organization that is owned by an enterprise account, you must be an enterprise owner or billing manager. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
+* If repository is owned by an organization on {% data variables.product.prodname_team %}, you must be an organization owner or billing manager. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)".
+* If repository is owned by an organization that is on {% data variables.product.prodname_ghe_cloud %} and is not owned by an enterprise account, you must be an organization owner or billing manager. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#organization-owners)."
+* If repository is owned by an organization that is owned by an enterprise account, you must be an enterprise owner or billing manager. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
 
 {% endif %}
 

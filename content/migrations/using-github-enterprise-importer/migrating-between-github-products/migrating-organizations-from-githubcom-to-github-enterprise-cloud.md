@@ -26,11 +26,11 @@ redirect_from:
 
 ## Prerequisites
 
-- {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
-- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
-- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-- For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
-- For the destination enterprise account, you must be an enterprise owner.
+* {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+* {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+* For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+* For the destination enterprise account, you must be an enterprise owner.
 
 {% api %}
 
@@ -145,14 +145,14 @@ Before you can use the {% data variables.product.prodname_gei_cli_short %} to mi
 1. Create and record a {% data variables.product.pat_v1 %} that meets all the requirements to authenticate for the destination enterprise for organization migrations.
 1. Set environment variables for the {% data variables.product.pat_v1_plural %}, replacing TOKEN in the commands below with the {% data variables.product.pat_v1_plural %} you recorded above. Use `GH_PAT` for the destination enterprise and `GH_SOURCE_PAT` for the source organization.
 
-   - If you're using Terminal, use the `export` command.
+   * If you're using Terminal, use the `export` command.
 
      ```shell copy
      export GH_PAT="TOKEN"
      export GH_SOURCE_PAT="TOKEN"
      ```
 
-   - If you're using PowerShell, use the `$env` command.
+   * If you're using PowerShell, use the `$env` command.
 
      ```shell copy
      $env:GH_PAT="TOKEN"

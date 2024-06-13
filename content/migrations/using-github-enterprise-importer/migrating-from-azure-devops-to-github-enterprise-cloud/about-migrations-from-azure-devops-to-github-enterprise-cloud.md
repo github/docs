@@ -18,12 +18,12 @@ You can only use {% data variables.product.prodname_importer_proper_name %} to m
 
 We currently only support migrating the following repository data from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}.
 
-- Git source (including commit history)
-- Pull requests
-- User history for pull requests
-- Work item links on pull requests
-- Attachments on pull requests
-- Branch policies for the repository (user-scoped branch policies and cross-repo branch policies are not included)
+* Git source (including commit history)
+* Pull requests
+* User history for pull requests
+* Work item links on pull requests
+* Attachments on pull requests
+* Branch policies for the repository (user-scoped branch policies and cross-repo branch policies are not included)
 
 If you want to migrate Azure Pipelines to {% data variables.product.prodname_actions %}, contact your {% data variables.product.prodname_dotcom %} account manager.
 

@@ -33,8 +33,8 @@ Each description is available in a bundled or in a dereferenced format. The bund
 
 Because the OpenAPI description is machine readable, you can use it to do things like:
 
-- Generate libraries to facilitate using the REST API
-- Validate and test an integration that uses the REST API
-- Explore and interact with the REST API using third-party tools, such as Insomnia or Postman
+* Generate libraries to facilitate using the REST API
+* Validate and test an integration that uses the REST API
+* Explore and interact with the REST API using third-party tools, such as Insomnia or Postman
 
 For example, {% data variables.product.company_short %} uses the OpenAPI description to generate the Octokit SDKs. {% data variables.product.company_short %} also uses the OpenAPI description to generate the REST API reference documentation for each endpoint.

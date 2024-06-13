@@ -19,9 +19,9 @@ To make your repositories easier to reference in academic literature, you can cr
 {% tip %}
 
 **Tips:**
-- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
-- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) for the Zenodo application.
-- Make sure to include a [license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) in your repository so readers know how they can reuse your work.
+* Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+* If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) for the Zenodo application.
+* Make sure to include a [license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) in your repository so readers know how they can reuse your work.
 
 {% endtip %}
 

@@ -56,10 +56,10 @@ kramdown:
 ```
 
 By default, Jekyll doesn't build files or folders that:
-- Are located in a folder called `/node_modules` or `/vendor`
-- Start with `_`, `.`, or `#`
-- End with `~`
-- Are excluded by the `exclude` setting in your configuration file
+* Are located in a folder called `/node_modules` or `/vendor`
+* Start with `_`, `.`, or `#`
+* End with `~`
+* Are excluded by the `exclude` setting in your configuration file
 
 If you want Jekyll to process any of these files, you can use the `include` setting in your configuration file.
 
@@ -85,15 +85,15 @@ You can override any of your theme's defaults by editing the theme's files. For 
 You can download or create Jekyll plugins to extend the functionality of Jekyll for your site. For example, the [jemoji](https://github.com/jekyll/jemoji) plugin lets you use {% data variables.product.prodname_dotcom %}-flavored emoji in any page on your site the same way you would on {% data variables.product.prodname_dotcom %}. For more information, see "[Plugins](https://jekyllrb.com/docs/plugins/)" in the Jekyll documentation.
 
 {% data variables.product.prodname_pages %} uses plugins that are enabled by default and cannot be disabled:
-- [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
-- [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
-- [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
-- [`jekyll-github-metadata`](https://github.com/jekyll/github-metadata)
-- [`jekyll-optional-front-matter`](https://github.com/benbalter/jekyll-optional-front-matter)
-- [`jekyll-paginate`](https://github.com/jekyll/jekyll-paginate)
-- [`jekyll-readme-index`](https://github.com/benbalter/jekyll-readme-index)
-- [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
-- [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
+* [`jekyll-coffeescript`](https://github.com/jekyll/jekyll-coffeescript)
+* [`jekyll-default-layout`](https://github.com/benbalter/jekyll-default-layout)
+* [`jekyll-gist`](https://github.com/jekyll/jekyll-gist)
+* [`jekyll-github-metadata`](https://github.com/jekyll/github-metadata)
+* [`jekyll-optional-front-matter`](https://github.com/benbalter/jekyll-optional-front-matter)
+* [`jekyll-paginate`](https://github.com/jekyll/jekyll-paginate)
+* [`jekyll-readme-index`](https://github.com/benbalter/jekyll-readme-index)
+* [`jekyll-titles-from-headings`](https://github.com/benbalter/jekyll-titles-from-headings)
+* [`jekyll-relative-links`](https://github.com/benbalter/jekyll-relative-links)
 
 You can enable additional plugins by adding the plugin's gem to the `plugins` setting in your `_config.yml` file. For more information, see "[Configuration](https://jekyllrb.com/docs/configuration/)" in the Jekyll documentation.
 

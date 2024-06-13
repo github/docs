@@ -47,5 +47,5 @@ Access to {% data variables.product.prodname_copilot %} is managed at the organi
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
-- "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"
+* "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+* "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"

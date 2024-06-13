@@ -20,21 +20,21 @@ redirect_from:
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-- [List all of your codespaces](#list-all-of-your-codespaces)
-- [Create a new codespace](#create-a-new-codespace)
-- [View details of a codespace](#view-details-of-a-codespace)
-- [Stop a codespace](#stop-a-codespace)
-- [Delete a codespace](#delete-a-codespace)
-- [Rename a codespace](#rename-a-codespace)
-- [Rebuild a codespace](#rebuild-a-codespace)
-- [SSH into a codespace](#ssh-into-a-codespace)
-- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
-- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
-- [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-- [Modify ports in a codespace](#modify-ports-in-a-codespace)
-- [Access codespace logs](#access-codespace-logs)
-- [Access remote resources](#access-remote-resources)
-- [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
+* [List all of your codespaces](#list-all-of-your-codespaces)
+* [Create a new codespace](#create-a-new-codespace)
+* [View details of a codespace](#view-details-of-a-codespace)
+* [Stop a codespace](#stop-a-codespace)
+* [Delete a codespace](#delete-a-codespace)
+* [Rename a codespace](#rename-a-codespace)
+* [Rebuild a codespace](#rebuild-a-codespace)
+* [SSH into a codespace](#ssh-into-a-codespace)
+* [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in-visual-studio-code)
+* [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
+* [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+* [Modify ports in a codespace](#modify-ports-in-a-codespace)
+* [Access codespace logs](#access-codespace-logs)
+* [Access remote resources](#access-remote-resources)
+* [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -48,13 +48,13 @@ To use `gh` to work with {% data variables.product.prodname_github_codespaces %}
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
 
-- List your current codespaces, to check whether you have a codespace for a particular repository:<br>
+* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
   `gh codespace list`
-- Create a new codespace for the required repository branch:<br>
+* Create a new codespace for the required repository branch:<br>
   `gh codespace create -r github/docs -b main`
-- SSH into the new codespace:<br>
+* SSH into the new codespace:<br>
   `gh codespace ssh -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
-- Forward a port to your local machine:<br>
+* Forward a port to your local machine:<br>
   `gh codespace ports forward 8000:8000 -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
@@ -94,15 +94,15 @@ gh codespace view
 ```
 
 After running this command you are prompted to choose one of your existing codespaces. The following information is then displayed:
-- Name of the codespace
-- State (for example, "Available" or "Shutdown")
-- Repository
-- Git status
-- Path to the dev container configuration file used to create the codespace
-- Machine type
-- Idle timeout
-- Date and time the codespace was created
-- Retention period
+* Name of the codespace
+* State (for example, "Available" or "Shutdown")
+* Repository
+* Git status
+* Path to the dev container configuration file used to create the codespace
+* Machine type
+* Idle timeout
+* Date and time the codespace was created
+* Retention period
 
 For more information, see the [{% data variables.product.prodname_dotcom %} CLI reference](https://cli.github.com/manual/gh_codespace_view).
 
@@ -186,31 +186,31 @@ The location of files and directories on the codespace is relative to the home d
 
 #### Examples
 
-- Copy a file from the local machine to the `$HOME` directory of a codespace:
+* Copy a file from the local machine to the `$HOME` directory of a codespace:
 
    `gh codespace cp myfile.txt remote:`
 
-- Copy a file to the directory in which a repository is checked out in a codespace:
+* Copy a file to the directory in which a repository is checked out in a codespace:
 
    `gh codespace cp myfile.txt remote:/workspaces/REPOSITORY-NAME`
 
-- Copy a file from a codespace to the current directory on the local machine:
+* Copy a file from a codespace to the current directory on the local machine:
 
    `gh codespace cp remote:myfile.txt .`
 
-- Copy three local files to the `$HOME/temp` directory of a codespace:
+* Copy three local files to the `$HOME/temp` directory of a codespace:
 
    `gh codespace cp a1.txt a2.txt a3.txt remote:temp`
 
-- Copy three files from a codespace to the current working directory on the local machine:
+* Copy three files from a codespace to the current working directory on the local machine:
 
    `gh codespace cp remote:a1.txt remote:a2.txt remote:a3.txt .`
 
-- Copy a local directory into the `$HOME` directory of a codespace:
+* Copy a local directory into the `$HOME` directory of a codespace:
 
    `gh codespace cp -r mydir remote:`
 
-- Copy a directory from a codespace to the local machine, changing the directory name:
+* Copy a directory from a codespace to the local machine, changing the directory name:
 
    `gh codespace cp -r remote:mydir mydir-localcopy`
 

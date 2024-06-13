@@ -37,9 +37,9 @@ If a project doesn't have a recommended file, you can click **Propose** to draft
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)"
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)"
-- "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)"
-- "[Open Source Guides](https://opensource.guide/)"
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)"
+* "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)"
+* "[Open Source Guides](https://opensource.guide/)"
+* [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

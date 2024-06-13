@@ -92,8 +92,8 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
 1. Navigate to your account settings.
-   - For an app owned by a personal account, click **Settings**.
-   - For an app owned by an organization:
+   * For an app owned by a personal account, click **Settings**.
+   * For an app owned by an organization:
      1. Click **Your organizations**.
      1. To the right of the organization, click **Settings**.
 {% data reusables.user-settings.developer_settings %}
@@ -171,5 +171,5 @@ Authentication with username and password is not supported. If you try to authen
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
-- "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"
+* "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
+* "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"

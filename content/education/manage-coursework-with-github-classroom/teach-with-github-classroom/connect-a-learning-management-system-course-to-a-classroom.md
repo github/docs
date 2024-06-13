@@ -101,8 +101,8 @@ Google Classroom does not use the LTI protocol so does not need to be connected 
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-students %}
 1. If your classroom already has a roster, you can either update the roster or delete the roster and create a new roster.
-    - For more information about deleting and creating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
-    - For more information about updating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
+    * For more information about deleting and creating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#deleting-a-roster-for-a-classroom)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#creating-a-roster-for-your-classroom)."
+    * For more information about updating a roster, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms#adding-students-to-the-roster-for-your-classroom)."
 1. In the list of LMSes, click **Google Classroom**.
 1. Sign in to Google, then select the Classroom to link to.
 

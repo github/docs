@@ -74,31 +74,31 @@ A Suggestion is the code, functions, or other output returned to you by {% data 
 
 User Engagement Data, Prompts and Suggestions are used by {% data variables.product.company_short %} and Microsoft to improve {% data variables.product.prodname_copilot %} and related services and to conduct product and academic research.
 
-- Enhancing {% data variables.product.prodname_copilot %}: The data collected is utilized to improve {% data variables.product.prodname_copilot %} by evaluating different strategies for processing and predicting suggestions that users may find valuable.
-- Developing related developer products and services: The insights gained from the data help in the development and improvement of other developer tools and services offered by {% data variables.product.company_short %} and Microsoft.
-- Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
-- Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
-- Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
-- Improving code generation models: The collected data is employed to refine and enhance the underlying models responsible for generating code. This is achieved by utilizing both positive and negative examples.
-- Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
+* Enhancing {% data variables.product.prodname_copilot %}: The data collected is utilized to improve {% data variables.product.prodname_copilot %} by evaluating different strategies for processing and predicting suggestions that users may find valuable.
+* Developing related developer products and services: The insights gained from the data help in the development and improvement of other developer tools and services offered by {% data variables.product.company_short %} and Microsoft.
+* Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
+* Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
+* Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
+* Improving code generation models: The collected data is employed to refine and enhance the underlying models responsible for generating code. This is achieved by utilizing both positive and negative examples.
+* Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
 
 ### How is the transmitted Code Snippets data protected?
 
 To ensure the protection of sensitive data such as user edit actions, source code snippets, and repository URLs/file paths, several protective measures are implemented. These measures include:
 
-- Encryption of transmitted data: All data is encrypted both during transit and while at rest, ensuring that it remains secure and inaccessible to unauthorized parties.
-- Strict access control: Access to the data is tightly regulated and limited to specific individuals, including:
-    - Named {% data variables.product.company_short %} personnel working on the {% data variables.product.prodname_copilot %} team or the {% data variables.product.company_short %} platform health team.
-    - Microsoft personnel involved with the {% data variables.product.prodname_copilot %} team.
-- Role-based access controls and multi-factor authentication: People who require access to code snippet data must adhere to role-based access controls. Additionally, multi-factor authentication is implemented to add an extra layer of security, ensuring that only authorized individuals can access the data.
+* Encryption of transmitted data: All data is encrypted both during transit and while at rest, ensuring that it remains secure and inaccessible to unauthorized parties.
+* Strict access control: Access to the data is tightly regulated and limited to specific individuals, including:
+    * Named {% data variables.product.company_short %} personnel working on the {% data variables.product.prodname_copilot %} team or the {% data variables.product.company_short %} platform health team.
+    * Microsoft personnel involved with the {% data variables.product.prodname_copilot %} team.
+* Role-based access controls and multi-factor authentication: People who require access to code snippet data must adhere to role-based access controls. Additionally, multi-factor authentication is implemented to add an extra layer of security, ensuring that only authorized individuals can access the data.
 
 ### How can users of {% data variables.product.prodname_copilot_for_individuals %} control use of their Code Snippets Data?
 
 {% data variables.product.prodname_copilot %} gives you choices about how it uses the data it collects.
 
-- User Engagement Data: User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the proper functioning of {% data variables.product.prodname_copilot %}. This data is collected, processed, and shared with Microsoft while you use {% data variables.product.prodname_copilot %}.
-- Retention of Prompts and Suggestions: You have the option to decide whether Prompts and Suggestions, when using {% data variables.product.prodname_copilot %} in your code editor, are retained by {% data variables.product.company_short %} and shared with Microsoft. These preferences can be adjusted in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
-- Requesting Deletion: If you wish to delete Prompts and Suggestions associated with your {% data variables.product.company_short %} identity, contact {% data variables.contact.contact_support %}.
+* User Engagement Data: User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the proper functioning of {% data variables.product.prodname_copilot %}. This data is collected, processed, and shared with Microsoft while you use {% data variables.product.prodname_copilot %}.
+* Retention of Prompts and Suggestions: You have the option to decide whether Prompts and Suggestions, when using {% data variables.product.prodname_copilot %} in your code editor, are retained by {% data variables.product.company_short %} and shared with Microsoft. These preferences can be adjusted in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
+* Requesting Deletion: If you wish to delete Prompts and Suggestions associated with your {% data variables.product.company_short %} identity, contact {% data variables.contact.contact_support %}.
 
 ### Will my private code be shared with other users?
 
@@ -106,6 +106,6 @@ No. We follow responsible practices in accordance with our [Privacy Statement](/
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/){% endif %}
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/){% endif %}
+* "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"

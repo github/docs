@@ -15,27 +15,27 @@ redirect_from:
 
 ## The {% data variables.product.prodname_docs %} approach to style
 
-- Our style guide aims for simplicity. Guidelines should be easy to apply to a range of scenarios.
-- Decisions aren’t about what’s right or wrong according to the rules of grammar or the style guide, but about what’s best for our users. We're flexible and open to change while maintaining consistency.
-- To scale the style guide as our team and documentation sets grow, and to create high-quality, meaningful content that serves users, we focus our attention on high-impact, high-value scenarios rather than attempting to comprehensively cover every style question.
-- Consistency and grammatical correctness are important, but not as important as clarity and meaning.
-- When making a style or structure decision, we consider the flow of information within the unit of content and the context of the information.
-- When a question specific to help documentation isn’t covered by the style guide, we think it through using these principles, then make a decision. If a reviewer asks about it, we're prepared to discuss the decision.
+* Our style guide aims for simplicity. Guidelines should be easy to apply to a range of scenarios.
+* Decisions aren’t about what’s right or wrong according to the rules of grammar or the style guide, but about what’s best for our users. We're flexible and open to change while maintaining consistency.
+* To scale the style guide as our team and documentation sets grow, and to create high-quality, meaningful content that serves users, we focus our attention on high-impact, high-value scenarios rather than attempting to comprehensively cover every style question.
+* Consistency and grammatical correctness are important, but not as important as clarity and meaning.
+* When making a style or structure decision, we consider the flow of information within the unit of content and the context of the information.
+* When a question specific to help documentation isn’t covered by the style guide, we think it through using these principles, then make a decision. If a reviewer asks about it, we're prepared to discuss the decision.
 
 ## Audit log events
 
 We document each of the events that may appear in the audit logs for each type of account: user, organization, and enterprise.
 
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-- "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+* "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 
 When writing the description for an audit log event, describe the event that took place in a way that applies to all versions, using past tense and passive voice. Do not begin the sentence with phrases that are already implied by the context of the article, such as "Triggered by."
 
-- **Use**: The visibility of a repository was changed.
-- **Use**: Secret scanning was enabled for all new repositories.
-- **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
-- **Avoid**: Triggered when a user updates which repositories a codespace can access.
+* **Use**: The visibility of a repository was changed.
+* **Use**: Secret scanning was enabled for all new repositories.
+* **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
+* **Avoid**: Triggered when a user updates which repositories a codespace can access.
 
 ## Callouts
 
@@ -63,8 +63,8 @@ For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-gith
 Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note callouts, but some users in some contexts may benefit from the note.
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
-- Caveats that might affect the outcome of a process, such as specific user settings.
-- Products and features that are subject to changes in availability, such as those in beta or being deprecated.
+* Caveats that might affect the outcome of a process, such as specific user settings.
+* Products and features that are subject to changes in availability, such as those in beta or being deprecated.
 
 For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
 
@@ -145,9 +145,9 @@ Style your CTAs using the following format.
 ```
 
 Replace the placeholders with the relevant information for your CTA.
-- `DESTINATION/URL`: The URL that the button should navigate to.
-- `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
-- `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
+* `DESTINATION/URL`: The URL that the button should navigate to.
+* `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
+* `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
 
 ## Code
 
@@ -156,49 +156,49 @@ Replace the placeholders with the relevant information for your CTA.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
-- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the [`github/docs`](https://github.com/github/docs) repository.
-- Do not use HTML to style or markup a code block.
-- Style any placeholders that people need to replace with their own values in all caps.
-  - **Use:** `git checkout -b BRANCH-NAME`
-  - **Avoid:** `git checkout -b <branch-name>`
-- Do not use command prompts like `$` before the command itself. These prompts make it challenging for readers to copy and paste the command.
-  - If you show a command and the command's output, comment out the output in the example.
-  - **Use:**
+* Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the [`github/docs`](https://github.com/github/docs) repository.
+* Do not use HTML to style or markup a code block.
+* Style any placeholders that people need to replace with their own values in all caps.
+  * **Use:** `git checkout -b BRANCH-NAME`
+  * **Avoid:** `git checkout -b <branch-name>`
+* Do not use command prompts like `$` before the command itself. These prompts make it challenging for readers to copy and paste the command.
+  * If you show a command and the command's output, comment out the output in the example.
+  * **Use:**
 
     ```shell
     command
     # output
     ```
 
-  - **Avoid:**
+  * **Avoid:**
 
     ```shell
     $ command
     output
     ```
 
-- If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
-  - **Use**:
+* If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
+  * **Use**:
 
     <pre>
     GITHUB_TOKEN: &#123;% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
     </pre>
 
-  - **Avoid**:
+  * **Avoid**:
 
     <pre>
     GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
     </pre>
 
-- If your code example includes content that should be parsed, wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
+* If your code example includes content that should be parsed, wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
 
 ### Commands
 
 Use inline code blocks to refer to short command names.
-- **Use:** To check the status of a running cluster, use the `ghe-cluster-status` command.
+* **Use:** To check the status of a running cluster, use the `ghe-cluster-status` command.
 
 Use command blocks for longer or more complex commands.
-- **Use:** Enable maintenance mode according to your scheduled window by connecting to the administrative shell of any cluster node and running:
+* **Use:** Enable maintenance mode according to your scheduled window by connecting to the administrative shell of any cluster node and running:
 
   ```shell
   ghe-cluster-maintenance -s
@@ -210,14 +210,14 @@ Do not include command prompts such as `$`. Avoid inline links in command names.
 
 If you show the output of a command, comment out the output in the example so that people can copy and paste the command and execute it without modification.
 
-- **Use:**
+* **Use:**
 
   ```shell
   git lfs install
   # Git LFS initialized.
   ```
 
-- **Avoid:**
+* **Avoid:**
 
   ```shell
   $ git lfs install
@@ -227,7 +227,7 @@ If you show the output of a command, comment out the output in the example so th
 ### Examples
 
 When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context.
-- **Use:**
+* **Use:**
 
 <!-- markdownlint-disable yaml-scheduled-jobs -->
 ```yaml
@@ -236,7 +236,7 @@ on:
     - cron:  "40 19 * * *"
 ```
 
-- **Avoid:**
+* **Avoid:**
 
 ```yaml
 schedule:
@@ -248,16 +248,16 @@ schedule:
 
 Use backticks to format references to file names and directory names in a monospaced font. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
 
-- **Use:** In your `README.md` file, add info about your repository.
-- **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
-- **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
-- **Avoid:** Delete the **example.js** file.
+* **Use:** In your `README.md` file, add info about your repository.
+* **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
+* **Avoid:** In your _.github/workflows/_ directory, create the `example-workflow.yml` file.
+* **Avoid:** Delete the **example.js** file.
 
 ### Indentation
 
 In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
 
-- **Use:**
+* **Use:**
 
 ```yaml
     steps:
@@ -274,25 +274,25 @@ To indent reusables, see [`data/reusables/README.md`](https://github.com/github/
 
 Workflow runs are delayed when too many workflows run at once. Since many users copy code from {% data variables.product.prodname_docs %}, we should use examples that guide users away from congested times.
 
-- Do not use examples that run on the hour as these are the most congested times.
-- Do not use examples that run more frequently than necessary. For example, instead of running every five minutes, consider if the example makes sense to run every 30 minutes instead.
-- Use a different time for each example.
+* Do not use examples that run on the hour as these are the most congested times.
+* Do not use examples that run more frequently than necessary. For example, instead of running every five minutes, consider if the example makes sense to run every 30 minutes instead.
+* Use a different time for each example.
 
 ## Emphasis
 
 Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
 
-- **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
-- **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
-- **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
+* **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
+* **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+* **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Error messages
 
 When you include the text of an error message from a {% data variables.product.company_short %} product or interface in an article, format the text according to the interface where the message appears.
 
-- If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
+* If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
 
-- If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
+* If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
 
 ## Expiring content
 
@@ -330,7 +330,7 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
 If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
-- **Use:**
+* **Use:**
 
   ```markdown
   ## HEADER (H2)
@@ -343,7 +343,7 @@ If an article has headers, the headers must start with an H2 level header. You c
   TEXT
   ```
 
-- **Avoid:**
+* **Avoid:**
 
   ```markdown
   ## HEADER (H2)
@@ -352,7 +352,7 @@ If an article has headers, the headers must start with an H2 level header. You c
   ```
 
 When referring to headers, surround the header name with quotation marks.
-- **Use:** Under "User licenses," view your total licenses.
+* **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
 
@@ -366,31 +366,31 @@ Do not use animated GIFs in the docs.
 
 Every image must include alt text providing a textual equivalent of the visual information.
 
-- Express the core idea or meaning of the image, rather than describing it literally.
-- Use 40–150 characters.
-- End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
-- Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
-- Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
-- Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, such as names of menu items, in double quotation marks ("").
-- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
+* Express the core idea or meaning of the image, rather than describing it literally.
+* Use 40–150 characters.
+* End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
+* Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
+* Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
+* Follow standard language used to describe UI elements in article text.
+* Put multi-word titles, such as names of menu items, in double quotation marks ("").
+* If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
 
 Alt text provides a short description of a screenshot's content to benefit people who cannot see it.
 
-- Alt text only needs to include the most relevant elements of an image, not every detail.
-- Alt text is not intended to provide instructions for using the GitHub interface. These should be included in accompanying article text.
+* Alt text only needs to include the most relevant elements of an image, not every detail.
+* Alt text is not intended to provide instructions for using the GitHub interface. These should be included in accompanying article text.
 
 ##### Format
 
 > Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
 
-- For `Product name`, use the {% data variables.product.company_short %} product or feature name, such as "{% data variables.product.prodname_actions %}" or "{% data variables.product.company_short %} repository," rather than just "{% data variables.product.company_short %}."
-- Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
-- Describe UI elements consistently with written documentation.
-- Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}…" rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu…," to avoid multiple nouns in a row.
+* For `Product name`, use the {% data variables.product.company_short %} product or feature name, such as "{% data variables.product.prodname_actions %}" or "{% data variables.product.company_short %} repository," rather than just "{% data variables.product.company_short %}."
+* Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
+* Describe UI elements consistently with written documentation.
+* Be flexible with word order when needed for clarity.
+  * For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}…" rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu…," to avoid multiple nouns in a row.
 
 ##### Examples
 
@@ -421,9 +421,9 @@ When using a screenshot of a command-line interface to show user interface eleme
 ### File names for images
 
 Be descriptive when naming image files: include the name, action, and UI element in the file name. Mirror product language. Use kebab case. Do not use Liquid conditionals in file names. If replacing an image, use the exact file name.
-- **Use:** `data-pack-purchase-button.png`
-- **Avoid:** `purchase_button.png`
-- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
+* **Use:** `data-pack-purchase-button.png`
+* **Avoid:** `purchase_button.png`
+* **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -448,69 +448,69 @@ Individual words might be small, but together they can create community, belongi
 ### Resources about inclusive language
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
-- [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
-- [Writing for all abilities](https://docs.microsoft.com/style-guide/accessibility/writing-all-abilities)
-- [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
+* [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
+* [Writing for all abilities](https://docs.microsoft.com/style-guide/accessibility/writing-all-abilities)
+* [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
-- [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
-- MailChimp Content Style Guide:
-  - [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
-  - [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)
-- [Readability Guidelines](https://readabilityguidelines.co.uk/)
-- [Conscious Style Guide](https://consciousstyleguide.com/)
+* [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
+* MailChimp Content Style Guide:
+  * [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
+  * [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)
+* [Readability Guidelines](https://readabilityguidelines.co.uk/)
+* [Conscious Style Guide](https://consciousstyleguide.com/)
 
 ## Keyboard shortcuts
 
 For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/keys-keyboard-shortcuts), **except for the following differences**:
 
-- Use the HTML `<kbd>` tag for each individual key.
+* Use the HTML `<kbd>` tag for each individual key.
 
-  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`
-  - **Avoid:** `Command+B`
-- Use full words instead of symbols for Apple modifier keys.
+  * **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`
+  * **Avoid:** `Command+B`
+* Use full words instead of symbols for Apple modifier keys.
 
-  - **Use:** `Command`
-  - **Avoid:** `⌘`
-- Use symbols for keys of special character, not full words.
+  * **Use:** `Command`
+  * **Avoid:** `⌘`
+* Use symbols for keys of special character, not full words.
 
-  - **Use:** `.`, `,`, and `→`.
-  - **Avoid:** `Period`, `Comma`, and `Right arrow`.
+  * **Use:** `.`, `,`, and `→`.
+  * **Avoid:** `Period`, `Comma`, and `Right arrow`.
 
 ### Usage highlights
 
 Below are some usage highlights for how we present keyboard shortcuts in our documentation:
 
-- The basic syntax is to show keys with `+` between key combinations, without any spaces.
+* The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
-  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
-  - **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
-- Always capitalize letter keys for general references and keyboard shortcuts.
+  * **Use:** `<kbd>Command</kbd>+<kbd>B</kbd>`, which is rendered as <kbd>Command</kbd>+<kbd>B</kbd>.
+  * **Avoid:** `<kbd>Command</kbd> + <kbd>B</kbd>` or `<kbd>Command + B</kbd>` which are  rendered as <kbd>Command</kbd> + <kbd>B</kbd> or <kbd>Command + B</kbd>.
+* Always capitalize letter keys for general references and keyboard shortcuts.
 
-  - **Use:** <kbd>Command</kbd>+<kbd>B</kbd>
-  - **Avoid:** <kbd>Command</kbd>+<kbd>b</kbd>.
-- Use the correct modifier keys for the each operating system.
+  * **Use:** <kbd>Command</kbd>+<kbd>B</kbd>
+  * **Avoid:** <kbd>Command</kbd>+<kbd>b</kbd>.
+* Use the correct modifier keys for the each operating system.
 
   **Note:** Windows and Linux have <kbd>Ctrl</kbd> abbreviated, whereas on Mac it is spelled in full: <kbd>Control</kbd>.
 
-  - For Windows and Linux:
+  * For Windows and Linux:
 
-    - **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
-    - **Avoid:** <kbd>Control</kbd>
-  - For Mac:
+    * **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
+    * **Avoid:** <kbd>Control</kbd>
+  * For Mac:
 
-    - **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
-    - **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
-- Don't confuse key combinations with keys in a sequence.
+    * **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
+    * **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
+* Don't confuse key combinations with keys in a sequence.
 
-  - <kbd>Command</kbd>+<kbd>B</kbd> indicates that the user should hold down the <kbd>Command</kbd> key and press the <kbd>B</kbd> key.
-  - <kbd>G</kbd> <kbd>I</kbd> indicates that the user should press the <kbd>G</kbd> key, then press the <kbd>I</kbd> key.
-- When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
+  * <kbd>Command</kbd>+<kbd>B</kbd> indicates that the user should hold down the <kbd>Command</kbd> key and press the <kbd>B</kbd> key.
+  * <kbd>G</kbd> <kbd>I</kbd> indicates that the user should press the <kbd>G</kbd> key, then press the <kbd>I</kbd> key.
+* When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
 
-  - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
+  * **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
 
      <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows / Linux)
-  - **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
+  * **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
 
     <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
 
@@ -527,9 +527,9 @@ If you are unsure of the legality of reusing any content, contact legal. If you 
 If we reuse or modify content under an MIT license, we must attribute the MIT license where the content appears.
 
 At the end of the article containing MIT-licensed content
-- Create a header titled `Legal notice`
-- Attribute where the content comes from and that it is licensed under the MIT license. Include a link to the project
-- Paste the full text of the MIT license from the project that you are attributing in a codeblock
+* Create a header titled `Legal notice`
+* Attribute where the content comes from and that it is licensed under the MIT license. Include a link to the project
+* Paste the full text of the MIT license from the project that you are attributing in a codeblock
 
 #### Example MIT license attribution
 
@@ -570,30 +570,30 @@ Use the title of the documentation article, or external web page, as the link te
 
 Do not use inline links, where words within the sentence are hyperlinked without any additional words to indicate that the sentence contains a link. This can be difficult to translate and can be harder to read.
 
-- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
-- **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
+* **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+* **Avoid:** `Read [more about OAuth2](/apps/building-integrations/setting-up-and-registering-oauth-apps/). Note that OAuth2 tokens can be [acquired programmatically](/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 Usage examples:
 
-- For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
-- For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
-- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
+* For links to other pages: `See "[AUTOTITLE](/PATH/TO/PAGE)."`
+* For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
+* For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
 For links to an external page (any website that isn't managed by {% data variables.product.prodname_dotcom %}), type out the full page title and destination site.
 
-- **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
-- **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
-- **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
+* **Use:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
+* **Avoid:** `See [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE).`
+* **Avoid:** `See [the OTHER WEBSITE](https://some-docs.com/PATH/TO/PAGE).`
 
 Do not include quotation marks within a hyperlink.
 
 Some best practices for using links:
-- Links should be meaningful and provide high value to the user’s journey—link out carefully.
-- Move links that are helpful but not necessary to an article’s further reading section.
-- Do not repeat the same link more than once in the same article or under the same H2 header.
-- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
+* Links should be meaningful and provide high value to the user’s journey—link out carefully.
+* Move links that are helpful but not necessary to an article’s further reading section.
+* Do not repeat the same link more than once in the same article or under the same H2 header.
+* Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
 ### Links between versions
 

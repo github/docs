@@ -21,19 +21,19 @@ The instructions below will guide you through configuring your environment to us
 
 ### Prerequisites
 
-- A Jenkins account or organization with pipelines and jobs that you want to convert to {% data variables.product.prodname_actions %} workflows.
-- Access to create a Jenkins personal API token for your account or organization.
+* A Jenkins account or organization with pipelines and jobs that you want to convert to {% data variables.product.prodname_actions %} workflows.
+* Access to create a Jenkins personal API token for your account or organization.
 {% data reusables.actions.actions-importer-prerequisites %}
 
 ### Limitations
 
 There are some limitations when migrating from Jenkins to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}. For example, you must migrate the following constructs manually:
 
-- Mandatory build tools
-- Scripted pipelines
-- Secrets
-- Self-hosted runners
-- Unknown plugins
+* Mandatory build tools
+* Scripted pipelines
+* Secrets
+* Self-hosted runners
+* Unknown plugins
 
 For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions)."
 
@@ -61,12 +61,12 @@ The `configure` CLI command is used to set required credentials and options for 
 
    The `configure` command will prompt you for the following information:
 
-   - For "Which CI providers are you configuring?", use the arrow keys to select `Jenkins`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
-   - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
-   - For "{% data variables.product.pat_generic_caps %} for Jenkins", enter the value for the Jenkins personal API token that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Username of Jenkins user", enter your Jenkins username and press <kbd>Enter</kbd>.
-   - For "Base url of the Jenkins instance", enter the URL of your Jenkins instance, and press <kbd>Enter</kbd>.
+   * For "Which CI providers are you configuring?", use the arrow keys to select `Jenkins`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
+   * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "{% data variables.product.pat_generic_caps %} for Jenkins", enter the value for the Jenkins personal API token that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Username of Jenkins user", enter your Jenkins username and press <kbd>Enter</kbd>.
+   * For "Base url of the Jenkins instance", enter the URL of your Jenkins instance, and press <kbd>Enter</kbd>.
 
    An example of the `configure` command is shown below:
 
@@ -145,12 +145,12 @@ The `forecast_report.md` file in the specified output directory contains the res
 
 Listed below are some key terms that can appear in the forecast report:
 
-- The **job count** is the total number of completed jobs.
-- The **pipeline count** is the number of unique pipelines used.
-- **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
-  - This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
-- **Queue time** metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
-- **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners you should configure.
+* The **job count** is the total number of completed jobs.
+* The **pipeline count** is the number of unique pipelines used.
+* **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
+  * This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
+* **Queue time** metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
+* **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners you should configure.
 
 Additionally, these metrics are defined for each queue of runners in Jenkins. This is especially useful if there is a mix of hosted or self-hosted runners, or high or low spec machines, so you can see metrics specific to different types of runners.
 
@@ -206,9 +206,9 @@ This section contains reference information on environment variables, optional a
 
 {% data variables.product.prodname_actions_importer %} uses the following environment variables to connect to your Jenkins instance:
 
-- `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a converted workflow (requires `repo` and `workflow` scopes).
-- `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
-- `JENKINS_ACCESS_TOKEN`: The Jenkins API token used to view Jenkins resources.
+* `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a converted workflow (requires `repo` and `workflow` scopes).
+* `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
+* `JENKINS_ACCESS_TOKEN`: The Jenkins API token used to view Jenkins resources.
 
   {% note %}
 
@@ -216,9 +216,9 @@ This section contains reference information on environment variables, optional a
 
   {% endnote %}
 
-- `JENKINS_USERNAME`: The username of the user account that created the Jenkins API token.
-- `JENKINS_INSTANCE_URL`: The URL of the Jenkins instance.
-- `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope.  If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
+* `JENKINS_USERNAME`: The username of the user account that created the Jenkins API token.
+* `JENKINS_INSTANCE_URL`: The URL of the Jenkins instance.
+* `JENKINSFILE_ACCESS_TOKEN` (Optional) The API token used to retrieve the contents of a `Jenkinsfile` stored in the build repository. This requires the `repo` scope.  If this is not provided, the `GITHUB_ACCESS_TOKEN` will be used instead.
 
 These environment variables can be specified in a `.env.local` file that is loaded by {% data variables.product.prodname_actions_importer %} when it is run.
 

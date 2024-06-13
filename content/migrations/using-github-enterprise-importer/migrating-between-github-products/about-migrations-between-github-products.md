@@ -49,9 +49,9 @@ Metadata | 2GB | 10GB
 Currently, the following data is **not** migrated.
 
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
-- Teams
-- User or team access to the repository
-- Repository settings for pull requests
+* Teams
+* User or team access to the repository
+* Repository settings for pull requests
 
 ### Branch protections
 
@@ -65,12 +65,12 @@ If your migration source is another account on {% data variables.product.prodnam
 
 When you migrate an organization, a new organization is created within the destination enterprise account. Then, the following data is migrated to the new organization.
 
-- Teams
-- Repositories
-- Team access to repositories
-- Member privileges
-- Organization-level webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
-- Default branch name for new repositories created in the organization
+* Teams
+* Repositories
+* Team access to repositories
+* Member privileges
+* Organization-level webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
+* Default branch name for new repositories created in the organization
 
 All repositories are migrated with private visibility. If you want to set a repository's visibility to public or internal, you can do this after the migration using the UI or API.
 
@@ -86,38 +86,38 @@ Team membership is **not** migrated. After the migration, you'll need to add mem
 
 When you migrate a repository, either directly or as part of an organization migration, only the following data is migrated.
 
-- Git source (including commit history)
-- Pull requests
-- Issues
-- Milestones
-- Wikis (excluding attachments)
-- Projects (classic) at the repository level
-- {% data variables.product.prodname_actions %} workflows
-- Commit comments
-- Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
-- Repository topics
-- Repository settings
-  - Branch protections (see "[Branch protections](#branch-protections)" for more details)
-  - {% data variables.product.prodname_pages %} settings
-  - Autolink references
-  - {% data variables.product.prodname_GH_advanced_security %} settings
-  - Pull request settings
-    - Automatically delete head branches
-    - Allow auto-merge
-    - Allow merge commits (commit message setting is reset to the default message)
-    - Allow squash merging (commit message setting is reset to the default message)
-    - Allow rebase merging
-- Releases (up to 10 GB per repository)
-- User history for the above data
-- Attachments (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)")
+* Git source (including commit history)
+* Pull requests
+* Issues
+* Milestones
+* Wikis (excluding attachments)
+* Projects (classic) at the repository level
+* {% data variables.product.prodname_actions %} workflows
+* Commit comments
+* Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
+* Repository topics
+* Repository settings
+  * Branch protections (see "[Branch protections](#branch-protections)" for more details)
+  * {% data variables.product.prodname_pages %} settings
+  * Autolink references
+  * {% data variables.product.prodname_GH_advanced_security %} settings
+  * Pull request settings
+    * Automatically delete head branches
+    * Allow auto-merge
+    * Allow merge commits (commit message setting is reset to the default message)
+    * Allow squash merging (commit message setting is reset to the default message)
+    * Allow rebase merging
+* Releases (up to 10 GB per repository)
+* User history for the above data
+* Attachments (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)")
 
 ### Data that is not migrated
 
 Currently, the following data is **not** migrated.
 
-- {% data variables.product.prodname_codespaces %} secrets
+* {% data variables.product.prodname_codespaces %} secrets
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
-- User access to the repository
+* User access to the repository
 
 When you migrate a repository directly, teams and team access to repositories are not migrated.
 

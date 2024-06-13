@@ -41,15 +41,15 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 As a member of an organization, you can request access to {% data variables.product.prodname_copilot_for_business %} from your organization's owners. This can be done in a couple of different ways:
 
-- From the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot) for your personal account
+* From the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot) for your personal account
 
   ![Screenshot of the {% data variables.product.prodname_copilot %} settings page. A button labelled "Ask admin for access" is outlined in dark orange.](/assets/images/help/copilot/request-cfb-access-settings.png)
 
-- From an empty repository in the organization
+* From an empty repository in the organization
 
   ![Screenshot from the top of an empty repository with the option ask admin for access to {% data variables.product.prodname_copilot_for_business %}.](/assets/images/help/copilot/request-cfb-access-empty-repo.png)
 
 ## Further reading
 
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
-- "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"
+* "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+* "[{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)"

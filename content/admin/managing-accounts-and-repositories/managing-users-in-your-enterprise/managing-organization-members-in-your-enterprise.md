@@ -25,8 +25,8 @@ Members can also be added or removed from an organization at the organization le
    {% note %}
 
    **Note:**
-   - Users will be added as organization members. If the user is already an organization member or organization owner, the privileges will not be modified.
-   - Organization owners cannot be removed from the organization via the bulk method.
+   * Users will be added as organization members. If the user is already an organization member or organization owner, the privileges will not be modified.
+   * Organization owners cannot be removed from the organization via the bulk method.
 
    {% endnote %}
 

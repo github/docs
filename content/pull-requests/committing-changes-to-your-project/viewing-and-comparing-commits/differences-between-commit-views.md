@@ -13,8 +13,8 @@ shortTitle: Commit views
 ---
 On {% data variables.product.product_name %}, you can see the commit history of a repository by:
 
-- Navigating directly to [the commits page](https://github.com/mozilla/rust/commits/master) of a repository
-- Clicking on a file, then clicking **History**, to get to [the commit history for a specific file](https://github.com/mozilla/rust/commits/master/README.md)
+* Navigating directly to [the commits page](https://github.com/mozilla/rust/commits/master) of a repository
+* Clicking on a file, then clicking **History**, to get to [the commit history for a specific file](https://github.com/mozilla/rust/commits/master/README.md)
 
 These two commit views may show _different_ information at times. The history for a single file may omit commits found on the repository's commit history.
 
@@ -34,5 +34,5 @@ For more information on how Git considers commit history, see [the "History Simp
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-commits)"

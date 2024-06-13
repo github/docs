@@ -19,9 +19,9 @@ redirect_from:
 
 You can change numerous settings for the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, including:
 
-- Which version of the {% data variables.product.prodname_codeql_cli %} the extension uses.
-- How the extension displays previous queries.
-- How the extension runs queries.
+* Which version of the {% data variables.product.prodname_codeql_cli %} the extension uses.
+* How the extension displays previous queries.
+* How the extension runs queries.
 
 ## Editing settings
 
@@ -133,4 +133,4 @@ You can configure whether the {% data variables.product.prodname_codeql %} exten
 
 ## Further reading
 
-- [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) in the {% data variables.product.prodname_vscode %} documentation
+* [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) in the {% data variables.product.prodname_vscode %} documentation

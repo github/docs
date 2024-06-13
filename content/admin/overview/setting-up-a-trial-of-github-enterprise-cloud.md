@@ -28,10 +28,10 @@ You do not need to provide a payment method during the trial.
 
 The self-serve trial **is not** right for you if your company:
 
-- Wants to try {% data variables.product.prodname_emus %}
-- Wants to try {% data variables.product.prodname_ghe_server %} alongside {% data variables.product.prodname_ghe_cloud %}
-- Has a Microsoft Enterprise Agreement
-- Needs to connect an Azure subscription to the enterprise during the trial
+* Wants to try {% data variables.product.prodname_emus %}
+* Wants to try {% data variables.product.prodname_ghe_server %} alongside {% data variables.product.prodname_ghe_cloud %}
+* Has a Microsoft Enterprise Agreement
+* Needs to connect an Azure subscription to the enterprise during the trial
 
 If any of these apply and you want to set up a trial, **contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact)**.
 
@@ -39,20 +39,20 @@ If any of these apply and you want to set up a trial, **contact [{% data variabl
 
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
-- Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-- An **enterprise account**, which allows you to manage multiple organizations. See "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
-- Up to **50 seats** to grant access to users.
-- The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+* Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
+* An **enterprise account**, which allows you to manage multiple organizations. See "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
+* Up to **50 seats** to grant access to users.
+* The option to set up a free trial of **{% data variables.product.prodname_GH_advanced_security %}** to test features such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}. See "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 ## Features not included in the trial
 
-- {% data variables.product.prodname_emus %}
-- {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
-- {% data variables.product.prodname_sponsors %}
-- Paid {% data variables.product.prodname_marketplace %} apps
-- {% data variables.product.prodname_github_connect %}
-- For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
+* {% data variables.product.prodname_emus %}
+* {% data variables.product.prodname_github_codespaces %}
+* {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
+* {% data variables.product.prodname_sponsors %}
+* Paid {% data variables.product.prodname_marketplace %} apps
+* {% data variables.product.prodname_github_connect %}
+* For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 
 If you invite an existing organization into your trial enterprise, **all of these features will be disabled**. If you remove the organization from the enterprise, the features will be re-enabled.
 
@@ -62,9 +62,9 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 You can create up to **three new organizations** in the trial enterprise, or transfer any number of existing organizations.
 
-- You cannot transfer organizations that have free or paid {% data variables.product.prodname_marketplace %} apps. Free apps are supported for new organizations in the trial.
-- Billing for transferred organizations is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}.
-- Organizations created during the trial cannot be removed from the enterprise account until you purchase {% data variables.product.prodname_enterprise %}.
+* You cannot transfer organizations that have free or paid {% data variables.product.prodname_marketplace %} apps. Free apps are supported for new organizations in the trial.
+* Billing for transferred organizations is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}.
+* Organizations created during the trial cannot be removed from the enterprise account until you purchase {% data variables.product.prodname_enterprise %}.
 
 ## What happens when the trial ends?
 
@@ -72,19 +72,19 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
-- You'll now be charged for each unique user in your enterprise.
-- You can add more seats to your subscription, up to 1,000.
+* You'll now be charged for each unique user in your enterprise.
+* You can add more seats to your subscription, up to 1,000.
 
 If you **cancel your trial**:
 
-- Organizations that you transferred into the enterprise are removed and reverted to their previous plans and settings.
-- Enterprise owners and members lose access to the enterprise account and any organizations that you created during the trial.
+* Organizations that you transferred into the enterprise are removed and reverted to their previous plans and settings.
+* Enterprise owners and members lose access to the enterprise account and any organizations that you created during the trial.
 
 If your **trial expires**:
 
-- Organizations that you transferred into the enterprise are removed and reverted to their previous plans and settings.
-- Enterprise owners and members retain access to the enterprise account and organizations created during the trial in a downgraded state, allowing you to either upgrade to {% data variables.product.prodname_enterprise %} or move assets elsewhere.
-- You can delete an expired trial to remove people's access to the enterprise and organizations created during the trial.
+* Organizations that you transferred into the enterprise are removed and reverted to their previous plans and settings.
+* Enterprise owners and members retain access to the enterprise account and organizations created during the trial in a downgraded state, allowing you to either upgrade to {% data variables.product.prodname_enterprise %} or move assets elsewhere.
+* You can delete an expired trial to remove people's access to the enterprise and organizations created during the trial.
 
 For more information about the effects of downgrading an organization, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan#downgrading-your-organizations-plan)."
 
@@ -99,6 +99,6 @@ You can end a trial by purchasing {% data variables.product.prodname_enterprise 
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"
-- "[AUTOTITLE](/admin/overview/best-practices-for-enterprises)"
-- [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %})
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"
+* "[AUTOTITLE](/admin/overview/best-practices-for-enterprises)"
+* [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %})

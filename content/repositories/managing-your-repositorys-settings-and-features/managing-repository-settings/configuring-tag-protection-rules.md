@@ -30,10 +30,10 @@ You can import existing tag protection rules into repository rulesets. This will
 
 Rulesets have the following advantages over tag protection rules.
 
-- Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering)."
-- Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
-- Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-- With rulesets, you can restrict tag names on an organization-wide basis.
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering)."
+* Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
+* Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
+* With rulesets, you can restrict tag names on an organization-wide basis.
 
 {% endif %}
 

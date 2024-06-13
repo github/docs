@@ -76,8 +76,8 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
-- The name of the alert
-- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
+* The name of the alert
+* The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
 
 | Supported search | Syntax example | Results |
 | ---- | ---- | ---- |
@@ -90,8 +90,8 @@ You can search the list of alerts. This is useful if there is a large number of 
 {% tip %}
 
 **Tips:**
-- The multiple word search is equivalent to an OR search.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
+* The multiple word search is equivalent to an OR search.
+* The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% endtip %}
 
@@ -148,12 +148,12 @@ Dismissing an alert is a way of closing an alert that you don't think needs to b
 
 When you dismiss an alert:
 
-- It's dismissed in all branches.
-- The alert is removed from the number of current alerts for your project.
-- The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-- The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
-- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
-- Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
+* It's dismissed in all branches.
+* The alert is removed from the number of current alerts for your project.
+* The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
+* The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
+* Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
+* Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
 To dismiss alerts:
 
@@ -204,8 +204,8 @@ You may have multiple code scanning configurations on a single repository. When 
 {% note %}
 
 **Notes:**
-- If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
-- If you remove all {% data variables.product.prodname_code_scanning %} configurations for any branch other than the default branch of your repository, that branch will be removed from the "Affected branches" sidebar.
+* If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
+* If you remove all {% data variables.product.prodname_code_scanning %} configurations for any branch other than the default branch of your repository, that branch will be removed from the "Affected branches" sidebar.
 
 {% endnote %}
 
@@ -217,6 +217,6 @@ You may have multiple code scanning configurations on a single repository. When 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"
-- "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
-- "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"
+* "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
+* "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"

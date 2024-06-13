@@ -87,5 +87,5 @@ You can upload an existing file to a repository on {% data variables.location.pr
 
 ## Further reading
 
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
 {% endif %}

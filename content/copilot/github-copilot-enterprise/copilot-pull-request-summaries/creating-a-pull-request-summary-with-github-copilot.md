@@ -15,9 +15,9 @@ You can use {% data variables.product.prodname_copilot %} to generate a summary 
 
 {% data variables.product.prodname_copilot %} will scan through the pull request and provide an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact. You can generate a summary in the following places.
 
-- In the description of a new pull request you're creating
-- In the description of an existing pull request, by editing the opening comment
-- In a comment on the main timeline of a pull request
+* In the description of a new pull request you're creating
+* In the description of an existing pull request, by editing the opening comment
+* In a comment on the main timeline of a pull request
 
 To learn more about {% data variables.product.prodname_copilot_for_prs %} and how to use the feature most effectively, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)."
 
@@ -33,9 +33,9 @@ To learn more about {% data variables.product.prodname_copilot_for_prs %} and ho
 
 1. Navigate to the text field where you want to add the pull request summary.
 
-   - If you're creating a new pull request, use the "Add a description" field.
-   - If you're adding a description to an existing pull request, edit the opening comment.
-   - If you're adding a summary as a comment, navigate to the "Add a comment" section at the bottom of the pull request page.
+   * If you're creating a new pull request, use the "Add a description" field.
+   * If you're adding a description to an existing pull request, edit the opening comment.
+   * If you're adding a summary as a comment, navigate to the "Add a comment" section at the bottom of the pull request page.
 
 1. In the header of the text field, select {% octicon "copilot" aria-label="Copilot actions" %}, then click **Summary**.
 

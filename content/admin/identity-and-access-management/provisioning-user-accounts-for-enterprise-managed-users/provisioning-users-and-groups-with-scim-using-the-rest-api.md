@@ -19,8 +19,8 @@ topics:
 
 **Notes**:
 
-- {% data reusables.scim.ghec-open-scim-release-phase %}
-- {% data reusables.scim.ghec-open-scim-test-in-isolation %}
+* {% data reusables.scim.ghec-open-scim-release-phase %}
+* {% data reusables.scim.ghec-open-scim-test-in-isolation %}
 
 {% endnote %}
 
@@ -28,15 +28,15 @@ topics:
 
 If your enterprise on {% data variables.product.prodname_dotcom %} is created for {% data variables.product.prodname_emus %}, you must configure an external identity management system to provision and maintain user accounts. Your identity management system must offer the following functionality:
 
-- Single sign-on authentication implementing one of the following two single sign-on (SSO) standards:
-  - Security Assertion Markup Language (SAML) 2.0
-  - OpenID Connect (OIDC), which is only supported if you use Microsoft Entra ID (previously known as Azure AD)
-- User lifecycle management with System for Cross-domain Identity Management (SCIM)
+* Single sign-on authentication implementing one of the following two single sign-on (SSO) standards:
+  * Security Assertion Markup Language (SAML) 2.0
+  * OpenID Connect (OIDC), which is only supported if you use Microsoft Entra ID (previously known as Azure AD)
+* User lifecycle management with System for Cross-domain Identity Management (SCIM)
 
 When you configure authentication and provisioning for your enterprise, you can either use a partner IdP, or you can use another combination of identity management systems.
 
-- [Using a partner identity provider](#using-a-partner-identity-provider)
-- [Using other identity management systems](#using-other-identity-management-systems)
+* [Using a partner identity provider](#using-a-partner-identity-provider)
+* [Using other identity management systems](#using-other-identity-management-systems)
 
 ### Using a partner identity provider
 
@@ -54,23 +54,23 @@ If you cannot use a partner IdP for both authentication and provisioning due to 
 
 ## Prerequisites
 
-- {% data reusables.enterprise-managed.emu-prerequisite %}
-- {% data reusables.scim.emu-prerequisite-authentication %}
-- {% data reusables.scim.scim-standard-prerequisite %}
-- You must enable an open SCIM configuration for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#configuring-provisioning-for-other-identity-management-systems)."
-- To authenticate requests to the REST API endpoints for SCIM, you must use a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **admin:enterprise** scope. {% data variables.product.company_short %} recommends that you do not configure an expiration date for the token. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
-- The user records for the systems that you use for authentication and provisioning must share a unique identifier and satisfy {% data variables.product.company_short %}'s matching criteria. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)" in the REST API documentation.
+* {% data reusables.enterprise-managed.emu-prerequisite %}
+* {% data reusables.scim.emu-prerequisite-authentication %}
+* {% data reusables.scim.scim-standard-prerequisite %}
+* You must enable an open SCIM configuration for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#configuring-provisioning-for-other-identity-management-systems)."
+* To authenticate requests to the REST API endpoints for SCIM, you must use a {% data variables.product.pat_v1 %} associated with your enterprise's setup user. The token requires the **admin:enterprise** scope. {% data variables.product.company_short %} recommends that you do not configure an expiration date for the token. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#creating-a-personal-access-token)."
+* The user records for the systems that you use for authentication and provisioning must share a unique identifier and satisfy {% data variables.product.company_short %}'s matching criteria. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)" in the REST API documentation.
 
 ## Best practices for SCIM provisioning with {% data variables.product.prodname_dotcom %}'s REST API
 
 When you configure your identity management system to provision users or groups of users on {% data variables.product.product_name %}, {% data variables.product.company_short %} strongly recommends that you adhere to the following guidelines.
 
-- [Ensure your identity management system is the only source of write operations](#ensure-your-identity-management-system-is-the-only-source-of-write-operations)
-- [Send valid requests to REST API endpoints](#send-valid-requests-to-rest-api-endpoints)
-- [Provision users before you provision groups](#provision-users-before-you-provision-groups)
-- [Validate access for groups on {% data variables.product.product_name %}](#validate-access-for-groups-on-github-enterprise-cloud)
-- [Understand rate limits for {% data variables.product.product_name %}](#understand-rate-limits-for-github-enterprise-cloud)
-- [Configure audit log streaming](#configure-audit-log-streaming)
+* [Ensure your identity management system is the only source of write operations](#ensure-your-identity-management-system-is-the-only-source-of-write-operations)
+* [Send valid requests to REST API endpoints](#send-valid-requests-to-rest-api-endpoints)
+* [Provision users before you provision groups](#provision-users-before-you-provision-groups)
+* [Validate access for groups on {% data variables.product.product_name %}](#validate-access-for-groups-on-github-enterprise-cloud)
+* [Understand rate limits for {% data variables.product.product_name %}](#understand-rate-limits-for-github-enterprise-cloud)
+* [Configure audit log streaming](#configure-audit-log-streaming)
 
 ### Ensure your identity management system is the only source of write operations
 
@@ -88,8 +88,8 @@ However, you can safely retrieve information from {% data variables.product.comp
 
 {% data variables.product.prodname_dotcom %}'s REST API endpoints for provisioning users with SCIM require well-formed requests. Bear in mind the following guidelines:
 
-- Requests that don't match the API's expectations will return a `400 Bad Request` error.
-- REST API endpoints for provisioning users with SCIM require a `User-Agent` header. {% data variables.product.product_name %} will reject requests without this header.
+* Requests that don't match the API's expectations will return a `400 Bad Request` error.
+* REST API endpoints for provisioning users with SCIM require a `User-Agent` header. {% data variables.product.product_name %} will reject requests without this header.
 
 ### Provision users before you provision groups
 
@@ -124,8 +124,8 @@ To provision, list, or manage users, make requests to the following REST API end
 
 Before a person with an identity on your identity management system can sign in to your enterprise, you must create the corresponding user. Your enterprise doesn't require an available license to provision a new user account.
 
-- For an overview of the supported attributes for users, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-user-attributes)" in the REST API documentation.
-- You can view provisioned users in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+* For an overview of the supported attributes for users, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-user-attributes)" in the REST API documentation.
+* You can view provisioned users in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 | Action | Method | Endpoint and more information |  Events in the audit log |
 | :- | :- | :- | :- |
@@ -142,10 +142,10 @@ To prevent a user from signing in to access your enterprise, you can soft-deprov
 
 When you soft-deprovision a user, the `external_identity.update` event does not appear in the audit log. The following events appear in the audit log:
 
-- `user.suspend`
-- `user.remove_email`
-- `user.rename`
-- `external_identity.deprovision`
+* `user.suspend`
+* `user.remove_email`
+* `user.rename`
+* `external_identity.deprovision`
 
 You can view all suspended users for your enterprise. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members-in-an-enterprise-with-managed-users)."
 
@@ -155,10 +155,10 @@ To allow a soft-deprovisioned user to sign in to access your enterprise, unsuspe
 
 When you reactivate a user, the `external_identity.update` event does not appear in the audit log. The following events appear in the audit log:
 
-- `user.unsuspend`
-- `user.remove_email`
-- `user.rename`
-- `external_identity.provision`
+* `user.unsuspend`
+* `user.remove_email`
+* `user.rename`
+* `external_identity.provision`
 
 ## Hard-deprovisioning users with the REST API
 
@@ -166,10 +166,10 @@ To completely delete a user, you can hard-deprovision the user by sending a `DEL
 
 When you hard-deprovision a user, the following events occur:
 
-- The user record's `login` and `email` fields are obfuscated.
-- The user's display name is set to an empty string.
-- {% data variables.product.product_name %} deletes all of the user's SCIM attributes, emails, SSH keys, {% data variables.product.pat_generic_plural %}, and GPG keys.
-- The user's account on {% data variables.product.product_name %} is suspended, and authentication to sign in to the account will fail.
+* The user record's `login` and `email` fields are obfuscated.
+* The user's display name is set to an empty string.
+* {% data variables.product.product_name %} deletes all of the user's SCIM attributes, emails, SSH keys, {% data variables.product.pat_generic_plural %}, and GPG keys.
+* The user's account on {% data variables.product.product_name %} is suspended, and authentication to sign in to the account will fail.
 
 To reprovision the user, you must use the `POST` method to create a new user. The new user can reuse the deprovisioned user's `login`. If the email addresses of the hard-deprovisioned user and the new user match, {% data variables.product.product_name %} will attribute existing Git commits associated with the email address to the new user. Existing resources and comments created by the original user will not be associated with the new user.
 
@@ -179,9 +179,9 @@ To control access to repositories in your enterprise, you can use groups on your
 
 While your enterprise doesn't require an available license to provision a new user account, if you provision a group that results in the addition of users to an organization, you must have available licenses for those users. If your enterprise only uses {% data variables.visual_studio.prodname_vss_ghe %}, the associated user must be assigned to a subscriber. For more information, see "[AUTOTITLE](/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise#about-licenses-for-visual-studio-subscriptions-with-github-enterprise)."
 
-- For an overview of the supported attributes for groups, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-group-attributes)" in the REST API documentation.
-- For an overview of audit log events related to groups, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_group)."
-- You can view provisioned groups in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams)."
+* For an overview of the supported attributes for groups, see "[SCIM](/rest/enterprise-admin/scim#supported-scim-group-attributes)" in the REST API documentation.
+* For an overview of audit log events related to groups, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_group)."
+* You can view provisioned groups in the web UI for {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams)."
 
 | Action | Method | Endpoint and more information | Related events in the audit log |
 | :- | :- | :- | :- |
@@ -198,14 +198,14 @@ If you update the members of an existing group using a `PUT` or `PATCH` request 
 
 If your request updates a group linked to a team in an organization where a user is not already a member, in addition to `external_group.update`, the following events appear in the audit log:
 
-- `org.add_member`
-- If the request adds a user to a group that's linked to a team in an organization where the user is not already a member, `org.add_member`
-- If the request adds the user to a group that's linked to a team in an organization, `team.add_member`
+* `org.add_member`
+* If the request adds a user to a group that's linked to a team in an organization where the user is not already a member, `org.add_member`
+* If the request adds the user to a group that's linked to a team in an organization, `team.add_member`
 
 If your request updates a group linked to a team in an organization where a user is already a member, in addition to `external_group.update`, the following events appear in the audit log:
 
-- If the request removes the user from a group that's linked to a team in an organization, and the team is not the last team in the organization where the user is a member, `team.remove_member`
-- If the request removes a user from a group that's linked to the last team in an organization where the user is already a member, `org.remove_member`
+* If the request removes the user from a group that's linked to a team in an organization, and the team is not the last team in the organization where the user is a member, `team.remove_member`
+* If the request removes a user from a group that's linked to the last team in an organization where the user is already a member, `org.remove_member`
 
 ## Migrating to a new SCIM provider
 
@@ -213,19 +213,19 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 ## Troubleshooting SCIM provisioning
 
-- If {% data variables.product.prodname_dotcom %} is rate-limiting your requests to the REST API, you can learn more in "[Understand rate limits for {% data variables.product.product_name %}](#understand-rate-limits-for-github-enterprise-cloud)."
+* If {% data variables.product.prodname_dotcom %} is rate-limiting your requests to the REST API, you can learn more in "[Understand rate limits for {% data variables.product.product_name %}](#understand-rate-limits-for-github-enterprise-cloud)."
 
-- If you enable audit log streaming and stream events for API requests, you can review any requests to the REST API endpoints for SCIM provisioning by filtering for events from the `EnterpriseUsersScim` or `EnterpriseGroupsScim` controllers.
+* If you enable audit log streaming and stream events for API requests, you can review any requests to the REST API endpoints for SCIM provisioning by filtering for events from the `EnterpriseUsersScim` or `EnterpriseGroupsScim` controllers.
 
-- If a SCIM request fails and you're unable to determine the cause, check the status of your identity management system to ensure that services were available. Additionally, check {% data variables.product.company_short %}'s status page. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-github-status)."
+* If a SCIM request fails and you're unable to determine the cause, check the status of your identity management system to ensure that services were available. Additionally, check {% data variables.product.company_short %}'s status page. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-github-status)."
 
-- If a request to provision a user fails with a `400` error, and the error message in your identity management system's log indicates issues with account ownership or username formatting, review "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication)."
+* If a request to provision a user fails with a `400` error, and the error message in your identity management system's log indicates issues with account ownership or username formatting, review "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication)."
 
-- After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)." You can also view this mapping on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+* After successful authentication, {% data variables.product.product_name %} links the user who authenticated to an identity provisioned by SCIM. The unique identifiers for authentication and provisioning must match. For more information, see "[AUTOTITLE](/rest/enterprise-admin/scim#mapping-of-saml-and-scim-data)." You can also view this mapping on {% data variables.location.product_location %}. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
 
-- If you manage access using groups on your identity management system, you can troubleshoot using the REST API or web UI for {% data variables.product.product_name %}.
+* If you manage access using groups on your identity management system, you can troubleshoot using the REST API or web UI for {% data variables.product.product_name %}.
 
-   - You can use the REST API to compare your identity management system's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. See "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
-   - For more information about troubleshooting using the web UI, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)."
+   * You can use the REST API to compare your identity management system's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. See "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
+   * For more information about troubleshooting using the web UI, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)."
 
 For additional troubleshooting suggestions, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise#scim-provisioning-errors)."

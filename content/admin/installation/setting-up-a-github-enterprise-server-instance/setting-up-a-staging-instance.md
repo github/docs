@@ -30,11 +30,11 @@ For example, to protect against loss of data, you can regularly validate the bac
 
 To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
 
-- Authentication, especially if you use an external authentication provider like SAML
-- Integration with an external ticketing system
-- Integration with a continuous integration server
-- External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
-- External SMTP server for email notifications
+* Authentication, especially if you use an external authentication provider like SAML
+* Integration with an external ticketing system
+* Integration with a continuous integration server
+* External scripts or software that use the {% data variables.product.prodname_enterprise_api %}
+* External SMTP server for email notifications
 
 ## Setting up a staging instance
 
@@ -97,11 +97,11 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
 {% endwarning %}
 
 1. Review the backup you will restore to the staging instance.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   - If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
+   * If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
+   * If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)."
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
 1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   - Azure Blob Storage:
+   * Azure Blob Storage:
 
      ```shell copy
      ghe-config secrets.packages.blob-storage-type "azure"
@@ -109,7 +109,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
 
-   - Amazon S3:
+   * Amazon S3:
 
      ```shell copy
      ghe-config secrets.packages.blob-storage-type "s3"
@@ -155,4 +155,4 @@ To apply the configuration from the {% data variables.enterprise.management_cons
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"

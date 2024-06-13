@@ -105,9 +105,9 @@ If you have feedback or feature requests for {% data variables.product.prodname_
 
 Contact us through the {% data variables.contact.contact_support_portal %} about {% data variables.product.prodname_registry %} if:
 
-- You experience anything that contradicts the documentation
-- You encounter vague or unclear errors
-- Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+* You experience anything that contradicts the documentation
+* You encounter vague or unclear errors
+* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
 
 {% else %}
 If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.

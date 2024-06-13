@@ -24,18 +24,18 @@ redirect_from:
 
 On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
 
-- General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
-- Exploratory questions asked in the context of a specific repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
-- Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)."
-- Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
-- Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
-- Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
-- Questions about a specific issue. For more information, see "[Asking a question about a specific issue](#asking-a-question-about-a-specific-issue)."
+* General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
+* Exploratory questions asked in the context of a specific repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
+* Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)."
+* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
+* Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
+* Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
+* Questions about a specific issue. For more information, see "[Asking a question about a specific issue](#asking-a-question-about-a-specific-issue)."
 
 ### Limitations
 
-- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
-- The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
+* Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository)."
+* The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
 
@@ -91,11 +91,11 @@ Depending on the question you ask, and your enterprise and organization settings
 1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
-   - What are the advantages of the Go programming language?
-   - What is Agile software development?
-   - What is the most popular JavaScript framework?
-   - Give me some examples of regular expressions.
-   - Write a bash script to output today's date.
+   * What are the advantages of the Go programming language?
+   * What is Agile software development?
+   * What is the most popular JavaScript framework?
+   * Give me some examples of regular expressions.
+   * Write a bash script to output today's date.
 
 {% data reusables.copilot.stop-response-generation %}
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
@@ -131,11 +131,11 @@ Depending on the question you ask, and your enterprise and organization settings
 
    For example, you could ask:
 
-   - When was the most recent release?
-   - Where is rate limiting implemented in our API?
-   - How does the WidgetFactory class work?
-   - Where is the code for converting an organization member to be an outside collaborator?
-   - Where are SAT tokens generated?
+   * When was the most recent release?
+   * Where is rate limiting implemented in our API?
+   * How does the WidgetFactory class work?
+   * Where is the code for converting an organization member to be an outside collaborator?
+   * Where are SAT tokens generated?
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
@@ -196,9 +196,9 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
    For example, if you chose a knowledge base with your organization's internal developer documentation, you could ask:
 
-   - How do I deploy a new application?
-   - What's the process for creating a new REST API?
-   - What are our best practices for logging?
+   * How do I deploy a new application?
+   * What's the process for creating a new REST API?
+   * What are our best practices for logging?
 
 {% data reusables.copilot.stop-response-generation %}
 1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
@@ -219,11 +219,11 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repository and open a file.
 1. Do one of the following:
-   - To ask a question about the entire file, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
+   * To ask a question about the entire file, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
 
      ![Screenshot of the {% data variables.product.prodname_copilot_short %} button, highlighted with a dark orange outline, at the top of the file view.](/assets/images/help/copilot/copilot-button-for-file.png)
 
-   - To ask a question about specific lines within the file:
+   * To ask a question about specific lines within the file:
 
      1. Select the lines by clicking the line number for the first line you want to select, holding down <kbd>Shift</kbd> and clicking the line number for the last line you want to select.
      1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) to the right of your selection.
@@ -236,15 +236,15 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
    For example, if you are asking about the entire file, you could enter:
 
-   - Explain this file.
-   - How could I improve this code?
-   - How can I test this script?
+   * Explain this file.
+   * How could I improve this code?
+   * How can I test this script?
 
    If you are asking about specific lines, you could enter:
-   - Explain the function at the selected lines.
-   - How could I improve this class?
-   - Add error handling to this code.
-   - Write a unit test for this method.
+   * Explain the function at the selected lines.
+   * How could I improve this class?
+   * Add error handling to this code.
+   * Write a unit test for this method.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -266,8 +266,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain what'
 1. Click the **Files changed** tab.
 1. Do one of the following:
 
-   - To ask a question about a file that's being changed by a pull request, click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
-   - To ask a question about specific lines within a file in the pull request:
+   * To ask a question about a file that's being changed by a pull request, click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
+   * To ask a question about specific lines within a file in the pull request:
 
      1. Select the lines by clicking the line number for the first line you want to select, holding down <kbd>Shift</kbd> and clicking the line number for the last line you want to select.
      1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) to the right of your selection.
@@ -276,10 +276,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain what'
 
 1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, or you chose **Ask {% data variables.product.prodname_copilot_short %} about this diff**, type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>. For example, you could enter:
 
-   - Why has this module been included?
-   - What is &#96;actorData&#96; in this line?
-   - Explain this &#96;do..end&#96; block.
-   - What's the purpose of this file?
+   * Why has this module been included?
+   * What is &#96;actorData&#96; in this line?
+   * Explain this &#96;do..end&#96; block.
+   * What's the purpose of this file?
 
 {% data reusables.copilot.stop-response-generation %}
 
@@ -299,9 +299,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
 1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
 
-   - Explain this issue
-   - Recommend next steps for this issue
-   - What are the acceptance criteria for this issue?
+   * Explain this issue
+   * Recommend next steps for this issue
+   * What are the acceptance criteria for this issue?
 
    {% tip %}
 
@@ -323,9 +323,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
 
-   - Summarize the changes in this commit
-   - Who committed these changes?
-   - When was this commit made?
+   * Summarize the changes in this commit
+   * Who committed these changes?
+   * When was this commit made?
 
    > [!TIP]
    > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.prodname_dotcom_the_website %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
@@ -342,9 +342,9 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
    For example, you could enter:
 
-   - What does this repo do?
-   - Where is authentication implemented in this codebase?
-   - How does license file detection work in this repo?
+   * What does this repo do?
+   * Where is authentication implemented in this codebase?
+   * How does license file detection work in this repo?
 
 1. Click **Ask {% data variables.product.prodname_copilot_short %}**.
 

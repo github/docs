@@ -14,23 +14,23 @@ _These terms apply to Customers who have executed agreements in place referencin
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
-- GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
+* GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
-- Any Beta Previews;
+* Any Beta Previews;
 
-- Any related Support; and
+* Any related Support; and
 
-- Any related Professional Services.
+* Any related Professional Services.
 
 This Agreement includes the following Sections and Exhibits, each of which is incorporated by reference herein:
 
-- SECTION 1: General Terms and Conditions;
+* SECTION 1: General Terms and Conditions;
 
-- SECTION 2: GitHub Enterprise Server License Terms;
+* SECTION 2: GitHub Enterprise Server License Terms;
 
-- SECTION 3: GitHub Enterprise Cloud Terms of Service;
+* SECTION 3: GitHub Enterprise Cloud Terms of Service;
 
-- EXHIBIT A: Definitions.
+* EXHIBIT A: Definitions.
 
 If Customer has purchased any Products from an authorized GitHub reseller, the following Sections of this Agreement are superseded by the terms Customer has agreed upon with the GitHub reseller: Section 1.1 (Term and Termination); 1.2 (Payment); Section 2.3 (Delivery); and Section 2.4 (Verification).
 

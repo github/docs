@@ -21,10 +21,10 @@ Most of the limits below affect both {% data variables.product.product_name %} a
 
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
-- In a pull request, no total diff may exceed _20,000 lines that you can load_ or _1 MB_ of raw diff data.
-- No single file's diff may exceed _20,000 lines that you can load_ or _500 KB_ of raw diff data. _Four hundred lines_ and _20 KB_ are automatically loaded for a single file.
-- The maximum number of files in a single diff is limited to _300_.
-- The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to _25_.
+* In a pull request, no total diff may exceed _20,000 lines that you can load_ or _1 MB_ of raw diff data.
+* No single file's diff may exceed _20,000 lines that you can load_ or _500 KB_ of raw diff data. _Four hundred lines_ and _20 KB_ are automatically loaded for a single file.
+* The maximum number of files in a single diff is limited to _300_.
+* The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to _25_.
 
 Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.
 

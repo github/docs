@@ -31,13 +31,13 @@ Any workflow that is converted by the {% data variables.product.prodname_actions
 
 You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
 
-- Azure DevOps
-- Bamboo
-- Bitbucket Pipelines
-- CircleCI
-- GitLab
-- Jenkins
-- Travis CI
+* Azure DevOps
+* Bamboo
+* Bitbucket Pipelines
+* CircleCI
+* GitLab
+* Jenkins
+* Travis CI
 
 ## Prerequisites
 

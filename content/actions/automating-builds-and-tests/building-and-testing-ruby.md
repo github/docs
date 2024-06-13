@@ -24,8 +24,8 @@ This guide shows you how to create a continuous integration (CI) workflow that b
 
 We recommend that you have a basic understanding of Ruby, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
-- [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
+* [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
+* [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
 ## Using a Ruby starter workflow
 

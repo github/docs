@@ -17,22 +17,22 @@ Using the chat feature, you can ask {% data variables.product.prodname_copilot_s
 ## Assistance where you need it
 
 {% data variables.product.prodname_copilot %} is available:
-- In your IDE
-- In {% data variables.product.prodname_mobile %}, as a chat interface
-- On the command line, through the {% data variables.product.prodname_cli %}
-- On {% data variables.product.prodname_dotcom_the_website %}, with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}
+* In your IDE
+* In {% data variables.product.prodname_mobile %}, as a chat interface
+* On the command line, through the {% data variables.product.prodname_cli %}
+* On {% data variables.product.prodname_dotcom_the_website %}, with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}
 
 ## {% data variables.product.prodname_copilot %} features
 
 {% data variables.product.prodname_copilot_short %} includes a suite of features, such as:
 
-- **Code completion** - {% data variables.product.prodname_copilot_short %} suggests code as you type. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
+* **Code completion** - {% data variables.product.prodname_copilot_short %} suggests code as you type. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
 
-- **Chat** - Ask {% data variables.product.prodname_copilot_short %} for help with your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide){% ifversion ghec %}" and "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom){% endif %}."
+* **Chat** - Ask {% data variables.product.prodname_copilot_short %} for help with your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide){% ifversion ghec %}" and "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom){% endif %}."
 
-- **Pull request summaries** _({% data variables.product.prodname_copilot_enterprise_short %} only)_ - Get {% data variables.product.prodname_copilot_short %} to describe the changes in a pull request. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot)."{% else %}"[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)."{% endif %}
+* **Pull request summaries** _({% data variables.product.prodname_copilot_enterprise_short %} only)_ - Get {% data variables.product.prodname_copilot_short %} to describe the changes in a pull request. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot)."{% else %}"[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)."{% endif %}
 
-- **Knowledge bases** _({% data variables.product.prodname_copilot_enterprise_short %} only)_ - Create and manage collections of documentation to use as a context for chatting with {% data variables.product.prodname_copilot_short %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."{% else %}"[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."{% endif %}
+* **Knowledge bases** _({% data variables.product.prodname_copilot_enterprise_short %} only)_ - Create and manage collections of documentation to use as a context for chatting with {% data variables.product.prodname_copilot_short %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."{% else %}"[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."{% endif %}
 
 For a full list of the features and functionality available on each {% data variables.product.prodname_copilot %} plan, see "[AUTOTITLE](/copilot/copilot-individual/github-copilot-individual-feature-set)", "[AUTOTITLE](/copilot/copilot-business/github-copilot-business-feature-set)", or "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
 
@@ -40,18 +40,18 @@ For a full list of the features and functionality available on each {% data vari
 
 You can access {% data variables.product.prodname_copilot %} as part of one of the following paid plans:
 
-- **{% data variables.product.prodname_copilot_individuals_short %}** - Get access to {% data variables.product.prodname_copilot %} in an IDE, or on the command line, for your personal or independent use. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use. For more information, see "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)."
+* **{% data variables.product.prodname_copilot_individuals_short %}** - Get access to {% data variables.product.prodname_copilot %} in an IDE, or on the command line, for your personal or independent use. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use. For more information, see "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)."
 
   If you're a verified student, teacher, or maintainer of a popular open source project, {% data variables.product.prodname_copilot %} is free to use. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
 
-- **{% data variables.product.prodname_copilot_business_short %}** - Access {% data variables.product.prodname_copilot %} as a member of an organization. Owners of the organization can manage access for individual members or for teams. For more information, see "[AUTOTITLE](/copilot/copilot-business/about-github-copilot-business)."
-- **{% data variables.product.prodname_copilot_enterprise_short %}** - Access {% data variables.product.prodname_copilot %} as a member of an enterprise. Enterprise owners can allow some or all organizations in the enterprise to access {% data variables.product.prodname_copilot %}. If an organization has access to {% data variables.product.prodname_copilot_short %}, owners of the organization can grant access to {% data variables.product.prodname_copilot_enterprise_short %} for some or all members of the organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
+* **{% data variables.product.prodname_copilot_business_short %}** - Access {% data variables.product.prodname_copilot %} as a member of an organization. Owners of the organization can manage access for individual members or for teams. For more information, see "[AUTOTITLE](/copilot/copilot-business/about-github-copilot-business)."
+* **{% data variables.product.prodname_copilot_enterprise_short %}** - Access {% data variables.product.prodname_copilot %} as a member of an enterprise. Enterprise owners can allow some or all organizations in the enterprise to access {% data variables.product.prodname_copilot %}. If an organization has access to {% data variables.product.prodname_copilot_short %}, owners of the organization can grant access to {% data variables.product.prodname_copilot_enterprise_short %} for some or all members of the organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
 
   With {% data variables.product.prodname_copilot_enterprise_short %}, in addition to accessing {% data variables.product.prodname_copilot_short %} in an IDE or on the command line, you can use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}. This includes the ability to:
 
-  - Chat with {% data variables.product.prodname_copilot_short %} to get help with your code, or to ask general tech-related questions.
-  - Create tailored knowledge bases to use as the context for chat.
-  - Generate automatic summaries of pull requests.
+  * Chat with {% data variables.product.prodname_copilot_short %} to get help with your code, or to ask general tech-related questions.
+  * Create tailored knowledge bases to use as the context for chat.
+  * Generate automatic summaries of pull requests.
 
 > [!NOTE]
 > {% data reusables.copilot.copilot-one-account-short %}

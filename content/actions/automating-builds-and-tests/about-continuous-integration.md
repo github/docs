@@ -51,5 +51,5 @@ Browse the complete list of CI starter workflows offered by {% data variables.pr
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 {% endif %}

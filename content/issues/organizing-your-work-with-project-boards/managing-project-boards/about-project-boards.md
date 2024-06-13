@@ -24,9 +24,9 @@ You can create notes within columns to serve as task reminders, references to is
 
 Types of {% data variables.projects.projects_v1_boards %}:
 
-- **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
-- **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
-- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
+* **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
+* **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
+* **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
 
 ## {% ifversion projects-v1-can-create %}Creating and viewing{% else %}Viewing{% endif %} {% data variables.projects.projects_v1_boards %}
 
@@ -74,7 +74,7 @@ For more information on automation for {% data variables.product.prodname_projec
 ## Further reading
 
 {%- ifversion projects-v1-can-create %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"{% endif %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
-- "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"

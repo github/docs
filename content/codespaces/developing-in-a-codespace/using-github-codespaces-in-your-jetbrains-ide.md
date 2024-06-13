@@ -33,20 +33,20 @@ When you work in a codespace, you use the JetBrains thin client application on y
 
 The basic process behind using a codespace in your JetBrains IDE is as follows.
 
-- In the JetBrains Gateway application you select one of your active or stopped codespaces.
-- You then choose which JetBrains IDE you want to use.
-- The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
-- The JetBrains thin client application is then downloaded to your local machine and started.
-- The client application connects to the full backend IDE.
-- You can work on your code in the client application in just the same way you would in a local environment.
+* In the JetBrains Gateway application you select one of your active or stopped codespaces.
+* You then choose which JetBrains IDE you want to use.
+* The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
+* The JetBrains thin client application is then downloaded to your local machine and started.
+* The client application connects to the full backend IDE.
+* You can work on your code in the client application in just the same way you would in a local environment.
 
 ## Prerequisites
 
 To work in a codespace in a JetBrains IDE you need:
 
-- A valid JetBrains license.
-- The JetBrains Gateway application, <!-- expires 2024-06-30 -->versions 2023.3.\* or 2024.1.\*.<!-- end expires 2024-06-30 -->
-- An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see "[Codespace running an SSH server](#codespace-running-an-ssh-server)."
+* A valid JetBrains license.
+* The JetBrains Gateway application, <!-- expires 2024-06-30 -->versions 2023.3.\* or 2024.1.\*.<!-- end expires 2024-06-30 -->
+* An existing codespace running on a virtual machine that has at least 4 cores. The codespace must also be running an SSH server. For more information, see "[Codespace running an SSH server](#codespace-running-an-ssh-server)."
 
 ### JetBrains license
 
@@ -104,8 +104,8 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 1. Click the login link, below the login code.
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed.
-   - Enter your details and click **Sign in**.
-   - Verify your authentication, for example by entering a two-factor authentication code.
+   * Enter your details and click **Sign in**.
+   * Verify your authentication, for example by entering a two-factor authentication code.
 1. On the "Device activation" page, paste the copied code and click **Continue**.
 1. If you belong to organizations, the "Single sign-on to your organizations" page is displayed. Click **Authorize** beside the organizations you want to authorize the JetBrains Gateway to access, then click **Continue**.
 1. On the "Authorize {% data variables.product.prodname_github_codespaces %} for JetBrains" page, click **Authorize {% data variables.product.prodname_dotcom %}**.
@@ -123,6 +123,6 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/developing-in-a-codespace)"
-- "[AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)"
-- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/developing-in-a-codespace)"
+* "[AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)"
+* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"

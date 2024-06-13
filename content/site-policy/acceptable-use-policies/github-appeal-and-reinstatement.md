@@ -14,10 +14,10 @@ While the majority of interactions between individuals in GitHub’s community f
 
 Both Appeals and Reinstatements may arise in relation to decisions to disable or limit access to content or an account, including decisions whether or not to:
 
-- Remove, disable access to, or restrict visibility of content
-- Suspend or terminate access to an account
-- Suspend or terminate access to the service, in whole or in part
-- Suspend, terminate or otherwise restrict the ability to monetize content
+* Remove, disable access to, or restrict visibility of content
+* Suspend or terminate access to an account
+* Suspend or terminate access to the service, in whole or in part
+* Suspend, terminate or otherwise restrict the ability to monetize content
 
 A “Reinstatement” is where a user wishes to regain access to their account or content and is willing to make any necessary changes to address the violation and agrees not to violate our terms going forward.
 

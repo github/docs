@@ -39,9 +39,9 @@ For more information, see "[AUTOTITLE](/code-security/security-overview/about-se
 
 You can access and search audit logs using the API or the audit log UI. The audit log lists events that are triggered by activities affecting your enterprise or organization, including events that are created when there are certain interactions with a security alert. Interactions that create an event can be triggered manually or by automation, for example, when {% data variables.product.prodname_dependabot %} creates an alert.
 
-- {% data variables.product.prodname_secret_scanning_caps %} events track when an alert is created, resolved, or reopened, also when push protection is bypassed.
-- {% data variables.product.prodname_dependabot %} events track when an alert is created, dismissed, or resolved.
-- {% data variables.product.prodname_code_scanning_caps %} does not create timeline events in an audit log.
+* {% data variables.product.prodname_secret_scanning_caps %} events track when an alert is created, resolved, or reopened, also when push protection is bypassed.
+* {% data variables.product.prodname_dependabot %} events track when an alert is created, dismissed, or resolved.
+* {% data variables.product.prodname_code_scanning_caps %} does not create timeline events in an audit log.
 
 For a list of audit log events, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
@@ -89,6 +89,6 @@ For more information, see "[{% data variables.product.prodname_code_scanning_cap
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
-- [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
-- [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
+* [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

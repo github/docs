@@ -24,7 +24,7 @@ This article provides general information for configuring {% data variables.prod
 
 The following options can be used to limit which actions are allowed in converted workflows. When used in combination, these options expand the list of allowed actions. If none of these options are supplied, then all actions are allowed.
 
-- `--allowed-actions` specifies a list of actions to allow in converted workflows. Wildcards are supported. Any other actions other than those provided will be disallowed.
+* `--allowed-actions` specifies a list of actions to allow in converted workflows. Wildcards are supported. Any other actions other than those provided will be disallowed.
 
   For example:
 
@@ -34,9 +34,9 @@ The following options can be used to limit which actions are allowed in converte
 
   You can provide an empty list to disallow all actions. For example, `--allowed-actions=`.
 
-- `--allow-verified-actions` specifies that all actions from verified creators are allowed.
+* `--allow-verified-actions` specifies that all actions from verified creators are allowed.
 
-- `--allow-github-created-actions` specifies that actions published from the `github` or `actions` organizations are allowed.
+* `--allow-github-created-actions` specifies that actions published from the `github` or `actions` organizations are allowed.
 
   For example, such actions include `github/super-linter` and `actions/checkout`.
 
@@ -78,10 +78,10 @@ For the above example, {% data variables.product.prodname_actions_importer %} us
 
 Supported values for `provider` are:
 
-- `github` (default)
-- `gitlab`
-- `bitbucket_server`
-- `azure_devops`
+* `github` (default)
+* `gitlab`
+* `bitbucket_server`
+* `azure_devops`
 
 ### Controlling optional features
 
@@ -95,9 +95,9 @@ gh actions-importer dry-run ... --features ghes-3.3
 
 The supported values for `--features` are:
 
-- `all` (default value)
-- `ghes-latest`
-- `ghes-<number>`, where `<number>` is the version of {% data variables.product.prodname_ghe_server %}, `3.0` or later. For example, `ghes-3.3`.
+* `all` (default value)
+* `ghes-latest`
+* `ghes-<number>`, where `<number>` is the version of {% data variables.product.prodname_ghe_server %}, `3.0` or later. For example, `ghes-3.3`.
 
 You can view the list of available feature flags by {% data variables.product.prodname_actions_importer %} by running the `list-features` command. For example:
 
@@ -135,8 +135,8 @@ Disable features by passing --disable-features feature-1 feature-2
 <!-- markdownlint-enable search-replace -->
 
 To toggle feature flags, you can use either of the following methods:
-- Use the `--enable-features` and `--disable-features` options when running a `gh actions-importer` command.
-- Use an environment variable for each feature flag.
+* Use the `--enable-features` and `--disable-features` options when running a `gh actions-importer` command.
+* Use an environment variable for each feature flag.
 
 You can use the `--enable-features` and `--disable-features` options to select specific features to enable or disable for the duration of the command.
 For example, the following command disables use of `actions/cache` and `composite-actions`:
@@ -179,8 +179,8 @@ gh actions-importer audit --output-dir /data/out
 
 To access servers that are configured with a HTTP proxy, you must set the following environment variables with the proxy's URL:
 
-- `OCTOKIT_PROXY`: for any {% data variables.product.prodname_dotcom %} server.
-- `HTTP_PROXY` (or `HTTPS_PROXY`): for any other servers.
+* `OCTOKIT_PROXY`: for any {% data variables.product.prodname_dotcom %} server.
+* `HTTP_PROXY` (or `HTTPS_PROXY`): for any other servers.
 
 For example:
 

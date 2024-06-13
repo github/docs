@@ -19,8 +19,8 @@ Any actions or reusable workflows stored in the private repository can be used i
 {% warning %}
 
 **Warning**:
-- {% data reusables.actions.outside-collaborators-actions %}
-- {% data reusables.actions.scoped-token-note %}
+* {% data reusables.actions.outside-collaborators-actions %}
+* {% data reusables.actions.scoped-token-note %}
 
 {% endwarning %}
 
@@ -31,4 +31,4 @@ Any actions or reusable workflows stored in the private repository can be used i
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"
+* "[AUTOTITLE](/actions/using-workflows/reusing-workflows)"

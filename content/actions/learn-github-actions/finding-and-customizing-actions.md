@@ -22,10 +22,10 @@ topics:
 
 The actions you use in your workflow can be defined in:
 
-- The same repository as your workflow file{% ifversion internal-actions %}
-- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-- Any public repository
-- A published Docker container image on Docker Hub
+* The same repository as your workflow file{% ifversion internal-actions %}
+* An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
+* Any public repository
+* A published Docker container image on Docker Hub
 
 {% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 

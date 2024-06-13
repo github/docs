@@ -62,5 +62,5 @@ In a replay attack, a bad actor intercepts a webhook delivery and re-sends the d
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
-- "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
+* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"

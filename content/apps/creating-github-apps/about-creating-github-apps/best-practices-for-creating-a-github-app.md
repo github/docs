@@ -135,8 +135,8 @@ If your {% data variables.product.prodname_github_app %} is available to other u
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
 {% endif %}
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
-- "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
+* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"

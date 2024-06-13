@@ -16,13 +16,13 @@ To enable users to use {% data variables.product.prodname_copilot_enterprise_sho
 
 Access to {% data variables.product.prodname_copilot_short %} is determined at the enterprise and organization levels:
 
-- Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
-- Owners of organizations that have been granted access to {% data variables.product.prodname_copilot_short %} can assign {% data variables.product.prodname_copilot_enterprise %} seats to some or all members of their organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
+* Enterprise owners can allow some or all of the organizations in the enterprise to access {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
+* Owners of organizations that have been granted access to {% data variables.product.prodname_copilot_short %} can assign {% data variables.product.prodname_copilot_enterprise %} seats to some or all members of their organization. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 When access to {% data variables.product.prodname_copilot_short %} has been enabled, features such as the ability to use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}, can be configured. Features are enabled or disabled at the enterprise or organization level:
 
-- Enterprise owners can set {% data variables.product.prodname_copilot_short %} features to be enabled or disabled for all organizations in the enterprise that have access to {% data variables.product.prodname_copilot_short %}. Alternatively, they can allow each organization to set its own policy for each feature.
-- If the enterprise owner has permitted it, organization owners can enable or disable {% data variables.product.prodname_copilot_short %} features for their organization.
+* Enterprise owners can set {% data variables.product.prodname_copilot_short %} features to be enabled or disabled for all organizations in the enterprise that have access to {% data variables.product.prodname_copilot_short %}. Alternatively, they can allow each organization to set its own policy for each feature.
+* If the enterprise owner has permitted it, organization owners can enable or disable {% data variables.product.prodname_copilot_short %} features for their organization.
 
 This article explains how to enable or disable the features of {% data variables.product.prodname_copilot_enterprise %} at the enterprise level, and for an individual organization.
 
@@ -60,8 +60,8 @@ If your organization's parent enterprise has selected **No policy** for "{% data
 
 1. Next to "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
-   - **Enabled**: The feature is enabled for all members of the organization.
-   - **Disabled**: The feature is disabled for all members of the organization.
+   * **Enabled**: The feature is enabled for all members of the organization.
+   * **Disabled**: The feature is disabled for all members of the organization.
 
 1. If you select **Enabled**, two check boxes are displayed.
 
@@ -83,4 +83,4 @@ After {% data variables.product.prodname_copilot_enterprise_short %} has been en
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"

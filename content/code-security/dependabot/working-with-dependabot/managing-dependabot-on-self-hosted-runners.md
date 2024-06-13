@@ -58,12 +58,12 @@ If {% data variables.product.prodname_dependabot %} needs to interact with regis
 1. Provision self-hosted runners, at the repository or organization level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 1. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
-   - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
-     - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-     - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
-     - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-   - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
-   - Install any self-signed certificates for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
+   * Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
+     * [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+     * Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
+     * Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+   * Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
+   * Install any self-signed certificates for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
 
 1. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
 

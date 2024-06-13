@@ -269,5 +269,5 @@ The contributor is notified of the decision by email and must take the required 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"

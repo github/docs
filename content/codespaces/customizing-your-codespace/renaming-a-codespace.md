@@ -18,16 +18,16 @@ When you create a codespace it's assigned an auto-generated display name. If you
 
 To find the display name of a codespace:
 
-- On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
+* On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
 
    ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
-- In the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client, click the Remote Explorer. The display name is the second item in the list. For example: `psychic chainsaw` in the screenshot below.
+* In the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client, click the Remote Explorer. The display name is the second item in the list. For example: `psychic chainsaw` in the screenshot below.
 
   ![Screenshot of the "Remote Explorer" in {% data variables.product.prodname_vscode_shortname %}. The codespace display name, "psychic chainsaw," is highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-remote-explorer.png)
 
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=2 %}
-- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+* In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
 
 ### Permanent codespace names
 
@@ -74,5 +74,5 @@ You can change the display name for your codespace on {% data variables.product.
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces)"

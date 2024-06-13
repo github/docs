@@ -125,5 +125,5 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"
+* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"

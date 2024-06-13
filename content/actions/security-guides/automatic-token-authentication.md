@@ -103,9 +103,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 {% note %}
 
 **Notes:**
-- When a workflow is triggered by the [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target) event, the `GITHUB_TOKEN` is granted read/write repository permission, even when it is triggered from a public fork. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
-- Private repositories can control whether pull requests from forks can run workflows, and can configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
-- {% data reusables.actions.workflow-runs-dependabot-note %}
+* When a workflow is triggered by the [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target) event, the `GITHUB_TOKEN` is granted read/write repository permission, even when it is triggered from a public fork. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
+* Private repositories can control whether pull requests from forks can run workflows, and can configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+* {% data reusables.actions.workflow-runs-dependabot-note %}
 
 {% endnote %}
 
@@ -139,4 +139,4 @@ If you need a token that requires permissions that aren't available in the `GITH
 
 ### Further reading
 
-- "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"
+* "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"

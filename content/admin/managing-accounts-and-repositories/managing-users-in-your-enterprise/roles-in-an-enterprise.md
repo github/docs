@@ -19,13 +19,13 @@ topics:
 
 All users that are part of your enterprise have one of the following roles.
 
-- **Enterprise owner**: Can manage all enterprise settings, members, and policies
+* **Enterprise owner**: Can manage all enterprise settings, members, and policies
 {%- ifversion ghec %}
-- **Billing manager**: Can manage enterprise billing settings
+* **Billing manager**: Can manage enterprise billing settings
 {%- endif %}
-- **Enterprise member**: Is a member or owner of any organization in the enterprise
+* **Enterprise member**: Is a member or owner of any organization in the enterprise
 {%- ifversion guest-collaborators %}
-- **Guest collaborator**: Can be granted access to repositories or organizations, but has limited access by default ({% data variables.product.prodname_emus %} only)
+* **Guest collaborator**: Can be granted access to repositories or organizations, but has limited access by default ({% data variables.product.prodname_emus %} only)
 {%- endif %}
 
 {% ifversion ghec %}For information about which users consume a license, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#people-that-consume-a-license)."{% endif %}
@@ -61,11 +61,11 @@ When a user has joined your {% data variables.product.prodname_ghe_server %} ins
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 
-- Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations{% ifversion remove-enterprise-members %}
-- Removing enterprise members from all organizations{% endif %}
-- Managing enterprise settings
-- Enforcing policy across organizations
+* Managing administrators
+* {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations{% ifversion remove-enterprise-members %}
+* Removing enterprise members from all organizations{% endif %}
+* Managing enterprise settings
+* Enforcing policy across organizations
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
 For security, we recommend making **only a few people** enterprise owners.
@@ -77,9 +77,9 @@ Enterprise owners do not have access to organization settings or content by defa
 ## Billing managers
 
 Billing managers only have access to your enterprise's billing settings. They can:
-- View and manage user licenses, usage-based billing, and other billing settings
-- View a list of billing managers
-- Add or remove other billing managers
+* View and manage user licenses, usage-based billing, and other billing settings
+* View a list of billing managers
+* Add or remove other billing managers
 
 Billing managers do not have access to organization settings or content by default.
 

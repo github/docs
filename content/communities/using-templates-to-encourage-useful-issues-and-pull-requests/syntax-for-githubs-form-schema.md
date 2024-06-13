@@ -274,4 +274,4 @@ body:
 
 ## Further reading
 
-- [YAML](https://yaml.org)
+* [YAML](https://yaml.org)

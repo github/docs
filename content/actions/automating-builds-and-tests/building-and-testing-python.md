@@ -30,8 +30,8 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 
 We recommend that you have a basic understanding of Python, and pip. For more information, see:
 
-- [Getting started with Python](https://www.python.org/about/gettingstarted/)
-- [Pip package manager](https://pypi.org/project/pip/)
+* [Getting started with Python](https://www.python.org/about/gettingstarted/)
+* [Pip package manager](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 

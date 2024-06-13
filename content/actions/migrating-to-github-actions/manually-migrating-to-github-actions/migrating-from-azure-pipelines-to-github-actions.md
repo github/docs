@@ -24,10 +24,10 @@ shortTitle: Migrate from Azure Pipelines
 
 Azure Pipelines and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. Azure Pipelines and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
-- Workflow configuration files are written in YAML and are stored in the code's repository.
-- Workflows include one or more jobs.
-- Jobs include one or more steps or individual commands.
-- Steps or tasks can be reused and shared with the community.
+* Workflow configuration files are written in YAML and are stored in the code's repository.
+* Workflows include one or more jobs.
+* Jobs include one or more steps or individual commands.
+* Steps or tasks can be reused and shared with the community.
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
@@ -35,18 +35,18 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 
 When migrating from Azure Pipelines, consider the following differences:
 
-- Azure Pipelines supports a legacy _classic editor_, which lets you define your CI configuration in a GUI editor instead of creating the pipeline definition in a YAML file. {% data variables.product.prodname_actions %} uses YAML files to define workflows and does not support a graphical editor.
-- Azure Pipelines allows you to omit some structure in job definitions. For example, if you only have a single job, you don't need to define the job and only need to define its steps. {% data variables.product.prodname_actions %} requires explicit configuration, and YAML structure cannot be omitted.
-- Azure Pipelines supports _stages_ defined in the YAML file, which can be used to create deployment workflows. {% data variables.product.prodname_actions %} requires you to separate stages into separate YAML workflow files.
-- On-premises Azure Pipelines build agents can be selected with capabilities. {% data variables.product.prodname_actions %} self-hosted runners can be selected with labels.
+* Azure Pipelines supports a legacy _classic editor_, which lets you define your CI configuration in a GUI editor instead of creating the pipeline definition in a YAML file. {% data variables.product.prodname_actions %} uses YAML files to define workflows and does not support a graphical editor.
+* Azure Pipelines allows you to omit some structure in job definitions. For example, if you only have a single job, you don't need to define the job and only need to define its steps. {% data variables.product.prodname_actions %} requires explicit configuration, and YAML structure cannot be omitted.
+* Azure Pipelines supports _stages_ defined in the YAML file, which can be used to create deployment workflows. {% data variables.product.prodname_actions %} requires you to separate stages into separate YAML workflow files.
+* On-premises Azure Pipelines build agents can be selected with capabilities. {% data variables.product.prodname_actions %} self-hosted runners can be selected with labels.
 
 ## Migrating jobs and steps
 
 Jobs and steps in Azure Pipelines are very similar to jobs and steps in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
-- Jobs contain a series of steps that run sequentially.
-- Jobs run on separate virtual machines or in separate containers.
-- Jobs run in parallel by default, but can be configured to run sequentially.
+* Jobs contain a series of steps that run sequentially.
+* Jobs run on separate virtual machines or in separate containers.
+* Jobs run in parallel by default, but can be configured to run sequentially.
 
 ## Migrating script steps
 

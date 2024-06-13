@@ -28,7 +28,7 @@ Removing a user from the organization(s) that had granted them {% data variables
 {% data reusables.copilot.access-settings %}
 1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," select **Enabled For: selected members**.
 
-    - In the "Confirm policy update" dialog, click **Renew seats**.
+    * In the "Confirm policy update" dialog, click **Renew seats**.
 
 1. Under "Access management," in the search bar, type the member's username or full name.
 1. To remove the member from the list of users who have access to {% data variables.product.prodname_copilot %}, select the checkbox to the left of their username, then click **Cancel seat**.
@@ -43,6 +43,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke ac
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"

@@ -27,11 +27,11 @@ shortTitle: Configure maintenance mode
 ## About maintenance mode
 
 Some types of operations require that you take {% data variables.location.product_location %} offline and put it into maintenance mode:
-- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
-- Increasing CPU, memory, or storage resources allocated to the virtual machine
-- Migrating data from one virtual machine to another
-- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
-- Troubleshooting certain types of critical application issues
+* Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
+* Increasing CPU, memory, or storage resources allocated to the virtual machine
+* Migrating data from one virtual machine to another
+* Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
+* Troubleshooting certain types of critical application issues
 
 We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
 
@@ -51,8 +51,8 @@ You can perform initial validation of your maintenance operation by configuring 
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
 1. Under "Enable and schedule", {% ifversion custom-maintenance-mode-message %}select **Enable maintenance mode**, then {% endif %}decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
-    - To enable maintenance mode immediately, select the dropdown menu and click **now**.
-    - To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
+    * To enable maintenance mode immediately, select the dropdown menu and click **now**.
+    * To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.custom-maintenance-message %}
 {% ifversion custom-maintenance-mode-message %}1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
 {% else %}1. When you're satisfied with the timing of the window, select the checkbox next to "Enable maintenance mode". If you selected "now", your instance will be put into maintenance mode immediately.{% endif %}

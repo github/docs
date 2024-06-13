@@ -18,8 +18,8 @@ redirect_from:
 
 To trace, review, and troubleshoot activity and exceptions on {% data variables.location.product_location %}, you can review system logs. Your instance stores the following two types of system logs.
 
-- Plain text log files on disk, stored by syslog or specific services
-- Binary log files, stored by journald
+* Plain text log files on disk, stored by syslog or specific services
+* Binary log files, stored by journald
 
 By default, {% data variables.product.product_name %} rotates system logs automatically every 24 hours and retains rotated logs for seven days. System logs include system-level events, application logs, and data about Git events. Because log files are written often and can be large in size, you may prefer to extract and parse log entries on a host separate from {% data variables.location.product_location %}.
 
@@ -39,13 +39,13 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 
 {% data variables.product.product_name %} writes several categories of system logs to the instance's disk in plain text. People with administrative SSH access to the instance can parse these files using Linux command-line tools such as `cat`, `tail`, `head`, `less`, and `more`.
 
-- [Log files for databases](#log-files-for-databases)
-- [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
-- [Log files for the HTTP server](#log-files-for-the-http-server)
-- [Log files for instance configuration](#log-files-for-instance-configuration)
-- [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-the-management-console)
-- [Log files for search](#log-files-for-search)
-- [Log files for system services](#log-files-for-system-services)
+* [Log files for databases](#log-files-for-databases)
+* [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
+* [Log files for the HTTP server](#log-files-for-the-http-server)
+* [Log files for instance configuration](#log-files-for-instance-configuration)
+* [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-the-management-console)
+* [Log files for search](#log-files-for-search)
+* [Log files for system services](#log-files-for-system-services)
 
 ### Log files for databases
 
@@ -144,9 +144,9 @@ To view logs in the systemd journal, run the following command, replacing SERVIC
 journalctl -t SERVICE-NAME
 ```
 
-- [Journal logs for the {% data variables.product.prodname_dotcom %} application](#journal-logs-for-the-github-application)
-- [Journal logs for Git](#journal-logs-for-git)
-- [Journal logs for storage](#journal-logs-for-storage)
+* [Journal logs for the {% data variables.product.prodname_dotcom %} application](#journal-logs-for-the-github-application)
+* [Journal logs for Git](#journal-logs-for-git)
+* [Journal logs for storage](#journal-logs-for-storage)
 
 ### Journal logs for the {% data variables.product.prodname_dotcom %} application
 

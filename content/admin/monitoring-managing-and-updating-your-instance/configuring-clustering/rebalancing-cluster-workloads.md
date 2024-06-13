@@ -85,4 +85,4 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-cluster-balance)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-cluster-balance)"

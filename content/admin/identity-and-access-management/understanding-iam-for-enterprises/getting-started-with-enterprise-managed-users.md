@@ -23,8 +23,8 @@ To request a new enterprise account, contact [{% data variables.product.prodname
 
 When you're ready, your contact on the {% data variables.product.prodname_dotcom %} Sales team will create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll be asked to provide the following information:
 
-- The **email address** for the user who will set up your enterprise.
-- A **short code** that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %}
+* The **email address** for the user who will set up your enterprise.
+* A **short code** that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %}
 
 ## Create the setup user
 
@@ -43,15 +43,15 @@ Using an **incognito or private browsing window**:
 Next, configure how your members will authenticate.
 
 **If you're using Entra ID** as your IdP, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML).
-- We recommend OIDC, which includes support for Conditional Access Policies (CAP).
-- If you require multiple enterprises provisioned from one tenant, you must use SAML for each enterprise after the first.
+* We recommend OIDC, which includes support for Conditional Access Policies (CAP).
+* If you require multiple enterprises provisioned from one tenant, you must use SAML for each enterprise after the first.
 
 **If you're using another IdP**, like Okta or PingFederate, you must use SAML to authenticate your members.
 
 To get started, read the guide for your chosen authentication method.
 
-- "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
-- "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)"
+* "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)"
 
 ## Configure provisioning
 
@@ -65,5 +65,5 @@ After authentication and provisioning are configured, you can start managing org
 
 Developers may need to maintain separate, personal accounts for their work outside of your {% data variables.enterprise.prodname_emu_enterprise %}. You can help them manage multiple accounts by providing the following resources:
 
-- **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
-- **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+* **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
+* **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."

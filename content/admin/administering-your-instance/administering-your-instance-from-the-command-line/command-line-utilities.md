@@ -58,10 +58,10 @@ This utility displays information on background jobs, both active and in the que
 
 This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
 
-- The number of background jobs is increasing, while the active jobs remain the same.
-- The event feeds are not updating.
-- Webhooks are not being triggered.
-- The web interface is not updating after a Git push.
+* The number of background jobs is increasing, while the active jobs remain the same.
+* The event feeds are not updating.
+* Webhooks are not being triggered.
+* The web interface is not updating after a Git push.
 
 If you suspect Aqueduct is failing, visit {% data variables.contact.contact_ent_support %} for help.
 
@@ -254,10 +254,10 @@ Use this command to give organization owner privileges to users with site admin 
 
 You can use these options with the utility:
 
-- The `-u` flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the `-u` flag to promote all site admins to the specified organization.
-- The `-o` flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the `-o` flag to give owner permissions in all organizations to the specified site admin.
-- The `-a` flag gives owner privileges in all organizations to all site admins.
-- The `-y` flag bypasses the manual confirmation.
+* The `-u` flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the `-u` flag to promote all site admins to the specified organization.
+* The `-o` flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the `-o` flag to give owner permissions in all organizations to the specified site admin.
+* The `-a` flag gives owner privileges in all organizations to all site admins.
+* The `-y` flag bypasses the manual confirmation.
 
 This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
 
@@ -515,8 +515,8 @@ SSL-Session:
 ```
 
 You can use these additional options with the utility:
-- The `-r` flag allows you to uninstall a CA certificate.
-- The `-h` flag displays more usage information.
+* The `-r` flag allows you to uninstall a CA certificate.
+* The `-h` flag displays more usage information.
 
 ```shell
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
@@ -806,8 +806,8 @@ ghe-remove-node HOSTNAME
 ```
 
 The command does the following things:
-- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
-- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+* Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
+* Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
 
 You can run the command with the following flags.
 
@@ -821,8 +821,8 @@ Flag | Description
 
 **Notes:**
 
-- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
-- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
+* This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+* This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
 
 {% endnote %}
 
@@ -1059,8 +1059,8 @@ This utility stops {% data variables.product.prodname_actions %} from running on
 
 **Notes**:
 
-- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-- In high availability configurations, run this command from the primary.
+* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+* In high availability configurations, run this command from the primary.
 
 {% endnote %}
 
@@ -1072,8 +1072,8 @@ This utility starts {% data variables.product.prodname_actions %} on {% data var
 
 **Notes**:
 
-- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-- In high availability configurations, run this command from the primary.
+* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+* In high availability configurations, run this command from the primary.
 
 {% endnote %}
 
@@ -1123,9 +1123,9 @@ Run this utility on an existing node to begin enabling a high availability confi
 
 After running the utility, the following configuration occurs on the node.
 
-- An encrypted WireGuard VPN tunnel is established for communication between the nodes.
-- Database services are configured for replication and started.
-- Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
+* An encrypted WireGuard VPN tunnel is established for communication between the nodes.
+* Database services are configured for replication and started.
+* Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
 
 When running this utility, replace PRIMARY-NODE-IP with the IP address of your instance's primary node.
 
@@ -1145,10 +1145,10 @@ ghe-repl-start
 
 This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration)."
 
-- If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
-- If you have not started replication, the command will exit with code `1`.
-- If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
-- The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
+* If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
+* If you have not started replication, the command will exit with code `1`.
+* If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
+* The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
 
 ```shell
 ghe-repl-status

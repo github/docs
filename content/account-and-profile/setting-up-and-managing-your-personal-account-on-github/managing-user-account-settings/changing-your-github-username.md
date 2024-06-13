@@ -49,8 +49,8 @@ If you do not hold a trademark for the name, you can choose another username or 
 After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
 
 {% data variables.product.product_name %} cannot set up redirects for:
-- [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
-- Links to [gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) that include your old username
+* [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) using your old username
+* Links to [gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists) that include your old username
 
 {% ifversion fpt or ghec %}
 
@@ -69,8 +69,8 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 ## Repository references
 
 After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
-- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
-- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
+* Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
+* Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
 
 If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
@@ -88,8 +88,8 @@ If your Git commits are associated with another email address you've added to yo
 
 **Warnings:**
 
-- After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
-- When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
+* After a username change, verified commits signed using the previous {% data variables.product.product_name %}-provided `noreply` email address will lose their "Verified" status.
+* When verifying a signature, {% data variables.product.product_name %} checks that the email address of the committer or tagger exactly matches one of the email addresses associated with the GPG key's identities. Additionally, {% data variables.product.product_name %} confirms that the email address is verified and linked to the user's account. This ensures that the key belongs to you and that you created the commit or tag. Because the username of the `noreply` email address changes, these commits can no longer be verified.
 
 {% endwarning %}
 
@@ -113,5 +113,5 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-username-policy)"{% endif %}
+* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-username-policy)"{% endif %}
