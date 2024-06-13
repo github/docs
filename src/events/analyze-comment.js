@@ -36,7 +36,12 @@ export const SIGNAL_RATINGS = [
     validator: (comment) => isAllUppercase(comment),
   },
   {
-    reduction: 0.1,
+    reduction: 0.5,
+    name: 'single-word',
+    validator: (comment) => isSingleWord(comment),
+  },
+  {
+    reduction: 0.2,
     name: 'too-short',
     validator: (comment) => isTooShort(comment),
   },
@@ -118,6 +123,12 @@ function isTooShort(text) {
   if (split.length <= 3) {
     return true
   }
+}
+
+function isSingleWord(text) {
+  const whitespaceSplit = text.trim().split(/\s+/)
+  // E.g. `this-has-no-whitespace` or `snap/hooks/install`
+  return whitespaceSplit.length === 1
 }
 
 function isNotLanguage(text, language_) {
