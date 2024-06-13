@@ -35,7 +35,7 @@ import archivedEnterpriseVersions from '@/archives/middleware/archived-enterpris
 import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
-import triggerError from '@/observability/middleware/trigger-error.js'
+import triggerError from '@/observability/middleware/trigger-error'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning.js'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes.js'
 import whatsNewChangelog from './context/whats-new-changelog.js'
