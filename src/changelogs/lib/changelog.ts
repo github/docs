@@ -4,11 +4,13 @@ import path from 'path'
 
 import Parser from 'rss-parser'
 
+import type { ChangelogItem } from '@/types'
+
 const CHANGELOG_CACHE_FILE_PATH = process.env.CHANGELOG_CACHE_FILE_PATH
 // This is useful to set when doing things like sync search.
 const CHANGELOG_DISABLED = Boolean(JSON.parse(process.env.CHANGELOG_DISABLED || 'false'))
 
-async function getRssFeed(url) {
+async function getRssFeed(url: string) {
   const parser = new Parser({ timeout: 5000 })
   const feedUrl = `${url}/feed`
   let feed
@@ -16,14 +18,18 @@ async function getRssFeed(url) {
   try {
     feed = await parser.parseURL(feedUrl)
   } catch (err) {
-    console.error(`cannot get ${feedUrl}: ${err.message}`)
+    console.error(`cannot get ${feedUrl}: ${err instanceof Error ? err.message : err}`)
     return
   }
 
   return feed
 }
 
-export async function getChangelogItems(prefix, feedUrl, ignoreCache = false) {
+export async function getChangelogItems(
+  prefix: string | undefined,
+  feedUrl: string,
+  ignoreCache = false,
+): Promise<ChangelogItem[] | undefined> {
   if (CHANGELOG_DISABLED) {
     if (process.env.NODE_ENV === 'development') {
       console.warn(`Downloading changelog (${feedUrl}) items is disabled.`)
@@ -44,14 +50,15 @@ export async function getChangelogItems(prefix, feedUrl, ignoreCache = false) {
   }
 
   // only show the first 3 posts
-  const changelog = feed.items.slice(0, 3).map((item) => {
+  const changelog: ChangelogItem[] = feed.items.slice(0, 3).map((item) => {
+    const rawTitle = item.title as string
     // remove the prefix if it exists (Ex: 'GitHub Actions: '), where the colon and expected whitespace should be hardcoded.
-    const title = prefix ? item.title.replace(new RegExp(`^${prefix}`), '') : item.title
+    const title = prefix ? rawTitle.replace(new RegExp(`^${prefix}`), '') : rawTitle
     return {
       // capitalize the first letter of the title
       title: title.trim().charAt(0).toUpperCase() + title.slice(1),
-      date: item.isoDate,
-      href: item.link,
+      date: item.isoDate as string,
+      href: item.link as string,
     }
   })
 
@@ -65,13 +72,13 @@ export async function getChangelogItems(prefix, feedUrl, ignoreCache = false) {
 
 const globalCache = new Map()
 
-function getChangelogCacheKey(prefix, feedUrl) {
+function getChangelogCacheKey(prefix: string | undefined, feedUrl: string) {
   // Return a string that is only letters so it's safe to use this
   // for the filename when caching to disk.
   return `${prefix || ''}${feedUrl}`.replace(/[^a-z]+/gi, '')
 }
 
-function getDiskCachePath(prefix, feedUrl) {
+function getDiskCachePath(prefix: string | undefined, feedUrl: string) {
   // When in local development or in tests, use disk caching
   if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
     if (CHANGELOG_CACHE_FILE_PATH) {
@@ -84,7 +91,7 @@ function getDiskCachePath(prefix, feedUrl) {
   }
 }
 
-function getChangelogItemsFromCache(prefix, feedUrl) {
+function getChangelogItemsFromCache(prefix: string | undefined, feedUrl: string) {
   const cacheKey = getChangelogCacheKey(prefix, feedUrl)
 
   if (globalCache.get(cacheKey)) {
@@ -103,7 +110,7 @@ function getChangelogItemsFromCache(prefix, feedUrl) {
       return payload
     } catch (err) {
       // If it wasn't on disk, that's fine.
-      if (err.code === 'ENOENT') return
+      if (err instanceof Error && 'code' in err && err.code === 'ENOENT') return
       // The JSON.parse() most likely failed. Ignore the error
       // but delete the file so it won't be attempted again.
       if (err instanceof SyntaxError) {
@@ -115,7 +122,11 @@ function getChangelogItemsFromCache(prefix, feedUrl) {
   }
 }
 
-function setChangelogItemsCache(prefix, feedUrl, payload) {
+function setChangelogItemsCache(
+  prefix: string | undefined,
+  feedUrl: string,
+  payload: ChangelogItem[],
+) {
   const cacheKey = getChangelogCacheKey(prefix, feedUrl)
   globalCache.set(cacheKey, payload)
 

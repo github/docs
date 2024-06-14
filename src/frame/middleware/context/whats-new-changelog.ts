@@ -1,7 +1,15 @@
-import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
+import type { Response, NextFunction } from 'express'
 
-export default async function whatsNewChangelog(req, res, next) {
+import { getChangelogItems } from '@/changelogs/lib/changelog.js'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
+import type { ExtendedRequest } from '@/types'
+
+export default async function whatsNewChangelog(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
+  if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
   if (!req.context.page.changelog) return next()
   const label = req.context.page.changelog.label.split(/\s+/g).join('')
@@ -16,7 +24,7 @@ export default async function whatsNewChangelog(req, res, next) {
     }
   }
 
-  const labelUrls = {
+  const labelUrls: Record<string, string> = {
     education: 'https://github.blog/category/community/education',
     enterprise: 'https://github.blog/category/enterprise/',
   }

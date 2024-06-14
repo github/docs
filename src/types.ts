@@ -74,6 +74,8 @@ export type Context = {
   languages?: Languages
   redirectNotFound?: string
   earlyAccessPageLinks?: string
+  changelogUrl?: string
+  whatsNewChangelog?: ChangelogItem[]
   secretScanningData?: SecretScanningData[]
   ghesReleases?: GHESRelease[]
   ghesReleaseNotes?: GHESReleasePatch[]
@@ -121,6 +123,12 @@ export type ReleaseNotes = {
   [majorVersion: string]: {
     [minorVersion: string]: GHESReleasePatch
   }
+}
+
+export type ChangelogItem = {
+  title: string
+  date: string
+  href: string
 }
 
 export type SecretScanningData = {
@@ -176,6 +184,13 @@ export type Page = {
   markdown: string
   versions: FrontmatterVersions
   applicableVersions: string[]
+  changelog?: ChangeLog
+}
+
+type ChangeLog = {
+  label: string
+  prefix?: string
+  versions?: FrontmatterVersions
 }
 
 export type Tree = {
