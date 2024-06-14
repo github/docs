@@ -29,6 +29,8 @@ In this quickstart guide, you will:
 * You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
 
 * You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
+  
+* This tutorial is designed for the web interface, github.com.  The menu options may be slightly different if you are using a different interfce to github, such as GitHub Desktop.  Whichever platform or interface you use, the concepts you will learn here are the same.
 
 ## Step 1: Create a repository
 
