@@ -21178,6 +21178,22 @@
           "href": "/graphql/reference/objects#enterpriseownerinfo"
         },
         {
+          "name": "readme",
+          "description": "<p>The raw content of the enterprise README.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "readmeHTML",
+          "description": "<p>The content of the enterprise README as HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this enterprise.</p>",
           "type": "URI!",
