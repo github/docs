@@ -1,8 +1,8 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get } from '#src/tests/helpers/e2etest.js'
-import Page from '#src/frame/lib/page.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { get } from '@/tests/helpers/e2etest.js'
+import Page from '@/frame/lib/page.js'
 
 // The English content page's `versions:` frontmatter is the source
 // of (convenient) truth about which versions of this page is available.
@@ -11,6 +11,7 @@ const page = await Page.init({
   relativePath: 'admin/release-notes.md',
   languageCode: 'en',
 })
+if (!page) throw new Error('Page not found')
 
 describe('server', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -28,7 +29,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  const { applicableVersions } = page
+  const applicableVersions = page.applicableVersions
 
   test.each(applicableVersions)('version %s that has release-notes', async (version) => {
     const url = `/en/${version}/admin/release-notes`

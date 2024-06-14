@@ -1,9 +1,18 @@
-import { formatReleases, renderPatchNotes } from '#src/release-notes/lib/release-notes-utils.js'
-import { all } from '#src/versions/lib/enterprise-server-releases.js'
-import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
-import { getReleaseNotes } from './get-release-notes.js'
+import type { NextFunction, Response } from 'express'
 
-export default async function ghesReleaseNotesContext(req, res, next) {
+import { formatReleases, renderPatchNotes } from '@/release-notes/lib/release-notes-utils'
+import { all } from '@/versions/lib/enterprise-server-releases.js'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import { getReleaseNotes } from './get-release-notes'
+import type { Context, ExtendedRequest } from '@/types'
+
+export default async function ghesReleaseNotesContext(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
+  if (!req.pagePath || !req.context || !req.context.currentVersion)
+    throw new Error('request not contextualized')
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   if (requestedPlan !== 'enterprise-server') return next()
@@ -38,9 +47,9 @@ export default async function ghesReleaseNotesContext(req, res, next) {
   req.context.ghesReleases = formatReleases(ghesReleaseNotes)
 
   // Find the notes for the current release only
-  const currentReleaseNotes = req.context.ghesReleases.find(
-    (r) => r.version === requestedRelease,
-  ).patches
+  const matchedReleaseNotes = req.context.ghesReleases.find((r) => r.version === requestedRelease)
+  if (!matchedReleaseNotes) throw new Error('Release notes not found')
+  const currentReleaseNotes = matchedReleaseNotes.patches
 
   // This means the AUTOTITLE links are in the current language, but
   // since we're already force the source of the release notes from English
@@ -55,15 +64,18 @@ export default async function ghesReleaseNotesContext(req, res, next) {
     // Returns the current release's patches array: [{version, patchVersion, intro, date, sections}]
     req.context.ghesReleaseNotes = await executeWithFallback(
       req.context,
-      () => renderPatchNotes(currentReleaseNotes, req.context),
-      (enContext) => {
+      () => renderPatchNotes(currentReleaseNotes, req.context!),
+      (enContext: Context) => {
         // Something in the release notes ultimately caused a Liquid
         // rendering error. Let's start over and gather the English release
         // notes instead.
         enContext.ghesReleases = formatReleases(ghesReleaseNotes)
-        const currentReleaseNotes = enContext.ghesReleases.find(
+
+        const matchedReleaseNotes = enContext.ghesReleases!.find(
           (r) => r.version === requestedRelease,
-        ).patches
+        )
+        if (!matchedReleaseNotes) throw new Error('Release notes not found')
+        const currentReleaseNotes = matchedReleaseNotes.patches
         return renderPatchNotes(currentReleaseNotes, enContext)
       },
     )
@@ -74,7 +86,7 @@ export default async function ghesReleaseNotesContext(req, res, next) {
 
   // GHES release notes on docs started with 2.20 but older release notes exist on enterprise.github.com.
   // So we want to use _all_ GHES versions when calculating next and previous releases.
-  req.context.latestPatch = req.context.ghesReleaseNotes[0].version
+  req.context.latestPatch = req.context.ghesReleaseNotes![0].version
   req.context.latestRelease = all[0]
 
   // Add convenience props for "Supported releases" section on GHES Admin landing page (NOT release notes).
