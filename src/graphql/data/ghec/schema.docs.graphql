@@ -12819,6 +12819,16 @@ type Enterprise implements AnnouncementBanner & Node {
   ownerInfo: EnterpriseOwnerInfo
 
   """
+  The raw content of the enterprise README.
+  """
+  readme: String
+
+  """
+  The content of the enterprise README as HTML.
+  """
+  readmeHTML: HTML!
+
+  """
   The HTTP path for this enterprise.
   """
   resourcePath: URI!
