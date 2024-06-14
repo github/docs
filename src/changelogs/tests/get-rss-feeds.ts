@@ -4,10 +4,11 @@ import path from 'path'
 import nock from 'nock'
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
+import { getChangelogItems } from '@/changelogs/lib/changelog'
+import type { ChangelogItem } from '@/types'
 
 describe('getChangelogItems module', () => {
-  let changelog
+  let changelog: ChangelogItem[] | undefined
 
   beforeAll(async () => {
     const rssFeedContent = await fs.readFile(
@@ -35,7 +36,7 @@ describe('getChangelogItems module', () => {
   afterAll(() => nock.cleanAll())
 
   test('changelog contains 3 items', async () => {
-    expect(changelog.length).toEqual(3)
+    expect(changelog && changelog.length).toEqual(3)
   })
 
   test('each changelog item has expected title, date, and href', async () => {
@@ -57,6 +58,7 @@ describe('getChangelogItems module', () => {
       },
     ]
 
+    if (!changelog) throw new Error('changelog is undefined')
     for (let i = 0; i < 3; i++) {
       const changeLogEntry = changelog[i]
       const expectedEntry = expectedChangelogValues[i]

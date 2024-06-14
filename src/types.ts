@@ -74,7 +74,61 @@ export type Context = {
   languages?: Languages
   redirectNotFound?: string
   earlyAccessPageLinks?: string
+  changelogUrl?: string
+  whatsNewChangelog?: ChangelogItem[]
   secretScanningData?: SecretScanningData[]
+  ghesReleases?: GHESRelease[]
+  ghesReleaseNotes?: GHESReleasePatch[]
+  autotitleLanguage?: string
+  latestPatch?: string
+  latestRelease?: string
+}
+
+export type GHESRelease = {
+  version: string
+  patches: GHESReleasePatch[]
+  isReleaseCandidate: boolean
+  firstPreviousRelease?: string
+  secondPreviousRelease?: string
+}
+
+type ReleasePatchSectionNote = {
+  heading: string
+  notes: string[]
+}
+
+type ReleasePatchSection = {
+  security_fixes?: string[] | ReleasePatchSectionNote[]
+  known_issues?: string[] | ReleasePatchSectionNote[]
+  features?: string[] | ReleasePatchSectionNote[]
+  deprecations?: string[] | ReleasePatchSectionNote[]
+  bugs?: string[] | ReleasePatchSectionNote[]
+  errata?: string[] | ReleasePatchSectionNote[]
+  backups?: string[] | ReleasePatchSectionNote[]
+}
+
+export type GHESReleasePatch = {
+  version: string
+  patchVersion: string
+  downloadVersion: string
+  release: string
+  date: string
+  release_candidate?: boolean
+  deprecated?: boolean
+  intro?: string
+  sections: ReleasePatchSection
+}
+
+export type ReleaseNotes = {
+  [majorVersion: string]: {
+    [minorVersion: string]: GHESReleasePatch
+  }
+}
+
+export type ChangelogItem = {
+  title: string
+  date: string
+  href: string
 }
 
 export type SecretScanningData = {
@@ -129,6 +183,14 @@ export type Page = {
   renderProp: (prop: string, context: any, opts: any) => Promise<string>
   markdown: string
   versions: FrontmatterVersions
+  applicableVersions: string[]
+  changelog?: ChangeLog
+}
+
+type ChangeLog = {
+  label: string
+  prefix?: string
+  versions?: FrontmatterVersions
 }
 
 export type Tree = {
