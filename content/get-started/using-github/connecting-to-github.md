@@ -71,10 +71,10 @@ For more information about how to authenticate to {% data variables.product.prod
 | Tool | Use case | Browser or desktop |
 | ---- | -------- | ------------------ |
 | **On {% data variables.location.product_location %}** | You want a visual interface and need to make quick, simple changes, typically involving a single commit. For an introduction, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)." | Browser |
-{%- ifversion fpt or ghec %}
+| {% ifversion fpt or ghec %} |
 | **github.dev** | You want to make more complex changes to a repository than is possible on {% data variables.product.prodname_dotcom_the_website %}, but don't need to work with a terminal or tools you have installed on your computer. For more information, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor)." | Browser |
 | **{% data variables.product.prodname_github_codespaces %}** | You need the resources of a computer to do things like run scripts, create a test build of your project, or install dependencies, and you want to get started quickly by working in a cloud-based environment. For more information, see "[AUTOTITLE](/codespaces/overview)." | Browser or desktop |
-{%- endif %}
+| {% endif %} |
 | **{% data variables.product.prodname_desktop %}** | You want to work with files locally, and would prefer a visual interface to use Git, visualize changes, and interact with {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)." | Desktop |
 | **IDE or text editor**  | You're working with more complex files and projects and want everything in one place. | Desktop |
 | **Command-line Git and {% data variables.product.prodname_cli %}** | You're used to working from the command line and want to avoid switching context, or you need to access a complex Git command that isn't integrated into visual interfaces. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)." | Desktop |
