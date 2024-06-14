@@ -21,6 +21,6 @@ jobs:
 
     steps:
       - name: Label new issues with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        uses: ./.github/actions/labeler
         with:
-          add-labels: 'triage'
+          addLabels: 'triage'
