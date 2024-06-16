@@ -1,11 +1,12 @@
 ---
 title: 'About {% data variables.product.prodname_projects_v1 %}'
-intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.'
+intro: '{% data variables.product.prodname_projects_v1_caps %} on {% data variables.product.product_name %} help you organize and prioritize your work. {% ifversion projects-v1-can-create %} You can create {% data variables.projects.projects_v1_boards %} for specific feature work, comprehensive roadmaps, or even release checklists. With {% data variables.product.prodname_projects_v1 %}, you have the flexibility to create customized workflows that suit your needs.{% endif %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
   - /articles/about-project-boards
   - /github/managing-your-work-on-github/about-project-boards
+  - /issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board
 versions:
   feature: projects-v1
 topics:
@@ -23,15 +24,19 @@ You can create notes within columns to serve as task reminders, references to is
 
 Types of {% data variables.projects.projects_v1_boards %}:
 
-- **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
-- **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
-- **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
+* **User-owned {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any personal repository.
+* **Organization-wide {% data variables.projects.projects_v1_board %}** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
+* **Repository {% data variables.projects.projects_v1_board %}** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
 
-## Creating and viewing {% data variables.projects.projects_v1_boards %}
+## {% ifversion projects-v1-can-create %}Creating and viewing{% else %}Viewing{% endif %} {% data variables.projects.projects_v1_boards %}
+
+{% ifversion projects-v1-can-create %}
 
 To create a {% data variables.projects.projects_v1_board %} for your organization, you must be an organization member. Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize access to the {% data variables.projects.projects_v1_board %}.
 
 {% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
+
+{% endif %}
 
 If an organization-owned {% data variables.projects.projects_v1_board %} includes issues or pull requests from a repository that you don't have permission to view, the card will be redacted.  For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
 
@@ -45,7 +50,9 @@ If you've completed all of your {% data variables.projects.projects_v1_board %} 
 
 You can also [disable {% data variables.projects.projects_v1_boards %} in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository) or [disable {% data variables.projects.projects_v1_boards %} in your organization](/organizations/managing-organization-settings/disabling-project-boards-in-your-organization), if you prefer to track your work in a different way.
 
-{% data reusables.project-management.project-board-import-with-api %}
+{% ifversion projects-v1-can-create %}{% data reusables.project-management.project-board-import-with-api %}{% endif %}
+
+{% ifversion projects-v1-can-create %}
 
 ## Templates for {% data variables.projects.projects_v1_boards %}
 
@@ -62,11 +69,12 @@ For more information on automation for {% data variables.product.prodname_projec
 
 {% data reusables.project-management.copy-project-boards %}
 
+{% endif %}
+
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
-- "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"
+{%- ifversion projects-v1-can-create %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)"{% endif %}
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"

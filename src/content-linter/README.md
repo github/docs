@@ -30,6 +30,7 @@ export const myRule = {
   names: [],
   description: '',
   tags: [],
+  parser: 'markdownit',
   function: (params, onError) => {
     // Logic to check for violations of the rule
 
@@ -50,7 +51,7 @@ See the [custom rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/
 
 ### Helper utilities
 
-Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js).
+Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js). Note, this is unsupported and may stop being published to in the future.
 
 We've also written a few of our own:
 
@@ -78,6 +79,7 @@ export const myRule = {
   names: [],
   description: '',
   tags: [],
+  parser: 'markdownit',
   asynchronous: true
   function: (params, onError) => {
     // Logic to check for violations of the rule
@@ -216,4 +218,19 @@ The downside to using the `search-replace` plugin is that you cannot disable eac
 
 ```markdown
 docs.github.com <!-- markdownlint-disable-line search-replace -->
+```
+
+## Adding context to a base rule's error message
+
+If you want to add context to a base rule's error message, go to[`base.js`](/src/content-linter/style/base.js), and add the `context` property to the base rule's object. For e.g. if you wanted to add `context` to `MD040` (the `fenced-code-language` base rule), the object would look like this:
+
+```javascript
+'fenced-code-language': {
+    // MD040
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+    allowed_languages: allowedCodeFenceLanguages,
+    context: `When you add a fenced code block, you must specify the code language. Allowed languages are: ${allowedCodeFenceLanguages.join(', ')}. You can add allowed languages by updating data/code-languages.yml.`,
+  },
 ```

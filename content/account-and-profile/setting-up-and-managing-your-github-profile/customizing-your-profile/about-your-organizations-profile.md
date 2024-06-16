@@ -27,4 +27,4 @@ To confirm your organization's identity and display a "Verified" badge on your o
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

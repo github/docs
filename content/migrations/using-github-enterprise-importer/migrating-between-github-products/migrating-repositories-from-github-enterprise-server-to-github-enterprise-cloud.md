@@ -27,11 +27,11 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 1. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
 1. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
 1. For each repository you want to migrate, repeat these steps.
-   - Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
-   - Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
-   - Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
-   - Check the status of your migration via the GraphQL API
-   - Validate your migration and check the error log
+   * Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
+   * Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
+   * Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
+   * Check the status of your migration via the GraphQL API
+   * Validate your migration and check the error log
 
 {% endapi %}
 
@@ -49,11 +49,11 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 ## Prerequisites
 
-- {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
-- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
-- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-- In both the source and destination organizations, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
-- If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, you need access to the {% data variables.enterprise.management_console %}.
+* {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+* {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+* In both the source and destination organizations, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+* If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, to configure blob storage for exported archives, you need access to the {% data variables.enterprise.management_console %}.
 
 {% api %}
 
@@ -352,8 +352,8 @@ First, you must set up blob storage with a supported cloud provider. Then, you m
 
 After you set up blob storage with a supported cloud provider, you must configure your credentials for the storage provider in {% data variables.product.prodname_dotcom %}:
 
-- If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, configure your credentials in the {% data variables.enterprise.management_console %}.
-- If you use {% data variables.product.prodname_ghe_server %} 3.7 or lower, configure the credentials in the {% data variables.product.prodname_cli %}.
+* If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, configure your credentials in the {% data variables.enterprise.management_console %}.
+* If you use {% data variables.product.prodname_ghe_server %} 3.7 or lower, configure the credentials in the {% data variables.product.prodname_cli %}.
 
 #### Configuring blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}
 
@@ -445,14 +445,14 @@ When you migrate repositories, the {% data variables.product.prodname_gei_cli %}
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier, before you run your script, you must set additional environment variables to authenticate to your blob storage provider.
 
-- For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
+* For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
 
    {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
-- For AWS S3, set the following environment variables.
-  - `AWS_ACCESS_KEY`: The access key for your bucket
-  - `AWS_SECRET_KEY`: The secret key for your bucket
-  - `AWS_REGION`: The AWS region where your bucket is located
-  - `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
+* For AWS S3, set the following environment variables.
+  * `AWS_ACCESS_KEY`: The access key for your bucket
+  * `AWS_SECRET_KEY`: The secret key for your bucket
+  * `AWS_REGION`: The AWS region where your bucket is located
+  * `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 
 {% data reusables.enterprise-migration-tool.migrate-multiple-repos %}
 

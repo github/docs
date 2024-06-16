@@ -170,5 +170,5 @@ body:
 
 ## Further reading
 
-- [YAML](https://yaml.org/)
-- [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)
+* [YAML](https://yaml.org/)
+* [Common validation errors when creating issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/common-validation-errors-when-creating-issue-forms)

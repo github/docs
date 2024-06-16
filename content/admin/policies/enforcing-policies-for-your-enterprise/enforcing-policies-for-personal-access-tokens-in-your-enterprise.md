@@ -24,9 +24,9 @@ Enterprise owners can prevent {% data variables.product.pat_v2 %}s from accessin
 {% data reusables.enterprise-accounts.policies-tab %}
 1. Under {% octicon "law" aria-hidden="true" %} **Policies**, click **{% data variables.product.pat_generic_caps_plural %}**.
 1. Under **Restrict access via {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v2 %}s.
-   - **Restrict access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s cannot access organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v2 %}s will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s can access organizations owned by the enterprise. Organizations cannot override this setting.
+   * **Allow organizations to configure access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v2 %}s.
+   * **Restrict access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s cannot access organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v2 %}s will continue to work. Organizations cannot override this setting.
+   * **Allow access via {% data variables.product.pat_v2 %}s**: {% data variables.product.pat_v2_caps %}s can access organizations owned by the enterprise. Organizations cannot override this setting.
 1. Click **Save**.
 
 ## Enforcing an approval policy for {% data variables.product.pat_v2 %}s
@@ -43,9 +43,9 @@ Enterprise owners can require that all organizations owned by the enterprise mus
 {% data reusables.enterprise-accounts.policies-tab %}
 1. Under {% octicon "law" aria-hidden="true" %} **Policies**, click **{% data variables.product.pat_generic_caps_plural %}**.
 1. Under **Require approval of {% data variables.product.pat_v2 %}s**, select the option that meets your needs:
-   - **Allow organizations to configure approval requirements**: Each organization owned by the enterprise can decide whether to require approval of {% data variables.product.pat_v2 %} that can access the organization.
-   - **Require organizations to use the approval flow**: All organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval. Organizations cannot override this setting.
-   - **Disable the approval flow in all organizations**: {% data variables.product.pat_v2_caps %}s created by organization members can access organizations owned by the enterprise without prior approval. Organizations cannot override this setting.
+   * **Allow organizations to configure approval requirements**: Each organization owned by the enterprise can decide whether to require approval of {% data variables.product.pat_v2 %} that can access the organization.
+   * **Require organizations to use the approval flow**: All organizations owned by the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps %}s created by organization owners will not need approval. Organizations cannot override this setting.
+   * **Disable the approval flow in all organizations**: {% data variables.product.pat_v2_caps %}s created by organization members can access organizations owned by the enterprise without prior approval. Organizations cannot override this setting.
 1. Click **Save**.
 
 ## Restricting access by {% data variables.product.pat_v1_plural %}
@@ -56,7 +56,7 @@ Enterprise owners can prevent {% data variables.product.pat_v1_plural %} from ac
 {% data reusables.enterprise-accounts.policies-tab %}
 1. Under {% octicon "law" aria-hidden="true" %} **Policies**, click **{% data variables.product.pat_generic_caps_plural %}**.
 1. Under **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select the option that meets your needs:
-   - **Allow organizations to configure {% data variables.product.pat_v1_plural %} access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v1_plural %}.
-   - **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access the enterprise or organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work. Organizations cannot override this setting.
-   - **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access the enterprise and organizations owned by the enterprise. Organizations cannot override this setting.
+   * **Allow organizations to configure {% data variables.product.pat_v1_plural %} access requirements**: Each organization owned by the enterprise can decide whether to restrict access by {% data variables.product.pat_v1_plural %}.
+   * **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access the enterprise or organizations owned by the enterprise. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work. Organizations cannot override this setting.
+   * **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access the enterprise and organizations owned by the enterprise. Organizations cannot override this setting.
 1. Click **Save**.

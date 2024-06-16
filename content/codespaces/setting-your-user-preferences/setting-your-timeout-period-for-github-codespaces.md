@@ -69,5 +69,5 @@ You can set your default timeout period in your web browser, on {% data variable
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces)"

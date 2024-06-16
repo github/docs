@@ -36,8 +36,8 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 1. Review the Provisioning and Installation guide and check that all prerequisites needed to provision and configure {% data variables.product.prodname_enterprise %} 2.1.23 in your environment are met. For more information, see "[Provisioning and Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
 1. Verify that the current instance is running a supported upgrade version.
 1. Set up the latest version of the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils).
-    - If you have already configured scheduled backups using {% data variables.product.prodname_enterprise_backup_utilities %}, make sure you have updated to the latest version.
-    - If you are not currently running scheduled backups, set up {% data variables.product.prodname_enterprise_backup_utilities %}.
+    * If you have already configured scheduled backups using {% data variables.product.prodname_enterprise_backup_utilities %}, make sure you have updated to the latest version.
+    * If you are not currently running scheduled backups, set up {% data variables.product.prodname_enterprise_backup_utilities %}.
 1. Take an initial full backup snapshot of the current instance using the `ghe-backup` command. If you have already configured scheduled backups for your current instance, you don't need to take a snapshot of your instance.
 
    {% tip %}
@@ -47,8 +47,8 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
    {% endtip %}
 
 1. Determine the method for switching user network traffic to the new instance. After you've migrated, all HTTP and Git network traffic directs to the new instance.
-    - **DNS** - We recommend this method for all environments, as it's simple and works well even when migrating from one datacenter to another. Before starting migration, reduce the existing DNS record's TTL to five minutes or less and allow the change to propagate. Once the migration is complete, update the DNS record(s) to point to the IP address of the new instance.
-    - **IP address assignment** - This method is only available on VMware to VMware migration and is not recommended unless the DNS method is unavailable. Before starting the migration, you'll need to shut down the old instance and assign its IP address to the new instance.
+    * **DNS** - We recommend this method for all environments, as it's simple and works well even when migrating from one datacenter to another. Before starting migration, reduce the existing DNS record's TTL to five minutes or less and allow the change to propagate. Once the migration is complete, update the DNS record(s) to point to the IP address of the new instance.
+    * **IP address assignment** - This method is only available on VMware to VMware migration and is not recommended unless the DNS method is unavailable. Before starting the migration, you'll need to shut down the old instance and assign its IP address to the new instance.
 1. Schedule a maintenance window. The maintenance window should include enough time to transfer data from the backup host to the new instance and will vary based on the size of the backup snapshot and available network bandwidth. During this time your current instance will be unavailable and in maintenance mode while you migrate to the new instance.
 
 ## Perform the migration

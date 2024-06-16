@@ -21,16 +21,16 @@ Migrating from REST to GraphQL represents a significant shift in API logic. The 
 
 To migrate your code from the [REST API](/rest) to the GraphQL API:
 
-- Review the [GraphQL spec](https://spec.graphql.org/June2018/)
-- Review GitHub's [GraphQL schema](/graphql/reference)
-- Consider how any existing code you have currently interacts with the GitHub REST API
-- Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
+* Review the [GraphQL spec](https://spec.graphql.org/June2018/)
+* Review GitHub's [GraphQL schema](/graphql/reference)
+* Consider how any existing code you have currently interacts with the GitHub REST API
+* Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
 
 Significant advantages of GraphQL include:
 
-- [Getting the data you need and nothing more](#example-getting-the-data-you-need-and-nothing-more)
-- [Nested fields](#example-nesting)
-- [Strong typing](#example-strong-typing)
+* [Getting the data you need and nothing more](#example-getting-the-data-you-need-and-nothing-more)
+* [Nested fields](#example-nesting)
+* [Strong typing](#example-strong-typing)
 
 Here are examples of each.
 

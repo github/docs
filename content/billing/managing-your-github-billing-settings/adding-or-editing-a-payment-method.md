@@ -26,12 +26,21 @@ topics:
   - User account
 shortTitle: Manage a payment method
 ---
+
+
+{% data reusables.billing.us-sales-tax-note %}
+>
+>If you're exempt from sales tax, you can upload a certificate to your account. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-a-sales-tax-certificate)."
+
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 We don't support purchase orders for personal accounts. We email receipts monthly or yearly on your account's billing date. If your company, country, or accountant requires your receipts to provide more detail, you can add extra information to your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)."
 
 ## Updating your personal account's payment method
 
+You can update your personal account's payment method at any time.
+
+{% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method_personal_account %}
 {% data reusables.billing.edit-billing-information %}
@@ -51,7 +60,7 @@ If your organization is outside of the US or if you're using a corporate checkin
 ![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes %}
 
 ## Updating your enterprise account's payment method
 

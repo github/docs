@@ -34,9 +34,9 @@ GitHub Security Incident Response Team (SIRT)
 
 Subteams:
 
-- Threat Hunting, Operations, and Response (THOR)
-- Product Security Incident Response Team (PSIRT)
-- Bug Bounty
+* Threat Hunting, Operations, and Response (THOR)
+* Product Security Incident Response Team (PSIRT)
+* Bug Bounty
 
 ### 2.2 Address
 
@@ -49,10 +49,10 @@ United States
 
 Our team mainly works in the contiguous United States and keeps to these hours:
 
-- EST/EDT
-- CST/CDT
-- MST/MDT
-- PST/PDT
+* EST/EDT
+* CST/CDT
+* MST/MDT
+* PST/PDT
 
 ### 2.4 Telephone Number
 
@@ -76,8 +76,8 @@ This relays email to the human(s) on duty for GitHub SIRT.
 
 GitHub SIRT has a PGP public key:
 
-- Key ID: `78DCCCE9923E5CFB3CAA5D5AB79DBDA3BE944D9E`
-- Key expiry: `2025-09-12`
+* Key ID: `78DCCCE9923E5CFB3CAA5D5AB79DBDA3BE944D9E`
+* Key expiry: `2025-09-12`
 
 ```text
 -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -128,13 +128,13 @@ Our constituency is any individual or organization that uses a GitHub product or
 
 Some examples of GitHub products and services are:
 
-- GitHub.com
-- GitHub Enterprise Server
-- GitHub Actions
-- GitHub Desktop
-- GitHub CLI
-- GitHub API
-- npm
+* GitHub.com
+* GitHub Enterprise Server
+* GitHub Actions
+* GitHub Desktop
+* GitHub CLI
+* GitHub API
+* npm
 
 ### 3.3 Sponsorship and/or Affiliation
 
@@ -174,8 +174,8 @@ GitHub SIRT does not provide incident response services for customers. Every eff
 
 GitHub SIRT carries out the following activities for incident triage:
 
-- Security signals are collected and interpreted to determine risk, severity, and priority.
-- Investigation as to whether an incident occurred and what its effect and impact was.
+* Security signals are collected and interpreted to determine risk, severity, and priority.
+* Investigation as to whether an incident occurred and what its effect and impact was.
 
 This list is not exhaustive.
 
@@ -183,9 +183,9 @@ This list is not exhaustive.
 
 GitHub SIRT carries out the following activities for incident coordination:
 
-- Situational awareness and analysis for stakeholders such as engineering, legal, and support teams.
-- Command role with authority to direct resources as required.
-- External coordination with affected or involved third-parties.
+* Situational awareness and analysis for stakeholders such as engineering, legal, and support teams.
+* Command role with authority to direct resources as required.
+* External coordination with affected or involved third-parties.
 
 This list is not exhaustive.
 
@@ -193,10 +193,10 @@ This list is not exhaustive.
 
 GitHub SIRT carries out the following activities for incident resolution:
 
-- Engages relevant internal teams to eradicate, restore, and secure.
-- Collection and storage of evidence for internal use as well as potential law enforcement involvement.
-- Notification to affected constituents.
-- Postmortem authoring with lessons learned and post-incident repair items.
+* Engages relevant internal teams to eradicate, restore, and secure.
+* Collection and storage of evidence for internal use as well as potential law enforcement involvement.
+* Notification to affected constituents.
+* Postmortem authoring with lessons learned and post-incident repair items.
 
 This list is not exhaustive.
 

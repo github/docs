@@ -34,10 +34,10 @@ To configure team and organization membership, repository access, and permission
 
 ## Prerequisites
 
-- {% data reusables.scim.emu-prerequisite-authentication %}
+* {% data reusables.scim.emu-prerequisite-authentication %}
 
 {%- ifversion emu-public-scim-schema %}
-- {% data reusables.scim.emu-understand-types-and-support %}
+* {% data reusables.scim.emu-understand-types-and-support %}
 {%- endif %}
 
 ## Creating a {% data variables.product.pat_generic %}
@@ -69,8 +69,8 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your IdP. {% ifversion emu-public-scim-schema %} The instructions you should follow differ depending on whether you use a partner IdP's application for both authentication and provisioning.
 
-- [Configuring provisioning if you use a partner IdP's application](#configuring-provisioning-if-you-use-a-partner-idps-application)
-- [Configuring provisioning for other identity management systems](#configuring-provisioning-for-other-identity-management-systems)
+* [Configuring provisioning if you use a partner IdP's application](#configuring-provisioning-if-you-use-a-partner-idps-application)
+* [Configuring provisioning for other identity management systems](#configuring-provisioning-for-other-identity-management-systems)
 
 ### Configuring provisioning if you use a partner IdP's application
 

@@ -9,7 +9,7 @@ topics:
   - CLI
 children:
   - /about-github-copilot-in-the-cli
-  - /setting-up-github-copilot-in-the-cli
+  - /installing-github-copilot-in-the-cli
   - /using-github-copilot-in-the-cli
   - /configuring-github-copilot-in-the-cli
 ---

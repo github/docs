@@ -34,10 +34,10 @@ You can specify custom patterns for {% data variables.product.prodname_secret_sc
 
 The **More options {% octicon "chevron-down" aria-label="down" %}** section in the UI helps you write regular expressions manually.
 
-- **Secret format:** an expression that describes the format of the secret itself.
-- **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
-- **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
-- **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
+* **Secret format:** an expression that describes the format of the secret itself.
+* **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
+* **After secret:** an expression that describes the characters that come after the secret. By default, this is set to `\z|[^0-9A-Za-z]` which means that the secret must be followed by a new line or a non-alphanumeric character.
+* **Additional match requirements:** one or more optional expressions that the secret itself must or must not match.
 
 For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
 
@@ -140,8 +140,8 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
 {% ifversion custom-pattern-dry-run-ga %}
 **Notes:**
-- At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
-- {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
+* At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
+* {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
 {% else %}
 **Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire enterprise. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
 

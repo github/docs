@@ -1,44 +1,79 @@
 ---
 title: Configuring GitHub Copilot in the CLI
-intro: 'You can configure usage analytics and the default behavior for the execute command option.'
+intro: 'Learn how to configure settings and set up aliases for {% data variables.product.prodname_copilot_cli_short %}.'
 versions:
   feature: copilot-in-the-cli
 topics:
   - Copilot
   - CLI
-shortTitle: Configuring Copilot in the CLI
+shortTitle: Configure Copilot in the CLI
 ---
 
-## About configuration for {% data variables.product.prodname_copilot_cli %}
+## Setting up aliases
 
-By running `gh copilot config` you can configure multiple settings:
+You can create aliases for {% data variables.product.prodname_copilot_cli_short %} to reduce keystrokes, and to allow {% data variables.product.prodname_copilot_cli_short %} to execute commands on your behalf.
 
-- Optional Usage Analytics
-- The default behavior for the execute command confirmation
+To allow {% data variables.product.prodname_copilot_cli_short %} to execute commands, you must run the following commands to create the aliases (as opposed to creating an alias like you would for another shell command).
 
-## About Optional Usage Analytics
+After executing the following commands to create the aliases, you can run `ghcs` and `ghce` instead of `gh copilot suggest` and `gh copilot explain`.
 
-You can choose to allow {% data variables.product.company_short %} to collect usage data. This helps with improving the product and providing better support. You can enable or disable usage analytics at any time.
+### Bash
 
-{% data variables.product.company_short %} uses metrics to prioritize work and evaluate whether {% data variables.product.prodname_copilot_cli_short %} is successful in solving real user problems. For example, when a new version is released and there's a spike in exceptions and response ratings, usage analytics are used to understand if there is a regression or a platform issue causing problems.
+```shell copy
+echo 'eval "$(gh copilot alias -- bash)"' >> ~/.bashrc
+```
 
-Unless you've opted out, {% data variables.product.prodname_copilot_cli_short %} will send a payload in the format below to the analytics system. {% data variables.product.company_short %} is very sensitive to the privacy of users and will never look at the data of specific individuals, but rather only examine aggregate data and trends to inform product decisions.
+### PowerShell
+
+```shell copy
+$GH_COPILOT_PROFILE = Join-Path -Path $(Split-Path -Path $PROFILE -Parent) -ChildPath "gh-copilot.ps1"
+gh copilot alias -- pwsh | Out-File ( New-Item -Path $GH_COPILOT_PROFILE -Force )
+echo ". `"$GH_COPILOT_PROFILE`"" >> $PROFILE
+```
+
+### Zsh
+
+```shell copy
+echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
+```
+
+## Changing the default execution confirmation
+
+When you use the `ghcs` alias and you select **Execute command**, {% data variables.product.prodname_copilot_cli_short %} will ask for confirmation before executing the command. You can change the default confirmation.
+
+1. Execute the following command:
+
+   ```shell copy
+   gh copilot config
+   ```
+
+1. Select **Default value for confirming command execution**.
+1. Choose the desired default.
+
+## Changing usage analytics
+
+Unless you opt out, {% data variables.product.prodname_copilot_cli_short %} will send a payload in the format below to the analytics system. This data helps improve the product. {% data variables.product.company_short %} does not look at the data of specific individuals or at specific queries.
 
 ```json
 {
-	"platform": "darwin",
-	"architecture": "arm64",
-	"version": "0.3.0-beta",
-	"custom_event": "true",
-	"event_parent_command": "explain",
-	"event_name": "Explain",
-	"sha": "089a53215fc4383179869f7f6132ce9d6e58754a",
-	"thread_id": "e61d0d08-f6ba-465b-81cf-c30fd9127d70"
+  "platform": "darwin",
+  "architecture": "arm64",
+  "version": "0.3.0-beta",
+  "custom_event": "true",
+  "event_parent_command": "explain",
+  "event_name": "Explain",
+  "sha": "089a53215fc4383179869f7f6132ce9d6e58754a",
+  "thread_id": "e61d0d08-f6ba-465b-81cf-c30fd9127d70"
 }
 ```
 
-## About the execute command confirmation
+To opt in or out of data collection:
 
-When you use the `ghcs` alias and choose to execute the suggested command, {% data variables.product.prodname_copilot_cli_short %} will prompt you to confirm that you want to execute the code. For more information, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli#executing-the-command)."
+1. Execute the following command:
 
-To prevent accidental execution of commands, the confirmation prompt defaults to `No`. For faster execution, you can change the default answer to `Yes`.
+   ```shell copy
+   gh copilot config
+   ```
+
+1. Select **Optional Usage Analytics**.
+1. Choose the desired default.

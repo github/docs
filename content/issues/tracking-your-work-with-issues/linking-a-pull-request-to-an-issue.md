@@ -35,15 +35,15 @@ When you merge a linked pull request into the default branch of a repository, it
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
-- `close`
-- `closes`
-- `closed`
-- `fix`
-- `fixes`
-- `fixed`
-- `resolve`
-- `resolves`
-- `resolved`
+* `close`
+* `closes`
+* `closed`
+* `fix`
+* `fixes`
+* `fixed`
+* `resolve`
+* `resolves`
+* `resolved`
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
@@ -91,4 +91,4 @@ You can manually link up to ten issues to each pull request. The issue can be in
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"

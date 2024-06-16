@@ -41,8 +41,8 @@ To enable encrypted assertions, you must provide {% data variables.location.prod
 1. To the right of "Encryption Certificate", to save a copy of {% data variables.location.product_location %}'s public certificate on your local machine, click **Download**.
 1. Sign into your SAML IdP as an administrator.
 1. In the application for {% data variables.location.product_location %}, enable encrypted assertions.
-   - Note the encryption method and key transport method.
-   - Provide the public certificate you downloaded in step 7.
+   * Note the encryption method and key transport method.
+   * Provide the public certificate you downloaded in step 7.
 1. Return to the management console on {% data variables.location.product_location %}.
 1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
 1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.

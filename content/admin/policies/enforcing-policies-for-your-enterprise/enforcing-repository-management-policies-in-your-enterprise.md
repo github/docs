@@ -270,8 +270,8 @@ You can override the default inherited settings by configuring the settings for 
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 1. Under "Repository default settings" in the "Force pushes" section, select a policy.
-    - To block force pushes to all branches, select **Block**.
-    - To only block force pushes to the default branch, select **Block to the default branch**.
+    * To block force pushes to all branches, select **Block**.
+    * To only block force pushes to the default branch, select **Block to the default branch**.
 1. Optionally, to override repository-specific settings, select **Enforce on all repositories**. Note that this will **not** override an enterprise-wide policy.
 
    ![Screenshot of the "Repository default settings" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)

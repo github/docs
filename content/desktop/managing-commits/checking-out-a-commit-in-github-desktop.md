@@ -45,5 +45,5 @@ The `8bd5e736a2 HEAD@{1}: commit: testing out a feature` line is the commit that
 
 ## Further reading
 
-- [Detached HEAD](https://git-scm.com/docs/git-checkout#_detached_head) in the Git documentation
-- [Git cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
+* [Detached HEAD](https://git-scm.com/docs/git-checkout#_detached_head) in the Git documentation
+* [Git cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation

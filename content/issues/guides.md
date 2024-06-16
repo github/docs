@@ -21,7 +21,6 @@ includeGuides:
   - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
   - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
   - /issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards
-  - /issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
 ---

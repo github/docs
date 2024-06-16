@@ -43,7 +43,7 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
 #### Content of "Very short description"
 
-- Describe the app’s functionality. Don't use this space for a call to action. For example:
+* Describe the app’s functionality. Don't use this space for a call to action. For example:
 
   **DO:** Lightweight project management for {% data variables.product.company_short %} issues
 
@@ -51,7 +51,7 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
   **Tip:** Add an "s" to the end of the verb in a call to action to turn it into an acceptable description: _Manages your projects and issues on {% data variables.product.company_short %}_
 
-- Don’t repeat the app’s name in the description.
+* Don’t repeat the app’s name in the description.
 
   **DO:** A container-native continuous integration tool
 
@@ -59,25 +59,25 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
 #### Formatting of "Very short description"
 
-- Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
+* Always use sentence-case capitalization. Only capitalize the first letter and proper nouns.
 
-- Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
+* Don't use punctuation at the end of your short description. Short descriptions should not include complete sentences, and definitely should not include more than one sentence.
 
-- Only capitalize proper nouns. For example:
+* Only capitalize proper nouns. For example:
 
   **DO:** One-click delivery automation for web developers
 
   **DON'T:** One-click delivery automation for Web Developers
 
-- Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+* Always use a [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- Avoid referring to the {% data variables.product.company_short %} community as "users."
+* Avoid referring to the {% data variables.product.company_short %} community as "users."
 
   **DO:** Create issues automatically for people in your organization
 
   **DON'T:** Create issues automatically for an organization's users
 
-- Avoid acronyms unless they’re well established (such as API). For example:
+* Avoid acronyms unless they’re well established (such as API). For example:
 
   **DO:** Agile task boards, estimates, and reports without leaving {% data variables.product.company_short %}
 
@@ -94,14 +94,14 @@ If your app only works with specific languages, select up to 10 programming lang
 ### Listing URLs
 
 **Required URLs**
-- **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
-- **Privacy policy URL:** The web page that displays your app's privacy policy.
-- **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)" for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
+* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
+* **Privacy policy URL:** The web page that displays your app's privacy policy.
+* **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)" for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
 
 **Optional URLs**
-- **Company URL:** A link to your company's website.
-- **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
-- **Documentation URL:** A link to documentation that teaches customers how to use your app.
+* **Company URL:** A link to your company's website.
+* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
+* **Documentation URL:** A link to documentation that teaches customers how to use your app.
 
 ## Logo and feature card
 
@@ -119,19 +119,19 @@ As you upload images and select colors, your {% data variables.product.prodname_
 
 You must upload a custom image for the logo. For the badge, choose a background color.
 
-- Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
-- Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
-- For best results, upload a logo image with a transparent background.
-- To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
-- Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
+* Upload a logo image that is at least 200 pixels x 200 pixels so your logo won't have to be upscaled when your listing is published.
+* Logos will be cropped to a square. We recommend uploading a square image file with your logo in the center.
+* For best results, upload a logo image with a transparent background.
+* To give the appearance of a seamless badge, choose a badge background color that matches the background color (or transparency) of your logo image.
+* Avoid using logo images with words or text in them. Logos with text do not scale well on small screens.
 
 ### Guidelines for feature cards
 
 You must upload a custom background image for the feature card. For the app's name, choose a text color.
 
-- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
-- Background image measures 965 pixels x 482 pixels (width x height).
-- Choose a text color for your app's name that shows up clearly over the background image.
+* Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
+* Background image measures 965 pixels x 482 pixels (width x height).
+* Choose a text color for your app's name that shows up clearly over the background image.
 
 ## Listing details
 
@@ -153,35 +153,35 @@ You can add more information in the optional "Detailed description" field. You s
 
 ### Content of "Introductory description" and "Detailed description"
 
-- Always begin introductory descriptions with your app's name.
+* Always begin introductory descriptions with your app's name.
 
-- Always write descriptions and value propositions using the active voice.
+* Always write descriptions and value propositions using the active voice.
 
 ### Formatting of "Introductory description" and "Detailed description"
 
-- Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
+* Always use sentence-case capitalization in value proposition titles. Only capitalize the first letter and proper nouns.
 
-- Use periods in your descriptions. Avoid exclamation marks.
+* Use periods in your descriptions. Avoid exclamation marks.
 
-- Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
+* Don't use punctuation at the end of your value proposition titles. Value proposition titles should not include complete sentences, and should not include more than one sentence.
 
-- For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings) using Markdown. For example:
+* For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings) using Markdown. For example:
 
 ### Learn the skills you need
 
   {% data variables.product.prodname_learning %} can help you learn how to use {% data variables.product.company_short %}, communicate more effectively with Markdown, handle merge conflicts, and more.
 
-- Only capitalize proper nouns.
+* Only capitalize proper nouns.
 
-- Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
+* Always use the [serial comma](https://en.wikipedia.org/wiki/Serial_comma) in lists.
 
-- Avoid referring to the {% data variables.product.company_short %} community as "users."
+* Avoid referring to the {% data variables.product.company_short %} community as "users."
 
   **DO:** Create issues automatically for people in your organization
 
   **DON'T:** Create issues automatically for an organization's users
 
-- Avoid acronyms unless they’re well established (such as API).
+* Avoid acronyms unless they’re well established (such as API).
 
 ## Product screenshots
 
@@ -189,11 +189,11 @@ You can upload up to five screenshot images of your app to display on your app's
 
 ### Guidelines for screenshots
 
-- Images must be of high resolution (at least 1200px wide).
-- All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
-- Show as much of the user interface as possible so people can see what your app does.
-- When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
-- {% data variables.product.company_short %} displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
-- Captions are most effective when they are short and snappy.
+* Images must be of high resolution (at least 1200px wide).
+* All images must be the same height and width (aspect ratio) to avoid page jumps when people click from one image to the next.
+* Show as much of the user interface as possible so people can see what your app does.
+* When taking screenshots of your app in a browser, only include the content in the display window. Avoid including the address bar, title bar, or toolbar icons, which do not scale well to smaller screen sizes.
+* {% data variables.product.company_short %} displays the screenshots you upload in a box on your app's landing page, so you don't need to add boxes or borders around your screenshots.
+* Captions are most effective when they are short and snappy.
 
 ![Screenshot of an example of a product screenshot of an app on the {% data variables.product.prodname_marketplace %}.](/assets/images/marketplace/marketplace-screenshots.png)

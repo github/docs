@@ -25,9 +25,9 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 **Notes:**
 
-- A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
-- A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
-- Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue)."
+* A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
+* A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+* Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue)."
 
 {% endnote %}
 
@@ -61,9 +61,9 @@ Repository administrators can require a merge queue by enabling the branch prote
 
 Once you have enabled the "Require merge queue" setting, you can also access the following settings:
 
-- **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
+* **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
 
-- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
+* **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
 -
   **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
 
@@ -72,7 +72,7 @@ Once you have enabled the "Require merge queue" setting, you can also access the
   | Yes      | All pull requests must satisfy required checks to be merged. |
   | No       | Pull requests that have failed required checks can be added to a group as long as the last pull request in the group has passed required checks. If the last pull request in the group has passed required checks, this means that the checks have passed for the combined set of changes in the merge group. Leaving this checkbox unselected can be useful if you have intermittent test failures, but don't want false negatives to hold up the queue. |
 
-- **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
+* **Status check timeout**: Choose how long the queue should wait for a response from CI before assuming that checks have failed.
 
 -
   **Merge limits**: Select the minimum and maximum number of pull requests to merge into the base branch at the same time (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number.
@@ -145,5 +145,5 @@ The following scenario outlines what happens when a user jumps the queue.
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
-- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"

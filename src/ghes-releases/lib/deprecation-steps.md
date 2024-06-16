@@ -1,3 +1,11 @@
+---
+title: Enterprise Server {{ release-number }} deprecation steps`
+labels:
+  - enterprise deprecation
+  - priority-1
+  - time sensitive
+---
+
 # Deprecation steps for GHES releases
 
 The day after a GHES version's [deprecation date](https://github.com/github/docs-internal/tree/main/src/ghes-releases/lib/enterprise-dates.json), a banner on the docs will say: `This version was deprecated on <date>.` This is all users need to know. However, we don't want to update those docs anymore or link to them in the nav. Follow the steps in this issue to **archive** the docs.
@@ -13,9 +21,19 @@ Additionally, you can download:
 
 - [Azure Storage Explorer](https://aka.ms/portalfx/downloadstorageexplorer)
 
-## Step 0: Remove deprecated version numbers from docs-content issue forms
+## Step 0: Before beginning the deprecation, ensure the date of the deprecation is correctly defined
 
 - [ ] Completed step 0 ✅
+
+1. Check that the deprecation date is correct by looking up the version you are deprecating in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) and finding the corresponding `prp` owner. Send them a slack message to confirm that the date is correct. If the date is being pushed out, you can ask the `prp` to update the date in the release date list. If the release date list does not get updated (it doesn't always) we have to prepare that our version of that file (`src/ghes-releases/lib/enterprise-dates.json`) will also be inaccurate.
+
+   If there is no `prp` defined, reach out to our content friends for help in the #docs-content-enterprise Slack channel.
+
+1. If this release is being pushed out, update the target date of this issue and you can wait to proceed with any futher steps.
+
+## Step 1: Remove deprecated version numbers from docs-content issue forms
+
+- [ ] Completed step 1 ✅
 
 **Note**: This step can be performed independently of all other steps, and can be done several days before or along with the other steps.
 
@@ -23,22 +41,11 @@ In the `docs-content` repo, remove the deprecated GHES version number from the `
 
 When the PR is approved, merge it in.
 
-## Step 1: Before beginning the deprecation, ensure the date of the deprecation is correctly defined
-
-- [ ] Completed step 1 ✅
-
-The dates we use for Enterprise releases and deprecations are stored in [releases](https://github.com/github/enterprise-releases/blob/master/releases.json). However, that file isn't always up-to-date when deprecations get pushed out. This date is added to `src/ghes-releases/lib/enterprise-dates.json`, stored in this repo.
-
-1. Check that the deprecation date is correct by looking up the version you are deprecating in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) and finding the corresponding `prp` owner. Send them a slack message to confirm that the date is correct.
-
-   If there is no `prp` defined, reach out to our content friends for help in the #docs-content-enterprise Slack channel.
-
-2. If the actual deprecation date differs from what we have documented in `src/ghes-releases/lib/enterprise-dates.json`, update the date in that file. If the date is correct, there is nothing to do. The date in `src/ghes-releases/lib/enterprise-dates.json` will be the date used in the deprecation banner of the scraped content.
-
 ## Step 2: Dry run: Scrape the docs and archive the files
 
 - [ ] Completed step 2 ✅
 
+1. If the release date documented in the [release date list](https://github.com/github/enterprise-releases/blob/master/releases.json) is incorrect or differs from what we have documented in `src/ghes-releases/lib/enterprise-dates.json`, update the date in `src/ghes-releases/lib/enterprise-dates.json` to the correct deprecation date before proceeding with the deprecation. A banner is displayed on each page with a version that will be deprecated soon. The banner uses the dates defined in `src/ghes-releases/lib/enterprise-dates.json`.
 1. Ensure you have local clones of the [translation repositories](#configuring-the-translation-repositories).
 1. Update all translation directories to the latest `main` branch.
 1. You can do this on the main branch or check out a new temporary branch.

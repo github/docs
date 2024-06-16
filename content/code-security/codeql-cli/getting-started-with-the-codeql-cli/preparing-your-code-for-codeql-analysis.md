@@ -34,8 +34,8 @@ Before you generate a {% data variables.product.prodname_codeql %} database, you
 
 1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
 1. Check out the code that you want to analyze:
-   - For a branch, check out the head of the branch that you want to analyze.
-   - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
+   * For a branch, check out the head of the branch that you want to analyze.
+   * For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
 1. Set up the environment for the codebase, making sure that any dependencies are available.
 1. For the best results with compiled languages, find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 
@@ -51,8 +51,8 @@ codeql database create <database> --language=<language-identifier>
 
 You must specify:
 
-- `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
-- `--language`: the identifier for the language to create a database for. When used with `--db-cluster`, the option accepts a comma-separated list, or can be specified more than once. {% data variables.product.prodname_codeql %} supports creating databases for the following languages:
+* `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
+* `--language`: the identifier for the language to create a database for. When used with `--db-cluster`, the option accepts a comma-separated list, or can be specified more than once. {% data variables.product.prodname_codeql %} supports creating databases for the following languages:
 
     {% data reusables.code-scanning.codeql-language-identifiers-table %}
 
@@ -108,10 +108,10 @@ $ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql
 
 This example creates two {% data variables.product.prodname_codeql %} databases for the repository checked out at `/checkouts/example-repo-multi`. It uses:
 
-- `--db-cluster` to request analysis of more than one language.
-- `--language` to specify which languages to create databases for.
-- `--command` to tell the tool the build command for the codebase, here `make`.
-- `--no-run-unnecessary-builds` to tell the tool to skip the build command for languages where it is not needed (like Python).
+* `--db-cluster` to request analysis of more than one language.
+* `--language` to specify which languages to create databases for.
+* `--command` to tell the tool the build command for the codebase, here `make`.
+* `--no-run-unnecessary-builds` to tell the tool to skip the build command for languages where it is not needed (like Python).
 
 The resulting databases are stored in `python` and `cpp` subdirectories of `/codeql-dbs/example-repo-multi`.
 
@@ -167,10 +167,10 @@ By default, files in `node_modules` and `bower_components` directories are not e
 
 When creating databases for Python you must ensure:
 
-- You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
-- You have the version of Python used by your code installed.
-- You have access to the [pip](https://pypi.org/project/pip/) packaging management system and can install any packages that the codebase depends on.
-- You have installed the [virtualenv](https://pypi.org/project/virtualenv/) pip module.
+* You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
+* You have the version of Python used by your code installed.
+* You have access to the [pip](https://pypi.org/project/pip/) packaging management system and can install any packages that the codebase depends on.
+* You have installed the [virtualenv](https://pypi.org/project/virtualenv/) pip module.
 
 In the command line you must specify `--language=python`. For example:
 
@@ -196,8 +196,8 @@ Here, we have specified a `--source-root` path, which is the location where data
 
 For {% ifversion codeql-no-build %}most{% endif %} compiled languages, {% data variables.product.prodname_codeql %} needs to invoke the required build system to generate a database, therefore the build method must be available to the CLI. This approach creates databases that include generated code. {% data variables.product.prodname_codeql %} has two methods for building codebases:
 
-- "[Automatic build detection (autobuild)](#automatically-detecting-the-build-system)"
-- "[User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)
+* "[Automatic build detection (autobuild)](#automatically-detecting-the-build-system)"
+* "[User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)
 
 {% ifversion codeql-no-build %}
 In addition, for {% data variables.code-scanning.no_build_support %}, there is an option to generate a database without building the code. This is particularly useful when you want to enable {% data variables.product.prodname_code_scanning %} for many repositories. For more information, see "[CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)."
@@ -220,8 +220,8 @@ If a codebase uses a standard build system, relying on an autobuilder is often t
 
 **Notes:**
 
-- If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
-- The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
+* If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
+* The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
 
 {% endnote %}
 
@@ -235,13 +235,13 @@ The following examples are designed to give you an idea of some of the build com
 
 {% endnote %}
 
-- C/C++ project built using `make`:
+* C/C++ project built using `make`:
 
   ```shell
   codeql database create cpp-database --language={% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} --command=make
   ```
 
-- C# project built using `dotnet build`:
+* C# project built using `dotnet build`:
 
   It is a good idea to add `/t:rebuild` to ensure that all code will be built, or do a prior `dotnet clean` (code that is not built will not be included in the {% data variables.product.prodname_codeql %} database):
 
@@ -249,19 +249,19 @@ The following examples are designed to give you an idea of some of the build com
   codeql database create csharp-database --language=csharp --command='dotnet build /t:rebuild'
   ```
 
-- Go project built using the `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` environment variable:
+* Go project built using the `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` environment variable:
 
   ```shell
   CODEQL_EXTRACTOR_GO_BUILD_TRACING=on codeql database create go-database --language=go
   ```
 
-- Go project built using a custom build script:
+* Go project built using a custom build script:
 
   ```shell
   codeql database create go-database --language=go --command='./scripts/build.sh'
   ```
 
-- Java project built using Gradle:
+* Java project built using Gradle:
 
   ```shell
   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL.
@@ -269,20 +269,20 @@ The following examples are designed to give you an idea of some of the build com
   codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
   ```
 
-- Java project built using Maven:
+* Java project built using Maven:
 
   ```shell
   codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='mvn clean install'
   ```
 
-- Java project built using Ant:
+* Java project built using Ant:
 
   ```shell
   codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='ant -f build.xml'
   ```
 
 {% ifversion codeql-swift-beta %}
-- Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
+* Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
 
   It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
 
@@ -291,13 +291,13 @@ The following examples are designed to give you an idea of some of the build com
   codeql database create -l swift swift-database
   ```
 
-- Swift project built with `swift build`:
+* Swift project built with `swift build`:
 
   ```shell
   codeql database create -l swift -c "swift build" swift-database
   ```
 
-- Swift project built with `xcodebuild`:
+* Swift project built with `xcodebuild`:
 
   ```shell
   codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
@@ -305,7 +305,7 @@ The following examples are designed to give you an idea of some of the build com
 
   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
 
-- Swift project built using a custom build script:
+* Swift project built using a custom build script:
 
   ```shell
   codeql database create -l swift -c "./scripts/build.sh" swift-database
@@ -313,7 +313,7 @@ The following examples are designed to give you an idea of some of the build com
 
 {% endif %}
 
-- Project built using Bazel:
+* Project built using Bazel:
 
   ```shell
   # Navigate to the Bazel workspace.
@@ -335,7 +335,7 @@ The following examples are designed to give you an idea of some of the build com
   bazel shutdown
   ```
 
-- Project built using a custom build script:
+* Project built using a custom build script:
 
   ```shell
   codeql database create new-database --language=<language> --command='./scripts/build.sh'
@@ -359,8 +359,8 @@ codeql database init ... --begin-tracing <database>
 
 You must specify:
 
-- `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
-- `--begin-tracing`: creates scripts that can be used to set up an environment in which build commands will be traced.
+* `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
+* `--begin-tracing`: creates scripts that can be used to set up an environment in which build commands will be traced.
 
 You may specify other options for the `codeql database init` command as normal.
 
@@ -380,8 +380,8 @@ Based on your operating system, we recommend you run: ...
 
 The `codeql database init` command creates `<database>/temp/tracingEnvironment` with files that contain environment variables and values that will enable {% data variables.product.prodname_codeql %} to trace a sequence of build steps. These files are named `start-tracing.{json,sh,bat,ps1}`. Use one of these files with your CI system’s mechanism for setting environment variables for future steps. You can:
 
-- Read the JSON file, process it, and print out environment variables in the format expected by your CI system. For example, Azure DevOps expects `echo "##vso[task.setvariable variable=NAME]VALUE"`.
-- Or, if your CI system persists the environment,  source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
+* Read the JSON file, process it, and print out environment variables in the format expected by your CI system. For example, Azure DevOps expects `echo "##vso[task.setvariable variable=NAME]VALUE"`.
+* Or, if your CI system persists the environment,  source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
 
 Build your code; optionally, unset the environment variables using an `end-tracing.{json,sh,bat,ps1}` script from the directory where the `start-tracing` scripts are stored; and then run the command `codeql database finalize <database>`.
 
@@ -471,4 +471,4 @@ steps:
 
 ## Next steps
 
-- To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
+* To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."

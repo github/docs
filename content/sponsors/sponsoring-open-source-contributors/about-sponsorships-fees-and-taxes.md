@@ -18,10 +18,10 @@ allowTitleToDifferFromFilename: true
 {% data reusables.sponsors.sponsorship-details %}
 
 You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. You can sponsor an account on behalf of your organization for many reasons.
-- Sustaining specific libraries that your organization's work depends on
-- Investing in the ecosystem you rely on as an organization (such as blockchain)
-- Developing brand awareness as an organization that values open source
-- Thanking open source developers for building libraries that complement the product your organization offers
+* Sustaining specific libraries that your organization's work depends on
+* Investing in the ecosystem you rely on as an organization (such as blockchain)
+* Developing brand awareness as an organization that values open source
+* Thanking open source developers for building libraries that complement the product your organization offers
 
 We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
 
@@ -40,8 +40,8 @@ If the account you want to sponsor does not have a profile on {% data variables.
 ## About payment methods for sponsorships
 
 You can pay for sponsorships:
-- With a credit card. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)."
-- Through Patreon. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)."
+* With a credit card. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)."
+* Through Patreon. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)."
 
 {% note %}
 
@@ -67,10 +67,10 @@ For more information on fees and billing, see "[AUTOTITLE](/billing/managing-bil
 
 As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
 
-- Transaction date
-- Amount paid
-- The country, state, and province from where payment was made
-- Whether payment was made by a business or individual
+* Transaction date
+* Amount paid
+* The country, state, and province from where payment was made
+* Whether payment was made by a business or individual
 
 This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 

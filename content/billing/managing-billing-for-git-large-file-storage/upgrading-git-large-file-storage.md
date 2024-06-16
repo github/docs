@@ -18,6 +18,13 @@ topics:
   - User account
 shortTitle: Upgrade Git LFS storage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user-settings.access_settings %}

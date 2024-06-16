@@ -19,7 +19,7 @@ permissions:
 jobs:
   create-sme-review-tracking-issue:
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs' && github.event.label.name == 'test-create-tracking-issue'
+    if: github.repository == 'github/docs' && github.event.label.name == 'needs SME'
     steps:
       - id: create-issue
         env:

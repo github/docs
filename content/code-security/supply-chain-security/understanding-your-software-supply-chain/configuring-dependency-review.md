@@ -79,8 +79,8 @@ Here is a list of common configuration options.  For more information, and a ful
 ## Configuring the {% data variables.dependency-review.action_name %}
 
 There are two methods of configuring the {% data variables.dependency-review.action_name %}:
-- Inlining the configuration options in your workflow file.
-- Referencing a configuration file in your workflow file.
+* Inlining the configuration options in your workflow file.
+* Referencing a configuration file in your workflow file.
 
 Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
 

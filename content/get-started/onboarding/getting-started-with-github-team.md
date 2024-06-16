@@ -133,4 +133,4 @@ You can read documentation that reflects the features available with {% data var
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-your-github-account)"
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-your-github-account)"

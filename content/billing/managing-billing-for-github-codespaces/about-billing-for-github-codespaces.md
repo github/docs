@@ -18,6 +18,12 @@ redirect_from:
   - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces.md
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
 {% ifversion billing-auth-and-capture %}

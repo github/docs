@@ -12,8 +12,8 @@ You can run extra queries if they are part of a {% data variables.product.prodna
 
 The options available to specify the additional queries you want to run are:
 
-- `packs` to install one or more {% data variables.product.prodname_codeql %} query packs and run the default query suite or queries for those packs.
-- `queries` to specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
+* `packs` to install one or more {% data variables.product.prodname_codeql %} query packs and run the default query suite or queries for those packs.
+* `queries` to specify a single _.ql_ file, a directory containing multiple _.ql_ files, a _.qls_ query suite definition file, or any combination. For more information about query suite definitions, see "[Creating {% data variables.product.prodname_codeql %} query suites](https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/)."
 
 You can use both `packs` and `queries` in the same workflow.
 

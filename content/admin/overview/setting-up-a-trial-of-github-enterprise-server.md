@@ -39,15 +39,15 @@ To get the most out of your trial, follow these steps:
 
 1. [Create an organization](/enterprise-server@latest/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 1. To learn the basics of using {% data variables.product.prodname_dotcom %}, see:
-   - [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
-   - [Understanding the {% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow/) in {% data variables.product.prodname_dotcom %} Guides
-   - [Hello World](https://guides.github.com/activities/hello-world/) in {% data variables.product.prodname_dotcom %} Guides
-   - "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)"
+   * [Intro to {% data variables.product.prodname_dotcom %}](https://resources.github.com/devops/methodology/maximizing-devops-roi/) webcast
+   * [Understanding the {% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow/) in {% data variables.product.prodname_dotcom %} Guides
+   * [Hello World](https://guides.github.com/activities/hello-world/) in {% data variables.product.prodname_dotcom %} Guides
+   * "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)"
 1. To configure your instance to meet your organization's needs, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-your-enterprise)."
 1. To integrate {% data variables.product.prodname_ghe_server %} with your identity provider, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam)" and "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap)."
-1. Invite an unlimited number of people to join your trial.
-   - Add users to your {% data variables.product.prodname_ghe_server %} instance using built-in authentication or your configured identity provider. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
-   - To invite people to become account administrators, visit the [{% data variables.product.prodname_enterprise %} Web portal](https://enterprise.github.com/login).
+1. Invite people to join your trial.
+   * Add users to your {% data variables.product.prodname_ghe_server %} instance using built-in authentication or your configured identity provider. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+   * To invite people to become account administrators, visit the [{% data variables.product.prodname_enterprise %} Web portal](https://enterprise.github.com/login).
 
      {% note %}
 
@@ -67,4 +67,4 @@ If you haven't upgraded by the last day of your trial, you'll receive an email n
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)"
+* "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)"

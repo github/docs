@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /getting-started-with-github-copilot
+  - /using-github-copilot-code-suggestions-in-your-editor
   - /finding-public-code-that-matches-github-copilot-suggestions
 ---
+

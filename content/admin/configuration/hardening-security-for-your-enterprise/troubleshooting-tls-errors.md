@@ -69,7 +69,7 @@ You should be able to download a certificate bundle (for example, `bundle-certif
 
 ## Installing self-signed or untrusted certificate authority (CA) root certificates
 
-If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
+If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS. If you want to use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates.
 
 1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
 1. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.

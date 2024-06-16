@@ -103,4 +103,21 @@ describe('translations', () => {
     const stillAutotitle = texts.filter((text) => /autotitle/i.test(text))
     expect(stillAutotitle.length).toBe(0)
   })
+
+  test('markdown link looking constructs inside links', async () => {
+    // On this page, the translators had written:
+    //
+    //   [[Bar](バー)](/get-started/foo/bar)
+    //
+    // which needs to become:
+    //
+    //   <a href="/ja/get-started/foo/bar">[Bar](バー)</a>
+    const $ = await getDOM('/ja/get-started/start-your-journey/hello-world')
+    const links = $('#article-contents a[href]')
+    const texts = links
+      .filter((i, element) => $(element).attr('href').includes('get-started/foo/bar'))
+      .map((i, element) => $(element).text())
+      .get()
+    expect(texts.includes('[Bar] (バー)')).toBeTruthy()
+  })
 })

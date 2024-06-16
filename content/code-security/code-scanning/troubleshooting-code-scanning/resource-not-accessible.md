@@ -10,13 +10,14 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible-by-integration
 ---
 
+>[!NOTE]
+>This troubleshooting article is _only_ relevant if you're seeing this error with {% data variables.product.prodname_dependabot %}. If you see this error with other {% data variables.product.company_short %} products and have difficulty troubleshooting it, you can contact {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
+
 ## About this error
 
 ```text
 403: Resource not accessible by integration
 ```
-
-You may see this error when using {% data variables.product.prodname_dependabot %}.
 
 {% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, if the workflow will run with read-only scopes.
 
@@ -24,7 +25,7 @@ You may see this error when using {% data variables.product.prodname_dependabot 
 
 If you're using {% data variables.product.prodname_dependabot %} in your {% data variables.product.prodname_code_scanning %} workflow, investigate the scope it's using.
 
-Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security-events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
 
 ## Fixing the problem
 
@@ -56,7 +57,7 @@ For more information about editing the {% data variables.product.prodname_codeql
 
 If the {% data variables.code-scanning.codeql_workflow %} still fails on a commit made on the default branch, you need to check:
 
-- whether {% data variables.product.prodname_dependabot %} authored the commit
-- whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
+* whether {% data variables.product.prodname_dependabot %} authored the commit
+* whether the pull request that includes the commit has been merged using `@dependabot squash and merge`
 
 This type of merge commit is authored by {% data variables.product.prodname_dependabot %} and therefore, any workflows running on the commit will have read-only permissions. If you enabled {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} security updates or version updates on your repository, we recommend you avoid using the {% data variables.product.prodname_dependabot %} `@dependabot squash and merge` command. Instead, you can enable auto-merge for your repository. This means that pull requests will be automatically merged when all required reviews are met and status checks have passed. For more information about enabling auto-merge, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request#enabling-auto-merge)."

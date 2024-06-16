@@ -59,9 +59,9 @@ Depending on where and how you configure monitoring, replace HOST with either yo
 
 An active node for geo-replication, which can respond to user requests, will return status code `200` (OK). Requests to individual nodes or the instance's hostname may return a `503` (Service Unavailable) error for the following reasons.
 
-- The individual node is a passive replica node, such as the replica node in a two-node high-availability configuration.
-- The individual node is part of a geo-replication configuration, but is a passive replica node.
-- The instance is in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+* The individual node is a passive replica node, such as the replica node in a two-node high-availability configuration.
+* The individual node is part of a geo-replication configuration, but is a passive replica node.
+* The instance is in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 For more information about geo-replication, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
 
@@ -85,8 +85,8 @@ If you run the `ghe-repl-status` command-line utility on a replica node and Git 
 
 If you've recently configured high availability or geo-replication, the initial sync will take some time. The duration of the initial sync depends on how much data exists and network conditions.
 
-- [Under-replicated repositories or repository networks](#under-replicated-repositories-or-repository-networks)
-- [Under-replicated storage objects](#under-replicated-storage-objects)
+* [Under-replicated repositories or repository networks](#under-replicated-repositories-or-repository-networks)
+* [Under-replicated storage objects](#under-replicated-storage-objects)
 
 #### Under-replicated repositories or repository networks
 
@@ -124,5 +124,5 @@ ghe-storage info OID
 
 If you review the troubleshooting advice for replication and continue to experience issues on your instance, collect the following information, then contact us by visiting {% data variables.contact.contact_ent_support %}.
 
-- On each affected node, run `ghe-repl-status -vv`, then copy the output to your ticket. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repl-status)."
-- On each affected node, create a support bundle to attach to your ticket. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
+* On each affected node, run `ghe-repl-status -vv`, then copy the output to your ticket. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repl-status)."
+* On each affected node, create a support bundle to attach to your ticket. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
