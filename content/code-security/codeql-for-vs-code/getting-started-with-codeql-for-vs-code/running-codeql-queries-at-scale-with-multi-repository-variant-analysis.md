@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-for-vs-code/running-codeql-queries-at-scale-with-mrva
 ---
 
-{% data reusables.code-scanning.mrva-beta %}
-
 ## About running {% data variables.product.prodname_codeql %} queries at scale with multi-repository variant analysis
 
 With multi-repository variant analysis (MRVA), you can run {% data variables.product.prodname_codeql %} queries on a list of up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_vscode %}.

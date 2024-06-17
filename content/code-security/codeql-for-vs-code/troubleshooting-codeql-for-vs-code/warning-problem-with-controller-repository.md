@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-for-vs-code/troubleshooting-variant-analysis
 ---
 
-{% data reusables.code-scanning.mrva-beta %}
-
 ## About this warning
 
 ```text
