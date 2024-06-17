@@ -37,14 +37,14 @@ People with collaborator access to repositories are listed in your enterprise's 
 {% ifversion ghec %}
 If you use an **enterprise with personal accounts**:
 
-- People become enterprise members when they are added as a member or owner of an organization. See "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
-- You can invite someone to become an enterprise owner or billing manager. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+* People become enterprise members when they are added as a member or owner of an organization. See "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+* You can invite someone to become an enterprise owner or billing manager. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 If you use an **{% data variables.enterprise.prodname_emu_enterprise %}**:
 
-- You must provision all users through your identity provider (IdP).
-- You select each user's enterprise role using your IdP. The role cannot be changed on {% data variables.product.prodname_dotcom %}.
-- To assign the guest collaborator role, you may need to update your IdP.
+* You must provision all users through your identity provider (IdP).
+* You select each user's enterprise role using your IdP. The role cannot be changed on {% data variables.product.prodname_dotcom %}.
+* To assign the guest collaborator role, you may need to update your IdP.
 
 For more information about the different types of enterprise accounts, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud#about-types-of-enterprises)."
 
@@ -52,8 +52,8 @@ For more information about the different types of enterprise accounts, see "[AUT
 
 When a user has joined your {% data variables.product.prodname_ghe_server %} instance, you can:
 
-- Add the user to an organization. See "[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)."
-- Invite the user to become an enterprise owner. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+* Add the user to an organization. See "[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)."
+* Invite the user to become an enterprise owner. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 {% endif %}
 
@@ -91,9 +91,9 @@ Members of organizations owned by your enterprise are automatically members of t
 
 Enterprise members:
 
-- Cannot access or configure enterprise settings.
-- Can access all repositories with "internal" visibility across any organization in the enterprise. See "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
-- May have different levels of access to various organizations and repositories. To view the resources someone has access to, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+* Cannot access or configure enterprise settings.
+* Can access all repositories with "internal" visibility across any organization in the enterprise. See "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+* May have different levels of access to various organizations and repositories. To view the resources someone has access to, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 {% ifversion guest-collaborators %}
 
