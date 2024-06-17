@@ -61,6 +61,11 @@ You can delete a fork and recreate the same repository, without the connection t
    cd FORK-NAME.git
    git push --mirror https://github.com/EXAMPLE-USER/FORK-NAME.git
    ```
+   {% warning %}
+
+   **Warning:** This may produce a warning like `remote: error: refusing to delete the current default branch` or `[remote rejected] main (refusing to delete the current branch`. This usually indicates a mismatch between default branch settings between the remote and the local repository; check that the Github copy has all the content you expected before proceeding.
+
+   {% endwarning %}
 
 1. Remove temporary local clone you created earlier.
 
