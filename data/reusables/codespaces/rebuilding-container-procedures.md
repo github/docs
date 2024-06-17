@@ -2,9 +2,9 @@
 
    ![Screenshot of a message saying that the codespace is running in recovery mode. Below the message are buttons labeled "Cancel" and "View creation log."](/assets/images/help/codespaces/recovery-mode-error-message.png)
 
-   - To diagnose the error by reviewing the creation logs, click **View creation log**.
-   - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container.
+   * To diagnose the error by reviewing the creation logs, click **View creation log**.
+   * To fix the errors identified in the logs, update your `devcontainer.json` file.
+   * To apply the changes, rebuild your container.
 
 ### Using {% data variables.product.prodname_cli %} to rebuild a dev container
 

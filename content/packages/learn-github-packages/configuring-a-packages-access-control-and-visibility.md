@@ -121,9 +121,9 @@ If you publish a package that is linked to a repository, {% data variables.produ
 {% note %}
 
 **Notes:**
-- Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
-- You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
-- {% data reusables.package_registry.public-forks-private-packages %}
+* Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+* You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
+* {% data reusables.package_registry.public-forks-private-packages %}
 
 {% endnote %}
 
@@ -181,13 +181,13 @@ When you first publish a package that is scoped to your personal account, the de
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
 1. Select a visibility setting:
-   - To make the package visible to anyone, select **Public**.
+   * To make the package visible to anyone, select **Public**.
      {% warning %}
 
      **Warning:** Once you make a package public, you cannot make it private again.
 
      {% endwarning %}
-   - To make the package visible to a custom selection of people, select **Private**.
+   * To make the package visible to a custom selection of people, select **Private**.
 1. To confirm, type the name of the package, then click **I understand the consequences, change package visibility**.
 
 ## Package creation visibility for organization members
@@ -198,9 +198,9 @@ For registries that support granular permissions, you can choose the visibility 
 {% data reusables.profile.org_settings %}
 1. On the left, click **Packages**.
 1. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
-    - To enable organization members to create public packages, click **Public**.
-    - To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
-    - To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
+    * To enable organization members to create public packages, click **Public**.
+    * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
+    * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
 
 ## Configuring visibility of packages for an organization
 
@@ -209,7 +209,7 @@ When you first publish a package, the default visibility is private and only you
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
-    - To make the package visible to anyone, click **Public**.
+    * To make the package visible to anyone, click **Public**.
 
       {% warning %}
 
@@ -217,5 +217,5 @@ When you first publish a package, the default visibility is private and only you
 
       {% endwarning %}
 
-    - To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
-    - To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}
+    * To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
+    * To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

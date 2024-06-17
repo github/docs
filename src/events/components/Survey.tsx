@@ -82,6 +82,13 @@ export const Survey = () => {
     }
   }, [email])
 
+  useEffect(() => {
+    if (state === ViewState.NEXT && data?.comment !== comment.trim()) {
+      setState(ViewState.START)
+      setIsEmailError(false)
+    }
+  }, [comment])
+
   const { data, error, isLoading } = useSWR(
     state === ViewState.NEXT && comment.trim() ? '/api/events/survey/preview/v1' : null,
     async (url: string) => {
@@ -107,7 +114,7 @@ export const Survey = () => {
     },
   )
 
-  const hasPreview = !!data && !error
+  const hasPreview = !!data && !error && ViewState.NEXT
 
   function submit(evt: React.FormEvent) {
     evt.preventDefault()

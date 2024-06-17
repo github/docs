@@ -104,8 +104,8 @@ on:
 
 **Notes**
 
-- `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."{% ifversion code-scanning-alerts-in-pr-diff %}{% else %}
-- For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."{% ifversion code-scanning-alerts-in-pr-diff %}{% else %}
+* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
 {% endif %}
 
 {% endnote %}
@@ -137,9 +137,9 @@ on:
 ```
 
 This workflow scans:
-- Every push to the default branch and the protected branch
-- Every pull request to the default branch
-- The default branch every Monday at 14:20 UTC
+* Every push to the default branch and the protected branch
+* Every pull request to the default branch
+* The default branch every Monday at 14:20 UTC
 
 ## Specifying an operating system
 
@@ -148,9 +148,9 @@ This workflow scans:
 
 **Notes**:
 
-- Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}{% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+* Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}{% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
-- {% data reusables.code-scanning.default-setup-swift-self-hosted-runners %}
+* {% data reusables.code-scanning.default-setup-swift-self-hosted-runners %}
 
 {% endnote %}
 
@@ -264,8 +264,8 @@ This parameter is particularly useful if you work with monorepos and have multip
 ```
 
 If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
-- The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-- The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:{% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}/os:linux`.
+* The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
+* The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:{% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}/os:linux`.
 
 The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#runautomationdetails-object)."
 
@@ -316,10 +316,10 @@ To add one or more {% data variables.product.prodname_codeql %} query packs, add
 {% endnote %}
 
 In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the four {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run:
-- The latest version of `pack1` is downloaded and all default queries are run.
-- Version 1.2.3 of `pack2` is downloaded and all default queries are run.
-- The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
-- Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
+* The latest version of `pack1` is downloaded and all default queries are run.
+* Version 1.2.3 of `pack2` is downloaded and all default queries are run.
+* The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
+* Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
 
 ``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
@@ -525,9 +525,9 @@ If you only want to run custom queries, you can disable the default security que
 You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
 
 This is useful if you want to exclude, for example:
-- Specific queries from the default suites (`security`, `security-extended` and `security-and-quality`).
-- Specific queries whose results do not interest you.
-- All the queries that generate warnings and recommendations.
+* Specific queries from the default suites (`security`, `security-extended` and `security-and-quality`).
+* Specific queries whose results do not interest you.
+* All the queries that generate warnings and recommendations.
 
 You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
 
@@ -544,8 +544,8 @@ To find the id of a query, you can click the alert in the list of alerts in the 
 {% tip %}
 
 **Tips:**
-- The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
-- Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
+* The order of the filters is important. The first filter instruction that appears after the instructions about the queries and query packs determines whether the queries are included or excluded by default.
+* Subsequent instructions are executed in order and the instructions that appear later in the file take precedence over the earlier instructions.
 
 {% endtip %}
 
@@ -571,9 +571,9 @@ paths-ignore:
 
 **Note**:
 
-- The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
-- The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
-- `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
+* The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+* `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
 
 {% endnote %}
 

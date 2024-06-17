@@ -48,19 +48,19 @@ If you are over the age of 13 but are under 18, you can give and receive Sponsor
 
 You will not under any circumstances allow payments or raise funds involving:
 
-- Fraud, ransom, violations of intellectual property, or other illegal purposes;
+* Fraud, ransom, violations of intellectual property, or other illegal purposes;
 
-- Misrepresentation or deception related to the reasons you're raising funds or requesting sponsorship;
+* Misrepresentation or deception related to the reasons you're raising funds or requesting sponsorship;
 
-- The purchase or sale of ICOs, utility tokens, or other types of cryptocurrency;
+* The purchase or sale of ICOs, utility tokens, or other types of cryptocurrency;
 
-- The purchase or sale of securities, equity, or other types of investment offers;
+* The purchase or sale of securities, equity, or other types of investment offers;
 
-- The sale of personal information, or the processing of personal information in violation of any laws;
+* The sale of personal information, or the processing of personal information in violation of any laws;
 
-- Lotteries, raffles, gambling, pyramid schemes, self-dealing, "get rich quick schemes", deceptive marketing schemes, "donation for donation" schemes, or any attempts to game GitHub's or third parties' systems or services; and,
+* Lotteries, raffles, gambling, pyramid schemes, self-dealing, "get rich quick schemes", deceptive marketing schemes, "donation for donation" schemes, or any attempts to game GitHub's or third parties' systems or services; and,
 
-- Activities with, in, or involving countries, regions, governments, persons, or entities that are not permitted under U.S. and other economic sanctions under applicable law.
+* Activities with, in, or involving countries, regions, governments, persons, or entities that are not permitted under U.S. and other economic sanctions under applicable law.
 
 ### 1.2. GitHub Sponsors Matching Fund
 
@@ -70,25 +70,25 @@ The GitHub Sponsors Matching Fund aims to encourage the community that participa
 
 Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case basis and is subject to the following limitations:
 
-- You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
+* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
 
-- Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
+* Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
 
-- You cannot receive matching for any sponsorship that originates from a user or organization account with a published GitHub Sponsors profile.
+* You cannot receive matching for any sponsorship that originates from a user or organization account with a published GitHub Sponsors profile.
 
-- GitHub reserves the right to withhold or rescind Matching Fund money and block any user from participation in the GitHub Sponsors Matching Fund for any reason, including but not limited to posting content or projects that GitHub determines are offensive or otherwise objectionable.
+* GitHub reserves the right to withhold or rescind Matching Fund money and block any user from participation in the GitHub Sponsors Matching Fund for any reason, including but not limited to posting content or projects that GitHub determines are offensive or otherwise objectionable.
 
 #### 1.2.2. Matching Period.
 
 The matching period begins after GitHub accepts an individual Sponsored Developer Account into GitHub Sponsors. For each individual Sponsored Developer Account eligible for the GitHub Sponsors Matching Fund, GitHub can match community sponsorship up to $5,000 USD total during the Sponsored Developer Account's first 12 months in the Program. The matching period cannot be extended for any reason. During the matching period, GitHub will not charge any fees, so 100% of sponsorships will go to the sponsored developer. In the future, we may charge a nominal processing fee.
 
-- If a Sponsorship or Sponsoring Subscription stops for any reason, the associated matching will stop as well. Funds that are charged back to the Sponsor before the Sponsored Developer Payment date are not eligible for matching.
+* If a Sponsorship or Sponsoring Subscription stops for any reason, the associated matching will stop as well. Funds that are charged back to the Sponsor before the Sponsored Developer Payment date are not eligible for matching.
 
-- If you leave GitHub Sponsors and rejoin later, the gap between your participation periods may count toward your matching period or your matching period may expire.
+* If you leave GitHub Sponsors and rejoin later, the gap between your participation periods may count toward your matching period or your matching period may expire.
 
-- If GitHub discovers a potential policy violation, prior to payment of any matching funds granted during the matching period, GitHub may disable payouts until an investigation has been completed, and matched funds contributed to the sponsored developer may be revoked if they are found to be in violation of this policy.
+* If GitHub discovers a potential policy violation, prior to payment of any matching funds granted during the matching period, GitHub may disable payouts until an investigation has been completed, and matched funds contributed to the sponsored developer may be revoked if they are found to be in violation of this policy.
 
-- {% data reusables.sponsors.github-contact-applicants %}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ## 2. Sponsored Developer Obligations.
 
@@ -142,13 +142,13 @@ In the event of a Sponsored Developer's breach, or suspected breach, of these Ad
 
 During the term, GitHub will remit to you all Sponsored Developer Payments received in a given month within 30 days after the close of that month, subject to the variables below. Payouts are sent through Stripe Connect, ACH transfer, or wire transfer to the bank account you provided when you applied for GitHub Sponsors. We are not responsible for delay or misapplication of any Sponsored Developer Payment because of incorrect or incomplete information supplied by you or a bank, or for failure of a bank to credit your account.
 
-- For first payments, GitHub will remit to you all Sponsored Developer Payments 60 days after the first sponsorship is initiated, subject to the variables below. This probation period is applied to all Sponsored Developer Accounts and helps insure the integrity of the program. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
+* For first payments, GitHub will remit to you all Sponsored Developer Payments 60 days after the first sponsorship is initiated, subject to the variables below. This probation period is applied to all Sponsored Developer Accounts and helps insure the integrity of the program. Payments thereafter will be remitted within 30 days of the close of that month, in accordance with this section.
 
-- If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors. When the payout is a cross-border payout, a minimum payout amount may apply. For more information, see [Receiving payouts](https://stripe.com/docs/payouts#cbp-minimum-payout-amounts) in the Stripe documentation.
+* If you are paid through Stripe Connect, you will receive payouts on the 22nd of the month for the balance accrued since the last payout, regardless of the amount of the balance. Payout initiation dates vary by country, and can change from month to month due to public holidays, weekends, and other factors. When the payout is a cross-border payout, a minimum payout amount may apply. For more information, see [Receiving payouts](https://stripe.com/docs/payouts#cbp-minimum-payout-amounts) in the Stripe documentation.
 
-- If you are paid through ACH transfer or wire transfer, you will receive payouts on the third Thursday of the month. GitHub will issue a payout to you for any month that your balance reaches $100 USD. Contributions from the GitHub Sponsors Matching Fund do not count towards this threshold. If your balance is below $100 at the end of the month, the balance will accrue until the next time your balance is above the threshold at the end of the month. If you leave GitHub Sponsors, GitHub will issue a payout for your remaining balance even if the balance is below $100.
+* If you are paid through ACH transfer or wire transfer, you will receive payouts on the third Thursday of the month. GitHub will issue a payout to you for any month that your balance reaches $100 USD. Contributions from the GitHub Sponsors Matching Fund do not count towards this threshold. If your balance is below $100 at the end of the month, the balance will accrue until the next time your balance is above the threshold at the end of the month. If you leave GitHub Sponsors, GitHub will issue a payout for your remaining balance even if the balance is below $100.
 
-- After termination, we will remit to you all Sponsored Developer Payments received and unpaid within approximately 90 days after the end of the calendar month in which we recognize that these Additional Terms have been terminated.
+* After termination, we will remit to you all Sponsored Developer Payments received and unpaid within approximately 90 days after the end of the calendar month in which we recognize that these Additional Terms have been terminated.
 
 ### 3.4. Payment Method.
 
@@ -188,13 +188,13 @@ We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recip
 
 Sponsored Developer represents and warrants that:
 
-- You have the authority to enter into and fully perform these Additional Terms;
+* You have the authority to enter into and fully perform these Additional Terms;
 
-- Your execution and performance of these Additional Terms will not violate any other agreement or obligation between you and any third party;
+* Your execution and performance of these Additional Terms will not violate any other agreement or obligation between you and any third party;
 
-- Sponsored Developer Content does not infringe, violate, or misappropriate any third-party right, including any copyright, trademark, patent, trade secret, moral right, privacy right, right of publicity, or any other intellectual property;
+* Sponsored Developer Content does not infringe, violate, or misappropriate any third-party right, including any copyright, trademark, patent, trade secret, moral right, privacy right, right of publicity, or any other intellectual property;
 
-- You will comply with all laws and regulations, and your Sponsored Developer Content is not illegal and does not violate any laws or regulations.
+* You will comply with all laws and regulations, and your Sponsored Developer Content is not illegal and does not violate any laws or regulations.
 
 ### 4.2. Disclaimer of Warranties; Limitation of Liability; Indemnification.
 

@@ -56,10 +56,6 @@ You can configure {% data variables.product.prodname_code_scanning %} to use the
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 
-{% ifversion code-scanning-tool-status-page %}
-
 ## About the {% data variables.code-scanning.tool_status_page %}
 
 The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)".
-
-{% endif %}

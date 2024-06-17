@@ -52,10 +52,10 @@ In either case, access to repositories is managed by permissions. For more infor
 ## About collaboration
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."{% ifversion fpt or ghec %}
-- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-- You can use pull requests to propose changes to a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-- You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+* You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."{% ifversion fpt or ghec %}
+* {% data reusables.discussions.you-can-use-discussions %}{% endif %}
+* You can use pull requests to propose changes to a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+* You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 {% ifversion fpt or ghec %}
 With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
@@ -70,14 +70,14 @@ You can restrict who has access to a repository by choosing a repository's visib
 When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).{% endif %}
 
 {%- ifversion fpt or ghec %}
-- {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
-- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+* {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
+* Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
-- If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
-- Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+* If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
+* Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
 {%- ifversion ghec or ghes %}
-- Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+* Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 
 Organization owners always have access to every repository created in an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
@@ -118,7 +118,7 @@ By default, enterprise members can fork an internal repository into any organiza
 
 Here are some helpful resources for taking your next steps with repositories.
 
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories):" Learn how to use repositories most effectively.
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository):" Create a new repository.
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository):" Learn how to create and delete branches within your repository.
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request):" Create a pull request to propose and collaborate on changes to a repository.
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories):" Learn how to use repositories most effectively.
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository):" Create a new repository.
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository):" Learn how to create and delete branches within your repository.
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request):" Create a pull request to propose and collaborate on changes to a repository.

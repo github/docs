@@ -24,9 +24,9 @@ Wherever a restrictive policy has been chosen at the enterprise level, an organi
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce.
-    - To block {% data variables.product.prodname_copilot %} suggestions matching public code, select **Blocked**.
-    - To allow {% data variables.product.prodname_copilot %} suggestions matching public code, select **Allowed**.
-    - To allow each of your organizations to set their own policy on the use of {% data variables.product.prodname_copilot %} suggestions matching public code, select **No policy**.
+    * To block {% data variables.product.prodname_copilot %} suggestions matching public code, select **Blocked**.
+    * To allow {% data variables.product.prodname_copilot %} suggestions matching public code, select **Allowed**.
+    * To allow each of your organizations to set their own policy on the use of {% data variables.product.prodname_copilot %} suggestions matching public code, select **No policy**.
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}
 
@@ -46,9 +46,9 @@ To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_shor
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce.
-    - To allow each of your organizations to set their own policy on the use of {% data variables.product.prodname_copilot_chat %}, select **No policy**.
-    - To allow use of {% data variables.product.prodname_copilot_chat %}, select **Enabled**.
-    - To prevent use of {% data variables.product.prodname_copilot_chat %}, select **Disabled**.
+    * To allow each of your organizations to set their own policy on the use of {% data variables.product.prodname_copilot_chat %}, select **No policy**.
+    * To allow use of {% data variables.product.prodname_copilot_chat %}, select **Enabled**.
+    * To prevent use of {% data variables.product.prodname_copilot_chat %}, select **Disabled**.
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_cli %}
 

@@ -23,8 +23,8 @@ You can easily enable and manage {% data variables.product.company_short %}'s se
 
 {% data reusables.security-configurations.define-security-configurations %} There are two types of {% data variables.product.prodname_security_configuration %}:
 
-- **The {% data variables.product.prodname_github_security_configuration %}**. This configuration is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to adequately secure any repository, and can easily be applied to all repositories in your organization.
-- **{% data variables.product.prodname_custom_security_configurations_caps %}**. These are configurations you can create and edit yourself, allowing you to choose different enablement settings for groups of repositories with specific security needs.
+* **The {% data variables.product.prodname_github_security_configuration %}**. This configuration is a collection of enablement settings created and managed by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to adequately secure any repository, and can easily be applied to all repositories in your organization.
+* **{% data variables.product.prodname_custom_security_configurations_caps %}**. These are configurations you can create and edit yourself, allowing you to choose different enablement settings for groups of repositories with specific security needs.
 
 {% ifversion enforce-security-configurations %}
 

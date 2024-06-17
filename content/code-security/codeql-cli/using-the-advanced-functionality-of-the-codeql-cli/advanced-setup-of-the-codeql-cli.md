@@ -16,9 +16,9 @@ topics:
 
 If you plan to use {% data variables.product.prodname_codeql %} for more than just code scanning, you may prefer an advanced setup of the {% data variables.product.prodname_codeql_cli %}.
 
-- If you want to contribute to open source shared {% data variables.product.prodname_codeql %} queries, you may prefer working with the {% data variables.product.prodname_codeql %} source code directly.
-- If you want to use the latest {% data variables.product.prodname_codeql %} features to generate code scanning alerts for a codebase, but also want to analyze another codebase that is only compatible with a specific version of the {% data variables.product.prodname_codeql_cli %}, you may want to install multiple versions of the {% data variables.product.prodname_codeql_cli %}.
-- If you are researching or developing queries, you may want to download interesting or unique databases from {% data variables.product.prodname_dotcom_the_website %}.
+* If you want to contribute to open source shared {% data variables.product.prodname_codeql %} queries, you may prefer working with the {% data variables.product.prodname_codeql %} source code directly.
+* If you want to use the latest {% data variables.product.prodname_codeql %} features to generate code scanning alerts for a codebase, but also want to analyze another codebase that is only compatible with a specific version of the {% data variables.product.prodname_codeql_cli %}, you may want to install multiple versions of the {% data variables.product.prodname_codeql_cli %}.
+* If you are researching or developing queries, you may want to download interesting or unique databases from {% data variables.product.prodname_dotcom_the_website %}.
 
 For information on the most simple setup of the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
 
@@ -68,8 +68,8 @@ see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-t
 
 **Note:** There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
 
-- For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.prodname_dotcom_the_website %}.
-- For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.
+* For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %} or recently downloaded from {% data variables.product.prodname_dotcom_the_website %}.
+* For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.
 
 {% endnote %}
 
@@ -92,12 +92,12 @@ For example, if the path to your copy of the {% data variables.product.prodname_
 
 {% data variables.product.prodname_codeql_cli %} has subcommands you can execute to verify that you are correctly set up to create and analyze databases:
 
-- Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
-- Run `codeql resolve qlpacks` to show which {% data variables.product.prodname_codeql %} packs the CLI can find. This will display the names of all the {% data variables.product.prodname_codeql %} packs directly available to the {% data variables.product.prodname_codeql_cli %}. This should include:
-- Query packs for each supported language, for example, `codeql/{language}-queries`. These packs contain the standard queries that will be run for each analysis.
-- Library packs for each supported language, for example,  `codeql/{language}-all`. These packs contain query libraries, such as control flow and data flow libraries, that may be useful to query writers.
-- Example packs for each supported language, for example, `codeql/{language}-examples`. These packs contain useful snippets of {% data variables.product.prodname_codeql %} that query writers may find useful.
-- Legacy packs that ensure custom queries and libraries created using older products are compatible with your version of {% data variables.product.prodname_codeql %}.
+* Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
+* Run `codeql resolve qlpacks` to show which {% data variables.product.prodname_codeql %} packs the CLI can find. This will display the names of all the {% data variables.product.prodname_codeql %} packs directly available to the {% data variables.product.prodname_codeql_cli %}. This should include:
+* Query packs for each supported language, for example, `codeql/{language}-queries`. These packs contain the standard queries that will be run for each analysis.
+* Library packs for each supported language, for example,  `codeql/{language}-all`. These packs contain query libraries, such as control flow and data flow libraries, that may be useful to query writers.
+* Example packs for each supported language, for example, `codeql/{language}-examples`. These packs contain useful snippets of {% data variables.product.prodname_codeql %} that query writers may find useful.
+* Legacy packs that ensure custom queries and libraries created using older products are compatible with your version of {% data variables.product.prodname_codeql %}.
 
 ## Using two versions of the {% data variables.product.prodname_codeql_cli %}
 

@@ -26,10 +26,10 @@ redirect_from:
 
 ## Prerequisites
 
-- We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud#running-your-migrations)."
-- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)."
-- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
+* We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud#running-your-migrations)."
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)."
+* {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
 
 {% api %}
 
@@ -177,14 +177,14 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 1. Create and record a {% data variables.product.pat_generic %} that will authenticate for the source organization on Azure DevOps, making sure that this token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#personal-access-tokens-for-azure-devops)."
 1. Set environment variables for the {% data variables.product.pat_generic %}s, replacing TOKEN in the commands below with the {% data variables.product.pat_generic %}s you recorded above. Use `GH_PAT` for the destination organization and `ADO_PAT` for the source organization.
 
-   - If you're using Terminal, use the `export` command.
+   * If you're using Terminal, use the `export` command.
 
       ```shell copy
       export GH_PAT="TOKEN"
      export ADO_PAT="TOKEN"
       ```
 
-   - If you're using PowerShell, use the `$env` command.
+   * If you're using PowerShell, use the `$env` command.
 
       ```shell copy
       $env:GH_PAT="TOKEN"

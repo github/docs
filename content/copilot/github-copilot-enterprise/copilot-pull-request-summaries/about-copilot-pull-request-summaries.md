@@ -38,8 +38,8 @@ When a user requests a summary, a workflow is triggered. The workflow uses the c
 
 You can initiate this feature when creating a pull request, by editing the pull request description after creation, or in a comment in the pull request thread. Upon initiation, {% data variables.product.prodname_copilot_short %} will generate a two part summary:
 
-- A paragraph, written in prose, giving an overview of the changes in the pull request.
-- A bulleted list of the key changes, linked to the respective lines of code where those changes occur.
+* A paragraph, written in prose, giving an overview of the changes in the pull request.
+* A bulleted list of the key changes, linked to the respective lines of code where those changes occur.
 
 Larger pull requests can take a couple minutes for {% data variables.product.prodname_copilot_short %} to generate. Depending on your enterprise settings, you can share your feedback on a summary directly from the UI after a summary is generated to help us continue to improve the feature.
 
@@ -91,7 +91,7 @@ Because a summary is an outline of the changes that were made in a pull request,
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
 {%- ifversion fpt %}
-- "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+* "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {%- endif %}

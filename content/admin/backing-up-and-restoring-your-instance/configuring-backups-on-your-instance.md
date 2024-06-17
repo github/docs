@@ -135,8 +135,8 @@ When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
 1. To determine how to upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, review the output from `git rev-parse --is-inside-work-tree`.
 
-   - If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
-   - If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   * If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   * If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
 
 ## Scheduling a backup
 
@@ -181,8 +181,8 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 To restore {% data variables.location.product_location %} from your backup host using the last successful snapshot, use the `ghe-restore` command. You can use the following additional options with `ghe-restore`.
 
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the github/backup-utils repository.
-- The `-s` flag allows you to select a different backup snapshot.
+* The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the github/backup-utils repository.
+* The `-s` flag allows you to select a different backup snapshot.
 
 After you run `ghe-restore`, the command confirms the restoration, then outputs details and status during the operation.
 

@@ -17,8 +17,8 @@ shortTitle: Install on OpenStack
 ---
 ## Prerequisites
 
-- {% data reusables.enterprise_installation.software-license %}
-- You must have access to an installation of OpenStack Horizon, the web-based user interface to OpenStack services. For more information, see the [Horizon documentation](https://docs.openstack.org/horizon/latest/).
+* {% data reusables.enterprise_installation.software-license %}
+* You must have access to an installation of OpenStack Horizon, the web-based user interface to OpenStack services. For more information, see the [Horizon documentation](https://docs.openstack.org/horizon/latest/).
 
 ## Hardware considerations
 
@@ -57,5 +57,5 @@ shortTitle: Install on OpenStack
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

@@ -2,8 +2,8 @@
 
 **Notes:**
 
-- {% data reusables.actions.actions-not-certified-by-github %}
-- {% data reusables.actions.actions-use-sha-pinning %}
+* {% data reusables.actions.actions-not-certified-by-github %}
+* {% data reusables.actions.actions-use-sha-pinning %}
 
 {% endnote %}
 

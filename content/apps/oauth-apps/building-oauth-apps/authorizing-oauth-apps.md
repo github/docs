@@ -34,8 +34,8 @@ If you want to skip authorizing your app in the standard way, such as when testi
 
 To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+* [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+* [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
 ## Web application flow
 
@@ -323,11 +323,11 @@ To build this link, you'll need your {% data variables.product.prodname_oauth_ap
 
 ## Troubleshooting
 
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-- "[Device flow errors](#error-codes-for-the-device-flow)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+* "[Device flow errors](#error-codes-for-the-device-flow)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

@@ -29,9 +29,9 @@ When assessing user dormancy, we only consider organizations, repositories, or s
 
 A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
 
-- The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
-- The user hasn't performed any of the previous activities within the dormancy threshold.
-- The user is not a site administrator for the instance.
+* The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
+* The user hasn't performed any of the previous activities within the dormancy threshold.
+* The user is not a site administrator for the instance.
 
 You can customize the dormancy threshold for {% data variables.location.product_location %}.{% endif %}
 

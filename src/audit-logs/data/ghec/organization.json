@@ -240,6 +240,11 @@
     "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
+    "action": "copilot.plan_changed",
+    "description": "The plan for GitHub Copilot was updated.",
+    "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"

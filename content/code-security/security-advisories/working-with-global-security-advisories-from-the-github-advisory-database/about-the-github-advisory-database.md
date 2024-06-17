@@ -39,18 +39,18 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
-- Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
-- Erlang (registry: https://hex.pm/){% endif %}
-- Go (registry: https://pkg.go.dev/)
-- GitHub Actions (https://github.com/marketplace?type=actions/)
-- Maven (registry: https://repo.maven.apache.org/maven2)
-- npm (registry: https://www.npmjs.com/)
-- NuGet (registry: https://www.nuget.org/)
-- pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
-- pub (registry: https://pub.dev/packages/registry){% endif %}
-- RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
-- Swift (registry: N/A){% endif %}
+* Composer (registry: https://packagist.org/){% ifversion GH-advisory-db-erlang-support %}
+* Erlang (registry: https://hex.pm/){% endif %}
+* Go (registry: https://pkg.go.dev/)
+* GitHub Actions (https://github.com/marketplace?type=actions/)
+* Maven (registry: https://repo.maven.apache.org/maven2)
+* npm (registry: https://www.npmjs.com/)
+* NuGet (registry: https://www.nuget.org/)
+* pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
+* pub (registry: https://pub.dev/packages/registry){% endif %}
+* RubyGems (registry: https://rubygems.org/)
+* Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
+* Swift (registry: N/A){% endif %}
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
@@ -79,8 +79,8 @@ Our malware advisories are mostly about substitution attacks. During this type o
 ## About information in security advisories
 
 In this section, you can find more detailed information about security advisories in the {% data variables.product.prodname_advisory_database %}, such as:
-- Advisory IDs and what format these identifiers use.
-- The CVSS levels we used to assign severity levels.
+* Advisory IDs and what format these identifiers use.
+* The CVSS levels we used to assign severity levels.
 
 ### About GHSA IDs
 
@@ -88,10 +88,10 @@ Each security advisory, regardless of its type, has a unique identifier referred
 
 The syntax of GHSA IDs follows this format: `GHSA-xxxx-xxxx-xxxx` where:
 
-- `x` is a letter or a number from the following set: `23456789cfghjmpqrvwx`.
-- Outside the `GHSA` portion of the name:
-  - The numbers and letters are randomly assigned.
-  - All letters are lowercase.
+* `x` is a letter or a number from the following set: `23456789cfghjmpqrvwx`.
+* Outside the `GHSA` portion of the name:
+  * The numbers and letters are randomly assigned.
+  * All letters are lowercase.
 
 You can validate a GHSA ID using a regular expression.
 
@@ -104,10 +104,10 @@ You can validate a GHSA ID using a regular expression.
 Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 
 The severity level is one of four possible levels defined in the "[Common Vulnerability Scoring System (CVSS), Section 5](https://www.first.org/cvss/specification-document)."
-- Low
-- Medium/Moderate
-- High
-- Critical
+* Low
+* Medium/Moderate
+* High
+* Critical
 
 The {% data variables.product.prodname_advisory_database %} uses the CVSS levels described above. If {% data variables.product.company_short %} obtains a CVE, the {% data variables.product.prodname_advisory_database %} uses CVSS version 3.1. If the CVE is imported, the {% data variables.product.prodname_advisory_database %} supports both CVSS versions 3.0 and 3.1.
 
@@ -115,5 +115,5 @@ The {% data variables.product.prodname_advisory_database %} uses the CVSS levels
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)
+* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+* The CVE Program's [definition of "vulnerability"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

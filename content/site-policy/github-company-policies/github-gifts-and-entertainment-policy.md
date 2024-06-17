@@ -33,20 +33,20 @@ As for other customers or prospective customers, certain things might seem trivi
 
 🙅 _Here are some other things that aren't ok:_
 
-- First class airfare to GitHub offices for Executive Briefings ✈️+🍾
-- Winery tours 🍷
-- Recommending a friend’s kid to a prestigious private school for admission 🎓
-- Tickets to Disneyland 👸, the World Cup 🥅, the Olympics 🏅
-- A futbol ⚽️ autographed by a famous player
-- A contribution to a charity
+* First class airfare to GitHub offices for Executive Briefings ✈️+🍾
+* Winery tours 🍷
+* Recommending a friend’s kid to a prestigious private school for admission 🎓
+* Tickets to Disneyland 👸, the World Cup 🥅, the Olympics 🏅
+* A futbol ⚽️ autographed by a famous player
+* A contribution to a charity
 
 🙆 _Here is some stuff that is actually ok for customers or prospective customers:_
 
-- Swag
-- Economy class airfare to GitHub offices for Executive Briefings ✈️
-- Bleacher-type tickets to a sporting event ⚾️
-- A reasonably priced dinner in town 🍽
-- A small box of chocolates as an end of year thank you 🍫
+* Swag
+* Economy class airfare to GitHub offices for Executive Briefings ✈️
+* Bleacher-type tickets to a sporting event ⚾️
+* A reasonably priced dinner in town 🍽
+* A small box of chocolates as an end of year thank you 🍫
 
 All of the above applies to _taking_ bribes too. So if a vendor or prospective vendor sends you something “of value,” don’t accept it—or at least run it by Legal before you do.
 
@@ -59,8 +59,8 @@ Keep in mind that what's an acceptable amount can vary. For example, spending $5
 1. Generally speaking, for any expenses exceeding $150, you'll need approval (each time) from Legal in writing. And for any gifts you receive exceeding $150, you'll need to report that (each time) to Legal in writing. (Legal is just weighing in on the bribery question. You might still need to check with Finance for other reasons.)
 
 1. When you submit your expense report for reimbursement, please:
-     - Indicate the recipient and the purpose of the gift in the notes; and
-     - Include a copy of the email approval
+     * Indicate the recipient and the purpose of the gift in the notes; and
+     * Include a copy of the email approval
 
 ## Consequences
 

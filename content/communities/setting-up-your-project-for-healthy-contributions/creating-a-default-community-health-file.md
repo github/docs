@@ -21,9 +21,9 @@ You can add default community health files to a public repository called `.githu
 
 {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
 
-- The root of the repository
-- The `.github` folder
-- The `docs` folder
+* The root of the repository
+* The `.github` folder
+* The `docs` folder
 
 For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
 

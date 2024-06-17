@@ -570,7 +570,39 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 ## Environment files
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)." You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+To use environment variables in a GitHub Action, you create or modify `.env` files using specific GitHub Actions commands.
+
+Here's how:
+
+```yaml copy
+name: Example Workflow for Environment Files
+
+on: push
+
+jobs:
+  set_and_use_env_vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set environment variable
+        run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+
+      - name: Use environment variable
+        run: |
+          echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
+
+```
+
+Another example would be to use it to store metadata like build timestamps, commit SHAs, or artifact names:
+
+```yaml copy
+steps:
+  - name: Store build timestamp
+    run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
+
+  - name: Deploy using stored timestamp
+    run: echo "Deploying at $BUILD_TIME"
+```
 
 {% powershell %}
 
@@ -618,13 +650,13 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+* Using PowerShell version 6 and higher:
 
   ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
-- Using PowerShell version 5.1 and below:
+* Using PowerShell version 5.1 and below:
 
   ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append

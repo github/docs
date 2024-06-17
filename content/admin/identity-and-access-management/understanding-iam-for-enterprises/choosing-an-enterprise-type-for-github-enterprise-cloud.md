@@ -18,8 +18,8 @@ redirect_from:
 
 **Before** you create your enterprise account, you must choose an enterprise type:
 
-- Enterprise with personal accounts
-- Enterprise with managed users
+* Enterprise with personal accounts
+* Enterprise with managed users
 
 To decide which is best for your enterprise, ask yourself the following questions.
 
@@ -30,18 +30,18 @@ To decide which is best for your enterprise, ask yourself the following question
 ### Managed users
 
 {% data variables.product.prodname_emus %} provides a true SSO experience for users:
-- You provision the accounts for your users.
-- You ensure that user accounts conform with your company identity, by controlling usernames and email addresses.
-- Users must authenticate with your identity management system, using SAML or OIDC.
+* You provision the accounts for your users.
+* You ensure that user accounts conform with your company identity, by controlling usernames and email addresses.
+* Users must authenticate with your identity management system, using SAML or OIDC.
 
 If you currently require your users to create a new personal account on {% data variables.product.prodname_dotcom_the_website %} to contribute to your company's resources, {% data variables.product.prodname_emus %} might be a better alternative.
 
 ### Personal accounts
 
 If you do not choose {% data variables.product.prodname_emus %}:
-- Each user must create, manage, and sign in to a **personal account** on {% data variables.product.prodname_dotcom_the_website %}.
-- You can configure SAML authentication so that users must **also** authenticate to your external identity management system. {% data variables.product.prodname_dotcom %} links the user's personal account to an external identity on the identity management system.
-- User provisioning is not available. You can use System for Cross-domain Identity Management (SCIM) to provision **access** to individual organizations.
+* Each user must create, manage, and sign in to a **personal account** on {% data variables.product.prodname_dotcom_the_website %}.
+* You can configure SAML authentication so that users must **also** authenticate to your external identity management system. {% data variables.product.prodname_dotcom %} links the user's personal account to an external identity on the identity management system.
+* User provisioning is not available. You can use System for Cross-domain Identity Management (SCIM) to provision **access** to individual organizations.
 
 Consider personal accounts if using your external identity management system as the source of truth for user and access management would add too much complexity. For example, you do not have an established process for onboarding new users in the system.
 
@@ -66,8 +66,8 @@ You can use any external identity management system that adheres to the **SAML 2
 ## Do you need public repositories, gists, or {% data variables.product.prodname_pages %} sites?
 
 To prevent enterprise members from accidentally leaking corporate-owned content to the public, {% data variables.product.prodname_emus %} imposes **strong restrictions** on what users can do.
-- {% data variables.enterprise.prodname_managed_users_caps %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise.
-- For a full list of restrictions, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts)."
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise.
+* For a full list of restrictions, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts)."
 
 Review the restrictions with your users, and confirm whether they will hinder your existing workflows. If so, an enterprise with personal accounts may be a better choice.
 
@@ -85,4 +85,4 @@ The migration process may require time or cost from your team. Confirm that this
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations)"
+* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations)"

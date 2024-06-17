@@ -74,8 +74,8 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases:
 
-- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
-- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+* `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
+* `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
 You should see output similar to the extract below, if successful:
 

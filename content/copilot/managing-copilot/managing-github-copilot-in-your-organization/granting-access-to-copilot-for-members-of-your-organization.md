@@ -54,18 +54,18 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
    1. In the left sidebar, click **Access**.
 1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Enabled For: Selected members**.
 1. If you are updating user access from the **Enabled For: All members of the organization** setting, in the "Confirm policy update" dialog, select how you want to start assigning access.
-    - To unassign all members and then select those who should have access, select **Start from scratch**.
-    - To keep all members who currently have access and then select those who should not have access, select **Renew seats**.
+    * To unassign all members and then select those who should have access, select **Start from scratch**.
+    * To keep all members who currently have access and then select those who should not have access, select **Renew seats**.
 1. Click **Assign {% data variables.product.prodname_copilot_short %} seats**.
 1. In the "Enable Copilot access for users and teams" dialog, click one of the two tabs.
 
    ![Screenshot of the "enable access for selected members" dialog.](/assets/images/help/copilot/enable-access-for-selected-members.png)
 
-   - Click **Users and teams** to search for and add individual users or teams.
+   * Click **Users and teams** to search for and add individual users or teams.
 
      To search for a user, type their username or full name in the search bar. If you select a user who is not currently a member of your organization, they will be invited to join your organization when you click **Continue to purchase** followed by **Purchase seats**.
 
-   - Click **Upload CSV** to add users in bulk by uploading a CSV file.
+   * Click **Upload CSV** to add users in bulk by uploading a CSV file.
 
      To add members in bulk, click **Choose CSV to upload**, and then upload a CSV file including either the username or email address for each member you want to add, separated by a comma. The file can contain a mixture of usernames and email addresses.
 
@@ -85,7 +85,7 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to grant acc
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)"
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
-- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)"

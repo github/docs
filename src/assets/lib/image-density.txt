@@ -253,7 +253,6 @@
 /assets/images/help/codespaces/codespaces-npmstart.png 2x
 /assets/images/help/codespaces/codespaces-port3000-toast.png 2x
 /assets/images/help/codespaces/codespaces-port5000-toast.png 2x
-/assets/images/help/codespaces/codespaces-rebuild-full.png 2x
 /assets/images/help/codespaces/codespaces-rebuild.png 2x
 /assets/images/help/codespaces/codespaces-remote-explorer.png 2x
 /assets/images/help/codespaces/codespaces-secret-repository-checkboxes.png 2x

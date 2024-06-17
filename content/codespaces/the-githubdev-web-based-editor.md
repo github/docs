@@ -35,12 +35,12 @@ You must be signed in to {% data variables.product.prodname_dotcom_the_website %
 
 You can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} in either of the following ways:
 
-- To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
+* To open the repository in the same browser tab, press <kbd>.</kbd> while browsing any repository or pull request on {% data variables.product.prodname_dotcom %}.
 
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
-- Change the URL from "github.com" to "github.dev".
-- When viewing a file, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click **github.dev**.
+* Change the URL from "github.com" to "github.dev".
+* When viewing a file, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click **github.dev**.
 
   ![Screenshot of the dropdown menu for the edit icon. The option "github.dev" is highlighted with a dark orange outline.](/assets/images/help/codespaces/github-dev-dropdown-option.png)
 
@@ -135,13 +135,13 @@ Data is retrieved from the repository at runtime using the [GitHub Repositories]
 
 If you have issues opening {% data variables.codespaces.serverless %}, try the following:
 
-- Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
-- Disable any ad blockers.
-- Use a non-incognito window in your browser to open {% data variables.codespaces.serverless %}.
+* Make sure you are signed in to {% data variables.product.prodname_dotcom %}.
+* Disable any ad blockers.
+* Use a non-incognito window in your browser to open {% data variables.codespaces.serverless %}.
 
 ### Known limitations
 
-- The {% data variables.codespaces.serverless %} editor is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
-- Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
-- `.` may not work to open {% data variables.codespaces.serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} by changing the URL from `github.com` to `github.dev`.
-- When intensively writing documentation or code in the web editor, you might encounter issues with pushing some commits. To resolve this, wait a few minutes for the API rate limit to reset.
+* The {% data variables.codespaces.serverless %} editor is currently supported in Chrome (and various other Chromium-based browsers), Edge, Firefox, and Safari. We recommend that you use the latest versions of these browsers.
+* Some keybindings may not work, depending on the browser you are using. These keybinding limitations are documented in the "[Known limitations and adaptations](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" section of the {% data variables.product.prodname_vscode_shortname %} documentation.
+* `.` may not work to open {% data variables.codespaces.serverless %} according to your local keyboard layout. In that case, you can open any {% data variables.product.prodname_dotcom %} repository in {% data variables.codespaces.serverless %} by changing the URL from `github.com` to `github.dev`.
+* When intensively writing documentation or code in the web editor, you might encounter issues with pushing some commits. To resolve this, wait a few minutes for the API rate limit to reset.

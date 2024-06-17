@@ -4,6 +4,49 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>readme</code> was added to object type <code>Enterprise</code></p>",
+          "<p>Field <code>readmeHTML</code> was added to object type <code>Enterprise</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AcceptEnterpriseMemberInvitationInput</code> was added</p>",
+          "<p>Type <code>AcceptEnterpriseMemberInvitationPayload</code> was added</p>",
+          "<p>Type <code>CancelEnterpriseMemberInvitationInput</code> was added</p>",
+          "<p>Type <code>CancelEnterpriseMemberInvitationPayload</code> was added</p>",
+          "<p>Type <code>EnterpriseMemberInvitation</code> was added</p>",
+          "<p>Type <code>EnterpriseMemberInvitationConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseMemberInvitationEdge</code> was added</p>",
+          "<p>Type <code>EnterpriseMemberInvitationOrder</code> was added</p>",
+          "<p>Type <code>EnterpriseMemberInvitationOrderField</code> was added</p>",
+          "<p>Type <code>InviteEnterpriseMemberInput</code> was added</p>",
+          "<p>Type <code>InviteEnterpriseMemberPayload</code> was added</p>",
+          "<p>Field <code>pendingUnaffiliatedMemberInvitations</code> was added to object type <code>EnterpriseOwnerInfo</code></p>",
+          "<p>Field <code>acceptEnterpriseMemberInvitation</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>cancelEnterpriseMemberInvitation</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>inviteEnterpriseMember</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>enterpriseMemberInvitation</code> was added to object type <code>Query</code></p>",
+          "<p>Field <code>enterpriseMemberInvitationByToken</code> was added to object type <code>Query</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CopilotEndpoints</code> was added</p>",
           "<p>Field <code>copilotEndpoints</code> was added to object type <code>User</code></p>"
         ]

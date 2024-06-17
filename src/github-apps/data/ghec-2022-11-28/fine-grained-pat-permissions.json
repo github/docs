@@ -380,6 +380,60 @@
       },
       {
         "category": "copilot",
+        "slug": "get-copilot-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/billing",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "list-all-copilot-seat-assignments-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/billing/seats",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "add-teams-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-teams-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "add-users-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
@@ -476,6 +530,15 @@
         "requestPath": "/orgs/{org}/interaction-limits",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-user-management",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/members/{username}/copilot",
+        "additional-permissions": true,
+        "access": "read"
       },
       {
         "category": "orgs",
@@ -933,8 +996,8 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
-        "additional-permissions": false,
-        "access": "write"
+        "additional-permissions": true,
+        "access": "read"
       },
       {
         "category": "copilot",
@@ -942,8 +1005,8 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
-        "additional-permissions": false,
-        "access": "write"
+        "additional-permissions": true,
+        "access": "read"
       },
       {
         "category": "copilot",
@@ -951,7 +1014,7 @@
         "subcategory": "copilot-user-management",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -960,7 +1023,7 @@
         "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -969,7 +1032,7 @@
         "subcategory": "copilot-user-management",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -978,7 +1041,7 @@
         "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -996,8 +1059,8 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
-        "additional-permissions": false,
-        "access": "write"
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },

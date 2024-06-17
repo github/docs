@@ -51,4 +51,4 @@ After you configure built-in authentication and create your administrative accou
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

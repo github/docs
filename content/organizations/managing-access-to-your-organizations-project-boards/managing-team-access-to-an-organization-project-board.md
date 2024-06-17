@@ -20,8 +20,8 @@ allowTitleToDifferFromFilename: true
 {% warning %}
 
 **Warnings:**
-- You can change a team's permission level if the team has direct access to a {% data variables.projects.projects_v1_board %}. If the team's access to the {% data variables.projects.projects_v1_board %} is inherited from a parent team, you must change the parent team's access to the {% data variables.projects.projects_v1_board %}.
-- If you add or remove {% data variables.projects.projects_v1_board %} access for a parent team, each of that parent's child teams will also receive or lose access to the {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+* You can change a team's permission level if the team has direct access to a {% data variables.projects.projects_v1_board %}. If the team's access to the {% data variables.projects.projects_v1_board %} is inherited from a parent team, you must change the parent team's access to the {% data variables.projects.projects_v1_board %}.
+* If you add or remove {% data variables.projects.projects_v1_board %} access for a parent team, each of that parent's child teams will also receive or lose access to the {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 {% endwarning %}
 
@@ -62,6 +62,6 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
 
 ## Further reading
 
-- [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
+* [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
 
 {% endif %}

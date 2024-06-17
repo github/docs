@@ -13,11 +13,11 @@ _These terms apply to Customers who have executed agreements in place referencin
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **“Products”**):
 
-- The Software (which may include Add-on Software, such as Advanced Security, Insights and Learning Lab for Enterprise Server);
+* The Software (which may include Add-on Software, such as Advanced Security, Insights and Learning Lab for Enterprise Server);
 
-- Any related Support; and
+* Any related Support; and
 
-- Any related Professional Services.
+* Any related Professional Services.
 
 If Customer has purchased the Products from a GitHub Partner, the following provisions of this Agreement will be superseded by the terms between Customer and the GitHub Partner: Section 8, Payment; Section 9, Delivery; Section 10, Verification; and Section 17, Term and Termination.
 

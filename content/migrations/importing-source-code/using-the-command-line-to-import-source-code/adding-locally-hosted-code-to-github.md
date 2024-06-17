@@ -37,9 +37,9 @@ If you're most comfortable with a point-and-click user interface, consider addin
 
 If your source code is tracked by a different VCS, such as Mercurial, Subversion, or Team Foundation Version Control, you must convert the repository to Git before you can add the project to {% data variables.product.product_name %}.
 
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
+* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)"
+* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-team-foundation-version-control-repository)"
 
 ## Initializing a Git repository
 
@@ -79,8 +79,8 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
 
 After you've initialized a Git repository, you can push the repository to {% data variables.product.product_name %}, using either {% data variables.product.prodname_cli %} or Git.
 
-- "[Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}](#adding-a-local-repository-to-github-with-github-cli)"
-- "[Adding a local repository to {% data variables.product.prodname_dotcom %} using Git](#adding-a-local-repository-to-github-using-git)"
+* "[Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}](#adding-a-local-repository-to-github-with-github-cli)"
+* "[Adding a local repository to {% data variables.product.prodname_dotcom %} using Git](#adding-a-local-repository-to-github-using-git)"
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}
 
@@ -195,5 +195,5 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}
+* "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}

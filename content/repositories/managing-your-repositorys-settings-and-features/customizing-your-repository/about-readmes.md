@@ -21,11 +21,11 @@ topics:
 For more information about providing guidelines for your project, see {% ifversion fpt or ghec %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
-- What the project does
-- Why the project is useful
-- How users can get started with the project
-- Where users can get help with your project
-- Who maintains and contributes to the project
+* What the project does
+* Why the project is useful
+* How users can get started with the project
+* Where users can get help with your project
+* Who maintains and contributes to the project
 
 If you put your README file in your repository's hidden `.github`, root, or `docs` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
 
@@ -53,8 +53,8 @@ A README should contain only the necessary information for developers to get sta
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)"
-- "[5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/)" in the {% data variables.product.company_short %} blog
+* "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)"
+* "[5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/)" in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
 {%- endif %}

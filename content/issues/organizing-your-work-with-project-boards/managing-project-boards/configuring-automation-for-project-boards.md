@@ -40,4 +40,4 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"

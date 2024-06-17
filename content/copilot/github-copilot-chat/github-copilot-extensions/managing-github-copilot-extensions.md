@@ -27,9 +27,9 @@ Additionally, after you install a {% data variables.product.prodname_copilot_ext
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. In the "{% data variables.product.prodname_copilot_extensions_short %}" section, select the dropdown menu, then click one of the following options:
-    - **No policy**: organizations within your enterprise can set their own policies for {% data variables.product.prodname_copilot_extensions_short %}.
-    - **Enabled**: {% data variables.product.prodname_copilot_extensions_short %} are enabled for all organizations in your enterprise.
-    - **Disabled**: {% data variables.product.prodname_copilot_extensions_short %} are disabled for all organizations in your enterprise.
+    * **No policy**: organizations within your enterprise can set their own policies for {% data variables.product.prodname_copilot_extensions_short %}.
+    * **Enabled**: {% data variables.product.prodname_copilot_extensions_short %} are enabled for all organizations in your enterprise.
+    * **Disabled**: {% data variables.product.prodname_copilot_extensions_short %} are disabled for all organizations in your enterprise.
 
 {% endif %}
 
@@ -54,8 +54,8 @@ After you have installed a {% data variables.product.prodname_copilot_extension_
 1. Optionally, to filter your installed {% data variables.product.prodname_github_apps %} for {% data variables.product.prodname_copilot_extensions_short %}, select the **Filter:** dropdown menu, then click **{% data variables.product.prodname_copilot_extensions_short %}**.
 1. Next to the {% data variables.product.prodname_copilot_extension_short %} you want to review or modify, click **Configure**.
 1. In the "Permissions" section, review the permissions listed for the {% data variables.product.prodname_copilot_extension_short %}. Optionally, you can block the {% data variables.product.prodname_copilot_extension_short %}'s access to your organization in one of two ways:
-    - To indefinitely suspend the {% data variables.product.prodname_copilot_extension_short %}'s access to resources in your organization while keeping the extension installed, in the "Danger zone" section, click **Suspend**.
-    - To uninstall a {% data variables.product.prodname_copilot_extension_short %} completely, in the "Danger zone" section, click **Uninstall**.
+    * To indefinitely suspend the {% data variables.product.prodname_copilot_extension_short %}'s access to resources in your organization while keeping the extension installed, in the "Danger zone" section, click **Suspend**.
+    * To uninstall a {% data variables.product.prodname_copilot_extension_short %} completely, in the "Danger zone" section, click **Uninstall**.
 
 ## Next steps
 

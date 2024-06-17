@@ -9,7 +9,7 @@ export async function get(
     body = undefined,
     followRedirects = false,
     followAllRedirects = false,
-    headers = undefined,
+    headers = {},
     responseType = '',
     retries = 0,
   } = {},

@@ -1,6 +1,6 @@
 ---
 title: Creating an enterprise account
-intro: 'If you''re currently using {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account to centrally manage multiple organizations.'
+intro: "Learn the steps and effects of creating an enterprise account."
 versions:
   ghec: '*'
 type: how_to
@@ -8,43 +8,53 @@ topics:
   - Accounts
   - Enterprise
   - Fundamentals
-permissions: Organization owners can create an enterprise account.
+permissions: Organization owners
+product: '{% data variables.product.prodname_ghe_cloud %}'
 shortTitle: Create enterprise account
 redirect_from:
   - /admin/overview/creating-an-enterprise-account
 ---
 
-## About enterprise account creation
+## When should I create an enterprise account?
 
-{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. When you purchase {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account. Creation of an enterprise account does not result in additional charges on your bill. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+{% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between **multiple organizations** and gives administrators a single point of visibility and management. See "[AUTOTITLE](/admin/managing-your-enterprise-account/about-enterprise-accounts)."
 
-If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
+In most cases, you can create an enterprise account **yourself**.
 
-You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)".
+* When you start a free trial of {% data variables.product.prodname_ghe_cloud %}, you'll create an enterprise account as part of the process. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
+* If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization, you can upgrade to an enterprise account by following the steps later in this article.
 
-When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
+You'll **need help** creating an enterprise account for:
 
-- Your existing organization will automatically be owned by the enterprise account.
-- {% data variables.product.company_short %} bills the enterprise account for usage within all organizations owned by the enterprise. The current billing details for the organization, including the organization's billing email address, will become billing details for the new enterprise account. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
-- All current owners of your organization will become owners of the enterprise account, and all current billing managers of the organization will become billing managers of the new enterprise account. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+* {% data variables.product.prodname_emus %}
+* {% data variables.product.prodname_ghe_server %}
+* Invoicing
 
-For more information about the changes that apply to an organization after you add the organization to an enterprise, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
+In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 
-## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
+## What will happen after I upgrade my organization?
 
-To create an enterprise account, your organization must be using {% data variables.product.prodname_ghe_cloud %}.
+* Your existing organization will automatically be owned by the enterprise account. To learn how the organization will change, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
+* The organization's billing details will become the billing details for the enterprise.
+* All of the organization's owners will become owners of the enterprise.
+* All of the organization's billing managers will become billing managers for the enterprise.
+* Going forward, {% data variables.product.company_short %} will bill the enterprise account for usage within **all** organizations owned by the enterprise.
+
+## Upgrading an organization to an enterprise account
 
 {% data reusables.organizations.billing-settings %}
 1. Click **Upgrade to enterprise account**.
 1. Under "Enterprise name", type a name for your enterprise account.
-1. Under "Enterprise URL slug", type a slug for your enterprise account. This slug will be used in the URL for your enterprise. For example, if you choose `octo-enterprise`, the URL for your enterprise will be `https://github.com/enterprises/octo-enterprise`.
+1. Under "Enterprise URL slug", type a slug to be used in the URL for your enterprise.
+
+   For example, if you choose `octo-enterprise`, the URL will be `https://github.com/enterprises/octo-enterprise`.
 1. Click **Confirm and upgrade**.
 1. Read the warnings, then click **Create enterprise account**.
 
 ## Next steps
 
-After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. For more information, follow the "[AUTOTITLE](/admin/guides#get-started-with-your-enterprise-account)" learning path.
+Follow the "[Get started with your enterprise account](/admin/guides#get-started-with-your-enterprise-account)" learning path.
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/managing-your-enterprise-account/changing-the-url-for-your-enterprise)"
+* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

@@ -17,9 +17,9 @@ Before merging your pull requests, other changes may get merged into the base br
 
 You can update a pull request's head branch from the command line or the pull request page. The **Update branch** button is displayed when all of these are true:
 
-- There are no merge conflicts between the pull request branch and the base branch.
-- The pull request branch is not up to date with the base branch.
-- The base branch requires branches to be up to date before merging or the setting to always suggest updating branches is enabled.
+* There are no merge conflicts between the pull request branch and the base branch.
+* The pull request branch is not up to date with the base branch.
+* The base branch requires branches to be up to date before merging or the setting to always suggest updating branches is enabled.
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)" and "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
 
@@ -32,16 +32,16 @@ From the pull request page you can update your pull request's branch using a tra
 {% data reusables.repositories.sidebar-pr %}
 1. In the "Pull requests" list, click the pull request you'd like to update.
 1. In the merge section near the bottom of the page, you can:
-   - Click **Update branch** to perform a traditional merge.
+   * Click **Update branch** to perform a traditional merge.
 
      ![Screenshot of the merge section for a pull request.](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
 
-   - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch.
+   * Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch.
 
      ![Screenshot of the merge section for a pull request. The dropdown menu is expanded, showing "Update with merge commit" and "Update with rebase" options.](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

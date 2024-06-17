@@ -20,11 +20,11 @@ shortTitle: Managing policies
 Organization owners can set policies to govern how {% data variables.product.prodname_copilot %} can be used within the organization. For example, an organization owner can enable or disable the following {% data variables.product.prodname_copilot_short %} features{% ifversion ghec %} (unless an enterprise owner has blocked access to these features at the enterprise level){% endif %}:
 
 {% ifversion ghec %}
-- {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} (if your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription){% endif %}
-- {% data variables.product.prodname_copilot_chat_short %} in the IDE
-- {% data variables.product.prodname_copilot_mobile_short %}
-- {% data variables.product.prodname_copilot_cli_short %}
-- Suggestions matching public code
+* {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} (if your organization has a {% data variables.product.prodname_copilot_enterprise_short %} subscription){% endif %}
+* {% data variables.product.prodname_copilot_chat_short %} in the IDE
+* {% data variables.product.prodname_copilot_mobile_short %}
+* {% data variables.product.prodname_copilot_cli_short %}
+* Suggestions matching public code
 
 The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 
@@ -61,6 +61,6 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-- "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"{% ifversion ghec %}
-- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)"{% endif %}
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* "[AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)"{% ifversion ghec %}
+* "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)"{% endif %}

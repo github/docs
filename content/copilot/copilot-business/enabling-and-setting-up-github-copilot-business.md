@@ -23,8 +23,8 @@ To use {% data variables.product.prodname_copilot_for_business %}, you need to s
 
 **Note:**
 
-- You must be an enterprise owner to enable {% data variables.product.prodname_copilot_business_short %} for your enterprise.
-- If you set up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization account, you can skip this section.
+* You must be an enterprise owner to enable {% data variables.product.prodname_copilot_business_short %} for your enterprise.
+* If you set up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization account, you can skip this section.
 
 {% endnote %}
 
@@ -51,5 +51,5 @@ To give people or teams within your organization access to {% data variables.pro
 
 If members of your organization will be using {% data variables.product.prodname_copilot %} on your company's corporate network, you may need to configure network settings so that members can use {% data variables.product.prodname_copilot %} successfully.
 
-- If you use an HTTP proxy server on your network, you can configure {% data variables.product.prodname_copilot %} to connect via this server. To  successfully intercept and inspect {% data variables.product.prodname_copilot %}'s secure connection, you may need to install custom SSL certificates on your users' machines. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)."
-- If you use a firewall, you may need to add certain domains to the firewall's allowlist. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)."
+* If you use an HTTP proxy server on your network, you can configure {% data variables.product.prodname_copilot %} to connect via this server. To  successfully intercept and inspect {% data variables.product.prodname_copilot %}'s secure connection, you may need to install custom SSL certificates on your users' machines. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)."
+* If you use a firewall, you may need to add certain domains to the firewall's allowlist. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)."

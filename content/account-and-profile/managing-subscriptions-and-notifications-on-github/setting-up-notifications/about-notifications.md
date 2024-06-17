@@ -22,10 +22,10 @@ You can choose to receive ongoing updates about specific activity on {% data var
 ### Subscription options
 
 You can choose to subscribe to notifications for:
-- A conversation in a specific issue, pull request, or gist.
-- All activity in a repository{% ifversion team-discussions %} or team discussion{% endif %}.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
+* A conversation in a specific issue, pull request, or gist.
+* All activity in a repository{% ifversion team-discussions %} or team discussion{% endif %}.
+* CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
+* Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -34,14 +34,14 @@ If you're no longer interested in a conversation, you can unsubscribe, unwatch, 
 ### Default subscriptions
 
 In general, you are automatically subscribed to conversations by default when you have:
-- Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
-- Been assigned to an issue or pull request.
-- Opened a pull request{% ifversion team-discussions %}, issue, or created a team discussion post{% else %} or issue{% endif %}.
-- Commented on a thread.
-- Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
-- Had your username @mentioned.
-- Changed the state of a thread, such as by closing an issue or merging a pull request.
-- Had a team you're a member of @mentioned.
+* Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
+* Been assigned to an issue or pull request.
+* Opened a pull request{% ifversion team-discussions %}, issue, or created a team discussion post{% else %} or issue{% endif %}.
+* Commented on a thread.
+* Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
+* Had your username @mentioned.
+* Changed the state of a thread, such as by closing an issue or merging a pull request.
+* Had a team you're a member of @mentioned.
 
 By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
@@ -72,10 +72,10 @@ If you've configured notifications to be sent by email and believe you're receiv
 ## Triaging notifications from your inbox
 
 To effectively manage your notifications, you can triage your inbox with options to:
-- Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
-- Mark a notification as read or unread.
-- **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
-- Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
+* Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
+* Mark a notification as read or unread.
+* **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
+* Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
 
 From your inbox you can also triage multiple notifications at once. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 

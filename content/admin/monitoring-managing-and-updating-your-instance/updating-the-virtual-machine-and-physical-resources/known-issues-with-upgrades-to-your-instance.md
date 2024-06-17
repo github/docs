@@ -46,8 +46,8 @@ You may not be able to simulate the load that your instance experiences in a pro
 1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
 1. From the monitor dashboard, monitor relevant graphs.
 
-   - Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
-   - Under "Storage", monitor the graph for "Disk utilization (Data Device DEVICE-ID)". This graph displays the amount of time spent on all of the node's I/O operations.
+   * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
+   * Under "Storage", monitor the graph for "Disk utilization (Data Device DEVICE-ID)". This graph displays the amount of time spent on all of the node's I/O operations.
 
 ### Reviewing I/O utilization data after the MySQL upgrade
 
@@ -56,18 +56,18 @@ After the upgrade to {% data variables.product.prodname_ghe_server %} 3.9, revie
 1. Browse to your instance's monitor dashboard. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard)."
 1. From the monitor dashboard, monitor relevant graphs.
 
-   - Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
-   - Under "Storage", monitor the graphs for "Disk utilization (Data Device DEVICE ID)" and "Disk Latency (Data Device DEVICE-ID)". These graph display the amount of time spent on all of the node's I/O operations, as well as overall disk latency.
-     - Significant increases to disk latency could indicate that your instance is forcing disk IOPS to wait to complete.
-     - You can corroborate an observation of increased latency by reviewing the graph for "Disk pending operations (Data Device DEVICE-ID)", which could indicate that the disk cannot sufficiently address all operations.
+   * Under "Processes", monitor the graphs for "I/O operations (Read IOPS)" and "I/O operations (Write IOPS)", filtering for `mysqld`. These graphs display I/O operations for all of the node's services.
+   * Under "Storage", monitor the graphs for "Disk utilization (Data Device DEVICE ID)" and "Disk Latency (Data Device DEVICE-ID)". These graph display the amount of time spent on all of the node's I/O operations, as well as overall disk latency.
+     * Significant increases to disk latency could indicate that your instance is forcing disk IOPS to wait to complete.
+     * You can corroborate an observation of increased latency by reviewing the graph for "Disk pending operations (Data Device DEVICE-ID)", which could indicate that the disk cannot sufficiently address all operations.
 
 ### Mitigating impact of the MySQL upgrade
 
 To address unacceptable degradation of performance, {% data variables.product.company_short %} recommends the following solutions.
 
 Before you test any mitigation procedure in a production environment, back up your instance, validate the backup, then test the procedure in a staging environment. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-- [Adjust InnoDB's flushing method](#adjust-innodbs-flushing-method)
-- [Upgrade your instance's storage](#upgrade-your-instances-storage)
+* [Adjust InnoDB's flushing method](#adjust-innodbs-flushing-method)
+* [Upgrade your instance's storage](#upgrade-your-instances-storage)
 
 #### Adjust InnoDB's flushing method
 
@@ -79,8 +79,8 @@ The following instructions are only intended for  {% data variables.product.prod
 
 **Warning**: Adjustment of the flushing method requires that your instance's storage device has a battery-backed cache. If the device's cache is not battery-backed, you risk data loss.
 
-- If you host your instance using a virtualization hypervisor within an on-premises datacenter, review your storage specifications to confirm.
-- If you host your instance in a public cloud service, consult your provider's documentation or support team to confirm.
+* If you host your instance using a virtualization hypervisor within an on-premises datacenter, review your storage specifications to confirm.
+* If you host your instance in a public cloud service, consult your provider's documentation or support team to confirm.
 
 {% endwarning %}
 

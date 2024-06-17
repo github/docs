@@ -13,8 +13,8 @@ redirect_from:
 
 **Notes:**
 
-- {% data reusables.actions.windows-linux-larger-runners-note %}
-- GPU-powered runners and ARM-powered runners are currently in beta and are subject to change.
+* {% data reusables.actions.windows-linux-larger-runners-note %}
+* GPU-powered runners and ARM-powered runners are currently in beta and are subject to change.
 
 {% endnote %}
 
@@ -53,8 +53,8 @@ Repositories are granted access to {% data variables.actions.hosted_runner %}s t
 
 Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
 
-- **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
-- **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}
+* **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
+* **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}
 
 Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 
@@ -79,8 +79,8 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/cont
 {% ifversion ghec %}
 You can edit the name of your {% data variables.actions.hosted_runner %}s.
 
-- [Changing the name of an organization runner](#changing-the-name-of-an-organization-runner)
-- [Changing the name of an enterprise runner](#changing-the-name-of-an-enterprise-runner)
+* [Changing the name of an organization runner](#changing-the-name-of-an-organization-runner)
+* [Changing the name of an enterprise runner](#changing-the-name-of-an-enterprise-runner)
 
 ### Changing the name of an organization runner
 
@@ -109,8 +109,8 @@ You can edit the name of your {% data variables.actions.hosted_runner %}s.
 You can control the maximum number of jobs allowed to run concurrently for specific runner sets. Setting this field to a higher value can help prevent workflows being blocked due to parallelism.
 
 {% ifversion ghec %}
-- [Configuring autoscaling for an organization runner](#configuring-autoscaling-for-an-organization-runner)
-- [Configuring autoscaling for an enterprise runner](#configuring-autoscaling-for-an-enterprise-runner)
+* [Configuring autoscaling for an organization runner](#configuring-autoscaling-for-an-organization-runner)
+* [Configuring autoscaling for an enterprise runner](#configuring-autoscaling-for-an-enterprise-runner)
 
 ### Configuring autoscaling for an organization runner
 
@@ -148,8 +148,8 @@ The number of available IP addresses in the assigned ranges does not restrict nu
 
 {% ifversion ghec %}
 
-- [Creating static IP addresses for organization runners](#creating-static-ip-addresses-for-organization-runners)
-- [Creating static IP addresses for enterprise runners](#creating-static-ip-addresses-for-enterprise-runners)
+* [Creating static IP addresses for organization runners](#creating-static-ip-addresses-for-organization-runners)
+* [Creating static IP addresses for enterprise runners](#creating-static-ip-addresses-for-enterprise-runners)
 
 ### Creating static IP addresses for organization runners
 

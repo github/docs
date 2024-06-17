@@ -21,10 +21,10 @@ Most of the limits below affect both {% data variables.product.product_name %} a
 
 Because diffs can become very large, we impose these limits on diffs for commits, pull requests, and compare views:
 
-- In a pull request, no total diff may exceed _20,000 lines that you can load_ or _1 MB_ of raw diff data.
-- No single file's diff may exceed _20,000 lines that you can load_ or _500 KB_ of raw diff data. _Four hundred lines_ and _20 KB_ are automatically loaded for a single file.
-- The maximum number of files in a single diff is limited to _300_.
-- The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to _25_.
+* In a pull request, no total diff may exceed _20,000 lines that you can load_ or _1 MB_ of raw diff data.
+* No single file's diff may exceed _20,000 lines that you can load_ or _500 KB_ of raw diff data. _Four hundred lines_ and _20 KB_ are automatically loaded for a single file.
+* The maximum number of files in a single diff is limited to _300_.
+* The maximum number of renderable files (such as images, PDFs, and GeoJSON files) in a single diff is limited to _25_.
 
 Some portions of a limited diff may be displayed, but anything exceeding the limit is not shown.
 
@@ -33,3 +33,7 @@ Some portions of a limited diff may be displayed, but anything exceeding the lim
 The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
 
 The maximum count of commits displayed on the Commits tab of Github.com is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
+
+## Organization Limits
+
+If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership)."

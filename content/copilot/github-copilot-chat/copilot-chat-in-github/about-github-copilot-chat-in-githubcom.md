@@ -159,9 +159,9 @@ When leveraging Bing, {% data variables.product.prodname_copilot_short %} will u
 
 For details of how to use {% data variables.product.prodname_copilot_chat_dotcom %}, see:
 
-- "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+* "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
-- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

@@ -31,9 +31,9 @@ Use your project's description and README to share information about the project
 
 For example:
 
-- Explaining the purpose of the project.
-- Describing the project views and how to use them.
-- Including relevant links and people to contact for more information.
+* Explaining the purpose of the project.
+* Describing the project views and how to use them.
+* Including relevant links and people to contact for more information.
 
 Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."
 
@@ -49,9 +49,9 @@ Use project views to look at your project from different angles.
 
 For example:
 
-- Filter by status to view all un-started items
-- Group by a custom priority field to monitor the volume of high priority items
-- Sort by a custom date field to view the items with the earliest target ship date
+* Filter by status to view all un-started items
+* Group by a custom priority field to monitor the volume of high priority items
+* Sort by a custom date field to view the items with the earliest target ship date
 
 For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."
 
@@ -72,12 +72,12 @@ You can automate tasks to spend less time on busy work and more time on the proj
 Additionally, {%endif %}{% data variables.product.prodname_actions %} and the GraphQL API enable you to automate routine project management tasks. For example, to keep track of pull requests awaiting review, you can create a workflow that adds a pull request to a project and sets the status to "needs review"; this process can be automatically triggered when a pull request is marked as "ready for review."
 
 {% ifversion projects-v2-workflows %}
-- For more information about the built-in workflows, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% ifversion projects-v2-auto-archive %}
-- For more information about automatically archiving items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}{% ifversion projects-v2-auto-add %}
-- For more information about automatically adding items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}{% endif %}
-- For an example workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
-- For more information about the API, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-- For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions)."
+* For more information about the built-in workflows, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."{% ifversion projects-v2-auto-archive %}
+* For more information about automatically archiving items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}{% ifversion projects-v2-auto-add %}
+* For more information about automatically adding items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}{% endif %}
+* For an example workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
+* For more information about the API, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
+* For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions)."
 
 ## Use different field types
 

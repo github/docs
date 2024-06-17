@@ -47,8 +47,8 @@ For more information about configuration of the dependency graph, see "[AUTOTITL
 
 The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems, as well as any dependencies that are submitted using the {% data variables.dependency-submission-api.name %} (beta). This includes:
 
-- Direct dependencies, that are explicitly defined in a manifest or lock file or have been submitted using the {% data variables.dependency-submission-api.name %} (beta)
-- Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
+* Direct dependencies, that are explicitly defined in a manifest or lock file or have been submitted using the {% data variables.dependency-submission-api.name %} (beta)
+* Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
 
 The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file or have been submitted using the {% data variables.dependency-submission-api.name %} (beta). For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. If your ecosystem does not have lock files, you can use  pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions)."
 
@@ -64,10 +64,10 @@ For public repositories, only public repositories that depend on it or on packag
 
 You can use the dependency graph to:
 
-- Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)." {% ifversion ghec %}
-- View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization#viewing-organization-dependency-insights)."{% endif %}
-- View and update vulnerable dependencies for your repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-- See information about vulnerable dependencies in pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+* Explore the repositories your code depends on{% ifversion fpt or ghec %}, and those that depend on it{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)." {% ifversion ghec %}
+* View a summary of the dependencies used in your organization's repositories in a single dashboard. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization#viewing-organization-dependency-insights)."{% endif %}
+* View and update vulnerable dependencies for your repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+* See information about vulnerable dependencies in pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 ## Supported package ecosystems
 
@@ -104,14 +104,14 @@ The recommended formats explicitly define which versions are used for all direct
 
 **Notes:**
 
-- If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+* If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
 {% ifversion github-actions-in-dependency-graph %}
-- {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+* {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 {% endif %}
 
-- {% data reusables.dependabot.dependabot-alert-actions-semver %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
+* {% data reusables.dependabot.dependabot-alert-actions-semver %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
 {% endnote %}
 
@@ -121,7 +121,7 @@ You will only get {% data variables.product.prodname_dependabot_alerts %} for de
 
 ## Further reading
 
-- "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
-- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"
+* "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"
+* "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"

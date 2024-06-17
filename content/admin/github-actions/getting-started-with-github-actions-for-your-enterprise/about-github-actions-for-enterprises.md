@@ -50,5 +50,5 @@ After you finish planning, you can follow the instructions for getting started w
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"{% ifversion ghec %}
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"{% endif %}
+* "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"{% ifversion ghec %}
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"{% endif %}

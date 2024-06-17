@@ -18,8 +18,8 @@ Before you install any {% data variables.product.prodname_copilot_extensions_sho
 
 Any organization owner can install {% data variables.product.prodname_copilot_extensions_short %} for their organization, but your organization must meet the following criteria to use an installed {% data variables.product.prodname_copilot_extension_short %}:
 
-- Your organization is enrolled in the limited public beta for {% data variables.product.prodname_copilot_extensions_short %}.
-- Your organization has an active {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+* Your organization is enrolled in the limited public beta for {% data variables.product.prodname_copilot_extensions_short %}.
+* Your organization has an active {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
 
 > [!NOTE] Anyone can install a {% data variables.product.prodname_copilot_extension_short %} on their personal account. However, if they get access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription, they will only be able to use the extension if it is installed at the organization level.
 

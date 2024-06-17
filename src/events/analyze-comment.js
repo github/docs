@@ -36,7 +36,12 @@ export const SIGNAL_RATINGS = [
     validator: (comment) => isAllUppercase(comment),
   },
   {
-    reduction: 0.1,
+    reduction: 0.5,
+    name: 'single-word',
+    validator: (comment) => isSingleWord(comment),
+  },
+  {
+    reduction: 0.2,
     name: 'too-short',
     validator: (comment) => isTooShort(comment),
   },
@@ -120,6 +125,12 @@ function isTooShort(text) {
   }
 }
 
+function isSingleWord(text) {
+  const whitespaceSplit = text.trim().split(/\s+/)
+  // E.g. `this-has-no-whitespace` or `snap/hooks/install`
+  return whitespaceSplit.length === 1
+}
+
 function isNotLanguage(text, language_) {
   const bestGuess = language.guessBest(text.trim())
   if (!bestGuess) return true // Can happen if the text is just whitespace
@@ -161,7 +172,8 @@ function getCussWords(lang) {
 
 function isLikelyCussWords(text, language_, rating = 2) {
   const cussWords = getCussWords(language_)
-  for (const word of splitWords(text, language_ || 'en')) {
+  const words = splitWords(text, language_ || 'en').map((word) => word.toLowerCase())
+  for (const word of words) {
     if (cussWords[word] && cussWords[word] === rating) {
       return true
     }

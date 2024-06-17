@@ -17,7 +17,7 @@ Packages with granular permissions are scoped to a personal account or organizat
 
 The following {% data variables.product.prodname_registry %} registries support granular permissions.
 
-- {% data variables.product.prodname_container_registry %}
+* {% data variables.product.prodname_container_registry %}
 {% ifversion packages-npm-v2 %}- npm registry{% endif %}
 {% ifversion packages-nuget-v2 %}- NuGet registry{% endif %}
 {% ifversion packages-rubygems-v2 %}- RubyGems registry{% endif %}
@@ -30,8 +30,8 @@ The following {% data variables.product.prodname_registry %} registries **only**
 
 {% ifversion not fpt or ghec %}- Docker registry (`docker.pkg.github.com`){% endif %}
 {% ifversion packages-npm-v2 %}{% else %}- npm registry{% endif %}
-- Apache Maven registry
-- Gradle registry
+* Apache Maven registry
+* Gradle registry
 {% ifversion packages-nuget-v2 %}{% else %}- NuGet registry{% endif %}
 {% ifversion packages-rubygems-v2 %}{% else %}- RubyGems registry{% endif %}
 
@@ -50,8 +50,8 @@ For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuri
 To use or manage a package hosted by a package registry, you must use a {% data variables.product.pat_v1 %} with the appropriate scope, and your personal account must have appropriate permissions.
 
 For example:
-- To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-- To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+* To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
+* To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
@@ -65,10 +65,10 @@ For example:
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish, install, delete, and restore packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}.
 
 For more information, see:{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
-- "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
-- "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)"
+* "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)"{% endif %}
+* "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
+* "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)"
 
 ## About repository transfers
 
@@ -76,8 +76,8 @@ You can transfer a repository to another personal account or organization. For m
 
 When you transfer a repository, {% data variables.product.prodname_dotcom %} may transfer the packages associated with the repository, depending on the registry the packages belong to.
 
-- For registries that support granular permissions, packages are scoped to a personal account or organization, and the account associated with the package does not change when you transfer a repository. If you have linked a package to a repository, the link is removed when you transfer the repository to another user. Any {% ifversion fpt or ghec %}codespaces or {% endif %}{% data variables.product.prodname_actions %} workflows associated with the repository will lose access to the package. If the package inherited its access permissions from the linked repository, users will lose access to the package. For the list of these registries, see "[Granular permissions for user/organization-scoped packages](#granular-permissions-for-userorganization-scoped-packages)" above.
-- For registries that only support repository-scoped permissions, packages are published directly to repositories, and {% data variables.product.prodname_dotcom %} transfers the packages associated with a repository as part of the repository transfer. All billable usage associated with the packages will subsequently be billed to the new owner of the repository. If the previous repository owner is removed as a collaborator on the repository, they may no longer be able to access the packages associated with the repository. For the list of these registries, see "[Permissions for repository-scoped packages](#permissions-for-repository-scoped-packages)" above.
+* For registries that support granular permissions, packages are scoped to a personal account or organization, and the account associated with the package does not change when you transfer a repository. If you have linked a package to a repository, the link is removed when you transfer the repository to another user. Any {% ifversion fpt or ghec %}codespaces or {% endif %}{% data variables.product.prodname_actions %} workflows associated with the repository will lose access to the package. If the package inherited its access permissions from the linked repository, users will lose access to the package. For the list of these registries, see "[Granular permissions for user/organization-scoped packages](#granular-permissions-for-userorganization-scoped-packages)" above.
+* For registries that only support repository-scoped permissions, packages are published directly to repositories, and {% data variables.product.prodname_dotcom %} transfers the packages associated with a repository as part of the repository transfer. All billable usage associated with the packages will subsequently be billed to the new owner of the repository. If the previous repository owner is removed as a collaborator on the repository, they may no longer be able to access the packages associated with the repository. For the list of these registries, see "[Permissions for repository-scoped packages](#permissions-for-repository-scoped-packages)" above.
 
 ## Maintaining access to packages in {% data variables.product.prodname_actions %} workflows
 
@@ -89,8 +89,8 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-- To publish, install, delete, and restore packages associated with the workflow repository, use `GITHUB_TOKEN`.
-- To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
+* To publish, install, delete, and restore packages associated with the workflow repository, use `GITHUB_TOKEN`.
+* To install packages associated with other private repositories that `GITHUB_TOKEN` can't access, use a {% data variables.product.pat_v1 %}
 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)."
 
