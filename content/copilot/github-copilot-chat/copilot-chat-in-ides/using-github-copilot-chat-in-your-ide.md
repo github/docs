@@ -354,14 +354,14 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 {% ifversion ghec %}
 
-## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
+## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %} (preview)
 
 {% note %}
 
 **Notes**:
 
 * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-* The `@github` chat participant is currently in beta and is subject to change.
+* The `@github` chat participant is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 2](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
 {% endnote %}
 
