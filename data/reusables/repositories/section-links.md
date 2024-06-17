@@ -52,7 +52,8 @@ This is how you link to the second section: [Link Text](#this-text-is-the-same-1
 ```
 
 > [!NOTE]
-> Changing the order of sections having headings with the same name will cause their generated identifiers to change, as well, resulting in links to those sections no longer pointing to the same locations they previously pointed to.
+> Changing the order of sections having headings with the same name will cause their generated identifiers to change, as well, resulting in links to those sections no longer pointing to the same locations they previously pointed to.\
+> Use [Custom anchors](#custom-anchors) to create anchors that will not be automatically changed.
 
 [^RFC3986-35]: See [RFC 3986: Uniform Resource Identifier (URI): Generic Syntax, Section 3.5](https://www.rfc-editor.org/rfc/rfc3986#section-3.5) for basic syntax rules of URI fragments.
 [^RFC3986-21]: See [RFC 3986: Uniform Resource Identifier (URI): Generic Syntax, Section 2.1](https://www.rfc-editor.org/rfc/rfc3986#section-2.1) for the definition of Percent Encoding.
