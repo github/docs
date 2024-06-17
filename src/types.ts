@@ -82,6 +82,7 @@ export type Context = {
   autotitleLanguage?: string
   latestPatch?: string
   latestRelease?: string
+  currentLayoutName?: string
 }
 
 export type GHESRelease = {
@@ -185,6 +186,7 @@ export type Page = {
   versions: FrontmatterVersions
   applicableVersions: string[]
   changelog?: ChangeLog
+  layout?: string | boolean
 }
 
 type ChangeLog = {
