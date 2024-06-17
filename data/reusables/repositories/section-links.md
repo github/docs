@@ -26,7 +26,7 @@ A simple heading and a section link pointing to it:
 
 TEXT
 
-This is how you would link to that section: [Link Text](#sample-section).
+A link to that section: [Link Text](#sample-section).
 ```
 
 A heading containing invalid characters, UTF-8 characters, two consecutive spaces between the first and second words, and formatting markup:
@@ -36,7 +36,7 @@ A heading containing invalid characters, UTF-8 characters, two consecutive space
 
 TEXT
 
-This is how you would link to that section: [Link Text](#thisll--be-a-helpful-section-about-the-greek-letter-Θ).
+A link to that section: [Link Text](#thisll--be-a-helpful-section-about-the-greek-letter-Θ).
 ```
 
 Multiple headings sharing the same text:
@@ -48,9 +48,9 @@ Multiple headings sharing the same text:
 # This text is the same
 ...content of the second section...
 
-This is how you link to the first section: [Link Text](#this-text-is-the-same).
+Link to the first section: [Name](#this-text-is-the-same).
 
-This is how you link to the second section: [Link Text](#this-text-is-the-same-1).
+Link to the second section: [Name](#this-text-is-the-same-1).
 ```
 
 > [!NOTE]
