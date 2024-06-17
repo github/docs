@@ -1,15 +1,14 @@
 ---
 title: Managing GitHub Copilot in your organization
 shortTitle: Manage for organization
-intro: 'Learn about {% data variables.product.prodname_copilot_cli %}, including use cases, best practices, and limitations.'
+intro: "Organization owners can grant and revoke access to {% data variables.product.prodname_copilot %}, manage {% data variables.product.prodname_copilot_short %} related policies and features, as well as reviewing audit logs and usage data."
 versions:
-  feature: copilot-in-the-cli
+  feature: copilot
 redirect_from:
   - /copilot/managing-copilot/managing-policies-for-copilot-business-in-your-organization
   - /copilot/managing-github-copilot-in-your-organization
 topics:
   - Copilot
-  - CLI
 children:
   - /subscribing-to-copilot-for-your-organization
   - /granting-access-to-copilot-for-members-of-your-organization
