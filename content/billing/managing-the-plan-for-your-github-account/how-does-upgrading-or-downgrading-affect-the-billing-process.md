@@ -39,7 +39,7 @@ Stefan's organization pays for 50 seats every year on May 20th. If Stefan remove
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account)"
-- "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"
-- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"
+* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage)"
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"

@@ -21,13 +21,13 @@ The "Overview" page provides a high-level view of your spending and budgets.
 
 On this page, you can view your usage in the following categories:
 
-- **Current metered usage:** The card on the top left shows the gross metered usage for your enterprise including all cost centers. Click **More details** to view a breakdown of the usage by cost center.
-- **Metered usage (w/o cost centers):** The graph shows the gross metered usage for your enterprise excluding cost centers. To view the usage for a specific cost center, select {% octicon "triangle-down" aria-label="Change cost center selection" %}, then click a cost center.
+* **Current metered usage:** The card on the top left shows the gross metered usage for your enterprise including all cost centers. Click **More details** to view a breakdown of the usage by cost center.
+* **Metered usage (w/o cost centers):** The graph shows the gross metered usage for your enterprise excluding cost centers. To view the usage for a specific cost center, select {% octicon "triangle-down" aria-label="Change cost center selection" %}, then click a cost center.
 
    To view a different time period, select **Time Frame**, then choose a time period. You can also download an image of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
 
-- **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
-- **By products:** You can use the product tabs to view usage and discounts for different products. Only products with usage are shown.
+* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
+* **By products:** You can use the product tabs to view usage and discounts for different products. Only products with usage are shown.
 
     ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
 
