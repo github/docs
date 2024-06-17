@@ -2,6 +2,9 @@ Customers on {% data variables.product.prodname_team %} and {% data variables.pr
 
 * More RAM, CPU, and disk space
 * Static IP addresses
+{%- ifversion actions-private-networking-azure-vnet %}
+* Azure private networking
+{%- endif %}
 * The ability to group runners
 * Autoscaling to support concurrent workflows
 * GPU-powered and ARM-powered runners
