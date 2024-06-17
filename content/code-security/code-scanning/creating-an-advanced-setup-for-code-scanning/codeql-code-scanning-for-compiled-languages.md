@@ -333,6 +333,8 @@ For self-hosted runners{% ifversion codeql-cpp-autoinstall-dependencies %}, unle
 If you enable automatic installation of dependencies, you must ensure that the runner is using Ubuntu and that it can run `sudo apt-get` without requiring a password.
 {%- endif %}
 
+Windows runners require `powershell.exe` to be on the `PATH`.
+
 ## Building C#
 
 {% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C# code.
@@ -358,6 +360,8 @@ If `autobuild` detects multiple solution or project files at the same (shortest)
 For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
 
 For .NET Framework application development, you will need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`).
+
+Windows runners require `powershell.exe` to be on the `PATH`.
 
 ### Linux and macOS autodetection
 
@@ -443,6 +447,8 @@ The following executables will likely be required for a range of Java projects, 
 * `ant` (Apache Ant)
 
 You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
+
+Windows runners require `powershell.exe` to be on the `PATH`.
 
 {% ifversion codeql-swift-beta %}
 
