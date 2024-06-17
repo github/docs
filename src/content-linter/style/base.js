@@ -27,7 +27,7 @@ export const baseConfig = {
     severity: 'error',
     style: 'asterisk',
     'partial-markdown-files': true,
-    'yml-files': true,
+    'yml-files': false,
   },
   'no-trailing-spaces': {
     // MD009
