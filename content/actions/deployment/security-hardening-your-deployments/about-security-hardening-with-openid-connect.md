@@ -75,8 +75,8 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "repository_owner_id": "65",
   "run_id": "example-run-id",
   "run_number": "10",
-  "run_attempt": "2",{% ifversion actions-OIDC-custom-claim-runner-environment %}
-  "runner_environment": "github-hosted"{% endif %}
+  "run_attempt": "2",
+  "runner_environment": "github-hosted"
   "actor": "octocat",
   "workflow": "example-workflow",
   "head_ref": "",
@@ -126,19 +126,17 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `actor`| The personal account that initiated the workflow run.                   |
 | `actor_id`| The ID of personal account that initiated the workflow run.             |
 | `base_ref`| The target branch of the pull request in a workflow run.                   |
-{%- ifversion actions-OIDC-custom-claim-enterprise %}
+| {% ifversion actions-OIDC-custom-claim-enterprise %} |
 | `enterprise`| The name of the enterprise that contains the repository from where the workflow is running.                  |
-{%- endif %}
-{%- ifversion actions-OIDC-enterprise_id-claim %}
+| {% endif %} |
+| {% ifversion actions-OIDC-enterprise_id-claim %} |
 | `enterprise_id`| The ID of the enterprise that contains the repository from where the workflow is running.                  |
-{%- endif %}
+| {% endif %} |
 | `environment`| The name of the environment used by the job. To include the `environment` claim you must reference an environment.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  |
-{%- ifversion actions-oidc-custom-claims %}
 | `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
-{%- endif %}
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   |
 | `ref_type`| The type of `ref`, for example: "branch".                  |
 | `repository_visibility` | The visibility of the repository where the workflow is running. Accepts the following values: `internal`, `private`, or `public`.                   |
@@ -149,14 +147,10 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `run_id`| The ID of the workflow run that triggered the workflow.                   |
 | `run_number`| The number of times this workflow has been run.                   |
 | `run_attempt`| The number of times this workflow run has been retried.                    |
-{%- ifversion actions-OIDC-custom-claim-runner-environment %}
 | `runner_environment`| The type of runner used by the job. Accepts the following values: `github-hosted` or `self-hosted`.                  |
-{%- endif %}
 | `workflow`| The name of the workflow.                   |
-{%- ifversion actions-oidc-custom-claims %}
 | `workflow_ref`| {% data reusables.actions.workflow-ref-description %}                   |
 | `workflow_sha`| {% data reusables.actions.workflow-sha-description %}                   |
-{%- endif %}
 
 ### Defining trust conditions on cloud roles using OIDC claims
 
