@@ -16,6 +16,7 @@ For example:
 If the same text is used for more than one heading, at any level, the first will be named as above, and subsequent headings will have `-X` appended to the name, where `X` is an integer beginning at `1`.
 
 For example:
+
 ```markdown
 ### This text is the same
 ...content of the first section...

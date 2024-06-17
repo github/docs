@@ -6,6 +6,7 @@ You can use custom anchor tags, using plain HTML, at any place in the document.
 Custom anchors can be linked to using the `id` you gave them.
 
 For example:
+
 ```markdown
 # Section Heading
 
