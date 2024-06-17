@@ -53,6 +53,6 @@ Link to the first section: [Name](#this-text-is-the-same).
 Link to the second section: [Name](#this-text-is-the-same-1).
 ```
 
-> [!NOTE]
+> [!CAUTION]
 > Changing the order of sections having headings with the same name will cause their generated identifiers to change, as well, resulting in links to those sections no longer pointing to the same locations they previously pointed to.\
 > Use [Custom anchors](#custom-anchors) to create anchors that will not be automatically changed.
