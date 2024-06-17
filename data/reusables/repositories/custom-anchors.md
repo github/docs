@@ -1,9 +1,9 @@
-You can use custom anchor tags, using plain HTML, at any place in the document.
+Use HTML anchor tags (`<a id="unique-anchor-name"></a>`) to create navigation anchor points to any place in the document.
 
 > [!NOTE]
 > Custom anchors will not be included in the document outline/Table of Contents.
 
-Custom anchors can be linked to using the `id` you gave them.
+Link to custom anchors by using the `id` given to the anchor.
 
 For example:
 
@@ -15,10 +15,11 @@ Some body text of this section.
 <a id="my-custom-anchor-point"></a>
 Some text I want to provide a direct link to, but which doesn't have its own heading.
 
-... a bunch more content...
+...more content...
+
 [A link to that custom anchor](#my-custom-anchor-point)
 ```
 
 > [!TIP]
-> Custom anchors do not participate in the auto-numbering behavior, like automatic heading anchors do, nor will automatic naming and numbering of heading anchors take your custom anchors into account.\
-> To avoid potential confusion or improper navigation, use a unique naming scheme for all custom anchors, to avoid overlap with heading anchors (e.g., using a prefix, like `prefix-`),.
+> Custom anchors are not considered by the automatic naming and numbering behavior of automatic heading links.\
+> To avoid ambiguous references, use a unique naming scheme for custom anchors, such as adding a prefix to the `id` attribute value of custom anchors.
