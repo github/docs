@@ -20,5 +20,5 @@ Some text I want to provide a direct link to, but which doesn't have its own hea
 ```
 
 > [!TIP]
-> Custom anchors do not participate in the auto-numbering behavior, like automatic heading anchors do, nor will automatic anchors take your custom anchors into account when auto-numbering.\
-> To avoid potential confusion or improper navigation, use a unique naming scheme (such as using a prefix, e.g. `prefix-`), for all custom anchors that will not overlap with heading anchors.
+> Custom anchors do not participate in the auto-numbering behavior, like automatic heading anchors do, nor will automatic naming and numbering of heading anchors take your custom anchors into account.\
+> To avoid potential confusion or improper navigation, use a unique naming scheme for all custom anchors, to avoid overlap with heading anchors (e.g., using a prefix, like `prefix-`),.
