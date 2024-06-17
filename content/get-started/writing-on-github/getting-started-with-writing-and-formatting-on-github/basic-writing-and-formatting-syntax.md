@@ -139,6 +139,10 @@ You can also create a Markdown hyperlink by highlighting the text and using the 
 
 {% data reusables.repositories.relative-links %}
 
+## Custom anchors
+
+{% data reusables.repositories.custom-anchors %}
+
 ## Images
 
 You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ ]`. Alt text is a short text equivalent of the information in the image. Then, wrap the link for the image in parentheses `()`.
