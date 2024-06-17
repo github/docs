@@ -2,7 +2,7 @@ You can link directly to a section in a rendered file by hovering over the secti
 
 ![Screenshot of a README for a repository. To the left of a section heading, a link icon is outlined in dark orange.](/assets/images/help/repository/readme-links.png)
 
-[Headings](#headings) automatically create anchors which have default names created from the text of the heading, with the following rules:
+[Headings](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links) automatically create anchors which have default names created from the text of the heading, with the following rules:
 
  * Generated identifiers are UTF-8 URI fragments.
     * See [RFC 3986: Uniform Resource Identifier (URI): Generic Syntax, Section 3.5](https://www.rfc-editor.org/rfc/rfc3986#section-3.5).
@@ -55,4 +55,4 @@ Link to the second section: [Name](#this-text-is-the-same-1).
 
 > [!CAUTION]
 > Changing the order of sections having headings with the same name will cause their generated identifiers to change, as well, resulting in links to those sections no longer pointing to the same locations they previously pointed to.\
-> Use [Custom anchors](#custom-anchors) to create anchors that will not be automatically changed.
+> Use [Custom anchors](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#custom-anchors) to create anchors that will not be automatically changed.
