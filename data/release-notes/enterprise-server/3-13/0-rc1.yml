@@ -172,6 +172,8 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding)."
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
 
   deprecations:
     # https://github.com/github/releases/issues/2732
