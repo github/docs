@@ -8,6 +8,6 @@ topics:
   - Copilot
 children:
   - /using-github-copilot-code-suggestions-in-your-editor
+  - /prompt-engineering-for-github-copilot
   - /finding-public-code-that-matches-github-copilot-suggestions
 ---
-

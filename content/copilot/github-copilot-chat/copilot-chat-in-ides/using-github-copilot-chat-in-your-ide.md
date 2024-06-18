@@ -234,6 +234,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 ## Further reading
 
+* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
 {% ifversion ghec %}
 * "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
@@ -404,6 +405,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Further reading
 
+* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 * [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
 {% ifversion ghec %}
@@ -538,6 +540,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Further reading
 
+* "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 {% ifversion ghec %}- "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
