@@ -57,6 +57,16 @@ If your enterprise pays by credit card, you can allow your enterprise's organiza
 
 {% endif %}
 
+## Using the sponsorships dashboard for organizations
+
+You can use the sponsorships dashboard to see an overview of active and past sponsorships. Organization owners can use the dashboard to see how much they are paying, make changes to sponsorships, and export their sponsorships as a CSV file. Non-members and people signed out of {% data variables.product.product_name %} can see public sponsorships and organization members can see public and private sponsorships.
+
+You can access the sponsorships dashboard through your organization's profile.
+
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+1. Under your organization name, click {% octicon "heart" aria-hidden="true" %} **Sponsoring**.
+
 ## Sponsorship fees
 
 {% data reusables.sponsors.no-fees %}

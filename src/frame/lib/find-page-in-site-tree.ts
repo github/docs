@@ -1,8 +1,14 @@
+import type { Tree } from '@/types'
 import { getLanguageCode } from './patterns.js'
 
 // This module recursively searches a given part of the site tree by iterating through child
 // pages and finding a path that matches the original path provided.
-export default function findPageInSiteTree(treePage, englishTree, originalPath, modifiedPath) {
+export default function findPageInSiteTree(
+  treePage: Tree,
+  englishTree: Tree,
+  originalPath: string,
+  modifiedPath?: string,
+): Tree {
   if (Array.isArray(treePage)) throw new Error('received array instead of object')
 
   // If the tree page already matches the path, or if it has no child pages, return the page itself.
@@ -35,7 +41,9 @@ export default function findPageInSiteTree(treePage, englishTree, originalPath, 
 
   // Error out or we'll just recurse forever until the stack size is exceeded.
   if (!modifiedPath) {
-    const langCode = originalPath.match(getLanguageCode)[1]
+    const matched = originalPath.match(getLanguageCode)
+    if (!matched) throw new Error('language code not found in path')
+    const langCode = matched[1]
 
     // Fall back to English if this is a localized path.
     if (langCode === 'en') {

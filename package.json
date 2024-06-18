@@ -351,7 +351,7 @@
     "eslint-plugin-github": "^5.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-primer-react": "^5.2.0",
+    "eslint-plugin-primer-react": "^5.3.0",
     "event-to-promise": "^0.8.0",
     "graphql": "^16.8.1",
     "http-status-code": "^2.1.0",
