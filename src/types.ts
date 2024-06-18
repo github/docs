@@ -91,6 +91,12 @@ export type Context = {
   genericTocFlat?: ToC[]
   genericTocNested?: ToC[]
   breadcrumbs?: Breadcrumb[]
+  glossaries?: Glossary[]
+}
+
+export type Glossary = {
+  term: string
+  description: string
 }
 
 type Breadcrumb = {

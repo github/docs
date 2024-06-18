@@ -1,10 +1,16 @@
-import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import { liquid } from '#src/content-render/index.js'
-import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
-import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
+import type { Response, NextFunction } from 'express'
 
-export default async function glossaries(req, res, next) {
+import type { Context, ExtendedRequest, Glossary } from '@/types'
+import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { liquid } from '@/content-render/index.js'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+
+export default async function glossaries(req: ExtendedRequest, res: Response, next: NextFunction) {
+  if (!req.pagePath) throw new Error('request is not contextualized')
   if (!req.pagePath.endsWith('/get-started/learning-about-github/github-glossary')) return next()
+
+  if (!req.context) throw new Error('request is not contextualized')
 
   // If the current version (which is found as part of the URL), does not
   // correspond to a supported version, the Liquid rendering will fail
@@ -19,7 +25,8 @@ export default async function glossaries(req, res, next) {
   const enGlossaryMap = new Map()
   // But we don't need to bother if the current language is English.
   if (req.context.currentLanguage !== 'en') {
-    const enGlossariesRaw = getDataByLanguage('glossaries.external', 'en')
+    const enGlossariesRaw: Glossary[] = getDataByLanguage('glossaries.external', 'en')
+
     enGlossariesRaw.forEach(({ term, description }) => {
       enGlossaryMap.set(term, description)
     })
@@ -30,12 +37,15 @@ export default async function glossaries(req, res, next) {
   // The github-glossary.md file uses Liquid to generate the Markdown.
   // It uses Liquid to say `{{ glossary.description }}` but once that's
   // injected there it needs to have its own possible Liquid rendered out.
-  const glossariesRaw = getDataByLanguage('glossaries.external', req.context.currentLanguage)
+  const glossariesRaw: Glossary[] = getDataByLanguage(
+    'glossaries.external',
+    req.context.currentLanguage,
+  )
   const glossaries = (
     await Promise.all(
       glossariesRaw.map(async (glossary) => {
         let { description } = glossary
-        if (req.context.currentLanguage !== 'en') {
+        if (req.context!.currentLanguage !== 'en') {
           description = correctTranslatedContentStrings(
             description,
             // The function needs the English equivalent of the translated
@@ -46,13 +56,13 @@ export default async function glossaries(req, res, next) {
             // in this mapping we often don't have an English equivalent.
             // So that's why we fall back on the empty string.
             enGlossaryMap.get(glossary.term) || '',
-            { code: req.context.currentLanguage },
+            { code: req.context!.currentLanguage },
           )
         }
         description = await executeWithFallback(
           req.context,
           () => liquid.parseAndRender(description, req.context),
-          (enContext) => {
+          (enContext: Context) => {
             const { term } = glossary
             // It *could* be that the translation is referring to a term
             // that no longer exists in the English glossary. In that case,
@@ -71,7 +81,7 @@ export default async function glossaries(req, res, next) {
   ).filter(Boolean)
 
   req.context.glossaries = glossaries.sort((a, b) =>
-    a.term.localeCompare(b.term, req.context.currentLanguage),
+    a.term.localeCompare(b.term, req.context!.currentLanguage),
   )
 
   return next()
