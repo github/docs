@@ -227,7 +227,7 @@
     "@horizon-rs/language-guesser": "0.1.1",
     "@octokit/plugin-retry": "6.0.1",
     "@octokit/request-error": "6.1.1",
-    "@primer/behaviors": "^1.5.1",
+    "@primer/behaviors": "^1.6.0",
     "@primer/css": "^21.3.1",
     "@primer/octicons": "^19.9.0",
     "@primer/octicons-react": "^19.9.0",
