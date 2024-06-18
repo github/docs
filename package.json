@@ -231,7 +231,7 @@
     "@primer/css": "^21.3.1",
     "@primer/octicons": "^19.9.0",
     "@primer/octicons-react": "^19.9.0",
-    "@primer/react": "36.21.0",
+    "@primer/react": "36.22.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.16.0",
     "ajv-errors": "^3.0.0",
