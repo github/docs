@@ -41,23 +41,13 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 {% endnote %}
 
-### 1. Download the {% data variables.product.prodname_codeql_cli %} zip package
+### 1. Download the {% data variables.product.prodname_codeql_cli %} tar archive
 
-{% data reusables.codeql-cli.download-codeql-cli-zip %}
+{% data reusables.codeql-cli.download-codeql-cli %}
 
-You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
+### 2. Extract the {% data variables.product.prodname_codeql_cli %} tar archive
 
-#### Download information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}
-
-### 2. Extract the zip archive
-
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive.
-
-#### Extraction information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.extraction-info-macos-catalina-or-newer %}
+Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a directory of your choosing.
 
 ### 3. Launch `codeql`
 
