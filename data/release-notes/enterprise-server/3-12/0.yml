@@ -187,6 +187,8 @@ sections:
       {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
     - |
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
   deprecations:
     - heading: Upgrading GitHub Enterprise Server Backup Utilities using a Git repository is no longer supported
       notes:

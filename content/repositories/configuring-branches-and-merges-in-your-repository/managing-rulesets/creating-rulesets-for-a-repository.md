@@ -29,11 +29,12 @@ For more information on rulesets, see "[AUTOTITLE](/repositories/configuring-bra
 {% ifversion repo-rules-enterprise %}
 You can also create rulesets for all repositories in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."{% endif %}
 
+{% ifversion repo-rules-management %}
+
 ## Importing prebuilt rulesets
 
 To import one of the prebuilt rulesets by {% data variables.product.prodname_dotcom %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
-{% ifversion repo-rules-management %}
 {% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history)."{% endif %}
 
 ## Using `fnmatch` syntax

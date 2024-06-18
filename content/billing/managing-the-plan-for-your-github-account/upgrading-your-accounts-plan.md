@@ -132,6 +132,6 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+* "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."

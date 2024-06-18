@@ -43,4 +43,4 @@ If your organization already has a paid plan, your organization's last transacti
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)"
