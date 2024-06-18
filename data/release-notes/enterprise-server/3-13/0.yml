@@ -1,15 +1,11 @@
-date: '2024-05-16'
-release_candidate: true
-deprecated: true
+date: '2024-06-18'
+release_candidate: false
+deprecated: false
 intro: |
-
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+  >[!NOTE] An upgrade to Elasticsearch in version 3.13 may affect performance on your instance. See "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade)."
 
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -85,9 +81,9 @@ sections:
 
     - heading: Secret scanning
       notes:
-        # https://github.com/github/releases/issues/3566
+         # https://github.com/github/releases/issues/3566
         - |
-          In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+           In the secret scanning list view, users can apply a filter to display alerts that are the result of having bypassed push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
         # https://github.com/github/releases/issues/3180
         - |
           To increase coverage of secret scanning across an instance, users can enable secret scanning in repositories owned by their personal account. Enterprise owners can disable this feature, or automatically enable it for all new user-owned repositories, in the enterprise settings. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
@@ -96,15 +92,11 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3526
         - |
-           Users can enable code scanning on repositories even if they don't contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+          Users can enable code scanning on repositories even if they don’t contain any code written in the [languages currently supported by CodeQL](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/). Default setup will automatically trigger the first scan when a supported language is detected on the default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
         # https://github.com/github/releases/issues/3545
         - |
-           Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+          Users can use CodeQL threat model settings for Java to adapt CodeQL's code scanning analysis to detect the most relevant security vulnerabilities in their code. This feature is in public beta and subject to change. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
         # https://github.com/github/releases/issues/3771
-        # https://github.com/github/releases/issues/3807
-        # https://github.com/github/releases/issues/3818
-        # https://github.com/github/releases/issues/3864
-        # https://github.com/github/releases/issues/3894
         - |
           The {% data variables.product.prodname_codeql %} action for code scanning analysis uses version 2.16.5 of the {% data variables.product.prodname_codeql_cli %} by default, an upgrade from 2.15.5 compared to the previous {% data variables.product.prodname_ghe_server %} feature release. For a detailed list of changes included in each version, see the [{% data variables.product.prodname_codeql %} change logs](https://codeql.github.com/docs/codeql-overview/codeql-changelog/).
           Significant changes include:
@@ -116,7 +108,6 @@ sections:
           * 2 new C/C++ queries: `cpp/use-of-unique-pointer-after-lifetime-ends` and `cpp/incorrectly-checked-scanf`
           * 6 new Java queries: `java/insecure-randomness` , `java/exec-tainted-environment` , `java/android/sensitive-text`, `java/android/sensitive-notification`, `java/android/insecure-local-authentication`, and `java/android/insecure-local-key-gen`
           * 2 new Swift queries: `swift/weak-password-hashing` and `swift/unsafe-unpacking`
-
     - heading: Code security
       notes:
         # https://github.com/github/releases/issues/3333
@@ -150,7 +141,7 @@ sections:
       * `ghcr.io`
       * `*.actions.githubusercontent.com`
 
-      You can make this change to your firewall rules on version 3.13, or on a previous version of GitHub Enterprise Server. For a smooth upgrade to version 3.14, we recommend you make changes to your firewall rules now, as failing to do so will result in your runners being unable to download certain actions in version 3.14 and later.
+      Please update the outbound firewall rules on your self-hosted runners to allow requests to these services. You can make this change on version 3.13, or on a previous version of GitHub Enterprise Server. For a smooth upgrade to version 3.14, we recommend you make changes to your firewall rules now, as failing to do so will result in your runners being unable to download certain actions in version 3.14 and later.
     # https://github.com/github/releases/issues/3443
     - |
        The "Create a reference" REST API endpoint is restricted from accepting POSTs from users and apps that only have permission to read and write packages. Previously, this endpoint accepted updates to both tags and branches.
@@ -173,7 +164,25 @@ sections:
     - |
       When enabling log forwarding, specific service logs, including babeld, are duplicated. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding)."
     - |
-      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+      Repositories originally imported using `ghe-migrator` do not correctly track committers for GitHub Advanced Security billing.
+    - |
+      When log forwarding is enabled, some forwarded log entries may be duplicated.
+    - |
+      Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
+    - |
+      `TokenScanningServiceMetricsApiError` errors may appear after the upgrade.
+    - |
+      The log entry `irb: warn: can't alias delete from irb_delete` may appear during creation and upload of support bundles.
+    - |
+      The admin stats REST API endpoints may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for "[Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node)," step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running `ghe-cluster-config-apply` as part of the steps for "[Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency)" might fail with errors if the node being replaced has not first been turned off. If this occurs, turn the node off and repeat the steps.
+    - |
+      For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
+    - |
+      Memory utilization may increase after the upgrade. During periods of high traffic, interruptions in service may occur due to insufficient memory allocations for internal components.
 
   deprecations:
     # https://github.com/github/releases/issues/2732
