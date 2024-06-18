@@ -198,8 +198,6 @@ By default, when you create a new organization, workflows are not allowed to {% 
 
 {% endif %}
 
-{% ifversion actions-cache-org-ui %}
-
 ## Managing {% data variables.product.prodname_actions %} cache storage for your organization
 
 Organization administrators can view {% ifversion actions-cache-admin-ui %}and manage {% endif %}{% data variables.product.prodname_actions %} cache storage for all repositories in the organization.
@@ -227,7 +225,5 @@ You can configure the size limit for {% data variables.product.prodname_actions 
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit  %}
-
-{% endif %}
 
 {% endif %}
