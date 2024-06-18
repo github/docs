@@ -1,4 +1,9 @@
-export default function breadcrumbs(req, res, next) {
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest, TitlesTree } from '@/types'
+
+export default function breadcrumbs(req: ExtendedRequest, res: Response, next: NextFunction) {
+  if (!req.context) throw new Error('request is not contextualized')
   if (!req.context.page) return next()
   const isEarlyAccess = req.context.page.relativePath.startsWith('early-access')
   if (req.context.page.hidden && !isEarlyAccess) return next()
@@ -17,7 +22,9 @@ export default function breadcrumbs(req, res, next) {
 
 const earlyAccessExceptions = ['insights', 'enterprise-importer']
 
-function getBreadcrumbs(req, isEarlyAccess) {
+function getBreadcrumbs(req: ExtendedRequest, isEarlyAccess: boolean) {
+  if (!req.context || !req.context.currentPath || !req.context.currentProductTreeTitles)
+    throw new Error('request is not contextualized')
   let cutoff = 0
   // When in Early access docs consider the "root" be much higher.
   // E.g. /en/early-access/github/migrating/understanding/about
@@ -25,7 +32,7 @@ function getBreadcrumbs(req, isEarlyAccess) {
   // Essentially, we're skipping "/early-access" and its first
   // top-level like "/github"
   if (isEarlyAccess) {
-    const split = req.context.currentPath.split('/')
+    const split = req.context.currentPath!.split('/')
     // There are a few exceptions to this rule for the
     // /{version}/early-access/<product-name>/... URLs because they're a
     // bit different.
@@ -62,7 +69,7 @@ function getBreadcrumbs(req, isEarlyAccess) {
 //    {href: /foo/buzz, title: TITLE}
 //  ]
 //
-function traverseTreeTitles(currentPath, tree) {
+function traverseTreeTitles(currentPath: string | string[], tree: TitlesTree) {
   const { href, title, shortTitle } = tree
   const crumbs = [
     {
@@ -70,7 +77,9 @@ function traverseTreeTitles(currentPath, tree) {
       title: shortTitle || title,
     },
   ]
-  const currentPathSplit = Array.isArray(currentPath) ? currentPath : currentPath.split('/')
+  const currentPathSplit: string[] = Array.isArray(currentPath)
+    ? currentPath
+    : currentPath.split('/')
   for (const child of tree.childPages) {
     if (isParentOrEqualArray(child.href.split('/'), currentPathSplit)) {
       crumbs.push(...traverseTreeTitles(currentPathSplit, child))
@@ -85,6 +94,6 @@ function traverseTreeTitles(currentPath, tree) {
 // Like `/foo/bar` is part of `/foo/bar/buzz`.
 // But also include `/foo/bar/buzz`.
 // Don't include `/foo/ba` if the final path is `/foo/baring`.
-function isParentOrEqualArray(base, final) {
+function isParentOrEqualArray(base: string[], final: string[]) {
   return base.every((part, i) => part === final[i])
 }
