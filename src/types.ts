@@ -90,6 +90,12 @@ export type Context = {
   sidebarTree?: TitlesTree
   genericTocFlat?: ToC[]
   genericTocNested?: ToC[]
+  breadcrumbs?: Breadcrumb[]
+}
+
+type Breadcrumb = {
+  title: string
+  href: string
 }
 
 export type ToC = {

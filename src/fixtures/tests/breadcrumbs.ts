@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'vitest'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest.js'
 
 describe('breadcrumbs', () => {
   test('links always prefixed with language', async () => {
     const $ = await getDOM('/get-started/start-your-journey/hello-world')
     const links = $('[data-testid=breadcrumbs-in-article] a')
     links.each((i, element) => {
-      expect($(element).attr('href').startsWith('/en/')).toBe(true)
+      expect($(element).attr('href')!.startsWith('/en/')).toBe(true)
     })
     expect.assertions(3)
   })
@@ -31,11 +31,11 @@ describe('breadcrumbs', () => {
     const links = $('[data-testid=breadcrumbs-in-article] a')
     expect(links.length).toBe(3)
     expect($(links[0]).text()).toBe('Get started')
-    expect($(links[0]).attr('class').includes('d-none')).toBe(false)
+    expect($(links[0]).attr('class')!.includes('d-none')).toBe(false)
     expect($(links[1]).text()).toBe('Start your journey')
-    expect($(links[1]).attr('class').includes('d-none')).toBe(false)
+    expect($(links[1]).attr('class')!.includes('d-none')).toBe(false)
     expect($(links[2]).text()).toBe('Hello World')
-    expect($(links[2]).attr('class').includes('d-none')).toBe(true)
+    expect($(links[2]).attr('class')!.includes('d-none')).toBe(true)
   })
 
   test('works for enterprise-server articles too', async () => {
