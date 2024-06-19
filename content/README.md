@@ -293,7 +293,7 @@ Do not add hardcoded "In this article" sections in the Markdown source or else t
 A content file can have **two** types of versioning:
 
 - [`versions`](#versions) frontmatter (**required**)
-    - Determines in which versions the page is available. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation) for more info.
+    - Determines in which versions the page is available. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation)" for more info.
 - Liquid statements in content (**optional**)
     - Conditionally render content depending on the current version being viewed. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators)" for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 

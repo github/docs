@@ -93,7 +93,7 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
-The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)" and [AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
+The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. See "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#configuring-frequency)" and "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow)."
 
 For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale)."
 
