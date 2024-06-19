@@ -229,7 +229,7 @@
     "@octokit/request-error": "6.1.1",
     "@primer/behaviors": "^1.5.1",
     "@primer/css": "^21.3.1",
-    "@primer/octicons": "^19.9.0",
+    "@primer/octicons": "^19.10.0",
     "@primer/octicons-react": "^19.9.0",
     "@primer/react": "36.21.0",
     "accept-language-parser": "^1.5.0",
