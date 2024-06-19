@@ -97,12 +97,13 @@ async function createReleaseIssue() {
   }
 
   const releaseInfo = releaseDates[releaseNumber]
-  const codeFreeze = releaseInfo.code_freeze
+  const rcDate = releaseInfo.release_candidate
 
-  // If the code freeze date is in the future, do nothing
-  if (getNumberDaysUntilMilestone(codeFreeze) > 0) {
+  // Only open an issue if today is within 30 days before
+  // the release candidate date
+  if (getNumberDaysUntilMilestone(rcDate) > 30) {
     console.log(
-      `The ${releaseNumber} release code freeze is not until ${codeFreeze}! An issue will be opened on the scheduled code freeze date.`,
+      `The ${releaseNumber} release candidate is not until ${rcDate}! An issue will be opened 30 days prior to the release candidate date.`,
     )
     return
   }
