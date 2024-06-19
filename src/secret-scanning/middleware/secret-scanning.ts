@@ -7,7 +7,7 @@ import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
 import { liquid } from '@/content-render/index.js'
 import { ExtendedRequest, SecretScanningData } from '@/types'
 
-const secretScanningPath = 'data/secret-scanning.yml'
+const secretScanningPath = 'src/secret-scanning/data/public-docs.yml'
 
 export default async function secretScanning(
   req: ExtendedRequest,
