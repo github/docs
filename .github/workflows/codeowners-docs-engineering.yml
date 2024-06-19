@@ -20,7 +20,8 @@ on:
       - '**.tsx'
       - '**.scss'
       - 'src/**'
-      - '!src/**.json' # So that Docs Engineering isn't reviewing OpenAPI PRs
+      - '!src/**.json' # So that Docs Engineering isn't reviewing automated pipeline data PRs
+      - '!src/**.yml' # So that Docs Engineering isn't reviewing automated pipeline data PRs
       - '.github/**'
       - '**Dockerfile'
       - 'package*.json'
