@@ -7,7 +7,7 @@ import useSWR from 'swr'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent, EventType, startVisitTime } from 'src/events/components/events'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
 
@@ -324,7 +324,6 @@ function trackEvent(eventData: EventData) {
     survey_vote: eventData.vote,
     survey_comment: eventData.comment || undefined,
     survey_email: eventData.email || undefined,
-    survey_visit_duration: (Date.now() - startVisitTime) / 1000,
     survey_rating: eventData.rating,
   })
 }
