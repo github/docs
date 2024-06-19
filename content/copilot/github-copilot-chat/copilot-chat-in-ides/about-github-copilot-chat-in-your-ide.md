@@ -28,6 +28,8 @@ When you use the `@github` chat participant, {% data variables.product.prodname_
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
 
+{% data reusables.rai.copilot.copilot-chat-ide-leveraging-web-search %}
+
 {% data reusables.rai.copilot.copilot-chat-ide-use-cases %}
 
 ### Answering coding questions
@@ -43,18 +45,6 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 {% data reusables.rai.copilot.copilot-chat-ide-improving-performance %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-limitations %}
-
-### Leveraging a web search to answer a question
-
-> [!NOTE]
-> * Bing search integration in {% data variables.product.prodname_copilot_chat_short %} is currently in beta and is subject to change.
-> * The `@github` chat participant in {% data variables.product.prodname_vscode_shortname %} is currently in preview and is subject to change. For more information, see "[Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms)."
-
-When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat %} can use a Bing search to help answer your question if this has been enabled by your administrator.
-
-Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
-
-When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 
 {% data reusables.rai.copilot.copilot-chat-ide-next-steps %}
 
@@ -73,6 +63,8 @@ When leveraging Bing, {% data variables.product.prodname_copilot_short %} will u
 When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat_short %} will be able to gather context from your code stored on {% data variables.product.prodname_dotcom_the_website %} and search results from Bing (if enabled by your administrator).
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-leveraging-web-search %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-use-cases %}
 

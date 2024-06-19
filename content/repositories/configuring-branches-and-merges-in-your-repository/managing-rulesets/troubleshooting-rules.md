@@ -51,8 +51,8 @@ Verify that your ruleset workflow does not target all branches in the repository
 
 Verify that your workflow file exists in the `.github/workflows` directory. If you want to run a ruleset workflow on `pull_request` events in a repository that is not the source repository, you can take any of the following actions:
   * Add a conditional to the workflow file such as, `if: {{ github.repository != 'my-org/source-repo' }}`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
-  * Disable Actions completely in the source repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository).
-  * Disable the individual workflow in the source repository. For more information, see "[AUTOTITLE](/actions/using-workflows/disabling-and-enabling-a-workflow).
+  * Disable Actions completely in the source repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)."
+  * Disable the individual workflow in the source repository. For more information, see "[AUTOTITLE](/actions/using-workflows/disabling-and-enabling-a-workflow)."
 
 ### Using the `merge_group` trigger
 

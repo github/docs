@@ -197,7 +197,7 @@ Here, we have specified a `--source-root` path, which is the location where data
 For {% ifversion codeql-no-build %}most{% endif %} compiled languages, {% data variables.product.prodname_codeql %} needs to invoke the required build system to generate a database, therefore the build method must be available to the CLI. This approach creates databases that include generated code. {% data variables.product.prodname_codeql %} has two methods for building codebases:
 
 * "[Automatic build detection (autobuild)](#automatically-detecting-the-build-system)"
-* "[User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)
+* "[User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)"
 
 {% ifversion codeql-no-build %}
 In addition, for {% data variables.code-scanning.no_build_support %}, there is an option to generate a database without building the code. This is particularly useful when you want to enable {% data variables.product.prodname_code_scanning %} for many repositories. For more information, see "[CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)."

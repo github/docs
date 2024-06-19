@@ -3,7 +3,7 @@ When you use {% data variables.product.prodname_codeql %} to scan code, the {% d
 {% ifversion code-scanning-exclude-queries-from-analysis %}
 {% tip %}
 
-You can also specify the queries you want to exclude from analysis, or include in the analysis. This requires the use of a custom configuration file. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)" and "[Excluding specific queries from analysis](#excluding-specific-queries-from-analysis) " below.
+You can also specify the queries you want to exclude from analysis, or include in the analysis. This requires the use of a custom configuration file. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)" and "[Excluding specific queries from analysis](#excluding-specific-queries-from-analysis)" below.
 
 {% endtip %}
 {% endif %}

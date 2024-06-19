@@ -38,7 +38,7 @@ If you want to use the API on behalf of an organization or another user, {% data
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
-To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and " [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## The GraphQL endpoint
 
