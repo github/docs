@@ -389,12 +389,6 @@ const survey = {
       format: 'email',
       description: "The user's email address, if the user provided and consented.",
     },
-    survey_visit_duration: {
-      type: 'number',
-      minimum: 0.001,
-      description:
-        'The duration of survey submission - page.timestamp, in seconds. Used to filter out bot-generated survey resopnses.',
-    },
     survey_rating: {
       type: 'number',
       description:
