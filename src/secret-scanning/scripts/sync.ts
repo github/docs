@@ -52,7 +52,7 @@ async function main() {
     throw new Error('The public-docs.yml file being synced does not have a valid schema')
   }
 
-  await writeFile(SECRET_SCANNING_FILEPATH, yaml.dump(data))
+  await writeFile(SECRET_SCANNING_FILEPATH, yaml.dump(yamlData))
 
   // update the config file with the latest sha
   const configFilepath = 'src/secret-scanning/lib/config.json'
