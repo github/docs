@@ -1051,7 +1051,7 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/usage",
         "additional-permissions": true,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "copilot",
