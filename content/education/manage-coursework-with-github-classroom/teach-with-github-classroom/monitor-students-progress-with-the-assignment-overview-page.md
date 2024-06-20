@@ -60,3 +60,7 @@ Using a series of dropdown menus, you can apply multiple filters to the assignme
 1. To filter for students by passing or failing grades, select the **Passing** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Passing** or **Failing**.
 1. To unapply a filter, select the associated dropdown menu, then click the filter once more. A {% octicon "check" aria-hidden="true" %} is displayed alongside the name of an applied filter, while unapplied filters only display their names.
 {% data reusables.classroom.clear-all-assignment-overview %}
+
+## Downloading assignment details
+
+{% data reusables.classroom.download-results %}

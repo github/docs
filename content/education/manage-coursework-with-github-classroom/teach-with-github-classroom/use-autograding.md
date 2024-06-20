@@ -114,7 +114,7 @@ By default, autograding tests will automatically run whenever a student pushes t
 
 ### Download autograding results
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+{% data reusables.classroom.download-results %}
 
 ### View individual logs
 
