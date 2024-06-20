@@ -308,6 +308,8 @@ If you must use footnotes, use [Markdown-native footnotes](/get-started/writing-
 
 Note that regardless of the identifier you use (letters, words), footnotes will render as sequential numbers.
 
+ {% rowheaders %}
+
 | | Mona | Ursula | Paul | Davy Jones[^1] |
 |---|---|---|---|---|
 |Favorite pastime| Shipping code | Tricking mermaids[^2] | Predicting sports | Haunting seafarers |
@@ -315,6 +317,8 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 [^1]: Not to be confused with Davy Jones of The Monkees
 [^2]: Also humans
+
+{% endrowheaders %}
 
 ````markdown
 | | Mona | Ursula | Paul | Davy Jones[^1] |
