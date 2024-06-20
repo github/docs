@@ -25,8 +25,8 @@ In this article, the term "source instance" refers to the instance with the old 
 
 1. Configure a destination instance of {% data variables.product.prodname_ghe_server %} with the new hostname you'd like to use. For more information, see the following documentation.
 
-   - "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"
-   - "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance)"
+   * "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"
+   * "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance)"
 1. Inform the instance's users of the scheduled downtime. Optionally, you can create a mandatory message that will appear for all users who sign in. For more information, see "[Customizing user messages for your enterprise](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)."
 1. On the source instance, enable maintenance mode. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-maintenance-mode-immediately-or-scheduling-a-maintenance-window-for-a-later-time)."
 1. Back up the source instance's data and settings using {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance)."

@@ -64,15 +64,15 @@ During the private beta, your account team will provide documentation for the co
 
 {% ifversion scim-for-ghes %}
 
-- {% data reusables.saml.ghes-you-must-configure-saml-sso %}
+* {% data reusables.saml.ghes-you-must-configure-saml-sso %}
 
-- You must allow built-in authentication for users who don't have an account on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
+* You must allow built-in authentication for users who don't have an account on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)."
 
-- Your IdP must support making SCIM calls to a Service Provider (SP).
+* Your IdP must support making SCIM calls to a Service Provider (SP).
 
 {% endif %}
 
-- You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
+* You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
 
 ## Enabling user provisioning for your enterprise
 

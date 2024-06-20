@@ -54,9 +54,9 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
     ```
 
 1. Customize the parameters in your workflow file:
-   - Change the value for `project` to the name of your {% data variables.projects.projects_v1_board %}. If you have multiple {% data variables.projects.projects_v1_boards %} with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
-   - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
-   - Change the value for `repo-token`:
+   * Change the value for `project` to the name of your {% data variables.projects.projects_v1_board %}. If you have multiple {% data variables.projects.projects_v1_boards %} with the same name, the `alex-page/github-project-automation-plus` action will act on all projects with the specified name.
+   * Change the value for `column` to the name of the column where you want issues to move when they are assigned.
+   * Change the value for `repo-token`:
      1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
      1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
      1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
@@ -77,4 +77,4 @@ Test your workflow by assigning an issue in your repository.
 
 ## Next steps
 
-- To learn more about additional things you can do with the `alex-page/github-project-automation-plus` action, like deleting or archiving project cards, visit the [`alex-page/github-project-automation-plus` action documentation](https://github.com/marketplace/actions/github-project-automation).
+* To learn more about additional things you can do with the `alex-page/github-project-automation-plus` action, like deleting or archiving project cards, visit the [`alex-page/github-project-automation-plus` action documentation](https://github.com/marketplace/actions/github-project-automation).

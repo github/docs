@@ -25,8 +25,8 @@ You can enable web commit signing, rotate the private key used for web commit si
 ## Enabling web commit signing
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
-   - If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. The email address does not need to be valid.
+   * Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
+   * If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. The email address does not need to be valid.
    {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
@@ -37,8 +37,8 @@ You can enable web commit signing, rotate the private key used for web commit si
     ```
 
 1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
-   - The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`.
-   - The user's email address must be the same address you used when creating the PGP key.
+   * The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`.
+   * The user's email address must be the same address you used when creating the PGP key.
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}
 {% data reusables.enterprise_site_admin_settings.email-settings %}
 1. Under "No-reply email address", type the same email address you used when creating the PGP key.
@@ -53,8 +53,8 @@ You can enable web commit signing, rotate the private key used for web commit si
 ## Rotating the private key used for web commit signing
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-   - Use the web commit signing user's username, for example, `web-flow`.
-   - Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the web commit signing user, for example, `web-flow`.
+   * Use the web commit signing user's username, for example, `web-flow`.
+   * Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the web commit signing user, for example, `web-flow`.
    {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}

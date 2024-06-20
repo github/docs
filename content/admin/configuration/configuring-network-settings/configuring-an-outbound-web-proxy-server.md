@@ -46,10 +46,10 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 1. Under **HTTP Proxy Server**, type the URL of your proxy server.
 1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. The following rules apply to top-level domains (TLDs) and IP addresses that you exclude from the proxy.
 
-   - When you exclude a TLD, you can exclude all hosts in a domain from requiring proxy access using `.` as a wildcard prefix, such as `.octo-org.tentacle`.
-   - Your instance validates the hostnames you exclude using the list of IANA's registered TLDs. For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
-   - You can exclude a full, valid IPv4 or IPv6 address.
-   - You cannot exclude an IPv4 or IPv6 address using a preceding or trailing dot as a wildcard.
+   * When you exclude a TLD, you can exclude all hosts in a domain from requiring proxy access using `.` as a wildcard prefix, such as `.octo-org.tentacle`.
+   * Your instance validates the hostnames you exclude using the list of IANA's registered TLDs. For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
+   * You can exclude a full, valid IPv4 or IPv6 address.
+   * You cannot exclude an IPv4 or IPv6 address using a preceding or trailing dot as a wildcard.
 
 {% data reusables.enterprise_management_console.save-settings %}
 

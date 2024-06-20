@@ -15,11 +15,11 @@ shortTitle: Artifact attestations
 
 ### About SLSA levels for artifact attestations
 
-The SLSA framework is an industry standard used to evaluate supply chain security. It is organized into levels. Each level represents an increasing degree of security and trustworthiness for a software supply chain. Artifact attestations provides SLSA v1.0 Build Level 2.
+The SLSA framework is an industry standard used to evaluate supply chain security. It is organized into levels. Each level represents an increasing degree of security and trustworthiness for a software supply chain. Artifact attestations by itself provides SLSA v1.0 Build Level 2.
 
-You can use artifact attestations to achieve SLSA v1.0 Build Level 3; however, we strongly recommend first focusing on broad adoption of Build Level 2 across your organization. It is much better to consistently meet Level 2 across your builds than to have a small portion of builds that reach Level 3. To achieve Build Level 3, we recommend standardizing your build process with reusable workflows, auditing the reusable workflows to ensure they meet Level 3 requirements, and then updating your verification policy to require those audited reusable workflows.
+This provides a link between your artifact and its build instructions, but you can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3).
 
-For more information, see the [Provenance](https://slsa.dev/spec/v1.0/provenance) section of the SLSA documentation.
+For more information on SLSA levels, see [SLSA Security Levels](https://slsa.dev/spec/v1.0/levels).
 
 ### About using Sigstore for artifact attestations
 
@@ -28,6 +28,20 @@ To generate artifact attestations, {% data variables.product.prodname_dotcom %} 
 **Public repositories** that generate artifact attestations use the [Sigstore Public Good Instance](https://openssf.org/blog/2023/10/03/running-sigstore-as-a-managed-service-a-tour-of-sigstores-public-good-instance/). A copy of the generated Sigstore bundle is stored with GitHub and is also written to an immutable transparency log that is publicly readable on the internet.
 
 **Private repositories** that generate artifact attestations use GitHub's Sigstore instance. GitHub's Sigstore instance uses the same codebase as the Sigstore Public Good Instance, but it does not have a transparency log and only federates with {% data variables.product.prodname_actions %}.
+
+### What to attest
+
+Generating attestations alone doesn't provide any security benefit, the attestations must be verified for the benefit to be realized. Here are some guidelines for how to think about what to sign and how often:
+
+You should sign:
+
+* Software you are releasing that you expect people to run `gh attestation verify ...` on.
+* Binaries people will run, packages people will download, or manifests that include hashes of detailed contents.
+
+You should **not** sign:
+
+* Frequent builds that are just for automated testing.
+* Individual files like source code, documentation files, or embedded images.
 
 ### About verifying artifact attestations
 
@@ -41,8 +55,8 @@ You can use {% data variables.product.prodname_actions %} to generate artifact a
 
 To generate an artifact attestation, you must:
 
-- Ensure you have the appropriate permissions configured in your workflow.
-- Include a step in your workflow that uses the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance).
+* Ensure you have the appropriate permissions configured in your workflow.
+* Include a step in your workflow that uses the [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance).
 
 When you run your updated workflows, they will build your artifacts and generate an artifact attestation that establishes build provenance. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-build-provenance`](https://github.com/actions/attest-build-provenance) repository.
 
@@ -101,9 +115,9 @@ You can generate signed SBOM attestations for workflow artifacts.
 
 To generate an attestation for an SBOM, you must:
 
-- Ensure you have the appropriate permissions configured in your workflow.
-- Create an SBOM for your artifact. For more information, see [`anchore-sbom-action`](https://github.com/marketplace/actions/anchore-sbom-action) in the {% data variables.product.prodname_marketplace %}.
-- Include a step in your workflow that uses the [`attest-sbom` action](https://github.com/actions/attest-sbom).
+* Ensure you have the appropriate permissions configured in your workflow.
+* Create an SBOM for your artifact. For more information, see [`anchore-sbom-action`](https://github.com/marketplace/actions/anchore-sbom-action) in the {% data variables.product.prodname_marketplace %}.
+* Include a step in your workflow that uses the [`attest-sbom` action](https://github.com/actions/attest-sbom).
 
 When you run your updated workflows, they will build your artifacts and generate an SBOM attestation. You can view attestations in your repository's **Actions** tab. For more information, see the [`attest-sbom` action](https://github.com/actions/attest-sbom) repository.
 

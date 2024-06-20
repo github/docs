@@ -77,7 +77,7 @@
 - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
+/enterprise-server@3.12/admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
 - /articles/enforcing-team-settings-for-organizations-in-your-business-account
 - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
 - /articles/enforcing-team-policies-in-your-enterprise-account

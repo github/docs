@@ -28,9 +28,9 @@ topics:
 
 For example, you can use forks to propose changes related to fixing a bug. Rather than logging an issue for a bug you have found, you can:
 
-- Fork the repository.
-- Make the fix.
-- Submit a pull request to the project owner.
+* Fork the repository.
+* Make the fix.
+* Submit a pull request to the project owner.
 
 ### Use someone else's project as a starting point for your own idea.
 
@@ -157,10 +157,10 @@ When you fork a project in order to propose changes to the upstream repository, 
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change directories to the location of the fork you cloned.
-    - To go to your home directory, type just `cd` with no other text.
-    - To list the files and folders in your current directory, type `ls`.
-    - To go into one of your listed directories, type `cd YOUR-LISTED-DIRECTORY`.
-    - To go up one directory, type `cd ..`.
+    * To go to your home directory, type just `cd` with no other text.
+    * To list the files and folders in your current directory, type `ls`.
+    * To go into one of your listed directories, type `cd YOUR-LISTED-DIRECTORY`.
+    * To go up one directory, type `cd ..`.
 1. Type `git remote -v` and press **Enter**. You will see the current configured remote repository for your fork.
 
    ```shell
@@ -211,8 +211,8 @@ gh repo fork REPOSITORY --remote-name "main-remote-repo"
 
 You can make any changes to a fork, including:
 
-- **Creating branches:** [_Branches_](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) allow you to build new features or test out ideas without putting your main project at risk.
-- **Opening pull requests:** If you want to contribute back to the upstream repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+* **Creating branches:** [_Branches_](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository) allow you to build new features or test out ideas without putting your main project at risk.
+* **Opening pull requests:** If you want to contribute back to the upstream repository, you can send a request to the original author to pull your fork into their repository by submitting a [pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Find another repository to fork
 
@@ -226,10 +226,10 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-- For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
-- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
+* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 
-- {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

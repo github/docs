@@ -54,12 +54,12 @@ For more information about provisioning for {% data variables.product.prodname_e
 
 {%- ifversion emu-public-scim-schema %}
 
-- You must use Okta's application for both authentication and provisioning.
+* You must use Okta's application for both authentication and provisioning.
 
 {%- endif %}
-- {% data reusables.scim.your-okta-product-must-support-scim %}
+* {% data reusables.scim.your-okta-product-must-support-scim %}
 
-- {% data reusables.scim.use-pat-from-setup-user %}
+* {% data reusables.scim.use-pat-from-setup-user %}
 
 ## Setting your enterprise name
 

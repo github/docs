@@ -10,9 +10,9 @@ The `branches` and `branches-ignore` keywords accept glob patterns that use char
 
 The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+* A branch named `main` (`refs/heads/main`)
+* A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+* A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
 
 ```yaml
 on:
@@ -32,8 +32,8 @@ If a workflow is skipped due to branch filtering, [path filtering](/actions/usin
 
 When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches-ignore` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
+* A branch named `mona/octocat` (`refs/heads/mona/octocat`)
+* A branch whose name matches `releases/**-alpha`, like `releases/beta/3-alpha` (`refs/heads/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -52,8 +52,8 @@ If you define a branch with the `!` character, you must also define at least one
 
 The order that you define patterns matters.
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
-- A matching positive pattern after a negative match will include the Git ref again.
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the Git ref.
+* A matching positive pattern after a negative match will include the Git ref again.
 
 The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but not for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
 

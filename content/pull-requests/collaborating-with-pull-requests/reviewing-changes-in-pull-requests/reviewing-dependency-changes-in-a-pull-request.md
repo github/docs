@@ -68,17 +68,17 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
    Other information includes:
 
-   - The version, or version range, of the new, updated, or deleted dependency.
-   - For a specific version of a dependency:
-      - The age of that release of the dependency.
-      - The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
-      - The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
+   * The version, or version range, of the new, updated, or deleted dependency.
+   * For a specific version of a dependency:
+      * The age of that release of the dependency.
+      * The number of projects that are dependent on this software. This information is taken from the dependency graph. Checking the number of dependents can help you avoid accidentally adding the wrong dependency.
+      * The license used by this dependency, if this information is available. This is useful if you want to avoid code with certain licenses being used in your project.
 
    Where a dependency has a known vulnerability, the warning message includes:
 
-   - A brief description of the vulnerability.
-   - A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
-   - The severity of the vulnerability.
-   - The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
+   * A brief description of the vulnerability.
+   * A Common Vulnerabilities and Exposures (CVE) or {% data variables.product.prodname_security_advisories %} (GHSA) identification number. You can click this ID to find out more about the vulnerability.
+   * The severity of the vulnerability.
+   * The version of the dependency in which the vulnerability was fixed. If you are reviewing a pull request for someone, you might ask the contributor to update the dependency to the patched version, or a later release.
 
 {% data reusables.repositories.return-to-source-diff %}

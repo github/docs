@@ -9,5 +9,4 @@ redirect_from:
 children:
   - /about-github-copilot-chat-in-githubcom
   - /using-github-copilot-chat-in-githubcom
-  - /managing-copilot-knowledge-bases
 ---

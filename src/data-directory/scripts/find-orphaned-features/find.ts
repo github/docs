@@ -223,7 +223,11 @@ function checkString(
   }: { page?: Page; filePath?: string; languageCode?: string; verbose?: boolean } = {},
 ) {
   try {
-    for (const token of getLiquidTokens(string)) {
+    // The reason for the `noCache: true` is that we're going to be sending
+    // a LOT of different strings in and the cache will fill up rapidly
+    // when testing every possible string in every possible language for
+    // every page.
+    for (const token of getLiquidTokens(string, { noCache: true })) {
       if (token.name === 'ifversion' || token.name === 'elsif') {
         for (const arg of token.args.split(/\s+/)) {
           if (IGNORE_ARGS.has(arg)) continue

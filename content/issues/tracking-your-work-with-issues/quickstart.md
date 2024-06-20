@@ -85,13 +85,13 @@ After your issue is created, continue the conversation by adding comments to the
 
 You can use issues for a wide range of purposes. For example:
 
-- Tracking ideas
-- Collecting feedback
-- Planning tasks
-- Reporting bugs
+* Tracking ideas
+* Collecting feedback
+* Planning tasks
+* Reporting bugs
 
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
-- To learn more about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
-- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[AUTOTITLE](/issues/organizing-your-work-with-project-boards)."{% endif %}
-- To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+* To learn more about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
+* To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[AUTOTITLE](/issues/organizing-your-work-with-project-boards)."{% endif %}
+* To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."

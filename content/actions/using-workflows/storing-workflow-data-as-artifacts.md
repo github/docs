@@ -28,10 +28,10 @@ Artifacts allow you to persist data after a job has completed, and share that da
 
 These are some of the common artifacts that you can upload:
 
-- Log files and core dumps
-- Test results, failures, and screenshots
-- Binary or compressed files
-- Stress test performance output and code coverage results
+* Log files and core dumps
+* Test results, failures, and screenshots
+* Binary or compressed files
+* Stress test performance output and code coverage results
 
 {% ifversion fpt or ghec %}
 
@@ -49,8 +49,8 @@ Artifacts are uploaded during a workflow run, and you can view an artifact's nam
 
 To share data between jobs:
 
-- **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-- **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
+* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
 
 The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
@@ -192,17 +192,17 @@ You can use the `upload-artifact` and `download-artifact` actions to share data 
 Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the `needs` keyword to ensure that `job_1`, `job_2`, and `job_3` run sequentially. For example, `job_2` requires `job_1` using the `needs: job_1` syntax.
 
 Job 1 performs these steps:
-- Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %}.
+* Performs a math calculation and saves the result to a text file called `math-homework.txt`.
+* Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %}.
 
 Job 2 uses the result in the previous job:
-- Downloads the {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %} artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. {% ifversion artifacts-v3-deprecation %}As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.{% else %}This upload overwrites the previously uploaded artifact because they share the same name.{% endif %}
+* Downloads the {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %} artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
+* Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+* Uploads the `math-homework.txt` file. {% ifversion artifacts-v3-deprecation %}As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.{% else %}This upload overwrites the previously uploaded artifact because they share the same name.{% endif %}
 
 Job 3 displays the result uploaded in the previous job:
-- Downloads the {% ifversion artifacts-v3-deprecation %}`homework_final` artifact from Job 2.{% else %}`homework` artifact.{% endif %}
-- Prints the result of the math equation to the log.
+* Downloads the {% ifversion artifacts-v3-deprecation %}`homework_final` artifact from Job 2.{% else %}`homework` artifact.{% endif %}
+* Prints the result of the math equation to the log.
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
 
@@ -266,6 +266,6 @@ The workflow run will archive any artifacts that it generated. For more informat
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions)".
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

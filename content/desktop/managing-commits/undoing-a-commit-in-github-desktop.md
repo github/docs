@@ -23,4 +23,4 @@ If you want to edit your most recent commit message, or combine new changes with
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"

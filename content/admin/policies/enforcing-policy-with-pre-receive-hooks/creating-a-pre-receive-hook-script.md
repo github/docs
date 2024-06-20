@@ -58,10 +58,10 @@ In addition to the standard input for your pre-receive hook script, `stdin`, {% 
 
 Different environment variables are available to your pre-receive hook script depending on what triggers the script to run.
 
-- [Always available](#always-available)
-- [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
-- [Available for pull request merges](#available-for-pull-request-merges)
-- [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
+* [Always available](#always-available)
+* [Available for pushes from the web interface or API](#available-for-pushes-from-the-web-interface-or-api)
+* [Available for pull request merges](#available-for-pull-request-merges)
+* [Available for pushes using SSH authentication](#available-for-pushes-using-ssh-authentication)
 
 #### Always available
 
@@ -267,4 +267,4 @@ You can test a pre-receive hook script locally before you create or update it on
 
 ## Further reading
 
-- "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the _Pro Git website_
+* "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the _Pro Git website_

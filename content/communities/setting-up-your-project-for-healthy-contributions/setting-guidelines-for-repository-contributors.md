@@ -36,13 +36,13 @@ You can create default contribution guidelines for your organization or personal
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 1. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
-    - To make your contributing guidelines visible in the repository's root directory, type _CONTRIBUTING_.
-    - To make your contributing guidelines visible in the repository's `docs` directory, type _docs/_ to create the new directory, then _CONTRIBUTING_.
-    - If a repository contains more than one _CONTRIBUTING_ file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+    * To make your contributing guidelines visible in the repository's root directory, type _CONTRIBUTING_.
+    * To make your contributing guidelines visible in the repository's `docs` directory, type _docs/_ to create the new directory, then _CONTRIBUTING_.
+    * If a repository contains more than one _CONTRIBUTING_ file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 1. In the new file, add contribution guidelines. These could include:
-    - Steps for creating good issues or pull requests.
-    - Links to external documentation, mailing lists, or a code of conduct.
-    - Community and behavioral expectations.
+    * Steps for creating good issues or pull requests.
+    * Links to external documentation, mailing lists, or a code of conduct.
+    * Community and behavioral expectations.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
@@ -51,12 +51,12 @@ You can create default contribution guidelines for your organization or personal
 
 If you're stumped, here are some good examples of contribution guidelines:
 
-- The {% data variables.product.prodname_docs %} [contribution guidelines](/contributing).
-- The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
-- The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
+* The {% data variables.product.prodname_docs %} [contribution guidelines](/contributing).
+* The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/main/CONTRIBUTING.md).
+* The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ## Further reading
 
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)"
+* The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+* [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)"

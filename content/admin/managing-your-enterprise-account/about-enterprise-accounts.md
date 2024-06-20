@@ -53,9 +53,9 @@ Your enterprise account allows you to manage and enforce policies for all the or
 From your enterprise account on a {% data variables.product.prodname_ghe_server %} instance, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following functionality for the instance.
 
 {% ifversion ghes %}
-- License usage{% endif %}
-- Security (SSH certificate authorities, two-factor authentication)
-- Enterprise policies for organizations owned by the enterprise account
+* License usage{% endif %}
+* Security (SSH certificate authorities, two-factor authentication)
+* Enterprise policies for organizations owned by the enterprise account
 
 {% endif %}
 
@@ -64,8 +64,8 @@ From your enterprise account on a {% data variables.product.prodname_ghe_server 
 
 **Notes:**
 
-- Changing the enterprise display name in the settings for {% data variables.location.product_location %} will not change the enterprise name in {% data variables.location.product_location %} URL. The enterprise name in your instance's URL is generated based on the customer name in the {% data variables.product.prodname_ghe_server %} license file.
-- There is only one default enterprise account for {% data variables.product.prodname_ghe_server %}. You cannot create additional enterprise accounts.
+* Changing the enterprise display name in the settings for {% data variables.location.product_location %} will not change the enterprise name in {% data variables.location.product_location %} URL. The enterprise name in your instance's URL is generated based on the customer name in the {% data variables.product.prodname_ghe_server %} license file.
+* There is only one default enterprise account for {% data variables.product.prodname_ghe_server %}. You cannot create additional enterprise accounts.
 
 {% endnote %}
 
@@ -75,14 +75,14 @@ From your enterprise account on a {% data variables.product.prodname_ghe_server 
 
 {% ifversion ghec or ghes %}When you try or purchase {% data variables.product.prodname_enterprise %}, you can{% ifversion ghes %} also{% endif %} create an enterprise account for {% data variables.product.prodname_ghe_cloud %} on {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-- Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
-- Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)
-- Enterprise policies for organizations owned by the enterprise account
+* Billing and usage (services on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, user licenses)
+* Security (single sign-on, IP allow lists, SSH certificate authorities, two-factor authentication)
+* Enterprise policies for organizations owned by the enterprise account
 
 If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you can also manage the following for {% data variables.product.prodname_ghe_server %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.
 
-- Billing and usage for {% data variables.product.prodname_ghe_server %} instances
-- Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
+* Billing and usage for {% data variables.product.prodname_ghe_server %} instances
+* Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
 You can also connect the enterprise account on {% data variables.location.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
@@ -116,4 +116,4 @@ For more information about billing for {% ifversion ghec %}{% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation
+* "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation

@@ -49,9 +49,9 @@ To learn about GHAS licenses, as well as unique and active committers, see "[AUT
 {% data reusables.security-configurations.view-configurations-page %}
 1. Optionally, in the "Apply configurations" section, filter for specific repositories on which you would like to disable GHAS. To learn more, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table)."
 1. In the repository table, select repositories with one of three methods:
-     - Select each individual repository you would like to disable GHAS features on.
-     - To select all repositories displayed on the current page of the repository table, select **NUMBER repositories**.
-     - After selecting **NUMBER repositories**, to select _all_ repositories in your organization that match any filters you have applied, click **Select all**.
+     * Select each individual repository you would like to disable GHAS features on.
+     * To select all repositories displayed on the current page of the repository table, select **NUMBER repositories**.
+     * After selecting **NUMBER repositories**, to select _all_ repositories in your organization that match any filters you have applied, click **Select all**.
 
     Once you have selected the desired repositories, in the "Apply configurations" section, you can see how many GHAS licenses will become available when you disable GHAS features on those repositories. For more information, see "[Understanding your {% data variables.product.prodname_GH_advanced_security %} license usage](#understanding-your-github-advanced-security-license-usage)."
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Disable {% data variables.product.prodname_GH_advanced_security %}**.
@@ -60,8 +60,8 @@ To learn about GHAS licenses, as well as unique and active committers, see "[AUT
     {% note %}
 
     **Notes:**
-    - Disabling GHAS features for a private or internal repository will also detach that repository from any linked {% data variables.product.prodname_security_configuration %}.
-    - Disabling GHAS features through the repository table _will not_ disable those features on public repositories since they do not require {% data variables.product.prodname_GH_advanced_security %} licenses.
+    * Disabling GHAS features for a private or internal repository will also detach that repository from any linked {% data variables.product.prodname_security_configuration %}.
+    * Disabling GHAS features through the repository table _will not_ disable those features on public repositories since they do not require {% data variables.product.prodname_GH_advanced_security %} licenses.
 
     {% endnote %}
 

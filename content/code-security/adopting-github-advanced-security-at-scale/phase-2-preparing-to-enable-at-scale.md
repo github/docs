@@ -29,9 +29,9 @@ Rolling {% data variables.product.prodname_code_scanning %} out across hundreds 
 First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout.{% ifversion default-setup-ghas-enablement %}
 
 For an introduction to {% data variables.product.prodname_code_scanning %}, see:
-- "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
 {% else %} During this phase, you should focus on leveraging APIs and running internal enablement events.{% endif %}
 
 Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
@@ -136,7 +136,7 @@ Secrets found in public repositories using {% data variables.secret-scanning.par
 
 {% endnote %}
 
-If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you{% ifversion secret-scanning-push-protection %} or block the push containing the secret{% endif %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you or block the push containing the secret. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 
 {% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom_the_website %}.
 

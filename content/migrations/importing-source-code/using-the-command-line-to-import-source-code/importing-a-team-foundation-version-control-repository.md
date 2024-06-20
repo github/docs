@@ -22,8 +22,8 @@ We recommend using Azure Repos to convert your Team Foundation Version Control (
 
 To follow these steps, you must use a macOS or Linux system and have the following tools installed:
 
-- [Git](https://git-scm.com/downloads)
-- {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
+* [Git](https://git-scm.com/downloads)
+* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
 
 {% data reusables.migrations.create-empty-repo %}
 {% data reusables.migrations.confirm-git-installed %}
@@ -41,10 +41,10 @@ If you migrate with `git-tfs`, you will retain the full history of your TFVC rep
 
 To follow these steps, you must use Windows and have the following tools installed:
 
-- [Visual Studio Team Explorer](https://devblogs.microsoft.com/devops/reintroducing-the-team-explorer-standalone-installer/)
-- [`git-tfs`](https://github.com/git-tfs/git-tfs), installed using Chocolatey or by downloading the binary release manually
-- [Git](https://git-scm.com/downloads)
-- {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
+* [Visual Studio Team Explorer](https://devblogs.microsoft.com/devops/reintroducing-the-team-explorer-standalone-installer/)
+* [`git-tfs`](https://github.com/git-tfs/git-tfs), installed using Chocolatey or by downloading the binary release manually
+* [Git](https://git-scm.com/downloads)
+* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
 
 {% data reusables.migrations.create-empty-repo %}
 {% data reusables.migrations.confirm-git-installed %}
@@ -64,5 +64,5 @@ To follow these steps, you must use Windows and have the following tools install
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
 {% endif %}

@@ -1,3 +1,11 @@
+{% ifversion ghec %}
+
+### Enabling creation of network configurations for organizations in an enterprise
+
+{% data reusables.actions.azure-vnet-enterprise-policy %}
+
+{% endif %}
+
 ### Configuring Azure resources before creating a network configuration in {% data variables.product.company_short %}
 
 Ensure your Azure resources have been configured _before_ adding a network configuration in {% data variables.product.company_short %}.
@@ -16,7 +24,7 @@ If {% data variables.product.prodname_actions %} cannot communicate with the run
 VNetInjectionFailedToConnectToInternet
 ```
 
-To fix this, ensure that you have configured your Azure resources according to the "Configuring your Azure resources" procedures.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#configuring-your-azure-resources)."{% else %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#configuring-your-azure-resources)."{% endif %}
+To fix this, ensure that you have configured your Azure resources according to the "Configuring your Azure resources" procedures.
 
 ### Deployment scope is locked
 

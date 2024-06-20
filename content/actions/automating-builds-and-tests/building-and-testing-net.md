@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 shortTitle: Build & test .NET
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -33,8 +33,8 @@ We recommend that you have a basic understanding of the .NET Core SDK. For more 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "dotnet".
-1. On the ".NET" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "dotnet".
+1. On the ".NET" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
@@ -139,7 +139,7 @@ steps:
 
 ### Caching dependencies
 
-You can cache NuGet dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For example, the YAML below installs the `Newtonsoft` package.
+You can cache NuGet dependencies for future workflows using the optional `cache` input. For example, the YAML below caches the NuGet `global-packages` folder, and then installs the `Newtonsoft` package. A second optional input, `cache-dependency-path`, can be used to specify the path to a dependency file: `packages.lock.json`.
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
@@ -149,14 +149,8 @@ steps:
 - name: Setup dotnet
   uses: {% data reusables.actions.action-setup-dotnet %}
   with:
-    dotnet-version: '6.0.x'
-- uses: {% data reusables.actions.action-cache %}
-  with:
-    path: ~/.nuget/packages
-    # Look to see if there is a cache hit for the corresponding requirements file
-    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-    restore-keys: |
-      ${{ runner.os }}-nuget{% endraw %}
+    dotnet-version: '6.x'
+    cache: true
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```

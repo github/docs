@@ -22,10 +22,10 @@ topics:
 
 You can add development environment secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as secrets:
 
-- Access tokens to cloud services
-- Service principals
-- Subscription identifiers
-- Credentials for a private image registry (for more information, see "[AUTOTITLE](/codespaces/reference/allowing-your-codespace-to-access-a-private-registry)")
+* Access tokens to cloud services
+* Service principals
+* Subscription identifiers
+* Credentials for a private image registry (for more information, see "[AUTOTITLE](/codespaces/reference/allowing-your-codespace-to-access-a-private-registry)")
 
 You can choose which repositories should have access to each secret. Then, you can use the secret in any codespace you create for a repository that has access to the secret. To share a secret with a codespace created from a template, you will need to publish the codespace to a repository on {% data variables.product.prodname_dotcom %}, then give that repository access to the secret.
 
@@ -87,17 +87,17 @@ A development environment secret is exported as an environment variable into the
 
 You can use development environment secrets after the codespace is built and is running. For example, a secret can be used:
 
-- When launching an application from the integrated terminal or ssh session.
-- Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on the Development Containers website: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
+* When launching an application from the integrated terminal or ssh session.
+* Within a dev container lifecycle script that is run after the codespace is running. For more information about dev container lifecycle scripts, see the documentation on the Development Containers website: [Specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts).
 
 Development environment secrets cannot be used:
 
-- During codespace build time (that is, within a Dockerfile or custom entry point).
-- Within a dev container feature. For more information, see the `features` property in the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on the Development Containers website.
+* During codespace build time (that is, within a Dockerfile or custom entry point).
+* Within a dev container feature. For more information, see the `features` property in the [dev containers specification](https://containers.dev/implementors/json_reference/#general-properties) on the Development Containers website.
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)"
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#recommended-secrets)"
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#recommended-secrets)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"

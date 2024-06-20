@@ -40,9 +40,9 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[AUTOTITLE
 1. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."
 1. Review the prerequisites for the features you plan to enable.
 
-    - {% data variables.product.prodname_code_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
-    - {% data variables.product.prodname_secret_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."
-    - {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+    * {% data variables.product.prodname_code_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
+    * {% data variables.product.prodname_secret_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."
+    * {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
 ## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
 
@@ -65,20 +65,20 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
-    - To enable {% data variables.product.prodname_code_scanning %}, enter the following commands.
+    * To enable {% data variables.product.prodname_code_scanning %}, enter the following commands.
 
       ```shell copy
       ghe-config app.minio.enabled true
       ghe-config app.code-scanning.enabled true
       ```
 
-    - To enable {% data variables.product.prodname_secret_scanning %}, enter the following command.
+    * To enable {% data variables.product.prodname_secret_scanning %}, enter the following command.
 
       ```shell copy
       ghe-config app.secret-scanning.enabled true
       ```
 
-    - To enable the dependency graph, enter the following command.
+    * To enable the dependency graph, enter the following command.
 
       ```shell copy
       ghe-config app.dependency-graph.enabled true
@@ -86,33 +86,33 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 
 1. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
-    - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
+    * To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
 
       ```shell copy
       ghe-config app.code-scanning.enabled false
       ```
 
-      - Optionally, if you disable {% data variables.product.prodname_code_scanning %}, you can also disable the internal MinIO service for {% data variables.product.prodname_GH_advanced_security %}. If {% data variables.product.prodname_dependabot_updates %} are enabled for the instance and you want to disable this service, you must also disable {% data variables.product.prodname_dependabot_updates %}. Disabling the service does not affect MinIO storage for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}. For more information about {% data variables.product.prodname_dependabot_updates %}, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+      * Optionally, if you disable {% data variables.product.prodname_code_scanning %}, you can also disable the internal MinIO service for {% data variables.product.prodname_GH_advanced_security %}. If {% data variables.product.prodname_dependabot_updates %} are enabled for the instance and you want to disable this service, you must also disable {% data variables.product.prodname_dependabot_updates %}. Disabling the service does not affect MinIO storage for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}. For more information about {% data variables.product.prodname_dependabot_updates %}, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-        - To disable {% data variables.product.prodname_dependabot_updates %}, enter the following command.
+        * To disable {% data variables.product.prodname_dependabot_updates %}, enter the following command.
 
           ```shell copy
           ghe-config app.dependabot.enabled false
           ```
 
-        - To disable MinIO, enter the following command.
+        * To disable MinIO, enter the following command.
 
           ```shell copy
           ghe-config app.minio.enabled false
           ```
 
-    - To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
+    * To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
 
       ```shell copy
       ghe-config app.secret-scanning.enabled false
       ```
 
-    - To disable the dependency graph, enter the following command.
+    * To disable the dependency graph, enter the following command.
 
       ```shell
       ghe-config app.dependency-graph.enabled false

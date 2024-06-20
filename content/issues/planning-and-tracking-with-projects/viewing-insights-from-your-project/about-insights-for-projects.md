@@ -41,5 +41,5 @@ For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projec
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-- "[AUTOTITLE](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
+* "[AUTOTITLE](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"

@@ -79,9 +79,9 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 ## Removing paid seats from your organization
 
 To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", next to your current plan, select the **Edit** dropdown menu, then click **Remove seats**.
@@ -116,7 +116,7 @@ To downgrade the plan of an individual organization within the enterprise accoun
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
-- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"
+* "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+* "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"

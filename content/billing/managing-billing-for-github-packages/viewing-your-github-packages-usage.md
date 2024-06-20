@@ -16,6 +16,13 @@ topics:
   - User account
 shortTitle: View your usage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_registry %} usage for your personal account
 
 Anyone can view {% data variables.product.prodname_registry %} usage for their own personal account.

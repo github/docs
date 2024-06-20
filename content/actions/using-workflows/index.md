@@ -27,6 +27,7 @@ children:
   - /events-that-trigger-workflows
   - /workflow-syntax-for-github-actions
   - /workflow-commands-for-github-actions
+  - /avoiding-duplication
   - /reusing-workflows
   - /required-workflows
   - /caching-dependencies-to-speed-up-workflows
@@ -35,4 +36,3 @@ children:
   - /sharing-workflows-secrets-and-runners-with-your-organization
   - /using-github-cli-in-workflows
 ---
-

@@ -1,6 +1,6 @@
 ## Administrative features
 
-These features are availabe to organization owners and administrators to manage {% data variables.product.prodname_copilot %} in their organization.
+These features are available to organization owners and administrators to manage {% data variables.product.prodname_copilot %} in their organization.
 
 ### Content exclusion
 

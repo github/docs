@@ -49,6 +49,6 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates)"
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
+* "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates)"

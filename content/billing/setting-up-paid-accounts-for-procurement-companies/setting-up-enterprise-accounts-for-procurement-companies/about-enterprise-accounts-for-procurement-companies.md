@@ -16,8 +16,8 @@ An enterprise account allows your client to manage and enforce policies for mult
 
 To access an enterprise account, each member must sign into their own personal account. Enterprise members can have different roles, including owner and billing manager:
 
-- Owners have complete administrative access to an enterprise.
-- Billing managers can only manage billing settings, and cannot access enterprise resources.
+* Owners have complete administrative access to an enterprise.
+* Billing managers can only manage billing settings, and cannot access enterprise resources.
 
 For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 

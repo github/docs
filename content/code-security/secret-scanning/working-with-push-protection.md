@@ -3,7 +3,9 @@ title: Working with push protection
 intro: 'Push protection proactively secures you against leaked secrets in your repositories by blocking pushes containing secrets. To push a commit containing a secret, you must specify a reason for bypassing the block{% ifversion push-protection-delegated-bypass %}, or, if required, request bypass privileges to bypass the block{% endif %}.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
-  feature: secret-scanning-push-protection
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: how_to
 topics:
   - Secret scanning
@@ -123,5 +125,5 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"
+* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)"

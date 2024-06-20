@@ -33,9 +33,9 @@ If your site administrator has disabled private mode, you can also use anonymous
 {% endif %}
 
 You'll receive a notification when:
-- You are the author of a gist.
-- Someone mentions you in a gist.
-- You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
+* You are the author of a gist.
+* Someone mentions you in a gist.
+* You subscribe to a gist, by clicking **Subscribe** at the top of any gist.
 
 You can pin gists to your profile so other people can see them easily. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 
