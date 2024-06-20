@@ -67,7 +67,7 @@ origin	https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOS
 origin	https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY.git (push)
 ```
 
-Your user name is what immediately follows the `https://{% data variables.product.product_url %}/`.
+Your username is what immediately follows the `https://{% data variables.product.product_url %}/`.
 
 {% ifversion fpt or ghec %}
 
