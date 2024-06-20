@@ -114,8 +114,8 @@ Add pronouns to your public user profile to share information about yourself wit
 ## Setting your location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-* On your {% data variables.product.product_name %} profile page.
-* When people hover over your username or avatar on {% data variables.product.product_name %}.
+* On your {% data variables.product.product_name %} profile page
+* When people hover over your username or avatar on {% data variables.product.product_name %}
 
 ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
 
