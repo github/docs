@@ -10,8 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
 versions:
-  ghec: '*'
-  ghes: '*'
+  ghes: '< 3.13'
 type: how_to
 topics:
   - Enterprise
