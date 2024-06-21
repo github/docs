@@ -1,4 +1,4 @@
----
+content/en-us/studio/terrain-editor.md---
 title: Creating GitHub Apps
 intro: You can build GitHub Apps for yourself or others to use.
 versions:
