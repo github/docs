@@ -1013,7 +1013,7 @@ services:
       - 8080:80
   redis:
     image: redis
-    # Map TCP port 6379 on Docker host to a random free port on the Redis container
+    # Map random free TCP port on Docker host to port 6379 on redis container
     ports:
       - 6379/tcp
 steps:
