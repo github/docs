@@ -1018,8 +1018,8 @@ services:
       - 6379/tcp
 steps:
   - run: |
-      echo "Redis available on 127.0.0.1:${{ job.services.redis.ports['6379'] }}"
-      echo "Nginx available on 127.0.0.1:${{ job.services.nginx.ports['80'] }}"
+      echo "Redis available on 127.0.0.1:{% raw %}${{ job.services.redis.ports['6379'] }}{% endraw %}"
+      echo "Nginx available on 127.0.0.1:{% raw %}${{ job.services.nginx.ports['80'] }}{% endraw %}"
 ```
 
 ## `jobs.<job_id>.services.<service_id>.image`
