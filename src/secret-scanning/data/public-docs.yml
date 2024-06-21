@@ -1,6 +1,6 @@
-- provider: 'Adafruit IO'
-  supportedSecret: 'Adafruit IO Key'
-  secretType: 'adafruit_io_key'
+- provider: Adafruit
+  supportedSecret: Adafruit IO Key
+  secretType: adafruit_io_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -9,10 +9,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe Client Secret'
-  secretType: 'adobe_client_secret'
+- provider: Adobe
+  supportedSecret: Adobe Client Secret
+  secretType: adobe_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -21,10 +20,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe Device Token'
-  secretType: 'adobe_device_token'
+- provider: Adobe
+  supportedSecret: Adobe Device Token
+  secretType: adobe_device_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -33,10 +31,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe PAC Token'
-  secretType: 'adobe_pac_token'
+- provider: Adobe
+  supportedSecret: Adobe PAC Token
+  secretType: adobe_pac_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -45,10 +42,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe Refresh Token'
-  secretType: 'adobe_refresh_token'
+- provider: Adobe
+  supportedSecret: Adobe Refresh Token
+  secretType: adobe_refresh_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -57,10 +53,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe Service Token'
-  secretType: 'adobe_service_token'
+- provider: Adobe
+  supportedSecret: Adobe Service Token
+  secretType: adobe_service_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -69,10 +64,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Adobe'
-  supportedSecret: 'Adobe Short-Lived Access Token'
-  secretType: 'adobe_short_lived_access_token'
+- provider: Adobe
+  supportedSecret: Adobe Short-Lived Access Token
+  secretType: adobe_short_lived_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -81,10 +75,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Aiven'
-  supportedSecret: 'Aiven Auth Token'
-  secretType: 'aiven_auth_token'
+- provider: Aiven
+  supportedSecret: Aiven Auth Token
+  secretType: aiven_auth_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -93,10 +86,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Aiven'
-  supportedSecret: 'Aiven Service Password'
-  secretType: 'aiven_service_password'
+- provider: Aiven
+  supportedSecret: Aiven Service Password
+  secretType: aiven_service_password
   versions:
     fpt: '*'
     ghec: '*'
@@ -105,10 +97,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Alibaba Cloud'
-  supportedSecret: 'Alibaba Cloud Access Key ID with Alibaba Cloud Access Key Secret'
-  secretType: 'alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret'
+- provider: Alibaba
+  supportedSecret: Alibaba Cloud AccessKey ID
+  secretType: alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -117,22 +108,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Login with Amazon'
-  supportedSecret: 'Login with Amazon OAuth Client ID with Login with Amazon OAuth Client Secret'
-  secretType: 'amazon_oauth_client_id </br>amazon_oauth_client_secret'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Amazon Web Services (AWS)'
-  supportedSecret: 'Amazon AWS Access Key ID with Amazon AWS Secret Access Key'
-  secretType: 'aws_access_key_id </br>aws_secret_access_key'
+- provider: Amazon AWS
+  supportedSecret: Amazon AWS Access Key ID
+  secretType: aws_access_key_id </br>aws_secret_access_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -141,22 +119,21 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Amazon Web Services (AWS)'
-  supportedSecret: 'Amazon AWS Session Token with Amazon AWS Temporary Access Key ID and Amazon AWS Secret Access Key'
-  secretType: 'aws_session_token </br>aws_temporary_access_key_id </br>aws_secret_access_key'
+- provider: Amazon AWS
+  supportedSecret: Amazon AWS Session Token
+  secretType: >-
+    aws_secret_access_key </br>aws_session_token
+    </br>aws_temporary_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.5'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Anthropic'
-  supportedSecret: 'Anthropic API Key'
-  secretType: 'anthropic_api_key'
+- provider: Anthropic
+  supportedSecret: Anthropic API Key
+  secretType: anthropic_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -165,10 +142,29 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Asana'
-  supportedSecret: 'Asana Personal Access Token'
-  secretType: 'asana_personal_access_token'
+- provider: Anthropic
+  supportedSecret: Anthropic Session ID
+  secretType: anthropic_session_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Asana
+  supportedSecret: Asana Legacy Format Personal Access Token
+  secretType: asana_legacy_format_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Asana
+  supportedSecret: Asana Personal Access Token
+  secretType: asana_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -177,10 +173,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Atlassian'
-  supportedSecret: 'Atlassian API Token'
-  secretType: 'atlassian_api_token'
+- provider: Atlassian
+  supportedSecret: Atlassian API Token
+  secretType: atlassian_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -189,10 +184,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Atlassian'
-  supportedSecret: 'Atlassian JSON Web Token'
-  secretType: 'atlassian_jwt'
+- provider: Atlassian
+  supportedSecret: Atlassian API Token
+  secretType: atlassian_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Atlassian
+  supportedSecret: Atlassian JSON Web Token
+  secretType: atlassian_jwt
   versions:
     fpt: '*'
     ghec: '*'
@@ -201,70 +206,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Atlassian'
-  supportedSecret: 'Bitbucket Server Personal Access Token'
-  secretType: 'bitbucket_server_personal_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Authress'
-  supportedSecret: 'Authress Service Client Access Key'
-  secretType: 'authress_service_client_access_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.11'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Microsoft Entra ID Secret'
-  secretType: 'azure_active_directory_application_secret'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Batch Key Identifiable'
-  secretType: 'azure_batch_key_identifiable'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Cache for Redis Access Key'
-  secretType: 'azure_cache_for_redis_access_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Container Registry Key Identifiable'
-  secretType: 'azure_container_registry_key_identifiable'
+- provider: Authress
+  supportedSecret: Authress Service Client Access Key
+  secretType: authress_service_client_access_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -273,22 +217,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure CosmosDB Key Identifiable'
-  secretType: 'azure_cosmosdb_key_identifiable'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure DevOps Personal Access Token'
-  secretType: 'azure_devops_personal_access_token'
+- provider: Azure
+  supportedSecret: Azure Active Directory Application Secret
+  secretType: azure_active_directory_application_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -297,10 +228,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Function Key'
-  secretType: 'azure_function_key'
+- provider: Azure
+  supportedSecret: Azure Active Directory Application Secret
+  secretType: azure_active_directory_application_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -309,10 +239,80 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure ML Studio (classic) Web Service Key'
-  secretType: 'azure_ml_web_service_classic_identifiable_key'
+- provider: Azure
+  supportedSecret: Azure Active Directory Application Secret
+  secretType: azure_active_directory_application_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Active Directory User Credential
+  secretType: azure_active_directory_user_credential
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Apim Direct Management Key
+  secretType: azure_apim_direct_management_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Apim Gateway Key
+  secretType: azure_apim_gateway_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Apim Repository Key
+  secretType: azure_apim_repository_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Apim Subscription Key
+  secretType: azure_apim_subscription_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure App Configuration Connection String
+  secretType: azure_app_configuration_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Azure
+  supportedSecret: Azure Batch Key Identifiable
+  secretType: azure_batch_key_identifiable
   versions:
     fpt: '*'
     ghec: '*'
@@ -321,70 +321,30 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure SAS Token'
-  secretType: 'azure_sas_token'
+- provider: Azure
+  supportedSecret: Azure Cache for Redis Access Key
+  secretType: azure_cache_for_redis_access_key
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Search Admin Key'
-  secretType: 'azure_search_admin_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
+    ghes: '>=3.5'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Search Query Key'
-  secretType: 'azure_search_query_key'
+- provider: Azure
+  supportedSecret: Azure Communication Services Connection String
+  secretType: azure_communication_services_connection_string
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>3.8'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Service Management Certificate'
-  secretType: 'azure_management_certificate'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure SQL Connection String'
-  secretType: 'azure_sql_connection_string'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure SQL Password'
-  secretType: 'azure_sql_password'
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Azure
+  supportedSecret: Azure Registry Key Identifiable
+  secretType: azure_container_registry_key_identifiable
   versions:
     fpt: '*'
     ghec: '*'
@@ -393,10 +353,230 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Azure'
-  supportedSecret: 'Azure Storage Account Key'
-  secretType: 'azure_storage_account_key'
+- provider: Azure
+  supportedSecret: Azure Cosmosdb Key Identifiable
+  secretType: azure_cosmosdb_key_identifiable
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure DevOps Personal Access Token
+  secretType: azure_devops_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Event Hub Key Identifiable
+  secretType: azure_event_hub_key_identifiable
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Function Key
+  secretType: azure_function_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure IoT Device Connection String
+  secretType: azure_iot_device_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Azure
+  supportedSecret: Azure IoT Device Key
+  secretType: azure_iot_device_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure IoT Device Provisioning Key
+  secretType: azure_iot_device_provisioning_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure IoT Hub Connection String
+  secretType: azure_iot_hub_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Azure
+  supportedSecret: Azure IoT Hub Key
+  secretType: azure_iot_hub_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure IoT Provisioning Connection String
+  secretType: azure_iot_provisioning_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Azure
+  supportedSecret: Microsoft Azure Service Management Certificate
+  secretType: azure_management_certificate
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure ML Studio (classic) Web Service Key
+  secretType: azure_ml_web_service_classic_identifiable_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Relay Key Identifiable
+  secretType: azure_relay_key_identifiable
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure SAS Token
+  secretType: azure_sas_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Search Admin Key
+  secretType: azure_search_admin_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Search Query Key
+  secretType: azure_search_query_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Service Bus Key Identifiable
+  secretType: azure_service_bus_identifiable
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure SignalR Connection String
+  secretType: azure_signalr_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure SQL Connection String
+  secretType: azure_sql_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure SQL password
+  secretType: azure_sql_password
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Storage Account Access Key
+  secretType: azure_storage_account_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.6'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Azure Storage Account Access Key
+  secretType: azure_storage_account_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -405,10 +585,29 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Baidu'
-  supportedSecret: 'Baidu Cloud API Access Key'
-  secretType: 'baiducloud_api_accesskey'
+- provider: Azure
+  supportedSecret: Azure Web Pub Sub Connection String
+  secretType: azure_web_pub_sub_connection_string
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Azure
+  supportedSecret: Microsoft Corporate Network User Credential
+  secretType: microsoft_corporate_network_user_credential
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Baidu
+  supportedSecret: Baidu Cloud API Access Key
+  secretType: baiducloud_api_accesskey
   versions:
     fpt: '*'
     ghec: '*'
@@ -417,10 +616,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Beamer'
-  supportedSecret: 'Beamer API Key'
-  secretType: 'beamer_api_key'
+- provider: Beamer
+  supportedSecret: Beamer API Key
+  secretType: beamer_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -429,22 +627,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Beijing Volcano Engine Technology'
-  supportedSecret: 'VolcEngine Access Key ID'
-  secretType: 'volcengine_access_key_id'
+- provider: Bitbucket
+  supportedSecret: Bitbucket Server Personal Access Token
+  secretType: bitbucket_server_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.12'
-  isPublic: true
+    ghes: '>=3.5'
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Canadian Digital Service'
-  supportedSecret: 'CDS Canada Notify API Key'
-  secretType: 'cds_canada_notify_api_key'
+- provider: Canadian Digital Service
+  supportedSecret: Canadian Digital Service Notify API Key
+  secretType: cds_canada_notify_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -453,10 +649,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Canva'
-  supportedSecret: 'Canva Connect API Secret'
-  secretType: 'canva_connect_api_secret'
+- provider: Canva
+  supportedSecret: Canva App Secret
+  secretType: canva_app_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Canva
+  supportedSecret: Canva Connect API Secret
+  secretType: canva_connect_api_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -465,22 +670,41 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Cashfree'
-  supportedSecret: 'cashfree_api_key'
-  secretType: 'Cashfree API Key'
+- provider: Canva
+  supportedSecret: Canva Secret
+  secretType: canva_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Cashfree
+  supportedSecret: Cashfree API Key
+  secretType: cashfree_api_key
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.12'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Checkout.com'
-  supportedSecret: 'Checkout.com Production Secret Key'
-  secretType: 'checkout_production_secret_key'
+- provider: Checkout.com
+  supportedSecret: Checkout.com Production Secret Key
+  secretType: checkout_production_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Checkout.com
+  supportedSecret: Checkout.com Production Secret Key
+  secretType: checkout_production_secret_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -489,10 +713,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Checkout.com'
-  supportedSecret: 'Checkout.com Test Secret Key'
-  secretType: 'checkout_test_secret_key'
+- provider: Checkout.com
+  supportedSecret: Checkout.com Test Secret Key
+  secretType: checkout_test_secret_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -501,10 +724,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Chief Tools'
-  supportedSecret: 'Chief Tools Token'
-  secretType: 'chief_tools_token'
+- provider: Checkout.com
+  supportedSecret: Checkout.com Test Secret Key
+  secretType: checkout_test_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Chief Tools
+  supportedSecret: Chief Tools Token
+  secretType: chief_tools_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -513,10 +746,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'CircleCI'
-  supportedSecret: 'CircleCI Personal Access Token'
-  secretType: 'circleci-pat'
+- provider: CircleCI
+  supportedSecret: CircleCI Bot API Token
+  secretType: circleci_bot_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: CircleCI
+  supportedSecret: CircleCI Personal Access Token
+  secretType: circleci_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -525,22 +767,29 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'CircleCI'
-  supportedSecret: 'CircleCI Project Access Token'
-  secretType: 'circleci-prj'
+- provider: CircleCI
+  supportedSecret: CircleCI Project Access Token
+  secretType: circleci_project_access_token
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.12'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Clojars'
-  supportedSecret: 'Clojars Deploy Token'
-  secretType: 'clojars_deploy_token'
+- provider: CircleCI
+  supportedSecret: CircleCI Release API Token
+  secretType: circleci_release_integration_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Clojars
+  supportedSecret: Clojars Deploy Token
+  secretType: clojars_deploy_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -549,22 +798,20 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'CloudBees CodeShip'
-  supportedSecret: 'CloudBees CodeShip Credential'
-  secretType: 'codeship_credential'
+- provider: CloudBees
+  supportedSecret: CloudBees CodeShip Credential
+  secretType: codeship_credential
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '*'
   isPublic: true
-  isPrivateWithGhas: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Contentful'
-  supportedSecret: 'Contentful Personal Access Token'
-  secretType: 'contentful_personal_access_token'
+- provider: Contentful
+  supportedSecret: Contentful Personal Access Token
+  secretType: contentful_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -573,10 +820,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Contributed Systems'
-  supportedSecret: 'Contributed Systems Credentials'
-  secretType: 'CONTRIBUTED_SYSTEMS_CREDENTIALS'
+- provider: Contributed Systems
+  supportedSecret: Contributed Systems Credentials
+  secretType: contributed_systems_credentials
   versions:
     fpt: '*'
     ghec: '*'
@@ -584,10 +830,9 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'crates.io (Rust Foundation)'
-  supportedSecret: 'Crates.io API Token'
-  secretType: 'cratesio_api_token'
+- provider: crates.io
+  supportedSecret: Crates.io API Token
+  secretType: cratesio_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -596,10 +841,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Databricks'
-  supportedSecret: 'Databricks Access Token'
-  secretType: 'databricks_access_token'
+- provider: Databricks
+  supportedSecret: Databricks Access Token
+  secretType: databricks_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -608,10 +852,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Datadog'
-  supportedSecret: 'Datadog API Key'
-  secretType: 'DATADOG_API_KEY'
+- provider: Datadog
+  supportedSecret: Datadog API Key
+  secretType: datadog_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -619,10 +862,19 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Defined'
-  supportedSecret: 'Defined Networking Nebula API Key'
-  secretType: 'defined_networking_nebula_api_key'
+- provider: Datadog
+  supportedSecret: Datadog Application Key
+  secretType: datadog_app_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Defined Networking
+  supportedSecret: Defined Networking Managed Nebula API Key
+  secretType: defined_networking_nebula_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -631,10 +883,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DevCycle'
-  supportedSecret: 'DevCycle Client API Key'
-  secretType: 'devcycle_client_api_key'
+- provider: DevCycle
+  supportedSecret: DevCycle Client API Key
+  secretType: devcycle_client_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -643,22 +894,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DevCycle'
-  supportedSecret: 'DevCycle Mobile API Key'
-  secretType: 'devcycle_mobile_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'DevCycle'
-  supportedSecret: 'DevCycle Server API Key'
-  secretType: 'devcycle_server_api_key'
+- provider: DevCycle
+  supportedSecret: DevCycle Mobile API Key
+  secretType: devcycle_mobile_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -667,10 +905,20 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DigitalOcean'
-  supportedSecret: 'DigitalOcean OAuth Token'
-  secretType: 'digitalocean_oauth_token'
+- provider: DevCycle
+  supportedSecret: DevCycle Server API Key
+  secretType: devcycle_server_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: DigitalOcean
+  supportedSecret: DigitalOcean OAuth Token
+  secretType: digitalocean_oauth_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -679,10 +927,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DigitalOcean'
-  supportedSecret: 'DigitalOcean Personal Access Token'
-  secretType: 'digitalocean_personal_access_token'
+- provider: DigitalOcean
+  supportedSecret: DigitalOcean Personal Access Token
+  secretType: digitalocean_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -691,10 +938,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DigitalOcean'
-  supportedSecret: 'DigitalOcean Refresh Token'
-  secretType: 'digitalocean_refresh_token'
+- provider: DigitalOcean
+  supportedSecret: DigitalOcean Refresh Token
+  secretType: digitalocean_refresh_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -703,10 +949,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'DigitalOcean'
-  supportedSecret: 'DigitalOcean System Token'
-  secretType: 'digitalocean_system_token'
+- provider: DigitalOcean
+  supportedSecret: DigitalOcean System Token
+  secretType: digitalocean_system_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -715,22 +960,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Discord'
-  supportedSecret: 'Discord API Token V2'
-  secretType: 'discord_api_token_v2'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: '{% ifversion ghec %}true{% else %}false{% endif %}'
-
-- provider: 'Discord'
-  supportedSecret: 'Discord Bot Token'
-  secretType: 'discord_bot_token'
+- provider: Discord
+  supportedSecret: Discord Bot Token
+  secretType: discord_bot_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -738,11 +970,21 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion ghec %}true{% else %}false{% endif %}'
-
-- provider: 'Docker'
-  supportedSecret: 'Docker Personal Access Token'
-  secretType: 'docker_personal_access_token'
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Discord
+  supportedSecret: Discord Bot Token
+  secretType: discord_bot_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Docker
+  supportedSecret: Docker Personal Access Token
+  secretType: docker_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -751,10 +993,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler Audit Token'
-  secretType: 'doppler_audit_token'
+- provider: Doppler
+  supportedSecret: Doppler Audit Token
+  secretType: doppler_audit_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -763,10 +1004,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler CLI Token'
-  secretType: 'doppler_cli_token'
+- provider: Doppler
+  supportedSecret: Doppler CLI Token
+  secretType: doppler_cli_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -775,10 +1015,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler Personal Token'
-  secretType: 'doppler_personal_token'
+- provider: Doppler
+  supportedSecret: Doppler Personal Token
+  secretType: doppler_personal_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -787,10 +1026,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler SCIM Token'
-  secretType: 'doppler_scim_token'
+- provider: Doppler
+  supportedSecret: Doppler SCIM Token
+  secretType: doppler_scim_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -799,22 +1037,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler Service Token'
-  secretType: 'doppler_service_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Doppler'
-  supportedSecret: 'Doppler Service Account Token'
-  secretType: 'doppler_service_account_token'
+- provider: Doppler
+  supportedSecret: Doppler Service Account Token
+  secretType: doppler_service_account_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -823,10 +1048,20 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Dropbox'
-  supportedSecret: 'Dropbox Access Token'
-  secretType: 'dropbox_access_token'
+- provider: Doppler
+  supportedSecret: Doppler Service Token
+  secretType: doppler_service_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Dropbox
+  supportedSecret: Dropbox Access Token
+  secretType: dropbox_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -835,10 +1070,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Dropbox'
-  supportedSecret: 'Dropbox Short Lived Access Token'
-  secretType: 'dropbox_short_lived_access_token'
+- provider: Dropbox
+  supportedSecret: Dropbox Short-Lived Access Token
+  secretType: dropbox_short_lived_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -847,10 +1081,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Duffel'
-  supportedSecret: 'Duffel Live Access Token'
-  secretType: 'duffel_live_access_token'
+- provider: Duffel
+  supportedSecret: Duffel Live Access Token
+  secretType: duffel_live_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -859,10 +1092,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Duffel'
-  supportedSecret: 'Duffel Test Access Token'
-  secretType: 'duffel_test_access_token'
+- provider: Duffel
+  supportedSecret: Duffel Test Access Token
+  secretType: duffel_test_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -871,10 +1103,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Dynatrace'
-  supportedSecret: 'Dynatrace Access Token'
-  secretType: 'dynatrace_access_token'
+- provider: Dynatrace
+  supportedSecret: Dynatrace API Token
+  secretType: dynatrace_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Dynatrace
+  supportedSecret: Dynatrace Internal Token
+  secretType: dynatrace_internal_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -883,22 +1124,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Dynatrace'
-  supportedSecret: 'Dynatrace Internal Token'
-  secretType: 'dynatrace_internal_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'EasyPost'
-  supportedSecret: 'EasyPost Production API Key'
-  secretType: 'easypost_production_api_key'
+- provider: EasyPost
+  supportedSecret: EasyPost Production API Key
+  secretType: easypost_production_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -907,10 +1135,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'EasyPost'
-  supportedSecret: 'EasyPost Test API Key'
-  secretType: 'easypost_test_api_key'
+- provider: EasyPost
+  supportedSecret: EasyPost Test API Key
+  secretType: easypost_test_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -919,10 +1146,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'eBay'
-  supportedSecret: 'eBay Production Client ID (App ID) with eBay Production Client Secret (Cert ID)'
-  secretType: 'ebay_production_client_id </br>ebay_production_client_secret'
+- provider: eBay
+  supportedSecret: eBay Production Client ID (App ID)
+  secretType: ebay_production_client_id </br>ebay_production_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -931,10 +1157,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'eBay'
-  supportedSecret: 'eBay Sandbox Client ID (App ID) with eBay Sandbox Client Secret (Cert ID)'
-  secretType: 'ebay_sandbox_client_id </br>ebay_sandbox_client_secret'
+- provider: eBay
+  supportedSecret: eBay Sandbox Client ID (App ID)
+  secretType: ebay_sandbox_client_id </br>ebay_sandbox_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -943,22 +1168,42 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Fastly'
-  supportedSecret: 'Fastly API Token'
-  secretType: 'fastly_api_token'
+- provider: Facebook
+  supportedSecret: Facebook Access Token
+  secretType: facebook_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Figma'
-  supportedSecret: 'Figma Personal Access Token'
-  secretType: 'figma_pat'
+- provider: Fastly
+  supportedSecret: Fastly API Token
+  secretType: fastly_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Fastly
+  supportedSecret: Fastly API Token
+  secretType: fastly_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Figma
+  supportedSecret: Figma Personal Access Token
+  secretType: figma_pat
   versions:
     fpt: '*'
     ghec: '*'
@@ -967,10 +1212,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Finicity'
-  supportedSecret: 'Finicity App Key'
-  secretType: 'finicity_app_key'
+- provider: Finicity
+  supportedSecret: Finicity App Key
+  secretType: finicity_app_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -979,22 +1223,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Flutterwave'
-  supportedSecret: 'Flutterwave Live API Secret Key'
-  secretType: 'flutterwave_live_api_secret_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Flutterwave'
-  supportedSecret: 'Flutterwave Test API Secret Key'
-  secretType: 'flutterwave_test_api_secret_key'
+- provider: Firebase
+  supportedSecret: Firebase Cloud Messaging Server Key
+  secretType: firebase_cloud_messaging_server_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1003,10 +1234,31 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Frame.io'
-  supportedSecret: 'Frame.io Developer Token'
-  secretType: 'frameio_developer_token'
+- provider: Flutterwave
+  supportedSecret: Flutterwave Live API Secret Key
+  secretType: flutterwave_live_api_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Flutterwave
+  supportedSecret: Flutterwave Test API Secret Key
+  secretType: flutterwave_test_api_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Frame.io
+  supportedSecret: Frame.io Developer Token
+  secretType: frameio_developer_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1015,10 +1267,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Frame.io'
-  supportedSecret: 'Frame.io JSON Web Token'
-  secretType: 'frameio_jwt'
+- provider: Frame.io
+  supportedSecret: Frame.io JSON Web Token
+  secretType: frameio_jwt
   versions:
     fpt: '*'
     ghec: '*'
@@ -1027,10 +1278,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'FullStory'
-  supportedSecret: 'FullStory API Key'
-  secretType: 'fullstory_api_key'
+- provider: FullStory
+  supportedSecret: FullStory API Key
+  secretType: fullstory_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1039,70 +1289,139 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'GitHub'
-  supportedSecret: 'GitHub App Installation Access Token'
-  secretType: 'github_app_installation_access_token'
+- provider: FullStory
+  supportedSecret: FullStory API Key
+  secretType: fullstory_api_key
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
   isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: GitHub
+  supportedSecret: GitHub App Installation Access Token
+  secretType: github_app_installation_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-
-- provider: 'GitHub'
-  supportedSecret: 'GitHub OAuth Access Token'
-  secretType: 'github_oauth_access_token'
+- provider: GitHub
+  supportedSecret: GitHub App Installation Access Token
+  secretType: github_app_installation_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-
-- provider: 'GitHub'
-  supportedSecret: 'GitHub Personal Access Token'
-  secretType: 'github_personal_access_token'
+- provider: GitHub
+  supportedSecret: GitHub OAuth Access Token
+  secretType: github_oauth_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-
-- provider: 'GitHub'
-  supportedSecret: 'GitHub Refresh Token'
-  secretType: 'github_refresh_token'
+- provider: GitHub
+  supportedSecret: GitHub OAuth Access Token
+  secretType: github_oauth_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-
-- provider: 'GitHub'
-  supportedSecret: 'GitHub SSH Private Key'
-  secretType: 'github_ssh_private_key'
+- provider: GitHub
+  supportedSecret: GitHub Personal Access Token
+  secretType: github_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: true
+- provider: GitHub
+  supportedSecret: GitHub Personal Access Token
+  secretType: github_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-
-- provider: 'GitLab'
-  supportedSecret: 'GitLab Access Token'
-  secretType: 'gitlab_access_token'
+- provider: GitHub
+  supportedSecret: GitHub Personal Access Token
+  secretType: github_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: true
+- provider: GitHub
+  supportedSecret: GitHub Refresh Token
+  secretType: github_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: true
+- provider: GitHub
+  supportedSecret: GitHub SSH Private Key
+  secretType: github_ssh_private_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: true
+- provider: GitHub
+  supportedSecret: GitHub Test Token
+  secretType: github_test_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: GitHub Secret Scanning
+  supportedSecret: GitHub Secret Scanning
+  secretType: secret_scanning_sample_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: GitLab
+  supportedSecret: GitLab Access Token
+  secretType: gitlab_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1111,10 +1430,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'GoCardless'
-  supportedSecret: 'GoCardless Live Access Token'
-  secretType: 'gocardless_live_access_token'
+- provider: GoCardless
+  supportedSecret: GoCardless Live Access Token
+  secretType: gocardless_live_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1123,10 +1441,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'GoCardless'
-  supportedSecret: 'GoCardless Sandbox Access Token'
-  secretType: 'gocardless_sandbox_access_token'
+- provider: GoCardless
+  supportedSecret: GoCardless Sandbox Access Token
+  secretType: gocardless_sandbox_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1135,512 +1452,329 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Google'
-  supportedSecret: 'Firebase Cloud Messaging Server Key'
-  secretType: 'firebase_cloud_messaging_server_key'
+- provider: Google
+  supportedSecret: Google API Key
+  secretType: google_api_key
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Google'
-  supportedSecret: 'Google Cloud Storage Service Account Access Key ID with Google Cloud Storage Access Key Secret'
-  secretType: 'google_cloud_storage_service_account_access_key_id </br>google_cloud_storage_access_key_secret'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Google'
-  supportedSecret: 'Google Cloud Storage User Access Key ID with Google Cloud Storage Access Key Secret'
-  secretType: 'google_cloud_storage_user_access_key_id </br>google_cloud_storage_access_key_secret'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Google'
-  supportedSecret: 'Google OAuth Access Token'
-  secretType: 'google_oauth_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Google'
-  supportedSecret: 'Google OAuth Client ID with Google OAuth Client Secret'
-  secretType: 'google_oauth_client_id </br>google_oauth_client_secret'
+- provider: Google
+  supportedSecret: Google Cloud Private Key ID
+  secretType: google_cloud_private_key_id
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Google'
-  supportedSecret: 'Google OAuth Refresh Token'
-  secretType: 'google_oauth_refresh_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: false
-  isPrivateWithGhas: true
+    ghes: <3.13
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Google Cloud'
-  supportedSecret: 'Google API Key'
-  secretType: 'google_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Google Cloud'
-  supportedSecret: 'Google Cloud Private Key ID'
-  secretType: 'google_cloud_private_key_id'
-  versions:
-    ghes: '<3.13'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Google Cloud'
-  supportedSecret: 'Google Cloud Service Account Credentials'
-  secretType: 'google_cloud_service_account_credentials'
+- provider: Google
+  supportedSecret: Google Cloud Service Account Credentials
+  secretType: google_cloud_service_account_credentials
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.13'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Grafana'
-  supportedSecret: 'Grafana Cloud API Key'
-  secretType: 'grafana_cloud_api_key'
+- provider: Google
+  supportedSecret: Google Cloud Storage Service Account Access Key ID
+  secretType: >-
+    google_cloud_storage_access_key_secret
+    </br>google_cloud_storage_service_account_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Grafana'
-  supportedSecret: 'Grafana Cloud API Token'
-  secretType: 'grafana_cloud_api_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Grafana'
-  supportedSecret: 'Grafana Project API Key'
-  secretType: 'grafana_project_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Grafana'
-  supportedSecret: 'Grafana Project Service Account Token'
-  secretType: 'grafana_project_service_account_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'HashiCorp'
-  supportedSecret: 'HashiCorp Vault Batch Token (v1.10.0+)'
-  secretType: 'hashicorp_vault_batch_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'HashiCorp'
-  supportedSecret: 'HashiCorp Vault Root Service Token (v1.10.0+)'
-  secretType: 'hashicorp_vault_root_service_token'
+- provider: Google
+  supportedSecret: Google Cloud Storage User Access Key ID
+  secretType: >-
+    google_cloud_storage_access_key_secret
+    </br>google_cloud_storage_user_access_key_id
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>3.8'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'HashiCorp'
-  supportedSecret: 'HashiCorp Vault Service Token (v1.10.0+)'
-  secretType: 'hashicorp_vault_service_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hashicorp Terraform'
-  supportedSecret: 'Terraform Cloud / Enterprise API Token'
-  secretType: 'terraform_api_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Highnote'
-  supportedSecret: 'Highnote RK Live Key'
-  secretType: 'highnote_rk_live_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Highnote'
-  supportedSecret: 'Highnote RK Test Key'
-  secretType: 'highnote_rk_test_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Highnote'
-  supportedSecret: 'Highnote SK Live Key'
-  secretType: 'highnote_sk_live_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Highnote'
-  supportedSecret: 'Highnote SK Test Key'
-  secretType: 'highnote_sk_test_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hop'
-  supportedSecret: 'Hop Bearer'
-  secretType: 'hop_bearer'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.11'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hop'
-  supportedSecret: 'Hop Personal Access Token'
-  secretType: 'hop_pat'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.11'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hop'
-  supportedSecret: 'Hop PTK'
-  secretType: 'hop_ptk'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.11'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hubspot'
-  supportedSecret: 'Hubspot API Key'
-  secretType: 'hubspot_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Hubspot'
-  supportedSecret: 'Hubspot API Personal Access Key'
-  secretType: 'hubspot_api_personal_access_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Intercom'
-  supportedSecret: 'Intercom Access Token'
-  secretType: 'intercom_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Ionic'
-  supportedSecret: 'Ionic Personal Access Token'
-  secretType: 'ionic_personal_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Ionic'
-  supportedSecret: 'Ionic Refresh Token'
-  secretType: 'ionic_refresh_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'JD Cloud'
-  supportedSecret: 'JD Cloud Access Key'
-  secretType: 'jd_cloud_access_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.4'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'JFrog'
-  supportedSecret: 'JFrog Platform Access Token'
-  secretType: 'jfrog_platform_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.6'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'JFrog'
-  supportedSecret: 'JFrog Platform API Key'
-  secretType: 'jfrog_platform_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.6'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'JFrog'
-  supportedSecret: 'JFrog Platform Reference Token'
-  secretType: 'jfrog_platform_reference_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Lightspeed'
-  supportedSecret: 'Lightspeed X-Series Personal Access Token'
-  secretType: 'lightspeed-xs-pat'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.12'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Linear'
-  supportedSecret: 'Linear API Key'
-  secretType: 'linear_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Linear'
-  supportedSecret: 'Linear OAuth Access Token'
-  secretType: 'linear_oauth_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Lob'
-  supportedSecret: 'Lob Live API Key'
-  secretType: 'lob_live_api_key'
+- provider: Google
+  supportedSecret: Google OAuth Access Token
+  secretType: google_oauth_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '*'
   isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Lob'
-  supportedSecret: 'Lob Test API Key'
-  secretType: 'lob_test_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'LocalStack'
-  supportedSecret: 'LocalStack API Key'
-  secretType: 'localstack_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'LogicMonitor'
-  supportedSecret: 'LogicMonitor Bearer Token'
-  secretType: 'logicmonitor_bearer_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'LogicMonitor'
-  supportedSecret: 'LogicMonitor LMV1 Access Key'
-  secretType: 'logicmonitor_lmv1_access_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.8'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Mailchimp'
-  supportedSecret: 'Mailchimp API Key'
-  secretType: 'mailchimp_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Mailchimp'
-  supportedSecret: 'Mandrill API Key'
-  secretType: 'MANDRILL_API'
+- provider: Google
+  supportedSecret: Google OAuth Client ID
+  secretType: google_oauth_client_id </br>google_oauth_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Google
+  supportedSecret: Google OAuth Refresh Token
+  secretType: google_oauth_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Grafana
+  supportedSecret: Grafana Cloud API Key
+  secretType: grafana_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Grafana
+  supportedSecret: Grafana Cloud API Token
+  secretType: grafana_cloud_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Grafana
+  supportedSecret: Grafana Project API Key
+  secretType: grafana_project_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Grafana
+  supportedSecret: Grafana Project Service Account Token
+  secretType: grafana_project_service_account_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: HashiCorp Vault Batch Token
+  secretType: hashicorp_vault_batch_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: HashiCorp Vault Batch Token
+  secretType: hashicorp_vault_batch_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: HashiCorp Vault Root Service Token
+  secretType: hashicorp_vault_root_service_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: HashiCorp Vault Service Token
+  secretType: hashicorp_vault_service_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: HashiCorp Vault Service Token
+  secretType: hashicorp_vault_service_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: HashiCorp
+  supportedSecret: Terraform Cloud / Enterprise API Token
+  secretType: terraform_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Highnote
+  supportedSecret: Highnote RK Live Key
+  secretType: highnote_rk_live_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Highnote
+  supportedSecret: Highnote RK Test Key
+  secretType: highnote_rk_test_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Highnote
+  supportedSecret: Highnote SK Live Key
+  secretType: highnote_sk_live_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Highnote
+  supportedSecret: Highnote SK Test Key
+  secretType: highnote_sk_test_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HOP
+  supportedSecret: HOP Bearer
+  secretType: hop_bearer
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HOP
+  supportedSecret: HOP PAT
+  secretType: hop_pat
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: HOP
+  supportedSecret: HOP PTK
+  secretType: hop_ptk
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Hubspot
+  supportedSecret: Hubspot API Key
+  secretType: hubspot_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Hubspot
+  supportedSecret: Hubspot API Key
+  secretType: hubspot_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Hubspot
+  supportedSecret: Hubspot API Key
+  secretType: hubspot_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Hubspot
+  supportedSecret: Hubspot Personal Access Key
+  secretType: hubspot_personal_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Hubspot
+  supportedSecret: Hubspot SMTP Credential
+  secretType: hubspot_smtp_credential
   versions:
     fpt: '*'
     ghec: '*'
@@ -1648,22 +1782,150 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Mailgun'
-  supportedSecret: 'Mailgun API Key'
-  secretType: 'mailgun_api_key'
+- provider: IBM
+  supportedSecret: IBM Cloud IAM Key
+  secretType: ibm_cloud_iam_key
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: IBM
+  supportedSecret: IBM SoftLayer API Key
+  secretType: ibm_softlayer_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Intercom
+  supportedSecret: Intercom Access Token
+  secretType: intercom_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Ionic
+  supportedSecret: Ionic Personal Access Token
+  secretType: ionic_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Mapbox'
-  supportedSecret: 'Mapbox Secret Access Token'
-  secretType: 'mapbox_secret_access_token'
+  hasValidityCheck: false
+- provider: Ionic
+  supportedSecret: Ionic Personal Access Token
+  secretType: ionic_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Ionic
+  supportedSecret: Ionic Refresh Token
+  secretType: ionic_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Ionic
+  supportedSecret: Ionic Refresh Token
+  secretType: ionic_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: JFrog
+  supportedSecret: JFrog Platform Access Token
+  secretType: jfrog_platform_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.6'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: JFrog
+  supportedSecret: JFrog Platform API Key
+  secretType: jfrog_platform_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.6'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: JFrog
+  supportedSecret: JFrog Platform Reference Token
+  secretType: jfrog_platform_reference_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.10'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Lightspeed
+  supportedSecret: Lightspeed Personal Access Token
+  secretType: lightspeed_xs_pat
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.12'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Linear
+  supportedSecret: Linear API Key
+  secretType: linear_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Linear
+  supportedSecret: Linear OAuth Access Token
+  secretType: linear_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Lob
+  supportedSecret: Lob Live API Key
+  secretType: lob_live_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1672,10 +1934,129 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Maxmind'
-  supportedSecret: 'Maxmind License Key'
-  secretType: 'maxmind_license_key'
+- provider: Lob
+  supportedSecret: Lob Test API Key
+  secretType: lob_test_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Localstack
+  supportedSecret: Localstack API Key
+  secretType: localstack_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: LogicMonitor
+  supportedSecret: LogicMonitor Bearer Token
+  secretType: logicmonitor_bearer_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: LogicMonitor
+  supportedSecret: LogicMonitor LMv1 Access Key
+  secretType: logicmonitor_lmv1_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.8'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Login with Amazon
+  supportedSecret: Login with Amazon OAuth Client ID
+  secretType: >-
+    amazon_oauth_client_id </br>amazon_oauth_client_secret
+    </br>amazon_oauth_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Mailchimp
+  supportedSecret: Mailchimp API Key
+  secretType: mailchimp_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Mailchimp
+  supportedSecret: Mandrill API Key
+  secretType: mandrill_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Mailgun
+  supportedSecret: Mailgun API Key
+  secretType: mailgun_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Mailgun
+  supportedSecret: Mailgun API Key
+  secretType: mailgun_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Mailgun
+  supportedSecret: Mailgun SMTP Credential
+  secretType: mailgun_smtp_credential
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Mapbox
+  supportedSecret: Mapbox Secret Access Token
+  secretType: mapbox_secret_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: MaxMind
+  supportedSecret: MaxMind License Key
+  secretType: maxmind_license_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1684,34 +2065,31 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Mercury'
-  supportedSecret: 'Mercury Non-Production API Token'
-  secretType: 'mercury_non_production_api_token'
+- provider: Mercury
+  supportedSecret: Mercury Non-Production API Token
+  secretType: mercury_non_production_api_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.10'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Mercury'
-  supportedSecret: 'Mercury Production API Token'
-  secretType: 'mercury_production_api_token'
+- provider: Mercury
+  supportedSecret: Mercury Production API Token
+  secretType: mercury_production_api_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.10'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Mergify'
-  supportedSecret: 'Mergify Application Key'
-  secretType: 'mergify_application_key'
+- provider: Mergify
+  supportedSecret: Mergify Application Key
+  secretType: mergify_application_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1720,10 +2098,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'MessageBird'
-  supportedSecret: 'MessageBird API Key'
-  secretType: 'messagebird_api_key'
+- provider: MessageBird
+  supportedSecret: MessageBird API Key
+  secretType: messagebird_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1732,22 +2109,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Meta'
-  supportedSecret: 'Facebook Access Token'
-  secretType: 'facebook_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Midtrans'
-  supportedSecret: 'Midtrans Production Server Key'
-  secretType: 'midtrans_production_server_key'
+- provider: Midtrans
+  supportedSecret: Midtrans Production Server Key
+  secretType: midtrans_production_server_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1756,10 +2120,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Midtrans'
-  supportedSecret: 'Midtrans Sandbox Server Key'
-  secretType: 'midtrans_sandbox_server_key'
+- provider: Midtrans
+  supportedSecret: Midtrans Sandbox Server Key
+  secretType: midtrans_sandbox_server_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1768,10 +2131,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'New Relic'
-  supportedSecret: 'New Relic Insights Query Key'
-  secretType: 'new_relic_insights_query_key'
+- provider: New Relic
+  supportedSecret: New Relic Insights Query Key
+  secretType: new_relic_insights_query_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1780,10 +2142,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'New Relic'
-  supportedSecret: 'New Relic License Key'
-  secretType: 'new_relic_license_key'
+- provider: New Relic
+  supportedSecret: New Relic License Key
+  secretType: new_relic_license_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1792,10 +2153,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'New Relic'
-  supportedSecret: 'New Relic Personal API Key'
-  secretType: 'new_relic_personal_api_key'
+- provider: New Relic
+  supportedSecret: New Relic Personal API Key
+  secretType: new_relic_personal_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1804,10 +2164,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'New Relic'
-  supportedSecret: 'New Relic REST API Key'
-  secretType: 'new_relic_rest_api_key'
+- provider: New Relic
+  supportedSecret: New Relic REST API Key
+  secretType: new_relic_rest_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -1816,10 +2175,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Notion'
-  supportedSecret: 'Notion Integration Token'
-  secretType: 'notion_integration_token'
+- provider: Notion
+  supportedSecret: Notion Integration Token
+  secretType: notion_integration_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1828,10 +2186,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Notion'
-  supportedSecret: 'Notion OAuth Client Secret'
-  secretType: 'notion_oauth_client_secret'
+- provider: Notion
+  supportedSecret: Notion OAuth Client Secret
+  secretType: notion_oauth_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -1840,10 +2197,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'npm'
-  supportedSecret: 'npm Access Token'
-  secretType: 'npm_access_token'
+- provider: npm
+  supportedSecret: npm Access Token
+  secretType: npm_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -1852,309 +2208,42 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'NuGet'
-  supportedSecret: 'NuGet API Key'
-  secretType: 'nuget_api_key'
+- provider: npm
+  supportedSecret: npm Access Token
+  secretType: npm_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Octopus Deploy'
-  supportedSecret: 'Octopus Deploy API Key'
-  secretType: 'octopus_deploy_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Oculus'
-  supportedSecret: 'Oculus Very Tiny Encrypted Session'
-  secretType: 'oculus_very_tiny_encrypted_session'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'OneChronos'
-  supportedSecret: 'OneChronos API Token'
-  secretType: 'onechronos_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'OneChronos'
-  supportedSecret: 'OneChronos Expressive Bidding API Key'
-  secretType: 'onechronos_eb_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'OneChronos'
-  supportedSecret: 'OneChronos Expressive Bidding Encryption Key'
-  secretType: 'onechronos_eb_encryption_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'OneChronos'
-  supportedSecret: 'OneChronos OAuth Token'
-  secretType: 'onechronos_oauth_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'OneChronos'
-  supportedSecret: 'OneChronos Refresh Token'
-  secretType: 'onechronos_refresh_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.10'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Onfido'
-  supportedSecret: 'Onfido Live API Token'
-  secretType: 'onfido_live_api_token'
+- provider: npm
+  supportedSecret: npm Access Token
+  secretType: npm_access_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Onfido'
-  supportedSecret: 'Onfido Sandbox API Token'
-  secretType: 'onfido_sandbox_api_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'OpenAI'
-  supportedSecret: 'OpenAI API Key'
-  secretType: 'openai_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Palantir'
-  supportedSecret: 'Palantir JSON Web Token'
-  secretType: 'palantir_jwt'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Persona'
-  supportedSecret: 'Persona Production API Key'
-  secretType: 'persona_production_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Persona'
-  supportedSecret: 'Persona Sandbox API Key'
-  secretType: 'persona_sandbox_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.7'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Pinterest'
-  supportedSecret: 'Pinterest Access Token'
-  secretType: 'pinterest_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.10'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Pinterest'
-  supportedSecret: 'Pinterest Refresh Token'
-  secretType: 'pinterest_refresh_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.10'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'PlanetScale'
-  supportedSecret: 'PlanetScale Database Password'
-  secretType: 'planetscale_database_password'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'PlanetScale'
-  supportedSecret: 'PlanetScale OAuth Token'
-  secretType: 'planetscale_oauth_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'PlanetScale'
-  supportedSecret: 'PlanetScale Service Token'
-  secretType: 'planetscale_service_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Plivo'
-  supportedSecret: 'Plivo Auth ID with Plivo Auth Token'
-  secretType: 'plivo_auth_id </br>plivo_auth_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Postman'
-  supportedSecret: 'Postman API Key'
-  secretType: 'postman_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Postman'
-  supportedSecret: 'Postman Collection Key'
-  secretType: 'postman_collection_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Prefect'
-  supportedSecret: 'Prefect Server API Key'
-  secretType: 'prefect_server_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.6'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Prefect'
-  supportedSecret: 'Prefect User API Key'
-  secretType: 'prefect_user_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.6'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Prefect'
-  supportedSecret: 'Prefect User API Token'
-  secretType: 'PREFECT_USER_API_TOKEN'
-  versions:
-    fpt: '*'
-    ghec: '*'
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Proctorio'
-  supportedSecret: 'Proctorio Consumer Key'
-  secretType: 'proctorio_consumer_key'
+- provider: NuGet
+  supportedSecret: NuGet API Key
+  secretType: nuget_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Octopus Deploy
+  supportedSecret: Octopus Deploy API Key
+  secretType: octopus_deploy_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2163,34 +2252,74 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Proctorio'
-  supportedSecret: 'Proctorio Linkage Key'
-  secretType: 'proctorio_linkage_key'
+- provider: Oculus
+  supportedSecret: Oculus Access Token
+  secretType: oculus_access_token
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '*'
-  isPublic: true
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Proctorio'
-  supportedSecret: 'Proctorio Registration Key'
-  secretType: 'proctorio_registration_key'
+- provider: OneChronos
+  supportedSecret: OneChronos API Token
+  secretType: onechronos_api_key
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '*'
-  isPublic: true
+    ghes: '>=3.10'
+  isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Proctorio'
-  supportedSecret: 'Proctorio Secret Key'
-  secretType: 'proctorio_secret_key'
+- provider: OneChronos
+  supportedSecret: OneChronos Expressive Bidding API Key
+  secretType: onechronos_eb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.10'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: OneChronos
+  supportedSecret: OneChronos Expressive Bidding Encryption Key
+  secretType: onechronos_eb_encryption_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.10'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: OneChronos
+  supportedSecret: OneChronos OAuth Token
+  secretType: onechronos_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.10'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: OneChronos
+  supportedSecret: OneChronos Refresh Token
+  secretType: onechronos_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.10'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Onfido
+  supportedSecret: Onfido Live API Token
+  secretType: onfido_live_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2199,10 +2328,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Pulumi'
-  supportedSecret: 'Pulumi Access Token'
-  secretType: 'pulumi_access_token'
+- provider: Onfido
+  supportedSecret: Onfido Sandbox API Token
+  secretType: onfido_sandbox_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2211,22 +2339,182 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'PyPI'
-  supportedSecret: 'PyPI API Token'
-  secretType: 'pypi_api_token'
+- provider: OpenAI
+  supportedSecret: OpenAI API Key
+  secretType: openai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: OpenAI
+  supportedSecret: OpenAI API Key
+  secretType: openai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Orbit
+  supportedSecret: Orbit API Token
+  secretType: orbit_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: PagerDuty
+  supportedSecret: PagerDuty OAuth Secret
+  secretType: pagerduty_oauth_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: PagerDuty
+  supportedSecret: PagerDuty OAuth Token
+  secretType: pagerduty_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Palantir
+  supportedSecret: Palantir JSON Web Token
+  secretType: palantir_jwt
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'ReadMe'
-  supportedSecret: 'ReadMe API Access Key'
-  secretType: 'readmeio_api_access_token'
+- provider: Persona  Identities
+  supportedSecret: Persona Production Api Key
+  secretType: persona_production_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Persona  Identities
+  supportedSecret: Persona Sandbox Api Key
+  secretType: persona_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.7'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Pinterest
+  supportedSecret: Pinterest Access Token
+  secretType: pinterest_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.10'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Pinterest
+  supportedSecret: Pinterest Refresh Token
+  secretType: pinterest_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.10'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: PlanetScale
+  supportedSecret: PlanetScale Database Password
+  secretType: planetscale_database_password
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: PlanetScale
+  supportedSecret: PlanetScale OAuth Token
+  secretType: planetscale_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: PlanetScale
+  supportedSecret: PlanetScale Service Token
+  secretType: planetscale_service_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Plivo
+  supportedSecret: Plivo Auth ID
+  secretType: plivo_auth_id </br>plivo_auth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Postman
+  supportedSecret: Postman API Key
+  secretType: postman_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Postman
+  supportedSecret: Postman Collection Key
+  secretType: postman_collection_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Prefect
+  supportedSecret: Prefect Server API Key
+  secretType: prefect_server_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2235,10 +2523,108 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'redirect.pizza'
-  supportedSecret: 'redirect.pizza API Token'
-  secretType: 'redirect_pizza_api_token'
+- provider: Prefect
+  supportedSecret: Prefect User API Key
+  secretType: prefect_user_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.6'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Proctorio
+  supportedSecret: Proctorio Consumer Key
+  secretType: proctorio_consumer_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Proctorio
+  supportedSecret: Proctorio Linkage Key
+  secretType: proctorio_linkage_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Proctorio
+  supportedSecret: Proctorio Registration Key
+  secretType: proctorio_registration_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Proctorio
+  supportedSecret: Proctorio Secret Key
+  secretType: proctorio_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Proctorio
+  supportedSecret: Proctorio Secret Key
+  secretType: proctorio_secret_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Pulumi
+  supportedSecret: Pulumi Access Token
+  secretType: pulumi_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: PyPI
+  supportedSecret: PyPI API Token
+  secretType: pypi_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: ReadMe
+  supportedSecret: ReadMe API Key
+  secretType: readmeio_api_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.6'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: redirect.pizza
+  supportedSecret: redirect.pizza API Token
+  secretType: redirect_pizza_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2247,10 +2633,63 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Rootly'
-  supportedSecret: 'Rootly API Key'
-  secretType: 'rootly_api_key'
+- provider: Replicate
+  supportedSecret: Replicate API Token
+  secretType: replicate_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Rootly
+  supportedSecret: Rootly API Key
+  secretType: rootly_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.9'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: RubyGems
+  supportedSecret: RubyGems API Key
+  secretType: rubygems_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Samsara
+  supportedSecret: Samsara API Token
+  secretType: samsara_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Samsara
+  supportedSecret: Samsara OAuth Access Token
+  secretType: samsara_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Segment
+  supportedSecret: Segment Public API Token
+  secretType: segment_public_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2259,58 +2698,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'RubyGems'
-  supportedSecret: 'RubyGems API Key'
-  secretType: 'rubygems_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Samsara'
-  supportedSecret: 'Samsara API Token'
-  secretType: 'samsara_api_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Samsara'
-  supportedSecret: 'Samsara OAuth Access Token'
-  secretType: 'samsara_oauth_access_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Segment'
-  supportedSecret: 'Segment Public API Token'
-  secretType: 'segment_public_api_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>3.9'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'SendGrid'
-  supportedSecret: 'SendGrid API Key'
-  secretType: 'sendgrid_api_key'
+- provider: SendGrid
+  supportedSecret: SendGrid API Key
+  secretType: sendgrid_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2319,10 +2709,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Sendinblue'
-  supportedSecret: 'Sendinblue API Key'
-  secretType: 'sendinblue_api_key'
+- provider: Sendinblue
+  supportedSecret: Sendinblue API Key
+  secretType: sendinblue_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2331,10 +2720,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Sendinblue'
-  supportedSecret: 'Sendinblue SMTP Key'
-  secretType: 'sendinblue_smtp_key'
+- provider: Sendinblue
+  supportedSecret: Sendinblue SMTP Key
+  secretType: sendinblue_smtp_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2343,10 +2731,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Shippo'
-  supportedSecret: 'Shippo Live API Token'
-  secretType: 'shippo_live_api_token'
+- provider: Shippo
+  supportedSecret: Shippo Live API Token
+  secretType: shippo_live_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2355,10 +2742,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Shippo'
-  supportedSecret: 'Shippo Test API Token'
-  secretType: 'shippo_test_api_token'
+- provider: Shippo
+  supportedSecret: Shippo Test API Token
+  secretType: shippo_test_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2367,10 +2753,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Access Token'
-  secretType: 'shopify_access_token'
+- provider: Shopify
+  supportedSecret: Shopify Access Token
+  secretType: shopify_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2379,34 +2764,31 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify App Client Credentials'
-  secretType: 'shopify_app_client_credentials'
+- provider: Shopify
+  supportedSecret: Shopify App Client Credentials
+  secretType: shopify_app_client_credentials
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>3.4'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify App Client Secret'
-  secretType: 'shopify_app_client_secret'
+- provider: Shopify
+  supportedSecret: Shopify App Client Secret
+  secretType: shopify_app_client_secret
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>3.4'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify App Shared Secret'
-  secretType: 'shopify_app_shared_secret'
+- provider: Shopify
+  supportedSecret: Shopify App Shared Secret
+  secretType: shopify_app_shared_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2415,10 +2797,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Custom App Access Token'
-  secretType: 'shopify_custom_app_access_token'
+- provider: Shopify
+  supportedSecret: Shopify Custom App Access Token
+  secretType: shopify_custom_app_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2427,46 +2808,42 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Marketplace Token'
-  secretType: 'shopify_marketplace_token'
+- provider: Shopify
+  supportedSecret: Shopify Marketplace Token
+  secretType: shopify_marketplace_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>3.4'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Merchant Token'
-  secretType: 'shopify_merchant_token'
+- provider: Shopify
+  supportedSecret: Shopify Merchant Token
+  secretType: shopify_merchant_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>3.4'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Partner API Token'
-  secretType: 'shopify_partner_api_token'
+- provider: Shopify
+  supportedSecret: Shopify Partner API Token
+  secretType: shopify_partner_api_token
   versions:
     fpt: '*'
     ghec: '*'
     ghes: '>3.4'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Shopify'
-  supportedSecret: 'Shopify Private App Password'
-  secretType: 'shopify_private_app_password'
+- provider: Shopify
+  supportedSecret: Shopify Private App Password
+  secretType: shopify_private_app_password
   versions:
     fpt: '*'
     ghec: '*'
@@ -2475,22 +2852,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Siemens'
-  supportedSecret: 'Siemens Code Access Token'
-  secretType: 'code_siemens_com_token'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.12'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-
-- provider: 'Slack'
-  supportedSecret: 'Slack API Token'
-  secretType: 'slack_api_token'
+- provider: Slack
+  supportedSecret: Slack API Token
+  secretType: slack_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2499,10 +2863,31 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Slack'
-  supportedSecret: 'Slack Incoming Webhook URL'
-  secretType: 'slack_incoming_webhook_url'
+- provider: Slack
+  supportedSecret: Slack API Token
+  secretType: slack_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Slack
+  supportedSecret: Slack API Token
+  secretType: slack_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+- provider: Slack
+  supportedSecret: Slack Incoming Webhook URL
+  secretType: slack_incoming_webhook_url
   versions:
     fpt: '*'
     ghec: '*'
@@ -2511,10 +2896,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Slack'
-  supportedSecret: 'Slack Workflow Webhook URL'
-  secretType: 'slack_workflow_webhook_url'
+- provider: Slack
+  supportedSecret: Slack Workflow Webhook URL
+  secretType: slack_workflow_webhook_url
   versions:
     fpt: '*'
     ghec: '*'
@@ -2523,10 +2907,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Square'
-  supportedSecret: 'Square Access Token'
-  secretType: 'square_access_token'
+- provider: Square
+  supportedSecret: Square Access Token
+  secretType: square_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2535,10 +2918,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Square'
-  supportedSecret: 'Square Production Application Secret'
-  secretType: 'square_production_application_secret'
+- provider: Square
+  supportedSecret: Square Access Token
+  secretType: square_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2547,10 +2929,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Square'
-  supportedSecret: 'Square Sandbox Application Secret'
-  secretType: 'square_sandbox_application_secret'
+- provider: Square
+  supportedSecret: Square Access Token
+  secretType: square_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2559,10 +2940,31 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'SSLMate'
-  supportedSecret: 'SSLMate API Key'
-  secretType: 'sslmate_api_key'
+- provider: Square
+  supportedSecret: Square Production Application Secret
+  secretType: square_production_application_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Square
+  supportedSecret: Square Sandbox Application Secret
+  secretType: square_sandbox_application_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: SSLMate
+  supportedSecret: SSLMate API Key
+  secretType: sslmate_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2571,10 +2973,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'SSLMate'
-  supportedSecret: 'SSLMate Cluster Secret'
-  secretType: 'sslmate_cluster_secret'
+- provider: SSLMate
+  supportedSecret: SSLMate API Key
+  secretType: sslmate_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2583,10 +2984,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe Live API Restricted Key'
-  secretType: 'stripe_live_restricted_key'
+- provider: SSLMate
+  supportedSecret: SSLMate Cluster Secret
+  secretType: sslmate_cluster_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2595,10 +2995,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe API Key'
-  secretType: 'stripe_api_key'
+- provider: Stripe
+  supportedSecret: Stripe API Key
+  secretType: stripe_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2607,10 +3006,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe Legacy API Secret Key'
-  secretType: 'stripe_legacy_api_key'
+- provider: Stripe
+  supportedSecret: Stripe Legacy API Key
+  secretType: stripe_legacy_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2619,10 +3017,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe Test API Restricted Key'
-  secretType: 'stripe_test_restricted_key'
+- provider: Stripe
+  supportedSecret: Stripe Live API Restricted Key
+  secretType: stripe_live_restricted_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2631,10 +3028,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe Test API Secret Key'
-  secretType: 'stripe_test_secret_key'
+- provider: Stripe
+  supportedSecret: Stripe Test API Restricted Key
+  secretType: stripe_test_restricted_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Stripe
+  supportedSecret: Stripe Test API Secret Key
+  secretType: stripe_test_secret_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2643,10 +3050,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Stripe'
-  supportedSecret: 'Stripe Webhook Signing Secret'
-  secretType: 'stripe_webhook_signing_secret'
+- provider: Stripe
+  supportedSecret: Stripe Webhook Signing Secret
+  secretType: stripe_webhook_signing_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2655,10 +3061,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Supabase'
-  supportedSecret: 'Supabase Service Key'
-  secretType: 'supabase_service_key'
+- provider: Supabase
+  supportedSecret: Supabase Service Key
+  secretType: supabase_service_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2667,10 +3072,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Tableau'
-  supportedSecret: 'Tableau Personal Access Token'
-  secretType: 'tableau_personal_access_token'
+- provider: Supabase
+  supportedSecret: Supabase Service Key
+  secretType: supabase_service_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Tableau
+  supportedSecret: Tableau Personal Access Token
+  secretType: tableau_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2679,10 +3094,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Telegram'
-  supportedSecret: 'Telegram Bot Token'
-  secretType: 'telegram_bot_token'
+- provider: Telegram
+  supportedSecret: Telegram Bot Token
+  secretType: telegram_bot_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2691,10 +3105,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-
-- provider: 'Telnyx'
-  supportedSecret: 'Telnyx API V2 Key'
-  secretType: 'telnyx_api_v2_key'
+- provider: Telnyx
+  supportedSecret: Telnyx API V2 Key
+  secretType: telnyx_api_v2_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2703,10 +3116,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Tencent Cloud'
-  supportedSecret: 'Tencent Cloud Secret ID'
-  secretType: 'tencent_cloud_secret_id'
+- provider: Tencent
+  supportedSecret: Tencent Cloud Secret ID
+  secretType: tencent_cloud_secret_id
   versions:
     fpt: '*'
     ghec: '*'
@@ -2715,10 +3127,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Tencent WeChat'
-  supportedSecret: 'Tencent WeChat API App ID'
-  secretType: 'tencent_wechat_api_app_id'
+- provider: Tencent
+  supportedSecret: Tencent WeChat API App ID
+  secretType: tencent_wechat_api_app_id
   versions:
     fpt: '*'
     ghec: '*'
@@ -2727,10 +3138,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Twilio'
-  supportedSecret: 'Twilio Access Token'
-  secretType: 'twilio_access_token'
+- provider: Twilio
+  supportedSecret: Twilio Access Token
+  secretType: twilio_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2739,10 +3149,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Twilio'
-  supportedSecret: 'Twilio Account String Identifier'
-  secretType: 'twilio_account_sid'
+- provider: Twilio
+  supportedSecret: Twilio Account String Identifier
+  secretType: twilio_account_sid
   versions:
     fpt: '*'
     ghec: '*'
@@ -2751,10 +3160,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Twilio'
-  supportedSecret: 'Twilio API Key'
-  secretType: 'twilio_api_key'
+- provider: Twilio
+  supportedSecret: Twilio API Key
+  secretType: twilio_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2763,10 +3171,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Typeform'
-  supportedSecret: 'Typeform Personal Access Token'
-  secretType: 'typeform_personal_access_token'
+- provider: Typeform
+  supportedSecret: Typeform Personal Access Token
+  secretType: typeform_personal_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2775,10 +3182,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Uniwise'
-  supportedSecret: 'WISEflow API Key'
-  secretType: 'wiseflow_api_key'
+- provider: Uniwise
+  supportedSecret: WISEflow API Key
+  secretType: wiseflow_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2787,10 +3193,40 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'WakaTime'
-  supportedSecret: 'WakaTime App Secret'
-  secretType: 'wakatime_pp_secret'
+- provider: Unkey
+  supportedSecret: Unkey Root Key
+  secretType: unkey_root_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: VolcEngine
+  supportedSecret: VolcEngine Access Key ID
+  secretType: volcengine_access_key_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.12'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Wakatime
+  supportedSecret: WakaTime API Key
+  secretType: wakatime_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Wakatime
+  supportedSecret: WakaTime App Secret
+  secretType: wakatime_app_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2799,10 +3235,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'WakaTime'
-  supportedSecret: 'WakaTime OAuth Access Token'
-  secretType: 'wakatime_oauth_access_token'
+- provider: Wakatime
+  supportedSecret: WakaTime OAuth Access Token
+  secretType: wakatime_oauth_access_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2811,10 +3246,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'WakaTime'
-  supportedSecret: 'WakaTime OAuth Refresh Token'
-  secretType: 'wakatime_oauth_refresh_token'
+- provider: Wakatime
+  supportedSecret: WakaTime OAuth Refresh Token
+  secretType: wakatime_oauth_refresh_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2823,10 +3257,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Workato'
-  supportedSecret: 'Workato Developer API Token'
-  secretType: 'workato_developer_api_token'
+- provider: Workato
+  supportedSecret: Workato Developer API Token
+  secretType: workato_developer_api_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -2835,10 +3268,42 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'WorkOS'
-  supportedSecret: 'WorkOS Production API Key'
-  secretType: 'workos_production_api_key'
+- provider: Workato
+  supportedSecret: Workato Developer API Token
+  secretType: workato_developer_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Workato
+  supportedSecret: Workato Developer API Token
+  secretType: workato_developer_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: Workato
+  supportedSecret: Workato Developer API Token
+  secretType: workato_developer_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>3.11'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+- provider: WorkOS
+  supportedSecret: WorkOS Production API Key
+  secretType: workos_production_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2847,10 +3312,20 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'WorkOS'
-  supportedSecret: 'WorkOS Staging API Key'
-  secretType: 'workos_staging_api_key'
+- provider: WorkOS
+  supportedSecret: WorkOS Production API Key
+  secretType: workos_production_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.12'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: WorkOS
+  supportedSecret: WorkOS Staging API Key
+  secretType: workos_staging_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2859,34 +3334,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Cloud Access Secret'
-  secretType: 'yandex_iam_access_secret'
+- provider: WorkOS
+  supportedSecret: WorkOS Staging API Key
+  secretType: workos_staging_api_key
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>3.4'
+    ghes: '>=3.12'
   isPublic: true
-  isPrivateWithGhas: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Cloud API Key'
-  secretType: 'yandex_cloud_api_key'
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Cloud IAM Cookie'
-  secretType: 'yandex_cloud_iam_cookie'
+- provider: Yandex
+  supportedSecret: Yandex.Cloud API Key
+  secretType: yandex_cloud_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2895,10 +3356,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Cloud IAM Token'
-  secretType: 'yandex_cloud_iam_token'
+- provider: Yandex
+  supportedSecret: Yandex.Cloud Access Secret
+  secretType: yandex_cloud_iam_access_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Yandex
+  supportedSecret: Yandex.Cloud IAM Cookie
+  secretType: yandex_cloud_iam_cookie
   versions:
     fpt: '*'
     ghec: '*'
@@ -2907,10 +3377,20 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex Cloud Smartcaptcha Server Key'
-  secretType: 'yandex_cloud_smartcaptcha_server_key'
+- provider: Yandex
+  supportedSecret: Yandex.Cloud IAM Token
+  secretType: yandex_cloud_iam_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+- provider: Yandex
+  supportedSecret: Yandex.Cloud Smartchapta Server Key
+  secretType: yandex_cloud_smartcaptcha_server_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2919,10 +3399,9 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Dictionary API Key'
-  secretType: 'yandex_dictionary_api_key'
+- provider: Yandex
+  supportedSecret: Yandex.Dictionary API Key
+  secretType: yandex_dictionary_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2931,21 +3410,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Passport OAuth Token'
-  secretType: 'YANDEX_PASSPORT_OAUTH_TOKEN'
+- provider: Yandex
+  supportedSecret: Yandex.Passport OAuth Token
+  secretType: yandex_passport_oauth_token
   versions:
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
-  hasPushProtection: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Predictor API Key'
-  secretType: 'yandex_predictor_api_key'
+- provider: Yandex
+  supportedSecret: Yandex.Predictor API Key
+  secretType: yandex_predictor_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2954,10 +3431,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Yandex'
-  supportedSecret: 'Yandex.Translate API Key'
-  secretType: 'yandex_translate_api_key'
+- provider: Yandex
+  supportedSecret: Yandex.Translate API Key
+  secretType: yandex_translate_api_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -2966,10 +3442,9 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
-
-- provider: 'Zuplo'
-  supportedSecret: 'Zuplo Consumer API Key'
-  secretType: 'zuplo_consumer_api_key'
+- provider: Zuplo
+  supportedSecret: Zuplo Consumer API Key
+  secretType: zuplo_consumer_api_key
   versions:
     fpt: '*'
     ghec: '*'
