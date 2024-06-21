@@ -89,7 +89,10 @@ For more detailed information about how to enable SAML using Okta, see "[AUTOTIT
 1. Under "SAML single sign-on", select **Require SAML authentication**.
 1. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
 1. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
-1. Under **Public Certificate**, paste a certificate to verify SAML responses.
+1. Under **Public Certificate**, paste a certificate to verify SAML responses. This is the public key corresponding to the private key used to sign SAML responses.
+
+   To find the certificate, refer to the documentation for your IdP. Some IdPs call this an X.509 certificate.
+
 {% data reusables.saml.edit-signature-and-digest-methods %}
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration** . {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
