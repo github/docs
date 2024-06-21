@@ -326,8 +326,9 @@ The following examples are designed to give you an idea of some of the build com
   # `--spawn_strategy=local`: build locally, instead of using a distributed build
   # `--nouse_action_cache`: turn off build caching, which might prevent recompilation of source code
   # `--noremote_accept_cached`, `--noremote_upload_local_results`: avoid using a remote cache
+  # `--disk_cache=`: avoid using a disk cache. Note that a disk cache is no longer considered a remote cache as of Bazel 6.
   codeql database create new-database --language=<language> \
-  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results //path/to/package:target'
+  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results --disk_cache= //path/to/package:target'
 
   # After building, stop all running Bazel server processes.
   # This ensures future build commands start in a clean Bazel server process
