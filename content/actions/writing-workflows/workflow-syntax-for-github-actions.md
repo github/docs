@@ -1002,7 +1002,7 @@ For more information about the differences between networking service containers
 
 ### Example: Using localhost
 
-This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+This example creates two services: nginx and redis. When you specify the container port but not the host port, the host port is randomly assigned to a free port on host. {% data variables.product.prodname_dotcom %} sets the assigned host port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service host ports using the {% raw %}`${{ job.services.nginx.ports['80'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
 ```yaml
 services:
@@ -1016,6 +1016,10 @@ services:
     # Map TCP port 6379 on Docker host to a random free port on the Redis container
     ports:
       - 6379/tcp
+steps:
+  - run: |
+      echo "Redis available on 127.0.0.1:${{ job.services.redis.ports['6379'] }}"
+      echo "Nginx available on 127.0.0.1:${{ job.services.nginx.ports['80'] }}"
 ```
 
 ## `jobs.<job_id>.services.<service_id>.image`
