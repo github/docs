@@ -67,8 +67,10 @@ The following table shows the accessibility of reusable workflows to a caller wo
 
 | Caller repository | Accessible workflows repositories |
 |----|----|
-| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and  `public` |{% ifversion ghes or ghec %}
-| `internal` | `internal`, and `public` |{% endif %}
+| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and  `public` |
+| {% ifversion ghes or ghec %} |
+| `internal` | `internal`, and `public` |
+| {% endif %} |
 | `public` | `public` |
 
 The **Actions permissions** on the callers repository's Actions settings page must be configured to allow the use of actions and reusable workflows - see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-select-actions-and-reusable-workflows-to-run)."

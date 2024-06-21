@@ -113,9 +113,7 @@ For more information, see "[AUTOTITLE](/discussions)."
   * Branch protection rules will still apply
 * Create protected tags
 * Delete protected tags
-{%- ifversion bypass-branch-protections %}
 * Bypass branch protections
-{%- endif %}
 {%- ifversion edit-repository-rules %}
 * Edit repository rules
 {%- endif %}
