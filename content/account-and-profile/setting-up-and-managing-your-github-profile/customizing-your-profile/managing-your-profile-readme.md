@@ -47,7 +47,7 @@ You can format text and include emoji, images, and GIFs in your profile README b
 {% data reusables.profile.create-profile-readme %}
 1. Above the right sidebar, click **Edit README**.
 
-  The generated README file is pre-populated with a template to give you some inspiration for your profile README.
+  The generated README file is pre-populated with a template to gives you an example for your profile.
 
 For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 
