@@ -1,6 +1,9 @@
 ---
 title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
+intro: 'A pull request on GitHub is a way to propose changes you''ve made to a branch in a repository. Once you have made changes to your code in a branch, you can open a pull request to notify others about these changes. This allows your collaborators to review, discuss, and suggest improvements to your code. You can continue to make additional commits to your branch to address any feedback. When everyone is satisfied with the changes, the pull request can be merged into the main codebase. Pull requests facilitate collaboration by making it easy to review and discuss code changes before they are incorporated into the main project.'
+---
+
+<!-- SIMPLIFIED IT FOR BETTER UNDERSTANDING -->
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
