@@ -40,10 +40,10 @@ By making your profile private, you will not remove or hide past activity; this 
 
 When your profile is private, your {% data variables.product.prodname_dotcom %} activity will not appear in the following locations:
 
-- Activity feeds for other users.
-- Discussions leaderboards.
-- Site-wide search results.
-- The [Trending](https://github.com/trending) page.
+- Activity feeds for other users
+- Discussions leaderboards
+- Site-wide search results
+- The [Trending](https://github.com/trending) page
 
 {% note %}
 
