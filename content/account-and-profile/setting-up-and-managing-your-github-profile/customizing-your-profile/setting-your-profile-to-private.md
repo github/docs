@@ -19,14 +19,14 @@ Private profiles cannot receive sponsorships under [{% data variables.product.pr
 
 When your profile is private, the following content is hidden from your profile page:
 
-- Achievements and highlights.
-- Activity overview and activity feed.
-- Contribution graph.
-- Follower and following counts.
-- Follow and Sponsor buttons.
-- Organization memberships.
-- Stars, projects, packages, and sponsoring tabs.
-- Your pronouns.
+- Achievements and highlights
+- Activity overview and activity feed
+- Contribution graph
+- Follower and following counts
+- Follow and Sponsor buttons
+- Organization memberships
+- Stars, projects, packages, and sponsoring tabs
+- Your pronouns
 
 {% note %}
 
