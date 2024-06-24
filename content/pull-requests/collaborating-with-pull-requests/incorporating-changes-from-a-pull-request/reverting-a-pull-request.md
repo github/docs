@@ -23,8 +23,8 @@ Reverting a pull request on {% data variables.product.product_name %} creates a 
 
 **Note:** You may need to revert the individual commits in your pull request if either of the following is true.
 
-- Reverting the pull request causes merge conflicts
-- The original pull request was not originally merged on {% data variables.product.product_name %}. For example, someone could have merged the pull request using a fast-forward merge on the command line.
+* Reverting the pull request causes merge conflicts
+* The original pull request was not originally merged on {% data variables.product.product_name %}. For example, someone could have merged the pull request using a fast-forward merge on the command line.
 
 For more information about using Git to manually revert individual commits, see [Git revert](https://git-scm.com/docs/git-revert.html) in the Git documentation.
 

@@ -36,11 +36,11 @@ After you synchronize license usage, {% data variables.product.prodname_dotcom %
 
 First, we check the primary email address of each user on {% data variables.product.prodname_ghe_server %}. Then, we attempt to match that address with the email address for a user account on {% data variables.product.prodname_ghe_cloud %}. If your enterprise on {% data variables.product.prodname_dotcom_the_website %} or any of the enterprise's organizations use SAML authentication or SCIM provisioning, we first check the linked SAML or SCIM identities to see if the identity contains one of the attributes below. We attempt to match the values of these attributes to the primary email address of each {% data variables.product.prodname_ghe_server %} user.
 
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-- `username`
-- `NameID`
-- `emails`
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+* `username`
+* `NameID`
+* `emails`
 
 If there is no match, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 

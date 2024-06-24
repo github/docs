@@ -36,12 +36,12 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 {% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
 
-- Active Directory
-- FreeIPA
-- Oracle Directory Server Enterprise Edition
-- OpenLDAP
-- Open Directory
-- 389-ds
+* Active Directory
+* FreeIPA
+* Oracle Directory Server Enterprise Edition
+* OpenLDAP
+* Open Directory
+* 389-ds
 
 ## Username considerations with LDAP
 
@@ -106,9 +106,9 @@ You can validate the LDAP server certificate you use with TLS by enabling LDAP c
 To enable LDAP certificate verification, select **Enable LDAP certificate verification** in your LDAP settings.
 
 When this option is selected, the certificate is validated to make sure:
-- If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
-- The certificate is not expired.
-- The certificate is signed by a trusted certificate authority (CA).
+* If the certificate contains at least one Subject Alternative Name (SAN), one of the SANs matches the LDAP hostname. Otherwise, the Common Name (CN) matches the LDAP hostname.
+* The certificate is not expired.
+* The certificate is signed by a trusted certificate authority (CA).
 
 ## Enabling LDAP Sync
 
@@ -134,19 +134,19 @@ To automatically synchronize certain attributes from LDAP, under "Synchronize Us
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
-- If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
-- If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
-- If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
-- If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
-- If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
-- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
-- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
-- If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
-- If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
-- If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account, unless the account is suspended. Suspended administrators will not be demoted and will remain listed on the "Site admins" and "Enterprise owners" pages.
-- If an LDAP User field is defined for emails, synchronize the user's email settings with the LDAP entry. Set the first LDAP `mail` entry as the primary email.
-- If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.
-- If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.
+* If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
+* If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
+* If there is an LDAP mapping and the corresponding LDAP entry in the directory is missing, suspend the user and move on to the next user.
+* If the corresponding LDAP entry has been marked as disabled and the user is not already suspended, suspend the user and move on to the next user.
+* If the corresponding LDAP entry is not marked as disabled, and the user is suspended, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+* If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
+* If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+* If the corresponding LDAP entry includes a `name` attribute, update the user's profile name.
+* If the corresponding LDAP entry is in the Administrators group, promote the user to site administrator.
+* If the corresponding LDAP entry is not in the Administrators group, demote the user to a normal account, unless the account is suspended. Suspended administrators will not be demoted and will remain listed on the "Site admins" and "Enterprise owners" pages.
+* If an LDAP User field is defined for emails, synchronize the user's email settings with the LDAP entry. Set the first LDAP `mail` entry as the primary email.
+* If an LDAP User field is defined for SSH public keys, synchronize the user's public SSH keys with the LDAP entry.
+* If an LDAP User field is defined for GPG keys, synchronize the user's GPG keys with the LDAP entry.
 
 {% note %}
 
@@ -156,15 +156,15 @@ After you enable LDAP sync, a synchronization job will run at the specified time
 
 A synchronization job will also run at the specified time interval to perform the following operations on each team that has been mapped to an LDAP group:
 
-- If a team's corresponding LDAP group has been removed, remove all members from the team.
-- If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization and is not an owner of the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
+* If a team's corresponding LDAP group has been removed, remove all members from the team.
+* If LDAP member entries have been removed from the LDAP group, remove the corresponding users from the team. If the user is no longer a member of any team in the organization and is not an owner of the organization, remove the user from the organization. If the user loses access to any repositories as a result, delete any private forks the user has of those repositories.
 
   {% note %}
 
   **Note:** LDAP Sync will not remove a user from an organization if the user is an owner of that organization. Another organization owner will need to manually remove the user instead.
 
   {% endnote %}
-- If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
+* If LDAP member entries have been added to the LDAP group, add the corresponding users to the team. If the user regains access to any repositories as a result, restore any private forks of the repositories that were deleted because the user lost access in the past 90 days.
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
@@ -176,8 +176,8 @@ When LDAP Sync is enabled, site admins and organization owners can search the LD
 
 This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
 
-- The existence of specific LDAP Groups visible to the _Domain search user_.
-- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
+* The existence of specific LDAP Groups visible to the _Domain search user_.
+* Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
 
 If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact us by visiting {% data variables.contact.contact_ent_support %}.
 
@@ -187,10 +187,10 @@ If disclosing such information is not desired, your company or organization shou
 
 {% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
 
-- `group`
-- `groupOfNames`
-- `groupOfUniqueNames`
-- `posixGroup`
+* `group`
+* `groupOfNames`
+* `groupOfUniqueNames`
+* `posixGroup`
 
 ## Viewing and creating LDAP users
 
@@ -207,9 +207,9 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
-- To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-- To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
-- To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+* To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
+* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## Manually syncing LDAP accounts
 

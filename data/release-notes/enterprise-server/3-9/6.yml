@@ -13,6 +13,8 @@ sections:
       Packages have been updated to the latest security versions.
   bugs:
     - |
+      The REST API did not correctly check the "Users can create organizations" setting. [Updated: 2024-05-30]
+    - |
       The `ghe-cluster-repl-status` command did not display all replication statuses.
     - |
       On an instance in a cluster configuration with high availability enabled, `ghe-config-apply` timed out while waiting for `hookshot-go` to start on replica application nodes.
@@ -94,3 +96,5 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
     - |
       {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

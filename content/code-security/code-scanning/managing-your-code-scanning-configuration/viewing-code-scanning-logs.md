@@ -19,7 +19,7 @@ shortTitle: View code scanning logs
 
 ## About your {% data variables.product.prodname_code_scanning %} configuration
 
-You can use a variety of tools to configure {% data variables.product.prodname_code_scanning %} in your repository. For more information, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
+You can use a variety of tools to configure {% data variables.product.prodname_code_scanning %} in your repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 The log and diagnostic information available to you depends on the method you use for {% data variables.product.prodname_code_scanning %} in your repository. You can check the type of {% data variables.product.prodname_code_scanning %} you're using in the **Security** tab of your repository, by using the **Tool** drop-down menu in the alert list. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
@@ -63,13 +63,11 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
 
-{%- ifversion code-scanning-without-workflow %}
    {% note %}
 
    **Note:** If you are looking for the {% data variables.product.prodname_codeql %} workflow run triggered by enabling default setup, the text of the entry is "{% data variables.product.prodname_codeql %}."
 
    {% endnote %}
-{% endif -%}
 
 1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
 

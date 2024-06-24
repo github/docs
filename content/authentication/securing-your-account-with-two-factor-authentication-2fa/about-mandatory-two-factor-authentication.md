@@ -14,12 +14,12 @@ shortTitle: About mandatory 2FA
 ## About eligibility for mandatory 2FA
 
 Your account is selected for mandatory 2FA if you have taken some action on {% data variables.product.product_name %} that shows you are a contributor. Eligible actions include:
-- Publishing an app or action for others.
-- Creating a release for your repository.
-- Contributing to specific high-importance repositories, such as [the projects tracked by the Open Source Security Foundation](https://github.com/ossf/wg-securing-critical-projects#current-work).
-- Being an administrator of a high-importance repository.
-- Being an organization owner for an organization containing repositories or other users.
-- Being an enterprise administrator.
+* Publishing an app or action for others.
+* Creating a release for your repository.
+* Contributing to specific high-importance repositories, such as [the projects tracked by the Open Source Security Foundation](https://github.com/ossf/wg-securing-critical-projects#current-work).
+* Being an administrator of a high-importance repository.
+* Being an organization owner for an organization containing repositories or other users.
+* Being an enterprise administrator.
 
 {% data variables.product.prodname_dotcom %} is continually assessing improvements to our account security features and 2FA requirements, so these criteria may change over time.
 
@@ -53,9 +53,9 @@ We recommend setting up a time-based one-time password (TOTP) app as your primar
 
 Currently, we don't support passkeys or security keys as primary 2FA methods since they are easy to lose and do not support sync across a wide enough range of devices. As passkeys are more widely adopted and sync support is more prevalent, we will support them as a primary method.
 
-- [About TOTP apps and mandatory 2FA](#about-totp-apps-and-mandatory-2fa)
-- [About SAML SSO and mandatory 2FA](#about-saml-sso-and-mandatory-2fa)
-- [About email verification and mandatory 2FA](#about-email-verification-and-mandatory-2fa)
+* [About TOTP apps and mandatory 2FA](#about-totp-apps-and-mandatory-2fa)
+* [About SAML SSO and mandatory 2FA](#about-saml-sso-and-mandatory-2fa)
+* [About email verification and mandatory 2FA](#about-email-verification-and-mandatory-2fa)
 
 {% note %}
 

@@ -25,5 +25,5 @@ To better manage your project, you can prioritize issues or pull requests within
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
+* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"

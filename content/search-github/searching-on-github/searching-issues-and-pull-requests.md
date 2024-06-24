@@ -19,11 +19,11 @@ You can search for issues and pull requests globally across all of {% data varia
 {% tip %}
 
 **Tips:**{% ifversion ghes %}
-- This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
-- For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
-- Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
-- Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
-- {% data reusables.search.search_issues_and_pull_requests_shortcut %}
+* This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
+* For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
+* Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
+* Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
+* {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
@@ -362,10 +362,10 @@ You can search for an issue or pull request that has a locked conversation using
 
 You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. These qualifiers cannot be combined with the minus (hyphen) symbol to exclude items that are missing metadata. That metadata includes:
 
-- Labels
-- Milestones
-- Assignees
-- Projects
+* Labels
+* Milestones
+* Assignees
+* Projects
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -376,4 +376,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

@@ -15,7 +15,7 @@ This Agreement is a legal agreement between you (“you”) and GitHub, Inc. (�
 
 1. **GitHub.com’s Terms of Use Will Apply**
 
-   You need to have an account on GitHub.com in order to participate in the Program.  By clicking “I Agree” at the bottom of this Agreement, you are also agreeing to be bound by the GitHub.com [Terms of Service](/site-policy/github-terms/github-terms-of-service) (the “TOS”). In the event of a direct conflict between this Agreement and theTOS, this Agreement will control; otherwise, both agreements will apply to you concurrently.
+   You need to have an account on GitHub.com in order to participate in the Program.  By clicking “I Agree” at the bottom of this Agreement, you are also agreeing to be bound by the GitHub.com [Terms of Service](/site-policy/github-terms/github-terms-of-service) (the “TOS”). In the event of a direct conflict between this Agreement and the TOS, this Agreement will control; otherwise, both agreements will apply to you concurrently.
 
 1. **Program Terms**
 

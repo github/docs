@@ -22,9 +22,9 @@ If you exceed your primary rate limit, you will receive a `403 Forbidden` or `42
 
 If you receive a rate limit error, you should stop making requests temporarily according to these guidelines:
 
-- If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed.
-- If the `x-ratelimit-remaining` header is `0`, you should not make another request until after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header is in UTC epoch seconds.
-- Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
+* If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed.
+* If the `x-ratelimit-remaining` header is `0`, you should not make another request until after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header is in UTC epoch seconds.
+* Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
@@ -36,34 +36,34 @@ If you make a request to access a private resource and your request isn't proper
 
 If you get a `404 Not Found` response when you know that the resource that you are requesting exists, you should check your authentication. For example:
 
-- If you are using a {% data variables.product.pat_v1 %}, you should ensure that:
-  - The token has the scopes that are required to use the endpoint. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
-  - The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% ifversion pat-v2 %}
-- If you are using a {% data variables.product.pat_v2 %}, you should ensure that:
-  - The token has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
-  - The resource owner that was specified for the token matches the owner of the resource that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
-  - The token has access to any private repositories that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
-  - The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% endif %}
-- If you are using a {% data variables.product.prodname_github_app %} installation access token, you should ensure that:
-  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
-  - The endpoint is only affecting resources owned by the account where the {% data variables.product.prodname_github_app %} is installed.
-  - The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
-  - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
-- If you are using a {% data variables.product.prodname_github_app %} user access token, you should ensure that:
-  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
-  - The user that authorized the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  - The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
-  - The user has access to any repositories that the endpoint will affect.
-  - The user has approved any updated permissions for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/using-github-apps/approving-updated-permissions-for-a-github-app)."
-- If you are using an {% data variables.product.prodname_oauth_app %} user access token, you should ensure that:
-  - The token has the scopes that are required to use the endpoint. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
-  - The user that authorized the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
-  - The organization has not blocked OAuth app access, if you are using an endpoint that will affect resources owned by an organization. App owners cannot see whether their app is blocked, but they can instruct users of the app to check this. For more information, see {% ifversion fpt or ghec%}"[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."{% else %}"[AUTOTITLE](/free-pro-team@latest/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)" in the {% data variables.product.prodname_free_team %} documentation.{% endif %}
-  - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
-- If you are using `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, you should ensure that:
-  - The endpoint is only affecting resources owned by the repository where the workflow is running. If you need to access resources outside of that repository, such as resources owned by an organization or resources owned by another repository, you should use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %}.
+* If you are using a {% data variables.product.pat_v1 %}, you should ensure that:
+  * The token has the scopes that are required to use the endpoint. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
+  * The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% ifversion pat-v2 %}
+* If you are using a {% data variables.product.pat_v2 %}, you should ensure that:
+  * The token has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
+  * The resource owner that was specified for the token matches the owner of the resource that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
+  * The token has access to any private repositories that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
+  * The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% endif %}
+* If you are using a {% data variables.product.prodname_github_app %} installation access token, you should ensure that:
+  * The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
+  * The endpoint is only affecting resources owned by the account where the {% data variables.product.prodname_github_app %} is installed.
+  * The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
+* If you are using a {% data variables.product.prodname_github_app %} user access token, you should ensure that:
+  * The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
+  * The user that authorized the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
+  * The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
+  * The user has access to any repositories that the endpoint will affect.
+  * The user has approved any updated permissions for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/using-github-apps/approving-updated-permissions-for-a-github-app)."
+* If you are using an {% data variables.product.prodname_oauth_app %} user access token, you should ensure that:
+  * The token has the scopes that are required to use the endpoint. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
+  * The user that authorized the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
+  * The organization has not blocked OAuth app access, if you are using an endpoint that will affect resources owned by an organization. App owners cannot see whether their app is blocked, but they can instruct users of the app to check this. For more information, see {% ifversion fpt or ghec%}"[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."{% else %}"[AUTOTITLE](/free-pro-team@latest/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)" in the {% data variables.product.prodname_free_team %} documentation.{% endif %}
+  * The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
+* If you are using `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, you should ensure that:
+  * The endpoint is only affecting resources owned by the repository where the workflow is running. If you need to access resources outside of that repository, such as resources owned by an organization or resources owned by another repository, you should use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %}.
 
 For more information about authentication, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
 
@@ -105,9 +105,9 @@ The value of the `X-Accepted-GitHub-Permissions` header is a comma separated lis
 
 For example:
 
-- `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs read access to the contents permission.
-- `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs write access to the pull request permission and read access to the contents permission.
-- `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs write access to the pull request permission and read access to the contents permission.
+* `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
 
 {% endif %}
 
@@ -162,6 +162,6 @@ If you observe unexpected failures, you can use [githubstatus.com](https://www.g
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)"
-- "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)"
-- "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)"
+* "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)"
+* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"

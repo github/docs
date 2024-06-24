@@ -22,15 +22,15 @@ When you plan to publish your action to {% data variables.product.prodname_marke
 
 Actions are published to {% data variables.product.prodname_marketplace %} immediately and aren't reviewed by {% data variables.product.prodname_dotcom %} as long as they meet these requirements:
 
-- The action must be in a public repository.
-- Each repository must contain a single action.
-- Each repository must _not_ contain any workflow files.
-- The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
-- The `name` in the action's metadata file must be unique.
-  - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
-  - The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
-  - The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
-  - {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
+* The action must be in a public repository.
+* Each repository must contain a single action.
+* Each repository must _not_ contain any workflow files.
+* The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
+* The `name` in the action's metadata file must be unique.
+  * The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
+  * The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
+  * The `name` cannot match an existing {% data variables.product.prodname_marketplace %} category.
+  * {% data variables.product.prodname_dotcom %} reserves the names of {% data variables.product.prodname_dotcom %} features.
 
 ## Publishing an action
 

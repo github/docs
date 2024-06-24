@@ -15,10 +15,10 @@ topics:
 shortTitle: Commit to PR branch from fork
 ---
 You can only make commits on pull request branches that:
-- are opened in a repository that you have push access to and that were created from a fork of that repository
-- are on a user-owned fork
-- have permission granted from the pull request creator
-- don't have [branch restrictions](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
+* are opened in a repository that you have push access to and that were created from a fork of that repository
+* are on a user-owned fork
+* have permission granted from the pull request creator
+* don't have [branch restrictions](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#restrict-who-can-push-to-matching-branches) that will prevent you from committing
 
 Only the user who created the pull request can give you permission to push commits to the user-owned fork. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork)."
 
@@ -101,4 +101,4 @@ Your new commits will be reflected on the original pull request on {% data varia
 
 ## Further Reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"

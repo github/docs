@@ -26,5 +26,5 @@ You can also enable code review limits for individual repositories. If you enabl
 1. Under "{% octicon "report" aria-hidden="true" %} Moderation", click **Code review limits**.
 1. Review the information on screen.
 1. Manage code review limits.
-   - To limit reviews to those with explicit access, click **Limit review on all repositories**.
-   - To remove the limits from every public repository in your organization, click **Remove review limits from all repositories**.
+   * To limit reviews to those with explicit access, click **Limit review on all repositories**.
+   * To remove the limits from every public repository in your organization, click **Remove review limits from all repositories**.

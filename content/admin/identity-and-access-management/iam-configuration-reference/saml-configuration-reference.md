@@ -94,16 +94,16 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 {% data variables.product.product_name %} requires that the response message from your IdP fulfill the following requirements.
 
-- Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
-- Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as `http(s)://HOSTNAME`.{% endif %}
+* Your IdP must provide the `<Destination>` element on the root response document and match the ACS URL only when the root response document is signed. If your IdP signs the assertion, {% data variables.product.product_name %} will ignore the assertion.
+* Your IdP must always provide the `<Audience>` element as part of the `<AudienceRestriction>` element. The value must match your `EntityId` for {% data variables.product.product_name %}.{% ifversion ghes %} This value is the URL where you access {% data variables.location.product_location %}, such as `http(s)://HOSTNAME`.{% endif %}
 
   {%- ifversion ghec %}
-  - If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
-  - If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
+  * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
+  * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE`.
   {%- endif %}
-- Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
-- Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
-- Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
+* Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+* Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
+* Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
 
      ```xml
      <samlp:Response ...>
@@ -143,7 +143,7 @@ To prevent authentication errors, we recommend a minimum session duration of 4 h
 
 **Notes**:
 
-- For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
-- Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
+* For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.product_name %}.
+* Okta does not currently send the `SessionNotOnOrAfter` attribute during SAML authentication with {% data variables.product.product_name %}. For more information, contact Okta.
 
 {% endnote %}

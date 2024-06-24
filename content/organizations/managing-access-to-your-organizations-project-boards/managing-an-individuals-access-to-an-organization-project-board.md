@@ -66,4 +66,4 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"

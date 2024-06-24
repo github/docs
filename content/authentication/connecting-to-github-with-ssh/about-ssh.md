@@ -38,4 +38,4 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can provi
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/troubleshooting-ssh)"
+* "[AUTOTITLE](/authentication/troubleshooting-ssh)"

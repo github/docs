@@ -72,4 +72,4 @@ If you enable {% data variables.product.prodname_github_connect %}, the connecti
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)"
+* "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)"

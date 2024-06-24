@@ -21,9 +21,9 @@ To successfully apply a {% data variables.product.prodname_security_configuratio
 
 If you try to apply a {% data variables.product.prodname_security_configuration %} with {% data variables.product.prodname_code_scanning %} enabled to a repository with an existing advanced setup for {% data variables.product.prodname_code_scanning %}, security settings will be enabled as follows:
 
-  - {% data variables.product.prodname_code_scanning_caps %} default setup _will not_ be enabled on the repository, and the existing advanced setup will continue to run as normal.
-  - Aside from {% data variables.product.prodname_code_scanning %}, all security features enabled in the configuration _will_ be enabled on the repository.
-  - The {% data variables.product.prodname_security_configuration %} _will not_ be attached to the repository, since only some features from the configuration are enabled.
+  * {% data variables.product.prodname_code_scanning_caps %} default setup _will not_ be enabled on the repository, and the existing advanced setup will continue to run as normal.
+  * Aside from {% data variables.product.prodname_code_scanning %}, all security features enabled in the configuration _will_ be enabled on the repository.
+  * The {% data variables.product.prodname_security_configuration %} _will not_ be attached to the repository, since only some features from the configuration are enabled.
 
 For all repositories without an existing advanced setup for {% data variables.product.prodname_code_scanning %}, the {% data variables.product.prodname_security_configuration %} will be applied as expected, and {% data variables.product.prodname_code_scanning %} default setup will be enabled.
 

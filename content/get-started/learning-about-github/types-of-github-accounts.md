@@ -24,9 +24,9 @@ topics:
 ## About accounts on {% data variables.product.product_name %}
 
 With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
-- Personal accounts
-- Organization accounts
-- Enterprise accounts
+* Personal accounts
+* Organization accounts
+* Enterprise accounts
 
 Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
 
@@ -81,6 +81,6 @@ Your enterprise account is a collection of all the organizations {% ifversion gh
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"{% endif %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
-- [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
+* "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"{% endif %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
+* [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources

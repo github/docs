@@ -19,9 +19,9 @@ You can share information about yourself with the community on {% data variables
 
 You decide what information to include in your profile README, so you have full control over how you present yourself on {% data variables.product.prodname_dotcom %}. Here are some examples of information that visitors may find interesting, fun, or useful in your profile README.
 
-- An "About me" section that describes your work and interests
-- Contributions you're proud of, and context about those contributions
-- Guidance for getting help in communities where you're involved
+* An "About me" section that describes your work and interests
+* Contributions you're proud of, and context about those contributions
+* Guidance for getting help in communities where you're involved
 
 ![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 
@@ -31,10 +31,10 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
 {% data variables.product.prodname_dotcom %} will display your profile README on your profile page if all of the following are true.
 
-- You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
-- The repository is public.
-- The repository contains a file named README.md in its root.
-- The README.md file contains any content.
+* You've created a repository with a name that matches your {% data variables.product.prodname_dotcom %} username.
+* The repository is public.
+* The repository contains a file named README.md in its root.
+* The README.md file contains any content.
 
 {% note %}
 
@@ -55,16 +55,16 @@ For a summary of all the available emojis and their codes, see "[Emoji cheat she
 
 The profile README will be removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
 
-- The README file is removed or made empty.
-- The repository is made private.
-- The repository name no longer matches your username due to a change in either or both names.
+* The README file is removed or made empty.
+* The repository is made private.
+* The repository name no longer matches your username due to a change in either or both names.
 
 The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility)."
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)"
 {%- ifversion enterprise-readme %}
-- "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)"
+* "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)"
 {%- endif %}

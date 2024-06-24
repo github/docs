@@ -68,8 +68,8 @@ In order to respond in a timely manner, you may want to set up a queue to proces
 
 This error indicates that there is a problem related to your server's certificates. The most common problems are:
 
-- Your server is using a self-signed certificate.
-- Your server is not sending the full certificate chain when the connection is established.
+* Your server is using a self-signed certificate.
+* Your server is not sending the full certificate chain when the connection is established.
 
 To help diagnose the problem, you can use the [SSL server test](https://www.ssllabs.com/ssltest/analyze.html) from SSL Labs. This service can only work with the default port for HTTPS (port 443) and can only work with servers that are accessible from the Internet.
 

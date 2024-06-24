@@ -752,7 +752,7 @@
     The default branch that is merged into the branch in question (or the branch
     in question is rebased onto). It is configured via `branch.<name>.remote` and
     `branch.<name>.merge`. If the upstream branch of A is origin/B sometimes we
-    say "A is tracking origin/B".
+    say "A is tracking origin/B."
 - term: user
   description: >-
     Users are people with personal GitHub accounts. Each user has a personal profile, and

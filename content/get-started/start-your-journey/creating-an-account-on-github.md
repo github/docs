@@ -40,11 +40,11 @@ If you're having problems verifying your email address, there are some troublesh
 
 ## Next steps
 
-- Now that you've created your personal account, we'll start to explore the basics of {% data variables.product.prodname_dotcom %}. In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/hello-world)," you'll learn about repositories and how to create one, and you'll be introduced to concepts such as branching, commits, and pull requests.
-- We strongly recommend that you configure 2FA for your account. 2FA is an extra layer of security that can help keep your account secure. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+* Now that you've created your personal account, we'll start to explore the basics of {% data variables.product.prodname_dotcom %}. In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/hello-world)," you'll learn about repositories and how to create one, and you'll be introduced to concepts such as branching, commits, and pull requests.
+* We strongly recommend that you configure 2FA for your account. 2FA is an extra layer of security that can help keep your account secure. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)"
+* "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
+* "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)"

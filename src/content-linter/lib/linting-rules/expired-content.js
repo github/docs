@@ -1,4 +1,4 @@
-import { addError } from 'markdownlint-rule-helpers'
+import { addError, newLineRe } from 'markdownlint-rule-helpers'
 
 // This rule looks for opening and closing HTML comment tags that
 // contain an expiration date in the format:
@@ -27,12 +27,19 @@ export const expiredContent = {
       const today = new Date()
       if (today < expireDate) return
 
+      // We want the content split by line since not all token.content is in one line
+      // to get the correct range of the expired content. Below is how markdownlint
+      // grabs the token.content by line.
+      const contentByLine = token.content.replace(/^\uFEFF/, '').split(newLineRe)
+      const lineOfMatch = contentByLine.findIndex((element) => element.includes(match[0]))
+      const startRange = lineOfMatch !== -1 ? contentByLine[lineOfMatch].indexOf(match[0]) + 1 : 1
+      const lineNumber = lineOfMatch !== -1 ? token.lineNumber + lineOfMatch : token.lineNumber
       addError(
         onError,
-        token.lineNumber,
+        lineNumber,
         `Content marked with an expiration date has now expired. The content exists between 2 HTML comment tags in the format <!-- expires yyyy-mm-dd --> and <!-- end expires yyyy-mm-dd -->. You should remove or rewrite this content, and delete the expiration comments. Alternatively, choose a new expiration date.`,
         match[0],
-        [token.content.indexOf(match[0]) + 1, match[0].length],
+        [startRange, match[0].length],
         null, // No fix possible
       )
     })

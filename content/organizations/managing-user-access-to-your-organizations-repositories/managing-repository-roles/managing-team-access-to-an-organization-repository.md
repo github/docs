@@ -22,8 +22,8 @@ People with admin access to a repository can manage team access to the repositor
 {% warning %}
 
 **Warnings:**
-- You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
-- If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+* You can change a team's permission level if the team has direct access to a repository. If the team's access to the repository is inherited from a parent team, you must change the parent team's access to the repository.
+* If you add or remove repository access for a parent team, each of that parent's child teams will also receive or lose access to the repository. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
 {% endwarning %}
 
@@ -41,4 +41,4 @@ If a team has direct access to a repository, you can remove that team's access t
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
