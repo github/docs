@@ -31,8 +31,8 @@ Enabling {% data variables.product.prodname_github_connect %} creates a {% data 
 
 {% ifversion ghes %}
 {% data variables.product.prodname_ghe_server %} stores credentials from the {% data variables.product.prodname_github_app %}. The following credentials will be replicated to all nodes in a high availability or cluster environment, and stored in any backups, including snapshots created by {% data variables.product.prodname_enterprise_backup_utilities %}.
-- An authentication token, which is valid for one hour
-- A private key, which is used to generate a new authentication token
+* An authentication token, which is valid for one hour
+* A private key, which is used to generate a new authentication token
 {% endif %}
 
 ## Prerequisites

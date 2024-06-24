@@ -44,9 +44,9 @@ The team may be missing members because your enterprise does not have sufficient
 1. Review the available licenses for your enterprise. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)."
 1. To resolve the problem, choose one of the following solutions.
 
-   - Remove users from the IdP group.
-   - Deprovision users from your enterprise.
-   - Purchase additional licenses to allow synchronization to complete. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription)."
+   * Remove users from the IdP group.
+   * Deprovision users from your enterprise.
+   * Purchase additional licenses to allow synchronization to complete. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#about-changes-to-your-subscription)."
 
 ### Error: "Out of sync"
 

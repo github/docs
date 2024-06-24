@@ -47,4 +47,4 @@ If a user remains an enterprise member, you can manually remove their support en
 
 ## Further reading
 
-- "[AUTOTITLE](/support)"
+* "[AUTOTITLE](/support)"

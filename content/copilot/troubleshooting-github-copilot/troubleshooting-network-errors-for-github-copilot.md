@@ -49,22 +49,22 @@ If you know you are connecting via a proxy, make sure the proxy is configured co
 
 {% data variables.product.prodname_copilot %} uses custom code to connect to proxies. This means a proxy setup supported by your editor is not necessarily supported by {% data variables.product.prodname_copilot %}. Some common causes for errors related to proxies are:
 
-- If your proxy's URL starts `https://`, it is not currently supported by {% data variables.product.prodname_copilot %}.
-- You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If you are using Kerberos, ensure you have a valid ticket for the proxy service and that you are using the correct service principal name for the service. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#authentication-with-kerberos)."
-- {% data variables.product.prodname_copilot %} may reject custom certificates. For more information, see "[Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors)."
+* If your proxy's URL starts `https://`, it is not currently supported by {% data variables.product.prodname_copilot %}.
+* You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If you are using Kerberos, ensure you have a valid ticket for the proxy service and that you are using the correct service principal name for the service. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#authentication-with-kerberos)."
+* {% data variables.product.prodname_copilot %} may reject custom certificates. For more information, see "[Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors)."
 
 ## Troubleshooting certificate-related errors
 
 Depending on your proxy setup, you may encounter errors like "certificate signature failure," "custom certificate," or "unable to verify the first certificate." These errors are usually caused by a corporate proxy setup that uses custom certificates to intercept and inspect secure connections.
 
 Some possible ways to resolve certificate-related errors are:
-- Configure a different proxy that does not intercept secure connections.
-- If you are using a corporate proxy, contact your IT department to see if they can configure the proxy to not intercept secure connections.
-- Ensure the custom certificates are properly installed in your operating system's trust store. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#allowing-github-copilot-to-use-custom-certificates)." If the certificates are installed on your machine but {% data variables.product.prodname_copilot %} isn't detecting them, it may help you to know the mechanisms that {% data variables.product.prodname_copilot %} uses to find certificates.
-  - On Windows, {% data variables.product.prodname_copilot_short %} uses the [win-ca package](https://www.npmjs.com/package/win-ca).
-  - On macOS, {% data variables.product.prodname_copilot_short %} uses the [mac-ca package](https://www.npmjs.com/package/mac-ca).
-  - On Linux, {% data variables.product.prodname_copilot_short %} checks the standard OpenSSL files `/etc/ssl/certs/ca-certificates.crt` and `/etc/ssl/certs/ca-bundle.crt`.
-- Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#configuring-proxy-settings-for-github-copilot)."
+* Configure a different proxy that does not intercept secure connections.
+* If you are using a corporate proxy, contact your IT department to see if they can configure the proxy to not intercept secure connections.
+* Ensure the custom certificates are properly installed in your operating system's trust store. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#allowing-github-copilot-to-use-custom-certificates)." If the certificates are installed on your machine but {% data variables.product.prodname_copilot %} isn't detecting them, it may help you to know the mechanisms that {% data variables.product.prodname_copilot %} uses to find certificates.
+  * On Windows, {% data variables.product.prodname_copilot_short %} uses the [win-ca package](https://www.npmjs.com/package/win-ca).
+  * On macOS, {% data variables.product.prodname_copilot_short %} uses the [mac-ca package](https://www.npmjs.com/package/mac-ca).
+  * On Linux, {% data variables.product.prodname_copilot_short %} checks the standard OpenSSL files `/etc/ssl/certs/ca-certificates.crt` and `/etc/ssl/certs/ca-bundle.crt`.
+* Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#configuring-proxy-settings-for-github-copilot)."
 
   {% warning %}
 

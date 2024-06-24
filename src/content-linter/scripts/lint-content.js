@@ -2,7 +2,6 @@
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
-
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
@@ -474,6 +473,8 @@ function formatResult(object, isPrecommit) {
   }
   formattedResult.severity =
     allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
+
+  formattedResult.context = allConfig[ruleName].context || ''
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {

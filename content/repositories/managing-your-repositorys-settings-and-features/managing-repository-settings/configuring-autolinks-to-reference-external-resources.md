@@ -23,8 +23,8 @@ Anyone with admin permissions to a repository can configure autolink references 
 Autolink references can now accept alphanumeric characters. When originally introduced, custom autolinks were limited to external resources that used numeric identifiers. Custom autolinks now work with alphanumeric and numeric identifiers.
 
 You define custom autolinks by specifying a reference prefix and a target URL.
-- Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
-- Target URLs include a `<num>` variable which represents the reference identifier of the linked resource.
+* Reference prefixes cannot have overlapping names. For example, a repository cannot have two custom autolinks with prefixes such as `TICKET` and `TICK`, since both prefixes would match the string `TICKET123a`.
+* Target URLs include a `<num>` variable which represents the reference identifier of the linked resource.
 {% endif %}
 
 ## Configuring autolinks to reference external resources
@@ -45,6 +45,6 @@ This procedure demonstrates how to configure autolinks to reference external res
 1. Review the preview and verify that the autolink and external reference are both correct, then click **Add autolink reference** to define the link.
 
 For example, you might enter the following.
-- Reference prefix: `JIRA-`
-- Target URL: `https://jira.example.com/issue?query=<num>`
-- Preview: `JIRA-123` is converted to `https://jira.example.com/issue?query=123`
+* Reference prefix: `JIRA-`
+* Target URL: `https://jira.example.com/issue?query=<num>`
+* Preview: `JIRA-123` is converted to `https://jira.example.com/issue?query=123`

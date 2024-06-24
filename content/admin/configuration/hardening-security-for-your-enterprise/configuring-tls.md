@@ -97,8 +97,8 @@ To resolve these errors, you must update the Subject Alternative Names (SANs) yo
 
 1. Communicate the upcoming downtime to your users, and consider enabling maintenance mode. For more information, see the following articles.
 
-   - "[AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)"
-   - "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)"
+   * "[AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)"
+   * "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)"
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To disable Let's Encrypt, run the following command.
 

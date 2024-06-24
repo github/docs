@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
@@ -75,7 +76,7 @@ export const SidebarProduct = () => {
 }
 
 function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
-  const { push, asPath, locale } = useRouter()
+  const { asPath, locale } = useRouter()
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const isActive = routePath === childPage.href
 
@@ -83,12 +84,8 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
     <NavList.Item
       defaultOpen={childPage.childPages.length > 0 && routePath.includes(childPage.href)}
       href={childPage.href}
+      as={Link}
       aria-current={isActive ? 'page' : false}
-      onClick={(event) => {
-        // XXX TODO: If the `childPage.href` is an external link, don't try to do anything fancy here.
-        event.preventDefault()
-        push(childPage.href)
-      }}
     >
       {childPage.title}
       {childPage.childPages.length > 0 && (

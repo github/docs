@@ -49,10 +49,10 @@ CommitDate: Tue Apr 10 06:25:08 2018 +0900
 If the author and commit date are different, you can manually change the commit date in the URL to see the commit details.
 
 For example:
-- This URL uses the author date of `2018-04-03`:
+* This URL uses the author date of `2018-04-03`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
-- This URL uses the commit date of `2018-04-10`:
+* This URL uses the commit date of `2018-04-10`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 

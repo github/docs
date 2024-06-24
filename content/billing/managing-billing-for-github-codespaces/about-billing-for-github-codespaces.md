@@ -18,6 +18,12 @@ redirect_from:
   - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces.md
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
 {% ifversion billing-auth-and-capture %}
@@ -28,7 +34,7 @@ redirect_from:
 
 Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true.
 
-- The organization has chosen for codespaces to be organization-owned.
+* The organization has chosen for codespaces to be organization-owned.
 {% data reusables.codespaces.when-an-org-pays %}
 
 For more information about enabling {% data variables.product.prodname_github_codespaces %} for users, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
@@ -56,8 +62,8 @@ The following storage and core hours of usage are included, free of charge, for 
 
 **Notes**
 
-- The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article.
-- A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table later in this article. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
+* The GB-month unit of storage is a time-based measurement, 1 GB-month being 1 GB of storage usage for one whole month. The disk space used by all of your codespaces and prebuilds is assessed once an hour and your current GB-month usage is recalculated. Therefore, while you have codespaces and prebuilds, your GB-month usage will increase throughout the month. For example, if the storage totals 15 GB, and remains unchanged throughout your monthly billing cycle, then you will have used 7.5 GB halfway through the month, and 15 GB at the end of the month. For more information, see "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article.
+* A "core hour" is a measure used for included compute usage. To calculate core hours, multiply the number of hours for which a codespace has been active by the multiplier in the pricing table later in this article. For the basic machine types, the multiplier is the number of processor cores in the machine that hosts the codespace. For example, if you use a 2-core machine for your codespace and it's active for an hour, you have used 2 core hours. If you use an 8-core machine for an hour, you have used 8 core hours. If you use an 8-core machine for two hours, you have used 16 core hours.
 
 {% endnote %}
 
@@ -69,9 +75,9 @@ You can view details of your usage for the current month at any time. For more i
 
 If you are blocked from resuming a codespace and you want to continue to work on changes you have made in your codespace, you can do any of the following:
 
-- Add a payment method and a spending limit greater than $0 USD.
-- Export the changes from the codespace to a branch. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
-- Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
+* Add a payment method and a spending limit greater than $0 USD.
+* Export the changes from the codespace to a branch. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+* Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
 
 If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method and a spending limit, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota.
 
@@ -135,9 +141,9 @@ For example, if you have one codespace that uses 100 GB of storage and has exist
 For each hourly report, the storage usage for the previous hour is calculated in seconds. As a result, you won't be charged for a full hour of storage if a codespace did not exist for the full 60 minutes. At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB.
 
 Organization owners can:
-- List the currently active and stopped codespaces for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)." In addition to the cost of these codespaces, the cost of {% data variables.product.prodname_github_codespaces %} for the current month may include costs for codespaces that existed earlier in the current month but have since been deleted.
-- See the total {% data variables.product.prodname_github_codespaces %} compute and storage usage for your organization for the current month to date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
-- Configure your organization settings to manage the cost of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)."
+* List the currently active and stopped codespaces for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)." In addition to the cost of these codespaces, the cost of {% data variables.product.prodname_github_codespaces %} for the current month may include costs for codespaces that existed earlier in the current month but have since been deleted.
+* See the total {% data variables.product.prodname_github_codespaces %} compute and storage usage for your organization for the current month to date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
+* Configure your organization settings to manage the cost of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)."
 
 To estimate the costs for usage-based billing, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
 
@@ -161,10 +167,10 @@ The storage cost for a prebuild in a single region will be similar to the storag
 
 The total storage costs associated with a prebuild configuration will depend on the following factors.
 
-- The price of storage per GB. See the table earlier in this article.
-- The size of the generated prebuild in GB.
-- The number of regions in which the prebuild is available (because a copy of the prebuild is stored in each region).
-- The number of older versions of the prebuild that are retained.
+* The price of storage per GB. See the table earlier in this article.
+* The size of the generated prebuild in GB.
+* The number of regions in which the prebuild is available (because a copy of the prebuild is stored in each region).
+* The number of older versions of the prebuild that are retained.
 
 The storage cost for the prebuilds generated by a prebuild configuration is therefore calculated as: `price per GB * size (GB) * regions * versions`.
 
@@ -183,8 +189,8 @@ If you delete a prebuild configuration, all the associated prebuilds are deleted
 {% note %}
 
 **Notes**:
-- Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
-- As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
+* Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
+* As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
 {% endnote %}
 
@@ -249,8 +255,8 @@ If a user publishes a codespace created from a template, the codespace is publis
 {% note %}
 
 **Note:** A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
-- A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
-- A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
+* A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
+* A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
 
 For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 

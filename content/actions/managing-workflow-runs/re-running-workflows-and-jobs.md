@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About re-running workflows and jobs
@@ -27,9 +27,9 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, re-run jobs.
 
-   - If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
+   * If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
-   - If no jobs failed, click **Re-run all jobs**.
+   * If no jobs failed, click **Re-run all jobs**.
 
 {% data reusables.actions.enable-debug-logging %}
 
@@ -107,9 +107,8 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}.
+1. Under the "Jobs" section of the left sidebar, next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}.
 
-   ![Screenshot of the page for a workflow run. In the left sidebar, to the right of a job, a sync icon is outlined in dark orange.](/assets/images/help/actions/re-run-selected-job.png)
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}
@@ -152,8 +151,6 @@ You can view the results from your previous attempts at running a workflow. You 
 {% data reusables.repositories.view-run %}
 {%- ifversion re-run-jobs %}
 1. To the right of the run name, select the **Latest** dropdown menu and click a previous run attempt.
-
-   ![Screenshot of the page for a workflow run. A dropdown menu, labeled "Latest #2," is outlined in dark orange.](/assets/images/help/actions/previous-run-attempts.png)
 {%- else %}
 1. In the left pane, click a previous run attempt.
 {%- endif %}

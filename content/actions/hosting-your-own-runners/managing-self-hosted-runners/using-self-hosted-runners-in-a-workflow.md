@@ -60,9 +60,9 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
-- `self-hosted`: Default label applied to self-hosted runners.
-- `linux`, `windows`, or `macOS`: Applied depending on operating system.
-- `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+* `self-hosted`: Default label applied to self-hosted runners.
+* `linux`, `windows`, or `macOS`: Applied depending on operating system.
+* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
 
@@ -70,9 +70,9 @@ You can use your workflow's YAML to send jobs to a combination of these labels. 
 runs-on: [self-hosted, linux, ARM64]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `ARM64` - Only use a runner based on ARM64 hardware.
+* `self-hosted` - Run this job on a self-hosted runner.
+* `linux` - Only use a Linux-based runner.
+* `ARM64` - Only use a runner based on ARM64 hardware.
 
 To create individual self-hosted runners without the default labels, pass the `--no-default-labels` flag when you create the runner. Actions Runner Controller does not support multiple labels.
 
@@ -88,10 +88,10 @@ This example shows a job that combines default and custom labels:
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-- `self-hosted` - Run this job on a self-hosted runner.
-- `linux` - Only use a Linux-based runner.
-- `x64` - Only use a runner based on x64 hardware.
-- `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed.
+* `self-hosted` - Run this job on a self-hosted runner.
+* `linux` - Only use a Linux-based runner.
+* `x64` - Only use a runner based on x64 hardware.
+* `gpu` - This custom label has been manually assigned to self-hosted runners with the GPU hardware installed.
 
 These labels operate cumulatively, so a self-hosted runner must have all four labels to be eligible to process the job.
 
@@ -111,7 +111,7 @@ These labels operate cumulatively, so a self-hosted runner must have all four la
 
 When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}:
 
-- If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}, the job is then assigned and sent to the runner.
-  - If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-- If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels {% ifversion target-runner-groups %} and/or groups{% endif %}, then the job will remain queued until a runner comes online.
-- If the job remains queued for more than 24 hours, the job will fail.
+* If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels{% ifversion target-runner-groups %} and/or groups{% endif %}, the job is then assigned and sent to the runner.
+  * If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
+* If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels {% ifversion target-runner-groups %} and/or groups{% endif %}, then the job will remain queued until a runner comes online.
+* If the job remains queued for more than 24 hours, the job will fail.

@@ -30,17 +30,17 @@ This guide will guide you through completing the first phase, migrating reposito
 
 {% data reusables.enterprise-migration-tool.planning-intro %}
 
-- [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
-- [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
-- [Who will run the migration?](#who-will-run-the-migration)
-- [What organizational structure do we want in {% data variables.product.prodname_dotcom %}?](#what-organizational-structure-do-we-want-in-github)
+* [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
+* [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
+* [Who will run the migration?](#who-will-run-the-migration)
+* [What organizational structure do we want in {% data variables.product.prodname_dotcom %}?](#what-organizational-structure-do-we-want-in-github)
 
 ### How soon do we need to complete the migration?
 
 {% data reusables.enterprise-migration-tool.timeline-intro %}
 
-- Number of repositories
-- Number of pull requests
+* Number of repositories
+* Number of pull requests
 
 Migration timing is largely based on the number of pull requests in a repository. If you want to migrate 1,000 repositories, and each repository has 100 pull requests on average, and only 50 users have contributed to the repositories, your migration will likely be very quick. If you want to migrate only 100 repositories, but the repositories each have 75,000 pull requests on average, and 5,000 users, the migration will take much longer and require much more planning and testing.
 
@@ -71,8 +71,8 @@ To migrate a repository, you must be an organization owner for the destination o
 
 Next, plan the organizational structure you'll create in {% data variables.product.prodname_dotcom %}. ADO and {% data variables.product.prodname_dotcom %} have different ways of organizing an enterprise's work.
 
-- ADO: Organization > team project > repositories
-- {% data variables.product.prodname_dotcom %}: Enterprise > organization > repositories
+* ADO: Organization > team project > repositories
+* {% data variables.product.prodname_dotcom %}: Enterprise > organization > repositories
 
 {% note %}
 
@@ -104,12 +104,12 @@ We recommend creating a test organization to use as a destination for your trial
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-intro %}
 
-- [Checking the migration status](#checking-the-migration-status)
-- [Reviewing the migration log](#reviewing-the-migration-log)
-- [Setting repository visibility](#setting-repository-visibility)
-- [Configuring permissions](#configuring-permissions)
-- [Reclaiming mannequins](#reclaiming-mannequins)
-- [Configuring IP allow lists](#configuring-ip-allow-lists)
+* [Checking the migration status](#checking-the-migration-status)
+* [Reviewing the migration log](#reviewing-the-migration-log)
+* [Setting repository visibility](#setting-repository-visibility)
+* [Configuring permissions](#configuring-permissions)
+* [Reclaiming mannequins](#reclaiming-mannequins)
+* [Configuring IP allow lists](#configuring-ip-allow-lists)
 
 ### Checking the migration status
 

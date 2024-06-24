@@ -1,7 +1,7 @@
 1. To begin unlinking an email address from the locked account, click **Start unlinking email**.
 1. On the "Unlink Email" screen, click **Continue**.
 1. In the inbox of the email account you want to unlink, open the email with the subject "[{% data variables.product.company_short %}] Unlink this email."
-   - Optionally, to unlink multiple email accounts, in the inbox of each account you want to unlink, open the email with the subject "[{% data variables.product.company_short %}] Unlink this email," then complete the following steps.
+   * Optionally, to unlink multiple email accounts, in the inbox of each account you want to unlink, open the email with the subject "[{% data variables.product.company_short %}] Unlink this email," then complete the following steps.
 
 1. In the email, click **Unlink this email**.
 

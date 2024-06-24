@@ -26,8 +26,8 @@ If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabl
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then choose the appropriate option.
-    - Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **No policy** to allow each organization under your enterprise to set their own policy.
+    * Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    * Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    * Click **No policy** to allow each organization under your enterprise to set their own policy.
 
 {% endif %}

@@ -2,7 +2,9 @@
 title: Troubleshooting SARIF uploads
 intro: 'Learn how to resolve problems uploading SARIF files of {% data variables.product.prodname_code_scanning %} results to {% data variables.product.prodname_dotcom %}.'
 versions:
-  feature: code-scanning-tool-status-page
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -17,4 +19,3 @@ children:
 redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif
 ---
-

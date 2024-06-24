@@ -51,8 +51,8 @@ results of _failing_ tests from a previous run.
 
 Each argument is one of:
 
-- A `.ql` or `.qlref` file that defines a test to run.
-- A directory which will be searched recursively for tests to run.
+* A `.ql` or `.qlref` file that defines a test to run.
+* A directory which will be searched recursively for tests to run.
 
 #### `--slice=<N/M>`
 

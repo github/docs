@@ -2,8 +2,8 @@ You can specify multiple variables to create a multi-dimensional matrix. A job w
 
 For example, the following workflow specifies two variables:
 
-- Two operating systems specified in the `os` variable
-- Three Node.js versions specified in the `version` variable
+* Two operating systems specified in the `os` variable
+* Three Node.js versions specified in the `version` variable
 
 The workflow will run six jobs, one for each combination of the `os` and `version` variables. Each job will set the `runs-on` value to the current `os` value and will pass the current `version` value to the `actions/setup-node` action.
 

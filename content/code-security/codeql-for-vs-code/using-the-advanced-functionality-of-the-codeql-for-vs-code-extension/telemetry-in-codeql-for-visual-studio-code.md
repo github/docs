@@ -32,19 +32,19 @@ This data will not be shared with any parties outside of {% data variables.produ
 
 If you opt in, {% data variables.product.company_short %} collects the following information related to the usage of the extension. The data collected are:
 
-- The identifiers of any {% data variables.product.prodname_codeql %}-related {% data variables.product.prodname_vscode_shortname %} commands that are run. For each command, these are: the timestamp, time taken, and whether or not the command completed successfully.
+* The identifiers of any {% data variables.product.prodname_codeql %}-related {% data variables.product.prodname_vscode_shortname %} commands that are run. For each command, these are: the timestamp, time taken, and whether or not the command completed successfully.
 
-- Interactions with UI elements, including buttons, links, and other inputs. Intereacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
+* Interactions with UI elements, including buttons, links, and other inputs. Intereacts that are not recorded are: link targets, text inputs, mouse movement, and mouse hovering.
 
-- Occurrence of exceptions and errors. All sensitive information such as file paths and non-static exception message content are removed before uploading.
+* Occurrence of exceptions and errors. All sensitive information such as file paths and non-static exception message content are removed before uploading.
 
-- The {% data variables.product.prodname_vscode_shortname %} extension version.
+* The {% data variables.product.prodname_vscode_shortname %} extension version.
 
-- Randomly generated GUID that uniquely identifies a {% data variables.product.prodname_codeql %} extension installation. This is discarded before aggregation.
+* Randomly generated GUID that uniquely identifies a {% data variables.product.prodname_codeql %} extension installation. This is discarded before aggregation.
 
-- IP address of the client sending the telemetry data. This is discarded before aggregation.
+* IP address of the client sending the telemetry data. This is discarded before aggregation.
 
-- Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %}  extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %}  extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
 
 ## How long data is retained
 
@@ -58,17 +58,17 @@ IP addresses and GUIDs will only be available to the core developers of {% data 
 
 We only collect the minimal amount of data we need to answer the questions about how our users are experiencing this product. To that end, we do not collect the following information:
 
-- {% data variables.product.company_short %} user ID
+* {% data variables.product.company_short %} user ID
 
-- {% data variables.product.prodname_codeql %} database names or contents
+* {% data variables.product.prodname_codeql %} database names or contents
 
-- Contents of {% data variables.product.prodname_codeql %} queries
+* Contents of {% data variables.product.prodname_codeql %} queries
 
-- File system paths
+* File system paths
 
-- User-input text
+* User-input text
 
-- Mouse interactions, such as movement or hovers
+* Mouse interactions, such as movement or hovers
 
 ## Disabling telemetry reporting
 
@@ -78,5 +78,5 @@ Additionally, telemetry collection will be disabled if the global `telemetry.tel
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)"
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"

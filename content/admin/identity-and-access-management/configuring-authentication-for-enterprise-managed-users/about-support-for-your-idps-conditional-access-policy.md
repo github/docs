@@ -20,7 +20,10 @@ redirect_from:
 
 {% data reusables.enterprise-accounts.emu-cap-validates %}
 
-{% data variables.product.product_name %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. {% data variables.product.product_name %} enforces your IdP's IP conditions but cannot enforce your device compliance conditions. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.product_name %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+{% data variables.product.product_name %} supports CAP for any {% data variables.enterprise.prodname_emu_enterprise %} where OIDC SSO is enabled. Enterprise owners can choose to use this IP allow list configuration instead of {% data variables.product.product_name %}'s IP allow list, and can do so once OIDC SSO is configured. For more information about IP allow lists, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list#about-your-idps-allow-list)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
+
+* {% data variables.product.product_name %} enforces your IdP's IP conditions but cannot enforce your device compliance conditions.
+* Policies for multi-factor authentication are only enforced at the point of sign-in to the IdP.
 
 For more information about using OIDC with {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)" and "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc)."
 
@@ -60,4 +63,4 @@ If you do not wish to allow all of the IP ranges for all of your enterprise's ap
 
 ## Further reading
 
-- [Using the location condition in a Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/location-condition) on Microsoft Learn
+* [Using the location condition in a Conditional Access policy](https://learn.microsoft.com/entra/identity/conditional-access/location-condition) on Microsoft Learn

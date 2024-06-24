@@ -40,10 +40,10 @@ shortTitle: Troubleshoot Jekyll errors
 If Jekyll encounters an error building your {% data variables.product.prodname_pages %} site locally or on {% data variables.product.product_name %}, you can use error messages to troubleshoot. For more information about error messages and how to view them, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites)."
 
 If you received a generic error message, check for common issues.
-- You're using unsupported plugins. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
-- Your repository has exceeded our repository size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"{% endif %}
-- You changed the `source` setting in your `_config.yml` file. If you publish your site from a branch, {% data variables.product.prodname_pages %} overrides this setting during the build process.
-- A filename in your published files contains a colon (`:`) which is not supported.
+* You're using unsupported plugins. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
+* Your repository has exceeded our repository size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"{% endif %}
+* You changed the `source` setting in your `_config.yml` file. If you publish your site from a branch, {% data variables.product.prodname_pages %} overrides this setting during the build process.
+* A filename in your published files contains a colon (`:`) which is not supported.
 
 If you received a specific error message, review the troubleshooting information for the error message below.
 
@@ -136,9 +136,9 @@ Then, make sure the file in the error message uses valid Markdown syntax. For mo
 This error means that you have chosen the `docs` folder on a branch as your publishing source, but there is no `docs` folder in the root of your repository on that branch.
 
 To troubleshoot, if your `docs` folder was accidentally moved, try moving the `docs` folder back to the root of your repository on the branch you chose for your publishing source. If the `docs` folder was accidentally deleted, you can either:
-- Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
-- Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
-- Change your publishing source. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
+* Use Git to revert or undo the deletion. For more information, see "[git-revert](https://git-scm.com/docs/git-revert.html)" in the Git documentation.
+* Create a new `docs` folder in the root of your repository on the branch you chose for your publishing source and add your site's source files to the folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+* Change your publishing source. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
 
 ## Missing submodule
 

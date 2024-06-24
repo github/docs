@@ -18,8 +18,8 @@ shortTitle: Convert Owners team
 
 You have a few options to convert your legacy Owners team:
 
-- Give the team a new name that denotes the members have a special status in the organization.
-- Delete the team after ensuring all members have been added to teams that grant necessary access to the organization's repositories.
+* Give the team a new name that denotes the members have a special status in the organization.
+* Delete the team after ensuring all members have been added to teams that grant necessary access to the organization's repositories.
 
 ## Give the Owners team a new name
 
@@ -34,8 +34,8 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
 1. In the team name field, choose a new name for the Owners team. For example:
-    - If very few members of your organization were members of the Owners team, you might name the team "Core".
-    - If all members of your organization were members of the Owners team so that they could [@mention teams](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), you might name the team "Employees".
+    * If very few members of your organization were members of the Owners team, you might name the team "Core".
+    * If all members of your organization were members of the Owners team so that they could [@mention teams](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), you might name the team "Employees".
 1. Under the team description, click **Save and continue**.
 1. Optionally, make the team public. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/changing-team-visibility)."
 

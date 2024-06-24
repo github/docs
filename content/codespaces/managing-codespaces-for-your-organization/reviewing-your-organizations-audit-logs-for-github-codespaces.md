@@ -23,5 +23,5 @@ The audit log includes details such as who performed the action, what the action
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
-- "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+* "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)"

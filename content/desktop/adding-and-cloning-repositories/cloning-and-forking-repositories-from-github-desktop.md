@@ -54,4 +54,4 @@ You can create an alias for a local repository to help differentiate between rep
 
 ## Further reading
 
-- [About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)
+* [About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)

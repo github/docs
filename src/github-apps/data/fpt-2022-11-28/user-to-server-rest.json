@@ -1389,6 +1389,62 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"
     }
   ],
+  "code-security": [
+    {
+      "slug": "get-code-security-configurations-for-an-organization",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations"
+    },
+    {
+      "slug": "create-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/code-security/configurations"
+    },
+    {
+      "slug": "get-default-code-security-configurations",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/defaults"
+    },
+    {
+      "slug": "get-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "update-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "delete-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "attach-a-configuration-to-repositories",
+      "subcategory": "configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/attach"
+    },
+    {
+      "slug": "set-a-code-security-configuration-as-a-default-for-an-organization",
+      "subcategory": "configurations",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/defaults"
+    },
+    {
+      "slug": "get-repositories-associated-with-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories"
+    }
+  ],
   "codes-of-conduct": [
     {
       "slug": "get-all-codes-of-conduct",
@@ -4345,19 +4401,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "list-tag-protection-states-for-a-repository",
+      "slug": "deprecated---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "create-a-tag-protection-state-for-a-repository",
+      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "delete-a-tag-protection-state-for-a-repository",
+      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"

@@ -35,23 +35,23 @@ You can apply filters and use logical operators to display results that meet spe
 
 Currently, there are two logical operators that you can apply to your filters on security overview:
 
-- The `-` operator applies NOT logic, displaying all results _except_ those that match the specified filter. To use the `-` operator, add it to the beginning of a filter. For example, filtering for `-repo:REPOSITORY-NAME` will display data from all repositories _except_ `REPOSITORY-NAME`.
-- The `,` operator applies OR logic, displaying results that match _any_ of the specified values for a single filter. To use the `,` operator, add it between each listed value for a filter. For example, filtering for `is:public,private` will display data from all repositories that are public _or_ private. Similarly, if you apply the same filter multiple times with different values, you are using OR logic. For example, `is:public is:private` is equivalent to `is:public,private`.
+* The `-` operator applies NOT logic, displaying all results _except_ those that match the specified filter. To use the `-` operator, add it to the beginning of a filter. For example, filtering for `-repo:REPOSITORY-NAME` will display data from all repositories _except_ `REPOSITORY-NAME`.
+* The `,` operator applies OR logic, displaying results that match _any_ of the specified values for a single filter. To use the `,` operator, add it between each listed value for a filter. For example, filtering for `is:public,private` will display data from all repositories that are public _or_ private. Similarly, if you apply the same filter multiple times with different values, you are using OR logic. For example, `is:public is:private` is equivalent to `is:public,private`.
 
 ## Filter methods
 
 All security views have features to help you define filters. These provide an easy way to set up filters and understand the options available.
 
-- **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
-- **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.{% ifversion security-overview-3-13-overview %}
-- **Advanced filters dialog.** When you click the **{% octicon "filter" aria-label="Advanced filter dialog" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
+* **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
+* **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.{% ifversion security-overview-3-13-overview %}
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-label="Advanced filter dialog" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
 
 ## Repository name, visibility, and status filters
 
 In all views, there are two methods for filtering results by repository name.
 
-- **Free text or keyword search.** Display data for all repositories with a name that contains the keyword. For example, search for `test` to show data for both the "test-repository" and "octocat-testing" repositories.
-- **`repo` qualifier.** Display data only for the repository that exactly matches the value of the qualifier. For example, search for `repo:octocat-testing` to show data for only the "octocat-testing" repository.
+* **Free text or keyword search.** Display data for all repositories with a name that contains the keyword. For example, search for `test` to show data for both the "test-repository" and "octocat-testing" repositories.
+* **`repo` qualifier.** Display data only for the repository that exactly matches the value of the qualifier. For example, search for `repo:octocat-testing` to show data for only the "octocat-testing" repository.
 
 You can also filter by repository visibility (internal, private, or public) and archive status.
 
@@ -84,7 +84,7 @@ Custom repository properties are metadata that organization owners can add to re
 
 If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are available in both the organization-level and enterprise-level views.
 
-- **`props.CUSTOM_PROPERTY_NAME` qualifier.** The qualifier consists of a `props.` prefix, followed by the name of the custom property. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
+* **`props.CUSTOM_PROPERTY_NAME` qualifier.** The qualifier consists of a `props.` prefix, followed by the name of the custom property. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
 
 {% endif %}
 
@@ -135,9 +135,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 The level of risk for a repository is determined by the number and severity of alerts from security features. You can filter on the level of risk using the `risk` qualifier.
 
-- The level of risk can be one of `high`, `medium`, or `low`.
-- If one or more security features are not enabled for a repository, the repository has an `unknown` level of risk.
-- If all security features are enabled and no alerts are report, the repository has a `clear` level of risk.
+* The level of risk can be one of `high`, `medium`, or `low`.
+* If one or more security features are not enabled for a repository, the repository has an `unknown` level of risk.
+* If all security features are enabled and no alerts are report, the repository has a `clear` level of risk.
 
 {% endif %}
 
@@ -157,11 +157,11 @@ The level of risk for a repository is determined by the number and severity of a
 
 You can filter the "Overview" view by the type{% ifversion security-overview-3-14-overview %} and property{% endif %} of alerts. Use the `tool` qualifier to display only data for alerts generated by a specific tool{% ifversion security-overview-3-14-overview %} or type of tool{% endif %}.
 
-- `tool:codeql` to show data only for {% data variables.product.prodname_code_scanning %} alerts generated using {% data variables.product.prodname_codeql%}.
-- `tool:dependabot` to show data only for {% data variables.product.prodname_dependabot_alerts %}.
-- `tool:secret-scanning` to show data only for {% data variables.secret-scanning.alerts %}.{% ifversion security-overview-3-14-overview %}
-- `tool:github` or `tool:third-party` to show data for all types of alerts generated by {% data variables.product.prodname_dotcom %} tools or by third-party tools.
-- `tool:TOOL-NAME` to show data for all alerts generated by a third-party tool for {% data variables.product.prodname_code_scanning %}.{% endif %}
+* `tool:codeql` to show data only for {% data variables.product.prodname_code_scanning %} alerts generated using {% data variables.product.prodname_codeql%}.
+* `tool:dependabot` to show data only for {% data variables.product.prodname_dependabot_alerts %}.
+* `tool:secret-scanning` to show data only for {% data variables.secret-scanning.alerts %}.{% ifversion security-overview-3-14-overview %}
+* `tool:github` or `tool:third-party` to show data for all types of alerts generated by {% data variables.product.prodname_dotcom %} tools or by third-party tools.
+* `tool:TOOL-NAME` to show data for all alerts generated by a third-party tool for {% data variables.product.prodname_code_scanning %}.{% endif %}
 
 {% ifversion security-overview-3-14-overview %}
 

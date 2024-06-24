@@ -22,11 +22,11 @@ If you're migrating between {% data variables.product.company_short %} products,
 
 {% data reusables.enterprise-migration-tool.planning-intro %}
 
-- [Do we want to migrate by organization or by repository?](#do-we-want-to-migrate-by-organization-or-by-repository)
-- [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
-- [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
-- [Who will run the migration?](#who-will-run-the-migration)
-- [Do we want to maintain a similar organization structure after migrating?](#do-we-want-to-maintain-a-similar-organization-structure-after-migrating)
+* [Do we want to migrate by organization or by repository?](#do-we-want-to-migrate-by-organization-or-by-repository)
+* [How soon do we need to complete the migration?](#how-soon-do-we-need-to-complete-the-migration)
+* [Do we understand what will be migrated?](#do-we-understand-what-will-be-migrated)
+* [Who will run the migration?](#who-will-run-the-migration)
+* [Do we want to maintain a similar organization structure after migrating?](#do-we-want-to-maintain-a-similar-organization-structure-after-migrating)
 
 ### Do we want to migrate by organization or by repository?
 
@@ -50,11 +50,11 @@ Finally, you must be an enterprise owner of the destination enterprise account t
 
 {% data reusables.enterprise-migration-tool.timeline-intro %}
 
-- Number of repositories
-- Number of pull requests
-- Number of issues
-- Number of users
-- Usage of projects and wikis
+* Number of repositories
+* Number of pull requests
+* Number of issues
+* Number of users
+* Usage of projects and wikis
 
 Migration timing is largely based on the number of pull requests and issues in a repository. If you want to migrate 1,000 repositories, and each repository has 100 pull requests and issues on average, and only 50 users have contributed to the repositories, your migration will likely be very quick. If you want to migrate only 100 repositories, but the repositories each have 75,000 pull requests and issues on average, and 5,000 users, the migration will take longer and require much more planning and testing.
 
@@ -129,17 +129,17 @@ For repository migrations, we recommend creating a test organization to use as a
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-intro %}
 
-- [Checking the migration status](#checking-the-migration-status)
-- [Reviewing the migration log](#reviewing-the-migration-log)
-- [Migrating {% data variables.large_files.product_name_short %} objects](#migrating-git-lfs-objects)
-- [Setting repository visibility](#setting-repository-visibility)
-- [Configuring {% data variables.product.prodname_actions %}](#configuring-github-actions)
-- [Configuring IP allow lists](#configuring-ip-allow-lists)
-- [Managing {% data variables.product.prodname_GH_advanced_security %}](#managing-github-advanced-security)
-- [Enabling webhooks](#enabling-webhooks)
-- [Reinstalling {% data variables.product.prodname_github_apps %}](#reinstalling-github-apps)
-- [Recreating teams](#recreating-teams)
-- [Reclaiming mannequins](#reclaiming-mannequins)
+* [Checking the migration status](#checking-the-migration-status)
+* [Reviewing the migration log](#reviewing-the-migration-log)
+* [Migrating {% data variables.large_files.product_name_short %} objects](#migrating-git-lfs-objects)
+* [Setting repository visibility](#setting-repository-visibility)
+* [Configuring {% data variables.product.prodname_actions %}](#configuring-github-actions)
+* [Configuring IP allow lists](#configuring-ip-allow-lists)
+* [Managing {% data variables.product.prodname_GH_advanced_security %}](#managing-github-advanced-security)
+* [Enabling webhooks](#enabling-webhooks)
+* [Reinstalling {% data variables.product.prodname_github_apps %}](#reinstalling-github-apps)
+* [Recreating teams](#recreating-teams)
+* [Reclaiming mannequins](#reclaiming-mannequins)
 
 ### Checking the migration status
 
@@ -173,17 +173,17 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
 
 1. If you use self-hosted runners, reconfigure your runners.
 
-   - Add runners to the appropriate repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-   - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
+   * Add runners to the appropriate repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
+   * To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
-   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
-   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+   * Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+   * Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
+   * Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 1. Re-add any encrypted secrets.
 
-   - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-   - To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
+   * To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+   * To use {% data variables.product.prodname_cli %}, see [`gh secret`](https://cli.github.com/manual/gh_secret) in the {% data variables.product.prodname_cli %} documentation.
 1. Reconfigure environments. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 ### Configuring IP allow lists
@@ -212,10 +212,10 @@ The user associated with these updated remediations will be the user who owns th
 
 {% data variables.product.prodname_code_scanning_caps %} alerts that are populated this way will differ from the original alerts in the source repository.
 
-- Alerts will only include the detection and the latest state of the alert, not the entire timeline from the source repository.
-- Alerts will only be identified as `open` or `fixed`. Other remediation states, such as `dismissed` and `reopened`, will be lost.
-- The dates for all events on the alert will be the date of the API call, not the dates when the events originally occurred on the source repository.
-- All actors, such as the alert creator, will change to the owner of the {% data variables.product.pat_generic %} used for the API call.
+* Alerts will only include the detection and the latest state of the alert, not the entire timeline from the source repository.
+* Alerts will only be identified as `open` or `fixed`. Other remediation states, such as `dismissed` and `reopened`, will be lost.
+* The dates for all events on the alert will be the date of the API call, not the dates when the events originally occurred on the source repository.
+* All actors, such as the alert creator, will change to the owner of the {% data variables.product.pat_generic %} used for the API call.
 
 #### {% data variables.product.prodname_dependabot_alerts %}
 

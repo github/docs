@@ -33,10 +33,10 @@ Use a high availability configuration for protection against:
 
 A high availability configuration is not a good solution for:
 
-- **Scaling-out**. While you can distribute traffic geographically using geo-replication, the performance of writes is limited to the speed and availability of the primary appliance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
-- **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/about-repository-caching)."
-- **Backing up your primary appliance**. A high availability replica does not replace off-site backups in your disaster recovery plan. Some forms of data corruption or loss may be replicated immediately from the primary to the replica. To ensure safe rollback to a stable past state, you must perform regular backups with historical snapshots.
-- **Zero downtime upgrades**. To prevent data loss and split-brain situations in controlled promotion scenarios, place the primary appliance in maintenance mode and wait for all writes to complete before promoting the replica.
+* **Scaling-out**. While you can distribute traffic geographically using geo-replication, the performance of writes is limited to the speed and availability of the primary appliance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
+* **CI/CD load**. If you have a large number of CI clients that are geographically distant from your primary instance, you may benefit from configuring a repository cache. For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+* **Backing up your primary appliance**. A high availability replica does not replace off-site backups in your disaster recovery plan. Some forms of data corruption or loss may be replicated immediately from the primary to the replica. To ensure safe rollback to a stable past state, you must perform regular backups with historical snapshots.
+* **Zero downtime upgrades**. To prevent data loss and split-brain situations in controlled promotion scenarios, place the primary appliance in maintenance mode and wait for all writes to complete before promoting the replica.
 
 ## Network traffic failover strategies
 
@@ -64,5 +64,5 @@ People with administrative SSH access to an instance in a high-availability conf
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)"
-- "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)"
+* "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)"
+* "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports)"

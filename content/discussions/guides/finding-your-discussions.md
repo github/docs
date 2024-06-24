@@ -25,6 +25,6 @@ redirect_from:
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)"
-- "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)"
+* "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+* "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"

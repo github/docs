@@ -31,33 +31,33 @@ There are three levels of permissions for {% data variables.projects.projects_v1
 
 The {% data variables.projects.projects_v1_board %} owner and collaborators with admin access have full control of the {% data variables.projects.projects_v1_board %}. In addition to all the permissions allowed by {% data variables.projects.projects_v1_board %} collaborators, a {% data variables.projects.projects_v1_board %} owner and collaborator with admin access can:
 
-- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)
-- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
-- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)
-- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
-- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)
 
 ## Read and write permissions for a user-owned {% data variables.projects.projects_v1_board %}
 
 Collaborators with read access to a user-owned {% data variables.projects.projects_v1_board %} can:
 
-- View a {% data variables.projects.projects_v1_board %}
-- Copy a {% data variables.projects.projects_v1_board %}
-- Filter cards on a {% data variables.projects.projects_v1_board %}
+* View a {% data variables.projects.projects_v1_board %}
+* Copy a {% data variables.projects.projects_v1_board %}
+* Filter cards on a {% data variables.projects.projects_v1_board %}
 
 Collaborators with write access to a user-owned {% data variables.projects.projects_v1_board %} can:
 
-- View a {% data variables.projects.projects_v1_board %}
-- Copy a {% data variables.projects.projects_v1_board %}
-- Filter cards on a {% data variables.projects.projects_v1_board %}
-- Edit a {% data variables.projects.projects_v1_board %}
-- Link a repository to a {% data variables.projects.projects_v1_board %}
-- Configure automation for {% data variables.projects.projects_v1_boards %}
-- Copy a {% data variables.projects.projects_v1_board %}
-- Add issues and pull requests to a {% data variables.projects.projects_v1_board %}
-- Add notes to a {% data variables.projects.projects_v1_board %}
-- Track progress on your {% data variables.projects.projects_v1_board %}
-- Archive cards on a {% data variables.projects.projects_v1_board %}
+* View a {% data variables.projects.projects_v1_board %}
+* Copy a {% data variables.projects.projects_v1_board %}
+* Filter cards on a {% data variables.projects.projects_v1_board %}
+* Edit a {% data variables.projects.projects_v1_board %}
+* Link a repository to a {% data variables.projects.projects_v1_board %}
+* Configure automation for {% data variables.projects.projects_v1_boards %}
+* Copy a {% data variables.projects.projects_v1_board %}
+* Add issues and pull requests to a {% data variables.projects.projects_v1_board %}
+* Add notes to a {% data variables.projects.projects_v1_board %}
+* Track progress on your {% data variables.projects.projects_v1_board %}
+* Archive cards on a {% data variables.projects.projects_v1_board %}
 
 ## {% data variables.projects.projects_v1_board_caps %} visibility
 
@@ -65,4 +65,4 @@ You can change the {% data variables.projects.projects_v1_board %}'s visibility 
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)"

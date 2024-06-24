@@ -31,16 +31,16 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
    1. For "Homepage URL," enter `https://github.com/actions/actions-runner-controller`.
 
    1. Under "Permissions," click **Repository permissions**. Then use the dropdown menus to select the following access permissions.
-      - **Administration**: Read and write
+      * **Administration**: Read and write
         {% note %}
 
         **Note**: `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
 
         {% endnote %}
-      - **Metadata**: Read-only
+      * **Metadata**: Read-only
 
    1. Under "Permissions," click **Organization permissions**. Then use the dropdown menus to select the following access permissions.
-      - **Self-hosted runners**: Read and write
+      * **Self-hosted runners**: Read and write
 
 {% data reusables.actions.arc-app-post-install-steps %}
 
@@ -67,10 +67,10 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 1. Create a {% data variables.product.pat_v1 %} with the required scopes. The required scopes are different depending on whether you are registering runners at the repository{% ifversion ghec or ghes %}, organization, or enterprise{% else %} or organization{% endif %} level. For more information on how to create a {% data variables.product.pat_v1 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)."
 
     The following is the list of required {% data variables.product.pat_generic %} scopes for ARC runners.
-    - Repository runners: `repo`
-    - Organization runners: `admin:org`
+    * Repository runners: `repo`
+    * Organization runners: `admin:org`
     {% ifversion ghec or ghes %}
-    - Enterprise runners: `manage_runners:enterprise`
+    * Enterprise runners: `manage_runners:enterprise`
     {% endif %}
 1. To create a Kubernetes secret with the value of your {% data variables.product.pat_v1 %}, use the following command.
 

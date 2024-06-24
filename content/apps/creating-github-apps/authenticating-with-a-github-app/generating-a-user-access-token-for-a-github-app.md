@@ -38,13 +38,14 @@ If your app runs in the browser, you should use the web application flow to gene
 
 1. Direct the user to this URL, and add any necessary query parameters from the following list of parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize`. For example, this URL specifies the `client_id` and `state` parameters: `{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=12345&state=abcdefg`.
 
-   Query parameter | Type | Description
-   -----|------|------------
-   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
-   `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to one of the URLs you provided as a "Callback URL" in your app's settings and can't contain any additional parameters.
-   `state` | `string` | When specified, the value should contain a random string to protect against forgery attacks, and it can also contain any other arbitrary data.
-   `login` | `string` | When specified, the web application flow will prompt users with a specific account they can use for signing in and authorizing your app.
-   `allow_signup` | `boolean` | Whether unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+   Query parameter | Type | Required? | Description
+   -----|------|------------|------
+   `client_id` | `string` | Required | The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
+   `redirect_uri` | `string` | Strongly recommended |  The URL in your application where users will be sent after authorization. This must be an exact match to one of the URLs you provided as a "Callback URL" in your app's settings and can't contain any additional parameters.
+   `state` | `string` | Strongly recommended |  When specified, the value should contain a random string to protect against forgery attacks, and it can also contain any other arbitrary data.
+   `login` | `string` | Optional | When specified, the web application flow will prompt users with a specific account they can use for signing in and authorizing your app.
+   `allow_signup` | `boolean` | Optional |  Whether unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+{% ifversion oauth_account_picker %}   `prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. {% endif %}
 
 1. If the user accepts your authorization request, {% data variables.product.company_short %} will redirect the user to one of the callback URLs in your app settings, and provide a `code` query parameter you can use in the next step to create a user access token. If you specified `redirect_uri` in the previous step, that callback URL will be used. Otherwise, the first callback URL on your app's settings page will be used.
 
@@ -66,7 +67,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
-{% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
+Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 The device flow uses the OAuth 2.0 Device Authorization Grant.
 
@@ -104,8 +105,8 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
    | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The client ID is different from the app ID and client secret.
    | `incorrect_device_code` | The `device_code` provided is not valid.
-   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."{% endif %}
+   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.
+   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 1. Once the user has entered the `user_code`, {% data variables.product.company_short %} will give a response that includes the following query parameters:
 
