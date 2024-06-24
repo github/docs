@@ -38,6 +38,12 @@ To learn how to use organizations most effectively, see "[AUTOTITLE](/organizati
 
 ## Organizations and enterprise accounts
 
+<!-- expires 2024-09-03 -->
+{% ifversion ghec %}
+{% data reusables.enterprise.single-organizations-enterprise-migration %}
+{% endif %}
+<!-- end expires 2024-09-03 -->
+
 {% ifversion fpt %}
 Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).
 {% else %}
