@@ -3207,6 +3207,12 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "list-attestations",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/attestations/{subject_digest}"
+    },
+    {
       "slug": "get-the-audit-log-for-an-organization",
       "subcategory": "orgs",
       "verb": "get",
@@ -4477,6 +4483,18 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
+      "slug": "create-an-attestation",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/attestations"
+    },
+    {
+      "slug": "list-attestations",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
+    },
+    {
       "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
@@ -5279,6 +5297,12 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users/{username}"
+    },
+    {
+      "slug": "list-attestations",
+      "subcategory": "attestations",
+      "verb": "get",
+      "requestPath": "/users/{username}/attestations/{subject_digest}"
     },
     {
       "slug": "list-followers-of-a-user",
