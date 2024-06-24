@@ -6,6 +6,8 @@ permissions: Organization owners
 product: '{% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-requests-for-copilot-access-in-your-organization
 topics:
   - Copilot
 ---
