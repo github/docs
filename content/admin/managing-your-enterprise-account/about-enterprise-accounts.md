@@ -20,6 +20,12 @@ topics:
   - Fundamentals
 ---
 
+<!-- expires 2024-09-03 -->
+{% ifversion ghec %}
+{% data reusables.enterprise.single-organizations-enterprise-migration %}
+{% endif %}
+<!-- end expires 2024-09-03 -->
+
 ## About enterprise accounts on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec %}

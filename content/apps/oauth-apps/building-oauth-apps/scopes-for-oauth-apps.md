@@ -59,7 +59,7 @@ Name | Description
 &emsp;`write:repo_hook` | Grants read, write, and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% endif %} repositories.
 &emsp;`read:repo_hook`| Grants read and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% endif %} repositories.
 **`admin:org`** | Fully manage the organization and its teams, projects, and memberships.
-&emsp;`write:org`| Read and write access to organization membership, organization projects, and team membership.
+&emsp;`write:org`| Read and write access to organization membership and organization projects.
 &emsp;`read:org`| Read-only access to organization membership, organization projects, and team membership.
 **`admin:public_key`** | Fully manage public keys.
 &emsp;`write:public_key`| Create, list, and view details for public keys.

@@ -45,7 +45,7 @@ The notifications inbox includes triaging options designed specifically for your
 * Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
 * See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
 * Create custom filters to focus on different notifications when you want.
-* Group notifications in your inbox by repository or date to get a quick overview with less context switching
+* Group notifications in your inbox by repository or date to get a quick overview with less context switching.
 
 In addition, you can receive and triage notifications on your mobile device with {% data variables.product.prodname_mobile %}. For more information, see "[Managing your notification settings with GitHub Mobile](#managing-your-notification-settings-with-github-mobile)" or "[AUTOTITLE](/get-started/using-github/github-mobile)."
 
