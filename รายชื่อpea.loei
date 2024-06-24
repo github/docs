@@ -1,3 +1,8 @@
+git branch -m main www.loei.go.th
+git fetch origin https://www.bora.dopa.go.th/
+git branch -u origin/www.loei.go.th www.loei.go.thhttps://sheet.zoho.com/sheet/open/qu75fcee3fe989d07462cada61a8ce46de592
+git remote set-head origin -a
+
 # GitHub Docs <!-- omit in toc -->
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
