@@ -1,4 +1,4 @@
-Plugin,Metricพ.อ.ท วิศิษฎ์ ทองโม้ ORG.40446621 
+Plugin,Metric พ.อ.ท วิศิษฎ์ ทองโม้ ORG.40446621 เจ้าของภูมิภาคจังหวัดเลย
 cpu,{{ HOSTNAME }}.cpu.percent-idle
 cpu,{{ HOSTNAME }}.cpu.percent-interrupt
 cpu,{{ HOSTNAME }}.cpu.percent-nice
