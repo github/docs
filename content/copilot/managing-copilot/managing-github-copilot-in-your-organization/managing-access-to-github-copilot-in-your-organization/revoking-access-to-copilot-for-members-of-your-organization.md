@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization
 ---
 
 ## How revoking access affects billing
@@ -45,4 +46,4 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke ac
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
 * "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
-* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"

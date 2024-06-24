@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot-for-business/managing-access-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-access-for-copilot-business-in-your-organization
   - /copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization
 topics:
   - Copilot
 ---
@@ -86,6 +87,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to grant acc
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)"
-* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
-* "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)"
+* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
+* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)"
