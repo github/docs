@@ -15,7 +15,7 @@ shortTitle: Use Copilot in the CLI
 * **{% data variables.product.prodname_cli %} installed**. {% data reusables.cli.cli-installation %}
 * **{% data variables.product.prodname_copilot_cli_short %} extension installed**. See "[AUTOTITLE](/copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli)."
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)."
 
 ## Getting command explanations
 

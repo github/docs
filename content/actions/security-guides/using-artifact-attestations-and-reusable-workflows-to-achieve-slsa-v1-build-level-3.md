@@ -14,8 +14,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 ## Introduction
 
 Artifact attestations are a great way to create unfalsifiable provenance and integrity guarantees for the software you build.
