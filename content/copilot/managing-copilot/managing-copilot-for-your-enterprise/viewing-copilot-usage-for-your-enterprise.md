@@ -39,6 +39,10 @@ If you have a subscription to {% data variables.product.prodname_copilot_for_bus
 
    The total spending for each organization for the current cycle will usually be the number of seats assigned, multiplied by the cost per seat. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)." However, if the same organization member is assigned a seat in multiple organizations, their seat usage will be included for each organization, but the enterprise will only be charged once. The cost for this person will only be included in the organization where they were first assigned a seat.
 
+1. Optionally, to receive a CSV report by email detailing the usage of {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_github_codespaces %}, and {% data variables.product.prodname_copilot %} for each of your enterprise account's organizations, under the billing summary at the top of the page click **Get usage report**. The report is sent to your account's primary email address.
+
+   ![Screenshot of the header of the billing settings page on GitHub. A button, labeled "Get usage report", is highlighted with an orange outline.](/assets/images/help/billing/actions-packages-report-download-enterprise.png)
+
 ### At the organization-level
 
 {% else %}
@@ -55,3 +59,6 @@ If you have a subscription to {% data variables.product.prodname_copilot_for_bus
    ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page.](/assets/images/help/copilot/org-level-seat-view.png)
 
    The figure for Total Seats shows how many seats are currently assigned for {% data variables.product.prodname_copilot %}.
+
+1. Optionally, to download a CSV report detailing the usage of {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, {% data variables.product.prodname_github_codespaces %}, and {% data variables.product.prodname_copilot %} in your organization, next to "Usage this month", click **Get usage report**. An email containing a link for downloading the CSV report is sent to the primary email address for your account. You can choose whether the report should cover the last 7, 30, 90, or 180 days.
+   ![Screenshot of the "Billing and plans" settings. A button, labeled "Get usage report", is highlighted with an orange outline.](/assets/images/help/billing/actions-packages-report-download.png)
