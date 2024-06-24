@@ -7,8 +7,6 @@ versions:
 shortTitle: Artifact attestations
 ---
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 ## About artifact attestations
 
 {% data reusables.actions.about-artifact-attestations %}
