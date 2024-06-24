@@ -92,6 +92,7 @@ export type Context = {
   genericTocNested?: ToC[]
   breadcrumbs?: Breadcrumb[]
   glossaries?: Glossary[]
+  currentProductName?: string
 }
 
 export type Glossary = {
