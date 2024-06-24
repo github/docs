@@ -205,7 +205,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 {% endnote %}
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
 
 You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
 
@@ -426,7 +426,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
-
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
 {% data reusables.copilot.chat-access-denied %}

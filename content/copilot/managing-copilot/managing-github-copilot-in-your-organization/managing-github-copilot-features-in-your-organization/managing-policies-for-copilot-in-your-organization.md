@@ -1,5 +1,5 @@
 ---
-title: Managing policies and features for Copilot in your organization
+title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/managing-copilot-for-business/managing-policies-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-policies-for-copilot-business-in-your-organization
   - /copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization
 topics:
   - Copilot
 shortTitle: Managing policies

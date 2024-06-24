@@ -727,7 +727,7 @@ Together, permission statements and product callouts tell readers who can use th
 
 Consider what information belongs in a permission statement or a product callout.
 
-For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
+For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
 
 #### Focus on key information, not explanations
 
