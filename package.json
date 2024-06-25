@@ -376,7 +376,7 @@
     "robots-parser": "^3.0.0",
     "sass": "^1.77.1",
     "start-server-and-test": "^2.0.3",
-    "typescript": "^5.4.4",
+    "typescript": "^5.5.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
     "vitest": "1.6.0",
