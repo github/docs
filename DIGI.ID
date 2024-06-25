@@ -1,0 +1,149 @@
+ข้ามไปที่เนื้อหาหลัก
+ไม่ต้องสลับช่องทาง
+มูลนิธิซอฟต์แวร์อาปาเช่
+ใบอนุญาต APACHE เวอร์ชัน 2.0 
+เวอร์ชันข้อความ: https://www.apache.org/licenses/LICENSE-2.0.txt
+ตัวระบุแบบสั้น SPDX: Apache-2.0
+ใบอนุญาตที่ได้รับอนุมัติ OSI: https://opensource.org/licenses/Apache-2.0
+Apache License เวอร์ชัน 2.0 ซึ่งได้รับการอนุมัติโดย ASF ในปี 2004 ช่วยให้เราบรรลุเป้าหมายในการจัดหาผลิตภัณฑ์ซอฟต์แวร์ที่เชื่อถือได้และมีอายุการใช้งานยาวนานผ่านการพัฒนาซอฟต์แวร์โอเพ่นซอร์สที่ทำงานร่วมกัน
+
+แพ็คเกจทั้งหมดที่ผลิตโดย ASF นั้นมีการอนุญาตสิทธิ์โดยปริยายภายใต้ใบอนุญาต Apache เวอร์ชัน 2.0 เว้นแต่จะมีการระบุไว้เป็นอย่างอื่นอย่างชัดเจน
+
+Apache License
+เวอร์ชัน 2.0 มกราคม 2547
+http://www.apache.org/licenses/
+
+ข้อกำหนดและเงื่อนไขสำหรับการใช้งาน การทำซ้ำ และการจัดจำหน่าย
+
+1. คำจำกัดความ
+
+" ใบอนุญาต " หมายถึงข้อกำหนดและเงื่อนไขในการใช้ ทำซ้ำ และการจำหน่ายตามที่กำหนดในส่วนที่ 1 ถึง 9 ของเอกสารนี้
+
+" ผู้อนุญาต " หมายถึง เจ้าของลิขสิทธิ์หรือนิติบุคคลที่ได้รับอนุญาตจากเจ้าของลิขสิทธิ์ผู้ให้ใบอนุญาต
+
+" นิติบุคคล " หมายถึงการรวมตัวกันของนิติบุคคลที่ทำหน้าที่และนิติบุคคลอื่นๆ ทั้งหมดที่ควบคุม ถูกควบคุมโดย หรืออยู่ภายใต้การควบคุมเดียวกันกับนิติบุคคลนั้น สำหรับวัตถุประสงค์ของคำจำกัดความนี้ " การควบคุม " หมายถึง (i) อำนาจทั้งทางตรงและทางอ้อมในการก่อให้เกิดทิศทางหรือการจัดการของหน่วยงานดังกล่าว ไม่ว่าจะโดยสัญญาหรืออย่างอื่น หรือ (ii) ความเป็นเจ้าของห้าสิบเปอร์เซ็นต์ (50%) หรือ จำนวนหุ้นที่จำหน่ายได้แล้วมากขึ้น หรือ (iii) การเป็นเจ้าของผลประโยชน์ของนิติบุคคลดังกล่าว
+
+" คุณ " (หรือ " ของคุณ ") จะหมายถึงบุคคลหรือนิติบุคคลที่ใช้การอนุญาตที่ได้รับจากใบอนุญาตนี้
+
+แบบฟอร์ม " แหล่งที่มา " หมายถึงรูปแบบที่ต้องการสำหรับการแก้ไข รวมถึงแต่ไม่จำกัดเพียงซอร์สโค้ดซอฟต์แวร์ แหล่งที่มาของเอกสาร และไฟล์การกำหนดค่า
+
+แบบฟอร์ม " Object " หมายถึงรูปแบบใดๆ ที่เกิดจากการเปลี่ยนแปลงทางกลหรือการแปลแบบฟอร์มต้นฉบับ รวมถึงแต่ไม่จำกัดเพียงรหัสวัตถุที่คอมไพล์ เอกสารที่สร้างขึ้น และการแปลงเป็นสื่อประเภทอื่นๆ
+
+" งาน " หมายถึงผลงานของผู้แต่งไม่ว่าจะในรูปแบบแหล่งที่มาหรือวัตถุซึ่งมีให้ใช้งานภายใต้ใบอนุญาตตามที่ระบุในประกาศลิขสิทธิ์ที่รวมอยู่ในหรือแนบไปกับงาน (ตัวอย่างอยู่ในภาคผนวกด้านล่าง)
+
+" งานลอกเลียนแบบ " จะหมายถึงงานใดๆ ไม่ว่าจะอยู่ในรูปแบบแหล่งที่มาหรือวัตถุ ซึ่งมีพื้นฐาน (หรือมาจาก) งานและที่การแก้ไขบทบรรณาธิการ คำอธิบายประกอบ การอธิบายรายละเอียดเพิ่มเติม หรือการดัดแปลงอื่นๆ แสดงถึงงานต้นฉบับโดยรวม ของการประพันธ์ เพื่อวัตถุประสงค์ของใบอนุญาตนี้ ผลงานต่อเนื่องจะไม่รวมถึงผลงานที่ยังคงแยกออกจากกัน หรือเพียงเชื่อมโยง (หรือผูกมัดด้วยชื่อ) กับส่วนต่อประสานของงานและผลงานต่อเนื่องของงานดังกล่าว
+
+" การบริจาค " จะหมายถึงผลงานการประพันธ์ใด ๆ รวมถึงเวอร์ชันดั้งเดิมของงานและการดัดแปลงหรือเพิ่มเติมใด ๆ ในงานนั้นหรือผลงานต่อเนื่องที่ถูกส่งโดยเจตนาไปยังผู้อนุญาตเพื่อรวมไว้ในงานโดยเจ้าของลิขสิทธิ์หรือโดยบุคคลหรือ นิติบุคคลที่ได้รับอนุญาตให้ยื่นในนามของเจ้าของลิขสิทธิ์ เพื่อวัตถุประสงค์ของคำจำกัดความนี้ " ส่งแล้ว " หมายถึงรูปแบบการสื่อสารทางอิเล็กทรอนิกส์ วาจา หรือลายลักษณ์อักษรใดๆ ที่ส่งไปยังผู้อนุญาตหรือตัวแทน รวมถึงแต่ไม่จำกัดเฉพาะการสื่อสารในรายชื่อผู้รับจดหมายอิเล็กทรอนิกส์ ระบบควบคุมซอร์สโค้ด และระบบติดตามปัญหาที่ ได้รับการจัดการโดยหรือในนามของผู้อนุญาตเพื่อวัตถุประสงค์ในการสนทนาและปรับปรุงงาน แต่ไม่รวมถึงการสื่อสารที่มีการทำเครื่องหมายอย่างเด่นชัดหรือกำหนดเป็นลายลักษณ์อักษรโดยเจ้าของลิขสิทธิ์ว่า " ไม่ใช่การมีส่วนร่วม "
+
+" ผู้ร่วมให้ข้อมูล " จะหมายถึงผู้ให้อนุญาตและบุคคลหรือนิติบุคคลใดๆ ในนามของผู้ให้อนุญาตได้รับความช่วยเหลือ และต่อมาได้รวมอยู่ในงานนี้
+
+2.การให้ใบอนุญาตลิขสิทธิ์ภายใต้ข้อกำหนดและเงื่อนไขของใบอนุญาตนี้ ผู้ร่วมให้ข้อมูลแต่ละรายมอบใบอนุญาตลิขสิทธิ์แบบถาวร ทั่วโลก ไม่ผูกขาด ไม่มีค่าใช้จ่าย ไม่มีค่าลิขสิทธิ์ และไม่สามารถเพิกถอนได้แก่คุณในการทำซ้ำ เตรียมผลงานดัดแปลงของ แสดงต่อสาธารณะ แสดงต่อสาธารณะ อนุญาตช่วงและแจกจ่ายงานและผลงานต่อเนื่องดังกล่าวในรูปแบบแหล่งที่มาหรือวัตถุ
+
+3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+
+You must give any other recipients of the Work or Derivative Works a copy of this License; and
+You must cause any modified files to carry prominent notices stating that You changed the files; and
+You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.
+You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+9. การยอมรับการรับประกันหรือความรับผิดเพิ่มเติม ในขณะที่แจกจ่ายงานหรือผลงานต่อเนื่อง คุณอาจเลือกที่จะเสนอและเรียกเก็บค่าธรรมเนียม การยอมรับการสนับสนุน การรับประกัน การชดใช้ค่าเสียหาย หรือภาระผูกพันความรับผิดอื่น ๆ และ/หรือสิทธิ์ที่สอดคล้องกับใบอนุญาตนี้ อย่างไรก็ตาม ในการยอมรับภาระผูกพันดังกล่าว คุณสามารถดำเนินการในนามของตัวคุณเองและในความรับผิดชอบของคุณแต่เพียงผู้เดียวเท่านั้น ไม่ใช่ในนามของผู้ร่วมให้ข้อมูลรายอื่น และเฉพาะในกรณีที่คุณตกลงที่จะชดใช้ค่าเสียหาย ปกป้อง และถือว่าผู้ร่วมให้ข้อมูลแต่ละรายไม่ต้องรับผิดต่อความรับผิดใด ๆ ที่เกิดขึ้นจาก หรือการเรียกร้องที่ยืนยันต่อผู้ร่วมให้ข้อมูลดังกล่าวโดยเหตุผลของการที่คุณยอมรับการรับประกันหรือความรับผิดเพิ่มเติมดังกล่าว
+
+การสิ้นสุดข้อกำหนดและเงื่อนไข
+
+วิธีใช้ APACHE LICENSE กับงานของคุณ
+รวมสำเนาของ Apache License ซึ่งโดยทั่วไปจะอยู่ในไฟล์ชื่อ LICENSE ในงานของคุณ และพิจารณารวมไฟล์ประกาศที่อ้างอิงถึงใบอนุญาตด้วย
+
+หากต้องการใช้ Apache License กับไฟล์เฉพาะในงานของคุณ ให้แนบคำประกาศสำเร็จรูปต่อไปนี้ โดยแทนที่ช่องที่ล้อมรอบด้วยวงเล็บ "[]" ด้วยข้อมูลระบุตัวตนของคุณเอง (อย่าใส่วงเล็บ!) ใส่ข้อความในรูปแบบความคิดเห็นที่เหมาะสมสำหรับรูปแบบไฟล์ เราขอแนะนำให้คุณรวมชื่อไฟล์หรือคลาสและคำอธิบายวัตถุประสงค์ไว้ใน "หน้าที่พิมพ์" เดียวกันกับประกาศเกี่ยวกับลิขสิทธิ์เพื่อให้ระบุได้ง่ายขึ้นภายในคลังข้อมูลของบุคคลที่สาม
+
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+ชุมชน
+ผู้ร่วมให้ข้อมูลเริ่มต้นใช้งาน
+กลายเป็นผู้กระทำการ
+หลักจรรยาบรรณ
+ทรัพยากรชุมชน
+ชุมชนโอเวอร์โค้ด
+กิจกรรม
+เก็บ
+โครงการ
+โครงการ
+โครงการบ่มเพาะ
+ไดเรกทอรีโครงการ
+รายชื่อผู้รับจดหมาย
+รายงานช่องโหว่
+ดาวน์โหลด
+การแจกแจง
+ข่าวประชาสัมพันธ์
+สถานะโครงสร้างพื้นฐาน
+สถิติโครงสร้างพื้นฐาน
+เรียนรู้
+บล็อก
+ASF ทำงานอย่างไร
+วิถีอาปาเช่
+กฎหมายและเครื่องหมายการค้า
+ใบอนุญาต
+อภิธานศัพท์
+คำถามที่พบบ่อย
+ทรัพยากรและเครื่องมือ
+ข้อมูลนักพัฒนา
+วิกิ
+ปัญหา
+หย่อน
+พอร์ทัลบริการตนเอง
+โครงสร้างพื้นฐาน
+กระทันหัน
+หลักเกณฑ์ของแบรนด์
+โลโก้โครงการ
+เกี่ยวกับ
+เกี่ยวกับ
+ผู้สนับสนุนของเรา
+การสนับสนุนองค์กร
+ผู้สนับสนุนรายบุคคล
+ภาวะผู้นำ
+สมาชิก
+ความหลากหลายและการไม่แบ่งแยก
+ห้องข่าว
+ติดต่อ
+นโยบายความเป็นส่วนตัว
+ลิขสิทธิ์© 2024 มูลนิธิซอฟต์แวร์ Apache ได้รับอนุญาตภายใต้ใบอนุญาต Apache เวอร์ชัน 2.0
+และตำแหน่งปัจจุบันผมคือ รัฐมนตรีกระทรวงพลังงานจังหวัดเลยรับผิดชอบงาน งบประมาณการรายจ่ายและดูแลการไฟฟ้าส่วนภูมิภาคจังหวัดเลย 12 สาขา ดังนี้ 
+Apache และโลโก้ขนนกของ Apache เป็นเครื่องหมายการค้าของ The Apache Software Foundation
+Title Filter  
+   Display # รับผิดชอบกับผู้ว่าการไฟฟ้าผู้บังคับบัญชาช่าง เอกสารทุกฉบับต้องผ่านการตรวจสอบก่อนคนับ 
+20 และเงินเดือนผมกับทีมผมอีก3นายหัวหน้าช่าง2ผู้บังคับคือผู้ว่าการไฟฟ้า 1รวมผมครับ digitalofficef003@gmail.com
+#	Article Title	Hits
+1	การไฟฟ้าส่วนภูมิภาคอำเภอเอราวัณ	72
+2	การไฟฟ้าส่วนภูมิภาคอำเภอหนองหิน	551
+3	การไฟฟ้าส่วนภูมิภาคอำเภอวังสะพุง	118
+4	การไฟฟ้าส่วนภูมิภาคอำเภอภูหลวง	58
+5	การไฟฟ้าส่วนภูมิภาคอำเภอภูกระดึง	69
+6	การไฟฟ้าส่วนภูมิภาคอำเภอภูเรือ	49
+7	การไฟฟ้าส่วนภูมิภาคอำเภอนาด้วง	59
+8	การไฟฟ้าส่วนภูมิภาคอำเภอนาแห้ว	103
+9	การไฟฟ้าส่วนภูมิภาคอำเภอท่าลี่	138
+10	การไฟฟ้าส่วนภูมิภาคอำเภอด่านซ้าย	138
+11	การไฟฟ้าส่วนภูมิภาคอำเภอเชียงคาน	163
+12	การไฟฟ้าส่วนภูมิภาคจังหวัดเลย
