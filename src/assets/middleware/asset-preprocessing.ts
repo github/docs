@@ -1,3 +1,7 @@
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
+
 // This middleware rewrites the URL of requests that contain the
 // portion of `/cb-\d+/`.
 // "cb" stands for "cache bust".
@@ -10,7 +14,11 @@
 
 const regex = /\/cb-\d+\//
 
-export default function assetPreprocessing(req, res, next) {
+export default function assetPreprocessing(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (req.path.startsWith('/assets/')) {
     // We didn't use to have a rule about all image assets must be
     // lower case. So we've exposed things like:
