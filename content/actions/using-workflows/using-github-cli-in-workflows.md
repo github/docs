@@ -34,7 +34,7 @@ jobs:
     steps:
       - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
         env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GH_TOKEN }}{% endraw %}
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
@@ -63,11 +63,11 @@ jobs:
 
           echo 'NUM_OPEN_ISSUES='$numOpenIssues >> $GITHUB_ENV
         env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GH_TOKEN }}{% endraw %}
           OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
           REPO: {% raw %}${{ github.event.repository.name }}{% endraw %}
       - run: |
           gh issue create --title "Issue report" --body "$NUM_OPEN_ISSUES issues remaining" --repo $GITHUB_REPOSITORY
         env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GH_TOKEN }}{% endraw %}
 ```
