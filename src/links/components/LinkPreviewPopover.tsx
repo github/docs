@@ -72,6 +72,7 @@ function getOrCreatePopoverGlobal() {
     // focus trapped
     wrapper.setAttribute('role', 'dialog')
     wrapper.setAttribute('aria-modal', 'true')
+    wrapper.setAttribute('aria-label', 'user hovercard')
     wrapper.setAttribute('aria-labelledby', TITLE_ID)
 
     // this extra element and its event listener are used to help us direct

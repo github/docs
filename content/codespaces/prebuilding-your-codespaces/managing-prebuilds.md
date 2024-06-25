@@ -17,11 +17,11 @@ The prebuilds that you configure for a repository are created and updated using 
 
 Depending on the settings in a prebuild configuration, the workflow to update the prebuild may be triggered by these events:
 
-- Creating or updating the prebuild configuration
-- Pushing a commit or a pull request to a branch that's configured to have prebuilds
-- Changing any of the dev container configuration files
-- A schedule that you've defined in the prebuild configuration
-- Manually triggering the workflow
+* Creating or updating the prebuild configuration
+* Pushing a commit or a pull request to a branch that's configured to have prebuilds
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
+* Manually triggering the workflow
 
 The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
@@ -103,4 +103,4 @@ It may be useful to manually trigger a workflow run for a prebuild configuration
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"

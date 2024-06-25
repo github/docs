@@ -94,6 +94,7 @@ type SendEventProps = {
   [EventType.link]: {
     link_url: string
     link_samesite?: boolean
+    link_samepage?: boolean
     link_container?: string
   }
   [EventType.page]: {}
@@ -118,6 +119,7 @@ type SendEventProps = {
     survey_vote: boolean
     survey_comment?: string
     survey_email?: string
+    survey_rating?: number
   }
 }
 
@@ -146,11 +148,12 @@ export function sendEvent<T extends EventType>({
       page_event_id: pageEventId,
 
       // Content information
-      path: location.pathname,
-      hostname: location.hostname,
       referrer: getReferrer(document.referrer),
-      search: location.search,
-      href: location.href,
+      href: location.href, // full URL
+      hostname: location.hostname, // origin without protocol or port
+      path: location.pathname, // path without search or host
+      search: location.search, // also known as query string
+      hash: location.hash, // also known as anchor
       path_language: getMetaContent('path-language'),
       path_version: getMetaContent('path-version'),
       path_product: getMetaContent('path-product'),
@@ -376,6 +379,7 @@ function initLinkEvent() {
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_samepage: sameSite && link.pathname === location.pathname,
       link_container: container?.dataset.container,
     })
   })
@@ -388,6 +392,9 @@ function initLinkEvent() {
     sendEvent({
       type: EventType.link,
       link_url: `${url}#scroll-to-top`,
+      link_samesite: true,
+      link_samepage: true,
+      link_container: 'static',
     })
   })
 }

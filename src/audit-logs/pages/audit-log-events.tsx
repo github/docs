@@ -13,16 +13,12 @@ import {
 } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import GroupedEvents from '../components/GroupedEvents'
-
-type AuditLogEventT = {
-  action: string
-  description: string
-}
+import type { CategorizedEvents } from '../types'
 
 type Props = {
   mainContext: MainContextT
   automatedPageContext: AutomatedPageContextT
-  auditLogEvents: Record<string, Array<AuditLogEventT>>
+  auditLogEvents: CategorizedEvents
 }
 
 export default function AuditLogEvents({
@@ -47,7 +43,7 @@ export default function AuditLogEvents({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
-  const { getAuditLogEvents } = await import('src/audit-logs/lib')
+  const { getCategorizedAuditLogEvents } = await import('../lib')
 
   const req = context.req as object
   const res = context.res as object
@@ -59,16 +55,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
-  let auditLogEvents = {} as Record<string, Array<AuditLogEventT>>
-  // events are displayed grouped by categories
-  const categorized = true
+  let auditLogEvents: CategorizedEvents = {}
 
   if (url?.includes('/security-log-events')) {
-    auditLogEvents = getAuditLogEvents('user', currentVersion, categorized)
+    auditLogEvents = getCategorizedAuditLogEvents('user', currentVersion)
   } else if (url?.includes('/audit-log-events-for-your-enterprise')) {
-    auditLogEvents = getAuditLogEvents('enterprise', currentVersion, categorized)
+    auditLogEvents = getCategorizedAuditLogEvents('enterprise', currentVersion)
   } else if (url?.includes('/audit-log-events-for-your-organization')) {
-    auditLogEvents = getAuditLogEvents('organization', currentVersion, categorized)
+    auditLogEvents = getCategorizedAuditLogEvents('organization', currentVersion)
   }
 
   const auditLogEventsMiniTocs = await getAutomatedPageMiniTocItems(

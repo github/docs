@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ActionList, ActionMenu, Dialog, IconButton } from '@primer/react'
@@ -10,6 +10,7 @@ import {
   ThreeBarsIcon,
   XIcon,
 } from '@primer/octicons-react'
+import dynamic from 'next/dynamic'
 
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'src/frame/components/Link'
@@ -26,6 +27,10 @@ import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
 import { AllProductsLink } from 'src/frame/components/sidebar/AllProductsLink'
 
 import styles from './Header.module.scss'
+
+const DomainNameEdit = dynamic(() => import('src/links/components/DomainNameEdit'), {
+  ssr: false,
+})
 
 export const Header = () => {
   const router = useRouter()
@@ -146,6 +151,8 @@ export const Header = () => {
     homeURL += `/${currentVersion}`
   }
 
+  const showDomainNameEdit = currentVersion.startsWith('enterprise-server@')
+
   return (
     <div
       data-container="header"
@@ -182,6 +189,14 @@ export const Header = () => {
             <div className="hide-sm border-left pl-3">
               <VersionPicker />
             </div>
+
+            {showDomainNameEdit && (
+              <div className="hide-sm xborder-left pl-3">
+                <Suspense>
+                  <DomainNameEdit />
+                </Suspense>
+              </div>
+            )}
           </div>
 
           <div className={cx('d-flex flex-items-center', isSearchOpen && styles.widgetsContainer)}>
@@ -195,7 +210,7 @@ export const Header = () => {
                   'mr-3',
                 )}
               >
-                <Search />
+                <Search isSearchOpen={isSearchOpen} />
               </div>
             )}
 
@@ -306,6 +321,14 @@ export const Header = () => {
                         <>
                           <VersionPicker xs={true} />
                           <ActionList.Divider />
+                          {showDomainNameEdit && (
+                            <>
+                              <Suspense>
+                                <DomainNameEdit xs={true} />
+                              </Suspense>
+                              <ActionList.Divider />
+                            </>
+                          )}
                         </>
                       )}
                       {signupCTAVisible && (

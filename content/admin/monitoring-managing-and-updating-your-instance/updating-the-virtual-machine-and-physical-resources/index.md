@@ -18,6 +18,7 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
+  - /preparing-for-the-elasticsearch-upgrade
   - /known-issues-with-upgrades-to-your-instance
 shortTitle: Update VM & resources
 ---

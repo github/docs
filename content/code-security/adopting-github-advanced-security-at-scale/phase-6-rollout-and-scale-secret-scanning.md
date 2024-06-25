@@ -91,11 +91,11 @@ Once you have decided on the secret types, you can do the following:
 
    Some information you may want to collect includes:
 
-   - Organization
-   - Repository
-   - Secret type
-   - Secret value
-   - Maintainers on repository to contact
+   * Organization
+   * Repository
+   * Secret type
+   * Secret value
+   * Maintainers on repository to contact
 
    {% note %}
 
@@ -115,6 +115,6 @@ As you continue to build your remediation processes for other secret types, star
 
 {% note %}
 
-This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %} in "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)."
+This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services %} in "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services)."
 
 {% endnote %}

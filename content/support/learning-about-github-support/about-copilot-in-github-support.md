@@ -63,5 +63,5 @@ We greatly value your feedback. As we continuously improve {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)"

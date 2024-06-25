@@ -32,9 +32,9 @@ If you want to work with Git locally, but do not want to use the command line, y
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
-- [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)
-- [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
-- [Managing files](/repositories/working-with-files/managing-files)
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
+* [Managing files](/repositories/working-with-files/managing-files)
 
 ## Setting up Git
 
@@ -76,10 +76,10 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
 
-- {% data reusables.getting-started.create-a-repository %}.
+* {% data reusables.getting-started.create-a-repository %}
 
-- {% data reusables.getting-started.fork-a-repository %}
+* {% data reusables.getting-started.fork-a-repository %}
 
-- {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

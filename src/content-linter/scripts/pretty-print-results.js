@@ -69,13 +69,24 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
         if (result.fixable && !fixed) {
           console.log(`${PREFIX_PADDING}${chalk.green('Fixable!')}`)
         }
+        const ruleNames = result.ruleNames.map((name) => chalk.bold(name)).join(', ')
         console.log(
           label('Rule'),
-          result.ruleNames.map((name) => chalk.bold(name)).join(', '),
-          chalk.dim(result.ruleDescription),
+          ruleNames,
+          chalk.dim(indentWrappedString(result.ruleDescription, ruleNames.length)),
         )
         if (!distinctDetails) {
-          console.log(label('Detail'), result.errorDetail)
+          console.log(
+            label('Detail'),
+            `${indentWrappedString(result.errorDetail?.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
+          )
+        }
+
+        if (result.context) {
+          console.log(
+            label('Context'),
+            `${indentWrappedString(result.context.replace(/\n/g, ' ').trim(), PREFIX_PADDING.length * 8)}`,
+          )
         }
       }
       let position = chalk.yellow(result.lineNumber)
@@ -83,7 +94,13 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
         position += ` (col ${chalk.yellow(result.columnNumber)})`
       }
       if (distinctDetails) {
-        console.log(label('Detail'), result.errorDetail)
+        console.log(
+          label('Detail'),
+          indentWrappedString(
+            result.errorDetail?.replace(/\n/g, ' ').trim(),
+            PREFIX_PADDING.length * 8,
+          ),
+        )
       }
       console.log(
         label('Line'),
@@ -119,4 +136,35 @@ function chalkFunColors(text) {
       return chalk[color](char)
     })
     .join('')
+}
+
+function indentWrappedString(str, startingIndent) {
+  const NEW_LINE_PADDING = ' '.repeat(16)
+  const width = process.stdout.columns || 80 // Use terminal width, default to 80 if not available
+  let indentedString = ''
+  let currentLine = ''
+  let isFirstLine = true
+
+  for (const word of str.split(' ')) {
+    const effectiveWidth = isFirstLine ? width - startingIndent : width - NEW_LINE_PADDING.length
+
+    if ((currentLine + word).length > effectiveWidth) {
+      if (isFirstLine) {
+        indentedString += currentLine.trim() + '\n'
+        isFirstLine = false
+      } else {
+        indentedString += NEW_LINE_PADDING + currentLine.trim() + '\n'
+      }
+      currentLine = word + ' '
+    } else {
+      currentLine += word + ' '
+    }
+  }
+  if (isFirstLine) {
+    indentedString += currentLine.trim()
+  } else {
+    indentedString += NEW_LINE_PADDING + currentLine.trim()
+  }
+
+  return indentedString
 }

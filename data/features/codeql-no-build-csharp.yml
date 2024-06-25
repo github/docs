@@ -1,0 +1,6 @@
+# Reference: #14183 (Add C# to existing Java support)
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.15'

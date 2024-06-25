@@ -246,7 +246,7 @@
   "/v4/previews": "/graphql/overview/schema-previews",
   "/free-pro-team@latest/v4/previews": "/graphql/overview/schema-previews",
   "/enterprise/graphql/overview/schema-previews": "/enterprise-server@latest/graphql/overview/schema-previews",
-  "/enterprise/v4/previews": "/enterprise-server@latest/graphql/overview/schema-previews",
+  "/enterprise/v4/previews": "/enterprise-server@3.12/graphql/overview/schema-previews",
   "/enterprise/2.20/graphql/overview/schema-previews": "/enterprise-server@2.20/graphql/overview/schema-previews",
   "/enterprise-server@2.20/v4/previews": "/enterprise-server@2.20/graphql/overview/schema-previews",
   "/enterprise/2.20/v4/previews": "/enterprise-server@2.20/graphql/overview/schema-previews",

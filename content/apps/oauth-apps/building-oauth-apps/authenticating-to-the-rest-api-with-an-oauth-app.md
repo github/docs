@@ -182,13 +182,13 @@ the logged in user:
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -271,7 +271,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
+      auth_result = RestClient.get('{% data variables.product.rest_url %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -292,7 +292,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end

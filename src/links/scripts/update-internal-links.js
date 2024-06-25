@@ -22,7 +22,7 @@ import walkFiles from '#src/workflows/walk-files.js'
 
 program
   .description('Update internal links in content files')
-  .option('--silent', 'The opposite of verbose')
+  .option('--verbose', 'Enable additional logging')
   .option('--debug', "Don't hide any errors")
   .option('--dry-run', "Don't actually write changes to disk")
   .option('--dont-set-autotitle', "Do NOT transform the link text to 'AUTOTITLE' (if applicable)")
@@ -77,7 +77,7 @@ async function main(files, opts) {
       throw new Error(`No files found in ${files}`)
     }
 
-    const verbose = !opts.silent
+    const { verbose } = opts
 
     if (verbose) {
       console.log(chalk.bold(`Updating internal links in ${actualFiles.length} found files...`))

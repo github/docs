@@ -24,13 +24,13 @@ However, we also recommend aligning your strategy with the culture you want to c
 
 In general, {% data variables.product.company_short %} recommends minimizing the number of organizations you create. Having fewer organizations encourages greater collaboration and innersourcing, which increases efficiency. In fact, many businesses are best served by a single organization, for the following reasons.
 
-- It's easier to find resources within a single organization, as there's only one place to search.
-- It's easier to communicate within a single organization, as @-mentions only work between members of the same organization.
-- Being part of a single, large organization where anyone and anything is accessible fosters collaboration and loyalty, whereas being separated into smaller organizations can make teams more isolated.
+* It's easier to find resources within a single organization, as there's only one place to search.
+* It's easier to communicate within a single organization, as @-mentions only work between members of the same organization.
+* Being part of a single, large organization where anyone and anything is accessible fosters collaboration and loyalty, whereas being separated into smaller organizations can make teams more isolated.
 
 Organization owners always have access to all repositories owned by the organization. If your company is large enough that no single owner should have access to all repositories, consider creating multiple organizations.
 
-The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. For example, each organization can have a different SAML configuration.
+The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. {% ifversion fpt or ghec %} For example, each organization can have a different SAML configuration.{% endif %}
 
 Avoid creating a one-to-one relationship between organizations and structural entities of your company, such as individual teams or business units. Instead, group structural entities that can share policies, settings, and requirements into a single organization. This approach maximizes collaboration while meeting your regulatory requirements.
 
@@ -44,8 +44,8 @@ We recommend creating and enforcing fixed and transparent rules for creating a n
 
 There are five main archetypes for organizational structure. The archetypes are defined by two decisions:
 
-- Whether to use a single organization or multiple organizations
-- Whether to grant all members access to all repositories, or use teams to manage repository access more granularly
+* Whether to use a single organization or multiple organizations
+* Whether to grant all members access to all repositories, or use teams to manage repository access more granularly
 
 For more information about teams, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
@@ -87,5 +87,5 @@ Then, create a second organization specifically for more sensitive repositories.
 
 ## Further reading
 
-- [Organize your experts with ad hoc teams](https://github.blog/2017-02-15-organize-your-experts-with-ad-hoc-teams/) in the {% data variables.product.company_short %} blog
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"
+* [Organize your experts with ad hoc teams](https://github.blog/2017-02-15-organize-your-experts-with-ad-hoc-teams/) in the {% data variables.product.company_short %} blog
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"

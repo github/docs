@@ -1,6 +1,6 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.location.product_location %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+intro: 'Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
@@ -17,15 +17,15 @@ topics:
 
 ## Notifications and subscriptions
 
-You can choose to receive ongoing updates about specific activity on {% data variables.location.product_location %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
+You can choose to receive ongoing updates about specific activity on {% data variables.product.prodname_dotcom %} through a subscription. Notifications are updates that you receive for specific activity that you are subscribed to.
 
 ### Subscription options
 
 You can choose to subscribe to notifications for:
-- A conversation in a specific issue, pull request, or gist.
-- All activity in a repository{% ifversion team-discussions %} or team discussion{% endif %}.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}.
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
+* A conversation in a specific issue, pull request, or gist
+* All activity in a repository{% ifversion team-discussions %} or team discussion{% endif %}
+* CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}
+* Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled)
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -34,18 +34,18 @@ If you're no longer interested in a conversation, you can unsubscribe, unwatch, 
 ### Default subscriptions
 
 In general, you are automatically subscribed to conversations by default when you have:
-- Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
-- Been assigned to an issue or pull request.
-- Opened a pull request{% ifversion team-discussions %}, issue, or created a team discussion post{% else %} or issue{% endif %}.
-- Commented on a thread.
-- Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
-- Had your username @mentioned.
-- Changed the state of a thread, such as by closing an issue or merging a pull request.
-- Had a team you're a member of @mentioned.
+* Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
+* Been assigned to an issue or pull request.
+* Opened a pull request{% ifversion team-discussions %}, issue, or created a team discussion post{% else %} or issue{% endif %}.
+* Commented on a thread.
+* Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
+* Had your username @mentioned.
+* Changed the state of a thread, such as by closing an issue or merging a pull request.
+* Had a team you're a member of @mentioned.
 
 By default, you also automatically watch all repositories that you create and are owned by your personal account.
 
-To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions)."
+To unsubscribe from conversations you're automatically subscribed to, you can change your notification settings or directly unsubscribe or unwatch activity on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions)."
 
 ## Customizing notifications and subscriptions
 
@@ -72,16 +72,16 @@ If you've configured notifications to be sent by email and believe you're receiv
 ## Triaging notifications from your inbox
 
 To effectively manage your notifications, you can triage your inbox with options to:
-- Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
-- Mark a notification as read or unread.
-- **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
-- Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
+* Remove a notification from the inbox with **Done**. You can review **Done** notifications all in one place by clicking **Done** in the sidebar or by using the query `is:done`.
+* Mark a notification as read or unread.
+* **Save** a notification for later review. **Saved** notifications are flagged in your inbox. You can review **Saved** notifications all in one place in the sidebar by clicking **Saved** or by using the query `is:saved`.
+* Automatically unsubscribe from this notification and future updates from this conversation. Unsubscribing also removes the notification from your inbox. If you unsubscribe from a conversation and someone mentions your username or a team you're on that you're receiving updates for, then you will start to receive notifications from this conversation again.
 
 From your inbox you can also triage multiple notifications at once. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 
 ## Customizing your notifications inbox
 
-To focus on a group of notifications in your inbox on {% data variables.location.product_location %} or {% data variables.product.prodname_mobile %}, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
+To focus on a group of notifications in your inbox, you can create custom filters. For example, you can create a custom filter for an open source project you contribute to and only see notifications for that repository in which you are mentioned. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox)." For more examples of how to customize your triaging workflow, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications)."
 
 ## Notification retention policy
 

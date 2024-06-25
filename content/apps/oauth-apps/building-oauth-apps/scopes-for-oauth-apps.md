@@ -34,14 +34,14 @@ If your {% data variables.product.prodname_oauth_app %} doesn't have access to a
 Check headers to see what OAuth scopes you have, and what the API action accepts:
 
 ```shell
-$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/users/codertocat -I
+$ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.rest_url %}/users/codertocat -I
 HTTP/2 200
 X-OAuth-Scopes: repo, user
 X-Accepted-OAuth-Scopes: user
 ```
 
-- `X-OAuth-Scopes` lists the scopes your token has authorized.
-- `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
+* `X-OAuth-Scopes` lists the scopes your token has authorized.
+* `X-Accepted-OAuth-Scopes` lists the scopes that the action checks for.
 
 ## Available scopes
 
@@ -59,7 +59,7 @@ Name | Description
 &emsp;`write:repo_hook` | Grants read, write, and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% endif %} repositories.
 &emsp;`read:repo_hook`| Grants read and ping access to hooks in {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% endif %} repositories.
 **`admin:org`** | Fully manage the organization and its teams, projects, and memberships.
-&emsp;`write:org`| Read and write access to organization membership, organization projects, and team membership.
+&emsp;`write:org`| Read and write access to organization membership and organization projects.
 &emsp;`read:org`| Read-only access to organization membership, organization projects, and team membership.
 **`admin:public_key`** | Fully manage public keys.
 &emsp;`write:public_key`| Create, list, and view details for public keys.

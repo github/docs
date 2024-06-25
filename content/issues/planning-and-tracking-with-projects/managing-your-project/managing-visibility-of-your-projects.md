@@ -36,4 +36,4 @@ Project admins can also manage write and admin access to their project and contr
 
 ## Further reading
 
-- [Allowing project visibility changes in your organization](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)
+* [Allowing project visibility changes in your organization](/organizations/managing-organization-settings/allowing-project-visibility-changes-in-your-organization)

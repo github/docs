@@ -72,15 +72,15 @@ If reported content is enabled for a public repository, you can also report cont
 
 **Notes:**
 
-- In order to get accurate information about the abuse, the abuse report form will direct you to use the in-product abuse report links. If an in-product link is not available, contact {% data variables.contact.contact_support %} to report abuse or report content.
-- Users in India can contact {% data variables.product.prodname_dotcom %}'s Grievance Officer for India through [support.github.com/contact/india-grievance-officer](https://support.github.com/contact/india-grievance-officer).
+* In order to get accurate information about the abuse, the abuse report form will direct you to use the in-product abuse report links. If an in-product link is not available, contact {% data variables.contact.contact_support %} to report abuse or report content.
+* Users in India can contact {% data variables.product.prodname_dotcom %}'s Grievance Officer for India through [support.github.com/contact/india-grievance-officer](https://support.github.com/contact/india-grievance-officer).
 
 {% endnote %}
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
-- "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"
+* "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)"

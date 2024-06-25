@@ -21,7 +21,7 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@7ffb872c64bd809d23563a130a0a97d01dfa8f43
+      - uses: alex-page/github-project-automation-plus@303f24a24c67ce7adf565a07e96720faf126fe36
         with:
           project: Docs open source board
           column: Help wanted

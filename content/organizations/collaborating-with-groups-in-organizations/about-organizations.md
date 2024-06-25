@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.organizations.about-organizations %} For more information about account types, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-You can invite an unlimited number of people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+You can invite people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." If an organization exceeds 100,000 members, some UI experiences and API functionality may be degraded.
 
 In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, projects, and apps. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)", "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)", and "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization)."
 
@@ -37,6 +37,12 @@ To learn how to use organizations most effectively, see "[AUTOTITLE](/organizati
 {% endif %}
 
 ## Organizations and enterprise accounts
+
+<!-- expires 2024-09-03 -->
+{% ifversion ghec %}
+{% data reusables.enterprise.single-organizations-enterprise-migration %}
+{% endif %}
+<!-- end expires 2024-09-03 -->
 
 {% ifversion fpt %}
 Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).

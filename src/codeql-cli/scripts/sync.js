@@ -74,7 +74,7 @@ async function setupEnvironment() {
   }
 
   // refresh the temp directory
-  rimraf.sync(TEMP_DIRECTORY)
+  await rimraf(TEMP_DIRECTORY)
   await mkdirp(TEMP_DIRECTORY)
 }
 

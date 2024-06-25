@@ -14,6 +14,6 @@ children:
   - /configuring-openid-connect-in-hashicorp-vault
   - /configuring-openid-connect-in-cloud-providers
   - /configuring-openid-connect-in-pypi
+  - /configuring-openid-connect-in-jfrog
   - /using-openid-connect-with-reusable-workflows
 ---
-

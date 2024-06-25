@@ -61,8 +61,8 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
 ### Prerequisites
 
-- Linux host running Nagios.
-- Network access to the {% data variables.product.prodname_ghe_server %} cluster.
+* Linux host running Nagios.
+* Network access to the {% data variables.product.prodname_ghe_server %} cluster.
 
 ### Configuring the Nagios host
 

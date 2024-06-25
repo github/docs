@@ -51,10 +51,10 @@ If you create a codespace from a repository, the codespace will be associated wi
 
 When you create a codespace, a number of steps happen to create and connect you to your development environment:
 
-- Step 1: VM and storage are assigned to your codespace.
-- Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
-- Step 4: Codespace continues with post-creation setup.
+* Step 1: VM and storage are assigned to your codespace.
+* Step 2: Container is created and your repository is cloned.
+* Step 3: You can connect to the codespace.
+* Step 4: Codespace continues with post-creation setup.
 
 For more information on what happens when you create a codespace, see "[AUTOTITLE](/codespaces/getting-started/deep-dive)."
 
@@ -83,11 +83,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
 
-   - **Use the default options**
+   * **Use the default options**
 
       To create a codespace using the default options, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}. <br/><br/>
 
-   - **Configure advanced options**
+   * **Configure advanced options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
@@ -105,11 +105,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          **Notes**
 
-         - You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         - The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         - For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-         - For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-         - {% data reusables.codespaces.codespaces-machine-type-availability %}
+         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+         * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         * {% data reusables.codespaces.codespaces-machine-type-availability %}
 
          {% endnote %}
 
@@ -123,7 +123,7 @@ The names of user-defined secrets may be displayed on the advanced options page 
 
 Entering values for these development environment secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
 
-If you enter a value for a recommended secret, the secret will available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
+If you enter a value for a recommended secret, the secret will be available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
 
 If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
 
@@ -167,6 +167,6 @@ For full details of the options for this command, see [the {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)"
-- "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
-- "[AUTOTITLE](/rest/codespaces/organizations)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)"
+* "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
+* "[AUTOTITLE](/rest/codespaces/organizations)"

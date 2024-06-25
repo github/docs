@@ -85,7 +85,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>a</kbd> | Show or hide annotations on diffs
 |<kbd>b</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
 
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 
 ## Navigating within code files
 
@@ -95,7 +95,10 @@ If you view a code file in a repository using the **Code** view and click on any
 |-----------|------------
 |<kbd>Shift</kbd>+<kbd>J</kbd>| Highlights the line that is currently selected by the cursor within the code file
 |<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>C</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> (Windows/Linux) | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
+| {% ifversion code-search-upgrade %} |
 |<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurrences of the symbol in the code, and shows the symbol in the symbols pane
+| {% endif %} |
+
 {% endif %}
 
 ## Comments

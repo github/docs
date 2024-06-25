@@ -48,8 +48,8 @@ ARC consists of a set of resources, some of which are created specifically for A
 
 Each resource that is deployed by ARC is given a name composed of:
 
-- an installation name, which is the installation name you specify when you install the Helm chart.
-- a resource identification suffix, which is is a string that identifies the resource type. This value is not configurable.
+* an installation name, which is the installation name you specify when you install the Helm chart.
+* a resource identification suffix, which is a string that identifies the resource type. This value is not configurable.
 
 {% note %}
 
@@ -88,8 +88,8 @@ Each resource that is deployed by ARC is given a name composed of:
 
 ARC consists of several custom resource definitions (CRDs). For more information on custom resources, see [Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) in the Kubernetes documentation. You can find the list of custom resource definitions used for ARC in the following API schema definitions.
 
-- [actions.github.com/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.github.com/v1alpha1)
-- [actions.summerwind.net/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.summerwind.net/v1alpha1)
+* [actions.github.com/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.github.com/v1alpha1)
+* [actions.summerwind.net/v1alpha1](https://pkg.go.dev/github.com/actions/actions-runner-controller/apis/actions.summerwind.net/v1alpha1)
 
 Because custom resources are extensions of the Kubernetes API, they won't be available in a default Kubernetes installation. You will need to install these custom resources to use ARC. For more information on installing custom resources, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller)."
 
@@ -107,9 +107,9 @@ You can find the definition of ARC's runner image in [this Dockerfile](https://g
 
 You can create your own runner image that meets your requirements. Your runner image must fulfill the following conditions.
 
-- Use a base image that can run the self-hosted runner application. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
-- The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
-- If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
+* Use a base image that can run the self-hosted runner application. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
+* The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
+* If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
 
 You can use the following example Dockerfile to start creating your own runner image.
 
@@ -168,9 +168,9 @@ You can scale runners statically or dynamically depending on your needs. For mor
 
 The ARC [runner image](https://github.com/actions/runner/pkgs/container/actions-runner) is bundled with the following software:
 
-- [Runner binaries](https://github.com/actions/runner)
-- [Runner container hooks](https://github.com/actions/runner-container-hooks)
-- Docker (required for Docker-in-Docker mode)
+* [Runner binaries](https://github.com/actions/runner)
+* [Runner container hooks](https://github.com/actions/runner-container-hooks)
+* Docker (required for Docker-in-Docker mode)
 
 For more information, see [ARC's runner image Dockerfile](https://github.com/actions/runner/blob/main/images/Dockerfile) in the Actions repository.
 
@@ -180,9 +180,9 @@ ARC is released as two Helm charts and one container image. The Helm charts are 
 
 You can find the latest releases of ARC's Helm charts and container image on {% data variables.product.prodname_registry %}:
 
-- [`gha-runner-scale-set-controller` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller)
-- [`gha-runner-scale-set` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set)
-- [`gha-runner-scale-set-controller` container image](https://github.com/actions/actions-runner-controller/pkgs/container/gha-runner-scale-set-controller)
+* [`gha-runner-scale-set-controller` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller)
+* [`gha-runner-scale-set` Helm chart](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set)
+* [`gha-runner-scale-set-controller` container image](https://github.com/actions/actions-runner-controller/pkgs/container/gha-runner-scale-set-controller)
 
 The supported runner image is released as a separate container image, which you can find at [`actions-runner`](https://github.com/actions/runner/pkgs/container/actions-runner) on {% data variables.product.prodname_registry %}.
 

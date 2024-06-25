@@ -3,4 +3,4 @@
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.12'
+  ghes: '>=3.13'

@@ -22,7 +22,7 @@
 - /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 
 # As seen in PR 38572 we want specific versions to redirect to different articles
@@ -53,3 +53,7 @@
 - /github-ae@latest/admin/overview/about-data-residency
 - /github-ae@latest/admin/overview/deploying-github-ae
 - /github-ae@latest/admin/overview/initializing-github-ae
+
+# We needed to remove the 'Creating a project (classic)' article for GHES/FPT only
+/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards
+- /issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board

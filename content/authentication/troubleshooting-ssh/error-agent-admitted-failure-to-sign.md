@@ -17,7 +17,7 @@ shortTitle: Agent failure to sign
 When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:
 
 ```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
+$ ssh -vT git@{% data variables.product.product_url %}
 > ...
 > Agent admitted failure to sign using the key.
 > debug1: No more authentication methods to try.

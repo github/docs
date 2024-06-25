@@ -62,8 +62,8 @@ After creating an assignment, you can edit many aspects of the assignment to bet
     {% endnote %}
 
 1. To set up or change the template repository for your assignment, in the "Add a template repository to give students starter code" section, select the **Select a repository** dropdown menu.
-   - To choose a template repository, begin typing the repository name in the text field, then click the repository in the search results.
-   - To remove a template repository, delete any text in the text field.
+   * To choose a template repository, begin typing the repository name in the text field, then click the repository in the search results.
+   * To remove a template repository, delete any text in the text field.
 
    {% note %}
 
@@ -74,6 +74,16 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 1. To add a new autograding test, in the "Add autograding tests" section, select the **Add test** dropdown menu, then click a grading method from the options that appear. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
 
     Additionally, you can edit or delete existing autograding tests with {% octicon "pencil" aria-label="The pencil icon" %} or {% octicon "trash" aria-label="The trash icon" %}.
+
+1. To add new protected path, in the "Protected file paths" section, type out the file or path and click **Add path**.
+
+    Additionally, delete existing protected paths by clicking {% octicon "trash" aria-label="The trash icon" %}.
+
+    {% note %}
+
+    **Note:** If you remove a protected file path, the "Protected file(s) modified" label will be removed from any submissions that edited files in that path
+
+    {% endnote %}
 
 1. To turn feedback pull requests on or off, select or deselect **Enable feedback pull requests**.
 
@@ -87,5 +97,5 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 ## Further reading
 
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"

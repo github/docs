@@ -45,7 +45,6 @@ export default class Operation {
     this.subcategory = operation['x-github'].subcategory
     this.parameters = operation.parameters || []
     this.bodyParameters = []
-    this.enabledForGitHubApps = operation['x-github'].enabledForGitHubApps
     return this
   }
 

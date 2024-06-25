@@ -23,14 +23,14 @@ To use {% data variables.product.prodname_copilot_for_business %}, you need to s
 
 **Note:**
 
-- You must be an enterprise owner to enable {% data variables.product.prodname_copilot_business_short %} for your enterprise.
-- If you set up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization account, you can skip this section.
+* You must be an enterprise owner to enable {% data variables.product.prodname_copilot_business_short %} for your enterprise.
+* If you set up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization account, you can skip this section.
 
 {% endnote %}
 
-Your enterprise owner can enable {% data variables.product.prodname_copilot_business_short %} for the organizations in the enterprise by first establishing the policy and then assigning users. To enforce a policy to manage the use of {% data variables.product.prodname_copilot_business_short %}, follow the steps in "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)." If you need additional help with policy configuration or user assignment for {% data variables.product.prodname_copilot_business_short %}, you can contact {% data variables.contact.contact_enterprise_sales %}.
+Your enterprise owner can enable {% data variables.product.prodname_copilot_business_short %} for the organizations in the enterprise by first establishing the policy and then assigning users. To enforce a policy to manage the use of {% data variables.product.prodname_copilot_business_short %}, follow the steps in "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." If you need additional help with policy configuration or user assignment for {% data variables.product.prodname_copilot_business_short %}, you can contact {% data variables.contact.contact_enterprise_sales %}.
 
-{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. Your enterprise owner can choose whether to enable or disable the filter at the enterprise-level, or allow organization owners to decide at the organization-level. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-suggestions-that-match-public-code)."{% endif %}
+{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. Your enterprise owner can choose whether to enable or disable the filter at the enterprise-level, or allow organization owners to decide at the organization-level. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-suggestions-that-match-public-code)."{% endif %}
 
 ## Configuring {% data variables.product.prodname_copilot %} settings in your organization
 
@@ -45,11 +45,11 @@ Once an enterprise owner has enabled {% data variables.product.prodname_copilot_
 
 ## Assigning {% data variables.product.prodname_copilot %} seats
 
-To give people or teams within your organization access to {% data variables.product.prodname_copilot %}, you need to assign them a {% data variables.product.prodname_copilot %} seat. {% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization.{% endif %} To enable access for all current and future users in your organization, or specific users in your organization, follow the steps in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-in-your-organization)."
+To give people or teams within your organization access to {% data variables.product.prodname_copilot %}, you need to assign them a {% data variables.product.prodname_copilot %} seat. {% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization.{% endif %} To enable access for all current and future users in your organization, or specific users in your organization, follow the steps in "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)."
 
 ## Configuring network settings
 
 If members of your organization will be using {% data variables.product.prodname_copilot %} on your company's corporate network, you may need to configure network settings so that members can use {% data variables.product.prodname_copilot %} successfully.
 
-- If you use an HTTP proxy server on your network, you can configure {% data variables.product.prodname_copilot %} to connect via this server. To  successfully intercept and inspect {% data variables.product.prodname_copilot %}'s secure connection, you may need to install custom SSL certificates on your users' machines. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)."
-- If you use a firewall, you may need to add certain domains to the firewall's allowlist. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)."
+* If you use an HTTP proxy server on your network, you can configure {% data variables.product.prodname_copilot %} to connect via this server. To  successfully intercept and inspect {% data variables.product.prodname_copilot %}'s secure connection, you may need to install custom SSL certificates on your users' machines. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)."
+* If you use a firewall, you may need to add certain domains to the firewall's allowlist. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)."

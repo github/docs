@@ -1,1 +1,1 @@
-1. Under "Visibility", choose to make your {% data variables.projects.projects_v1_board %} public or private. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
+1. Under "Visibility", choose to make your {% data variables.projects.projects_v1_board %} public or private.

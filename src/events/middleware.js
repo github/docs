@@ -3,11 +3,13 @@ import { omit, without, mapValues } from 'lodash-es'
 import QuickLRU from 'quick-lru'
 
 import { schemas, hydroNames } from './lib/schema.js'
+import statsd from '@/observability/lib/statsd.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
+import { analyzeComment } from './analyze-comment.js'
 
 const router = express.Router()
 const OMIT_FIELDS = ['type']
@@ -74,6 +76,28 @@ router.post(
     })
 
     return res.json({})
+  }),
+)
+
+router.post(
+  '/survey/preview/v1',
+  catchMiddlewareError(async function previewComment(req, res) {
+    noCacheControl(res)
+
+    const { comment, locale, url, vote } = req.body
+    const tags = [`url:${url}`, `vote:${vote}`]
+
+    if (!comment || !comment.trim()) {
+      statsd.increment('events.survey_preview.empty', 1, tags)
+      return res.status(400).json({ message: 'Empty comment' })
+    }
+
+    const { rating, signals } = await analyzeComment(comment, locale)
+
+    res.json({ rating, comment })
+
+    tags.push(...signals.map((signal) => `signal:${signal}`))
+    statsd.increment('events.survey_preview.signals', 1, tags)
   }),
 )
 

@@ -21,6 +21,7 @@ import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { Link } from 'src/frame/components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { LinkPreviewPopover } from 'src/links/components/LinkPreviewPopover'
+import { ReplaceDomain } from 'src/links/components/replace-domain'
 
 const ClientSideRefresh = dynamic(() => import('src/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -103,6 +104,7 @@ export const ArticlePage = () => {
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       {router.pathname.includes('/rest/') && <RestRedirect />}
+      <ReplaceDomain />
       {currentLayout === 'inline' ? (
         <>
           <ArticleInlineLayout

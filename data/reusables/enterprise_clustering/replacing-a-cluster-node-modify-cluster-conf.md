@@ -14,3 +14,5 @@
      metrics-server = true
      storage-server = true
    </pre>
+
+   You can choose to defer database seeding of a new MySQL replica node, resulting in being able to open your appliance to traffic sooner. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/deferring-database-seeding)."

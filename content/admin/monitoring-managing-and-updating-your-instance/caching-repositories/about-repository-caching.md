@@ -21,3 +21,5 @@ The repository cache listens to the primary instance, whether that's a single in
 You have fine-grained control over which repositories are allowed to sync to the repository cache. Git data will only be replicated to the locations you specify.
 
 {% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
+
+{% data reusables.enterprise_installation.replica-limit %}

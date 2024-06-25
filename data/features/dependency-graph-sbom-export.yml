@@ -1,5 +1,0 @@
-# Reference: Issue #9146 - Dependency graph produces SBOMs - [GA]
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.8'

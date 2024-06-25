@@ -22,9 +22,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-yo
 {% warning %}
 
 **Warnings:**
-- If there are members of your legacy Admin team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
-- To prevent the loss of private forks made by members of the legacy Admin team, you must follow steps 1-3 below before deleting the legacy Admin team.
-- Because "admin" is a term for organization members with specific [access to certain repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
+* If there are members of your legacy Admin team who are not members of other teams, deleting the team will remove those members from the organization. Before deleting the team, ensure members are already direct members of the organization, or have collaborator access to necessary repositories.
+* To prevent the loss of private forks made by members of the legacy Admin team, you must follow steps 1-3 below before deleting the legacy Admin team.
+* Because "admin" is a term for organization members with specific [access to certain repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization) in the organization, we recommend you avoid that term in any team name you decide on.
 
 {% endwarning %}
 

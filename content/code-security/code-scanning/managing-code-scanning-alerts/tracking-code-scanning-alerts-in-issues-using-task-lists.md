@@ -24,22 +24,22 @@ topics:
 {% data variables.product.prodname_code_scanning_caps %} alerts integrate with task lists in {% data variables.product.prodname_github_issues %} to allow you to prioritize and track alerts with all your development work. To track a {% data variables.product.prodname_code_scanning %} alert in an existing issue, add the URL for the alert as a task list item in the issue. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
 You can also quickly create a new issue to track an alert:
-- From a {% data variables.product.prodname_code_scanning %} alert. For more information, see "[Creating a tracking issue from a {% data variables.product.prodname_code_scanning %} alert](#creating-a-tracking-issue-from-a-code-scanning-alert)."
-- From the API. For more information, see "[Creating a tracking issue from the API](#creating-a-tracking-issue-from-the-api)."
+* From a {% data variables.product.prodname_code_scanning %} alert. For more information, see "[Creating a tracking issue from a {% data variables.product.prodname_code_scanning %} alert](#creating-a-tracking-issue-from-a-code-scanning-alert)."
+* From the API. For more information, see "[Creating a tracking issue from the API](#creating-a-tracking-issue-from-the-api)."
 
 You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
 
 {% data variables.product.product_name %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
 
-- The {% data variables.product.prodname_code_scanning %} alerts list page will show which alerts are tracked in issues so that you can view at a glance which alerts still require processing and how many issues they are tracked in.
+* The {% data variables.product.prodname_code_scanning %} alerts list page will show which alerts are tracked in issues so that you can view at a glance which alerts still require processing and how many issues they are tracked in.
 
   ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts view. The first entry includes the issue icon followed by the number 2. The third entry includes the issue icon followed by the number 1. Both are outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
-- A "tracked in" section will also show in the corresponding alert page.
+* A "tracked in" section will also show in the corresponding alert page.
 
   ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. Under the alert title, "Tracked by #1, #2" is outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
 
-- On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard.
+* On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard.
 
   {% note %}
 
@@ -70,8 +70,8 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
 
    {% data variables.product.prodname_dotcom %} automatically creates an issue to track the alert and adds the alert as a task list item.
    {% data variables.product.prodname_dotcom %} prepopulates the issue:
-   - The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
-   - The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
+   * The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
+   * The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
 1. Optionally, edit the title and the body of the issue.
    {% warning %}
 

@@ -45,13 +45,13 @@ You can also use the **Add tasklist** button while editing your issue to insert 
 
 Once you have started editing your tasklist Markdown, you can add new tasks by preceding each new task with `- [ ] ` and then adding either:
 
-- A draft task. Draft tasks are text that can later be converted into issues.
-- The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
+* A draft task. Draft tasks are text that can later be converted into issues.
+* The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
 
 If you add a draft task, it must meet these requirements:
 
-- Draft tasks can be formatted using Markdown.
-- Draft tasks must not exceed 512 characters in length.
+* Draft tasks can be formatted using Markdown.
+* Draft tasks must not exceed 512 characters in length.
 
 Your tasklist will be rendered by {% data variables.product.product_name %} when you preview your changes and when you save the issue. You can then make changes and add issues and draft tasks using the {% data variables.product.product_name %} UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the tasklist in other issues.
 

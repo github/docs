@@ -91,7 +91,7 @@ Anyone can work with a previously opened pull request to continue working on it,
    > Compressing objects: 100% (26/26), done.
    > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
    > Total 29 (delta 8), reused 0 (delta 0)
-   > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+   > To https://{% data variables.product.product_url %}/USERNAME/REPOSITORY.git
    >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
    ```
 

@@ -125,8 +125,6 @@ To indicate the purpose of the view, give it a descriptive name.
 1. Type the new name for your view.
 1. To save changes, press <kbd>Return</kbd>.
 
-{% ifversion projects-v2-workflows %}
-
 ## Configure built-in automation
 
 {% ifversion projects-v2-auto-add %}
@@ -155,9 +153,7 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 1. Next to **Set**, select **Status:Todo**.
 1. Click the **Disabled** toggle to enable the workflow.
 
-{% endif %}
-
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"

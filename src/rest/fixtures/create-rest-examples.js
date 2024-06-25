@@ -621,7 +621,6 @@ export const operation = {
   },
   'x-github': {
     githubCloudOnly: false,
-    enabledForGitHubApps: true,
     category: 'actions',
     subcategory: 'secrets',
   },

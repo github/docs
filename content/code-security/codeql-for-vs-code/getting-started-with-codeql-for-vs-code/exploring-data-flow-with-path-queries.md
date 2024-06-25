@@ -11,6 +11,8 @@ topics:
   - CodeQL
 type: reference
 intro: 'You can run {% data variables.product.prodname_codeql %} queries in {% data variables.product.prodname_vscode %} to help you track the flow of data through a program, highlighting areas that are potential security vulnerabilities.'
+redirect_from:
+  - /code-security/codeql-for-vs-code/exploring-data-flow-with-path-queries
 ---
 
 ## About path queries

@@ -17,6 +17,8 @@ redirect_from:
 
 {% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)." {% data reusables.dependabot.advanced-private-registry-config-link %}
 
+{% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
+
 You can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
 
 {% ifversion dependabot-ghes-no-public-internet %}

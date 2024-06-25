@@ -95,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see "[dirty](#dirty)".
+    current HEAD. Also see "[dirty](#dirty)."
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
@@ -128,7 +128,7 @@
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
-- term: Commit graph
+- term: commit graph
   description: >-
     A repository graph that shows all the commits made to a repository in the
     past year.
@@ -292,7 +292,7 @@
 - term: gitfile
   description: >-
     A plain `.git` file, which is always at the root of a working tree and points to the Git directory, which has the entire Git repository and its meta data. You can view this file for your repository on the command line with `git rev-parse --git-dir`.
-    that is the real repository.
+    That is the real repository.
 - term: GraphQL
   description: >-
     A query language for APIs and a runtime for fulfilling those queries with
@@ -553,7 +553,7 @@
     Pull refers to when you are fetching in changes and merging them. For
     instance, if someone has edited the remote file you're both working on,
     you'll want to pull in those changes to your local copy so that it's up to
-    date. See also "[fetch](#fetch)".
+    date. See also "[fetch](#fetch)."
 - term: pull access
   description: A synonym for read access.
 - term: pull request
@@ -570,7 +570,7 @@
 - term: punch graph
   description: >-
     A repository graph that shows the frequency of updates to a repository based
-    on the day of week and time of day
+    on the day of week and time of day.
 - term: push
   description: >-
     To push means to send your committed changes to a remote repository on
@@ -746,13 +746,13 @@
     When talking about a branch or a fork, the primary branch on the original
     repository is often referred to as the "upstream", since that is the main
     place that other changes will come in from. The branch/fork you are working
-    on is then called the "downstream". Also called origin.
+    on is then called the "downstream." Also called origin.
 - term: upstream branch
   description: >-
     The default branch that is merged into the branch in question (or the branch
     in question is rebased onto). It is configured via `branch.<name>.remote` and
     `branch.<name>.merge`. If the upstream branch of A is origin/B sometimes we
-    say "A is tracking origin/B".
+    say "A is tracking origin/B."
 - term: user
   description: >-
     Users are people with personal GitHub accounts. Each user has a personal profile, and

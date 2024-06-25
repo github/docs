@@ -33,7 +33,7 @@ jobs:
           # need to use a token from a user with access to github/audit-log-allowlists for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
-          src/audit-logs/scripts/sync.js
+          npm run audit-log-sync
 
       - name: Get the audit-log-allowlists SHA being synced
         id: audit-log-allowlists

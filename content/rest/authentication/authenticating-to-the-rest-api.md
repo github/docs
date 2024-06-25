@@ -24,7 +24,7 @@ After creating a token, you can authenticate your request by sending the token i
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/octocat" \
+--url "{% data variables.product.rest_url %}/octocat" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
@@ -77,7 +77,7 @@ For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
+--url "{% data variables.product.rest_url %}/applications/YOUR_CLIENT_ID/token" \
 --user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
 --header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \
@@ -92,8 +92,8 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
 1. Navigate to your account settings.
-   - For an app owned by a personal account, click **Settings**.
-   - For an app owned by an organization:
+   * For an app owned by a personal account, click **Settings**.
+   * For an app owned by an organization:
      1. Click **Your organizations**.
      1. To the right of the organization, click **Settings**.
 {% data reusables.user-settings.developer_settings %}
@@ -142,7 +142,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           curl --request GET \
-          --url "{% data variables.product.api_url_code %}/PATH" \
+          --url "{% data variables.product.rest_url %}/PATH" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
 
@@ -158,7 +158,7 @@ For an example of how to authenticate in a {% data variables.product.prodname_ac
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/user" \
+--url "{% data variables.product.rest_url %}/user" \
 --user USERNAME:PASSWORD \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"
 ```
@@ -171,5 +171,5 @@ Authentication with username and password is not supported. If you try to authen
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
-- "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"
+* "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
+* "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"

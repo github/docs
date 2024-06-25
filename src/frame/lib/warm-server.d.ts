@@ -1,9 +1,3 @@
-type Site = {
-  pages: Record<String, Page>
-  redirects: Record<string, string>
-  unversionedTree: Record<string, string>
-  siteTree: Record<string, string>
-  pageList: Page[]
-}
+import type { Site } from '@/types'
 
 export default function warmServer(languages: string[]): Promise<Site>

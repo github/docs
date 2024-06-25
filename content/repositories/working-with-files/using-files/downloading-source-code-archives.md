@@ -59,10 +59,10 @@ Source code archives are available at specific URLs for each repository. For exa
 
 Source code archives are generated on request, cached for a while, and then deleted. If the same archive is requested again in the future, it'll be regenerated. It's important to understand what guarantees {% data variables.product.company_short %} makes about source code archives.
 
-- An archive of a commit ID will always have the same file contents whenever it's requested, assuming the commit ID is still in the repository and the repository's name has not changed.
-- Because branches and tags can move to different commit IDs, future downloads of an archive may have different contents than previously downloaded archives of the same branch or tag. Assuming the branch or tag still points at the same commit ID, it will have the same file contents.
-- The exact compression settings used to generate a zipball or tarball may change over time. The extracted contents won't change if the branch or tag doesn't change, but the outer compressed archive may have a different byte layout. {% data variables.product.company_short %} will give at least six months' notice before changing compression settings.
-- The name of the repository is part of the directory structure inside the archive. Therefore, if the repository name changes, the root directory name will change as well.
+* An archive of a commit ID will always have the same file contents whenever it's requested, assuming the commit ID is still in the repository and the repository's name has not changed.
+* Because branches and tags can move to different commit IDs, future downloads of an archive may have different contents than previously downloaded archives of the same branch or tag. Assuming the branch or tag still points at the same commit ID, it will have the same file contents.
+* The exact compression settings used to generate a zipball or tarball may change over time. The extracted contents won't change if the branch or tag doesn't change, but the outer compressed archive may have a different byte layout. {% data variables.product.company_short %} will give at least six months' notice before changing compression settings.
+* The name of the repository is part of the directory structure inside the archive. Therefore, if the repository name changes, the root directory name will change as well.
 
 If you rely on stability of source code archives for reproducibility (ensuring you always get identical files inside the archive), we recommend using the [archives REST API](/rest/repos/contents#download-a-repository-archive-tar) with a commit ID for `:ref`. Using the commit ID ensures you'll always get the same file contents inside the archive and you’ll be immune to repositories rewriting tags or moving branch heads.
 

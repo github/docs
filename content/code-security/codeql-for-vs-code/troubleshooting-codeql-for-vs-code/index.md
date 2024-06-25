@@ -13,4 +13,6 @@ topics:
 children:
   - /accessing-logs
   - /warning-problem-with-controller-repository
+redirect_from:
+  - /code-security/codeql-for-vs-code/troubleshooting-codeql-for-visual-studio-code
 ---

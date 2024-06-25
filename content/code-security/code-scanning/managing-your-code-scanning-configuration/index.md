@@ -14,6 +14,7 @@ topics:
 children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup
+  - /set-code-scanning-merge-protection
   - /codeql-query-suites
   - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs

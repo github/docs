@@ -19,6 +19,12 @@ topics:
 shortTitle: View Advanced Security usage
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform-licenses %}
+
+{% endif %}
+
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
 Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of {% ifversion ghas-billing-UI-update %}licenses {% endif %}that can use these features. Periodically you should check that your use is within your license capacity. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
@@ -64,15 +70,15 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
    In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
 {% endif %}
 1. Optionally, display the security and analysis settings for an organization.
-   - Click the name of the organization.
+   * Click the name of the organization.
 
 {% ifversion ghec %}
-   - On the "Code security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see an overview of your organization's license usage, as well as a detailed breakdown of usage by repository for this organization.
+   * On the "Code security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see an overview of your organization's license usage, as well as a detailed breakdown of usage by repository for this organization.
 
       For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% else %}
-   - On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
+   * On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
 
   For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
@@ -91,10 +97,10 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
 You can download a CSV file with {% data variables.product.prodname_GH_advanced_security %} license usage information at both the enterprise and organization levels. The CSV file contains information about each {% data variables.product.prodname_advanced_security %} license that is in use, including:
 
-- The username of the person using the {% ifversion ghas-billing-UI-update %}license{% endif %}
-- The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
-- The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using {% ifversion ghas-billing-UI-update %}licenses{% endif %} belong to
-- The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
+* The username of the person using the {% ifversion ghas-billing-UI-update %}license{% endif %}
+* The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
+* The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using {% ifversion ghas-billing-UI-update %}licenses{% endif %} belong to
+* The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
 
 You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} {% ifversion ghas-billing-UI-update %}license{% endif %} or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 

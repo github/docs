@@ -381,6 +381,10 @@ async function indexVersion(client, indexName, version, language, sourceDirector
         breadcrumbs: { type: 'text' },
         popularity: { type: 'float' },
         intro: { type: 'text' },
+        // Use 'keyword' because it's faster to index and (more importantly)
+        // faster to search on. It would be different if it was something
+        // users could type in into a text input.
+        toplevel: { type: 'keyword' },
       },
     },
     settings,
@@ -389,7 +393,7 @@ async function indexVersion(client, indexName, version, language, sourceDirector
   // POPULATE
   const allRecords = Object.values(records).sort((a, b) => b.popularity - a.popularity)
   const operations = allRecords.flatMap((doc) => {
-    const { title, objectID, content, breadcrumbs, headings, intro } = doc
+    const { title, objectID, content, breadcrumbs, headings, intro, toplevel } = doc
     const contentEscaped = escapeHTML(content)
     const headingsEscaped = escapeHTML(headings)
     const record = {
@@ -408,6 +412,7 @@ async function indexVersion(client, indexName, version, language, sourceDirector
       // you never get a product of 0.0.
       popularity: doc.popularity + 1,
       intro,
+      toplevel,
     }
     return [{ index: { _index: thisAlias } }, record]
   })

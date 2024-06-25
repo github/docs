@@ -23,8 +23,8 @@ Organization owners can change the parent of any team. Team maintainers can chan
 {% tip %}
 
 **Tips:**
-- You cannot change a team's parent to a secret team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
-- You cannot nest a parent team beneath one of its child teams.
+* You cannot change a team's parent to a secret team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+* You cannot nest a parent team beneath one of its child teams.
 
 {% endtip %}
 
@@ -40,4 +40,4 @@ Organization owners can change the parent of any team. Team maintainers can chan
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"

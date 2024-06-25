@@ -19,9 +19,9 @@ This article describes how to write a script to find and redeliver failed delive
 
 This example shows you:
 
-- A script that will find and redeliver failed deliveries for a repository webhook
-- What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
-- A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
+* A script that will find and redeliver failed deliveries for a repository webhook
+* What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
+* A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
 
 This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see "[Alternative methods](#alternative-methods)."
 
@@ -31,12 +31,12 @@ The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver we
 
 {% ifversion pat-v2 %}
 1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-   - For a {% data variables.product.pat_v2 %}, grant the token:
-     - Access to the repository where your webhook was created
-     - Access to the repository where this workflow will run
-     - Write access to the repository webhooks permission
-     - Write access to the repository variables permission
-   - For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
+   * For a {% data variables.product.pat_v2 %}, grant the token:
+     * Access to the repository where your webhook was created
+     * Access to the repository where this workflow will run
+     * Write access to the repository webhooks permission
+     * Write access to the repository variables permission
+   * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
 {% else %}
 1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 {% endif %}
@@ -127,7 +127,7 @@ async function checkAndRedeliverWebhooks() {
 
   // Create an instance of `Octokit` using the token{% ifversion ghes %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
   const octokit = new Octokit({ {% ifversion ghes %}
-    baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+    baseUrl: "{% data variables.product.rest_url %}",{% endif %}
     auth: TOKEN,
   });
 
@@ -357,6 +357,6 @@ You can manually trigger your workflow to test the script. For more information,
 
 This example used {% data variables.product.prodname_actions %} to securely store credentials and to run the script on a schedule. However, if you prefer to run this script on your server that handles webhook deliveries, you can:
 
-- Store the credentials in another secure manner, such as a secret manager like [Azure key vault](https://azure.microsoft.com/products/key-vault). You will also need to update the script to access the credentials from their new location.
-- Run the script on a schedule on your server, for example by using a cron job or task scheduler.
-- Update the script to store the last run time somewhere that your server can access and update. If you choose not to store the last run time as a {% data variables.product.prodname_actions %} secret, you can remove the API calls to access and update the configuration variable.
+* Store the credentials in another secure manner, such as a secret manager like [Azure key vault](https://azure.microsoft.com/products/key-vault). You will also need to update the script to access the credentials from their new location.
+* Run the script on a schedule on your server, for example by using a cron job or task scheduler.
+* Update the script to store the last run time somewhere that your server can access and update. If you choose not to store the last run time as a {% data variables.product.prodname_actions %} secret, you can remove the API calls to access and update the configuration variable.

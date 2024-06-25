@@ -12,6 +12,8 @@ topics:
 type: reference
 intro: 'You can run unit tests for {% data variables.product.prodname_codeql %} queries using the {% data variables.product.prodname_vscode %} extension.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /code-security/codeql-for-vs-code/testing-codeql-queries-in-visual-studio-code
 ---
 
 ## About testing queries in {% data variables.product.prodname_vscode_shortname %}

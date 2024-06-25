@@ -14,10 +14,10 @@ topics:
 ---
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
 
-- Issues
-- Wikis
-- Stars
-- Followers
+* Issues
+* Wikis
+* Stars
+* Followers
 
 For more information on project sites, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 

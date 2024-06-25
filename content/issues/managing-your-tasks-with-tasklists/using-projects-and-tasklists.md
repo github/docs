@@ -49,11 +49,11 @@ When the issues added to your project are either tracked by tasklists or contain
 
 1. In your project, click on an issue that either contains a tasklist or is tracked by a tasklist in another issue.
 1. In the issue that opens in the side-bar, you can navigate through the associated issues.
-   - To navigate down the issue hierarchy, and view the tasks that comprise the current issue, click on issues in the tasklist.  
+   * To navigate down the issue hierarchy, and view the tasks that comprise the current issue, click on issues in the tasklist.  
 
      ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/projects-v2/side-panel-tasklist.png)
 
-   - To navigate up the issue hierarchy, and view the issues that include the current issue as a task, click on an issue number in the breadcrumb menu.  
+   * To navigate up the issue hierarchy, and view the issues that include the current issue as a task, click on an issue number in the breadcrumb menu.  
 
      ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/projects-v2/breadcrumb-menu.png)
 

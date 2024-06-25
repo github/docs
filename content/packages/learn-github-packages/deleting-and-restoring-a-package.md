@@ -19,22 +19,22 @@ shortTitle: Delete & restore a package
 ## Package deletion and restoration support on {% data variables.product.prodname_dotcom %}
 
 On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
-- an entire private package
-- an entire public package, if there's not more than 5000 downloads of any version of the package
-- a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 5,000 downloads
+* an entire private package
+* an entire public package, if there's not more than 5000 downloads of any version of the package
+* a specific version of a private package
+* a specific version of a public package, if the package version doesn't have more than 5,000 downloads
 
 {% note %}
 
 **Note:**
-- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
-- When deleting public packages, be aware that you may break projects that depend on your package.
+* You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
+* When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
 
 On {% data variables.product.prodname_dotcom %}, you can also restore an entire package or package version, if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace is still available and not used for a new package.
+* You restore the package within 30 days of its deletion.
+* The same package namespace is still available and not used for a new package.
 
 ## Packages API support
 
@@ -46,9 +46,7 @@ You can use the REST API to manage your packages. For more information, see the 
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}
 
-{% ifversion packages-delete-with-github-token-api %}
 With registries that support granular permissions, you can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. The token must have `admin` permission to the package. If your workflow publishes a package, the `admin` role is granted by default to the repository where the workflow is stored. For existing packages not published by a workflow, you need to grant the repository the `admin` role to be able to use a {% data variables.product.prodname_actions %} workflow to delete or restore packages using the REST API. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."
-{% endif %}
 
 {% endif %}
 
@@ -56,7 +54,6 @@ With registries that support granular permissions, you can use a `GITHUB_TOKEN` 
 
 ## Required permissions to delete or restore a package
 
-{% ifversion packages-registries-v2 %}
 With registries that support granular permissions, you can choose to allow packages to be scoped to a user or an organization, or linked to a repository.
 
 To delete a package that has granular permissions separate from a repository, such as container images stored at {% ifversion ghes %}`https://containers.HOSTNAME/NAMESPACE/PACKAGE-NAME`{% else %}`https://ghcr.io/NAMESPACE/PACKAGE-NAME`{% endif %}{% ifversion packages-npm-v2 %} or packages stored at `https://npm.pkg.github.com/NAMESPACE/PACKAGE-NAME`{% endif %} (where `NAMESPACE` is the name of the personal account or organization to which the package is scoped), you must have admin access to the package. For more information, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
@@ -65,17 +62,11 @@ For packages that inherit their access permissions from repositories, you can de
 
 Some registries **only** support repository-scoped packages. For a list of these registries, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-{% else %}
-
-You can delete a package if you have admin permissions to the repository in which the package is published.
-
-{% endif %}
-
 ## Deleting a package version
 
-### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package on {% data variables.product.prodname_dotcom %}
+### Deleting a version of a repository-scoped package on {% data variables.product.prodname_dotcom %}
 
-To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped {% endif %}package, you must have admin permissions to the repository in which the package is published. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
+To delete a version of a repository-scoped package, you must have admin permissions to the repository in which the package is published. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
@@ -84,7 +75,7 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
 
-### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
+### Deleting a version of a repository-scoped package with GraphQL
 
 {% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
 
@@ -173,16 +164,16 @@ To review who can delete a package, see "[Required permissions](#required-permis
 ## Restoring packages
 
 You can restore a deleted package or version if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace and version is still available and not reused for a new package.
+* You restore the package within 30 days of its deletion.
+* The same package namespace and version is still available and not reused for a new package.
 
 For example, if you're the user `octocat`, and you have a deleted RubyGems package named `my-package` that was scoped to the repo `octocat/my-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octocat/my-repo/my-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-- For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
-- For user-account scoped packages: The deleted package is scoped to your personal account.
-- For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+* For user-account scoped packages: The deleted package is scoped to your personal account.
+* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
 {% ifversion ghes %}
@@ -195,7 +186,7 @@ Once the package is restored, the package will use the same namespace it did bef
 
 ### Restoring a package in an organization
 
- You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization{% ifversion packages-registries-v2 %} or had granular permissions and was scoped to your organization account{% endif %}.
+ You can restore a deleted package through your organization account settings, as long as the package was in a repository owned by the organization or had granular permissions and was scoped to your organization account.
 
 To review who can restore a package in an organization, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 

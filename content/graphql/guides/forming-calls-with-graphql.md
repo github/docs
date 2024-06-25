@@ -38,13 +38,13 @@ If you want to use the API on behalf of an organization or another user, {% data
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
-To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and " [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## The GraphQL endpoint
 
 The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
-<pre>{% data variables.product.graphql_url_pre %}</pre>
+<pre>{% data variables.product.graphql_url %}</pre>
 
 The endpoint remains constant no matter what operation you perform.
 
@@ -61,7 +61,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {% data variables.product.graphql_url_code %}
+" {% data variables.product.graphql_url %}
 ```
 
 {% tip %}
@@ -202,33 +202,33 @@ query {
 
 Looking at the composition line by line:
 
-- `query {`
+* `query {`
 
   Because we want to read data from the server, not modify it, `query` is the root operation. (If you don't specify an operation, `query` is also the default.)
 
-- `repository(owner:"octocat", name:"Hello-World") {`
+* `repository(owner:"octocat", name:"Hello-World") {`
 
   To begin the query, we want to find a [`repository`](/graphql/reference/objects#repository) object. The schema validation indicates this object requires an `owner` and a `name` argument.
 
-- `issues(last:20, states:CLOSED) {`
+* `issues(last:20, states:CLOSED) {`
 
   To account for all issues in the repository, we call the `issues` object. (We _could_ query a single `issue` on a `repository`, but that would require us to know the number of the issue we want to return and provide it as an argument.)
 
   Some details about the `issues` object:
 
-  - The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
-  - Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
-  - The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an  [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
+  * The [docs](/graphql/reference/objects#repository) tell us this object has the type `IssueConnection`.
+  * Schema validation indicates this object requires a `last` or `first` number of results as an argument, so we provide `20`.
+  * The [docs](/graphql/reference/objects#repository) also tell us this object accepts a `states` argument, which is an  [`IssueState`](/graphql/reference/enums#issuestate) enum that accepts `OPEN` or `CLOSED` values. To find only closed issues, we give the `states` key a value of `CLOSED`.
 
-- `edges {`
+* `edges {`
 
   We know `issues` is a connection because it has the `IssueConnection` type. To retrieve data about individual issues, we have to access the node via `edges`.
 
-- `node {`
+* `node {`
 
   Here we retrieve the node at the end of the edge. The [`IssueConnection` docs](/graphql/reference/objects#issueconnection) indicate the node at the end of the `IssueConnection` type is an `Issue` object.
 
-- Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/objects#issue) and specify the fields we want to return:
+* Now that we know we're retrieving an `Issue` object, we can look at the [docs](/graphql/reference/objects#issue) and specify the fields we want to return:
 
   ```graphql
   title
@@ -290,9 +290,9 @@ Because we want to modify data on the server (attach an emoji to an issue), we b
 
 The docs for the mutation list three input fields:
 
-- `clientMutationId` (`String`)
-- `subjectId` (`ID!`)
-- `content` (`ReactionContent!`)
+* `clientMutationId` (`String`)
+* `subjectId` (`ID!`)
+* `content` (`ReactionContent!`)
 
 The `!`s indicate that `subjectId` and `content` are required fields. A required `content` makes sense: we want to add a reaction, so we'll need to specify which emoji to use.
 
@@ -302,19 +302,19 @@ This is why we start this example with a query: to get the `ID`.
 
 Let's examine the query line by line:
 
-- `query FindIssueID {`
+* `query FindIssueID {`
 
   Here we're performing a query, and we name it `FindIssueID`. Note that naming a query is optional; we give it a name here so that we can include it in same Explorer window as the mutation.
 
-- `repository(owner:"octocat", name:"Hello-World") {`
+* `repository(owner:"octocat", name:"Hello-World") {`
 
   We specify the repository by querying the `repository` object and passing `owner` and `name` arguments.
 
-- `issue(number:349) {`
+* `issue(number:349) {`
 
   We specify the issue to react to by querying the `issue` object and passing a `number` argument.
 
-- `id`
+* `id`
 
   This is where we retrieve the `id` of `https://github.com/octocat/Hello-World/issues/349` to pass as the `subjectId`.
 
@@ -328,27 +328,27 @@ When we run the query, we get the `id`: `MDU6SXNzdWUyMzEzOTE1NTE=`
 
 With the ID known, we can proceed with the mutation:
 
-- `mutation AddReactionToIssue {`
+* `mutation AddReactionToIssue {`
 
   Here we're performing a mutation, and we name it `AddReactionToIssue`. As with queries, naming a mutation is optional; we give it a name here so we can include it in the same Explorer window as the query.
 
-- `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
+* `addReaction(input:{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}) {`
 
   Let's examine this line:
 
-  - `addReaction` is the name of the mutation.
-  - `input` is the required argument key. This will always be `input` for a mutation.
-  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/graphql/reference/input-objects) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
+  * `addReaction` is the name of the mutation.
+  * `input` is the required argument key. This will always be `input` for a mutation.
+  * `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/graphql/reference/input-objects) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
 
   How do we know which value to use for the content? The [`addReaction` docs](/graphql/reference/mutations#addreaction) tell us the `content` field has the type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an [enum](/graphql/reference/enums) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 
   {% data reusables.repositories.reaction_list %}
 
-- The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
+* The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
-  - `clientMutationId` (`String`)
-  - `reaction` (`Reaction!`)
-  - `subject` (`Reactable!`)
+  * `clientMutationId` (`String`)
+  * `reaction` (`Reaction!`)
+  * `subject` (`Reactable!`)
 
   In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 
@@ -395,8 +395,8 @@ variables {
 {% note %}
 
 You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
-- When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
-- When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
+* When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
+* When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
 
 For more information on the difference between enums and strings, see the [official GraphQL spec](https://spec.graphql.org/June2018/#sec-Enums).
 
@@ -406,7 +406,7 @@ For more information on the difference between enums and strings, see the [offic
 
 There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-- [AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)
-- [Fragments](https://graphql.org/learn/queries/#fragments)
-- [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
-- [Directives](https://graphql.org/learn/queries/#directives)
+* [AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)
+* [Fragments](https://graphql.org/learn/queries/#fragments)
+* [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
+* [Directives](https://graphql.org/learn/queries/#directives)

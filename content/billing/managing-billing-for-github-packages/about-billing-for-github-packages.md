@@ -14,6 +14,13 @@ topics:
   - Spending limits
 shortTitle: About billing
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About billing for {% data variables.product.prodname_registry %}
 
 {% ifversion billing-auth-and-capture %}
@@ -71,20 +78,20 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage per GB during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
-- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
-- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
-- 720 GB-Hours + 6,048 GB-Hours = 6,768 total GB-Hours
-- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
+* 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
+* 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
+* 720 GB-Hours + 6,048 GB-Hours = 6,768 total GB-Hours
+* 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
 
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
 
 You can also use this calculation in the middle of a billing cycle, to estimate what your total usage might be for the month. For example, if you have an organization that uses {% data variables.product.prodname_team %}, which provides 2 GB of free storage, and you use 0 GB for the first 5 days of April, 1.5 GB for the following 10 days, and you plan to use 3 GB for the last 15 days of the billing cycle, your projected storage usage for the month would be:
 
-- 0 GB x 5 days  x (24 hours per day) =   0 GB-Hours
-- 0.5 GB x 10 days x (24 hours per day) = 120 GB-Hours
-- 3 GB x 15 days x (24 hours per day) = 1080 GB-Hours
-- 0 GB-Hours + 120 GB-Hours + 1080 GB-Hours = 1200 total GB-Hours
-- 1200 GB-Hours / (744 hours per month) = 1.6 GB-Months
+* 0 GB x 5 days  x (24 hours per day) =   0 GB-Hours
+* 0.5 GB x 10 days x (24 hours per day) = 120 GB-Hours
+* 3 GB x 15 days x (24 hours per day) = 1080 GB-Hours
+* 0 GB-Hours + 120 GB-Hours + 1080 GB-Hours = 1200 total GB-Hours
+* 1200 GB-Hours / (744 hours per month) = 1.6 GB-Months
 
 The projected 1.6 GB of storage usage for the month would not exceed your 2 GB limit, even though your actual storage amount briefly exceeded 2 GB.
 

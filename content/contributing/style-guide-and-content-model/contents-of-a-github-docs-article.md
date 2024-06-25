@@ -20,51 +20,32 @@ Titles can be challenging. Use these general guidelines to help create clear, he
 
 ### Titles for all content types
 
-- Titles clearly describe what a page is about. They are descriptive and specific.
-  - Use: "Browsing actions in the workflow editor"
-  - Use: "Example of configuring a codespace"
-  - Avoid: "Using the workflow editor sidebar"
-  - Avoid: "Example"
-- Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
-  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
-  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
-  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
-- Titles use sentence case.
-  - Use: "Changing a commit message"
-  - Avoid: "Changing A Commit Message"
-- Titles are consistent across a content type. See specific guidelines for each content type.
-- Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products.
-  - Use: "{% data variables.product.company_short %}'s billing plans"
-  - Avoid: "Billing plans for user and organization accounts"
-- Titles use consistent terminology.
-  - Develop and follow patterns within a category or on similar subjects.
-- Titles use terminology from the product itself.
-- Write the title and the intro at the same time.
-  - Use the intro to develop the ideas presented in the title.
-  - See guidance on [intros](#intro) for more information.
-- If it's hard to come up with a title, consider the content type. Sometimes trouble choosing a title indicates that another content type would fit better.
-- Think about how the title will appear in search results for multiple products.
-  - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
-- Think about how the title will look in production.
-
-## Product callout
-
-Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
-
-All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
-
-### How to write a product callout
-
-- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
-- Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
-- Examples:
-  - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
-  - [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
-
-### Examples of articles with product callouts
-
-Check the source files and `gated-features` to see how source content is written.
-- [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
+* Titles clearly describe what a page is about. They are descriptive and specific.
+  * Use: "Browsing actions in the workflow editor"
+  * Use: "Example of configuring a codespace"
+  * Avoid: "Using the workflow editor sidebar"
+  * Avoid: "Example"
+* Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
+  * Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
+  * Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
+  * Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
+* Titles use sentence case.
+  * Use: "Changing a commit message"
+  * Avoid: "Changing A Commit Message"
+* Titles are consistent across a content type. See specific guidelines for each content type.
+* Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products.
+  * Use: "{% data variables.product.company_short %}'s billing plans"
+  * Avoid: "Billing plans for user and organization accounts"
+* Titles use consistent terminology.
+  * Develop and follow patterns within a category or on similar subjects.
+* Titles use terminology from the product itself.
+* Write the title and the intro at the same time.
+  * Use the intro to develop the ideas presented in the title.
+  * See guidance on [intros](#intro) for more information.
+* If it's hard to come up with a title, consider the content type. Sometimes trouble choosing a title indicates that another content type would fit better.
+* Think about how the title will appear in search results for multiple products.
+  * What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
+* Think about how the title will look in production.
 
 ## Intro
 
@@ -72,16 +53,16 @@ The top of every page has an intro that provides context and sets expectations, 
 
 ### How to write an intro
 
-- Article intros are one to two sentences long.
-- Map topic and category intros are one sentence long.
-- API reference intros are one sentence long.
-  - The intro for an API page should define the feature so that someone knows whether the feature meets their needs without reading the entire article.
-- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
-  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
-- Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-- For searchability, include keywords on the page's subject in the intro.
-- When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
-- Intros generally don't contain permissions for any tasks contained within the article.
+* Article intros are one to two sentences long.
+* Map topic and category intros are one sentence long.
+* API reference intros are one sentence long.
+  * The intro for an API page should define the feature so that someone knows whether the feature meets their needs without reading the entire article.
+* Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
+  * Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
+* Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
+* For searchability, include keywords on the page's subject in the intro.
+* When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
+* Intros generally don't contain permissions for any tasks contained within the article.
 
 ## Permissions statements
 
@@ -91,18 +72,37 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 
 ### How to write a permissions statement
 
-- When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions).
-- When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure.
-- Don't include permissions in an article’s intro.
-- Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
-- Language to use in a permissions statement:
-  - [ACCOUNT ROLE] can [ACTION].
-  - People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
-  - AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
+* When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions).
+* When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure.
+* Don't include permissions in an article’s intro.
+* Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
+* Language to use in a permissions statement:
+  * [ACCOUNT ROLE] can [ACTION].
+  * People with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
+  * AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
 
 ### Examples of permissions statements
 
-- Article with single permissions statement for multiple procedures: [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
+* Article with single permissions statement for multiple procedures: [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
+
+## Product callout
+
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
+
+All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
+
+### How to write a product callout
+
+* Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
+* Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
+* Examples:
+  * [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
+  * [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
+
+### Examples of articles with product callouts
+
+Check the source files and `gated-features` to see how source content is written.
+* [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
 
 ## Tool switcher
 
@@ -126,21 +126,21 @@ Prerequisites are information that people need to know before proceeding with a 
 
 ### How to write prerequisites
 
-- Write prerequisites immediately before a procedure's numbered steps.
-- You can use a list, a sentence, or a paragraph to explain prerequisites.
-- You can also use a separate prerequisites section when:
-  - The prerequisite information is very important and should not be missed.
-  - There's more than one prerequisite.
-- To repeat or highlight important information about data loss or destructive actions, you may also use a warning or danger callout to share a prerequisite.
+* Write prerequisites immediately before a procedure's numbered steps.
+* You can use a list, a sentence, or a paragraph to explain prerequisites.
+* You can also use a separate prerequisites section when:
+  * The prerequisite information is very important and should not be missed.
+  * There's more than one prerequisite.
+* To repeat or highlight important information about data loss or destructive actions, you may also use a warning or danger callout to share a prerequisite.
 
 ### Title guidelines for prerequisites
 
-- When using a separate section, use a header called `Prerequisites`
+* When using a separate section, use a header called `Prerequisites`
 
 ### Examples of articles with prerequisites sections
 
-- [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
-- [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
+* [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
 
 ## Procedural content
 
@@ -150,16 +150,42 @@ Procedural content helps people complete tasks. For more information, see "[AUTO
 
 Troubleshooting content helps people avoid or work through errors. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type)" in the content model.
 
+## Next steps
+
+When an article describes one step in a larger process or has a logical next step that most people will want to do, include a next steps section. You can link people to articles or other {% data variables.product.prodname_dotcom %} resources.
+
+### Examples of next steps sections
+
+```markdown
+## Next steps
+
+- You can monitor self-hosted runners and troubleshoot common issues. See "Monitoring and troubleshooting self hosted runners."
+
+- {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. See "Security hardening for {% data variables.product.prodname_actions %}."
+```
+
+In this example from "[AUTOTITLE](/enterprise-cloud@latest/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise#next-steps)," the next steps section includes links to procedures that someone will need to do after they start using the feature described in the article.
+
+```markdown
+## Next steps
+
+After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. Follow the "Get started with your enterprise account" learning path.
+```
+
+In this example from "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account#next-steps)," the next step links to where most people who just finished creating an enterprise account would want to go next.
+
 ## Further reading
 
-Further reading sections highlight additional targeted articles that aren’t already included within the article’s content. Use further reading sections sparingly when they provide real value.
-'s
+If there are additional articles that help people complete their task or learn to use the topic described in the current article, include them in a further reading section. Only include links to articles that have not already been linked to within the content of the article.
+
+Only include links that help people with the task or topic at hand. It is better to be focused and provide people with valuable resources than to offer them every possible link.
+
 Format further reading sections using unordered lists. See "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)" for how to write links.
 
 ### Title and format for further reading sections
 
 ```markdown
-### Further reading
+## Further reading
 - "[Article title](article-URL)"
 - [External resource title](external-resource-URL) in External Resource Name
 ```

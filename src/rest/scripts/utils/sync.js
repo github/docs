@@ -33,7 +33,7 @@ export async function syncRestData(sourceDirectory, restSchemas, progAccessSourc
         )
       }
       try {
-        const { progAccessData } = await getProgAccessData(progAccessSource)
+        const { progAccessData } = await getProgAccessData(progAccessSource, true)
         await processOperations(operations, progAccessData)
       } catch (error) {
         throw new Error(

@@ -19,31 +19,34 @@ shortTitle: Guidance for configuring private registries
 
 This article contains recommendations and advice to help you configure {% data variables.product.prodname_dependabot %} to access your private registry, along with:
 
-- Detailed snippets of the `dependabot.yml` configuration file for each package manager.
-- Important limitations or caveats.
-- Steps explaining how to test that the configuration is working.
-- Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set).
-- Advice about configuring registry hosts.
+* Detailed snippets of the `dependabot.yml` configuration file for each package manager.
+* Important limitations or caveats.
+* Steps explaining how to test that the configuration is working.
+* Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set).
+* Advice about configuring registry hosts.
 
 You'll find detailed guidance for the setup of the following package managers:
 
-- [Bundler](#bundler)
-- [Docker](#docker)
-- [Gradle](#gradle)
-- [Maven](#maven)
-- [npm](#npm)
-- [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
-- [pub](#pub){% endif %}
-- [Python](#python)
-- [Yarn](#yarn)
+* [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
+* [Cargo](#cargo){% endif %}
+* [Docker](#docker)
+* [Gradle](#gradle)
+* [Maven](#maven)
+* [npm](#npm)
+* [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
+* [pub](#pub){% endif %}
+* [Python](#python)
+* [Yarn](#yarn)
 
 You'll also find recommendations for the setup of the following registry hosts:
 
-- [Artifactory](#artifactory)
-- [Azure Artifacts](#azure-artifacts)
-- [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
-- [Nexus](#nexus)
-- [ProGet](#proget)
+* [Artifactory](#artifactory)
+* [Azure Artifacts](#azure-artifacts)
+* [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
+* [Nexus](#nexus)
+* [ProGet](#proget)
+
+{% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 ## Configuring package managers
 
@@ -85,6 +88,18 @@ registries:
 #### Notes
 
 {% data reusables.dependabot.access-private-dependencies-link %}
+
+{% ifversion dependabot-updates-cargo-private-registry-support %}
+
+### Cargo
+
+Cargo supports username, password  and token-based authentication. For more information, see `cargo-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#cargo-registry)."
+
+The snippet below shows a `dependabot.yml` file configuration that uses a token.
+
+{% data reusables.dependabot.cargo-private-registry-config-example %}
+
+{% endif %}
 
 ### Docker
 
@@ -128,10 +143,10 @@ registries:
 
 #### Limitations and workarounds
 
-- Image names may not always be detected in Containerfiles, Helm files, or yaml files.
-- Dockerfiles may only receive a version update to the first `FROM` directive.
-- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `dependabot/dependabot-core` repository.
-- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `dependabot/dependabot-core` repository.
+* Image names may not always be detected in Containerfiles, Helm files, or yaml files.
+* Dockerfiles may only receive a version update to the first `FROM` directive.
+* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `dependabot/dependabot-core` repository.
+* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `dependabot/dependabot-core` repository.
 
 ### Gradle
 
@@ -440,7 +455,7 @@ registries:
 
 ### Yarn
 
-The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
 
 {% raw %}
 
@@ -454,9 +469,9 @@ registries:
 
 {% endraw %}
 
-- For private registries, you have to check in a `.yarnrc.yml` file (for Yarn 3) or a `.yarnrc` file (for Yarn Classic).
-- The yarn config files should not contain environment variables.
-- You should configure private registries listed in the `dependabot.yml` file using `https`.
+* For private registries, you have to check in a `.yarnrc.yml` file (for Yarn 3) or a `.yarnrc` file (for Yarn Classic).
+* The yarn config files should not contain environment variables.
+* You should configure private registries listed in the `dependabot.yml` file using `https`.
 
 #### Yarn Classic
 
@@ -487,8 +502,8 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
-    - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key registry, or
-    - Perform the same action by running `yarn config set registry <private registry URL>` in your terminal.
+    * Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key registry, or
+    * Perform the same action by running `yarn config set registry <private registry URL>` in your terminal.
 
    Example of a `.yarnrc` with a private registry defined:
    `registry https://nexus.example.com/repository/yarn-all`
@@ -546,8 +561,8 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
-    - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`, or
-    - Perform the same action by running `yarn config set npmRegistryServer <private registry URL>` in your terminal.
+    * Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`, or
+    * Perform the same action by running `yarn config set npmRegistryServer <private registry URL>` in your terminal.
 
    Example of a `.yarnrc.yml` file with a private registry configured:
  `npmRegistryServer: "https://nexus.example.com/repository/yarn-all"`
@@ -610,14 +625,14 @@ You can check whether the private registry is successfully accessed by looking a
 
 For information about {% data variables.product.prodname_registry %} registries, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)." From that article, you can access pages describing how to configure the following registries.
 
-- Bundler (rubygems)
-- Docker (containers)
-- {% data variables.product.prodname_actions %}
-- Gradle
-- Maven
-- npm
-- NuGet
-- Yarn
+* Bundler (rubygems)
+* Docker (containers)
+* {% data variables.product.prodname_actions %}
+* Gradle
+* Maven
+* Npm
+* NuGet
+* Yarn
 
 {% raw %}
 
@@ -662,14 +677,14 @@ registries:
 If you are running Nexus behind a reverse proxy, you need to ensure that the server is accessible using an Auth token by using `curl -v -H 'Authorization: Bearer <token>' 'https://<nexus-repo-url>/repository/<repo-name>/@<scope>%2<package>'`. For more information, see [Run Behind a Reverse Proxy](https://help.sonatype.com/repomanager3/planning-your-implementation/run-behind-a-reverse-proxy) in the Sonatype documentation.
 
 If you are restricting which IPs can reach your Nexus host, you need to add the {% data variables.product.prodname_dependabot %} IPs to the allowlist.
-  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
-  - These are the current IPs:
-      - "18.213.123.130/32"
-      - "3.217.79.163/32"
-      - "3.217.93.44/32"
+  * You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
+  * These are the current IPs:
+      * "18.213.123.130/32"
+      * "3.217.79.163/32"
+      * "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
 
 ### ProGet
 

@@ -17,7 +17,7 @@ shortTitle: Initiate a failover to replica
 
 ## About failover to your replica cluster
 
-If the datacenter for your active cluster experiences a failure and you've configured high availability, you can fail over to your replica cluster.
+If the data center for your active cluster experiences a failure and you've configured high availability, you can fail over to your replica cluster.
 
 Failing over to your replica cluster promotes it to be your new active cluster, and decouples the new active cluster from the old active cluster. The nodes in your old active cluster are placed in maintenance mode if they are in a healthy enough state for this operation to be performed.
 
@@ -30,6 +30,8 @@ To fail over to replica nodes, you must have configured high availability replic
 {% data reusables.enterprise_clustering.high-availability-requires-391 %}
 
 ## Initiating a failover to your replica cluster
+
+{% ifversion ghes < 3.13 %}{% data reusables.enterprise_clustering.cluster-ip-note %} For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover)."{% endif %}
 
 1. SSH into the primary MySQL node in the replica cluster. For more information, see "[AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. To begin the failover to the secondary cluster and configure the nodes to respond to requests, run the following command.

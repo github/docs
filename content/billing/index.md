@@ -49,4 +49,5 @@ children:
   - /managing-billing-for-github-marketplace-apps
   - /managing-billing-for-git-large-file-storage
   - /setting-up-paid-accounts-for-procurement-companies
+  - /using-the-enhanced-billing-platform-for-enterprises
 ---

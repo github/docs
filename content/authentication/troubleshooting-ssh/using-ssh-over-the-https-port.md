@@ -28,7 +28,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 {% note %}
 
-**Note**: The hostname for port 443 is `ssh.{% data variables.command_line.backticks %}`, not `{% data variables.command_line.backticks %}`.
+**Note**: The hostname for port 443 is `ssh.{% data variables.product.product_url %}`, not `{% data variables.product.product_url %}`.
 
 {% endnote %}
 
@@ -37,18 +37,18 @@ If that worked, great! If not, you may need to [follow our troubleshooting guide
 Now, to clone the repository, you can run the following command:
 
 ```shell
-git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
+git clone ssh://git@ssh.{% data variables.product.product_url %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
 ## Enabling SSH connections over HTTPS
 
-If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
+If you are able to SSH into `git@ssh.{% data variables.product.product_url %}` over port 443, you can override your SSH settings to force any connection to {% data variables.location.product_location %} to run through that server and port.
 
 To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```text
-Host {% data variables.command_line.codeblock %}
-    Hostname ssh.{% data variables.command_line.codeblock %}
+Host {% data variables.product.product_url %}
+    Hostname ssh.{% data variables.product.product_url %}
     Port 443
     User git
 ```
@@ -56,7 +56,7 @@ Host {% data variables.command_line.codeblock %}
 You can test that this works by connecting once more to {% data variables.location.product_location %}:
 
 ```shell
-$ ssh -T git@{% data variables.command_line.codeblock %}
+$ ssh -T git@{% data variables.product.product_url %}
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```

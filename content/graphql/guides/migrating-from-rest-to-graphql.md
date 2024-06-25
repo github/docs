@@ -21,16 +21,16 @@ Migrating from REST to GraphQL represents a significant shift in API logic. The 
 
 To migrate your code from the [REST API](/rest) to the GraphQL API:
 
-- Review the [GraphQL spec](https://spec.graphql.org/June2018/)
-- Review GitHub's [GraphQL schema](/graphql/reference)
-- Consider how any existing code you have currently interacts with the GitHub REST API
-- Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
+* Review the [GraphQL spec](https://spec.graphql.org/June2018/)
+* Review GitHub's [GraphQL schema](/graphql/reference)
+* Consider how any existing code you have currently interacts with the GitHub REST API
+* Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
 
 Significant advantages of GraphQL include:
 
-- [Getting the data you need and nothing more](#example-getting-the-data-you-need-and-nothing-more)
-- [Nested fields](#example-nesting)
-- [Strong typing](#example-strong-typing)
+* [Getting the data you need and nothing more](#example-getting-the-data-you-need-and-nothing-more)
+* [Nested fields](#example-nesting)
+* [Strong typing](#example-strong-typing)
 
 Here are examples of each.
 
@@ -39,7 +39,7 @@ Here are examples of each.
 A single REST API call retrieves a list of your organization's members:
 
 ```shell
-curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
+curl -v {% data variables.product.rest_url %}/orgs/:org/members
 ```
 
 The REST payload contains excessive data if your goal is to retrieve only member names and links to avatars. However, a GraphQL query returns only what you specify:
@@ -62,13 +62,13 @@ query {
 Consider another example: retrieving a list of pull requests and checking if each one is mergeable. A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
 
 ```shell
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/pulls
 ```
 
 Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
 
 ```shell
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/pulls/:number
 ```
 
 With GraphQL, you could retrieve only the `number` and `mergeable` attributes for each pull request:
@@ -93,10 +93,10 @@ query {
 Querying with nested fields lets you replace multiple REST calls with fewer GraphQL queries. For example, retrieving a pull request along with its commits, non-review comments, and reviews using the **REST API** requires four separate calls:
 
 ```shell
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:number/comments
-curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/pulls/:number/commits
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/issues/:number/comments
+curl -v {% data variables.product.rest_url %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
 Using the **GraphQL API**, you can retrieve the data with a single query using nested fields:

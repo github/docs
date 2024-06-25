@@ -13,11 +13,11 @@ redirect_from:
 
 You may not misrepresent your identity or your association with another person or organization. This includes doing any of the following in a way that misleads or deceives others:
 
-- Copying another user's avatar or other personal profile information
-- Posting content under another user's email address
-- Using a deceptively similar username, organization name, or other namespace
-- Accessing an account or organization with another user's token or credentials
-- Otherwise posing as another individual or organization
+* Copying another user's avatar or other personal profile information
+* Posting content under another user's email address
+* Using a deceptively similar username, organization name, or other namespace
+* Accessing an account or organization with another user's token or credentials
+* Otherwise posing as another individual or organization
 
 Impersonation is a form of harassment and violation of this policy may lead to loss of access to your account.
 

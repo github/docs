@@ -118,46 +118,62 @@ Some linting rules return warnings or errors based on HTML comments that you can
 
 Rules `GHD038` and `GHD039` check for content that has been manually given an expiration date. Fourteen days before the specified date, the content linter will return a warning that the content is expiring soon. Starting on the specified date, the content linter will return an error and flag the content for remediation.
 
-You can add an expiration date to content by wrapping it in HTML tags that contain an expiration date in the format: <pre>&lt;!-- expires yyyy-mm-dd --&gt; &lt;!-- end expires yyyy-mm-dd --&gt;</pre>
+You can add an expiration date to content by wrapping it in HTML tags that contain an expiration date in the format: `<!-- expires yyyy-mm-dd --> <!-- end expires yyyy-mm-dd -->`
 
 **Use:**
 
 ```markdown
-This content does not expire. {% raw %}<{% endraw %}!-- expires 2022-01-28 -->This content expires on January 28, 2022. {% raw %}<{% endraw %}!-- end expires 2022-01-28 -->This content also does not expire.
+This content does not expire.
+<!-- expires 2022-01-28 -->
+This content expires on January 28, 2022.
+<!-- end expires 2022-01-28 -->
+This content also does not expire.
+```
+
+Note, if you are placing the expired tags in an HTML `table` element, make sure the tag goes around the entire row and not just the cell. For example:
+
+```html
+<!-- expires 2024-06-28 -->
+<tr>
+<td>
+macOS
+</td>
+<td>
+The <code>macos-11</code> label has been deprecated and will no longer be available after 28 June 2024.
+</td>
+</tr>
+<!-- end expires 2024-06-28 -->
 ```
 
 ## Suppressing linter rules
 
 Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible. You can disable a rule for an entire file, for a section of a Markdown file, a specific line, or the next line.
 
-<!-- markdownlint-disable MD011 -->
 For example, if you are writing an article that includes the regular expression `(^|/)[Cc]+odespace/` that checks for reversed link syntax, it will trigger the `MD011` rule that checks for reversed links. You can disable the rule `MD011` on that specific line by adding the following comment.
 
-<pre>
-(^|/)[Cc]+odespace/ &lt;!-- markdownlint-disable-line MD011 --&gt;
-</pre>
+```text
+(^|/)[Cc]+odespace/ <!-- markdownlint-disable-line MD011 -->
+```
 
 If the line you're trying to ignore is in a code block, you can ignore the code block by surrounding it with the following comments.
 
-<pre>
-&lt;!-- markdownlint-disable MD011 --&gt;
+````text
+<!-- markdownlint-disable MD011 -->
 ```
 (^|/)[Cc]+odespace/
 ```
-&lt;!-- markdownlint-enable MD011 --&gt;
-</pre>
-
 <!-- markdownlint-enable MD011 -->
+````
 
 You can use these comments to enable or disable rules.
 
 | Comment | Effect |
 | :-- | :-- |
-| <pre>&lt;!-- markdownlint-disable --&gt;</pre> | Disable all rules |
-| <pre>&lt;!-- markdownlint-enable --&gt;</pre> | Enable all rules |
-| <pre>&lt;!-- markdownlint-disable-line --&gt;</pre> | Disable all rules for the current line |
-| <pre>&lt;!-- markdownlint-disable-next-line --&gt;</pre> | Disable all rules for the next line |
-| <pre>&lt;!-- markdownlint-disable RULE-ONE RULE-TWO --&gt;</pre> | Disable one or more rules by name |
-| <pre>&lt;!-- markdownlint-enable RULE-ONE RULE-TWO --&gt;</pre> | Enable one or more rules by name |
-| <pre>&lt;!-- markdownlint-disable-line RULE-NAME --&gt;</pre> | Disable one or more rules by name for the current line |
-| <pre>&lt;!-- markdownlint-disable-next-line RULE-NAME --&gt;</pre> | Disable one or more rules by name for the next line |
+| `<!-- markdownlint-disable -->`<!-- markdownlint-restore --> | Disable all rules |
+| `<!-- markdownlint-enable -->`<!-- markdownlint-restore -->| Enable all rules |
+| `<!-- markdownlint-disable-line -->`<!-- markdownlint-restore --> | Disable all rules for the current line |
+| `<!-- markdownlint-disable-next-line -->`<!-- markdownlint-restore --> | Disable all rules for the next line |
+| `<!-- markdownlint-disable RULE-ONE RULE-TWO -->`|<!-- markdownlint-restore --> | Disable one or more rules by name |
+| `<!-- markdownlint-enable RULE-ONE RULE-TWO -->`<!-- markdownlint-restore --> | Enable one or more rules by name |
+| `<!-- markdownlint-disable-line RULE-NAME -->`<!-- markdownlint-restore --> | Disable one or more rules by name for the current line |
+| `<!-- markdownlint-disable-next-line RULE-NAME -->`<!-- markdownlint-restore --> | Disable one or more rules by name for the next line |

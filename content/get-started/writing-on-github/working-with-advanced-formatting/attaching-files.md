@@ -56,11 +56,11 @@ When you attach a file, it is uploaded immediately to {% data variables.product.
 
 The maximum file size is:
 
-- 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free {% data variables.product.prodname_dotcom %} plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan{% elsif ghes %}
-- 100MB for videos{% endif %}
-- 25MB for all other files
+* 10MB for images and gifs{% ifversion fpt or ghec %}
+* 10MB for videos uploaded to a repository owned by a user or organization on a free {% data variables.product.prodname_dotcom %} plan
+* 100MB for videos uploaded to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan{% elsif ghes %}
+* 100MB for videos{% endif %}
+* 25MB for all other files
 
 {% note %}
 
@@ -70,17 +70,17 @@ The maximum file size is:
 
 We support these files:
 
-- PNG (`.png`)
-- GIF (`.gif`)
-- JPEG (`.jpg`, `.jpeg`)
+* PNG (`.png`)
+* GIF (`.gif`)
+* JPEG (`.jpg`, `.jpeg`)
 {%- ifversion svg-support %}
-- SVG (`.svg`)
+* SVG (`.svg`)
 {%- endif %}
-- Log files (`.log`)
-- Markdown files (`.md`)
-- Microsoft Word (`.docx`), PowerPoint (`.pptx`), and Excel (`.xlsx`) documents
-- Text files (`.txt`)
-- Patch files (`.patch`)
+* Log files (`.log`)
+* Markdown files (`.md`)
+* Microsoft Word (`.docx`), PowerPoint (`.pptx`), and Excel (`.xlsx`) documents
+* Text files (`.txt`)
+* Patch files (`.patch`)
 
   {% note %}
 
@@ -88,9 +88,9 @@ We support these files:
 
   {% endnote %}
 
-- PDFs (`.pdf`)
-- ZIP (`.zip`, `.gz`, `.tgz`)
-- Video (`.mp4`, `.mov`, `.webm`)
+* PDFs (`.pdf`)
+* ZIP (`.zip`, `.gz`, `.tgz`)
+* Video (`.mp4`, `.mov`, `.webm`)
 
   {% note %}
 

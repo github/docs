@@ -27,8 +27,8 @@ This guide shows you how to create a continuous integration (CI) workflow that b
 
 We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- "[AUTOTITLE](/actions/learn-github-actions)"
-- "[Getting started with Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
+* "[Getting started with Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
@@ -41,9 +41,9 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Node.js".
+1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Node.js".
 1. Filter the selection of workflows by clicking **Continuous integration**.
-1. On the "Node.js" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
+1. On the "Node.js" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
@@ -64,7 +64,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
        strategy:
          matrix:
-           node-version: [14.x, 16.x, 18.x]
+           node-version: [18.x, 20.x]
            # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
        steps:
@@ -101,7 +101,7 @@ Each job can access the value defined in the matrix `node-version` array using t
 ```yaml copy
 strategy:
   matrix:
-    node-version: ['14.x', '16.x', '18.x']
+    node-version: ['18.x', '20.x']
 
 steps:
 - uses: {% data reusables.actions.action-checkout %}
@@ -254,7 +254,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'npm'
 - run: npm install
 - run: npm test
@@ -267,7 +267,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'yarn'
 - run: yarn
 - run: yarn test
@@ -287,7 +287,7 @@ steps:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: {% ifversion actions-node20-support %}'20'{% else %}'14'{% endif %}
+    node-version: {% ifversion actions-node20-support %}'20'{% else %}'18'{% endif %}
     cache: 'pnpm'
 - run: pnpm install
 - run: pnpm test

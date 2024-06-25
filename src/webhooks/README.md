@@ -9,6 +9,7 @@ The pipeline is used to generate data that is used by the docs.github.com site w
 ![A flow chart describing how the automation pipeline for webhooks generates documentation](./webhooks-pipeline-flowchart.png)
 
 A [workflow](.github/workflows/sync-openapi.yml) is used to trigger the automation of the webhooks documentation. The workflow runs automatically on a schedule. The workflow that triggers the webhooks pipeline also triggers other automation pipelines that use the OpenAPI as the source data:
+
 - GitHub Apps
 - REST
 - Webhooks
@@ -16,6 +17,12 @@ A [workflow](.github/workflows/sync-openapi.yml) is used to trigger the automati
 The workflow automatically creates a pull request with the changes (for all three pipelines) and the label `github-openapi-bot`.
 
 The workflow runs the `src/rest/scripts/update-files.js` script, which then calls the `src/webhooks/scripts/sync.js` script.
+
+## Manually running the pipeline
+
+You will need to first wait for the OpenAPI to be merged into `github/rest-api-description`.
+
+Then, you can manually sync the data used by the REST, Webhooks, and GitHub App pipelines before the scheduled daily run [here](https://github.com/github/docs-internal/actions/workflows/sync-openapi.yml). Use the default input options.
 
 ## Local development
 

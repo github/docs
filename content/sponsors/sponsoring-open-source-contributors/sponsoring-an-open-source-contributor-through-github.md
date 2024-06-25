@@ -67,9 +67,9 @@ Before you can sponsor an account, you must have a verified email address. For m
    Alternatively, drag and drop your CSV file into the "Import a CSV" box.
 
    You can sponsor in bulk with any of the following files:
-    - The previously mentioned CSV file of developers who maintain your account's or organization's dependencies.
-    - {% data variables.product.prodname_dotcom %}'s template CSV file for bulk sponsorships edited to contain your desired sponsorships. To download the example CSV file, in the "Import a CSV" box, click **Download example CSV**.
-    - A CSV file of your own creation containing your desired sponsorships. For {% data variables.product.prodname_dotcom %} to parse your CSV file correctly, the file must contain columns labeled "Maintainer username" and "Sponsorship amount in USD."
+    * The previously mentioned CSV file of developers who maintain your account's or organization's dependencies.
+    * {% data variables.product.prodname_dotcom %}'s template CSV file for bulk sponsorships edited to contain your desired sponsorships. To download the example CSV file, in the "Import a CSV" box, click **Download example CSV**.
+    * A CSV file of your own creation containing your desired sponsorships. For {% data variables.product.prodname_dotcom %} to parse your CSV file correctly, the file must contain columns labeled "Maintainer username" and "Sponsorship amount in USD."
 
    {% note %}
 
