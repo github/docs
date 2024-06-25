@@ -208,10 +208,10 @@ In addition, for {% data variables.code-scanning.no_build_support %}, there is a
 The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild)."
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled language if you don’t include a
-`--command` option{% ifversion codeql-no-build %} or set `--build-mode none`{% endif %}. For example, for a C# codebase, you could simply run:
+`--command` option{% ifversion codeql-no-build %} or set `--build-mode none`{% endif %}. For example, for a C/C++ codebase, you could simply run:
 
 ```shell
-codeql database create --language=csharp <output-folder>/csharp-database
+codeql database create --language=cpp <output-folder>/cpp-database
 ```
 
 If a codebase uses a standard build system, relying on an autobuilder is often the simplest way to create a database. For sources that require non-standard build steps, you may need to explicitly define each step in the command line.
@@ -326,8 +326,9 @@ The following examples are designed to give you an idea of some of the build com
   # `--spawn_strategy=local`: build locally, instead of using a distributed build
   # `--nouse_action_cache`: turn off build caching, which might prevent recompilation of source code
   # `--noremote_accept_cached`, `--noremote_upload_local_results`: avoid using a remote cache
+  # `--disk_cache=`: avoid using a disk cache. Note that a disk cache is no longer considered a remote cache as of Bazel 6.
   codeql database create new-database --language=<language> \
-  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results //path/to/package:target'
+  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results --disk_cache= //path/to/package:target'
 
   # After building, stop all running Bazel server processes.
   # This ensures future build commands start in a clean Bazel server process

@@ -92,6 +92,9 @@ export type Context = {
   genericTocNested?: ToC[]
   breadcrumbs?: Breadcrumb[]
   glossaries?: Glossary[]
+  currentProductName?: string
+  productCommunityExamples?: ProductExample[]
+  productUserExamples?: ProductExample[]
 }
 
 export type Glossary = {
@@ -296,3 +299,9 @@ export type AllVersions = {
 // It's useful because otherwise you might get a TypeScript error that
 // is not possible to happen at runtime.
 export type URLSearchParamsTypes = string | string[][] | Record<string, string> | URLSearchParams
+
+export type ProductExample = {
+  repo?: string
+  user?: string
+  description: string
+}
