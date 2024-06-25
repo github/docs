@@ -214,7 +214,7 @@ The [`groups`](/code-security/dependabot/dependabot-version-updates/configuratio
 
 For grouped security updates, {% data variables.product.prodname_dependabot %} uses the following guidelines to create grouped pull requests.
 
-* {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories. Grouping across directories only occurs for directories not configured in the `dependabot.yml` file.
+* {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories when grouping rules are specified for configurations that use the `directories` key.
 * {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates. {% data reusables.dependabot.dependabot-grouped-security-updates-yaml-override %}
 * {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
 * {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.
