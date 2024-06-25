@@ -69,5 +69,6 @@ Check whether your repository meets the following requirements.
 * The branch you are using to publish your site must be the `main` or default branch.
 * The repository must have a commit pushed to it by someone with admin permissions for the repository, such as the repository owner.
 * Switching the repository's visibility from public to private or vice versa will change the URL of your {% data variables.product.prodname_pages %} site, which will result in broken links until the site is rebuilt.
+* Check if your GitHub Pro, GitHub Team, GitHub Enterprise Cloud, or GitHub Enterprise Server access has expired if you are using a private repository for the Github Page Site. If so, please make sure to renew it or change your repository's visibility to public.
 
 If you are still receiving a 404 error, start a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pages) in the Pages category.
