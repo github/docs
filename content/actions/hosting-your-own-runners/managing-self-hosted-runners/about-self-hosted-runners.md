@@ -117,7 +117,7 @@ The following operating systems are supported for the self-hosted runner applica
 The following processor architectures are supported for the self-hosted runner application.
 
 * `x64` - Linux, macOS, Windows.
-* `ARM64` - Linux{% ifversion actions-macos-arm %}, macOS{% endif %}{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
+* `ARM64` - Linux, macOS{% ifversion actions-windows-arm %}, Windows (currently in beta){% endif %}.
 * `ARM32` - Linux.
 
 {% ifversion ghes %}
