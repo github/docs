@@ -322,7 +322,7 @@
     "@graphql-inspector/core": "^6.1.0",
     "@graphql-tools/load": "^8.0.0",
     "@octokit/rest": "^20.1.0",
-    "@playwright/test": "1.44.1",
+    "@playwright/test": "1.45.0",
     "@types/accept-language-parser": "1.5.6",
     "@types/connect-datadog": "0.0.10",
     "@types/connect-timeout": "0.0.39",
