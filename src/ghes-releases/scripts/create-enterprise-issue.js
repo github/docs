@@ -316,6 +316,7 @@ async function isExistingIssue(
         console.log(`Issue ${issue.html_url} already exists for this release.`)
         return true
       }
+      return
     }
   }
 
