@@ -1,16 +1,19 @@
 import { describe, expect, test } from 'vitest'
 
-import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
-import loadRedirects from '#src/redirects/lib/precompile.js'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import { checkURL } from '#src/tests/helpers/check-url.js'
+import type { LearningTracks } from '@/types'
+import { loadPages, loadPageMap } from '@/frame/lib/page-data.js'
+import loadRedirects from '@/redirects/lib/precompile.js'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { checkURL } from '@/tests/helpers/check-url.js'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
 describe('learning tracks', () => {
-  const allLearningTracks = getDeepDataByLanguage('learning-tracks', 'en')
+  // TODO: Once getDeepDataByLanguage is ported to TS
+  // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
+  const allLearningTracks = getDeepDataByLanguage('learning-tracks', 'en') as LearningTracks
   const topLevels = Object.keys(allLearningTracks)
 
   test.each(topLevels)('learning-track in data/learning-tracks/%s.yml', (topLevel) => {
@@ -33,6 +36,12 @@ describe('learning tracks', () => {
       expect(length, errorMessage).toEqual(size)
     }
 
+    type Trouble = {
+      uri: string
+      index: number
+      redirects: string | undefined
+    }
+    type TroubleTuple = [string, Trouble[]]
     const troubles = Object.entries(learningTracks)
       .map(([learningTrackKey, learningTrack]) => {
         return [
@@ -42,7 +51,7 @@ describe('learning tracks', () => {
             .filter(Boolean),
         ]
       })
-      .filter(([, trouble]) => trouble.length > 0)
+      .filter(([, trouble]) => trouble.length > 0) as TroubleTuple[]
 
     let errorMessage = `In data/learning-tracks/${topLevel}.yml there are ${troubles.length} guides that are not correct.\n`
     let fixables = 0
