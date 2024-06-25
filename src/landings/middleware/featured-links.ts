@@ -1,5 +1,8 @@
-import getLinkData from '#src/learning-track/lib/get-link-data.js'
-import { renderContent } from '#src/content-render/index.js'
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
+import getLinkData from '@/learning-track/lib/get-link-data.js'
+import { renderContent } from '@/content-render/index.js'
 
 /**
  * This is the max. number of featured links, by any category, that we
@@ -24,7 +27,12 @@ import { renderContent } from '#src/content-render/index.js'
 const MAX_FEATURED_LINKS = 4
 
 // this middleware adds properties to the context object
-export default async function featuredLinks(req, res, next) {
+export default async function featuredLinks(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
+  if (!req.context) throw new Error('request is not contextualized')
   if (!req.context.page) return next()
 
   if (
@@ -46,7 +54,9 @@ export default async function featuredLinks(req, res, next) {
       // the provided string title or an empty title. When the title is empty,
       // it indicates the video is not versioned for the current version
       req.context.featuredLinks[key] = []
-      for (const featuredLink of req.context.page.featuredLinks[key]) {
+      if (!(key in req.context.page.featuredLinks))
+        throw new Error('featureLinks key not found in Page')
+      for (const featuredLink of req.context.page.featuredLinks[key]!) {
         const title = await renderContent(featuredLink.title, req.context, {
           textOnly: true,
         })
@@ -60,12 +70,15 @@ export default async function featuredLinks(req, res, next) {
         }
       }
     } else {
-      req.context.featuredLinks[key] = await getLinkData(
-        req.context.page.featuredLinks[key],
+      if (!(key in req.context.page.featuredLinks))
+        throw new Error('featureLinks key not found in Page')
+      const pageFeaturedLink = req.context.page.featuredLinks[key]
+      req.context.featuredLinks[key] = (await getLinkData(
+        pageFeaturedLink,
         req.context,
         { title: true, intro: true, fullTitle: true },
         MAX_FEATURED_LINKS,
-      )
+      )) as FeaturedLinkExpanded[] // Remove ones `getLinkData` is TS
     }
   }
 
