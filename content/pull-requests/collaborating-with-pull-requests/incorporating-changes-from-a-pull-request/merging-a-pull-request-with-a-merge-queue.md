@@ -35,7 +35,7 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
 
-   * Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
+   * Directly merge the pull request by checking **Merge without waiting for requirements to be met (bypass branch protections)**, if allowed by branch protection settings, and follow the standard flow.
 
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 

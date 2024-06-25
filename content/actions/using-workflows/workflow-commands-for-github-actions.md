@@ -100,9 +100,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
 | `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
 | `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
-{%- ifversion actions-job-summaries %}
 | `core.summary` | Accessible using environment file `GITHUB_STEP_SUMMARY` |
-{%- endif %}
 | `core.saveState`  | Accessible using environment file `GITHUB_STATE` |
 | `core.setCommandEcho` | `echo` |
 | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |

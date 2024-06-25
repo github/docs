@@ -75,10 +75,10 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
    ghe-config app.cluster-rebalance.enabled true
    ```
 
-1. Optionally, you can override the default schedule by defining a cron expression. For example, run the following command to balance jobs every three hours.
+1. Optionally, you can override the default schedule by defining a {% ifversion ghes > 3.13 %}[Systemd.time expression](https://www.freedesktop.org/software/systemd/man/latest/systemd.time.html){% else %}cron expression{% endif %}. For example, run the following command to balance jobs daily.
 
    ```shell copy
-   ghe-config app.cluster-rebalance.schedule '0 */3 * * *'
+   ghe-config app.cluster-rebalance.schedule {% ifversion ghes > 3.13 %}'daily'{% else %}'0 0 * * *'{% endif %}
    ```
 
 {% data reusables.enterprise.apply-configuration %}

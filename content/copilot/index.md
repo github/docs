@@ -13,6 +13,7 @@ featuredLinks:
   startHere:
     - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
   popular:
+    - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment
     - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber
@@ -33,4 +34,3 @@ children:
 topics:
   - Copilot
 ---
-

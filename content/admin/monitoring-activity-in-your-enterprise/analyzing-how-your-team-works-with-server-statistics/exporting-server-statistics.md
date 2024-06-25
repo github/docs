@@ -24,7 +24,7 @@ To learn more about {% data variables.product.prodname_github_connect %}, see "[
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-1. In the enterprise account sidebar, click **GitHub Connect**.
+1. On the left side of the page, in the enterprise account sidebar, click **GitHub Connect**.
 
 {% data reusables.server-statistics.csv-download %}
 

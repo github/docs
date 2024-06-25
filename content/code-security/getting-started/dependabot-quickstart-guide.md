@@ -133,7 +133,7 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-de
 
 For more information about configuring {% data variables.product.prodname_dependabot %} updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 
-For more information about configuring {% data variables.product.prodname_dependabot %} for an organization, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-organization).
+For more information about configuring {% data variables.product.prodname_dependabot %} for an organization, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-organization)."
 
 For more information about viewing pull requests opened by {% data variables.product.prodname_dependabot %}, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#viewing-dependabot-pull-requests)."
 

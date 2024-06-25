@@ -34,7 +34,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Inviting a collaborator to a personal repository
 
-You can send an invitation to collaborate in your repository directly to someone on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes %}.{% endif %}
+You can send an invitation to collaborate in your repository directly to someone on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes %}.{% endif %}.
 
 {% ifversion fpt or ghec %}
 

@@ -61,6 +61,7 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 **Notes:**
 * {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
 * {% data reusables.organizations.org-invite-scim %}
+* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% endnote %}
 
@@ -93,6 +94,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 **Notes:**
 * {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
 * {% data reusables.organizations.org-invite-scim %}
+* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% endnote %}
 

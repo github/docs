@@ -124,8 +124,6 @@ jobs:
 
 ## Generating artifact attestations for builds
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 {% data reusables.actions.about-artifact-attestations %}
 
 You can access attestations after a build run, underneath the list of the artifacts the build produced.
