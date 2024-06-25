@@ -14,6 +14,66 @@ export type ExtendedRequest = Request & {
   // Add more properties here as needed
 }
 
+// TODO: Make this type from inference using AJV based on the schema.
+// For now, it's based on `schema` in frame/lib/frontmatter.js
+export type PageFrontmatter = {
+  title: string
+  versions: FrontmatterVersions
+  shortTitle?: string
+  intro?: string
+  product?: string
+  permissions?: string
+  showMiniToc?: boolean
+  miniTocMaxHeadingLevel?: number
+  mapTopic?: boolean
+  hidden?: boolean
+  noEarlyAccessBanner?: boolean
+  earlyAccessToc?: string
+  layout?: string | boolean
+  redirect_from?: string[]
+  allowTitleToDifferFromFilename?: boolean
+  introLinks?: object
+  authors?: string[]
+  examples_source?: string
+  effectiveDate?: string
+
+  featuredLinks?: {
+    gettingStarted?: string[]
+    startHere?: string[]
+    guideCards?: string[]
+    popular?: string[]
+    popularHeading?: string
+    videos?: {
+      title: string
+      href: string
+    }[]
+    videoHeadings?: string
+  }[]
+  changelog?: ChangeLog
+  type?: string
+  topics?: string[]
+  includeGuides?: string[]
+  learningTracks?: string[]
+  beta_product?: boolean
+  product_video?: boolean
+  product_video_transcript?: string
+  interactive?: boolean
+  communityRedirect?: {
+    name: string
+    href: string
+  }
+  defaultPlatform?: 'mac' | 'windows' | 'linux'
+  defaultTool?: string
+  childGroups?: ChildGroup[]
+}
+
+export type ChildGroup = {
+  name: string
+  octicon: string
+  children: string[]
+  icon?: string
+}
+
 export type Product = {
   id: string
   name: string
@@ -23,6 +83,7 @@ export type Product = {
   wip?: boolean
   hidden?: boolean
   versions?: string[]
+  external?: boolean
 }
 
 type ProductMap = {
@@ -95,6 +156,21 @@ export type Context = {
   currentProductName?: string
   productCommunityExamples?: ProductExample[]
   productUserExamples?: ProductExample[]
+  productGroups?: ProductGroup[]
+}
+
+export type ProductGroup = {
+  name: string
+  icon: string | null
+  octicon: string | null
+  children: ProductGroupChild[]
+}
+
+export type ProductGroupChild = {
+  id: string
+  name: string
+  href: string
+  external: boolean
 }
 
 export type Glossary = {

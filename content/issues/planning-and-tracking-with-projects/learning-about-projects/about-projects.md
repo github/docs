@@ -39,7 +39,7 @@ To learn more about the different fields you can add to a project, see "[AUTOTIT
 
 ### Automating your projects
 
-There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed{% ifversion projects-v2-auto-archive %}, and you can also configure your project to automatically archive items when they meet certain criteria{% ifversion projects-v2-auto-add %} and automatically add items from a repository when they match set criteria{% endif %}{% endif %}. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."
+There are a number of ways you can add automation to your project. Built-in workflows allow you to automatically set fields when items are added or changed, and you can also configure your project to automatically archive items when they meet certain criteria and automatically add items from a repository when they match set criteria. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)."
 
 You can also use the GraphQL API and {% data variables.product.prodname_actions %} to take even greater control of your project. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 

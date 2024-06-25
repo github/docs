@@ -1,9 +1,12 @@
-import { getProductGroups } from '#src/products/lib/get-product-groups.js'
-import warmServer from '#src/frame/lib/warm-server.js'
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { allVersionKeys } from '#src/versions/lib/all-versions.js'
+import type { Response, NextFunction } from 'express'
 
-const isHomepage = (path) => {
+import type { ExtendedRequest } from '@/types'
+import { getProductGroups } from '@/products/lib/get-product-groups'
+import warmServer from '@/frame/lib/warm-server.js'
+import { languageKeys } from '@/languages/lib/languages.js'
+import { allVersionKeys } from '@/versions/lib/all-versions.js'
+
+const isHomepage = (path: string) => {
   const split = path.split('/')
   // E.g. `/foo` but not `foo/bar` or `foo/`
   if (split.length === 2 && split[1] && !split[0]) {
@@ -17,7 +20,14 @@ const isHomepage = (path) => {
   return false
 }
 
-export default async function productGroups(req, res, next) {
+export default async function productGroups(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
+  if (!req.context) throw new Error('request is not contextualized')
+  if (!req.pagePath) throw new Error('pagePath is not set on request')
+  if (!req.language) throw new Error('language is not set on request')
   // It's important to use `req.pathPage` instead of `req.path` because
   // the request could be the client-side routing from Next where the URL
   // might be something like `/_next/data/foo/bar.json` which is translated,
@@ -31,7 +41,7 @@ export default async function productGroups(req, res, next) {
   // known versions. Because if it's not valid, any possible
   // use of `{% ifversion ... %}` in Liquid, will throw an error.
   if (isHomepage(req.pagePath) && req.context.currentVersionObj) {
-    const { pages } = await warmServer()
+    const { pages } = await warmServer([])
     req.context.productGroups = await getProductGroups(pages, req.language, req.context)
   }
 
