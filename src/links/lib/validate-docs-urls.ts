@@ -130,7 +130,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req, res, next)
   await findPage(req, res, next)
-  await features(req, res, next)
+  features(req as ExtendedRequest, res as Response, next)
 
   const markdown = await liquid.parseAndRender(page.markdown, req.context)
   const processor = createMinimalProcessor(req.context)
