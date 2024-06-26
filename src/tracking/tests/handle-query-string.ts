@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest.js'
 import {
   DOMAIN_QUERY_PARAM,
   DOMAIN_COOKIE_NAME,
@@ -83,7 +83,7 @@ describe('setting a cookie', () => {
       const res = await get(`/?${DOMAIN_QUERY_PARAM}=${next}`, {
         headers: { cookie },
       })
-      const setCookie = res.headers['set-cookie'][0]
+      const setCookie: string = res.headers['set-cookie'][0]
       cookie = setCookie.split(';').filter((x) => x.startsWith(DOMAIN_COOKIE_NAME))[0]
       if (letter === 'a') {
         // first

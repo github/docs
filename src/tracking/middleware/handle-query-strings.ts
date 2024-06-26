@@ -1,5 +1,8 @@
-import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
+import statsd from '@/observability/lib/statsd.js'
+import { noCacheControl } from '@/frame/middleware/cache-control.js'
 
 const STATSD_KEY = 'middleware.handle_tracking_querystrings'
 
@@ -10,7 +13,11 @@ export const MAX_DOMAINS_SAVED = 3
 const DOMAIN_COOKIE_AGE_MS = 365 * 24 * 3600 * 1000
 export const DOMAIN_COOKIE_NAME = 'github_domains'
 
-export default function handleTrackingQueryStrings(req, res, next) {
+export default function handleTrackingQueryStrings(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (req.path.startsWith('/_next/')) {
     return next()
   }
@@ -25,9 +32,9 @@ export default function handleTrackingQueryStrings(req, res, next) {
       return
     }
 
-    const searchParams = new URLSearchParams(req.query)
+    const searchParams = new URLSearchParams(req.query as any)
 
-    const oldCookieValue = req.cookies[DOMAIN_COOKIE_NAME] || ''
+    const oldCookieValue: string = req.cookies[DOMAIN_COOKIE_NAME] || ''
     const oldCookieValueParsed = oldCookieValue
       .split(',')
       .map((x) => x.trim().toLowerCase())
