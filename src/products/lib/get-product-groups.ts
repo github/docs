@@ -1,12 +1,21 @@
 import path from 'path'
 
+import type { Page, ProductGroup, ProductGroupChild, Context } from '@/types'
 import { productMap, data } from './all-products.js'
-import { renderContentWithFallback } from '#src/languages/lib/render-with-fallback.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
+import { renderContentWithFallback } from '@/languages/lib/render-with-fallback.js'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
 
-async function getPage(id, lang, pageMap, context) {
+type PageMap = Record<string, Page>
+
+async function getPage(
+  id: string,
+  lang: string,
+  pageMap: PageMap,
+  context: Context,
+): Promise<ProductGroupChild | undefined> {
   const productId = id.split('/')[0]
   const product = productMap[productId]
+
   const external = product.external || false // undefined becomes false
 
   // The href depends. Initially all we have is an `id` which might be
@@ -26,6 +35,8 @@ async function getPage(id, lang, pageMap, context) {
 
   let name = product.name
 
+  if (!context.currentVersion) throw new Error('context.currentVersion is not set')
+
   if (!external) {
     // First we have to find it as a page object based on its ID.
     href = removeFPTFromPath(path.posix.join('/', lang, context.currentVersion, id))
@@ -34,6 +45,7 @@ async function getPage(id, lang, pageMap, context) {
       // fall back it its default version, which is `product.versions[0]`.
       // For example, you're on `/en/enterprise-server@3.1` and you're
       // but a `/foo/bar` is only available in `enterprise-cloud@latest`.
+      if (!product.versions) throw new Error(`Product ${productId} has no versions`)
       href = removeFPTFromPath(path.posix.join('/', lang, product.versions[0], id))
     }
     const page = pageMap[href]
@@ -74,9 +86,13 @@ async function getPage(id, lang, pageMap, context) {
   }
 }
 
-export async function getProductGroups(pageMap, lang, context) {
+export async function getProductGroups(
+  pageMap: PageMap,
+  lang: string,
+  context: Context,
+): Promise<ProductGroup[]> {
   return await Promise.all(
-    data.childGroups.map(async (group) => {
+    data.childGroups!.map(async (group) => {
       return {
         name: group.name,
         icon: group.icon || null,
@@ -84,7 +100,7 @@ export async function getProductGroups(pageMap, lang, context) {
         // Typically the children are product IDs, but we support deeper page paths too
         children: (
           await Promise.all(group.children.map((id) => getPage(id, lang, pageMap, context)))
-        ).filter(Boolean),
+        ).filter(Boolean) as ProductGroupChild[],
       }
     }),
   )

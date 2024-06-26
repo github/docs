@@ -35,6 +35,8 @@ export default async function contextualize(
 
   const context: Context = {}
   req.context = context
+  console.log('CREATING CONTEXT')
+
   req.context.process = { env: {} }
 
   // define each context property explicitly for code-search friendliness

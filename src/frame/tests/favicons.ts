@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { get } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 describe('favicon assets', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

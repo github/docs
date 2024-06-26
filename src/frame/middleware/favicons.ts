@@ -5,10 +5,19 @@
 // solution to serve this directly.
 import fs from 'fs'
 
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
 import { SURROGATE_ENUMS, setFastlySurrogateKey } from './set-fastly-surrogate-key.js'
 import { assetCacheControl } from './cache-control.js'
 
-const MAP = {
+type IconConfig = {
+  contentType: string
+  buffer: () => Buffer
+}
+const MAP: {
+  [uri: string]: IconConfig
+} = {
   '/favicon.ico': {
     contentType: 'image/x-icon',
     buffer: getBuffer('assets/images/site/favicon.ico'),
@@ -35,8 +44,8 @@ MAP['/apple-touch-icon-precomposed.png'] = MAP['/apple-touch-icon.png']
 MAP['/apple-touch-icon-120x120-precomposed.png'] = MAP['/apple-touch-icon-120x120.png']
 MAP['/apple-touch-icon-152x152-precomposed.png'] = MAP['/apple-touch-icon-152x152.png']
 
-function getBuffer(filePath) {
-  let buffer
+function getBuffer(filePath: string) {
+  let buffer: Buffer
   if (!fs.existsSync(filePath)) {
     throw new Error(`${filePath} not found on disk`)
   }
@@ -51,7 +60,7 @@ function getBuffer(filePath) {
   }
 }
 
-export default function favicons(req, res, next) {
+export default function favicons(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!MAP[req.path]) return next()
 
   // This makes sure the CDN caching survives each production deployment.

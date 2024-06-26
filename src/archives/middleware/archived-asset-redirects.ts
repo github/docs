@@ -1,3 +1,7 @@
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
+
 // When we archive old versions, we take a snapshot of rendered pages,
 // which includes whatever bundles it used at the time.
 // Sometimes those archived versions don't include all static assets
@@ -14,11 +18,15 @@
 // but that one assumes the whole path refers to a prefix which is
 // considered archived. E.g. /en/enterprise-server@2.9/foo/bar.css
 
-const REDIRECTS = {
+const REDIRECTS: Record<string, string> = {
   // Example: https://docs.github.com/en/enterprise-server@2.22/authentication/connecting-to-github-with-ssh
   '/assets/images/octicons/search.svg': '/assets/images/octicons/search-24.svg',
 }
-export default function archivedAssetRedirects(req, res, next) {
+export default function archivedAssetRedirects(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (req.path in REDIRECTS) {
     const redirect = REDIRECTS[req.path].replace('/assets/', '/assets/cb-0000/')
     return res.redirect(308, redirect)

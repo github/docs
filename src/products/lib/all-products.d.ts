@@ -1,6 +1,6 @@
-import type { Product } from '@/types'
+import type { PageFrontmatter, Product } from '@/types'
 
-export const { data }: Record<string, any>
+export const data: PageFrontmatter
 
 export const productIds: string[]
 
