@@ -1,10 +1,13 @@
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
 import { defaultCacheControl } from './cache-control.js'
 
-export default function trailingSlashes(req, res, next) {
+export default function trailingSlashes(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') {
     const split = req.url.split('?')
     let pathname = split.shift()
-    if (pathname !== '/' && pathname.endsWith('/')) {
+    if (pathname && pathname !== '/' && pathname.endsWith('/')) {
       while (pathname.endsWith('/')) {
         pathname = pathname.slice(0, pathname.length - 1)
       }
