@@ -1,10 +1,12 @@
 import { describe, expect, test, vi } from 'vitest'
+import type { Response } from 'express'
 
-import { liquid } from '#src/content-render/index.js'
-import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
-import featureVersionsMiddleware from '#src/versions/middleware/features.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { liquid } from '@/content-render/index.js'
+import shortVersionsMiddleware from '@/versions/middleware/short-versions.js'
+import featureVersionsMiddleware from '@/versions/middleware/features'
+import { allVersions } from '@/versions/lib/all-versions.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import type { Context, ExtendedRequest, Page } from '@/types'
 
 // Setup these variables so we don't need to manually update tests as GHES
 // versions continually get deprecated.  For example, if we deprecate GHES 3.0,
@@ -37,8 +39,10 @@ const featureVersionsTemplate = `
   {% if placeholder %} I am placeholder content {% endif %}
 `
 
-const contextualize = (req) => {
-  req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]
+const contextualize = (req: ExtendedRequest) => {
+  if (!req.context || !req.context.allVersions || !req.context.currentVersion)
+    throw new Error('request not contextualized')
+  req.context!.currentVersionObj = req.context.allVersions[req.context.currentVersion]
   shortVersionsMiddleware(req, null, () => {})
 }
 
@@ -47,15 +51,14 @@ describe('liquid template parser', () => {
 
   describe('short versions', () => {
     // Create a fake req so we can test the shortVersions middleware
-    const req = { language: 'en', query: {} }
+    const req = { language: 'en', query: {} } as ExtendedRequest
 
     test('FPT works as expected when it is FPT', async () => {
       req.context = {
         currentVersion: 'free-pro-team@latest',
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
@@ -67,10 +70,10 @@ describe('liquid template parser', () => {
     test('GHEC works as expected', async () => {
       req.context = {
         currentVersion: 'enterprise-cloud@latest',
-        page: {},
+        // page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.trim()).toBe('I am GHEC')
@@ -79,10 +82,9 @@ describe('liquid template parser', () => {
     test('GHES works as expected', async () => {
       req.context = {
         currentVersion: `enterprise-server@${oldestSupportedGhes}`,
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
@@ -93,10 +95,9 @@ describe('liquid template parser', () => {
     test('AND statements work as expected', async () => {
       req.context = {
         currentVersion: `enterprise-server@${secondOldestSupportedGhes}`,
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
@@ -107,10 +108,9 @@ describe('liquid template parser', () => {
     test('NOT statements work as expected on versions without numbered releases', async () => {
       req.context = {
         currentVersion: 'free-pro-team@latest',
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
@@ -121,10 +121,9 @@ describe('liquid template parser', () => {
     test('NOT statements work as expected on versions with numbered releases', async () => {
       req.context = {
         currentVersion: `enterprise-server@${oldestSupportedGhes}`,
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
@@ -135,10 +134,9 @@ describe('liquid template parser', () => {
     test('The != operator works as expected', async () => {
       req.context = {
         currentVersion: `enterprise-server@${secondOldestSupportedGhes}`,
-        page: {},
         allVersions,
         enterpriseServerReleases,
-      }
+      } as Context
       contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHEC')
@@ -147,42 +145,42 @@ describe('liquid template parser', () => {
 
   describe('feature versions', () => {
     // Create a fake req so we can test the feature versions middleware
-    const req = { language: 'en', query: {} }
+    const req = { language: 'en', query: {} } as ExtendedRequest
 
     test('does not render in FPT because feature is not available in FPT', async () => {
       req.context = {
         currentVersion: 'free-pro-team@latest',
-        page: {},
+        page: {} as Page, // it just has to be any truthy value
         allVersions,
         enterpriseServerReleases,
-      }
-      await featureVersionsMiddleware(req, null, () => {})
-      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
-      expect(outputFpt.includes('placeholder content')).toBe(false)
+      } as Context
+      featureVersionsMiddleware(req as ExtendedRequest, {} as Response, () => {})
+      const output = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(output.includes('placeholder content')).toBe(false)
     })
 
     test('renders in GHES because feature is available in GHES', async () => {
       req.context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
-        page: {},
+        page: {} as Page, // it just has to be any truthy value
         allVersions,
         enterpriseServerReleases,
-      }
-      await featureVersionsMiddleware(req, null, () => {})
-      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
-      expect(outputFpt.includes('placeholder content')).toBe(true)
+      } as Context
+      featureVersionsMiddleware(req, {} as Response, () => {})
+      const output = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(output.includes('placeholder content')).toBe(true)
     })
 
     test('renders in GHEC because feature is available in GHEC', async () => {
       req.context = {
         currentVersion: 'enterprise-cloud@latest',
-        page: {},
+        page: {} as Page, // it just has to be any truthy value
         allVersions,
         enterpriseServerReleases,
-      }
-      await featureVersionsMiddleware(req, null, () => {})
-      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
-      expect(outputFpt.includes('placeholder content')).toBe(true)
+      } as Context
+      featureVersionsMiddleware(req, {} as Response, () => {})
+      const output = await liquid.parseAndRender(featureVersionsTemplate, req.context)
+      expect(output.includes('placeholder content')).toBe(true)
     })
   })
 })

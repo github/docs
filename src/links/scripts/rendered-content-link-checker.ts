@@ -45,8 +45,6 @@ type LinkFlaw = {
   flaw: Flaw
 }
 
-// type Core = CoreInject
-
 type Redirects = Record<string, string>
 type PageMap = Record<string, Page>
 
@@ -1313,7 +1311,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req, res, next)
   req.context.page = page
-  await features(req, res, next)
+  features(req as ExtendedRequest, res as Response, next)
 
   req.context.relativePath = page.relativePath
 

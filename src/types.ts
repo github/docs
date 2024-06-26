@@ -99,7 +99,11 @@ type Redirects = {
   [key: string]: string
 }
 
-export type Context = {
+type Features = {
+  [feature: string]: boolean
+}
+
+export type Context = Features & {
   currentCategory?: string
   error?: Error
   siteTree?: SiteTree
