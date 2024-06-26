@@ -57,7 +57,7 @@ import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirec
 import favicons from './favicons'
 import setStaticAssetCaching from '@/assets/middleware/static-asset-caching'
 import fastHead from './fast-head'
-import fastlyCacheTest from './fastly-cache-test.js'
+import fastlyCacheTest from './fastly-cache-test'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
