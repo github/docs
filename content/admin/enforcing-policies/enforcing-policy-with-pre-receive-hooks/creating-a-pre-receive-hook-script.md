@@ -72,8 +72,8 @@ The following variables are always available in the pre-receive hook environment
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
 |  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see "[git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt)" in the Git documentation. | 1 |
-| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |{% ifversion ghes %}
-|  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0{% endif %}
+| <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" in the Git documentation. | abcd |
+|  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0 |
 |  <pre>$GITHUB_REPO_NAME</pre> | Name of the repository being updated in NAME/OWNER format | octo-org/hello-enterprise |
 |  <pre>$GITHUB_REPO_PUBLIC</pre> | Boolean representing whether the repository being updated is public | <ul><li>true: Repository's visibility is public</li><li>false: Repository's visibility is private or internal</li></ul>
 |  <pre>$GITHUB_USER_IP</pre> | IP address of client that initiated the push | 192.0.2.1 |
@@ -93,9 +93,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>git refs delete api</pre> | Deletion of a ref via the API | "[AUTOTITLE](/rest/git/refs#delete-a-reference)" |
 | <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git/refs#update-a-reference)" |
 | <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos/contents#create-or-update-file-contents)" |
-{%- ifversion ghes %}
 | `merge` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
-{%- endif %}
 | <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)" |
 | <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
 | <pre>pull request branch undo button</pre> | Restoration of a topic branch from a pull request in the web interface | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#restoring-a-deleted-branch)" |
@@ -107,7 +105,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>tag create api</pre> | Creation of a tag via the API | "[AUTOTITLE](/rest/git/tags#create-a-tag-object)" |
 {%- ifversion ghes < 3.13 %}
 | <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion)" |
-{%- endif %}
+| {% endif %} |
 | <pre>web branch create</pre> | Creation of a branch via the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |
 
 #### Available for pull request merges

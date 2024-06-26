@@ -15,7 +15,7 @@ const router = express.Router()
 router.get('/*', function (req, res) {
   // If X-CacheTest-Error is set, simulate the site being down (regardless of URL)
   if (req.get('X-CacheTest-Error')) {
-    res.status(parseInt(req.get('X-CacheTest-Error'))).end()
+    res.status(parseInt(req.get('X-CacheTest-Error') as string)).end()
     return
   }
 
@@ -24,7 +24,7 @@ router.get('/*', function (req, res) {
   const staleWhileRevalidateParam = req.get('X-CacheTest-StaleWhileRevalidate') ?? '60'
   const maxAgeParam = req.get('X-CacheTest-MaxAge') ?? '300'
 
-  const path = req.params[0]
+  const path = req.path.slice(1)
 
   const content = `<html>
   <body>
