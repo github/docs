@@ -59,9 +59,8 @@ import setStaticAssetCaching from '@/assets/middleware/static-asset-caching'
 import fastHead from './fast-head'
 import fastlyCacheTest from './fastly-cache-test'
 import trailingSlashes from './trailing-slashes'
-import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
-import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
+import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import contextualizeSearch from '@/search/middleware/contextualize.js'
 import shielding from '@/shielding/middleware'
 import tracking from '@/tracking/middleware'
@@ -204,10 +203,6 @@ export default function (app: Express) {
   app.use(helmet)
   app.use(cookieParser)
   app.use(express.json())
-
-  if (ENABLE_FASTLY_TESTING) {
-    app.use(fastlyBehavior) // FOR TESTING.
-  }
 
   if (process.env.NODE_ENV === 'development') {
     app.use(mockVaPortal) // FOR TESTING.
