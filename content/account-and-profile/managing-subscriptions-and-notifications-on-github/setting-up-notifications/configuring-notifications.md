@@ -105,7 +105,7 @@ If you're using Gmail, you can click a button beside the notification email to v
 
 {% endif %}
 
-Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.prodname_dotcom %} you want to receive updates for using your default email address. For example, choose whether you want updates to your default email from:
+Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on {% data variables.product.prodname_dotcom %} you want to receive updates for using your default email address. For example, choose whether you want updates sent to your default email from:
 - Comments on issues and pull requests.
 - Pull request reviews.
 - Pull request pushes.
