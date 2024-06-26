@@ -1,12 +1,14 @@
 import fs from 'fs/promises'
 
+import type { Response, NextFunction } from 'express'
 import sharp from 'sharp'
 
-import { assetCacheControl, defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import type { ExtendedRequest } from '@/types'
+import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
 
 /**
  * This is the indicator that is a virtual part of the URL.
@@ -37,7 +39,11 @@ const maxWidthPathPartRegex = /\/mw-(\d+)\//
  */
 const VALID_MAX_WIDTHS = [1440, 1000]
 
-export default async function dynamicAssets(req, res, next) {
+export default async function dynamicAssets(
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) {
   if (!req.url.startsWith('/assets/')) return next()
 
   if (!(req.method === 'GET' || req.method === 'HEAD')) {
@@ -88,6 +94,7 @@ export default async function dynamicAssets(req, res, next) {
 
       if (maxWidth) {
         const { width } = await image.metadata()
+        if (width === undefined) throw new Error('image metadata does not have a width')
         if (width > maxWidth) {
           image.resize({ width: maxWidth })
         }
@@ -140,7 +147,7 @@ export default async function dynamicAssets(req, res, next) {
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
     } catch (error) {
-      if (error.code !== 'ENOENT') {
+      if (error instanceof Error && (error as any).code !== 'ENOENT') {
         throw error
       }
     }
@@ -166,7 +173,7 @@ export default async function dynamicAssets(req, res, next) {
   res.status(404).type('text/plain').send('Asset not found')
 }
 
-function deconstructImageURL(url) {
+function deconstructImageURL(url: string) {
   let error
   let maxWidth
   const match = url.match(maxWidthPathPartRegex)
