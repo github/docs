@@ -31,7 +31,7 @@ If no policy has been chosen at the enterprise level, and multiple organizations
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce. Suggestions matching public code are enabled by default.
+1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce. By default, suggestions matching public code are enabled at the organization level.
 
 ## Managing the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}
 
@@ -46,7 +46,7 @@ Users can chat with {% data variables.product.prodname_copilot %} in their IDEs 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce. Use of {% data variables.product.prodname_copilot_chat %} in IDEs is disabled by default.
+1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce. By default, {% data variables.product.prodname_copilot_chat %} in IDEs is disabled at the organization level.
 
 ## Managing the use of {% data variables.product.prodname_copilot_cli %}
 
@@ -55,10 +55,10 @@ Users can chat with {% data variables.product.prodname_copilot %} in their IDEs 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. Click the **Policies** tab.
-1. To the right of "{% data variables.product.prodname_copilot_cli %}", select the dropdown menu, then choose the appropriate option. Use of {% data variables.product.prodname_copilot_cli %} is disabled by default.
+1. To the right of "{% data variables.product.prodname_copilot_cli %}", select the dropdown menu, then choose the appropriate option. By default, {% data variables.product.prodname_copilot_cli %} is disabled at the organization level.
 
 ## Managing the use of {% data variables.product.prodname_copilot_mobile %}
 
-{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %} to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
 
 {% data reusables.copilot.copilot-chat-mobile-enable %}
