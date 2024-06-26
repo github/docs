@@ -245,6 +245,11 @@
     "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
   },
   {
+    "action": "copilot.plan_downgrade_scheduled",
+    "description": "The plan for GitHub Copilot was scheduled to be downgraded.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
