@@ -14,6 +14,10 @@
  * This mocking is not secure, but it's only for local development.
  */
 
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
+
 const HTML = `<!doctype html>
 <html>
 <head>
@@ -47,7 +51,7 @@ body { border: 2px dashed orange; }
 </body>
 </html>`
 
-export default function mockVaPortal(req, res, next) {
+export default function mockVaPortal(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (process.env.NODE_ENV !== 'development') {
     throw new Error('Should not have been enabled')
   }
