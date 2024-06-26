@@ -56,10 +56,12 @@ In all views, there are two methods for filtering results by repository name.
 You can also filter by repository visibility (internal, private, or public) and archive status.
 
 | Qualifier | Description | Views |
-|--------|--------|------|{% ifversion security-overview-dashboard %}
-| `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics{% endif %}
-| `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage"
-| `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views
+|--------|--------|------|
+| {% ifversion security-overview-dashboard %} |
+| `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics |
+| {% endif %} |
+| `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage" |
+| `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views |
 
 ## Team and topic filters
 
@@ -96,9 +98,9 @@ In enterprise-level views, you can limit the data to repositories owned by a sin
 
 | Qualifier | Description | Views |
 | -------- | -------- | ------ |
-| `owner` | Display data for all repositories owned by one account owner. | Most views
-| `owner-type` | Display data for all repositories owned by an organization or a user account in your enterprise. | "Risk", "Coverage" and {% data variables.secret-scanning.alerts %}
-| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts
+| `owner` | Display data for all repositories owned by one account owner. | Most views |
+| `owner-type` | Display data for all repositories owned by an organization or a user account in your enterprise. | "Risk", "Coverage" and {% data variables.secret-scanning.alerts %} |
+| `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts |
 
 {% elsif security-overview-org-risk-coverage-enterprise %}
 
