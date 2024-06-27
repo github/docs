@@ -1,13 +1,16 @@
 import http from 'http'
 
 import { get } from 'lodash-es'
+import type { Response } from 'express'
+import type { Failbot } from '@github/failbot'
 
-import FailBot from '#src/observability/lib/failbot.js'
-import patterns from '#src/frame/lib/patterns.js'
-import getMiniTocItems from '#src/frame/lib/get-mini-toc-items.js'
-import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
-import statsd from '#src/observability/lib/statsd.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import type { ExtendedRequest } from '@/types'
+import FailBot from '@/observability/lib/failbot.js'
+import patterns from '@/frame/lib/patterns.js'
+import getMiniTocItems from '@/frame/lib/get-mini-toc-items.js'
+import { pathLanguagePrefixed } from '@/languages/lib/languages.js'
+import statsd from '@/observability/lib/statsd.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next.js'
 import { defaultCacheControl } from './cache-control.js'
@@ -16,37 +19,41 @@ import { minimumNotFoundHtml } from '../lib/constants.js'
 const STATSD_KEY_RENDER = 'middleware.render_page'
 const STATSD_KEY_404 = 'middleware.render_404'
 
-async function buildRenderedPage(req) {
+async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   const { context } = req
+  if (!context) throw new Error('request not contextualized')
   const { page } = context
+  if (!page) throw new Error('page not set in context')
   const path = req.pagePath || req.path
 
   const pageRenderTimed = statsd.asyncTimer(page.render, STATSD_KEY_RENDER, [`path:${path}`])
 
-  return await pageRenderTimed(context)
+  return (await pageRenderTimed(context)) as string
 }
 
-async function buildMiniTocItems(req) {
+async function buildMiniTocItems(req: ExtendedRequest): Promise<string | undefined> {
   const { context } = req
+  if (!context) throw new Error('request not contextualized')
   const { page } = context
 
   // get mini TOC items on articles
-  if (!page.showMiniToc) {
+  if (!page || !page.showMiniToc) {
     return
   }
 
-  return getMiniTocItems(context.renderedPage, '')
+  return getMiniTocItems(context.renderedPage, 0)
 }
 
-export default async function renderPage(req, res) {
+export default async function renderPage(req: ExtendedRequest, res: Response) {
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is
   // ultimately passed into the `Error.getInitialProps` function,
   // which NextJS executes at runtime on errors, so that we can
   // from there send the error to Failbot.
-  req.FailBot = FailBot
+  req.FailBot = FailBot as Failbot
 
+  if (!context) throw new Error('request not contextualized')
   const { page } = context
   const path = req.pagePath || req.path
 
@@ -95,7 +102,7 @@ export default async function renderPage(req, res) {
     // src/pages/404.tsx) but control the status code (and the Cache-Control).
     //
     // Create a new request for a real one.
-    const tempReq = new http.IncomingMessage(req)
+    const tempReq = new http.IncomingMessage(req as any) as ExtendedRequest
     tempReq.method = 'GET'
     // There is a `src/pages/_notfound.txt`. That's why this will render
     // a working and valid React component.
@@ -129,6 +136,7 @@ export default async function renderPage(req, res) {
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
 
+  if (!req.context) throw new Error('request not contextualized')
   req.context.renderedPage = await buildRenderedPage(req)
   req.context.miniTocItems = await buildMiniTocItems(req)
 
@@ -142,11 +150,11 @@ export default async function renderPage(req, res) {
   if (!patterns.homepagePath.test(path)) {
     if (
       req.context.currentVersion === 'free-pro-team@latest' ||
-      !allVersions[req.context.currentVersion]
+      !allVersions[req.context.currentVersion!]
     ) {
-      page.fullTitle += ' - ' + context.site.data.ui.header.github_docs
+      page.fullTitle += ' - ' + context.site!.data.ui.header.github_docs
     } else {
-      const { versionTitle } = allVersions[req.context.currentVersion]
+      const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '
       // Some plans don't have the word "GitHub" in them.
       // E.g. "Enterprise Server 3.5"
@@ -163,9 +171,15 @@ export default async function renderPage(req, res) {
 
   // `?json` query param for debugging request context
   if (isRequestingJsonForDebugging) {
-    if (req.query.json.length > 1) {
+    const json = req.query.json
+    if (Array.isArray(json)) {
+      // e.g. ?json=page.permalinks&json=currentPath
+      throw new Error("'json' query string can only be 1")
+    }
+
+    if (json) {
       // deep reference: ?json=page.permalinks
-      return res.json(get(context, req.query.json))
+      return res.json(get(context, req.query.json as string))
     } else {
       // dump all the keys: ?json
       return res.json({

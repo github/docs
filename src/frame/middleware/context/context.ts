@@ -14,7 +14,7 @@ import {
   getPathWithoutVersion,
 } from '@/frame/lib/path-utils.js'
 import productNames from '@/products/lib/product-names.js'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data.js'
 

@@ -1,5 +1,9 @@
 import next from 'next'
 
+import type { Response, NextFunction } from 'express'
+
+import type { ExtendedRequest } from '@/types'
+
 const { NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
 
@@ -7,7 +11,7 @@ export const nextApp = next({ dev: isDevelopment })
 export const nextHandleRequest = nextApp.getRequestHandler()
 await nextApp.prepare()
 
-function renderPageWithNext(req, res, next) {
+function renderPageWithNext(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (req.path.startsWith('/_next') && !req.path.startsWith('/_next/data')) {
     return nextHandleRequest(req, res)
   }
