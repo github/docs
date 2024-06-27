@@ -981,7 +981,7 @@ The Docker image to use as the service container to run the action. The value ca
 
 > [!NOTE]
 > Usage of GitHub [contexts](https://docs.github.com/en/actions/learn-github-actions/contexts) is allowed when specyfing service image.
-> Allowed contexts are: `gitub`, `strategy`, `matrix`, `needs`, `vars` and `inputs`.
+> Allowed contexts are: `github`, `strategy`, `matrix`, `needs`, `vars` and `inputs`.
 
 If `jobs.<job_id>.services.<service_id>.image` is assigned an empty string, the service will not start. You can use this to set up conditional services, similar to the following example.
 
