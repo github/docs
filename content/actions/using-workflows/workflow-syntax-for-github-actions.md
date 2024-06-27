@@ -979,12 +979,16 @@ services:
 
 The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a registry name.
 
+> [!NOTE]
+> Usage of GitHub [contexts](https://docs.github.com/en/actions/learn-github-actions/contexts) is allowed when specyfing service image.
+> Allowed contexts are: `gitub`, `strategy`, `matrix`, `needs`, `vars` and `inputs`.
+
 If `jobs.<job_id>.services.<service_id>.image` is assigned an empty string, the service will not start. You can use this to set up conditional services, similar to the following example.
 
 ```yaml
 services:
   nginx:
-    image: {% raw %}${{ options.nginx == true && 'nginx' || '' }}{% endraw %}
+    image: {% raw %}${{ matrix.nginx_service == 'true' && 'nginx' || '' }}{% endraw %}
 ```
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
