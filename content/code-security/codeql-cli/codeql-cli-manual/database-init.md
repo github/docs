@@ -108,7 +108,7 @@ Choose your build mode based on the language you are analyzing:
 
 `none`: The database will be created without building the source root.
 Available for JavaScript/TypeScript, Python, and Ruby. Also available in
-beta for Java.
+beta for C# and Java.
 
 `autobuild`: The database will be created by attempting to automatically
 build the source root. Available for C/C++, C#, Go, Java/Kotlin, and
