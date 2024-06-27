@@ -91,9 +91,9 @@ By generating explanations and suggesting related documentation, {% data variabl
 
 However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s answers and summaries may not always be accurate or complete, so you'll need to review {% data variables.product.prodname_copilot_chat_short %}'s output for accuracy.
 
-### Finding out about releases and commits
+### Finding out about releases, discussions, and commits
 
-{% data variables.product.prodname_copilot_chat_short %} can help you find out what changed in a specific release and it can explain the changes in a specific commit. This can be useful if, for example, you are new to a project, or you need to work on code that someone else wrote. However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s summaries of releases and commits may not always be accurate or complete.
+{% data variables.product.prodname_copilot_chat_short %} can help you find out what changed in a specific release, it can summarize the information in a discussion on {% data variables.product.prodname_dotcom_the_website %}, and it can explain the changes in a specific commit. This can be useful if, for example, you are new to a project, you want to quickly get the gist of a discussion, or you need to work on code that someone else wrote. However, it's important to note that {% data variables.product.prodname_copilot_chat_short %}'s summaries of releases, discussions, and commits may not always be accurate or complete.
 
 ## Improving performance for {% data variables.product.prodname_copilot_chat_short %}
 

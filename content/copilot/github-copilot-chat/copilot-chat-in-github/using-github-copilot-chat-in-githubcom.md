@@ -29,8 +29,8 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 * Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol)."
 * Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
 * Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
-* Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
-* Questions about a specific issue. For more information, see "[Asking a question about a specific issue](#asking-a-question-about-a-specific-issue)."
+* Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request)."
+* Questions about a specific issue. For more information, see "[Asking a question about a specific issue or discussion](#asking-a-question-about-a-specific-issue-or-discussion)."
 
 ### Limitations
 
@@ -60,9 +60,11 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 | **Bing web search** (in beta and subject to change) | Searches the web using the Bing search engine. This skill is useful for teaching {% data variables.product.prodname_copilot_short %} about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No (requires admin approval - see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)")| _What are some recent articles about SAT tokens securing against vulnerabilities in Node?_ |
 | **Code search** | Natural language code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. Note: this requires indexing to be enabled for the repository (see the note about indexing [below](#repo-indexing-note)). | Yes | _Where is the logic that controls the user session management, and how does it work?_ |
 | **Commit details** | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions. | Yes | _Explain the changes in the code of this commit_ |
+| **Discussion details** | Retrieves a specific {% data variables.product.prodname_dotcom %} discussion. This is useful for quickly getting the gist of the conversation in a discussion. | Yes | _Summarize this discussion_ |
 | **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | _Summarize the conversation on this issue and suggest next steps_ |
-| **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ |
-| **Release details** | Retrieve the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | _When was the latest release?_ |
+| **File details** | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository. | Yes | _What logic does user_auth.js encapsulate?_ <br> <br> _What is the file history of user_auth.js?_ |
+| **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | _Summarize this PR for me_ <br><br> _Summarize the changes in this PR_ |
+| **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | _When was the latest release?_ |
 | **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | _Tell me about this repo_ |
 | **Symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
 
@@ -258,54 +260,83 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
    ![Screenshot of the immersive mode button at the top right of the {% data variables.product.prodname_copilot_short %} panel. The button is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-view-button.png)
 
-## Finding out about the changes in a pull request
+## Asking questions about a specific pull request
 
-You can ask {% data variables.product.prodname_copilot_short %} to explain what's changed in any of the files in a pull request.
+You can ask {% data variables.product.prodname_copilot_short %} to summarize a pull request, or explain what has changed within specific files or lines of code in a pull request.
+
+### Get a summary of a pull request
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
-1. Click the **Files changed** tab.
-1. Do one of the following:
 
-   * To ask a question about a file that's being changed by a pull request, click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
-   * To ask a question about specific lines within a file in the pull request:
+{% data reusables.copilot.open-copilot %}
 
-     1. Select the lines by clicking the line number for the first line you want to select, holding down <kbd>Shift</kbd> and clicking the line number for the last line you want to select.
-     1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) to the right of your selection.
-        This displays the {% data variables.product.prodname_copilot_chat %} panel with the selected lines indicated as the context of your question.
-     1. To ask a predefined question, click the downward-pointing button beside the {% data variables.product.prodname_copilot_short %} icon and click **Explain**.
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, or you chose **Ask {% data variables.product.prodname_copilot_short %} about this diff**, type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>. For example, you could enter:
+   For example, you could ask:
 
-   * Why has this module been included?
-   * What is &#96;actorData&#96; in this line?
-   * Explain this &#96;do..end&#96; block.
-   * What's the purpose of this file?
+   * Summarize this PR for me.
+   * Summarize the comments in this PR.
+   * Summarize the changes in this PR.
 
 {% data reusables.copilot.stop-response-generation %}
 
-## Asking a question about a specific issue
+### Ask about changes to a specific file in a pull request
 
-You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue.
+1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. Click the **Files changed** tab.
+1. Click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
+1. Type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
+
+   For example, you could ask:
+
+   * What's the purpose of this file?
+   * Why has this module been included?
+
+{% data reusables.copilot.stop-response-generation %}
+
+### Ask about specific lines within a file in a pull request
+
+1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. Click the **Files changed** tab.
+1. Click the line number for the first line you want to select, then hold down <kbd>Shift</kbd> and click the line number for the last line you want to select.
+1. Ask {% data variables.product.prodname_copilot_short %} a question, or choose from a list of predefined questions.
+   * _To ask your own question about the selected lines_, to the right of your selection, click the {% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %} icon.
+   This displays the {% data variables.product.prodname_copilot_chat %} panel with the selected lines indicated as the context of your question.
+
+      For example, you could ask:
+
+      * What is &#96;actorData&#96; in this line?
+      * Explain this &#96;do..end&#96; block.
+
+   * _To ask a predefined question_, to the right of your selection, beside the {% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %} icon, click {% octicon "triangle-down" aria-label="Copilot menu" %}, then click **Explain**.
+
+{% data reusables.copilot.stop-response-generation %}
+
+## Asking a question about a specific issue or discussion
+
+You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue or discussion.
 
 {% note %}
 
-**Note:** The quality of {% data variables.product.prodname_copilot_chat_short %}'s responses may be degraded when working with issues that have very long bodies or large numbers of comments. Where this happens, {% data variables.product.prodname_copilot_short %} will warn you so you can double check its output.
+**Note:** The quality of {% data variables.product.prodname_copilot_chat_short %}'s responses may be degraded when working with issues or discussions that have very long bodies or a large number of comments. For example, this may occur if you ask {% data variables.product.prodname_copilot_short %} to summarize a long-running discussion. Where this happens, {% data variables.product.prodname_copilot_short %} will warn you so you can double check its output.
 
 {% endnote %}
 
-1. Navigate to an issue on {% data variables.product.prodname_dotcom_the_website %}.
+1. Navigate to an issue or discussion on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.copilot.open-copilot %}
 
 1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
 
    * Explain this issue
+   * Summarize this discussion
    * Recommend next steps for this issue
    * What are the acceptance criteria for this issue?
+   * What are the main points made by PERSON in this discussion?
 
    {% tip %}
 
-   **Tip:** Instead of navigating to an issue in your browser to ask a question, you can include the relevant URL in your message. For example, `Summarize https://github.com/monalisa/octokit/issues/1`.
+   **Tip:** Instead of navigating to an issue or discussion in your browser to ask a question, you can include the relevant URL in your message. For example, `Summarize https://github.com/monalisa/octokit/issues/1`.
 
    {% endtip %}
 
