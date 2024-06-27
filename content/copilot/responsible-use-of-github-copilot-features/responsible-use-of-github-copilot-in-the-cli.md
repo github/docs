@@ -1,14 +1,16 @@
 ---
-title: About GitHub Copilot in the CLI
-intro: "{% data variables.product.prodname_copilot_cli %} can help you by providing either command suggestions or explanations of given commands."
-product: "{% data reusables.gated-features.copilot-in-cli %}"
+title: Responsible use of GitHub Copilot in the CLI
+shortTitle: Copilot in the CLI
+intro: 'Learn how to use {% data variables.product.prodname_copilot_cli %} responsibly by understanding its purposes, capabilities, and limitations.'
+product: '{% data reusables.gated-features.copilot-in-cli %}'
 versions:
   feature: copilot-in-the-cli
 type: rai
 topics:
   - Copilot
   - CLI
-shortTitle: About Copilot in the CLI
+redirect_from:
+  - /copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli
 ---
 
 ## About {% data variables.product.prodname_copilot_cli %}

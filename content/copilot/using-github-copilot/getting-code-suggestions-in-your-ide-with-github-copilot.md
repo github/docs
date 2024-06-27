@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Copilot code suggestions in your editor
+title: Getting code suggestions in your IDE with GitHub Copilot
 shortTitle: Get code suggestions
 intro: 'Use {% data variables.product.prodname_copilot %} to get code suggestions in your editor.'
 redirect_from:
@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
   - /copilot/using-github-copilot/getting-started-with-github-copilot
+  - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
 versions:
   feature: copilot
 defaultTool: vscode

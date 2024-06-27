@@ -1,16 +1,17 @@
 ---
-title: About GitHub Copilot Chat in your IDE
-intro: '{% data variables.product.prodname_copilot_chat %} can help you by providing answers to coding related questions {% ifversion ghec %}on {% data variables.product.prodname_dotcom_the_website %} or{% endif %} directly within a supported IDE.'
+title: Responsible use of GitHub Copilot Chat in your IDE
+shortTitle: Chat in your IDE
+intro: 'Learn how to use {% data variables.product.prodname_copilot_chat %} responsibly by understanding its purposes, capabilities, and limitations.'
 redirect_from:
   - /early-access/copilot/github-copilot-chat-transparency-note
   - /early-access/copilot/github-copilot-chat-technical-preview-license-terms
   - /copilot/github-copilot-chat/about-github-copilot-chat
+  - /copilot/github-copilot-chat/copilot-chat-in-ides/about-github-copilot-chat-in-your-ide
 product: '{% data reusables.gated-features.copilot-chat-callout %}'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: About Copilot Chat
 type: rai
 ---
 

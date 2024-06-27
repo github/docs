@@ -1,13 +1,15 @@
 ---
-title: Using GitHub Copilot Chat in GitHub.com
-shortTitle: Use Copilot Chat
+title: Asking GitHub Copilot questions in GitHub.com
+shortTitle: Chat in GitHub.com
 intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
-  feature: 'copilot-on-dotcom'
+  feature: copilot-on-dotcom
 topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
+  - /copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
+  - /copilot/github-copilot-chat/copilot-chat-in-github
 ---
 
 ## Overview

@@ -6,6 +6,8 @@ versions:
 topics:
   - Copilot
 shortTitle: Copilot Enterprise feature set
+redirect_from:
+  - /copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set
 ---
 
 {% ifversion fpt %}

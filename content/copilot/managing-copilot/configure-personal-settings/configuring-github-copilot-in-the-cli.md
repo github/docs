@@ -7,6 +7,8 @@ topics:
   - Copilot
   - CLI
 shortTitle: Configure Copilot in the CLI
+redirect_from:
+  - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
 ---
 
 ## Setting up aliases

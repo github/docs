@@ -7,6 +7,9 @@ versions:
 permissions: 'Members of an enterprise with a subscription to [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:
   - Copilot
+redirect_from:
+  - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot
+  - /copilot/github-copilot-enterprise/copilot-pull-request-summaries
 ---
 
 ## About {% data variables.product.prodname_copilot_for_prs %}

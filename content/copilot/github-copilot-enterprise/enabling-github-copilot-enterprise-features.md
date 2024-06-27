@@ -6,6 +6,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise
+  - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features
 topics:
   - Copilot
 ---

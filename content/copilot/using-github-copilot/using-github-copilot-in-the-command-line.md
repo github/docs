@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Copilot in the CLI
+title: Using GitHub Copilot in the command line
 intro: 'You can use {% data variables.product.prodname_copilot_short %} with the {% data variables.product.prodname_cli %} to get suggestions and explanations for the command line.'
 versions:
   feature: copilot-in-the-cli
@@ -7,6 +7,9 @@ topics:
   - Copilot
   - CLI
 shortTitle: Use Copilot in the CLI
+redirect_from:
+  - /copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli
+  - /copilot/using-github-copilot/using-github-copilot-in-the-cli
 ---
 
 ## Prerequisites

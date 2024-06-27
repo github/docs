@@ -1,13 +1,15 @@
 ---
-title: About Copilot pull request summaries
-shortTitle: About PR summaries
-intro: 'With {% data variables.product.prodname_copilot_for_prs %}, you can create an AI-generated description for a pull request.'
+title: Responsible use of GitHub Copilot pull request summaries
+shortTitle: Pull request summaries
+intro: 'Learn how to use {% data variables.product.prodname_copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
 permissions: 'Members of an enterprise with a subscription to [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:
   - Copilot
 type: rai
+redirect_from:
+  - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries
 ---
 
 {% ifversion fpt %}

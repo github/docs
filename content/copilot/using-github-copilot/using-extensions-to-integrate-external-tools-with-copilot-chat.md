@@ -1,5 +1,5 @@
 ---
-title: Using GitHub Copilot Extensions
+title: Using extensions to integrate external tools with Copilot Chat
 intro: 'You can use {% data variables.product.prodname_copilot_extensions %} to interact with external tools in {% data variables.product.prodname_copilot_chat %}.'
 product: '{% data reusables.gated-features.copilot-extensions %}'
 versions:
@@ -8,9 +8,31 @@ topics:
   - Copilot
 shortTitle: Use Copilot Extensions
 type: how_to
+redirect_from:
+  - /copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions
+  - /copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions
+  - /copilot/github-copilot-chat/github-copilot-extensions
 ---
 
 {% data reusables.copilot.copilot-extensions.beta-note %}
+
+## About {% data variables.product.prodname_copilot_extensions %}
+
+{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
+
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in an external application to access {% data variables.product.prodname_copilot_short %} within that application. For more information on _the {% data variables.product.prodname_copilot %} extension_, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
+
+After you install a {% data variables.product.prodname_copilot_extension_short %} from {% data variables.product.prodname_marketplace %}, you can interact with that extension in a {% data variables.product.prodname_copilot_chat_short %} conversation, asking questions and authorizing actions that combine the capabilities of the external tool and {% data variables.product.prodname_dotcom %}. For example, if you install the Sentry extension for {% data variables.product.prodname_copilot %}, you can use the extension to get information about Sentry issues, then create and assign related tracking issues on {% data variables.product.prodname_dotcom %}.
+
+{% data variables.product.prodname_copilot_extensions_short %} provide several benefits, including:
+
+* Interaction with external tools using natural language
+* Reduced context switching
+* Customization of your {% data variables.product.prodname_copilot_chat_short %} experience for your developer flow
+
+**{% data variables.product.prodname_copilot_extensions_short %} are included in all {% data variables.product.prodname_copilot_short %} subscriptions**, and can be used with:
+
+{% data reusables.copilot.copilot-extensions.compatible-chat-interfaces %}
 
 ## About using {% data variables.product.prodname_copilot_extensions %}
 
