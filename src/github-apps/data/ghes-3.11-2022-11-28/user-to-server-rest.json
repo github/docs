@@ -3769,19 +3769,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "list-tag-protection-states-for-a-repository",
+      "slug": "deprecated---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "create-a-tag-protection-state-for-a-repository",
+      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "delete-a-tag-protection-state-for-a-repository",
+      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
@@ -4191,12 +4191,6 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
-    },
-    {
-      "slug": "get-a-user",
-      "subcategory": "users",
-      "verb": "get",
-      "requestPath": "/users/{username}"
     },
     {
       "slug": "list-followers-of-a-user",

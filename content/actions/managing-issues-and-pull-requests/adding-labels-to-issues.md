@@ -52,8 +52,8 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
     ```
 
 1. Customize the `env` values in your workflow file:
-   - The `GH_TOKEN`, `GH_REPO`, and `NUMBER` values are automatically set using the `github` and `secrets` contexts. You do not need to change these.
-   - Change the value for `LABELS` to the list of labels that you want to add to the issue. The label(s) must exist for your repository. Separate multiple labels with commas. For example, `help wanted,good first issue`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
+   * The `GH_TOKEN`, `GH_REPO`, and `NUMBER` values are automatically set using the `github` and `secrets` contexts. You do not need to change these.
+   * Change the value for `LABELS` to the list of labels that you want to add to the issue. The label(s) must exist for your repository. Separate multiple labels with commas. For example, `help wanted,good first issue`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
 1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
@@ -68,6 +68,6 @@ Test out your workflow by creating an issue in your repository.
 
 ## Next steps
 
-- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [GitHub CLI manual](https://cli.github.com/manual/).
-- To learn more about different events that can trigger your workflow, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues)."
-- [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.
+* To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [GitHub CLI manual](https://cli.github.com/manual/).
+* To learn more about different events that can trigger your workflow, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues)."
+* [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.

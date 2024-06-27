@@ -3,7 +3,9 @@ title: 'Two CodeQL workflows'
 allowTitleToDifferFromFilename: true
 intro: 'If you see two workflows named "{% data variables.product.prodname_codeql %}", one workflow may be a pre-existing {% data variables.product.prodname_codeql %} workflow file which has been disabled by default setup.'
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

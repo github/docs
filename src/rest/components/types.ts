@@ -21,6 +21,7 @@ export interface ProgAccessT {
   permissions: Array<Object>
   allowPermissionlessAccess?: boolean
   allowsPublicRead?: boolean
+  basicAuth?: boolean
 }
 
 export interface Parameter {

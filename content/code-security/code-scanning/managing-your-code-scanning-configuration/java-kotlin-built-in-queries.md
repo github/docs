@@ -5,7 +5,9 @@ intro: 'Explore the queries that {% data variables.product.prodname_codeql %} us
 product: '{% data reusables.gated-features.code-scanning %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: reference
 topics:
   - Code scanning

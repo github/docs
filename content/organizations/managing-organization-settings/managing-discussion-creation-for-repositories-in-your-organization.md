@@ -25,6 +25,6 @@ By default, organization members with read access can create discussions if a re
 
 ## Further reading
 
-- "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"
-- "[AUTOTITLE](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"
+* "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+* "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"
+* "[AUTOTITLE](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"

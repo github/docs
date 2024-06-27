@@ -20,8 +20,8 @@ The new repository will no longer automatically sync with changes from the origi
 
 **Notes:**
 
-- The new repository will not retain any of its issues, pull requests, wikis, stars, watchers, comments, child forks, or other metadata that may currently be associated with your current fork.
-- All commit metadata will be preserved. Commits may become eligible to be counted as contributions, if they meet certain criteria. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)."
+* The new repository will not retain any of its issues, pull requests, wikis, stars, watchers, comments, child forks, or other metadata that may currently be associated with your current fork.
+* All commit metadata will be preserved. Commits may become eligible to be counted as contributions, if they meet certain criteria. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)."
 
 {% endnote %}
 

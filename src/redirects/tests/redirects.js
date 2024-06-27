@@ -82,7 +82,7 @@ describe('redirects', () => {
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuring-settings/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })

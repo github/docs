@@ -28,9 +28,9 @@ permissions: Enterprise owners can configure audit log streaming.
 
 To help protect your intellectual property and maintain compliance for your company, you can use streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. If you stream audit log data, you can take advantage of the following benefits.
 
-- **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-- **Data continuity**. When you pause a stream, it retains a buffer for seven days, so there is no data loss for the first week. If the stream remains paused for more than seven days, it will resume from a point one week prior to the current time. If paused for three weeks or more, the stream won't retain any data and will start anew from the current timestamp.{% endif %}
-- **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
+* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+* **Data continuity**. When you pause a stream, it retains a buffer for seven days, so there is no data loss for the first week. If the stream remains paused for more than seven days, it will resume from a point one week prior to the current time. If paused for three weeks or more, the stream won't retain any data and will start anew from the current timestamp.{% endif %}
+* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
@@ -62,20 +62,20 @@ To fix your streaming configuration, follow the steps outlined in "[Setting up a
 
 You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
 
-- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 
 ## Setting up audit log streaming
 
 You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
 
-- [Amazon S3](#setting-up-streaming-to-amazon-s3)
-- [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
-- [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
-- [Datadog](#setting-up-streaming-to-datadog){% endif %}
-- [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
-- [Splunk](#setting-up-streaming-to-splunk)
+* [Amazon S3](#setting-up-streaming-to-amazon-s3)
+* [Azure Blob Storage](#setting-up-streaming-to-azure-blob-storage)
+* [Azure Event Hubs](#setting-up-streaming-to-azure-event-hubs){% ifversion streaming-datadog %}
+* [Datadog](#setting-up-streaming-to-datadog){% endif %}
+* [Google Cloud Storage](#setting-up-streaming-to-google-cloud-storage)
+* [Splunk](#setting-up-streaming-to-splunk)
 
 {% ifversion ghec %}
 {% note %}
@@ -98,18 +98,18 @@ You set up the audit log stream on {% data variables.product.product_name %} by 
 {% ifversion streaming-oidc-s3 %}
 You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
 
-- [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
-- [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
-- [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
-- [Integrating with AWS CloudTrail Lake](#integrating-with-aws-cloudtrail-lake)
+* [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
+* [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
+* [Disabling streaming to S3 with OpenID Connect](#disabling-streaming-to-s3-with-openid-connect)
+* [Integrating with AWS CloudTrail Lake](#integrating-with-aws-cloudtrail-lake)
 
 #### Setting up streaming to S3 with access keys
 
 {% endif %}
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-- Your AWS access key ID
-- Your AWS secret key
+* Your AWS access key ID
+* Your AWS secret key
 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
@@ -134,14 +134,14 @@ For information on creating or accessing your access key ID and secret key, see 
 
 1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
 
-   - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
-   - For "Audience", use `sts.amazonaws.com`.
+   * For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
+   * For "Audience", use `sts.amazonaws.com`.
 {% data reusables.audit_log.create-s3-bucket %}
 {% data reusables.audit_log.create-s3-policy %}
 1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
 
-   - Add the permissions policy you created above to allow writes to the bucket.
-   - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+   * Add the permissions policy you created above to allow writes to the bucket.
+   * Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
 
      ```json
      "Condition": {
@@ -152,7 +152,7 @@ For information on creating or accessing your access key ID and secret key, see 
       }
       ```
 
-   - Make note of the Amazon Resource Name (ARN) of the created role.
+   * Make note of the Amazon Resource Name (ARN) of the created role.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
 1. Under "Authentication", click **OpenID Connect**.
@@ -221,8 +221,8 @@ You need two pieces of information about your event hub: its instance name and t
 1. Select the **Configure stream** dropdown menu and click **Azure Event Hubs**.
 
 1. On the configuration page, enter:
-   - The name of the Azure Event Hubs instance.
-   - The connection string.
+   * The name of the Azure Event Hubs instance.
+   * The connection string.
 
 1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 
@@ -284,19 +284,19 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 
 1. On the configuration page, enter:
-   - The domain on which the application you want to stream to is hosted.
+   * The domain on which the application you want to stream to is hosted.
 
      If you're using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example, `http-inputs-mycompany.splunkcloud.com`.
 
      If you're using the free trial version of Splunk Cloud, `Domain` should be `inputs.<host>`, where `host` is the domain you use in Splunk Cloud. For example, `inputs.mycompany.splunkcloud.com`.
 
-   - The port on which the application accepts data.<br>
+   * The port on which the application accepts data.<br>
 
      If you're using Splunk Cloud and haven't changed the port configuration, `Port` should be `443`.
 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
-   - A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
 
 1. Leave the **Enable SSL verification** check box selected.
 

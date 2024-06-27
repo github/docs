@@ -50,4 +50,4 @@ A roster allows a teacher to manage students and assignment submissions in a cla
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary)"
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary)"

@@ -31,12 +31,12 @@ The simplest way to use the {% data variables.dependency-submission-api.name %} 
 
 Ecosystem | Action | Maintained by {% data variables.product.prodname_dotcom %}
 --- | --- | --- |
-Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
-Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
-Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
+Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
+Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
+Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
+Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
+Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
+NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
 
 {% note %}
 
@@ -104,15 +104,15 @@ Alternatively, you can write your own action to submit dependencies for your pro
 ### Generating a software bill of materials (SBOM)
 
 To generate an SBOM, you can use:
-- The **{% data variables.product.prodname_dotcom %} UI**.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
-- The **REST API**. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
-- **{% data variables.product.prodname_actions %}**. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+* The **{% data variables.product.prodname_dotcom %} UI**.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
+* The **REST API**. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
+* **{% data variables.product.prodname_actions %}**. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 
 Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 --- | --- | ---
-[SBOM-generator-action](https://github.com/marketplace/actions/sbom-generator-action) | Uses the information in your dependency graph to generate an SPDX SBOM | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
-[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-[sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
+[SBOM-generator-action](https://github.com/marketplace/actions/sbom-generator-action) | Uses the information in your dependency graph to generate an SPDX SBOM | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
+[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
+[sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
 
 ### Submitting a software bill of materials (SBOM) to the {% data variables.dependency-submission-api.name %}
 
@@ -122,9 +122,9 @@ To receive {% data variables.product.prodname_dependabot_alerts %} for dependenc
 
 Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 ---  | --- | ---
-[SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
-[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
-[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the {% data variables.dependency-submission-api.name %} | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
+[SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %} |
+[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
+[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the {% data variables.dependency-submission-api.name %} | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %} |
 
 For example, the following [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) workflow calculates the dependencies for a repository, generates an exportable SBOM in SPDX 2.2 format, and submits it to the {% data variables.dependency-submission-api.name %}.
 

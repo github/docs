@@ -1,4 +1,14 @@
 {
+  "2024-10-01": [
+    {
+      "location": "Workflow.hasWorkflowDispatchTrigger",
+      "description": "<p><code>hasWorkflowDispatchTrigger</code> will be removed. Use <code>has_workflow_dispatch_trigger_for_branch(branch_ref)</code> instead.</p>",
+      "reason": "<p><code>has_workflow_dispatch_trigger</code> is being removed because it can be misleading and only checks a repository's default branch</p>",
+      "date": "2024-10-01",
+      "criticality": "breaking",
+      "owner": "stevepopovich"
+    }
+  ],
   "2024-07-01": [
     {
       "location": "TeamDiscussionComment.url",

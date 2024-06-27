@@ -30,9 +30,9 @@ Before setting up {% data variables.visual_studio.prodname_vss_ghe %}, it's impo
 
 ## Prerequisites
 
-- Your team's {% data variables.product.prodname_vs %} subscription must include {% data variables.product.prodname_enterprise %}. For more information, see [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website and [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
+* Your team's {% data variables.product.prodname_vs %} subscription must include {% data variables.product.prodname_enterprise %}. For more information, see [{% data variables.product.prodname_vs %} Subscriptions and Benefits](https://visualstudio.microsoft.com/subscriptions/) on the {% data variables.product.prodname_vs %} website and [Overview of admin responsibilities](https://docs.microsoft.com/en-us/visualstudio/subscriptions/admin-responsibilities) in Microsoft Docs.
 
-- Your team must have an enterprise on {% data variables.location.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+* Your team must have an enterprise on {% data variables.location.product_location %}. If you're not sure whether your team has an enterprise, contact your {% data variables.product.prodname_dotcom %} administrator. If you're not sure who on your team is responsible for {% data variables.product.prodname_dotcom %}, contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 
 ## Setting up {% data variables.visual_studio.prodname_vss_ghe %}
 
@@ -54,9 +54,9 @@ One person may be able to complete the tasks because the person has all of the r
 
    **Tips**:
 
-   - While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.location.product_location %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
-   - If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.location.product_location %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
-   - If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
+   * While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.location.product_location %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
+   * If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.location.product_location %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+   * If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
 
     {% endtip %}
 
@@ -64,4 +64,4 @@ After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscrib
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)"

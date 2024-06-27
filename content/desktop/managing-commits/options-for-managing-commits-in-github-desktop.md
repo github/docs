@@ -10,9 +10,9 @@ versions:
 
 When you're contributing changes to a repository, your commit history should tell an easy-to-follow story about how you arrived at the changes you've made. To help people review your work, and to make it easier for people to find when and why changes were introduced to a repository, we recommend you follow certain best practices, such as:
 
-- Organizing your commits into a sequential, easy-to-follow order
-- Writing clear commit messages that include your intent and any necessary context
-- Making small commits that contain related changes
+* Organizing your commits into a sequential, easy-to-follow order
+* Writing clear commit messages that include your intent and any necessary context
+* Making small commits that contain related changes
 
 Often, it is difficult to follow these best practices perfectly at the point where you're making changes. You might realize you need to undo the changes in a commit you've made, edit a commit message, or reorder your commits to tell a clearer story. With {% data variables.product.prodname_desktop %}, you can manage your commit history directly from the user interface.
 

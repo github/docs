@@ -22,9 +22,9 @@ redirect_from:
 {% endif %}
 
 There are different ways to get a copy of a repository's files on {% data variables.product.product_name %}. You can:
-- **Download** a snapshot of a repository's files as a zip file to your own (local) computer.
-- **Clone** a repository to your local computer using Git.
-- **Fork** a repository to create a new repository on {% data variables.product.prodname_dotcom %}.
+* **Download** a snapshot of a repository's files as a zip file to your own (local) computer.
+* **Clone** a repository to your local computer using Git.
+* **Fork** a repository to create a new repository on {% data variables.product.prodname_dotcom %}.
 
 Each of these methods has its own use case, which we'll explain in the next section.
 
@@ -40,7 +40,7 @@ This tutorial focuses on downloading a repository's files to your local computer
 
 ## Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account.
+* You must have a {% data variables.product.prodname_dotcom %} account.
 
 ## Downloading a repository's files
 
@@ -56,8 +56,8 @@ You now have a copy of the repository's files saved as a zip file on your local 
 
 ## Next steps
 
-- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/uploading-a-project-to-github)," you'll learn how to upload your own files to a remote repository on {% data variables.product.product_name %}.
+* In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/uploading-a-project-to-github)," you'll learn how to upload your own files to a remote repository on {% data variables.product.product_name %}.
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)"
+* "[AUTOTITLE](/repositories/working-with-files/using-files/downloading-source-code-archives)"

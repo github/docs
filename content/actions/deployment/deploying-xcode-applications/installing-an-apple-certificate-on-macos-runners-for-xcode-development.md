@@ -25,8 +25,8 @@ This guide shows you how to add a step to your continuous integration (CI) workf
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
 
-- "[AUTOTITLE](/actions/learn-github-actions)"
-- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 
 You should have an understanding of Xcode app building and signing. For more information, see the [Apple developer documentation](https://developer.apple.com/documentation/).
 
@@ -38,36 +38,36 @@ To use your certificate and provisioning profile on a runner, we strongly recomm
 
 Create secrets in your repository or organization for the following items:
 
-- Your Apple signing certificate.
+* Your Apple signing certificate.
 
-  - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
+  * This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
   
-  - You should convert your certificate to Base64 when saving it as a secret. In this example, the secret is named `BUILD_CERTIFICATE_BASE64`.
+  * You should convert your certificate to Base64 when saving it as a secret. In this example, the secret is named `BUILD_CERTIFICATE_BASE64`.
 
-  - Use the following command to convert your certificate to Base64 and copy it to your clipboard:
+  * Use the following command to convert your certificate to Base64 and copy it to your clipboard:
 
     ```shell
     base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
 
-- The password for your Apple signing certificate.
-  - In this example, the secret is named `P12_PASSWORD`.
+* The password for your Apple signing certificate.
+  * In this example, the secret is named `P12_PASSWORD`.
 
-- Your Apple provisioning profile.
+* Your Apple provisioning profile.
 
-  - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
+  * For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
-  - You should convert your provisioning profile to Base64 when saving it as a secret. In this example, the secret is named `BUILD_PROVISION_PROFILE_BASE64`.
+  * You should convert your provisioning profile to Base64 when saving it as a secret. In this example, the secret is named `BUILD_PROVISION_PROFILE_BASE64`.
 
-  - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
+  * Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
   
     ```shell
     base64 -i PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
-- A keychain password.
+* A keychain password.
 
-  - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
+  * A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
 
 ## Add a step to your workflow
 

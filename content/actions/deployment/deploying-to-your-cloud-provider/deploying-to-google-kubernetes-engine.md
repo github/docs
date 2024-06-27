@@ -37,9 +37,9 @@ Before you proceed with creating the workflow, you will need to complete the fol
 ### Creating a GKE cluster
 
 To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
-- [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
-- [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
-- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
+* [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
+* [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
+* [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
 For example:
 
@@ -211,6 +211,6 @@ jobs:
 
 For more information on the tools used in these examples, see the following documentation:
 
-- For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
-- The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
-- "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
+* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
+* The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
+* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.

@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
-import isArchivedVersion from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
 
 const isDev = process.env.NODE_ENV === 'development'

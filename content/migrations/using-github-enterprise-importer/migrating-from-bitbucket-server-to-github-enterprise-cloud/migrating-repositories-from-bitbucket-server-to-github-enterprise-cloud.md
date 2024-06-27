@@ -18,13 +18,17 @@ You can migrate individual repositories or all repositories from a BitBucket Ser
 
 At this time, migrating from Bitbucket Server with the {% data variables.product.prodname_dotcom %} API is not supported.
 
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% endif %}
+
 ## Prerequisites
 
-- We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud#running-your-migrations)."
-- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)."
-- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
-- You need the username and password for a Bitbucket Server account with admin or super admin permissions.
+* We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud#running-your-migrations)."
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)."
+* {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
+* You need the username and password for a Bitbucket Server account with admin or super admin permissions.
 
 ## Step 1: Install the {% data variables.product.prodname_bbs2gh_cli %}
 
@@ -58,7 +62,7 @@ You'll also need to set environment variables for your Bitbucket Server username
 1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#creating-a-personal-access-token-for-github-enterprise-importer)."
 1. Set environment variables, replacing TOKEN with the {% data variables.product.pat_generic %} you recorded above, USERNAME with the username of a Bitbucket Server account that has admin or super admin permissions, and PASSWORD with the password for the Bitbucket Server account.
 
-   - If you're using Terminal, use the `export` command.
+   * If you're using Terminal, use the `export` command.
 
       ```shell copy
       export GH_PAT="TOKEN"
@@ -68,7 +72,7 @@ You'll also need to set environment variables for your Bitbucket Server username
      export SMB_PASSWORD="PASSWORD"
       ```
 
-   - If you're using PowerShell, use the `$env` command.
+   * If you're using PowerShell, use the `$env` command.
 
       ```shell copy
       $env:GH_PAT="TOKEN"
@@ -114,8 +118,8 @@ When you migrate a repository, by default, the {% data variables.product.prodnam
 
 Alternatively, you can use the {% data variables.product.prodname_cli %} to generate the archive, download that archive manually, and then use the {% data variables.product.prodname_cli %} to continue the migration.
 
-- "[Allowing the {% data variables.product.prodname_cli %} to download the migration archive](#allowing-the-github-cli-to-download-the-migration-archive)"
-- "[Downloading the migration archive manually](#downloading-the-migration-archive-manually)"
+* "[Allowing the {% data variables.product.prodname_cli %} to download the migration archive](#allowing-the-github-cli-to-download-the-migration-archive)"
+* "[Downloading the migration archive manually](#downloading-the-migration-archive-manually)"
 
 ### Allowing the {% data variables.product.prodname_cli %} to download the migration archive
 
@@ -163,8 +167,8 @@ However, some customers prefer to download the migration archive manually, becau
 
 You must follow this step from a computer that can access:
 
-- Your Bitbucket Server instance via HTTPS
-- Your chosen blob storage provider
+* Your Bitbucket Server instance via HTTPS
+* Your chosen blob storage provider
 
 First, use the `gh bbs2gh migrate-repo` command with only the following arguments:
 
@@ -260,8 +264,8 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
 
 After you generate the script, review the file and, optionally, edit the script.
 
-- If there are any repositories you don't want to migrate, delete or comment out the corresponding lines.
-- By default, repository names in {% data variables.product.prodname_dotcom %} will follow a `projectKey-repositoryName` convention. For example, a Bitbucket Server repository named `airports` that is part of the `open-source` project, which has the key `OS`, would be called `OS-airports` in {% data variables.product.prodname_dotcom %}. If you want any repositories to have a different name on {% data variables.product.prodname_dotcom %}, update the value for the corresponding `--github-repo` flag.
+* If there are any repositories you don't want to migrate, delete or comment out the corresponding lines.
+* By default, repository names in {% data variables.product.prodname_dotcom %} will follow a `projectKey-repositoryName` convention. For example, a Bitbucket Server repository named `airports` that is part of the `open-source` project, which has the key `OS`, would be called `OS-airports` in {% data variables.product.prodname_dotcom %}. If you want any repositories to have a different name on {% data variables.product.prodname_dotcom %}, update the value for the corresponding `--github-repo` flag.
 
 {% data reusables.enterprise-migration-tool.bbs2gh-binary-generate-script %}
 
@@ -273,12 +277,12 @@ To migrate your repositories, run the generated script.
 
 Before running the script, you must set additional environment variables to authenticate to your blob storage provider.
 
-- For AWS S3, set the following environment variables.
-  - `AWS_ACCESS_KEY`: The access key for your bucket
-  - `AWS_SECRET_KEY`: The secret key for your bucket
-  - `AWS_REGION`: The AWS region where your bucket is located
-  - `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
-- For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
+* For AWS S3, set the following environment variables.
+  * `AWS_ACCESS_KEY`: The access key for your bucket
+  * `AWS_SECRET_KEY`: The secret key for your bucket
+  * `AWS_REGION`: The AWS region where your bucket is located
+  * `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
+* For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
 
 {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
 

@@ -80,9 +80,9 @@ For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/
 
 If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
 
-- {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
-- {% data variables.product.prodname_pages %} sites are always privately published, and you cannot change this visibility. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
-- You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
+* {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
+* {% data variables.product.prodname_pages %} sites are always privately published, and you cannot change this visibility. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+* You cannot create an organization site (a site published from a repository named `<organization>.github.io`)
 
 For more information about {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 {% endif %}
@@ -117,13 +117,13 @@ Using {% data variables.product.prodname_pages %} to create a copy of an existin
 
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
-- {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations)"{% endif %}
-- Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
-- {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
+* {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations)"{% endif %}
+* Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
+* {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}
-- {% data variables.product.prodname_pages %} sites have a _soft_ bandwidth limit of 100 GB per month.
-- {% data variables.product.prodname_pages %} sites have a _soft_ limit of 10 builds per hour. This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow.
-- In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
+* {% data variables.product.prodname_pages %} sites have a _soft_ bandwidth limit of 100 GB per month.
+* {% data variables.product.prodname_pages %} sites have a _soft_ limit of 10 builds per hour. This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow.
+* In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.github_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
@@ -144,5 +144,5 @@ When a {% data variables.product.prodname_pages %} site is visited, the visitor'
 
 ## Further reading
 
-- [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) on {% data variables.product.prodname_learning %}
-- "[AUTOTITLE](/rest/repos#pages)"
+* [{% data variables.product.prodname_pages %}](https://github.com/skills/github-pages) on {% data variables.product.prodname_learning %}
+* "[AUTOTITLE](/rest/repos#pages)"

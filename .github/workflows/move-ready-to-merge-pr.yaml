@@ -30,8 +30,13 @@ jobs:
           column: Triage
           repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
 
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: remove label
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        uses: ./.github/actions/labeler
         with:
-          ignore-if-assigned: 'false'
-          remove-labels: 'waiting for review'
+          ignoreifAssigned: 'false'
+          removeLabels: 'waiting for review'

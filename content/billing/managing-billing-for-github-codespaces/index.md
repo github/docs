@@ -11,3 +11,8 @@ children:
   - /managing-the-spending-limit-for-github-codespaces
 ---
 
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}

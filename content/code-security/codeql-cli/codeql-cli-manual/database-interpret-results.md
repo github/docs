@@ -141,6 +141,11 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
 
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
 #### `--no-group-results`
 
 \[SARIF formats only] Produce one result per message, rather than one
@@ -239,6 +244,14 @@ To authenticate to GitHub Enterprise Server Container registries, pass
 variable.
 
 This overrides the GITHUB\_TOKEN environment variable.
+
+### Options to specify which extensions to use when interpreting the results
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
 
 ### Options for finding QL packs (which may be necessary to interpret query suites)
 

@@ -52,6 +52,6 @@ You can either remove individual accounts or all accounts from the account switc
 1. In the upper-right corner of any page, click your profile photo to open the menu.
 1. In the menu, click **Sign out**.
 1. Choose which accounts to sign out of and remove from the account switcher.
-    - To remove the account you are currently signed in to from the account switcher and sign out, click **Sign out** next to your username.
-    - To sign out from and remove an account from the account switcher, click **Remove** next to the username you want to remove.
-    - To sign out from all accounts, and remove all accounts from the account switcher, click **Sign out from all accounts**.
+    * To remove the account you are currently signed in to from the account switcher and sign out, click **Sign out** next to your username.
+    * To sign out from and remove an account from the account switcher, click **Remove** next to the username you want to remove.
+    * To sign out from all accounts, and remove all accounts from the account switcher, click **Sign out from all accounts**.

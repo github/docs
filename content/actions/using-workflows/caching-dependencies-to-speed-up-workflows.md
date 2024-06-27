@@ -36,9 +36,9 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 
 **Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
 
-- {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+* {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
 {%- ifversion fpt or ghec %}
-- When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
+* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
 
 {% endwarning %}
@@ -69,9 +69,9 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 
 ### Input parameters for the `cache` action
 
-- `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
-- `path`: **Required** The path(s) on the runner to cache or restore.
-  - You can specify a single path, or you can add multiple paths on separate lines. For example:
+* `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
+* `path`: **Required** The path(s) on the runner to cache or restore.
+  * You can specify a single path, or you can add multiple paths on separate lines. For example:
 
     ```yaml
     - name: Cache Gradle packages
@@ -82,9 +82,9 @@ You cannot change the contents of an existing cache. Instead, you can create a n
           ~/.gradle/wrapper
     ```
 
-  - You can specify either directories or single files, and glob patterns are supported.
-  - You can specify absolute paths, or paths relative to the workspace directory.
-- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
+  * You can specify either directories or single files, and glob patterns are supported.
+  * You can specify absolute paths, or paths relative to the workspace directory.
+* `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
 
   {% raw %}
 
@@ -97,11 +97,11 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 
   {% endraw %}
 
-- `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
+* `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
 
 ### Output parameters for the `cache` action
 
-- `cache-hit`: A boolean value to indicate an exact match was found for the key.
+* `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
 ### Cache hits and misses
 
@@ -112,8 +112,8 @@ When `key` doesn't match an existing cache, it's called a _cache miss_, and a ne
 When a cache miss occurs, the action also searches your specified `restore-keys` for any matches:
 
 1. If you provide `restore-keys`, the `cache` action sequentially searches for any caches that match the list of `restore-keys`.
-   - When there is an exact match, the action restores the files in the cache to the `path` directory.
-   - If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
+   * When there is an exact match, the action restores the files in the cache to the `path` directory.
+   * If there are no exact matches, the action searches for partial matches of the restore keys. When the action finds a partial match, the most recent cache is restored to the `path` directory.
 1. The `cache` action completes and the next step in the job runs.
 1. If the job completes successfully, the action automatically creates a new cache with the contents of the `path` directory.
 
@@ -275,16 +275,16 @@ For information on changing the policies for the repository cache size limit, se
 
 To manage caches created from your workflows, you can:
 
-- View a list of all cache entries for a repository.
-- Filter and sort the list of caches using specific metadata such as cache size, creation time, or last accessed time.
-- Delete cache entries from a repository.
-- Monitor aggregate cache usage for repositories and organizations.
+* View a list of all cache entries for a repository.
+* Filter and sort the list of caches using specific metadata such as cache size, creation time, or last accessed time.
+* Delete cache entries from a repository.
+* Monitor aggregate cache usage for repositories and organizations.
 
 There are multiple ways to manage caches for your repositories:
 
-- Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
-- Using the REST API. For more information, see "[AUTOTITLE](/rest/actions/cache)."
-- Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache).
+* Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
+* Using the REST API. For more information, see "[AUTOTITLE](/rest/actions/cache)."
+* Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache).
 
     {% note %}
 
@@ -311,8 +311,8 @@ You can use the web interface to view a list of cache entries for a repository. 
 {% data reusables.repositories.actions-cache-list %}
 1. Review the list of cache entries for the repository.
 
-   - To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
-   - To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
+   * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
+   * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
 
    ![Screenshot of the list of cache entries.](/assets/images/help/repository/actions-cache-entry-list.png)
 
