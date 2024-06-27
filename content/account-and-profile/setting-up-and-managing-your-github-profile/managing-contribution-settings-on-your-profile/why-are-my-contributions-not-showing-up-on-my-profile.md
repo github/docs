@@ -27,6 +27,8 @@ If you are part of an organization that uses SAML single sign-on (SSO), you wonâ
 
 Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
+{% data variables.product.company_short %} limits the number of these items when displaying the contribution graph. If you've reached the limit, the contribution graph may not display all of your contributions.
+
 ### Commits
 
 Commits will appear on your contributions graph if they meet **all** of the following conditions:
