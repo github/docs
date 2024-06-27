@@ -3,7 +3,7 @@ name: Add docs-internal PRs to the docs-content FR project v2
 # **What it does**: Adds docs-internal pull requests that were opened by people outside of the docs team to the docs-content FR project v2
 # **Why we have it**: So we don't lose track of new pull requests for docs-content to review
 # **Who does it impact**: Docs content
-
+RICKYYYC 繼承
 on:
   pull_request:
     types:
@@ -93,3 +93,4 @@ jobs:
           gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $DATE_FIELD_ID --date $DATE
 
           echo "done editing"
+          X86 RICKYYYC 
