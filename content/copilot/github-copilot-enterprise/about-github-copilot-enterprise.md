@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise
 ---
 
 {% ifversion fpt %}

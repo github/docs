@@ -1,15 +1,17 @@
 ---
-title: Using GitHub Copilot Chat in your IDE
+title: Asking GitHub Copilot questions in your IDE
 intro: 'Use {% data variables.product.prodname_copilot_chat_short %} in your editor to give code suggestions, explain code, generate unit tests, and suggest code fixes.'
 topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide
+  - /copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide
+  - /copilot/github-copilot-chat/copilot-chat-in-ides
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Use Copilot Chat
+shortTitle: Chat in IDE
 ---
 
 {% vscode %}

@@ -1,10 +1,10 @@
 ---
-title: About GitHub Copilot Chat in GitHub.com
-shortTitle: About Copilot Chat
-intro: '{% data variables.product.prodname_copilot_chat_dotcom %} can help you by providing answers to coding related questions directly within {% data variables.product.prodname_dotcom_the_website %}.'
+title: Responsible use of GitHub Copilot Chat in GitHub.com
+shortTitle: Chat in GitHub.com
+intro: 'Learn how to use {% data variables.product.prodname_copilot_chat_dotcom %} responsibly by understanding its purposes, capabilities, and limitations.'
 product: 'Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."'
 versions:
-  feature: 'copilot-on-dotcom'
+  feature: copilot-on-dotcom
   fpt: '*'
 topics:
   - Copilot
@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
+  - /copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
 ---
 
 {% ifversion fpt %}

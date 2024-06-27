@@ -10,6 +10,7 @@ shortTitle: Install Copilot in the CLI
 redirect_from:
   - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
 ---
 
 ## Prerequisites

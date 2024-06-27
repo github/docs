@@ -7,6 +7,8 @@ topics:
   - Copilot
 shortTitle: Install personal extensions
 type: how_to
+redirect_from:
+  - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account
 ---
 
 {% data reusables.copilot.copilot-extensions.beta-note %}

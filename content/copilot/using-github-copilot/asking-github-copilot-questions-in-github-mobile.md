@@ -1,14 +1,16 @@
 ---
-title: Using GitHub Copilot Chat in GitHub Mobile
+title: Asking GitHub Copilot questions in GitHub Mobile
 intro: 'You can use {% data variables.product.prodname_copilot_mobile %} to answer general questions about software development{% ifversion ghec %}, or specific questions about the code in a repository{% endif %}.'
 topics:
   - Copilot
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-shortTitle: Use Copilot Chat
+shortTitle: Chat in Mobile
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
+  - /copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile
+  - /copilot/github-copilot-chat/copilot-chat-in-github-mobile
 ---
 
 ## Overview
@@ -40,8 +42,8 @@ To use {% data variables.product.prodname_copilot_mobile_short %} you will need 
 
    If you do not have a {% data variables.product.prodname_copilot %} subscription, you can purchase a {% data variables.product.prodname_copilot_individuals_short %} subscription directly in the iOS version of {% data variables.product.prodname_mobile %}, or in the Google Play Store for the Android version of {% data variables.product.prodname_mobile %}.
 
-* **Access to {% data variables.product.prodname_copilot_mobile_short %}**: If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_cli_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile)."
-* **Enable {% data variables.product.prodname_copilot_short %} features for your device**: {% data variables.product.prodname_copilot_short %} needs to be enabled from within {% data variables.product.prodname_mobile %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot#enabling-or-disabling-copilot-in-github-mobile)."
+* **Access to {% data variables.product.prodname_copilot_mobile_short %}**: If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_mobile_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile)."
+* **Enable {% data variables.product.prodname_copilot_short %} features for your device**: {% data variables.product.prodname_copilot_short %} needs to be enabled from within {% data variables.product.prodname_mobile %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot#enabling-or-disabling-copilot-in-github-mobile)." If you cannot see the {% data variables.product.prodname_copilot_short %} logo in the {% data variables.product.prodname_mobile %} home page, you may need to update your app version.
 
 ## Asking a general question about software development
 
