@@ -3,6 +3,20 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>source</code> was added to object type <code>PropertyTargetDefinition</code></p>",
+          "<p>Input field <code>source</code> of type <code>String</code> was added to input object type <code>PropertyTargetDefinitionInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],
