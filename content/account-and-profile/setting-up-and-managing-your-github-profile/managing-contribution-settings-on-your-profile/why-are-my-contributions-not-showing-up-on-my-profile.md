@@ -51,8 +51,9 @@ In addition, **at least one** of the following must be true:
 
 After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
 
-### Contributions made to a forked repository that has been deleted
-If you have made any contributions to a forked repository and that repository is subsequently deleted by you for any reason, those contributions will be removed from the graph and will no longer be counted.
+### Contributions Made to a Forked Repository That Has Been Deleted
+
+If you have made any contributions to a forked repository and subsequently delete that repository, those contributions will be removed from the graph and will no longer be counted. Your contributions will only be counted if they remain accessible up to the current date.
 
 ### Your local Git commit email isn't connected to your account
 
