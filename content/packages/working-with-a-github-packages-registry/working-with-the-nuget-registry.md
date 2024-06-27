@@ -129,6 +129,12 @@ If you don't already have a {% data variables.product.pat_generic %} to use for 
    dotnet pack --configuration Release
    ```
 
+1. Authentificate GitHub Packages with the `dotnet` command-line interface (CLI). Replace `OWNER` with your username or company name.
+
+    ```shell
+    dotnet nuget add source --username OWNER --password ${ secrets.GITHUB_TOKEN } --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
+    ```
+
 1. Publish the package using your {% data variables.product.pat_generic %} as the API key. Replace `PROJECT_NAME` with the name of the project, `1.0.0` with the version number of the package, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
 
    ```shell
@@ -179,6 +185,12 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
    ```shell
    dotnet pack --configuration Release
    ```
+
+1. Authentificate GitHub Packages with the `dotnet` command-line interface (CLI). Replace `OWNER` with your username or company name.
+
+    ```shell
+    dotnet nuget add source --username OWNER --password ${ secrets.GITHUB_TOKEN } --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
+    ```
 
 1. Publish the package using the `key` you specified in the _nuget.config_ file. Replace `PROJECT_NAME` with the name of the project, and replace `1.0.0` with the version number of the package.
 
