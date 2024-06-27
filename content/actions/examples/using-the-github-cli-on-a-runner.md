@@ -111,11 +111,7 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
-{%- ifversion actions-save-state-set-output-envs %}
         run: echo "title=$(head -1 broken_links.md)" >> $GITHUB_OUTPUT
-{%- else %}
-        run: echo "::set-output name=title::$(head -1 broken_links.md)"
-{%- endif %}
       # Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `ceef9be92406ace67ab5421f66570acf213ec395` SHA.
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file

@@ -65,8 +65,8 @@ When you enable GitHub Actions, GitHub installs a GitHub App on your repository.
 For packages in registries that support granular permissions, when you create, install, modify, or delete a package through a workflow, there are some default permission and access settings used to ensure admins have access to the workflow. You can adjust these access settings as well. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 For example, by default if a workflow creates a package using the `GITHUB_TOKEN`, then:
-- The package inherits the visibility and permissions model of the repository where the workflow is run.
-- Repository admins where the workflow is run become the admins of the package once the package is created.
+* The package inherits the visibility and permissions model of the repository where the workflow is run.
+* Repository admins where the workflow is run become the admins of the package once the package is created.
 
 These are more examples of how default permissions work for workflows that manage packages.
 
@@ -99,8 +99,8 @@ Create a new workflow file in your repository (such as `.github/workflows/deploy
 
 **Notes:**
 
-- {% data reusables.actions.actions-not-certified-by-github %}
-- {% data reusables.actions.actions-use-sha-pinning %}
+* {% data reusables.actions.actions-not-certified-by-github %}
+* {% data reusables.actions.actions-use-sha-pinning %}
 
 {% endnote %}
 

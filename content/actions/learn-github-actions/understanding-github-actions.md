@@ -93,5 +93,5 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
+* "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
 {% endif %}

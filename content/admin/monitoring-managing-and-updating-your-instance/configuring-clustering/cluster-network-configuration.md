@@ -28,9 +28,9 @@ The simplest network design for clustering is to place the nodes on a single LAN
 
 {% data reusables.enterprise_clustering.network-latency %}
 
-- [Application ports for end users](#application-ports-for-end-users)
-- [Administrative ports](#administrative-ports)
-- [Cluster communication ports](#cluster-communication-ports)
+* [Application ports for end users](#application-ports-for-end-users)
+* [Administrative ports](#administrative-ports)
+* [Cluster communication ports](#cluster-communication-ports)
 
 ### Application ports for end users
 
@@ -93,8 +93,8 @@ If a network level firewall is in place between nodes, these ports will need to 
 
  We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
 
-- TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
-- Sticky sessions shouldn't be enabled.
+* TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
+* Sticky sessions shouldn't be enabled.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
@@ -112,13 +112,13 @@ We strongly recommend enabling PROXY support for both your instance and the load
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
-- For your instance, use this command:
+* For your instance, use this command:
 
   ```shell
   ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
 
-- For the load balancer, use the instructions provided by your vendor.
+* For the load balancer, use the instructions provided by your vendor.
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 

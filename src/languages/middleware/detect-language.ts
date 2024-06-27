@@ -17,8 +17,8 @@ function translationExists(language: parserLanguage) {
   if (language.code === 'zh') {
     return language.region && chineseRegions.includes(language.region)
   }
-  // 92BD1212-61B8-4E7A: Remove ` && !languages[language.code].wip` for the public ship of ko, fr, de, ru
-  return languageKeys.includes(language.code) && !(languages as Languages)[language.code].wip
+
+  return languageKeys.includes(language.code)
 }
 
 function getLanguageCode(language: parserLanguage) {
@@ -47,8 +47,7 @@ function getUserLanguage(browserLanguages: parserLanguage[]) {
 function getUserLanguageFromCookie(req: Request) {
   const value: undefined | string = req.cookies[USER_LANGUAGE_COOKIE_NAME]
 
-  // 92BD1212-61B8-4E7A: Remove ` && !languages[value].wip` for the public ship of ko, fr, de, ru
-  if (value && (languages as Languages)[value] && !(languages as Languages)[value].wip) {
+  if (value && (languages as Languages)[value]) {
     return value
   }
 }

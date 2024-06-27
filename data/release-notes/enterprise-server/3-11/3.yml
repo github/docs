@@ -56,3 +56,5 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
     - |
       {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

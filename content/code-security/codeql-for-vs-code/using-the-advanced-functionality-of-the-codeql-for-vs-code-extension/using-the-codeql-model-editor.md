@@ -25,9 +25,9 @@ When you open the model editor, it analyzes the currently selected {% data varia
 
 The model editor has two different modes:
 
-- **Application mode** (default view): The editor lists each external framework used by the selected {% data variables.product.prodname_codeql %} database. When you expand a framework, a list of all calls to and from the external API is shown with the options available to model dataflow through each call. This mode is most useful for improving the {% data variables.product.prodname_codeql %} results for a specific codebase.
+* **Application mode** (default view): The editor lists each external framework used by the selected {% data variables.product.prodname_codeql %} database. When you expand a framework, a list of all calls to and from the external API is shown with the options available to model dataflow through each call. This mode is most useful for improving the {% data variables.product.prodname_codeql %} results for a specific codebase.
 
-- **Dependency mode**: The editor identifies all of the publicly accessible APIs in the selected {% data variables.product.prodname_codeql %} database. This view guides you through modeling each public API that the codebase makes available. When you have finished modeling the entire API, you can save the model and use it to improve the {% data variables.product.prodname_codeql %} analysis for all codebases that use the dependency.
+* **Dependency mode**: The editor identifies all of the publicly accessible APIs in the selected {% data variables.product.prodname_codeql %} database. This view guides you through modeling each public API that the codebase makes available. When you have finished modeling the entire API, you can save the model and use it to improve the {% data variables.product.prodname_codeql %} analysis for all codebases that use the dependency.
 
 The rest of this article covers the practical aspects of modelling dependencies using the {% data variables.product.prodname_codeql %} model editor. For technical information, see [Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin/){% ifversion fpt or ghec or ghes > 3.12 %}, [Customizing Library Models for Ruby](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-ruby/), and [Customizing library models for C#](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-csharp/){% endif %} in the {% data variables.product.prodname_codeql %} language documentation.
 
@@ -81,9 +81,9 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. The remaining fields in that row are updated with the options available for the chosen model type:
 
-   - "Source": choose the "Output" element to model.
-   - "Sink": choose the "Input" element to model.
-   - "Flow summary": choose the "Input" and "Output" elements to model.
+   * "Source": choose the "Output" element to model.
+   * "Sink": choose the "Input" element to model.
+   * "Flow summary": choose the "Input" and "Output" elements to model.
 
 1. Define the "Kind" of dataflow for the model.
 
@@ -122,9 +122,9 @@ This section uses an open source Java project called "sofa-jraft" as an example.
 
 1. The remaining fields in that row are updated with the options available for the chosen model type:
 
-   - "Source": choose the "Output" element to model.
-   - "Sink": choose the "Input" element to model.
-   - "Flow summary": choose the "Input" and "Output" elements to model.
+   * "Source": choose the "Output" element to model.
+   * "Sink": choose the "Input" element to model.
+   * "Flow summary": choose the "Input" and "Output" elements to model.
 
 1. Define the "Kind" of dataflow for the model.
 
@@ -153,14 +153,14 @@ Some methods support more than one data flow. It is important to model all the d
 
 You can test any {% data variables.product.prodname_codeql %} model packs you create in {% data variables.product.prodname_vscode_shortname %} with the "Running Queries: Use Extension Packs" setting. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)." This method works for both databases and for variant analysis repositories.
 
-- To run queries on a {% data variables.product.prodname_codeql %} database with any model packs that are stored within the `.github/codeql/extensions` directory of the workspace, update your `settings.json` file with: `"codeQL.runningQueries.useExtensionPacks": "all",`
+* To run queries on a {% data variables.product.prodname_codeql %} database with any model packs that are stored within the `.github/codeql/extensions` directory of the workspace, update your `settings.json` file with: `"codeQL.runningQueries.useExtensionPacks": "all",`
 
-- To run queries on a {% data variables.product.prodname_codeql %} database without using model packs, update your `settings.json` file with: `"codeQL.runningQueries.useExtensionPacks": "none",`
+* To run queries on a {% data variables.product.prodname_codeql %} database without using model packs, update your `settings.json` file with: `"codeQL.runningQueries.useExtensionPacks": "none",`
 
 If your model is working well, you should see a difference in the results of the two different runs. If you don't see any differences in results, you may need to introduce a known bug to verify that the model behaves as expected.
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)
-- [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)
+* [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-codeql-coverage-with-codeql-model-packs-in-default-setup)
+* [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#extending-codeql-coverage-with-codeql-model-packs)
 [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies).

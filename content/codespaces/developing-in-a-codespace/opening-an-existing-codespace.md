@@ -24,11 +24,11 @@ You can reopen any of your active or stopped codespaces on {% data variables.pro
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
-- Open, stop, or delete your codespaces.
-- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
-- See the machine type, size, and status of your codespaces.
-- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
-- Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
+* Open, stop, or delete your codespaces.
+* See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+* See the machine type, size, and status of your codespaces.
+* Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+* Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 {% webui %}
 
@@ -68,10 +68,10 @@ You can bookmark the address of this page if you want to get back to it quickly 
    ![Screenshot of the "Open in" dialog, with "Open in {% data variables.product.prodname_vscode %}" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
-   - Your browser
-   - {% data variables.product.prodname_vscode %}
-   - JetBrains Gateway
-   - JupyterLab
+   * Your browser
+   * {% data variables.product.prodname_vscode %}
+   * JetBrains Gateway
+   * JupyterLab
 
    {% data reusables.codespaces.application-installed-locally %}
 
@@ -93,8 +93,8 @@ You can bookmark the address of this page if you want to get back to it quickly 
 
 1. In the {% data variables.product.prodname_vscode_shortname %} desktop application, open the Command Palette with <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type "Codespaces" and select one of the following commands.
-   - To open a codespace in a new window of {% data variables.product.prodname_vscode_shortname %}, select **Codespaces: Open Codespace in New Window**
-   - To open a codespace in the web editor, select **Codespaces: Open in Browser**
+   * To open a codespace in a new window of {% data variables.product.prodname_vscode_shortname %}, select **Codespaces: Open Codespace in New Window**
+   * To open a codespace in the web editor, select **Codespaces: Open in Browser**
 1. Click the codespace that you want to open.
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Command Palette showing a list of codespaces available to connect to.](/assets/images/help/codespaces/open-codespace-from-vscode.png)
@@ -116,7 +116,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 {% data reusables.codespaces.using-github-cli %}
 
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
-   - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
+   * To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
      ```shell copy
      gh codespace code
@@ -128,13 +128,13 @@ You can also access the commands listed above by navigating to the Remote Explor
 
      {% endnote %}
 
-   - To open a codespace in the browser, enter:
+   * To open a codespace in the browser, enter:
 
      ```shell copy
      gh codespace code --web
      ```
 
-   - To open a codespace in JupyterLab, enter:
+   * To open a codespace in JupyterLab, enter:
 
      ```shell copy
      gh codespace jupyter
@@ -146,7 +146,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 
      {% endnote %}
 
-   - To access a codespace from the command line, over SSH, enter:
+   * To access a codespace from the command line, over SSH, enter:
 
      ```shell copy
      gh codespace ssh
@@ -169,4 +169,4 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/codespaces/organizations)"
+* "[AUTOTITLE](/rest/codespaces/organizations)"

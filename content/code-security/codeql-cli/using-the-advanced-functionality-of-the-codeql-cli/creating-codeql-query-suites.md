@@ -32,7 +32,7 @@ suite definition have been executed, the result is a set of selected queries.
 {% ifversion codeql-packs %}
 {% note %}
 
-**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
+**Note:** Any custom queries that you want to add to a query suite must be in a "[{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
 {% endnote %}
 {% endif %}
@@ -43,7 +43,7 @@ When creating a query suite, you first need to specify the locations of the
 queries that you want to select. You can define the location of one or more
 queries using:
 
-- A `query` instruction—tells {% data variables.product.prodname_codeql %} to look for one or more specified `.ql`
+* A `query` instruction—tells {% data variables.product.prodname_codeql %} to look for one or more specified `.ql`
 files:
 
   ```yaml
@@ -53,7 +53,7 @@ files:
   The argument must be one or more file paths, relative to the {% data variables.product.prodname_codeql %} pack containing
   the suite definition.
 
-- A `queries` instruction—tells {% data variables.product.prodname_codeql %} to recursively scan a directory
+* A `queries` instruction—tells {% data variables.product.prodname_codeql %} to recursively scan a directory
 for `.ql` files:
 
   ```yaml
@@ -73,7 +73,7 @@ for `.ql` files:
   The `version` field is optional and specifies a range of compatible versions of this {% data variables.product.prodname_codeql %} pack.
   If you don’t specify a version, then the most recent version of the pack is used.
 
-- A `qlpack` instruction—tells {% data variables.product.prodname_codeql %} to resolve queries in the default suite of the
+* A `qlpack` instruction—tells {% data variables.product.prodname_codeql %} to resolve queries in the default suite of the
 named {% data variables.product.prodname_codeql %} pack:
 
   ```yaml
@@ -107,10 +107,10 @@ specifying `query`, `queries`, or `qlpack` instructions, you can add
 `include` and `exclude` instructions. These instructions define selection
 criteria based on specific properties:
 
-- When you execute an `include` instruction on a set of queries, any
+* When you execute an `include` instruction on a set of queries, any
 queries that match your conditions are retained in the selection, and queries
 that don’t match are removed.
-- When you execute an `exclude` instructions on a set of queries,
+* When you execute an `exclude` instructions on a set of queries,
 any queries that match your conditions are removed from the selection, and queries
 that don’t match are retained.
 
@@ -131,9 +131,9 @@ For both instructions, the argument is a constraint block—that is, a YAML map
 representing the constraints. Each constraint is a map entry, where the key is
 typically a query metadata property. The value can be:
 
-- A single string.
-- A `/`-enclosed [regular expression](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html).
-- A list containing strings, regular expressions, or both.
+* A single string.
+* A `/`-enclosed [regular expression](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html).
+* A list containing strings, regular expressions, or both.
 
 To match a constraint, a metadata value must match one of the strings or
 regular expressions. When there is more than one metadata key, each key must be matched.
@@ -144,12 +144,12 @@ For more information about query metadata properties, see
 
 In addition to metadata tags, the keys in the constraint block can also be:
 
-- `query filename`—matches on the last path component of the query file name.
-- `query path`—matches on the path to the query file relative to its
+* `query filename`—matches on the last path component of the query file name.
+* `query path`—matches on the path to the query file relative to its
 enclosing {% data variables.product.prodname_codeql %} pack.
-- `tags contain`—one of the given match strings must match
+* `tags contain`—one of the given match strings must match
 one of the space-separated components of the value of the `@tags` metadata property.
-- `tags contain all`—each of the given match strings must match one of the
+* `tags contain all`—each of the given match strings must match one of the
 components of the `@tags` metadata property.
 
 ### Examples of filtering which queries are run
@@ -257,7 +257,7 @@ use:
 
 Existing query suite definitions can be reused by specifying:
 
-- An `import` instruction—adds the queries selected by a
+* An `import` instruction—adds the queries selected by a
 previously defined `.qls` file to the current suite:
 
   ```yaml
@@ -280,7 +280,7 @@ previously defined `.qls` file to the current suite:
   Queries added using an `import` instruction can be filtered using subsequent
   `exclude` instructions.
 
-- An `apply` instruction—adds all of the instructions from a
+* An `apply` instruction—adds all of the instructions from a
 previously defined `.qls` file to the current suite. The instructions in the
 applied `.qls` file are executed as if they appear in place of `apply`.
 Any `include` and `exclude` instructions from the applied suite also act on
@@ -389,4 +389,4 @@ definition using `query compile`, or use the queries in an analysis using
 
 ## Further reading
 
-- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+* "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"

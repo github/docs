@@ -32,8 +32,8 @@ You can also write a script that checks for failed deliveries and attempts to re
 
 For example scripts, see:
 
-- "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-a-repository-webhook)"
-- "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-an-organization-webhook)"
-- "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-a-github-app-webhook)"
+* "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-a-repository-webhook)"
+* "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-an-organization-webhook)"
+* "[AUTOTITLE](/webhooks/using-webhooks/creating-a-script-to-automatically-redeliver-failed-deliveries-for-a-github-app-webhook)"
 
 If a webhook delivery fails repeatedly, you should investigate the cause. Each failed delivery will give a reason for failure. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)."

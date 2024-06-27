@@ -31,15 +31,15 @@ You can deploy {% data variables.product.product_name %} to a virtualization hyp
 
 {% data variables.product.company_short %} supports the following virtualization hypervisors for on-premises deployment.
 
-- Microsoft Hyper-V
-- OpenStack KVM
-- VMware ESXi
+* Microsoft Hyper-V
+* OpenStack KVM
+* VMware ESXi
 
 {% data variables.product.company_short %} supports the following services for cloud deployment.
 
-- Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
-- Microsoft Azure
+* Amazon Web Services (AWS)
+* Google Cloud Platform (GCP)
+* Microsoft Azure
 
 For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
@@ -53,12 +53,12 @@ You can configure and monitor {% data variables.product.product_name %} via brow
 
 You can give certain employees administrative access to {% data variables.product.product_name %}, so they can set up external authentication, configure the instance to meet developer needs, and monitor the instance's activity and performance. To ensure compliance with business rules or regulatory restrictions, administrators can configure policies that control how people use {% data variables.location.product_location %}. For more information, see the following articles.
 
-- "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)"
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)"
-- "[AUTOTITLE](/admin/overview/about-the-github-enterprise-api)"
-- "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)"
-- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise)"
-- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)"
+* "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)"
+* "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)"
+* "[AUTOTITLE](/admin/overview/about-the-github-enterprise-api)"
+* "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)"
+* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise)"
+* "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)"
 
 ## About optional features
 
@@ -75,9 +75,9 @@ You can configure optional features for {% data variables.product.product_name %
 
 By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
 
-- To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
-- You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
-- Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
+* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
+* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
 
 ## About backups and disaster recovery
 
@@ -89,8 +89,8 @@ Additionally, you can configure a passive replica instance to fail over to in th
 
 Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}.
 
-- [Enterprise administrator documentation](/admin)
-- [User documentation](/)
+* [Enterprise administrator documentation](/admin)
+* [User documentation](/)
 
 Different versions of {% data variables.product.product_name %} are reflected separately in the documentation on {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
 
@@ -100,6 +100,6 @@ You can sign up for a free, 45-day trial of {% data variables.product.product_na
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server)"
-- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server)"
+* "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
+* [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository

@@ -22,11 +22,11 @@ The {% data variables.product.prodname_codeql %} extension requires a minimum of
 
 You can install the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension using one of several different methods:
 
-- Using the {% data variables.product.prodname_vscode %} Marketplace in a browser.
+* Using the {% data variables.product.prodname_vscode %} Marketplace in a browser.
 
-- Searching in the "Extensions" view in {% data variables.product.prodname_vscode %}.
+* Searching in the "Extensions" view in {% data variables.product.prodname_vscode %}.
 
-- Using a VSIX file.
+* Using a VSIX file.
 
 ### Using the {% data variables.product.prodname_vscode %} Marketplace
 

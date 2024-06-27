@@ -27,9 +27,9 @@ Once you have created a custom deployment protection rule and installed it on yo
 
 Deployments to an environment can be approved or rejected based on the conditions defined in any external service like an approved ticket in an IT Service Management (ITSM) system, vulnerable scan result on dependencies, or stable health metrics of a cloud resource. The decision to approve or reject deployments is at the discretion of the integrating third-party application and the gating conditions you define in them. The following are a few use cases for which you can create a deployment protection rule.
 
-- ITSM & Security Operations: you can check for service readiness by validating quality, security, and compliance processes that verify deployment readiness.
-- Observability systems: you can consult monitoring or observability systems (Asset Performance Management Systems and logging aggregators, cloud resource health verification systems, etc.) for verifying the safety and deployment readiness.
-- Code quality & testing tools: you can check for automated tests on CI builds which need to be deployed to an environment.
+* ITSM & Security Operations: you can check for service readiness by validating quality, security, and compliance processes that verify deployment readiness.
+* Observability systems: you can consult monitoring or observability systems (Asset Performance Management Systems and logging aggregators, cloud resource health verification systems, etc.) for verifying the safety and deployment readiness.
+* Code quality & testing tools: you can check for automated tests on CI builds which need to be deployed to an environment.
 
 Alternatively, you can write your own protection rules for any of the above use cases or you can define any custom logic to safely approve or reject deployments from pre-production to production environments.
 

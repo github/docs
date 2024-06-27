@@ -27,14 +27,14 @@ This series of guides explains how to think about securing your end-to-end suppl
 
 Everyone's needs are different, so each guide starts with the highest impact change, and continues from there with additional improvements you should consider. You should feel free to skip around and focus on improvements you think will have the biggest benefit. The goal isn't to do everything at once but to continuously improve security in your systems over time.
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
 
 ## Further reading
 
-- [Safeguarding artifact integrity across any software supply chain](https://slsa.dev/)
-- [Microsoft Supply Chain Integrity Model](https://github.com/microsoft/scim)
-- [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)
+* [Safeguarding artifact integrity across any software supply chain](https://slsa.dev/)
+* [Microsoft Supply Chain Integrity Model](https://github.com/microsoft/scim)
+* [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)

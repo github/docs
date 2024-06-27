@@ -1,6 +1,6 @@
-- [Minimum requirements](#minimum-requirements)
-- [Storage](#storage)
-- [CPU and memory](#cpu-and-memory)
+* [Minimum requirements](#minimum-requirements)
+* [Storage](#storage)
+* [CPU and memory](#cpu-and-memory)
 
 ### Minimum requirements
 

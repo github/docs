@@ -93,5 +93,5 @@ To use {% data variables.product.prodname_github_codespaces %} in the Insiders v
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces)"
-- "[AUTOTITLE](/codespaces/reference/using-github-copilot-in-github-codespaces)"
+* "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces)"
+* "[AUTOTITLE](/codespaces/reference/using-github-copilot-in-github-codespaces)"

@@ -220,5 +220,5 @@ You can search for repositories that have a funding file using the `has:funding-
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-- "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"

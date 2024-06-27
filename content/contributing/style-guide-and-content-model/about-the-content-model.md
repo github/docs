@@ -18,10 +18,10 @@ Consistency helps people form mental models of the documentation and understand 
 
 Docs are organized into multiple levels of hierarchy on our site.
 
-- Top-level doc set
-  - Categories
-    - Map topics
-      - Articles
+* Top-level doc set
+  * Categories
+    * Map topics
+      * Articles
 
 ## Homepage content
 
@@ -42,34 +42,34 @@ For example, under the "Security" grouping on the homepage, in addition to the "
 ## Top-level doc set
 
 Top-level doc sets are organized around a {% data variables.product.prodname_dotcom %} product, feature, or core workflow. All top-level doc sets appear on the {% data variables.product.prodname_docs %} homepage. You should only create a top-level doc set when there is a large amount of content to be contained in the new doc set, multiple categories that are broken down into map topics, and the topic applies across products, features, or account types. If the content could fit in any existing top-level doc set, it probably belongs in that existing doc set.
-- Top-level doc sets are of roughly equal importance to one another (each is centered on a {% data variables.product.prodname_dotcom %} product or major feature).
-- Most top-level doc sets have a landing page layout, unless there is a significant exception. For example, the "[Site policy](/free-pro-team@latest/site-policy)" doc set does not have guides or procedural articles like other doc sets, so it does not use a landing page layout.
+* Top-level doc sets are of roughly equal importance to one another (each is centered on a {% data variables.product.prodname_dotcom %} product or major feature).
+* Most top-level doc sets have a landing page layout, unless there is a significant exception. For example, the "[Site policy](/free-pro-team@latest/site-policy)" doc set does not have guides or procedural articles like other doc sets, so it does not use a landing page layout.
 
 ### Titles for top-level doc sets
 
-- Feature or product based.
-- Describes what part of {% data variables.product.prodname_dotcom %} someone is using.
-- Examples
-  - [AUTOTITLE](/organizations)
-  - [AUTOTITLE](/issues)
+* Feature or product based.
+* Describes what part of {% data variables.product.prodname_dotcom %} someone is using.
+* Examples
+  * [AUTOTITLE](/organizations)
+  * [AUTOTITLE](/issues)
 
 ## Category
 
 Categories are organized around a feature or a discrete set of tasks within a top-level doc set aligned with product themes. A category's subject is narrow enough that its contents are manageable and does not grow too large to use. Some categories appear on the homepage.
-- Categories often start small and grow with the product.
-- Large categories may contain map topics to subdivide content around more specific user journeys or tasks.
-- Use long procedural articles to group related chunks of content and keep articles within the category streamlined.
-- When categories have more than ten articles, consider breaking the content into map topics or additional categories.
+* Categories often start small and grow with the product.
+* Large categories may contain map topics to subdivide content around more specific user journeys or tasks.
+* Use long procedural articles to group related chunks of content and keep articles within the category streamlined.
+* When categories have more than ten articles, consider breaking the content into map topics or additional categories.
 
 ### Titles for categories
 
-- Task-based (begins with a gerund).
-- Describes the big-picture purpose or goal of using the feature or product.
-- General or high-level enough to scale with future product enhancements.
-- Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters.
-- Examples
-  - [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github)
-  - [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
+* Task-based (begins with a gerund).
+* Describes the big-picture purpose or goal of using the feature or product.
+* General or high-level enough to scale with future product enhancements.
+* Category titles must be 67 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 27 characters.
+* Examples
+  * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github)
+  * [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
 
 ### Intros for categories
 
@@ -83,13 +83,13 @@ Map topics contain at least three articles. When map topics have more than eight
 
 ### Titles for map topics
 
-- Task-based (begins with a gerund).
-- Describes a more specific task within the larger workflow of the category it’s in.
-- General or high-level enough to scale with future additions to the product.
-- Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters.
-- Examples
-  - [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain)
-  - [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise)
+* Task-based (begins with a gerund).
+* Describes a more specific task within the larger workflow of the category it’s in.
+* General or high-level enough to scale with future additions to the product.
+* Map topic titles must be 63 characters or shorter and have a [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) less than 30 characters.
+* Examples
+  * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain)
+  * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise)
 
 ### Intros for map topics
 
@@ -102,14 +102,14 @@ An article is the basic unit of content for {% data variables.product.prodname_d
 ## Content order
 
 We organize content predictably within categories, map topics, and articles. From broadest applicability to most specific, narrow, or advanced information, following this order:
-- Conceptual content
-- Referential content
-- Procedural content for enabling a feature or setting
-- Procedural content on using a feature
-- Procedural content on managing a feature or setting
-- Procedural content on disabling a feature or setting
-- Procedural content on destructive actions (e.g. deletion)
-- Troubleshooting information
+* Conceptual content
+* Referential content
+* Procedural content for enabling a feature or setting
+* Procedural content on using a feature
+* Procedural content on managing a feature or setting
+* Procedural content on disabling a feature or setting
+* Procedural content on destructive actions (e.g. deletion)
+* Troubleshooting information
 
 ## Reusing content
 

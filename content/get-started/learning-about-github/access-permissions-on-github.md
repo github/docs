@@ -31,10 +31,10 @@ A repository owned by a personal account has two permission levels: the _reposit
 ## Organization accounts
 
 Organization members can have _owner_{% ifversion fpt or ghec %}, _billing manager_,{% endif %} or _member_ roles. Owners have complete administrative access to your organization{% ifversion fpt or ghec %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
-- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
 
 ## Enterprise accounts
 
@@ -52,4 +52,4 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
+* "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"

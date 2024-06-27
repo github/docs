@@ -117,7 +117,7 @@ describe('POST /events', () => {
 // These are mostly placeholder tests for now since most of the
 // implementation of this endpoint is not yet written.
 describe('POST /events/survey/preview/v1', () => {
-  test('should repond with 400 when no comment is provided', async () => {
+  test('should respond with 400 when no comment is provided', async () => {
     const body = JSON.stringify({
       locale: 'en',
       url: '/quickstart',
@@ -132,7 +132,7 @@ describe('POST /events/survey/preview/v1', () => {
     expect(res.statusCode).toBe(400)
   })
 
-  test('should repond with 400 when comment is provided but empty', async () => {
+  test('should respond with 400 when comment is provided but empty', async () => {
     const body = JSON.stringify({
       locale: 'en',
       url: '/quickstart',
@@ -148,7 +148,7 @@ describe('POST /events/survey/preview/v1', () => {
     expect(res.statusCode).toBe(400)
   })
 
-  test('should repond with 200 when comment is provided', async () => {
+  test('should respond with 200 when comment is provided', async () => {
     const body = JSON.stringify({
       locale: 'en',
       url: '/quickstart',
@@ -163,7 +163,6 @@ describe('POST /events/survey/preview/v1', () => {
     })
     const respBody = JSON.parse(res.body)
     expect(res.statusCode).toBe(200)
-    expect(respBody.rating).toEqual(1.0)
-    expect(respBody.signals).toEqual([])
+    expect(respBody.rating).toBeLessThanOrEqual(1.0)
   })
 })

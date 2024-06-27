@@ -146,8 +146,8 @@ You'll see output like this:
 ```
 
 In this example, SSH did not find any keys.
-- "-1" at the end of the "identity file" lines means SSH couldn't find a file to use.
-- "Trying private key" lines indicate that no file was found.
+* "-1" at the end of the "identity file" lines means SSH couldn't find a file to use.
+* "Trying private key" lines indicate that no file was found.
 
 If a file existed, those lines would be "1" and "Offering public key", as in this output:
 

@@ -21,26 +21,26 @@ The instructions below will guide you through configuring your environment to us
 
 ### Prerequisites
 
-- An Azure DevOps account or organization with projects and pipelines that you want to convert to {% data variables.product.prodname_actions %} workflows.
-- Access to create an Azure DevOps {% data variables.product.pat_generic %} for your account or organization.
+* An Azure DevOps account or organization with projects and pipelines that you want to convert to {% data variables.product.prodname_actions %} workflows.
+* Access to create an Azure DevOps {% data variables.product.pat_generic %} for your account or organization.
 {% data reusables.actions.actions-importer-prerequisites %}
 
 ### Limitations
 
 There are some limitations when migrating from Azure DevOps to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}:
 
-- {% data variables.product.prodname_actions_importer %} requires version 5.0 of the Azure DevOps API, available in either Azure DevOps Services or Azure DevOps Server 2019. Older versions of Azure DevOps Server are not compatible.
-- Tasks that are implicitly added to an Azure DevOps pipeline, such as checking out source code, may be added to a {% data variables.product.prodname_actions_importer %} audit as a GUID name. To find the friendly task name for a GUID, you can use the following URL: `https://dev.azure.com/:organization/_apis/distributedtask/tasks/:guid`.
+* {% data variables.product.prodname_actions_importer %} requires version 5.0 of the Azure DevOps API, available in either Azure DevOps Services or Azure DevOps Server 2019. Older versions of Azure DevOps Server are not compatible.
+* Tasks that are implicitly added to an Azure DevOps pipeline, such as checking out source code, may be added to a {% data variables.product.prodname_actions_importer %} audit as a GUID name. To find the friendly task name for a GUID, you can use the following URL: `https://dev.azure.com/:organization/_apis/distributedtask/tasks/:guid`.
 
 #### Manual tasks
 
 Certain Azure DevOps constructs must be migrated manually from Azure DevOps into {% data variables.product.prodname_actions %} configurations. These include:
-- Organization, repository, and environment secrets
-- Service connections such as OIDC Connect, {% data variables.product.prodname_github_apps %}, and {% data variables.product.pat_generic_plural %}
-- Unknown tasks
-- Self-hosted agents
-- Environments
-- Pre-deployment approvals
+* Organization, repository, and environment secrets
+* Service connections such as OIDC Connect, {% data variables.product.prodname_github_apps %}, and {% data variables.product.pat_generic_plural %}
+* Unknown tasks
+* Self-hosted agents
+* Environments
+* Pre-deployment approvals
 
 For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions)."
 
@@ -48,10 +48,10 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 {% data variables.product.prodname_actions_importer %} does not support migrating the following tasks:
 
-- Pre-deployment gates
-- Post-deployment gates
-- Post-deployment approvals
-- Some resource triggers
+* Pre-deployment gates
+* Post-deployment gates
+* Post-deployment approvals
+* Some resource triggers
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -68,13 +68,13 @@ The `configure` CLI command is used to set required credentials and options for 
    After creating the token, copy it and save it in a safe location for later use.
 1. Create an Azure DevOps {% data variables.product.pat_generic %}. For more information, see [Use {% data variables.product.pat_generic_plural %}](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat) in the Azure DevOps documentation. The token must have the following scopes:
 
-   - Agents Pool: `Read`
-   - Build: `Read`
-   - Code: `Read`
-   - Release: `Read`
-   - Service Connections: `Read`
-   - Task Groups: `Read`
-   - Variable Groups: `Read`
+   * Agents Pool: `Read`
+   * Build: `Read`
+   * Code: `Read`
+   * Release: `Read`
+   * Service Connections: `Read`
+   * Task Groups: `Read`
+   * Variable Groups: `Read`
 
    After creating the token, copy it and save it in a safe location for later use.
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
@@ -85,13 +85,13 @@ The `configure` CLI command is used to set required credentials and options for 
 
    The `configure` command will prompt you for the following information:
 
-   - For "Which CI providers are you configuring?", use the arrow keys to select `Azure DevOps`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
-   - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
-   - For "{% data variables.product.pat_generic_caps %} for Azure DevOps", enter the value for the Azure DevOps {% data variables.product.pat_generic %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the Azure DevOps instance", press <kbd>Enter</kbd> to accept the default value (`https://dev.azure.com`).
-   - For "Azure DevOps organization name", enter the name for your Azure DevOps organization, and press <kbd>Enter</kbd>.
-   - For "Azure DevOps project name", enter the name for your Azure DevOps project, and press <kbd>Enter</kbd>.
+   * For "Which CI providers are you configuring?", use the arrow keys to select `Azure DevOps`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
+   * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "{% data variables.product.pat_generic_caps %} for Azure DevOps", enter the value for the Azure DevOps {% data variables.product.pat_generic %} that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Base url of the Azure DevOps instance", press <kbd>Enter</kbd> to accept the default value (`https://dev.azure.com`).
+   * For "Azure DevOps organization name", enter the name for your Azure DevOps organization, and press <kbd>Enter</kbd>.
+   * For "Azure DevOps project name", enter the name for your Azure DevOps project, and press <kbd>Enter</kbd>.
 
    An example of the `configure` command is shown below:
 
@@ -161,13 +161,13 @@ The `forecast_report.md` file in the specified output directory contains the res
 
 Listed below are some key terms that can appear in the forecast report:
 
-- The **job count** is the total number of completed jobs.
-- The **pipeline count** is the number of unique pipelines used.
-- **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
+* The **job count** is the total number of completed jobs.
+* The **pipeline count** is the number of unique pipelines used.
+* **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
 
   This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
-- **Queue time** metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
-- **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners you should configure.
+* **Queue time** metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
+* **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners you should configure.
 
 Additionally, these metrics are defined for each queue of runners in Azure DevOps. This is especially useful if there is a mix of hosted or self-hosted runners, or high or low spec machines, so you can see metrics specific to different types of runners.
 
@@ -245,19 +245,19 @@ This section contains reference information on environment variables, optional a
 
 {% data variables.product.prodname_actions_importer %} uses the following environment variables to connect to your Azure DevOps instance:
 
-- `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a converted workflow (requires the `workflow` scope).
-- `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
-- `AZURE_DEVOPS_ACCESS_TOKEN`: The {% data variables.product.pat_generic %} used to authenticate with your Azure DevOps instance. This token requires the following scopes:
-  - Build: `Read`
-  - Agent Pools: `Read`
-  - Code: `Read`
-  - Release: `Read`
-  - Service Connections: `Read`
-  - Task Groups: `Read`
-  - Variable Groups: `Read`
-- `AZURE_DEVOPS_PROJECT`: The project name or GUID to use when migrating a pipeline. If you'd like to perform an audit on all projects, this is optional.
-- `AZURE_DEVOPS_ORGANIZATION`: The organization name of your Azure DevOps instance.
-- `AZURE_DEVOPS_INSTANCE_URL`: The URL to the Azure DevOps instance, such as `https://dev.azure.com`.
+* `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a converted workflow (requires the `workflow` scope).
+* `GITHUB_INSTANCE_URL`: The URL to the target {% data variables.product.prodname_dotcom %} instance (for example, `https://github.com`).
+* `AZURE_DEVOPS_ACCESS_TOKEN`: The {% data variables.product.pat_generic %} used to authenticate with your Azure DevOps instance. This token requires the following scopes:
+  * Build: `Read`
+  * Agent Pools: `Read`
+  * Code: `Read`
+  * Release: `Read`
+  * Service Connections: `Read`
+  * Task Groups: `Read`
+  * Variable Groups: `Read`
+* `AZURE_DEVOPS_PROJECT`: The project name or GUID to use when migrating a pipeline. If you'd like to perform an audit on all projects, this is optional.
+* `AZURE_DEVOPS_ORGANIZATION`: The organization name of your Azure DevOps instance.
+* `AZURE_DEVOPS_INSTANCE_URL`: The URL to the Azure DevOps instance, such as `https://dev.azure.com`.
 
 These environment variables can be specified in a `.env.local` file that is loaded by {% data variables.product.prodname_actions_importer %} when it is run.
 
@@ -439,16 +439,16 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 
 {% data variables.product.prodname_actions_importer %} is able to transform Azure DevOps templates with some limitations.
 
-- Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
-- Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
-- If you currently have job templates that reference other job templates, {% data variables.product.prodname_actions_importer %} converts the templates into reusable workflows. Because reusable workflows cannot reference other reusable workflows, this is invalid syntax in {% data variables.product.prodname_actions %}. You must manually correct nested reusable workflows.
-- If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication)."
-- You can dynamically generate YAML using `each` expressions with the following caveats:
-  - Nested `each` blocks are not supported and cause the parent `each` block to be unsupported.
-  - `each` and contained `if` conditions are evaluated at transformation time, because {% data variables.product.prodname_actions %} does not support this style of insertion.
-  - `elseif` blocks are unsupported. If this functionality is required, you must manually correct them.
-  - Nested `if` blocks are supported, but `if/elseif/else` blocks nested under an `if` condition are not.
-  - `if` blocks that use predefined Azure DevOps variables are not supported.
+* Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+* Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
+* If you currently have job templates that reference other job templates, {% data variables.product.prodname_actions_importer %} converts the templates into reusable workflows. Because reusable workflows cannot reference other reusable workflows, this is invalid syntax in {% data variables.product.prodname_actions %}. You must manually correct nested reusable workflows.
+* If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication)."
+* You can dynamically generate YAML using `each` expressions with the following caveats:
+  * Nested `each` blocks are not supported and cause the parent `each` block to be unsupported.
+  * `each` and contained `if` conditions are evaluated at transformation time, because {% data variables.product.prodname_actions %} does not support this style of insertion.
+  * `elseif` blocks are unsupported. If this functionality is required, you must manually correct them.
+  * Nested `if` blocks are supported, but `if/elseif/else` blocks nested under an `if` condition are not.
+  * `if` blocks that use predefined Azure DevOps variables are not supported.
 
 #### Supported templates
 

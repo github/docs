@@ -15,20 +15,20 @@ Each assignment you create on {% data variables.product.prodname_classroom %} ha
 
 For individual assignments, you can view the following information at the top of the assignment overview page:
 
-- **Rostered students**: The number of students on the classroom's roster.
-- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
-- **Accepted students**: The number of accounts that have accepted this assignment.
-- **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
-- **Passing students**: The number of students currently passing the autograding tests for this assignment.
+* **Rostered students**: The number of students on the classroom's roster.
+* **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
+* **Accepted students**: The number of accounts that have accepted this assignment.
+* **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
+* **Passing students**: The number of students currently passing the autograding tests for this assignment.
 
 For group assignments, you can view the following information at the top of the assignment overview page:
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the classroom's roster.
-- **Students not on a team**: The number of students on the classroom roster who have not yet joined a team.
-- **Accepted teams**: The number of teams who have accepted this assignment.
-- **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
-- **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+* **Total teams**: The number of teams that have been created.
+* **Rostered students**: The number of students on the classroom's roster.
+* **Students not on a team**: The number of students on the classroom roster who have not yet joined a team.
+* **Accepted teams**: The number of teams who have accepted this assignment.
+* **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
+* **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
 
 ## Viewing the assignment overview page for an assignment
 
@@ -60,3 +60,7 @@ Using a series of dropdown menus, you can apply multiple filters to the assignme
 1. To filter for students by passing or failing grades, select the **Passing** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Passing** or **Failing**.
 1. To unapply a filter, select the associated dropdown menu, then click the filter once more. A {% octicon "check" aria-hidden="true" %} is displayed alongside the name of an applied filter, while unapplied filters only display their names.
 {% data reusables.classroom.clear-all-assignment-overview %}
+
+## Downloading assignment details
+
+{% data reusables.classroom.download-results %}

@@ -56,8 +56,8 @@ You should capture the pull request URLs created by automation, and check each w
 {% ifversion default-setup-ghas-enablement %}
 To successfully manage and use {% data variables.product.prodname_code_scanning %} across your company, you should build internal subject matter expertise. For default setup for {% data variables.product.prodname_code_scanning %}, one of the most important areas for subject matter experts (SMEs) to understand is interpreting and fixing {% data variables.product.prodname_code_scanning %} alerts. For more information about {% data variables.product.prodname_code_scanning %} alerts, see:
 
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
 
 You'll also need SMEs if you need to use advanced setup for {% data variables.product.prodname_code_scanning %}. These SMEs will need knowledge of {% data variables.product.prodname_code_scanning %} alerts, as well as topics like {% data variables.product.prodname_actions %} and customizing {% data variables.product.prodname_code_scanning %} workflows for particular frameworks. For custom configurations of advanced setup, consider running meetings on complicated topics to scale the knowledge of several SMEs at once.
 {% else %}
@@ -65,9 +65,9 @@ You can then proceed to the next stage of enablement, which is creating internal
 
 It’s a good idea to run regular company meetings on specific topics to educate and discuss the rollout with a larger group. This is much more time-efficient for an enterprise with thousands of repositories compared to working with one team at a time. Teams can come to sessions that are relevant to them. Some example sessions that have been run before include:
 
-- {% data variables.product.prodname_code_scanning_caps %} in a container
-- {% data variables.product.prodname_code_scanning_caps %} & Java Struts
-- {% data variables.product.prodname_code_scanning_caps %} & JSP
+* {% data variables.product.prodname_code_scanning_caps %} in a container
+* {% data variables.product.prodname_code_scanning_caps %} & Java Struts
+* {% data variables.product.prodname_code_scanning_caps %} & JSP
 
 You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
 {% endif %}

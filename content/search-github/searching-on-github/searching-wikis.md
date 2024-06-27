@@ -47,4 +47,4 @@ The `updated` qualifier matches wiki pages that were last updated within the spe
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

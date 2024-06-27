@@ -17,10 +17,10 @@ shortTitle: Apply to Github Education
 ## Requirements
 
 To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
-- Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
-- Have a verifiable school-issued email address or upload documents that prove your current student status
-- Have a [{% data variables.product.prodname_dotcom %} personal account](/get-started/start-your-journey/creating-an-account-on-github)
-- Be at least 13 years old
+* Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
+* Have a verifiable school-issued email address or upload documents that prove your current student status
+* Have a [{% data variables.product.prodname_dotcom %} personal account](/get-started/start-your-journey/creating-an-account-on-github)
+* Be at least 13 years old
 
 Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
@@ -57,7 +57,7 @@ To see when your free access to the {% data variables.product.prodname_student_p
 
 ## Further reading
 
-- "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)"
-- "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"
-- "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"
-- [{% data variables.product.prodname_education %}](https://education.github.com)
+* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)"
+* "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"
+* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"
+* [{% data variables.product.prodname_education %}](https://education.github.com)
