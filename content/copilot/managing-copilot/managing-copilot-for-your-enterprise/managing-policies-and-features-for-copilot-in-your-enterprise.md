@@ -14,9 +14,9 @@ shortTitle: Manage policies
 
 With {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}, you can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
 
-There are **three enforcement options** for each {% data variables.product.prodname_copilot_short %} policy in your enterprise:
+There are **three enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
 
-* **No policy** - The feature maintains its default enablement settings, and each organization with {% data variables.product.prodname_copilot_short %} enabled can set their own policy for the feature.
+* **No policy** - The feature is initially disabled at the organization level, but each organization with {% data variables.product.prodname_copilot_short %} enabled in your enterprise can set their own policy for the feature.
 * **Enabled** - The feature is available in all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 * **Disabled** - The feature is blocked for all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 
@@ -31,7 +31,7 @@ If no policy has been chosen at the enterprise level, and multiple organizations
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce. By default, suggestions matching public code are enabled at the organization level.
+1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce.
 
 ## Managing the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}
 
@@ -46,7 +46,7 @@ Users can chat with {% data variables.product.prodname_copilot %} in their IDEs 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce. By default, {% data variables.product.prodname_copilot_chat %} in IDEs is disabled at the organization level.
+1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce.
 
 ## Managing the use of {% data variables.product.prodname_copilot_cli %}
 
@@ -55,7 +55,7 @@ Users can chat with {% data variables.product.prodname_copilot %} in their IDEs 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. Click the **Policies** tab.
-1. To the right of "{% data variables.product.prodname_copilot_cli %}", select the dropdown menu, then choose the appropriate option. By default, {% data variables.product.prodname_copilot_cli %} is disabled at the organization level.
+1. Next to "{% data variables.product.prodname_copilot_cli %}", click the dropdown menu and select the policy you want to enforce.
 
 ## Managing the use of {% data variables.product.prodname_copilot_mobile %}
 
