@@ -127,8 +127,6 @@ To indicate the purpose of the view, give it a descriptive name.
 
 ## Configure built-in automation
 
-{% ifversion projects-v2-auto-add %}
-
 Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project.
 
 {% data reusables.projects.access-workflows %}
@@ -140,8 +138,6 @@ Next, configure the auto-add workflow to automatically add issues opened in a re
 1. Under "Filters", select the repository you want to add items from.
 1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
 1. To enable the new workflow, click **Save and turn on workflow**.
-
-{% endif %}
 
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
 

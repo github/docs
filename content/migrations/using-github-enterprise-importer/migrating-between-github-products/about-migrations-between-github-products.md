@@ -8,13 +8,17 @@ versions:
   ghec: '*'
 ---
 
-## About migrations between GitHub products
+## About migrations between {% data variables.product.company_short %} products
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate data from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, or migrate data between accounts on {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)."
 
 If your migration source is another account on {% data variables.product.prodname_dotcom_the_website %}, you can migrate individual repositories between organizations, or migrate entire organizations between enterprises. If your migration source is {% data variables.product.prodname_ghe_server %}, you can migrate repositories.
 
 The data that {% data variables.product.prodname_importer_proper_name %} migrates depends on the source of the migration and whether you are migrating a repository or organization.
+
+{% ifversion repo-rules-enterprise %}
+{% data reusables.enterprise-migration-tool.deploy-key-bypass %}
+{% endif %}
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 

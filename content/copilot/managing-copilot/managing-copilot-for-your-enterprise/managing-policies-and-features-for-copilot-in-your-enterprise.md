@@ -61,3 +61,20 @@ To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_shor
 {% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}. You can enable or disable the use of {% data variables.product.prodname_copilot_mobile_short %} for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy for {% data variables.product.prodname_copilot_mobile_short %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)."
 
 {% data reusables.copilot.copilot-chat-mobile-enable %}
+
+## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_extensions %}
+
+{% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
+
+Before organization owners install {% data variables.product.prodname_copilot_extensions_short %} in organizations within your enterprise, you should set a usage policy for your enterprise. Setting a usage policy allows you to enable or disable {% data variables.product.prodname_copilot_extensions_short %} for all members of your enterprise, limiting your security risk. Alternatively, you can allow organization owners to select their own policy for their organization.
+
+Additionally, after you install a {% data variables.product.prodname_copilot_extension_short %} in your organization, organization owners can view and manage the permissions for that extension. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization#managing-permissions-for-a-github-copilot-extension-in-your-organization)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+{% data reusables.enterprise-accounts.copilot-policies-tab %}
+1. In the "{% data variables.product.prodname_copilot_extensions_short %}" section, select the dropdown menu, then click one of the following options:
+    * **No policy**: organizations within your enterprise can set their own policies for {% data variables.product.prodname_copilot_extensions_short %}.
+    * **Enabled**: {% data variables.product.prodname_copilot_extensions_short %} are enabled for all organizations in your enterprise.
+    * **Disabled**: {% data variables.product.prodname_copilot_extensions_short %} are disabled for all organizations in your enterprise.

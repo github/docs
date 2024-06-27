@@ -17,8 +17,6 @@ redirect_from:
   - /code-security/dependabot/dependabot-auto-triage-rules/using-github-curated-default-rules-to-prioritize-dependabot-alerts
 ---
 
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
-
 ## About {% data variables.dependabot.github_presets %}
 
 The `Dismiss low impact issues for development-scoped dependencies` rule is a {% data variables.product.company_short %} preset that auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development. These alerts cover cases that feel like false alarms to most developers as the associated vulnerabilities:

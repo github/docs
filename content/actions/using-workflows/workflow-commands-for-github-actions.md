@@ -813,8 +813,6 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 {% endpowershell %}
 
-{% ifversion actions-job-summaries %}
-
 ## Adding a job summary
 
 {% bash %}
@@ -954,8 +952,6 @@ After a step has completed, job summaries are uploaded and subsequent steps cann
 ### Step isolation and limits
 
 Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
-
-{% endif %}
 
 ## Adding a system path
 

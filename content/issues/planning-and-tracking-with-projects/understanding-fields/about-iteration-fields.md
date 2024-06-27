@@ -18,11 +18,7 @@ You can filter for iterations by specifying the iteration name or `@current` for
 
 When you first create an iteration field, three iterations are automatically created.  You can add additional iterations and make other changes on your project's settings page.
 
-{% ifversion projects-v2-roadmaps %}
-
 If your project makes use of iteration fields, you can use the roadmap layout to view items on a timeline. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
-
-{% endif %}
 
 ## Adding an iteration field
 

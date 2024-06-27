@@ -11,7 +11,7 @@ introLinks:
   quickstart: /copilot/quickstart
 featuredLinks:
   startHere:
-    - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
+    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
   popular:
     - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
@@ -24,13 +24,12 @@ children:
   - /about-github-copilot
   - /quickstart
   - /using-github-copilot
+  - /managing-copilot
   - /copilot-individual
   - /copilot-business
   - /github-copilot-enterprise
-  - /managing-copilot
-  - /github-copilot-chat
-  - /github-copilot-in-the-cli
   - /troubleshooting-github-copilot
+  - /responsible-use-of-github-copilot-features
 topics:
   - Copilot
 ---

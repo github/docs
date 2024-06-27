@@ -141,8 +141,10 @@ To use a {% data variables.product.pat_generic %} or SSH key to access resources
 
 | Token type | Prefix | More information |
 | :- | :- | :- |
-| {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"{% endif %}  |{% ifversion pat-v2 %}
-| {% data variables.product.pat_v2_caps %} | `github_pat_` | "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |{% endif %}
+| {% data variables.product.pat_v1_caps %} | `ghp_` | {% ifversion pat-v2 %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)"{% else %}"[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"{% endif %}  |
+| {% ifversion pat-v2 %} |
+| {% data variables.product.pat_v2_caps %} | `github_pat_` | "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token)" |
+| {% endif %} |
 | OAuth access token | `gho_` | "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)" |
 | User access token for a {% data variables.product.prodname_github_app %} | `ghu_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" |
 | Installation access token for a {% data variables.product.prodname_github_app %} | `ghs_` | "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)" |
