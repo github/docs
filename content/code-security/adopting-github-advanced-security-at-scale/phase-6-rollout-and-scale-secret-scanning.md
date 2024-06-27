@@ -91,11 +91,11 @@ Once you have decided on the secret types, you can do the following:
 
    Some information you may want to collect includes:
 
-   - Organization
-   - Repository
-   - Secret type
-   - Secret value
-   - Maintainers on repository to contact
+   * Organization
+   * Repository
+   * Secret type
+   * Secret value
+   * Maintainers on repository to contact
 
    {% note %}
 

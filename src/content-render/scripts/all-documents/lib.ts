@@ -1,9 +1,11 @@
-import type { Page } from '@/types'
-import contextualize from '@/frame/middleware/context/context.js'
-import features from '@/versions/middleware/features.js'
+import type { Response } from 'express'
+
+import type { ExtendedRequest, Page } from '@/types'
+import contextualize from '@/frame/middleware/context/context'
+import features from '@/versions/middleware/features'
 import shortVersions from '@/versions/middleware/short-versions.js'
 
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 
 export const POSSIBLE_FIELDS = ['title', 'shortTitle', 'intro', 'url']
 
@@ -63,10 +65,10 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
         context,
       }
 
-      await contextualize(req, res, next)
+      await contextualize(req as ExtendedRequest, res as Response, next)
       await shortVersions(req, res, next)
       req.context.page = page
-      await features(req, res, next)
+      features(req as any, res as any, next)
 
       const title = fields.includes('title')
         ? await page.renderProp('title', req.context, { textOnly: true })

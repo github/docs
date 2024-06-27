@@ -18,9 +18,9 @@ If {% data variables.product.prodname_github_codespaces %} fails to sign a commi
 
 The following sections of this article provide troubleshooting advice for common causes of this error.
 
-- If GPG verification has previously been enabled in your settings for {% data variables.product.prodname_github_codespaces %}, and you have recently disabled GPG verification or removed a repository from your list of trusted repositories, Git may still be trying to sign your commits. For more information, see "[Errors after disabling GPG verification](#errors-after-disabling-gpg-verification)."
-- If GPG verification is enabled for the codespace, you may have overridden the Git configuration required to sign your commits. For more information, see "[Errors caused by conflicting Git configuration](#errors-caused-by-conflicting-git-configuration)."
-- If GPG verification is disabled for the codespace, and you're encountering the error when trying to commit from the "Source Control" view in {% data variables.product.prodname_vscode_shortname %}, this may be because of your {% data variables.product.prodname_vscode_shortname %} settings. For more information, see "[Errors in the {% data variables.product.prodname_vscode_shortname %} "Source Control" view](#errors-in-the-vs-code-source-control-view)."
+* If GPG verification has previously been enabled in your settings for {% data variables.product.prodname_github_codespaces %}, and you have recently disabled GPG verification or removed a repository from your list of trusted repositories, Git may still be trying to sign your commits. For more information, see "[Errors after disabling GPG verification](#errors-after-disabling-gpg-verification)."
+* If GPG verification is enabled for the codespace, you may have overridden the Git configuration required to sign your commits. For more information, see "[Errors caused by conflicting Git configuration](#errors-caused-by-conflicting-git-configuration)."
+* If GPG verification is disabled for the codespace, and you're encountering the error when trying to commit from the "Source Control" view in {% data variables.product.prodname_vscode_shortname %}, this may be because of your {% data variables.product.prodname_vscode_shortname %} settings. For more information, see "[Errors in the {% data variables.product.prodname_vscode_shortname %} "Source Control" view](#errors-in-the-vs-code-source-control-view)."
 
 ## Errors after disabling GPG verification
 
@@ -63,9 +63,9 @@ file:/usr/local/etc/gitconfig   gpg.program=/.codespaces/bin/gh-gpgsign
 
 In addition to the values listed above, you may run into errors if the dotfiles used in your codespaces contain any of the following values.
 
-- The `user.signingkey` Git config value
-- The `commit.gpgsign` Git config value
-- A manually set `GITHUB_TOKEN`
+* The `user.signingkey` Git config value
+* The `commit.gpgsign` Git config value
+* A manually set `GITHUB_TOKEN`
 
 ### Removing conflicting configuration
 
@@ -122,5 +122,5 @@ If you change your {% data variables.product.prodname_vscode_shortname %} settin
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
-- [`git config`](https://git-scm.com/docs/git-config) in the official Git documentation
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* [`git config`](https://git-scm.com/docs/git-config) in the official Git documentation

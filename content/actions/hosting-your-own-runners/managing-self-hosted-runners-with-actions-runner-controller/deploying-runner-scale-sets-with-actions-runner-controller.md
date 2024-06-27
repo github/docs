@@ -32,10 +32,10 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
 **Notes:**
 
-- {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
-- {% data reusables.actions.actions-runner-controller-security-practices-secret %}
-- We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
-- Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
+* {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
+* {% data reusables.actions.actions-runner-controller-security-practices-secret %}
+* We recommend running production workloads in isolation. {% data variables.product.prodname_actions %} workflows are designed to run arbitrary code, and using a shared Kubernetes cluster for production workloads could pose a security risk.
+* Ensure you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners.
 
 {% endnote %}
 
@@ -43,10 +43,10 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
    When you run the command, keep the following in mind.
 
-   - Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of [`runs-on`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) in your workflows.
-   - Update the `NAMESPACE` value to the location you want the runner pods to be created.
-   - Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
-   - This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
+   * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of [`runs-on`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) in your workflows.
+   * Update the `NAMESPACE` value to the location you want the runner pods to be created.
+   * Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
+   * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
     {% ifversion not ghes %}
 
      ```bash copy
@@ -353,10 +353,10 @@ When you do this, ensure you are using the Privacy Enhanced Mail (PEM) format an
 
 The controller executes the following actions.
 
-- Creates a `github-server-tls-cert` volume containing the certificate specified in `certificateFrom`.
-- Mounts that volume on path `runnerMountPath/<certificate name>`.
-- Sets the `NODE_EXTRA_CA_CERTS` environment variable to that same path.
-- Sets the `RUNNER_UPDATE_CA_CERTS` environment variable to `1` (as of version `2.303.0`, this will instruct the runner to reload certificates on the host).
+* Creates a `github-server-tls-cert` volume containing the certificate specified in `certificateFrom`.
+* Mounts that volume on path `runnerMountPath/<certificate name>`.
+* Sets the `NODE_EXTRA_CA_CERTS` environment variable to that same path.
+* Sets the `RUNNER_UPDATE_CA_CERTS` environment variable to `1` (as of version `2.303.0`, this will instruct the runner to reload certificates on the host).
 
 ARC observes values set in the runner pod template and does not overwrite them.
 
@@ -468,8 +468,8 @@ listenerTemplate:
 
 If you are using container jobs and services or container actions, the `containerMode` value must be set to `dind` or `kubernetes`.
 
-- For more information on container jobs and services, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container)."
-- For more information on container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
+* For more information on container jobs and services, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container)."
+* For more information on container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
 
 ### Using Docker-in-Docker mode
 
@@ -483,9 +483,9 @@ By default, the `dind` container uses the `docker:dind` image, which runs the Do
 
 Docker-in-Docker mode is a configuration that allows you to run Docker inside a Docker container. In this configuration, for each runner pod created, ARC creates the following containers.
 
-- An `init` container
-- A `runner` container
-- A `dind` container
+* An `init` container
+* A `runner` container
+* A `dind` container
 
 To enable Docker-in-Docker mode, set the `containerMode.type` to `dind` as follows.
 
@@ -560,8 +560,8 @@ Kubernetes mode relies on persistent volumes to share job details between the ru
 
 To use Kubernetes mode, you must do the following.
 
-- Create persistent volumes available for the runner pods to claim.
-- Use a solution to automatically provision persistent volumes on demand.
+* Create persistent volumes available for the runner pods to claim.
+* Use a solution to automatically provision persistent volumes on demand.
 
 For testing, you can use a solution like [OpenEBS](https://github.com/openebs/openebs).
 
@@ -609,12 +609,12 @@ template:
 ### Customizing container modes
 
 When you set the `containerMode` in the `values.yaml` file for the [`gha-runner-scale-set` helm chart](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L77), you can use either of the following values:
-  - `dind` or
-  - `kubernetes`
+  * `dind` or
+  * `kubernetes`
 
 Depending on which value you set for the `containerMode`, a configuration will automatically be injected into the `template` section of the `values.yaml` file for the `gha-runner-scale-set` helm chart.
-- See the [`dind` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L110).
-- See the [`kubernetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
+* See the [`dind` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L110).
+* See the [`kubernetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
 
 To customize the spec, comment out or remove `containerMode`, and append the configuration you want in the `template` section.
 
@@ -836,8 +836,8 @@ As of ARC version 0.4.0, runner-container-hooks support hook extensions. You can
 
 There are two options to configure hook extensions.
 
-- Store in your **custom runner image**. You can store the PodSpec in a YAML file anywhere in your custom runner image. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#creating-your-own-runner-image)."
-- Store in a **ConfigMap**. You can create a config map with the PodSpec and mount that config map in the runner container. For more information, see [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) in the Kubernetes documentation.
+* Store in your **custom runner image**. You can store the PodSpec in a YAML file anywhere in your custom runner image. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller#creating-your-own-runner-image)."
+* Store in a **ConfigMap**. You can create a config map with the PodSpec and mount that config map in the runner container. For more information, see [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) in the Kubernetes documentation.
 
 {% note %}
 
@@ -867,15 +867,15 @@ data:
             runAsUser: 1000
 ```
 
-- The `.metadata.labels` and `metadata.annotations` fields will be appended as is, unless their keys are reserved. You cannot override the `.metadata.name` and `metadata.namespace` fields.
-- The majority of the PodSpec fields are applied from the specified template, and will override the values passed from your Helm chart `values.yaml` file.
-- If you specify additional volumes they will be appended to the default volumes specified by the runner.
-- The `spec.containers` are merged based on the names assigned to them.
-  - If the name of the container is `$job`:
-    - The `spec.containers.name` and `spec.containers.image` fields are ignored.
-    - The `spec.containers.env`, `spec.containers.volumeMounts`, and `spec.containers.ports` fields are appended to the default container spec created by the hook.
-    - The rest of the fields are applied as provided.
-  - If the name of the container is not `$job`, the fields will be added to the pod definition as they are.
+* The `.metadata.labels` and `metadata.annotations` fields will be appended as is, unless their keys are reserved. You cannot override the `.metadata.name` and `metadata.namespace` fields.
+* The majority of the PodSpec fields are applied from the specified template, and will override the values passed from your Helm chart `values.yaml` file.
+* If you specify additional volumes they will be appended to the default volumes specified by the runner.
+* The `spec.containers` are merged based on the names assigned to them.
+  * If the name of the container is `$job`:
+    * The `spec.containers.name` and `spec.containers.image` fields are ignored.
+    * The `spec.containers.env`, `spec.containers.volumeMounts`, and `spec.containers.ports` fields are appended to the default container spec created by the hook.
+    * The rest of the fields are applied as provided.
+  * If the name of the container is not `$job`, the fields will be added to the pod definition as they are.
 
 ## Enabling metrics
 
@@ -993,8 +993,8 @@ You can test features before they are released by using canary releases of the c
 
 **Notes:**
 
-- You must use Helm charts on your local file system.
-- You cannot use the released Helm charts.
+* You must use Helm charts on your local file system.
+* You cannot use the released Helm charts.
 
 {% endnote %}
 

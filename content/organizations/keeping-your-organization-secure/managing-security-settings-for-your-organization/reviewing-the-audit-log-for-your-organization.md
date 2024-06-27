@@ -144,13 +144,13 @@ To search for specific events, use the `action` qualifier in your query. Actions
 
 You can search for specific sets of actions using these terms. For example:
 
-- `action:team` finds all events grouped within the team category.
-- `-action:hook` excludes all events in the webhook category.
+* `action:team` finds all events grouped within the team category.
+* `-action:hook` excludes all events in the webhook category.
 
 Each category has a set of associated actions that you can filter on. For example:
 
-- `action:team.create` finds all events where a team was created.
-- `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+* `action:team.create` finds all events where a team was created.
+* `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
 ### Search based on time of action
 
@@ -160,10 +160,10 @@ Use the `created` qualifier to filter events in the audit log based on when they
 
 For example:
 
-- `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-- `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-- `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-- `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+* `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+* `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+* `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+* `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 {% note %}
 
@@ -175,9 +175,9 @@ For example:
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-- `country:de` finds all events that occurred in Germany.
-- `country:Mexico` finds all events that occurred in Mexico.
-- `country:"United States"` all finds events that occurred in the United States.
+* `country:de` finds all events that occurred in Germany.
+* `country:Mexico` finds all events that occurred in Mexico.
+* `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion ghec %}
 
@@ -254,6 +254,6 @@ For more information about the audit log REST API, see "[AUTOTITLE](/rest/orgs#g
 
 # Further reading
 
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure)"
+* "[AUTOTITLE](/organizations/keeping-your-organization-secure)"
 {%- ifversion fpt or ghec %}
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)"{% endif %}

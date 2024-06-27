@@ -32,6 +32,6 @@ If you're an organization owner or you have team maintainer permissions in the c
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)"

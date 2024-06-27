@@ -18,6 +18,13 @@ topics:
   - User account
 shortTitle: Upgrade Git LFS storage
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user-settings.access_settings %}
@@ -58,7 +65,7 @@ shortTitle: Upgrade Git LFS storage
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
-- "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
+* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+* "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"

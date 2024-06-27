@@ -24,7 +24,7 @@ topics:
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 You can enable automatic security updates for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
@@ -55,9 +55,7 @@ The search bar also allows for full text searching of alerts and related securit
 
 {% endif %}
 
-{% ifversion dependabot-bulk-alerts %}
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
-{% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
 
@@ -97,8 +95,8 @@ You can filter the view to show only alerts where {% data variables.product.prod
 
 For alerts where vulnerable calls are detected, the alert details page shows additional information:
 
-- One or more code blocks showing where the function is used.
-- An annotation listing the function itself, with a link to the line where the function is called.
+* One or more code blocks showing where the function is used.
+* An annotation listing the function itself, with a link to the line where the function is called.
 
 ![Screenshot showing a {% data variables.product.prodname_dependabot %} alert with a "Vulnerable call" label. A code block, showing "Vulnerable function called", and a link, titled "See all your affected repositories", are highlighted with a dark orange outline.](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
@@ -117,8 +115,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% data reusables.repositories.sidebar-dependabot-alerts %}
 1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. {% ifversion dependabot-filter-label-security-advisory %}Alternatively, to filter by label, click a label assigned to an alert to automatically apply that filter to the alert list.{% endif %} For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-dependabot-alerts)."
 
-{%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
 1. Click the alert that you would like to view.
 {% ifversion dependabot-filter-label-security-advisory %}
 1. Optionally, to suggest an improvement to the related security advisory, on the right-hand side of the alert details page, click **Suggest improvements for this advisory on the {% data variables.product.prodname_advisory_database %}**. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database)."
@@ -171,7 +168,6 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 {% else %}
 
    ![Screenshot of the page for a Dependabot alert, with the "Dismiss" dropdown and its options highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png){% endif %}
-{% ifversion dependabot-bulk-alerts %}
 
 ### Dismissing multiple alerts at once
 
@@ -184,8 +180,6 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 1. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
    ![Screenshot of a list of alerts. Below the "Dismiss alerts" button, a dropdown labeled "Select a reason to dismiss" is expanded. The dropdown contains radio buttons for various options.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
-{% endif %}
-
 {% ifversion reopen-dependabot-alerts %}
 
 ## Viewing and updating closed alerts
@@ -197,9 +191,7 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 {% data reusables.repositories.sidebar-dependabot-alerts %}
 1. To just view closed alerts, click **Closed**.
 
-   {%- ifversion dependabot-bulk-alerts %}
    ![Screenshot showing the list of {% data variables.product.prodname_dependabot_alerts %} with the "Closed" tab highlighted with a dark orange outline.](/assets/images/help/repository/dependabot-alerts-closed-checkbox.png)
-   {%- endif %}
 
 1. Click the alert that you would like to view or update.
 1. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. Alerts that have already been fixed cannot be reopened.
@@ -208,8 +200,6 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 
 {% endif %}
 
-{% ifversion dependabot-bulk-alerts %}
-
 ### Reopening multiple alerts at once
 
 1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
@@ -217,8 +207,6 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 1. Optionally, at the top of the list of alerts, select all closed alerts on the page.
    ![Screenshot of alerts in the "Closed" tab. The "Select all" checkbox is highlighted with a dark orange outline.](/assets/images/help/graphs/select-all-closed-alerts.png)
 1. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
-
-{% endif %}
 
 ## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
 

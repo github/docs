@@ -46,5 +46,4 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | SendGrid                    | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | Twilio                      | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | VividCortex                 | Monitor database performance, efficiency, and uptime                           | United States                                     | United States      |
-| Zapier                      | App infrastructure and support                                                 | United States                                     | United States      |
 | Zendesk                     | Customer support ticketing system                                              | United States                                     | United States      |

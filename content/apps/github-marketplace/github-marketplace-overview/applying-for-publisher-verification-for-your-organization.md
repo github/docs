@@ -28,9 +28,9 @@ To offer paid plans for your app, the app must be owned by an organization and y
 1. At the bottom of the left sidebar, click **Developer settings**.
 1. Under "Developer settings", click **Publisher Verification**.
 1. Under "Publisher Verification", complete the information in the checklist:
-   - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
-   - Ensure that Two-factor authentication is enabled for your organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
-   - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+   * Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
+   * Ensure that Two-factor authentication is enabled for your organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+   * Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
 1. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
 

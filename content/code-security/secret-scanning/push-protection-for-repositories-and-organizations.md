@@ -3,7 +3,9 @@ title: Push protection for repositories and organizations
 intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
-  feature: secret-scanning-push-protection
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
@@ -267,5 +269,5 @@ The contributor is notified of the decision by email and must take the required 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"

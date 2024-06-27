@@ -28,4 +28,4 @@ By default, MakeCode Arcade is configured to push to the assignment repository o
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"

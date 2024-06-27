@@ -106,6 +106,50 @@
       ]
     },
     {
+      "name": "enterpriseMemberInvitation",
+      "type": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitee and enterprise.</p>",
+      "args": [
+        {
+          "name": "enterpriseSlug",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The slug of the enterprise the user was invited to join.</p>"
+        },
+        {
+          "name": "userLogin",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The login of the user invited to join the business.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enterpriseMemberInvitationByToken",
+      "type": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>Look up a pending enterprise unaffiliated member invitation by invitation token.</p>",
+      "args": [
+        {
+          "name": "invitationToken",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>The invitation token sent with the invitation email.</p>"
+        }
+      ]
+    },
+    {
       "name": "license",
       "type": "License",
       "kind": "objects",
@@ -965,6 +1009,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of accepting an administrator invitation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "acceptEnterpriseMemberInvitation",
+      "kind": "mutations",
+      "id": "acceptenterprisememberinvitation",
+      "href": "/graphql/reference/mutations#acceptenterprisememberinvitation",
+      "description": "<p>Accepts a pending invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AcceptEnterpriseMemberInvitationInput!",
+          "id": "acceptenterprisememberinvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#acceptenterprisememberinvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The invitation that was accepted.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of accepting an unaffiliated member invitation.</p>"
         }
       ]
     },
@@ -1893,6 +1979,48 @@
       ]
     },
     {
+      "name": "cancelEnterpriseMemberInvitation",
+      "kind": "mutations",
+      "id": "cancelenterprisememberinvitation",
+      "href": "/graphql/reference/mutations#cancelenterprisememberinvitation",
+      "description": "<p>Cancels a pending invitation for an unaffiliated member to join an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CancelEnterpriseMemberInvitationInput!",
+          "id": "cancelenterprisememberinvitationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#cancelenterprisememberinvitationinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The invitation that was canceled.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of canceling an member invitation.</p>"
+        }
+      ]
+    },
+    {
       "name": "cancelSponsorship",
       "kind": "mutations",
       "id": "cancelsponsorship",
@@ -2237,6 +2365,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectcard",
           "description": "<p>The updated ProjectCard.</p>"
+        }
+      ]
+    },
+    {
+      "name": "convertProjectV2DraftIssueItemToIssue",
+      "kind": "mutations",
+      "id": "convertprojectv2draftissueitemtoissue",
+      "href": "/graphql/reference/mutations#convertprojectv2draftissueitemtoissue",
+      "description": "<p>Converts a projectV2 draft issue item to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertProjectV2DraftIssueItemToIssueInput!",
+          "id": "convertprojectv2draftissueitemtoissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#convertprojectv2draftissueitemtoissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "ProjectV2Item",
+          "id": "projectv2item",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2item",
+          "description": "<p>The updated project item.</p>"
         }
       ]
     },
@@ -2965,6 +3127,40 @@
           "kind": "unions",
           "href": "/graphql/reference/unions#projectv2fieldconfiguration",
           "description": "<p>The new field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "createprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#createprojectv2statusupdate",
+      "description": "<p>Creates a status update within a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2StatusUpdateInput!",
+          "id": "createprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "statusUpdate",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate",
+          "description": "<p>The status update updated in the project.</p>"
         }
       ]
     },
@@ -3945,6 +4141,48 @@
       ]
     },
     {
+      "name": "deleteProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "deleteprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#deleteprojectv2statusupdate",
+      "description": "<p>Deletes a project status update.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2StatusUpdateInput!",
+          "id": "deleteprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedStatusUpdateId",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The ID of the deleted status update.</p>"
+        },
+        {
+          "name": "projectV2",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2",
+          "description": "<p>The project the deleted status update was in.</p>"
+        }
+      ]
+    },
+    {
       "name": "deleteProjectV2Workflow",
       "kind": "mutations",
       "id": "deleteprojectv2workflow",
@@ -4655,6 +4893,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#enterpriseadministratorinvitation",
           "description": "<p>The created enterprise administrator invitation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "inviteEnterpriseMember",
+      "kind": "mutations",
+      "id": "inviteenterprisemember",
+      "href": "/graphql/reference/mutations#inviteenterprisemember",
+      "description": "<p>Invite someone to become an unaffiliated member of the enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "InviteEnterpriseMemberInput!",
+          "id": "inviteenterprisememberinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#inviteenterprisememberinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "invitation",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation",
+          "description": "<p>The created enterprise member invitation.</p>"
         }
       ]
     },
@@ -8623,6 +8895,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2itemconnection",
           "description": "<p>The items in the new order.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "updateprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#updateprojectv2statusupdate",
+      "description": "<p>Updates a status update within a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2StatusUpdateInput!",
+          "id": "updateprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "statusUpdate",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate",
+          "description": "<p>The status update updated in the project.</p>"
         }
       ]
     },
@@ -13615,7 +13921,7 @@
             },
             {
               "name": "since",
-              "description": "<p>Allows specifying a beginning time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying a beginning time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
@@ -13625,7 +13931,7 @@
             },
             {
               "name": "until",
-              "description": "<p>Allows specifying an ending time or date for fetching commits.</p>",
+              "description": "<p>Allows specifying an ending time or date for fetching commits. Unexpected\nresults may be returned for dates not between 1970-01-01 and 2099-12-13 (inclusive).</p>",
               "type": {
                 "name": "GitTimestamp",
                 "id": "gittimestamp",
@@ -21016,6 +21322,22 @@
           "href": "/graphql/reference/objects#enterpriseownerinfo"
         },
         {
+          "name": "readme",
+          "description": "<p>The raw content of the enterprise README.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "readmeHTML",
+          "description": "<p>The content of the enterprise README as HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this enterprise.</p>",
           "type": "URI!",
@@ -21721,6 +22043,136 @@
           "id": "enterprisemember",
           "kind": "unions",
           "href": "/graphql/reference/unions#enterprisemember"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitation",
+      "kind": "objects",
+      "id": "enterprisememberinvitation",
+      "href": "/graphql/reference/objects#enterprisememberinvitation",
+      "description": "<p>An invitation for a user to become an unaffiliated member of an enterprise.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "email",
+          "description": "<p>The email of the person who was invited to the enterprise.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterprise",
+          "description": "<p>The enterprise the invitation is for.</p>",
+          "type": "Enterprise!",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the EnterpriseMemberInvitation object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "invitee",
+          "description": "<p>The user who was invited to the enterprise.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "inviter",
+          "description": "<p>The user who created the invitation.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitationConnection",
+      "kind": "objects",
+      "id": "enterprisememberinvitationconnection",
+      "href": "/graphql/reference/objects#enterprisememberinvitationconnection",
+      "description": "<p>The connection type for EnterpriseMemberInvitation.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseMemberInvitationEdge]",
+          "id": "enterprisememberinvitationedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitationedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[EnterpriseMemberInvitation]",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMemberInvitationEdge",
+      "kind": "objects",
+      "id": "enterprisememberinvitationedge",
+      "href": "/graphql/reference/objects#enterprisememberinvitationedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "EnterpriseMemberInvitation",
+          "id": "enterprisememberinvitation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitation"
         }
       ]
     },
@@ -23554,6 +24006,76 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>The search string to look for.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pendingUnaffiliatedMemberInvitations",
+          "description": "<p>A list of pending unaffiliated member invitations for the enterprise.</p>",
+          "type": "EnterpriseMemberInvitationConnection!",
+          "id": "enterprisememberinvitationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberinvitationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for pending enterprise member invitations returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseMemberInvitationOrder",
+                "id": "enterprisememberinvitationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterprisememberinvitationorder"
               }
             },
             {
@@ -45487,6 +46009,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "statusUpdates",
+          "description": "<p>List of the status updates in the project.</p>",
+          "type": "ProjectV2StatusUpdateConnection!",
+          "id": "projectv2statusupdateconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdateconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "ProjectV2StatusOrder",
+                "id": "projectv2statusorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2statusorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "teams",
           "description": "<p>The teams the project is linked to.</p>",
           "type": "TeamConnection!",
@@ -47750,6 +48332,176 @@
       ]
     },
     {
+      "name": "ProjectV2StatusUpdate",
+      "kind": "objects",
+      "id": "projectv2statusupdate",
+      "href": "/graphql/reference/objects#projectv2statusupdate",
+      "description": "<p>A status update within a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body of the status update rendered to HTML.</p>",
+          "type": "HTML",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created the status update.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2StatusUpdate object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this status update.</p>",
+          "type": "ProjectV2!",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateConnection",
+      "kind": "objects",
+      "id": "projectv2statusupdateconnection",
+      "href": "/graphql/reference/objects#projectv2statusupdateconnection",
+      "description": "<p>The connection type for ProjectV2StatusUpdate.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2StatusUpdateEdge]",
+          "id": "projectv2statusupdateedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdateedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2StatusUpdate]",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateEdge",
+      "kind": "objects",
+      "id": "projectv2statusupdateedge",
+      "href": "/graphql/reference/objects#projectv2statusupdateedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2View",
       "kind": "objects",
       "id": "projectv2view",
@@ -48536,6 +49288,14 @@
           "name": "propertyValues",
           "description": "<p>The values to match for.</p>",
           "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -82836,6 +83596,19 @@
       ]
     },
     {
+      "name": "EnterpriseMemberInvitationOrderField",
+      "kind": "enums",
+      "id": "enterprisememberinvitationorderfield",
+      "href": "/graphql/reference/enums#enterprisememberinvitationorderfield",
+      "description": "<p>Properties by which enterprise member invitation connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order enterprise member invitations by creation time.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseMemberOrderField",
       "kind": "enums",
       "id": "enterprisememberorderfield",
@@ -85055,6 +85828,48 @@
         {
           "name": "OPEN",
           "description": "<p>A project v2 that is still open.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateOrderField",
+      "kind": "enums",
+      "id": "projectv2statusupdateorderfield",
+      "href": "/graphql/reference/enums#projectv2statusupdateorderfield",
+      "description": "<p>Properties by which project v2 status updates can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Allows chronological ordering of project v2 status updates.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateStatus",
+      "kind": "enums",
+      "id": "projectv2statusupdatestatus",
+      "href": "/graphql/reference/enums#projectv2statusupdatestatus",
+      "description": "<p>The possible statuses of a project v2.</p>",
+      "values": [
+        {
+          "name": "AT_RISK",
+          "description": "<p>A project v2 that is at risk and encountering some challenges.</p>"
+        },
+        {
+          "name": "COMPLETE",
+          "description": "<p>A project v2 that is complete.</p>"
+        },
+        {
+          "name": "INACTIVE",
+          "description": "<p>A project v2 that is inactive.</p>"
+        },
+        {
+          "name": "OFF_TRACK",
+          "description": "<p>A project v2 that is off track and needs attention.</p>"
+        },
+        {
+          "name": "ON_TRACK",
+          "description": "<p>A project v2 that is on track with no risks.</p>"
         }
       ]
     },
@@ -90522,6 +91337,32 @@
       ]
     },
     {
+      "name": "AcceptEnterpriseMemberInvitationInput",
+      "kind": "inputObjects",
+      "id": "acceptenterprisememberinvitationinput",
+      "href": "/graphql/reference/input-objects#acceptenterprisememberinvitationinput",
+      "description": "<p>Autogenerated input type of AcceptEnterpriseMemberInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "invitationId",
+          "description": "<p>The id of the invitation being accepted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "AcceptTopicSuggestionInput",
       "kind": "inputObjects",
       "id": "accepttopicsuggestioninput",
@@ -91628,6 +92469,32 @@
       ]
     },
     {
+      "name": "CancelEnterpriseMemberInvitationInput",
+      "kind": "inputObjects",
+      "id": "cancelenterprisememberinvitationinput",
+      "href": "/graphql/reference/input-objects#cancelenterprisememberinvitationinput",
+      "description": "<p>Autogenerated input type of CancelEnterpriseMemberInvitation.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "invitationId",
+          "description": "<p>The Node ID of the pending enterprise member invitation.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "CancelSponsorshipInput",
       "kind": "inputObjects",
       "id": "cancelsponsorshipinput",
@@ -92700,6 +93567,41 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ConvertProjectV2DraftIssueItemToIssueInput",
+      "kind": "inputObjects",
+      "id": "convertprojectv2draftissueitemtoissueinput",
+      "href": "/graphql/reference/input-objects#convertprojectv2draftissueitemtoissueinput",
+      "description": "<p>Autogenerated input type of ConvertProjectV2DraftIssueItemToIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The ID of the draft issue ProjectV2Item to convert.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to create the issue in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -94020,6 +94922,64 @@
       ]
     },
     {
+      "name": "CreateProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "createprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#createprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to create the status update in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        }
+      ]
+    },
+    {
       "name": "CreatePullRequestInput",
       "kind": "inputObjects",
       "id": "createpullrequestinput",
@@ -95249,6 +96209,32 @@
       ]
     },
     {
+      "name": "DeleteProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "deleteprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#deleteprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "statusUpdateId",
+          "description": "<p>The ID of the status update to be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeleteProjectV2WorkflowInput",
       "kind": "inputObjects",
       "id": "deleteprojectv2workflowinput",
@@ -95901,6 +96887,31 @@
       ]
     },
     {
+      "name": "EnterpriseMemberInvitationOrder",
+      "kind": "inputObjects",
+      "id": "enterprisememberinvitationorder",
+      "href": "/graphql/reference/input-objects#enterprisememberinvitationorder",
+      "description": "<p>Ordering options for enterprise administrator invitation connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprise member invitations by.</p>",
+          "type": "EnterpriseMemberInvitationOrderField!",
+          "id": "enterprisememberinvitationorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterprisememberinvitationorderfield"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseMemberOrder",
       "kind": "inputObjects",
       "id": "enterprisememberorder",
@@ -96433,6 +97444,48 @@
           "id": "enterpriseadministratorrole",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseadministratorrole"
+        }
+      ]
+    },
+    {
+      "name": "InviteEnterpriseMemberInput",
+      "kind": "inputObjects",
+      "id": "inviteenterprisememberinput",
+      "href": "/graphql/reference/input-objects#inviteenterprisememberinput",
+      "description": "<p>Autogenerated input type of InviteEnterpriseMember.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "email",
+          "description": "<p>The email of the person to invite as an unaffiliated member.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise to which you want to invite an unaffiliated member.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "invitee",
+          "description": "<p>The login of a user to invite as an unaffiliated member.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -97768,6 +98821,31 @@
       ]
     },
     {
+      "name": "ProjectV2StatusOrder",
+      "kind": "inputObjects",
+      "id": "projectv2statusorder",
+      "href": "/graphql/reference/input-objects#projectv2statusorder",
+      "description": "<p>Ways in which project v2 status updates can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order nodes.</p>",
+          "type": "ProjectV2StatusUpdateOrderField!",
+          "id": "projectv2statusupdateorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdateorderfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2ViewOrder",
       "kind": "inputObjects",
       "id": "projectv2vieworder",
@@ -97836,6 +98914,14 @@
           "name": "propertyValues",
           "description": "<p>The values to match for.</p>",
           "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -102845,6 +103931,64 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "updateprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#updateprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "statusUpdateId",
+          "description": "<p>The ID of the status update to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
         }
       ]
     },

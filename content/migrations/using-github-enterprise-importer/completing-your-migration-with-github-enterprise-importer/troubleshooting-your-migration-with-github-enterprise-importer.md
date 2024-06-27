@@ -24,9 +24,9 @@ Before you investigate further, try these troubleshooting steps that commonly re
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
 1. Verify that you meet all the access requirements. For more information, see the appropriate article for your migration path.
 
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)"
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)"
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)"
 
 1. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
 1. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
@@ -39,16 +39,16 @@ If your migration fails, review the verbose log entries produced by the {% data 
 
 The log contains a record of each command you issued and all of the API requests that the {% data variables.product.prodname_cli %} made in response. Failures and error messages normally appear towards the end of the log.
 
-- [Unable to run migration](#unable-to-run-migrations)
-- [Resource is protected by organization SAML enforcement](#resource-is-protected-by-organization-saml-enforcement)
-- [`401 Unauthorized` response](#401-unauthorized-response)
-- [`404 Not Found` response](#404-not-found-response)
-- [`Archive generation failed` response](#archive-generation-failed-response)
-- [`cipher name is not supported` error](#cipher-name-is-not-supported-error)
-- [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
-- [`Source export archive... does not exist` error](#source-export-archive-does-not-exist-error)
-- [`Repository rule violations found` error](#repository-rule-violations-found-error)
-- [`Your push would publish a private email address` error](#your-push-would-publish-a-private-email-address-error)
+* [Unable to run migration](#unable-to-run-migrations)
+* [Resource is protected by organization SAML enforcement](#resource-is-protected-by-organization-saml-enforcement)
+* [`401 Unauthorized` response](#401-unauthorized-response)
+* [`404 Not Found` response](#404-not-found-response)
+* [`Archive generation failed` response](#archive-generation-failed-response)
+* [`cipher name is not supported` error](#cipher-name-is-not-supported-error)
+* [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
+* [`Source export archive... does not exist` error](#source-export-archive-does-not-exist-error)
+* [`Repository rule violations found` error](#repository-rule-violations-found-error)
+* [`Your push would publish a private email address` error](#your-push-would-publish-a-private-email-address-error)
 
 ### Unable to run migrations
 
@@ -67,9 +67,9 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 
 Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
 
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
-   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
+   * "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
 
 ### `404 Not Found` response
 
@@ -140,10 +140,10 @@ Warnings in the migration log point to specific items within the repository whic
 
 {% data reusables.enterprise-migration-tool.migration-log-errors-okay %}
 
-- [Warning: "Repository metadata too big to migrate"](#warning-repository-metadata-too-big-to-migrate)
-- [Warning: "Comment not in diff"](#warning-comment-not-in-diff)
-- [Warning: "Pull Request Review...could not be imported due to REVIEW_THREAD_MISSING_END_COMMIT_OID error"](#warning-pull-request-reviewcould-not-be-imported-due-to-review_thread_missing_end_commit_oid-error)
-- [Team references are broken after an organization migration](#team-references-are-broken-after-an-organization-migration)
+* [Warning: "Repository metadata too big to migrate"](#warning-repository-metadata-too-big-to-migrate)
+* [Warning: "Comment not in diff"](#warning-comment-not-in-diff)
+* [Warning: "Pull Request Review...could not be imported due to REVIEW_THREAD_MISSING_END_COMMIT_OID error"](#warning-pull-request-reviewcould-not-be-imported-due-to-review_thread_missing_end_commit_oid-error)
+* [Team references are broken after an organization migration](#team-references-are-broken-after-an-organization-migration)
 
 ### Warning: "Repository metadata too big to migrate"
 
@@ -183,8 +183,8 @@ After a migration, you may find that your source or destination repositories are
 
 The process for unlocking a repository depends on the {% data variables.product.prodname_dotcom %} product where the repository is stored.
 
-- If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
-- If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
+* If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+* If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
 
 {% note %}
 

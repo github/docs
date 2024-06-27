@@ -17,16 +17,14 @@ redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules
 ---
 
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
-
 ## About {% data variables.dependabot.auto_triage_rules %}
 
 {% data variables.dependabot.auto_triage_rules %} allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use {% data variables.dependabot.auto_triage_rules_short %} to automatically dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
 
 There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
-- {% data variables.dependabot.github_presets %}
-- {% data variables.dependabot.custom_rules_caps %}
+* {% data variables.dependabot.github_presets %}
+* {% data variables.dependabot.custom_rules_caps %}
 
 ### About {% data variables.dependabot.github_presets %}
 
@@ -57,12 +55,12 @@ You can create custom rules from the **Settings** tab of the repository{% ifvers
 Whilst you may find it useful to use auto-triage rules to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/managing-automatically-dismissed-alerts)."
 
 Additionally, auto-dismissed alerts are still available for reporting and reviewing, and can be auto-reopened if the alert metadata changes, for example:
-- If you change the scope of a dependency from development to production.
-- If {% data variables.product.company_short %} modifies certain metadata for the related advisory.
+* If you change the scope of a dependency from development to production.
+* If {% data variables.product.company_short %} modifies certain metadata for the related advisory.
 
 Auto-dismissed alerts are defined by the `resolution:auto-dismiss` close reason. Automatic dismissal activity is included in alert webhooks, REST and GraphQL APIs, and the audit log. For more information, see "[AUTOTITLE](/rest/dependabot/alerts)," and the "`repository_vulnerability_alert`" section in "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#repository_vulnerability_alert-category-actions)."
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts)
-- [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)
+* [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts)
+* [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)

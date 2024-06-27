@@ -102,8 +102,8 @@ You can view data to assess the enablement status and enablement status trends o
 1. In the sidebar, under "Metrics", click **{% octicon "meter" aria-hidden="true" %} Enablement trends**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning_caps %}", or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories in your organization with that feature enabled. This data is displayed as a graph and a detailed table.
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
-    - Use the date picker to set the time range that you want to view enablement trends for.
-    - Click in the search box to add further filters on the enablement trends displayed. The filters you can apply are the same as those for the "Overview" dashboard (beta) view. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+    * Use the date picker to set the time range that you want to view enablement trends for.
+    * Click in the search box to add further filters on the enablement trends displayed. The filters you can apply are the same as those for the "Overview" dashboard (beta) view. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
       ![Screenshot of the beta "Enablement trends" view for an organization, showing Dependabot status and trends over 30 days, with a filter applied.](/assets/images/help/security-overview/security-overview-enablement-trends.png)
   
@@ -132,8 +132,8 @@ You can view data to assess the enablement status and enablement status trends o
 1. To display the "Enablement trends" view, in the sidebar, click **Enablement trends**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning_caps %}", or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories across organizations in your enterprise with that feature enabled. This data is displayed as a graph and a detailed table.
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
-    - Use the date picker to set the time range that you want to view enablement trends for.
-    - Click in the search box to add further filters on the enablement trends displayed. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+    * Use the date picker to set the time range that you want to view enablement trends for.
+    * Click in the search box to add further filters on the enablement trends displayed. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
 {% endif %}
 

@@ -12,13 +12,13 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. {% ifversion projects-v2-auto-archive %}To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."{% endif %}
+**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."
 
 {% endnote %}
 
 ## Adding issues and pull requests to a project
 
-You have several options for adding issues and pull requests to your project. You can add them individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues)."
+You have several options for adding issues and pull requests to your project. You can add them individually, automatically, or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues)."
 
 {% ifversion projects-v2-timeline-events %}
 
@@ -38,13 +38,9 @@ For more information about making bulk changes to your items after adding them, 
 
 {% endif %}
 
-{% ifversion projects-v2-auto-add %}
-
 ### Automatically adding issues and pull requests
 
 You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."
-
-{% endif %}
 
 ### Pasting the URL of an issue or pull request
 
@@ -78,10 +74,10 @@ You can also add issues and pull requests to your project from a repository's is
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Select the issues or pull requests you want to add to your project.
 
-   - To select individual issues or pull requests, to the left of the title of each issue or pull request you want to add to your project, select the checkbox.
+   * To select individual issues or pull requests, to the left of the title of each issue or pull request you want to add to your project, select the checkbox.
 
       ![Screenshot of the first two issues in the list of issues for a repository. To the left of each issue, a checkbox is outlined in dark orange.](/assets/images/help/issues/select-issue-checkbox.png)
-   - To select every issue or pull request on the page, at the top of the list of issues or pull requests, select all.
+   * To select every issue or pull request on the page, at the top of the list of issues or pull requests, select all.
 
       ![Screenshot of the list of issues for a repository. In the header above the list, a checkbox to select all issues is outlined in dark orange.](/assets/images/help/issues/select-all-checkbox.png)
 1. Above the list of issues or pull requests, click **Projects**.
