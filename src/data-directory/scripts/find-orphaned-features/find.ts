@@ -35,7 +35,7 @@ import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 
 import type { Page } from '@/types'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'

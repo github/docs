@@ -1,7 +1,7 @@
 import type { Response } from 'express'
 import cheerio from 'cheerio'
 
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { liquid } from '@/content-render/index.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'

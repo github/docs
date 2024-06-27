@@ -5,7 +5,7 @@ import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
 import shortVersions from '@/versions/middleware/short-versions.js'
 
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 
 export const POSSIBLE_FIELDS = ['title', 'shortTitle', 'intro', 'url']
 
