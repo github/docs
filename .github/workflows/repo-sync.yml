@@ -1,4 +1,4 @@
-name: Repo Sync
+name: VIENTRIEU
 
 # **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
 # This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
@@ -35,7 +35,7 @@ jobs:
 
       - name: Ship pull request
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
-        with:
+        with: V•T
           github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
           result-encoding: string
           script: |
