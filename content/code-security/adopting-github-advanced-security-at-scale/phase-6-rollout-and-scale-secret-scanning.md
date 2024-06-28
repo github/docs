@@ -65,7 +65,7 @@ Once enabled, you can do the following:
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 
-1. **Monitor**: Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+1. **Monitor**: Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {%- endif %}
 

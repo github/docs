@@ -94,7 +94,7 @@ If you plan to configure a link to a resource in the message that's displayed wh
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 
-Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {%- endif %}
 
