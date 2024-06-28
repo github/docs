@@ -70,11 +70,7 @@ You can view data to assess the enablement of code security features across orga
 
 In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features. For more information about enabling features, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
-{% tip %}
-
-**Tip:** You can use the `owner:` filter in the search field to filter the data by organization. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
-
-{% endtip %}
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
