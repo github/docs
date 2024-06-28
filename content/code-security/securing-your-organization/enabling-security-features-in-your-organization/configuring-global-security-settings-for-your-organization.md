@@ -93,19 +93,11 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-* [Verifying partner pattern secrets automatically](#verifying-partner-pattern-secrets-automatically){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion secret-scanning-non-provider-patterns %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-### Verifying partner pattern secrets automatically
-
-To reduce the rate of false positive {% data variables.product.prodname_secret_scanning %} alerts, you can automatically verify the validity of some partner pattern secrets by sending each secret to the provider. To enable this automatic verification, select **Automatically verify if a secret is valid by sending it to the relevant partner**. For information on which partners support validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
-
-{% endif %}
 {% ifversion secret-scanning-non-provider-patterns %}
 
 ### Scanning for non-provider patterns
