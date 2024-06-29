@@ -213,7 +213,6 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |:---|:---|:---|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Edit.NextSuggestion|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Edit.PreviousSuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ### Rebinding keyboard shortcuts
 
