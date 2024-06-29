@@ -4,7 +4,7 @@
 # https://git-scm.com/docs/gitignore
 
 # Site Policy
-/content/site-policy/ @github/site-policy-admins
+/content/site-policy/
 
 # Enterprise
 /data/release-notes/**/*.yml @github/docs-content-enterprise
