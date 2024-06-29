@@ -69,6 +69,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    {% ifversion artifact-attestations %}permissions:
+      contents: read
+      id-token: write{% endif %}
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
