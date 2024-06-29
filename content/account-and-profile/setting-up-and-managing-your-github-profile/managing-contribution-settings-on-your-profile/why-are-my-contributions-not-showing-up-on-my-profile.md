@@ -53,6 +53,10 @@ In addition, **at least one** of the following must be true:
 
 After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
 
+### Contributions Made to a Forked Repository That Has Been Deleted
+
+If you have made any contributions to a forked repository and subsequently delete that repository, those contributions will be removed from the graph and will no longer be counted. Your contributions will only be counted if they remain accessible up to the current date.
+
 ### Your local Git commit email isn't connected to your account
 
 Commits must be made with an email address that is connected to your account on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
