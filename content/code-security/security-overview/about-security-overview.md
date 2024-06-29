@@ -179,6 +179,10 @@ For more information about access to security alerts and related views, see "[AU
 In the enterprise-level security overview, you can see data for all organizations where you are an organization owner or security manager. However, you cannot use the enterprise-level security overview to enable and disable security features. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {% endif %}
 
+{% ifversion ghec %}
+If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}, you can view data from user-owned repositories in security overview and filter by repository owner type. For more information on {% data variables.enterprise.prodname_managed_users %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+{% endif %}
+
 ## Further reading
 
 * "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"

@@ -44,7 +44,7 @@ You can monitor security alerts to discover when users are bypassing push protec
 
 {% ifversion security-overview-push-protection-metrics-page %}
 
-If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {% endif %}
 

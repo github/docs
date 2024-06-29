@@ -19,5 +19,5 @@ children:
   - /filtering-alerts-in-security-overview
   - /enabling-security-features-for-multiple-repositories
   - /exporting-data-from-the-risk-and-coverage-pages
-  - /viewing-metrics-for-secret-scanning-push-protection-in-your-organization
+  - /viewing-metrics-for-secret-scanning-push-protection
 ---
