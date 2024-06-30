@@ -1,0 +1,7 @@
+# Reference: Issue #8324
+# Title: Dependabot updates for Python PEP 621
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'

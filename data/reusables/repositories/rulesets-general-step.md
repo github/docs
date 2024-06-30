@@ -1,0 +1,2 @@
+1. Under "Ruleset name," type a name for the ruleset.
+1. Optionally, to change the default enforcement status, click {% octicon "skip" aria-hidden="true" %} **Disabled** {% octicon "triangle-down" aria-hidden="true" %} and select an enforcement status. For more information about enforcement statuses, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#using-ruleset-enforcement-statuses)."

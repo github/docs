@@ -1,0 +1,1 @@
+Before you get started, you should make a plan for how you'll introduce {% data variables.product.prodname_actions %} to your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."

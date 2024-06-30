@@ -1,1 +1,0 @@
-After you enable email restrictions, members can receive email notifications at verified email addresses within domains that you've verified or approved. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/github/getting-started-with-github/verifying-your-email-address)".

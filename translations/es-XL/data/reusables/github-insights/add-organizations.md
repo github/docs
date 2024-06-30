@@ -1,1 +1,0 @@
-1. En la esquina superior derecha de la página, da clic en **Agregar Organización(es)**. Verás una lista de organizaciones asociadas con tu cuenta de {% data variables.product.prodname_enterprise %}. ![Botón de Agregar Organización(es)](/assets/images/help/insights/add-organizations.png)

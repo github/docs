@@ -1,0 +1,12 @@
+{
+    "/en/enterprise-cloud@latest/foo": {
+        "objectID": "/en/enterprise-cloud@latest/foo",
+        "breadcrumbs": "foo",
+        "title": "Foo",
+        "headings": "",
+        "content": "This is a fixture with the silly foo word. Exclusively for GHEC.",
+        "topics": ["Test", "Fixture"],
+        "intro": "Sample intro",
+        "toplevel": "Fooing"
+    }
+}

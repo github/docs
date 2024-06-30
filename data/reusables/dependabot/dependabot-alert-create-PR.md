@@ -1,0 +1,1 @@
+If you have enabled {% data variables.product.prodname_dependabot_security_updates %} for your repository, the alert may also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."

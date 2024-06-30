@@ -1,1 +1,0 @@
-1. Debajo de "{% octicon "gear" aria-label="The Settings gear" %} Configuraciones", haz clic en **Hooks** (Ganchos). ![Pestaña Hooks (Ganchos) en la barra lateral de parámetros de la cuenta de empresa](/assets/images/help/business-accounts/settings-hooks-tab.png)

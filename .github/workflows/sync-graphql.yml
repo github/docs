@@ -1,0 +1,73 @@
+name: Update GraphQL files
+
+# **What it does**: This updates our GraphQL schemas.
+# **Why we have it**: We want our GraphQL docs up to date.
+# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update_graphql_files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: ./.github/actions/node-npm-setup
+      - name: Run updater scripts
+        env:
+          # need to use a token from a user with access to github/github for this step
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+        run: |
+          src/graphql/scripts/sync.js
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # pin @v6.1.0
+        env:
+          # Disable pre-commit hooks; they don't play nicely here
+          HUSKY: '0'
+        with:
+          # Need to use a token with repo and workflow scopes for this step.
+          # Token should be a PAT because actions performed with GITHUB_TOKEN
+          # don't trigger other workflows and this action force pushes updates
+          # from the default branch.
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          commit-message: 'Update GraphQL data files'
+          title: GraphQL schema update
+          body:
+            "Hello! Some GraphQL data in github/github was updated recently. This PR
+            syncs up the GraphQL data in this repo.\n\n
+            If CI passes, this PR will be auto-merged. :green_heart:\n\n
+            If CI does not pass or other problems arise, contact #docs-engineering on slack."
+          branch: graphql-schema-update
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: node src/workflows/enable-automerge.js
+
+      - if: ${{ failure() }}
+        name: Delete remote branch (if previous steps failed)
+        run: git push origin --delete graphql-schema-update
+
+      - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        name: Approve
+        uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.create-pull-request.outputs.pull-request-number }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

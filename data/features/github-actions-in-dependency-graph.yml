@@ -1,0 +1,6 @@
+# Reference: #5813.
+# Documentation for GitHub Actions workflow dependencies appearing in the dependency graph
+versions:
+  fpt: '*'
+  ghes: '>3.4'
+  ghec: '*'

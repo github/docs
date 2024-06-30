@@ -1,0 +1,6 @@
+# Reference: #6154
+# Documentation for Actions cache management APIs (initial ship)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.4'

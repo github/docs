@@ -1,0 +1,5 @@
+# Reference: Issue #8535 Dependabot does not access public registries when the user has configured private registries
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

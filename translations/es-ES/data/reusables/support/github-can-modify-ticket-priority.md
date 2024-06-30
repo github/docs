@@ -1,1 +1,0 @@
-{% data variables.product.company_short %} tiene la absoluta discreción para modificar la prioridad de un ticket en cualquier momento, y puede bajar la prioridad de un ticket después de determinar y mitigar la causa principal de un problema.

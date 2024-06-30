@@ -1,0 +1,1 @@
+`true` if branch protections {% ifversion actions-ref-protected-ruleset %}or [rulesets](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository) {% endif %}are configured for the ref that triggered the workflow run.

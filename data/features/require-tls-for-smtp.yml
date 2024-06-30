@@ -1,0 +1,4 @@
+# Reference 7394
+# Documentation for the option to enforce TLS encryption for incoming SMTP connections
+versions:
+  ghes: '>=3.6'

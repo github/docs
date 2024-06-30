@@ -2,9 +2,9 @@
 title: Overview
 intro: 'Learn about the {% data variables.product.prodname_dotcom %} GraphQL API, previews for upcoming changes, breaking changes, and limitations. You can also use the GraphQL Explorer to interact with the API on real {% data variables.product.prodname_dotcom %} data.'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 children:
   - /about-the-graphql-api
   - /public-schema
@@ -12,6 +12,6 @@ children:
   - /breaking-changes
   - /changelog
   - /explorer
-  - /resource-limitations
+  - /rate-limits-and-node-limits-for-the-graphql-api
 ---
 

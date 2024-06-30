@@ -1,1 +1,0 @@
-1. Veja detalhes da sua largura de banda e do uso de armazenamento em "{% data variables.large_files.product_name_short %} Data". ![Detalhes do uso de dados Git LFS](/assets/images/help/billing/lfs-data.png)

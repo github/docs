@@ -1,0 +1,42 @@
+date: '2024-01-30'
+sections:
+  bugs:
+    - |
+      The instance incorrectly wrote the output for multiple workloads to `/var/log/syslog.log`.
+    - |
+      During periods of high traffic, interruptions in service occurred due to insufficient resource allocations for internal components.
+    - |
+      When starting up an instance using NVME storage in a cloud other than AWS, the attached data disk was not properly detected.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
+    - |
+      Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      Pre-receive hooks which utilize `git rev-list` fail with an `fatal: Invalid revision range` error message.
+    - |
+      {% data reusables.release-notes.2024-02-pages-deployment-error %} [Updated: 2024-03-07]
+    - |
+      {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

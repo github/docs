@@ -1,0 +1,1 @@
+As an enterprise owner, you can set repository management policies for all organizations in {% data variables.location.product_location %}, or allow policies to be set separately in each organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."

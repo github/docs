@@ -1,0 +1,4 @@
+# Reference: #7283
+# Documentation for enabling Git events in the audit log
+versions:
+  ghes: '>=3.5'

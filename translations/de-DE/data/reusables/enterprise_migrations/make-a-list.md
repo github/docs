@@ -1,1 +1,0 @@
-1. Erstelle zum Minimieren der Ausfallzeit eine Liste der Repositorys, die Du von der Quellinstanz exportieren möchtest. Du kannst mehrere Repositorys gleichzeitig zu einem Export hinzufügen. verwende dazu eine Textdatei, in der die URL jedes Repositorys in einer separaten Zeile aufgelistet wird.

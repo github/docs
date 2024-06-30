@@ -1,0 +1,1 @@
+{% ifversion codeql-model-packs-org %}During the beta, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. {% else %}During the beta, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis at the repository level.{% endif %}

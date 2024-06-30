@@ -1,0 +1,1 @@
+With {% data variables.product.prodname_emus %}, you can manage team and organization membership within your enterprise through your IdP by connecting teams on {% data variables.location.product_location %} with groups on your IdP.

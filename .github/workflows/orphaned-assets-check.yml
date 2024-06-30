@@ -1,0 +1,106 @@
+name: 'Orphaned assets check'
+
+# **What it does**: Checks that there are no files in ./assets/ that aren't mentioned in any source file.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/orphaned-assets-check.yml
+      # In case any of the dependencies affect the script
+      - 'package*.json'
+      - src/assets/scripts/find-orphaned-assets.js
+      - src/workflows/walk-files.js
+      - src/languages/lib/languages.js
+      - .github/actions/clone-translations/action.yml
+      - .github/actions/node-npm-setup/action.yml
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-assets-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout English repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check for orphaned assets
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
+        run: |
+          set -e
+
+          # The `-s` is to make npm run silent and not print verbose
+          # information about the npm script alias.
+          filesToRemove=`npm run -s find-orphaned-assets`
+          [ -z "$filesToRemove" ] && exit 0
+
+          echo $filesToRemove | xargs git rm
+
+          git status
+
+          # If nothing to commit, exit now. It's fine. No orphans.
+          git status -- ':!translations*' | grep 'nothing to commit' && exit 0
+
+          # When run on a pull_request, we're just testing the tooling.
+          # Exit before it actually pushes the possible changes.
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry-run mode when run in a pull request"
+            exit 0
+          fi
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-assets-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -m "Delete orphaned assets $date"
+          git push origin $branchname
+
+          body=$(cat <<-EOM
+            Found with the npm run find-orphaned-assets script.
+            The orphaned assets workflow file .github/workflows/orphaned-assets-check.yml
+            runs every Monday at 16:20 UTC / 8:20 PST.
+            The first responder should just spot-check some of the unused assets
+            to make sure they aren't referenced anywhere
+            and then approve and merge the pull request.
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md).
+          EOM
+          )
+
+          gh pr create \
+            --title "Delete orphaned assets ($date)" \
+            --body "$body" \
+            --repo github/docs-internal \
+            --label docs-content-fr
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

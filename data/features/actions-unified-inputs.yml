@@ -1,0 +1,5 @@
+# Issue 6921
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'

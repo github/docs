@@ -1,0 +1,6 @@
+# Issues 7093
+# Reusable workflows can call other reusable workflows
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

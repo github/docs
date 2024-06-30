@@ -1,0 +1,4 @@
+# Reference: #11179
+# "Code scanning default setup is available for Swift - [GA]"
+versions:
+  ghes: '< 3.11'

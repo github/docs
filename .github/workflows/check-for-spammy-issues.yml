@@ -7,15 +7,19 @@ name: Check for Spammy Issues
 on:
   issues:
     types: [opened]
+
+permissions:
+  contents: read
+
 jobs:
   spammy-title-check:
     name: Remove issues with spammy titles
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
 
             const issue = context.payload.issue
@@ -23,10 +27,10 @@ jobs:
             const repo = 'docs'
 
             const titleWordCount = issue.title.trim().split(' ').length
-            const titleWordCountMin = 2
+            const titleWordCountMin = 3
 
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: context.payload.sender.login,
@@ -35,22 +39,22 @@ jobs:
               // Do not perform this workflow with GitHub employees. This return
               // statement only gets hit if the user is a GitHub employee
               return
-            } catch(err) {
+            } catch (err) {
               // An error will be thrown if the user is not a GitHub employee
               // If a user is not a GitHub employee, we should check to see if title has at least the minimum required number of words in it and if it does, we can exit the workflow
 
-              if(titleWordCount > titleWordCountMin) {
+              if (titleWordCount >= titleWordCountMin) {
                 return
               }
             }
 
             //
             // Assuming the user is not a GitHub employee and the issue title
-            // has the minimum number of words required, proceed.
+            // does not contain the minimum number of words required, proceed.
             //
 
             // Close the issue and add the invalid label
-            await github.issues.update({
+            await github.rest.issues.update({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
@@ -59,16 +63,16 @@ jobs:
             });
 
             // Comment on the issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
-              body: "This issue appears to have been opened accidentally. I'm going to close it now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
+              body: `This issue may have been opened accidentally. I'm going to close it now, but feel free to open a new issue with a more descriptive title!`
             });
 
             // Add the issue to the Done column on the triage board
             try {
-              await github.projects.createCard({
+              await github.rest.projects.createCard({
                 column_id: 11167427,
                 content_id: context.payload.issue.id,
                 content_type: "Issue"

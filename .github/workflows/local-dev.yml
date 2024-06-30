@@ -1,0 +1,99 @@
+name: Local development
+
+# **What it does**: Can you start the local server like a writer would do?
+# **Why we have it**: Our CI is often heavily geared on testing in "production"
+#                     that historically we've been known to break local
+#                     development sometimes.
+# **Who does it impact**: Engineers, Contributors.
+
+on:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  local-dev:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Install dependencies
+        run: npm install
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      # Note that we don't check out docs-early-access, Elasticsearch,
+      # or any remote translations. Nothing fancy here!
+
+      - name: Disable Next.js telemetry
+        run: npx next telemetry disable
+
+      # The Playwright test, with the env vars we set here, takes care of
+      # starting a server and shutting it down when it's done.
+      # That's why it's important this step comes before the `npm start &`
+      # step below.
+      - name: Run Playwright tests
+        env:
+          # This is what local dev contributors are expected to do.
+          PLAYWRIGHT_START_SERVER_COMMAND: 'npm start'
+          # This is so that timeouts aren't retried, which can lead to
+          # tests not exiting at the end with a non-zero. Otherwise,
+          # by default failures are marked as "flaky" instead of "failed".
+          PLAYWRIGHT_RETRIES: 0
+          TEST_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
+        run: npm run playwright-test -- playwright-local-dev
+
+      - name: Start server in the background
+        run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
+
+      - name: View the home page
+        run: |
+          echo "Going to sleep a little to wait for the server to start"
+          sleep 10
+          curl --fail --retry-connrefused --retry 5 http://localhost:4000/
+
+      - name: Run basic tests
+        run: npm run test-local-dev
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
+
+      - name: Pre-commit hooks should prevent bad Markdown edits
+        run: |
+          set -e
+
+          # This test assumes this one file always exists
+          ls content/get-started/start-your-journey/hello-world.md
+
+          # Not sure if it matters but we're in a detached HEAD state
+          # after the actions/checkout action.
+          git checkout -b my-new-branch
+          # Also, do this so you don't get errors from git about this
+          # not being set up before your first commit attempt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          # To know what will fail the markdown lint, see src/content-linter/style/github-docs.js
+          # Add some NOT valid Markdown to it
+          # In this case an internal link with a hardcode /en/ prefix.
+          echo "This *is** not valid [Markdown](/en/foo)" >> content/get-started/start-your-journey/hello-world.md
+          git commit -a -m "this should fail"
+          exit_code=$?
+          if [ $exit_code != 0 ]; then
+            echo "That SHOULD have failed, but it DIDN'T"
+            exit 1
+          else
+            echo "As expected, it failed :)"
+          fi

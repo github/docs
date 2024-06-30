@@ -1,0 +1,3 @@
+>[!IMPORTANT] Starting August 19th, 2024, {% data variables.product.company_short %} will begin collecting state-mandated sales tax, where and when applicable, from paying customers in the United States to align with industry standard regulatory practices. All United States customers are required to update payment information (specifically your address) to ensure the correct sales tax amount is assessed. If you are a paying customer, there will be a tax line on your receipt that provides a breakdown of the applicable taxes for the {% data variables.product.company_short %} products and services you have purchased.
+>
+>You will need to ensure that all required address fields are filled out in your billing information to calculate the correct sales tax.

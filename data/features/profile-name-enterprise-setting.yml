@@ -1,0 +1,3 @@
+# Reference: Issue #6996 ability to show users' first/last name instead of username in issue/PR comment titles for public and internal repos
+versions:
+  ghes: '>=3.6'

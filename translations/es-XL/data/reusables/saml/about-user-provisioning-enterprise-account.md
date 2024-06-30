@@ -1,1 +1,0 @@
-Si utilizas a Okta como tu IdP, puedes utilizar SCIM para adminsitrar la membrecía de tu organización en tu cuenta empresarial. SCIM invita a las personas o las elimina de una organización en tu cuenta empresarial automáticamente con base en si son miembros del grupo que corresponde a cada organización en tu IdP o no.

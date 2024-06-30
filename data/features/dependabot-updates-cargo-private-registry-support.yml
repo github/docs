@@ -1,0 +1,6 @@
+# Reference: issue  #13801
+# Private Cargo Registry Support for Dependabot - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.13'

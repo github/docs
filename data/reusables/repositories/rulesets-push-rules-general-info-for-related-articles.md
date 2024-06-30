@@ -1,0 +1,2 @@
+Your repository may have push rulesets enabled. Push rulesets may block creating a new file in the repository based on certain restrictions. Push rulesets apply to the repository's entire fork network. Which means that any push rulesets that are configured in the root repository will also apply to every fork of the repository. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rulesets)."
+   {% data reusables.repositories.rulesets-push-rules-beta-note %}

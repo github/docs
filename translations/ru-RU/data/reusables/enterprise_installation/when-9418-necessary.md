@@ -1,1 +1,0 @@
-If you have enabled private mode on your instance, then opening this port is only required if you also enabled anonymous Git read access. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."

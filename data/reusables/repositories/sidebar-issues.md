@@ -1,4 +1,11 @@
-2. Under your repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.1" or currentVersion == "github-ae@issue-4483" %}
-   ![Issues tab](/assets/images/help/repository/repo-tabs-issues.png){% else %}
-   ![Issues tab](/assets/images/enterprise/3.1/help/repository/repo-tabs-issues.png){% endif %}
+1. Under your repository name, click {% octicon "issue-opened" aria-hidden="true" %} **Issues**.
+
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Issues," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-issues-global-nav-update.png)
+
+{% else %}
+
+   ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Issues," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-issues.png)
+
+{% endif %}

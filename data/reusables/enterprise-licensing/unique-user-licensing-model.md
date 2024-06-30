@@ -1,0 +1,3 @@
+{% data variables.product.company_short %} uses a unique-user licensing model. For enterprise products that include multiple deployment options, {% data variables.product.company_short %} determines how many licensed seats you're consuming based on the number of unique users across all your deployments.
+
+Each user only consumes one license, no matter how many {% data variables.product.prodname_ghe_server %} instances the user uses, or how many organizations the user is a member of on {% data variables.product.prodname_ghe_cloud %}. This model allows each person to use multiple {% data variables.product.prodname_enterprise %} deployments without incurring extra costs.

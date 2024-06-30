@@ -1,0 +1,18 @@
+p.hover-card-anchor {
+  border-top: 1px solid var(--color-border-default);
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding-top: 16px;
+
+  &:before {
+    content: "";
+    background-color: var(--color-fg-muted);
+    display: inline-flex;
+    height: 16px;
+    width: 16px;
+    margin-right: 8px;
+    mask-image: url("/assets/cb-479/images/site/hash.svg");
+    mask-size: cover;
+    vertical-align: middle;
+  }
+}

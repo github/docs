@@ -1,1 +1,0 @@
-Se você definir a permissão de metadados para `No access` e selecionar uma permissão que exija acesso ao repositório, GitHub irá substituir sua seleção e definir a permissão de metadados de volta para `Read-only`. Para definir a permissão de metadados para `No access`, você deve definir todas as permissões que requerem acesso ao repositório `No access` primeiro.

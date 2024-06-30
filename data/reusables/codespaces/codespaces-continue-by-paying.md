@@ -1,0 +1,1 @@
+You can continue using {% data variables.product.prodname_github_codespaces %} beyond your monthly included storage and compute usage by providing payment details and setting a spending limit. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."

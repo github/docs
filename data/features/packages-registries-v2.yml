@@ -1,0 +1,7 @@
+# Feature flag for versions that have at least one "v2" GitHub Packages registry.
+# We use this feature flag when we refer generically to granular permissions
+# and user/organization-scoped packages, without mentioning specific registries.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'

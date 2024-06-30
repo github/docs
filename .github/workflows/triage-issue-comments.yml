@@ -1,25 +1,28 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:
     types:
       - created
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   triage-issue-comments:
-    if: github.repository == 'github/docs' && github.event.issue.pull_request == null
+    if: ${{ github.repository == 'github/docs' && !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: is-internal-contributor
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: string
           script: |
             const repo = context.payload.repository.name
@@ -38,15 +41,21 @@ jobs:
               console.log(`This issue was commented on by an external contributor.`)
               return 'false'
             }
+
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
       - name: Label issues with new comments with 'triage'
-        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
-        if: (steps.is-internal-contributor.outputs.result == 'false')
+        uses: ./.github/actions/labeler
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          add-labels: 'triage'
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
+          addLabels: 'triage'
+          ignoreIfLabeled: true
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
         with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

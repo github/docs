@@ -1,1 +1,0 @@
-默认情况下，只有组织所有者才可管理组织中 GitHub 的设置。 要允许其他用户管理组织中的 GitHub 应用程序，所有者可以向他们授予 GitHub 应用程序管理员权限。 请参阅“[GitHub 应用程序](/articles/permission-levels-for-an-organization/#github-app-managers)”，了解如何在组织中添加和删除 GitHub 应用程序管理员。

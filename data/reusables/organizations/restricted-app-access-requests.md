@@ -1,0 +1,1 @@
+Organization owners can choose whether to allow outside collaborators to request access for unapproved {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests)."

@@ -1,1 +1,0 @@
-1. "Ignored labels（無視されたラベル）"の下に、カンマ区切りでラベルのリストを入力してください。 スケジュールされたリマインダーは、それらのラベルを1つ以上持っているプルリクエストを含めなくなります。 ![無視されるラベルフィールド](/assets/images/help/settings/scheduled-reminders-ignored-labels-field.png)

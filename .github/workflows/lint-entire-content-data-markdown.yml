@@ -1,0 +1,50 @@
+name: 'Lint entire content and data markdown files'
+
+# **What it does**: Lints our content markdown weekly to ensure the content matches the specified styleguide. If errors exists, it opens a PR for the Docs content team to review.
+# **Why we have it**: Extra precaution to run linter on the entire content/data directories.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 0' # Run every day at 16:20 UTC / 8:20 PST every Sunday
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lint-entire-content-data:
+    name: Lint entire content and data directories
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Check that gh CLI is installed
+        run: gh --version
+
+      - name: Check out repo's default branch
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Run content linter
+        id: linting-content-data
+        timeout-minutes: 10
+        continue-on-error: true
+        run: npm run lint-content -- --errors-only --paths content data --output-file /tmp/error-lints.json
+
+      - name: Open issue in docs-content
+        if: ${{ always() && steps.linting-content-data.outcome == 'failure' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          REPORT_AUTHOR: docs-bot
+          REPORT_LABEL: broken content markdown report
+          REPORT_REPOSITORY: github/docs-content
+        run: npm run post-lints -- --path /tmp/error-lints.json
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

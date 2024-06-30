@@ -1,0 +1,4 @@
+# Issue 13896
+# Versioning for Actions Usage Metrics
+versions:
+  ghec: '*'

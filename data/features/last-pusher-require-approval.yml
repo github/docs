@@ -1,0 +1,6 @@
+# Issue: 8263
+# Description: Require the last pusher on a branch to get an approving review before merging
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

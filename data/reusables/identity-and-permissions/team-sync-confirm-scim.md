@@ -1,0 +1,1 @@
+1. We recommend you confirm that your users have SAML enabled and have a linked SCIM identity to avoid potential provisioning errors. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization)."

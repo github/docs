@@ -1,0 +1,31 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: tuesday
+    ignore:
+      # Because this is so dependent on the remote server we use
+      - dependency-name: '@elastic/elasticsearch'
+      # Because whatever we have needs to match what @primer/react also uses
+      - dependency-name: 'styled-components'
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: wednesday
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']
+
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule:
+      interval: weekly
+      day: thursday
+    ignore:
+      - dependency-name: 'node'

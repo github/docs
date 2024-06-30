@@ -1,0 +1,4 @@
+# Issue #8727
+# Documentation for organization invitation enhancements
+versions:
+  ghec: '*'

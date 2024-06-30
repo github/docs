@@ -1,0 +1,218 @@
+name: Sync search Elasticsearch
+
+# **What it does**: It scrapes the whole site and dumps the records in a
+#                   temp directory. Then it indexes that into Elasticsearch.
+# **Why we have it**: We want our search indexes kept up to date.
+# **Who does it impact**: Anyone using search on docs.
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.12'"
+        required: false
+        default: ''
+      languages:
+        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        required: false
+        default: ''
+  schedule:
+    - cron: '20 16 * * *' # Run every 24 hours at 20 minutes past the hour
+  workflow_run:
+    workflows: ['Azure Production - Build and Deploy']
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+# This allows a subsequently queued workflow run to cancel previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.head_ref }} ${{ github.event_name }}'
+  cancel-in-progress: true
+
+env:
+  ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
+  # Since we'll run in NODE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
+
+jobs:
+  figureOutMatrix:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.result }}
+    steps:
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0 # v7.0.0
+        id: set-matrix
+        with:
+          script: |
+            // Edit this list for the definitive list of languages
+            // (other than English) we want to index in Elasticsearch.
+            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
+            const allPossible = ["en", ...allNonEnglish]
+
+            if (context.eventName === "workflow_run") {
+              if (context.payload.workflow_run.conclusion === "success") {
+                return ["en"]
+              }
+              console.warn(`NOTE! It was a workflow_run but not success ('${context.payload.workflow_run.conclusion}')`)
+              console.warn("This means we're not going to index anything in the next dependent step.")
+              return []
+            }
+
+            if (context.eventName === "workflow_dispatch") {
+              if (context.payload.inputs.languages) {
+                const clean = context.payload.inputs.languages.split(',').map(x => x.trim()).filter(Boolean)
+                const notRecognized = clean.find(x => !allPossible.includes(x))
+                if (notRecognized) {
+                  throw new Error(`'${notRecognized}' is not a recognized language code`)
+                }
+                return clean
+              }
+              return allPossible
+            }
+
+            if (context.eventName === "schedule") {
+              return allNonEnglish
+            }
+
+            console.log(context)
+            throw new Error(`Unable figure out what languages to run (${context.eventName})`)
+
+      - name: Debug output
+        run: echo "${{ steps.set-matrix.outputs.result }}"
+
+      - name: Check out repo
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+  updateElasticsearchIndexes:
+    needs: figureOutMatrix
+    name: Update indexes
+    if: ${{ github.repository == 'github/docs-internal' && needs.figureOutMatrix.outputs.matrix != '[]' }}
+    runs-on: ubuntu-20.04-xl
+    strategy:
+      fail-fast: false
+      # When it's only English (i.e. a simple array of ['en']), this value
+      # does not matter. If it's ALL the languages, then we know we can
+      # be patient because it's a daily scheduled run and it's run by bots
+      # while humans are asleep. So there's no rush and no need to finish
+      # the whole job fast.
+      # As of June 2023, it takes about 10+ minutes to index one whole
+      # language and we have 8 non-English languages.
+      max-parallel: 3
+      matrix:
+        language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Clone docs-internal-data
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          repository: github/docs-internal-data
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-internal-data
+
+      - name: Clone all translations
+        if: ${{ matrix.language != 'en' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/cache-nextjs
+
+      - name: Run build scripts
+        run: npm run build
+
+      - name: Start the server in the background
+        env:
+          ENABLE_DEV_LOGGING: false
+        run: |
+          npm run sync-search-server > /tmp/stdout.log 2> /tmp/stderr.log &
+
+          # first sleep to give it a chance to start
+          sleep 6
+          curl --retry-connrefused --retry 4 -I http://localhost:4002/
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log
+
+      - name: Scrape records into a temp directory
+        env:
+          # If a reusable, or anything in the `data/*` directory is deleted
+          # you might get a
+          #
+          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
+          #
+          # But that'll get fixed in the next translation pipeline. For now,
+          # let's just accept an empty string instead.
+          THROW_ON_EMPTY: false
+
+          # Note that by default, this is '' (empty string) and that means
+          # the same as not set within the script.
+          VERSION: ${{ inputs.version }}
+
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--docs-internal-data <PATH>` option.
+          DOCS_INTERNAL_DATA: docs-internal-data
+
+        run: |
+          mkdir /tmp/records
+          npm run sync-search-indices -- /tmp/records \
+            --language ${{ matrix.language }}
+
+          ls -lh /tmp/records
+
+      - name: Check that Elasticsearch is accessible
+        run: |
+          curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
+
+      - name: Index into Elasticsearch
+        env:
+          # Must match what we used when scraping (npm run sync-search-indices)
+          # otherwise the script will seek other versions from disk that might
+          # not exist.
+          VERSION: ${{ inputs.version }}
+        run: |
+          npm run index-elasticsearch -- /tmp/records \
+            --language ${{ matrix.language }} \
+            --stagger-seconds 5 \
+            --retries 5
+
+      - name: Check created indexes and aliases
+        run: |
+          # Not using `--fail` here because I've observed that it can fail
+          # with a rather cryptic 404 error when it should, if anything, be
+          # a 200 OK with a list of no indices.
+          curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+          curl --retry-connrefused --retry 5 ${{ env.ELASTICSEARCH_URL }}/_cat/indices?v
+
+      - name: Purge Fastly edge cache
+        env:
+          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+          FASTLY_SURROGATE_KEY: api-search:${{ matrix.language }}
+        run: src/workflows/purge-fastly-edge-cache.js
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

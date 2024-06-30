@@ -1,1 +1,0 @@
-1. Unter "Private Key" (Privater Schlüssel) gibst Du den privaten Schlüssel Deiner {% data variables.product.prodname_github_app %} ein, die in der PEM-Datei vorhanden ist, die Du beim Erstellen der App heruntergeladen hast. ![Feld „Private key" (Privater Schlüssel)](/assets/images/help/insights/private-key.png)

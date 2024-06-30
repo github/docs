@@ -1,0 +1,1 @@
+To protect your data, {% data variables.product.company_short %} enforces specific access requirements to use {% data variables.product.prodname_importer_proper_name %}. These requirements vary based on the task you are trying to perform. To prevent errors, you should review this article carefully and verify that you meet all of the requirements for the task you want to complete.

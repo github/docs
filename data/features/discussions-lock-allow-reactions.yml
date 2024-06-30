@@ -1,0 +1,6 @@
+# Issue #8453
+# Allow reactions on a discussion, but not comments
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

@@ -1,1 +1,0 @@
-By default, you account will have a spending limit of $0 for your combined usage of {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}. To allow overages, you can increase the spending limit or allow unlimited spending.

@@ -1,1 +1,6 @@
-If the C/C++, C#, or Java code in your repository has a non-standard build process, `autobuild` may fail. You will need to remove the `autobuild` step from the workflow, and manually add build steps. If you want to specify which Go files in your repository to extract, you will need to add build steps.
+If `autobuild` fails, or you want to analyze a different set of source files from those built by the `autobuild` process, you'll need to {% ifversion codeql-no-build %}do the following:
+
+* If your workflow specifies a build mode for the language, change the build mode to `manual`.
+* If your workflow contains an `autobuild` step, remove or comment out the `autobuild` step in the workflow.
+
+{% else %}remove or comment out the autobuild step in the workflow.{% endif %} Then uncomment the `run` step and manually specify the build process to use. For {% data variables.code-scanning.compiled_languages %}, {% data variables.product.prodname_codeql %} will analyze whatever source code is built by your specified build steps.

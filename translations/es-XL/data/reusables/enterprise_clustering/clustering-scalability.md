@@ -1,1 +1,0 @@
-La agrupación proporciona una mejor escalabilidad al distribuir la carga en múltiples nodos. Este escalado horizontal puede ser conveniente para algunas organizaciones con decenas de miles de programadores.

@@ -1,0 +1,6 @@
+# Reference: issue #8227
+# Dependabot Alerts default permissions: write and maintain roles
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.9'

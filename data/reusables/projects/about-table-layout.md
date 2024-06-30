@@ -1,0 +1,1 @@
+The table layout is a powerful and adaptable spreadsheet comprised of your issues, pull requests, and draft issues with metadata from {% data variables.product.company_short %} and the custom fields you've added to your project.  You can group, sort, and filter items, and show or hide fields in your table layouts to suit the needs of everyone on your team.

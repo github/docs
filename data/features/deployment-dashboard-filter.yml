@@ -1,0 +1,6 @@
+# Reference: #13955
+# GA release for deployment history dashboard that adds a filter and the option to pin environments
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.14'

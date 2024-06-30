@@ -1,0 +1,1 @@
+Before you configure provisioning, ensure that you understand the integration requirements and level of support for your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."

@@ -1,0 +1,6 @@
+# Issue 7910
+# ProjectV2 auto-archiving
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

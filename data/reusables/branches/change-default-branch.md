@@ -1,1 +1,1 @@
-You can change the default branch for an existing repository. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+You can change the default branch for an existing repository. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."

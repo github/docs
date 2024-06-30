@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, haz clic en **{% data variables.enterprise.management_console %}**. ![pestaña {% data variables.enterprise.management_console %} en la barra lateral izquierda](/assets/images/enterprise/management-console/management-console-tab.png)
