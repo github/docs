@@ -52,7 +52,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type. For more information on the `published` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#release)."
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
@@ -129,7 +129,7 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with a push trigger. For more information on the `release` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#release)."
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
