@@ -43,10 +43,6 @@ To enhance performance and address some of the limitations of the {% data variab
 
 While the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is a powerful tool to create custom patterns without you having to write regular expressions yourself, it is important to use it as a tool rather than a replacement for manual input. You should carefully validate the performance of the results by performing a dry run across your organization or repository. It's a good idea to run the pattern on a repository (or repositories) that are representative of the repositories in your organization. In some cases, it may be beneficial to modify a generated regular expression to more fully meet your needs. You remain ultimately responsible for any custom patterns you decide to use.
 
-### Provide feedback
-
-The {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is currently in beta. If you encounter any issues or limitations with the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, we recommend that you provide feedback through the **Give feedback** button at the top of the generator, in the UI. This can help the developers to improve the tool and address any concerns or limitations.
-
 ## Limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 
 Depending on factors such as your input description and examples, you may experience different levels of performance when using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}. You need to be as specific as possible with your description, and provide different types of examples of tokens that match your pattern, to be sure that the regular expression encompasses all the patterns you want {% data variables.product.prodname_secret_scanning %} to search for.
