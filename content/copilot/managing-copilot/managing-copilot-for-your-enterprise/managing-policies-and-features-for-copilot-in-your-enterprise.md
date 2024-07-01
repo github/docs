@@ -57,6 +57,12 @@ Developers can chat with {% data variables.product.prodname_copilot %} in their 
 
 {% data variables.product.prodname_copilot_mobile %} is a chat interface that lets developers interact with {% data variables.product.prodname_copilot %} to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
 
+## {% data variables.product.prodname_copilot_extensions %}
+
+{% data reusables.copilot.copilot-extensions.beta-note %}
+
+{% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping developers reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
+
 ## Suggestions matching public code
 
 {% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown.
@@ -66,20 +72,3 @@ Developers can chat with {% data variables.product.prodname_copilot %} in their 
 > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
 
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
-
-## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_extensions %}
-
-{% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
-
-Before organization owners install {% data variables.product.prodname_copilot_extensions_short %} in organizations within your enterprise, you should set a usage policy for your enterprise. Setting a usage policy allows you to enable or disable {% data variables.product.prodname_copilot_extensions_short %} for all members of your enterprise, limiting your security risk. Alternatively, you can allow organization owners to select their own policy for their organization.
-
-Additionally, after you install a {% data variables.product.prodname_copilot_extension_short %} in your organization, organization owners can view and manage the permissions for that extension. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization#managing-permissions-for-a-github-copilot-extension-in-your-organization)."
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-{% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. In the "{% data variables.product.prodname_copilot_extensions_short %}" section, select the dropdown menu, then click one of the following options:
-    * **No policy**: organizations within your enterprise can set their own policies for {% data variables.product.prodname_copilot_extensions_short %}.
-    * **Enabled**: {% data variables.product.prodname_copilot_extensions_short %} are enabled for all organizations in your enterprise.
-    * **Disabled**: {% data variables.product.prodname_copilot_extensions_short %} are disabled for all organizations in your enterprise.
