@@ -133,7 +133,7 @@ export async function getPageInfo(page: Page, pathname: string) {
   await contextualize(renderingReq as ExtendedRequest, res as Response, next)
   await shortVersions(renderingReq, res, next)
   renderingReq.context.page = page
-  await features(renderingReq, res, next)
+  features(renderingReq as ExtendedRequest, res as Response, next)
   const context = renderingReq.context
 
   const title = await page.renderProp('title', context, { textOnly: true })

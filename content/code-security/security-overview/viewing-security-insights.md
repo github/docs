@@ -56,6 +56,8 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
+{% data reusables.security-overview.enterprise-filters-tip %}
+
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 {% data reusables.security-overview.filter-and-toggle %}
@@ -124,7 +126,7 @@ You can also see how many secrets were successfully blocked, which is calculated
 
 {% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected. This feature is in beta, and is subject to change.{% endif %}
 
-For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 ### Mean time to remediate
 

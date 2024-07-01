@@ -46,7 +46,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-To learn more about {% data variables.product.prodname_copilot_extensions_short %}, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions)."
+To learn more about {% data variables.product.prodname_copilot_extensions_short %}, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions)."
 
 ## Publishing an app to {% data variables.product.prodname_marketplace %} overview
 

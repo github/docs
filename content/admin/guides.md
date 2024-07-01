@@ -101,7 +101,6 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
-  - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/continuous-integration-using-jenkins
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/disabling-git-ssh-access-on-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
@@ -136,4 +135,3 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
-

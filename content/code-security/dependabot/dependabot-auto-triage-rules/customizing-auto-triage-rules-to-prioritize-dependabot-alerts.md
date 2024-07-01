@@ -17,8 +17,6 @@ redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/customizing-alert-rules-to-prioritize-dependabot-alerts
 ---
 
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
-
 ## About {% data variables.dependabot.custom_rules %}
 
 You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
