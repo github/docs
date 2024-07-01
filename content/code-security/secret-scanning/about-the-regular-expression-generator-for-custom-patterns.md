@@ -15,8 +15,6 @@ topics:
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
 
-{% data reusables.rai.secret-scanning.beta-custom-pattern-regular-expression-generator %}
-
 ## About the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 
 {% data variables.product.prodname_secret_scanning_caps %} scans repositories for a predefined set of secrets from our partner program, as well as custom patterns that are user-defined. Custom patterns are formatted as regular expressions.

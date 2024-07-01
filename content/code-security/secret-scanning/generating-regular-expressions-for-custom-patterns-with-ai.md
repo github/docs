@@ -11,7 +11,6 @@ topics:
   - Secret scanning
   - AI
 ---
-{% data reusables.secret-scanning.beta-custom-pattern-regular-expression-generator %}
 
 ## Generating a regular expression for a repository using the generator
 
