@@ -1,7 +1,7 @@
 ---
 title: Managing policies and features for Copilot in your enterprise
 intro: 'You can control the availability of {% data variables.product.prodname_copilot %} and its features for all organizations in your enterprise.'
-permissions: Enterprise admins
+permissions: Enterprise owners
 product: '{% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot-enterprise
