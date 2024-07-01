@@ -24,41 +24,45 @@ If a policy is enabled or disabled at the enterprise level, the same policy cann
 
 If no policy has been chosen at the enterprise level, and multiple organizations within the enterprise have chosen different policies and granted access to the same users, the most restrictive policy is enforced.
 
-## Managing the use of {% data variables.product.prodname_copilot %} suggestions that match public code
+## Configuring policies for {% data variables.product.prodname_copilot %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+{% data reusables.enterprise-accounts.copilot-policies-tab %}
+1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
+
+## {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
+
+With a {% data variables.product.prodname_copilot_enterprise_short %} license, members of your enterprise can access AI features that enhance their experience on {% data variables.product.prodname_dotcom_the_website %}, including:
+* {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_copilot_short %} pull request summaries
+* {% data variables.product.prodname_copilot_short %} knowledge bases
+
+To learn more about these features, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
+
+If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
+* **Opt in to user feedback collection** - If enabled, developers can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, developers can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
+* **Experimental {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features before they are released.
+
+## {% data variables.product.prodname_copilot_cli %}
+
+{% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. Developers can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
+
+## {% data variables.product.prodname_copilot_chat %} in the IDE
+
+Developers can chat with {% data variables.product.prodname_copilot %} in their IDEs to get code suggestions and answers to coding-related questions.
+
+## {% data variables.product.prodname_copilot_mobile %}
+
+{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets developers interact with {% data variables.product.prodname_copilot %} to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
+
+## Suggestions matching public code
 
 {% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown.
 
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-{% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce.
+## Give {% data variables.product.prodname_copilot_short %} access to Bing
 
-## Managing the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}
+> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
 
-With a {% data variables.product.prodname_copilot_enterprise_short %} license, members of your enterprise can access AI features that enhance their experience on {% data variables.product.prodname_dotcom_the_website %}, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} across multiple repositories. See "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
-
-{% data reusables.copilot.copilot-enterprise-enable %}
-
-## Managing the use of {% data variables.product.prodname_copilot_chat %} in IDEs
-
-Users can chat with {% data variables.product.prodname_copilot %} in their IDEs to get code suggestions and answers to coding-related questions.
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-{% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Next to "{% data variables.product.prodname_copilot_chat %} in the IDE," click the dropdown menu and select the policy you want to enforce.
-
-## Managing the use of {% data variables.product.prodname_copilot_cli %}
-
-{% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal that allows you to ask questions about commands you run from the command line.
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Click the **Policies** tab.
-1. Next to "{% data variables.product.prodname_copilot_cli %}", click the dropdown menu and select the policy you want to enforce.
-
-## Managing the use of {% data variables.product.prodname_copilot_mobile %}
-
-{% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %} to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
-
-{% data reusables.copilot.copilot-chat-mobile-enable %}
+{% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
