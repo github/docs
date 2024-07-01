@@ -980,8 +980,7 @@ services:
 The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a registry name.
 
 > [!NOTE]
-> Usage of GitHub [AUTOTITLE](/actions/learn-github-actions/contexts) is allowed when specyfing service image.
-> Allowed contexts are: `github`, `strategy`, `matrix`, `needs`, `vars` and `inputs`.
+> You can use the following [AUTOTITLE](/actions/learn-github-actions/contexts) when specifying a service image: `github`, `inputs`, `matrix`, `needs`, `strategy`, and `vars`.
 
 If `jobs.<job_id>.services.<service_id>.image` is assigned an empty string, the service will not start. You can use this to set up conditional services, similar to the following example.
 
