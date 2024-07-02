@@ -22,7 +22,7 @@ There are **three enforcement options** for {% data variables.product.prodname_c
 
 If a policy is enabled or disabled at the enterprise level, the same policy cannot be changed at the organization level.
 
-If no policy has been chosen at the enterprise level, and multiple organizations within the enterprise have chosen different policies and granted access to the same users, the most restrictive policy is enforced.
+If no policy is chosen at the enterprise level, and multiple organizations within the enterprise choose different policies and grant access to the same users, the most restrictive policy is enforced.
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 
@@ -41,7 +41,7 @@ With a {% data variables.product.prodname_copilot_enterprise_short %} license, y
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
 * **Opt in to user feedback collection** - If enabled, members of your enterprise can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, members of your enterprise can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
-* **Experimental {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features before they are released.
+* **Experimental {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features before they are released. Be aware that experimental features may have flaws, and the features may be changed or discontinued at any time.
 
 ## {% data variables.product.prodname_copilot_cli %}
 
