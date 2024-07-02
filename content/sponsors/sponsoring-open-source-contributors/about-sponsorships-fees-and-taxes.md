@@ -60,7 +60,7 @@ Alternatively, enterprises and organizations may opt to be billed by recurring i
 
 {% ifversion enterprise-orgs-sponsors-with-cc %}
 
-When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please consult [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
+When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
 
 {% endif %}
 
