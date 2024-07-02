@@ -39,7 +39,7 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 ## About billing and sponsorship payments
 
-GitHub provides the following billing methods to show love and support to your fellow collaborators and developers in the form of paid sponsorships: credit or debit cards, and Patreon.
+GitHub provides the following billing methods to show love and support to your fellow collaborators and developers in the form of paid sponsorships: debit or credit cards, and Patreon.
 For additional information on your preferred funding, please click on any of the links below.
 * [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)
 * [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)
