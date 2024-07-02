@@ -34,12 +34,10 @@ If no policy has been chosen at the enterprise level, and multiple organizations
 
 ## {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
-With a {% data variables.product.prodname_copilot_enterprise_short %} license, members of your enterprise can access AI features that enhance their experience on {% data variables.product.prodname_dotcom_the_website %}, including:
-* {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}
-* {% data variables.product.prodname_copilot_short %} pull request summaries
-* {% data variables.product.prodname_copilot_short %} knowledge bases
-
-To learn more about these features, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
+With a {% data variables.product.prodname_copilot_enterprise_short %} license, you can enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" to provide members of your enterprise access to AI features on {% data variables.product.prodname_dotcom_the_website %}, including:
+* **{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}** - You can ask {% data variables.product.prodname_copilot %} coding-related questions within a chat interface on {% data variables.product.prodname_dotcom_the_website %}. You can ask general questions or questions within a specific context such as a repository, issue, file, or symbol.
+* **{% data variables.product.prodname_copilot_short %} pull request summaries** - {% data variables.product.prodname_copilot_short %} can generate a summary of the changes made in a pull request, as well as a list of impacted files, using natural language. This overview helps reviewers quickly understand the proposed changes.
+* **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.product.prodname_copilot_chat_dotcom %} and {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}.
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
 * **Opt in to user feedback collection** - If enabled, developers can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, developers can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
@@ -51,7 +49,7 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 
 ## {% data variables.product.prodname_copilot_chat %} in the IDE
 
-Developers can chat with {% data variables.product.prodname_copilot %} in their IDEs to get code suggestions and answers to coding-related questions.
+Developers can chat with {% data variables.product.prodname_copilot %} in their IDEs to get code suggestions and answers to coding-related questions without context switching.
 
 ## {% data variables.product.prodname_copilot_mobile %}
 
@@ -61,7 +59,7 @@ Developers can chat with {% data variables.product.prodname_copilot %} in their 
 
 {% data reusables.copilot.copilot-extensions.beta-note %}
 
-{% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping developers reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience. See "[AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat)."
+{% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping developers reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience.
 
 ## Suggestions matching public code
 
