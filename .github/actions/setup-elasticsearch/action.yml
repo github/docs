@@ -4,8 +4,8 @@ description: Install a local Elasticsearch with version that matches prod
 
 inputs:
   token:
-    description: PAT
-    required: true
+    description: Server 
+    required: false
 
 runs:
   using: 'composite'
