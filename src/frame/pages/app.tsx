@@ -70,7 +70,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
             Just remember, if you edit these images on disk, remember to
             change these numbers
          */}
-        <link rel="icon" type="image/png" href="/assets/cb-345/images/site/favicon.png" />
+        <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg"/>
 
         <link href="/manifest.json" rel="manifest" />
 
