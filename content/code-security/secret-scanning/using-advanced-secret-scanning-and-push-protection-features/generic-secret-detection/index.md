@@ -12,5 +12,6 @@ topics:
   - Repositories
 children:
   - /about-the-detection-of-generic-secrets-with-secret-scanning
+  - /enabling-ai-powered-generic-secret-detection
 ---
 

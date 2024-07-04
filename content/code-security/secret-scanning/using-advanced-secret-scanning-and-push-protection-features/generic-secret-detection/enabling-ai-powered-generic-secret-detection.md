@@ -9,6 +9,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - AI
+redirect_from:
+  - /code-security/secret-scanning/enabling-ai-powered-generic-secret-detection
 ---
 
 {% data reusables.secret-scanning.generic-secret-detection-ai %}

@@ -22,7 +22,6 @@ children:
   - /generating-regular-expressions-for-custom-patterns-with-ai
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns
-  - /enabling-ai-powered-generic-secret-detection
   - /push-protection-for-repositories-and-organizations
   - /push-protection-for-users
   - /working-with-push-protection
