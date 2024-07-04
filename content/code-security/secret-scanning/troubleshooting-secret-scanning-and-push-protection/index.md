@@ -12,4 +12,7 @@ topics:
   - Secret scanning
   - Advanced Security
   - Troubleshooting
+children:
+  - /troubleshooting-secret-scanning
 ---
+
