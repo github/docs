@@ -31,4 +31,5 @@ children:
   - /pushing-a-branch-blocked-by-push-protection
   - /troubleshooting-secret-scanning
   - /using-advanced-secret-scanning-and-push-protection-features
+  - /secret-scanning-partnership-program
 ---
