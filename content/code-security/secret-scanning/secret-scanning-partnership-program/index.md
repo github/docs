@@ -7,4 +7,7 @@ versions:
 topics:
   - API
 shortTitle: Partner program
+children:
+  - /secret-scanning-partner-program
 ---
+
