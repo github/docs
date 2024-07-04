@@ -14,4 +14,5 @@ topics:
   - Repositories
 children:
   - /generic-secret-detection
+  - /custom-patterns
 ---
