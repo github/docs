@@ -15,4 +15,5 @@ topics:
 children:
   - /generic-secret-detection
   - /custom-patterns
+  - /delegated-bypass-for-push-protection
 ---
