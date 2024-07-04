@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting secret scanning
 shortTitle: Troubleshoot secret scanning
-intro: 'If you have problems with {% data variables.product.prodname_secret_scanning %}, you can use these tips to help resolve issues.'
+intro: 'When using {% data variables.product.prodname_secret_scanning %} to detect secrets in your repository, or about to be committed into your repository, you may need to troubleshoot unexpected issues.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
