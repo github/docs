@@ -12,6 +12,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - Troubleshooting
+redirect_from:
+  - /code-security/secret-scanning/troubleshooting-secret-scanning
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
