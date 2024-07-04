@@ -10,6 +10,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - AI
+redirect_from:
+  - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
