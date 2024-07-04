@@ -12,4 +12,6 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
+children:
+  - /generic-secret-detection
 ---
