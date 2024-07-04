@@ -12,6 +12,8 @@ versions:
   ghec: '*'
 topics:
   - API
+  - Secret scanning
+  - Advanced Security
 shortTitle: Partner program
 ---
 
