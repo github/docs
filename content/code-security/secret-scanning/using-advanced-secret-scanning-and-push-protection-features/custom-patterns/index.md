@@ -2,7 +2,7 @@
 title: Custom patterns
 shortTitle: Custom patterns
 allowTitleToDifferFromFilename: true
-intro: 'TODO'
+intro: TODO
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   ghes: '*'
@@ -11,4 +11,7 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
+children:
+  - /defining-custom-patterns-for-secret-scanning
 ---
+
