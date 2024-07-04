@@ -1,0 +1,132 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: Termux  
+lang: en
+supported_langs: [en,cn]
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://termux.dev" # the base hostname & protocol for your site, e.g. http://example.com
+site_source: "https://github.com/termux/termux.github.io"
+twitter_username: termuxdevs
+mastodon:
+  -
+    username: termux
+    instance: fosstodon.org
+github_username:  termux
+
+github: [metadata]
+
+# Build settings
+remote_theme: pages-themes/primer@v0.6.0
+
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-redirect-from
+
+markdown: CommonMarkGhPages
+commonmark:
+  options: ["GITHUB_PRE_LANG", "FOOTNOTES", "UNSAFE"]
+  extensions: ["strikethrough", "autolink", "table", "tagfilter"]
+
+collections:
+  posts:
+    output: true
+
+feed:
+  categories:
+    - general
+
+show_excerpts: true # set to true to show excerpts on posts
+
+defaults:
+# Set doc layout for all docs files
+  -
+    scope:
+      path: "*/docs"
+    values:
+      layout: "doc"
+
+# Set post layout for all posts files
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "posts/post"
+
+
+# Set page.lang for all files under respective languages and ensure index.html is added for directories
+  -
+    scope:
+      path: "en"
+    values:
+      lang: en
+      permalink: /:path/:basename:output_ext
+
+  -
+    scope:
+      path: "cn"
+    values:
+      lang: cn
+      permalink: /:path/:basename:output_ext
+
+
+# Set page.category for all posts under respective categories
+  -
+    scope:
+      path: "_posts/*/apps"
+    values:
+      category: apps
+
+  -
+    scope:
+      path: "_posts/*/general"
+    values:
+      category: general
+
+  -
+    scope:
+      path: "_posts/*/packages"
+    values:
+      category: packages
+
+
+# Set page.lang for all posts files under respective languages and permalink with /en/:collection prefix
+  -
+    scope:
+      path: "_posts/en"
+    values:
+      lang: en
+      permalink: /en/:collection/:categories/:year/:month/:day/:title:output_ext
+
+  -
+    scope:
+      path: "_posts/cn"
+    values:
+      lang: cn
+      permalink: /cn/:collection/:categories/:year/:month/:day/:title:output_ext
+
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
