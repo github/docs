@@ -1,5 +1,5 @@
 ---
-title: Managing custom patterns for secret scanning
+title: Managing custom patterns
 shortTitle: Manage custom patterns
 intro: 'You can view, edit, and remove custom patterns, as well as enable push protection for custom patterns.'
 product: '{% data reusables.gated-features.secret-scanning %}'
