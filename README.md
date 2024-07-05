@@ -1,3 +1,5 @@
+[![Check unallowed file changes](https://github.com/github/docs/actions/workflows/triage-unallowed-contributions.yml/badge.svg)](https://github.com/github/docs/actions/workflows/triage-unallowed-contributions.yml)
+
 # GitHub Docs <!-- omit in toc -->
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
