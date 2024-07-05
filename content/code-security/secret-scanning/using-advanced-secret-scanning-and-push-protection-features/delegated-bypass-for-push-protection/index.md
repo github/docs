@@ -2,7 +2,7 @@
 title: Delegated bypass for push protection
 shortTitle: Delegated bypass
 allowTitleToDifferFromFilename: true
-intro: 'TODO'
+intro: 'With delegated bypass, contributors can propose bypassing a block and members of the bypass list can review those bypass requests to allow or deny the content.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'

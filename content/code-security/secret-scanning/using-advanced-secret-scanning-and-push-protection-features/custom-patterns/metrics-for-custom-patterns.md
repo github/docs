@@ -1,7 +1,7 @@
 ---
 title: Metrics for custom patterns
 shortTitle: Custom pattern metrics
-intro: 'TODO'
+intro: 'You can view alert metrics for custom patterns at the repository, organization, and enterprise levels, from within {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   feature: secret-scanning-custom-patterns-metrics
@@ -10,6 +10,8 @@ topics:
   - Advanced Security
   - Secret scanning
 ---
+
+TODO
 
 ## Metrics for custom patterns
 

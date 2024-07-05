@@ -1,7 +1,7 @@
 ---
-title: Managing custom patterns for secret
+title: Managing custom patterns for secret scanning
 shortTitle: Manage custom patterns
-intro: 'TODO'
+intro: 'You can view, edit, and remove custom patterns, as well as enable push protection for custom patterns.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   ghes: '*'
@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Secret scanning
 ---
+
+TODO
 
 ## Editing a custom pattern
 
