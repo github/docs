@@ -15,5 +15,5 @@ children:
   - /defining-custom-patterns-for-secret-scanning
   - /about-the-regular-expression-generator-for-custom-patterns
   - /generating-regular-expressions-for-custom-patterns-with-ai
+  - /metrics-for-custom-patterns
 ---
-
