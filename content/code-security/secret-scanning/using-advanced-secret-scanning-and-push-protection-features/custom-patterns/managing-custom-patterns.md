@@ -12,11 +12,12 @@ topics:
   - Secret scanning
 ---
 
-TODO
+Custom patterns are user-defined patterns that you can use to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 ## Editing a custom pattern
 
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
+
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
 {%- ifversion custom-pattern-dry-run-ga  %}
@@ -39,7 +40,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
 ## Enabling push protection for a custom pattern
 
-You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
+You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes %}the enterprise, organization, or repository level{% else %} the organization or repository level{% endif %}.
 
 {% ifversion ghec or ghes %}
 
@@ -90,7 +91,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern
 
-Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

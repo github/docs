@@ -51,4 +51,4 @@ redirect_from:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)"
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-the-regular-expression-generator-for-custom-patterns)"

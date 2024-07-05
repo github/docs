@@ -37,7 +37,7 @@ The model returns up to three regular expressions for you to review. You can cli
 
 Some results may be quite similar, and some results may not find every instance of the secret that the pattern is intended to detect. It is also possible that the regular expression generator may produce results which are invalid or inappropriate.
 
-When you click **Use result** on a regular expression, the expression and any examples inputted will be copied over to the main custom pattern form. There, you can perform a dry run of the pattern to see how it performs across your repository or organization.{% ifversion secret-scanning-custom-pattern-ai-generated %} For more information on how to define a custom pattern for your repository or organization, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
+When you click **Use result** on a regular expression, the expression and any examples inputted will be copied over to the main custom pattern form. There, you can perform a dry run of the pattern to see how it performs across your repository or organization.{% ifversion secret-scanning-custom-pattern-ai-generated %} For more information on how to define a custom pattern for your repository or organization, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)." {% endif %}
 
 ## Improving performance for the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 
@@ -63,7 +63,7 @@ Note that the {% data variables.secret-scanning.custom-pattern-regular-expressio
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
 
@@ -75,6 +75,6 @@ Note that the {% data variables.secret-scanning.custom-pattern-regular-expressio
 {% endif %}
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
-* [AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
 {% endif %}
