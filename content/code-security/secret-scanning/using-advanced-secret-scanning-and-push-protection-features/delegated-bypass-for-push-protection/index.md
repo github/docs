@@ -14,4 +14,6 @@ topics:
   - Repositories
 children:
   - /about-delegated-bypass-for-push-protection
+  - /enabling-delegated-bypass-for-push-protection
+  - /managing-requests-to-bypass-push-protection
 ---

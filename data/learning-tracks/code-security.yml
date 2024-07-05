@@ -132,7 +132,7 @@ secret_scanning:
       {% ifversion secret-scanning-push-protection
       %}/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection{%
       endif %}
-    - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning.md
+    - /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
 security_alerts:
   title: Explore and manage security alerts
   description: Learn where to find and resolve security alerts.
