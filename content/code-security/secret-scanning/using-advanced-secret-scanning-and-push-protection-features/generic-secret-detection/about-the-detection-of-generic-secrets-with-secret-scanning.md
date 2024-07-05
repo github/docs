@@ -76,7 +76,7 @@ Generic secret detection has been subject to Responsible AI Red Teaming and {% d
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 
 {% endif %}
