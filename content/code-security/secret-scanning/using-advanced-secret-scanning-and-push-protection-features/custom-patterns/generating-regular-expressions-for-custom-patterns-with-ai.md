@@ -10,6 +10,8 @@ topics:
   - Advanced Security
   - Secret scanning
   - AI
+redirect_from:
+  - /code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
 ---
 {% data reusables.secret-scanning.beta-custom-pattern-regular-expression-generator %}
 
