@@ -13,5 +13,6 @@ topics:
   - Repositories
 children:
   - /defining-custom-patterns-for-secret-scanning
+  - /about-the-regular-expression-generator-for-custom-patterns
 ---
 

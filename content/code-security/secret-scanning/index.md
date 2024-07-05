@@ -17,7 +17,6 @@ topics:
 children:
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
-  - /about-the-regular-expression-generator-for-custom-patterns
   - /generating-regular-expressions-for-custom-patterns-with-ai
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns

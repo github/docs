@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Secret scanning
   - AI
+redirect_from:
+  - /code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
