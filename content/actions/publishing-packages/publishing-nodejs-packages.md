@@ -117,44 +117,6 @@ To perform authenticated operations against the {% data variables.product.prodna
 
 If you want to publish your package to a different repository, you must use a {% data variables.product.pat_v1 %} that has permission to write to packages in the destination repository. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
-### Example workflow
-
-This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an `.npmrc` file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
-
-```yaml copy
-name: Publish package to GitHub Packages
-on:
-  release:
-    types: [published]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@octocat'
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
-
-The `setup-node` action creates an `.npmrc` file on the runner. When you use the `scope` input to the `setup-node` action, the `.npmrc` file includes the scope prefix. By default, the `setup-node` action sets the scope in the `.npmrc` file to the account that contains that workflow file.
-
-```shell
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-@octocat:registry=https://npm.pkg.github.com
-always-auth=true
-```
-
 ## Publishing packages using Yarn
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
