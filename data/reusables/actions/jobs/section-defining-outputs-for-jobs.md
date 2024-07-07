@@ -55,7 +55,7 @@ jobs:
       matrix:
         job: [1, 2, 3]
     steps:
-      - name: Generate first output
+      - name: Generate output
         id: gen_output
         run: |
           job="${{ matrix.job }}"
