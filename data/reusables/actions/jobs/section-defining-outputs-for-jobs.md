@@ -6,12 +6,6 @@ Job outputs containing expressions are evaluated on the runner at the end of eac
 
 To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#needs-context)."
 
-{% note %}
-
-**Note:** `$GITHUB_OUTPUT` is shared between all steps in a job. If you use the same output name in multiple steps, the last step to write to the output will override the value. If your job uses a matrix and writes to `$GITHUB_OUTPUT`, the content will be overwritten for each matrix combination. You can use the `matrix` context to create unique output names for each job configuration. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#matrix-context)."
-
-{% endnote %}
-
 ### Example: Defining outputs for a job
 
 {% raw %}
@@ -37,6 +31,52 @@ jobs:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: echo "$OUTPUT1 $OUTPUT2"
+```
+
+{% endraw %}
+
+{% note %}
+
+**Note:** When using strategy matrix, job outputs will be combined from all jobs inside matrix. The last executed job outputs will override matching outputs from previous jobs within same matrix.
+
+{% endnote %}
+
+{% raw %}
+
+```yaml
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      output_1: ${{ steps.gen_output.outputs.output_1 }}
+      output_2: ${{ steps.gen_output.outputs.output_2 }}
+      output_3: ${{ steps.gen_output.outputs.output_3 }}
+    strategy:
+      matrix:
+        job: [1, 2, 3]
+    steps:
+      - name: Generate first output
+        id: gen_output
+        run: |
+          job="${{ matrix.job }}"
+          echo "output_${job}=${job}" >> "$GITHUB_OUTPUT"
+          if [[ $job -eq 3 ]]; then
+            # slow down job so it will hopefully finish executing last
+            sleep 10
+            # override output_1 param
+            echo "output_1=${job}" >> "$GITHUB_OUTPUT"
+          fi
+  job2:
+    runs-on: ubuntu-latest
+    needs: [job1]
+    steps:
+      # Will show
+      # {
+      #   "output_1": "3",
+      #   "output_2": "2",
+      #   "output_3": "3"
+      # }
+      - run: echo '${{ toJSON(needs.job1.outputs) }}'
 ```
 
 {% endraw %}
