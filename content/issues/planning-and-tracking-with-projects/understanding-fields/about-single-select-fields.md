@@ -23,8 +23,6 @@ Single select fields can contain up to 50 options.
    * To add additional options, click **Add option**.
 1. Click **Save**.
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
-
 ## Editing a single select field
 
 {% ifversion projects-v2-colorful-selects %}

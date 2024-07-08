@@ -35,6 +35,5 @@ topics:
 You can set each view in your project to a different layout.
 
 {% data reusables.projects.open-view-menu %}
-1. Under "Layout", click either **Table**, **Board** or **Roadmap**.
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Switch layout."
+1. Under "Layout", click either **Table**, **Board** or **Roadmap**.
