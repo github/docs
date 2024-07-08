@@ -1,15 +1,9 @@
 notAllowed:
   - '.devcontainer/**'
-  - '.github/workflows/**'
-  - '.github/CODEOWNERS'
-  - 'assets/fonts/**'
+  - '.github/**'
   - 'data/reusables/rai/**'
   - 'Dockerfile*'
-  - 'src/*/scripts/**'
-  - 'src/**.json'
-  - 'src/**.graphql'
-  - 'src/workflows/**'
-  - 'lib/redirects/**'
+  - 'src/**'
   - 'package*.json'
   - 'content/actions/deployment/security-hardening-your-deployments/**'
 contentTypes:

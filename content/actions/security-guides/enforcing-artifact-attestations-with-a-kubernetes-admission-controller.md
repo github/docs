@@ -42,10 +42,10 @@ We have packaged the Sigstore Policy Controller as a [GitHub distributed Helm ch
 First, install the Helm chart that deploys the Sigstore Policy Controller:
 
 ```bash copy
-helm install policy-controller --atomic \
+helm upgrade policy-controller --install --atomic \
   --create-namespace --namespace artifact-attestations \
   oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller \
-  --version v0.9.0-github3
+  --version v0.9.0-github4
 ```
 
 This installs the Policy Controller into the `artifact-attestations` namespace. At this point, no policies have been configured, and it will not enforce any attestations.
@@ -55,10 +55,10 @@ This installs the Policy Controller into the `artifact-attestations` namespace. 
 Once the policy controller has been deployed, you need to add the GitHub `TrustRoot` and a `ClusterImagePolicy` to your cluster. Use the Helm chart we provide to do this. Make sure to replace `MY-ORGANIZATION` with your GitHub organization's name (e.g., `github` or `octocat-inc`).
 
 ```bash copy
-helm install trust-policies --atomic \
+helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.4.0 \
+ --version v0.5.0 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION
 ```
@@ -86,19 +86,40 @@ Alternatively, you may run:
 kubectl label namespace MY-NAMESPACE policy.sigstore.dev/include=true
 ```
 
+### Matching images
+
+By default, the policy installed with the `trust-policies` Helm chart will verify attestations for all images before admitting them into the cluster. If you only intend to enforce attestations for a subset of images, you can use the Helm values `policy.images` and `policy.exemptImages` to specify a list of images to match against. These values can be set to a list of glob patterns that match the image names. The globbing syntax uses Go [filepath](https://pkg.go.dev/path/filepath#Match) semantics, with the addition of `**` to match any character sequence, including slashes.
+
+For example, to enforce attestations for images that match the pattern `ghcr.io/MY-ORGANIZATION/*` and admit `busybox` without a valid attestation, you can run:
+
+```bash copy
+helm upgrade trust-policies --install --atomic \
+ --namespace artifact-attestations \
+ oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
+ --version v0.5.0 \
+ --set policy.enabled=true \
+ --set policy.organization=MY-ORGANIZATION \
+ --set-json 'policy.exemptImages=["index.docker.io/library/busybox**"]' \
+ --set-json 'policy.images=["ghcr.io/MY-ORGANIZATION/**"]'
+ ```
+
+Note that to match `busybox`, we need to provide the fully-qualified image name with double-star glob: `index.docker.io/library/busybox**`.
+
+Also note that any image you intend to admit _must_ have a matching glob pattern in the `policy.images` list. If an image does not match any pattern, it will be rejected.
+
 ### Advanced usage
 
 To see the full set of options you may configure with the Helm chart, you can run either of the following commands.
 For policy controller options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller --version v0.9.0-github3
+helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller --version v0.9.0-github4
 ```
 
 For trust policy options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.4.0
+helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.5.0
 ```
 
 For more information on the Sigstore Policy Controller, see the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview/).

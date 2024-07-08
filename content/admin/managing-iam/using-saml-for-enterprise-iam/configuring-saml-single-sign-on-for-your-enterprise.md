@@ -23,7 +23,13 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
 ---
 
-{% data reusables.enterprise-accounts.emu-saml-note %}
+{% ifversion ghec %}
+
+**Before** following the steps in this article, make sure that your enterprise uses **personal accounts**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen.
+
+If you see this, your enterprise uses **managed users** and you must follow a different process to configure SAML single sign-on. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+
+{% endif %}
 
 ## About SAML SSO
 

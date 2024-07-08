@@ -7,8 +7,9 @@ versions:
 children:
   - /best-practices-for-github-docs
   - /about-githubs-documentation-philosophy
-  - /writing-content-to-be-translated
   - /content-design-principles
+  - /writing-content-to-be-translated
+  - /making-content-findable-in-search
   - /versioning-documentation
   - /using-markdown-and-liquid-in-github-docs
   - /using-yaml-frontmatter
