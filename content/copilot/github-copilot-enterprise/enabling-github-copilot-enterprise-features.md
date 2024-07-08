@@ -35,7 +35,7 @@ When members are granted access to the features, they'll be notified by email th
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise %} features for an enterprise
 
-An enterprise owner can choose whether to enable {% data variables.product.prodname_copilot_enterprise %} features for all organizations, disable for all organizations, or allow each organization to choose its own policy for the features. By default, each organization can choose its own policy.
+An enterprise owner can choose whether to enable {% data variables.product.prodname_copilot_enterprise %} features for all organizations, disable for all organizations, or allow each organization to choose its own policy for the features.
 
 {% data reusables.copilot.copilot-enterprise-enable %}
 

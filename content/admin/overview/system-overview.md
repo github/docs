@@ -45,7 +45,11 @@ The user filesystem contains files that store following configuration and data. 
 
 ## Deployment topologies
 
-You can deploy {% data variables.product.product_name %} in a variety of topologies, such as a high availability pair. For more information, see "[AUTOTITLE](/admin/overview/about-github-enterprise-server#about-deployment-topologies)."
+By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
+
+* To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+* You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
+* Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
 
 ## Data retention and datacenter redundancy
 
