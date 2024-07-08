@@ -12,11 +12,11 @@ shortTitle: Manage policies
 
 ## About policies for {% data variables.product.prodname_copilot %} in your enterprise
 
-With {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}, you can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
+You can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
 
 There are **three enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
 
-* **No policy** - The feature is initially disabled at the organization level, but each organization with {% data variables.product.prodname_copilot_short %} enabled in your enterprise can set their own policy for the feature.
+* **No policy** - The feature is initially disabled at the organization level, but each organization in your enterprise can set their own policy for the feature.
 * **Enabled** - The feature is available in all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 * **Disabled** - The feature is blocked for all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 
