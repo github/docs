@@ -1,5 +1,5 @@
 ---
-title: Non provider patterns
+title: Non-provider patterns
 shortTitle: Non-provider patterns
 allowTitleToDifferFromFilename: true
 intro: 'TODO.'

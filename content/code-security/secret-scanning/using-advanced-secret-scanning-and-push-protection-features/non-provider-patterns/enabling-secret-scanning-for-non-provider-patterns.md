@@ -1,5 +1,6 @@
 ---
-title: Enabling secret scanning for non provider patterns
+title: Enabling secret scanning for non-provider patterns
+allowTitleToDifferFromFilename: true
 intro: 'TODO'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
