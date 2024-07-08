@@ -13,8 +13,12 @@ topics:
 shortTitle: Delegated bypass
 ---
 
-TODO:
-
 ## About delegated bypass for push protection
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
+
+{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %}
+
+{% data reusables.secret-scanning.push-protection-delegated-bypass-overview %}
+
+For information about enabling delegated bypass, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)."

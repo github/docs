@@ -1,7 +1,8 @@
 ---
 title: Enabling delegated bypass for push protection
-intro: 'You can enable '
+intro: 'You can enable delegated bypass for your organization or repositotory so that you have full control over who can bypass blocks, and which blocks are allowed.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
+permissions: 'Organization owners and repository administrators can enable delegated bypass for push protection for their organization and repository, respectively.'
 versions:
   feature: push-protection-delegated-bypass
 type: how_to
@@ -17,17 +18,9 @@ shortTitle: Enable delegated bypass
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
-Delegated bypass for push protection lets you control who can bypass push protection and which blocked pushes should be allowed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
-When you enable push protection, by default, anyone with write access to the repository can choose to bypass the protection by specifying a reason for allowing the push containing a secret. With delegated bypass, contributors to a repository are instead obligated to request "bypass privileges." The request is sent to a designated group of reviewers, who either approve or deny the request to bypass push protection.
-
-If the request to bypass push protection is approved, the contributor can push the commit containing the secret. If the request is denied, the contributor must remove the secret from the commit (or commits) containing the secret before pushing again.
-
-To configure delegated bypass, organization owners or repository administrators first create a "bypass list". The bypass list comprises specific roles and teams, such as the security team or repository administrators, who oversee requests from non-members to bypass push protection. For more information, see "[Configuring delegated bypass for an organization](#configuring-delegated-bypass-for-an-organization)" and "[Configuring delegated bypass for a repository](#configuring-delegated-bypass-for-a-repository)."
-
-Members of the bypass list view and manage requests through the "Push protection bypass" page in the **Security** tab of the repository. For more information, see "[Managing requests to bypass push protection](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection)."
-
-Members of the bypass list are still protected from accidentally pushing secrets to a repository. When a member of the bypass list attempts to push a commit containing a secret, their push is still blocked, but they can choose to bypass the block by specifying a reason for allowing the push. Members of the bypass list do not have to request bypass privileges from other members in order to override the block.
+To enable this feature, you first need to create a bypass list to add roles and teams who will manage request to bypass push protection. This step is included in the sections below.
 
 ### Configuring delegated bypass for an organization
 

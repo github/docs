@@ -1,7 +1,8 @@
 ---
 title: Managing requests to bypass push protection
-intro: 'TODO'
+intro: 'As a member of the bypass list for an organization or repository, you can process bypass requests from other members of the organization or repository.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
+permissions: 'Members of the bypass listcan process requests from non-members to bypass push protection.'
 versions:
   feature: push-protection-delegated-bypass
 type: how_to
@@ -15,7 +16,13 @@ shortTitle: Manage bypass requests
 
 ## Managing requests to bypass push protection
 
-You can view and manage all requests for bypass privileges on the "Push protection bypass" page, located under the **Security** tab of the repository.
+{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
+
+{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+
+Members of the bypass list can view and manage all requests for bypass privileges on the "Push protection bypass" page, located under the **Security** tab of the repository.
+
+> [!NOTE] Members of the bypass list are still protected from accidentally pushing secrets to a repository. When a member of the bypass list attempts to push a commit containing a secret, their push is still blocked, but they can choose to bypass the block by specifying a reason for allowing the push. Members of the bypass list do not have to request bypass privileges from other members in order to override the block.
 
 You can filter requests by approver (member of the bypass list), requester (contributor making the request), timeframe, and status. The following statuses are assigned to a request:
 
