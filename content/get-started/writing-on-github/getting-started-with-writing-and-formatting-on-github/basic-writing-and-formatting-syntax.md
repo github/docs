@@ -229,7 +229,7 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100 .`) before `First list item`.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
 ```markdown
 100. First list item
@@ -242,8 +242,8 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 ```markdown
 100. First list item
-       - First nested list item
-         - Second nested list item
+     - First nested list item
+       - Second nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)
