@@ -159,7 +159,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptio
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. In the upper-right corner, select the "Watch" drop-down menu, then click a watch option.
