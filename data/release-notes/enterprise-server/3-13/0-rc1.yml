@@ -181,4 +181,4 @@ sections:
       As part of sunsetting Subversion compatibility, Subversion support is now disabled by default. Subversion can be re-enabled in the 3.13 release series by setting `app.svnbridge.enabled = true`. In 3.14, subversion support will be permanently removed. For more information, see [Sunsetting Subversion support](https://github.blog/2023-01-20-sunsetting-subversion-support/) on the GitHub blog.
     # https://github.com/github/releases/issues/3859
     - |
-      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.14. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."
+      The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will deprecate the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."

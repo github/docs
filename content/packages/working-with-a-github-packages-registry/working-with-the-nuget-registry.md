@@ -37,6 +37,8 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 
 Replace `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.
 
+Replace `USERNAME` with the username to be used when connecting to an authenticated source.
+
 {% ifversion packages-nuget-v2 %}{% else %}{% data reusables.package_registry.authenticate-packages-github-token %}{% endif %}
 
 {% ifversion packages-nuget-v2 %}
