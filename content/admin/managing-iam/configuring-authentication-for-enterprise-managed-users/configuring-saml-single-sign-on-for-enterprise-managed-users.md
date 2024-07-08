@@ -19,6 +19,10 @@ topics:
   - SSO
 ---
 
+**Before** following the steps in this article, make sure that your enterprise uses **managed users**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. If you see this, your enterprise uses **managed users** and you can follow the steps in this article.
+
+If your enterprise uses **personal accounts**, you must follow a different process to configure SAML single sign-on. See "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+
 ## About SAML SSO for {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, access to your enterprise's resources on {% data variables.location.product_location %} must be authenticated through your identity provider (IdP). Instead of signing in to {% data variables.product.prodname_dotcom %} with a {% data variables.product.prodname_dotcom %} username and password, members of your enterprise will sign in through your IdP.
