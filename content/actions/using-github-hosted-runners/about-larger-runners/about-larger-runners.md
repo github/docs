@@ -100,12 +100,6 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 
-{% note %}
-
-**Note:** GPU runners are currently in beta and subject to change.
-
-{% endnote %}
-
 | CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
 | --- | --- | -------- | ------------ | ----------------- | ------------- | --------------------- |
 | 4   | 1   | Tesla T4 | 28 GB        | 16 GB             | 176 GB        | Ubuntu, Windows       |
