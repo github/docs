@@ -1,6 +1,6 @@
 ---
 title: Creating diagrams for {% data variables.product.prodname_docs %}
-shortTitle: Creating diagrams
+shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
   feature: 'contributing'
