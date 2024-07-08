@@ -1,6 +1,6 @@
 ---
 title: Enabling guest collaborators
-intro: "You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise."
+intro: "Learn how to enable guest collaborators in your identity provider and add guest collaborators to your enterprise."
 versions:
   feature: guest-collaborators
 topics:
@@ -13,18 +13,21 @@ topics:
 
 {% data reusables.emus.about-guest-collaborators %}
 
-All repository access for organization members, including guest collaborators, is governed by the base permission policy for the organization. See "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+## Enabling guest collaborators in your IdP
 
-If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML authentication, or if you use Entra ID for OIDC authentication, you may need to update your IdP application to use guest collaborators.
+If you use **Microsoft Entra ID** (previously known as Azure AD) or **Okta** for authentication, you may need update the {% data variables.product.prodname_emus %} application in your IdP.
 
-## Enabling guest collaborators with Entra ID
+* "[Enabling guest collaborators with Entra ID](#enabling-guest-collaborators-with-entra-id)"
+* "[Enabling guest collaborators with Okta](#enabling-guest-collaborators-with-okta)"
+
+### Enabling guest collaborators with Entra ID
 
 1. Sign into the Microsoft Azure portal.
 1. Click **Identity**.
 1. Click **Applications**.
 1. Click **Enterprise applications**.
 1. Click **All applications**.
-1. View the details for your {% data variables.product.prodname_emus %} application
+1. View the details for your {% data variables.product.prodname_emus %} application.
 1. In the left sidebar, click **Users and Groups**.
 1. View the application registration.
 
@@ -63,7 +66,7 @@ If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML au
    {% endnote %}
 1. Click **Save**.
 
-## Enabling guest collaborators with Okta
+### Enabling guest collaborators with Okta
 
 To add the guest collaborator role to your Okta application:
 
@@ -77,25 +80,35 @@ To add the guest collaborator role to your Okta application:
    * For "Value", type `guest_collaborator`.
 1. Click **Save**.
 
-## Enabling guest collaborators with PingFederate
-
-For more information about adding guest collaborators using PingFederate, see "[Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso)."
-
-## Enabling guest collaborators with the GitHub REST API
-
-For more information about adding guest collaborators with SCIM using GitHub's REST API, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api#user-and-group-attributes)."
-
 ## Adding guest collaborators to your enterprise
 
-After you enable guest collaborators, you can add guest collaborators to your enterprise as you would any other user. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups)."
+When guest collaborators are enabled in your IdP, you can use SCIM to provision users with the `guest_collaborator` role.
 
-When you have added a guest collaborator to your enterprise, to give the user access to repositories in the enterprise, you can do either of the following things.
+* If you use a partner IdP, use the "Roles" attribute in the {% data variables.product.prodname_emus %} application.
+* If you use the SCIM endpoints of {% data variables.product.company_short %}'s REST API to provision users, use the `roles` user attribute.
 
-* To give the user access to repositories in an organization, add the user as a **member of the organization**.
+For more information about partner IdPs and other identity management systems, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
 
-  The base permission policy for the organization determines whether the guest collaborator has access to internal and private repositories. If the base permission is set to "No permission", the guest collaborator will not have access to internal and private repositories unless added directly to one of the repositories as a collaborator, or through an authorized team. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
-* To give the user access to specific repositories, add the guest collaborator to the repositories as a **repository collaborator**.
+## Giving guest collaborators access to resources
 
-  This gives the user access to the repository without giving them access to other internal or private repositories in the same organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
+When you have added a guest collaborator to your enterprise, you can add the user to specific organizations or repositories.
 
-Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+### Add the user to an organization
+
+To give the user access to repositories in an organization, add the user as a **member of the organization**.
+
+* As for all members, the base permission policy for the organization determines whether the user has access to internal and private repositories by default. See "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+* Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+
+### Add the user to a repository
+
+To give the user access to specific repositories, add the user to the repositories as a **repository collaborator**.
+
+This gives the user access to the repository without giving them access to other internal or private repositories in the same organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
+
+## Further reading
+
+* [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Entra ID documentation
+* [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) in the PingIdentity documentation
+* "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)"
+* "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)"
