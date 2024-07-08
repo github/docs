@@ -122,6 +122,8 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+TODO: add sentence about delegated bypass and link to new articles.
+
 ## Further reading
 
 * "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
