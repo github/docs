@@ -3,9 +3,7 @@ title: About delegated bypass for push protection
 intro: 'TODO'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: push-protection-delegated-bypass
 type: overview
 topics:
   - Secret scanning
@@ -15,4 +13,8 @@ topics:
 shortTitle: Delegated bypass
 ---
 
-TODO
+TODO:
+
+## About delegated bypass for push protection
+
+{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
