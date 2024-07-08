@@ -13,6 +13,7 @@ topics:
   - Advanced Security
   - Repositories
 children:
+  - /non-provider-patterns
   - /generic-secret-detection
   - /custom-patterns
   - /delegated-bypass-for-push-protection
