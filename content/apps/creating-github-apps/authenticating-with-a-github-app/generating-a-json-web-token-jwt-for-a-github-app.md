@@ -173,8 +173,8 @@ header_json='{
 header=$( echo -n "${header_json}" | b64enc )
 
 payload_json="{
-    \"iat\":\"${iat}\",
-    \"exp\":\"${exp}\",
+    \"iat\":${iat},
+    \"exp\":${exp},
     {% ifversion client-id-for-app %}\"iss\":\"${client_id}\"{% else %}\"iss\":\"${app_id}\"{% endif %}
 }"
 # Payload encode
