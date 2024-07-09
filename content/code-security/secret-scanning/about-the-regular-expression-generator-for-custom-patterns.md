@@ -1,6 +1,6 @@
 ---
 title: About custom patterns with Copilot Secret Scanning
-shortTitle: Generate custom patterns with AI
+shortTitle: About custom patterns with AI
 intro: 'You can define your own custom patterns with AI.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
