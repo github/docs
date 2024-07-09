@@ -129,7 +129,7 @@ If you don't already have a {% data variables.product.pat_generic %} to use for 
    dotnet pack --configuration Release
    ```
 
-1. Authentificate GitHub Packages with the `dotnet` command-line interface (CLI). Replace `OWNER` with your username or company name.
+1. Authenticate to GitHub Packages with the `dotnet` command-line interface (CLI). Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your personal access token.
 
     ```shell
     dotnet nuget add source --username OWNER --password ${ secrets.GITHUB_TOKEN } --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
