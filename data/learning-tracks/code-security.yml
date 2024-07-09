@@ -123,7 +123,7 @@ secret_scanning:
     - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/push-protection-for-repositories-and-organizations{%
+      %}/code-security/secret-scanning/introduction/about-push-protection{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
