@@ -1,1 +1,1 @@
-Delegated bypass for push protection lets you control who can bypass push protection and which blocked pushes should be allowed.
+Delegated bypass for push protection lets you define contributors who can bypass push protection and adds an approval process for other contributors.
