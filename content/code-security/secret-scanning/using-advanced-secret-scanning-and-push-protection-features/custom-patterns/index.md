@@ -2,7 +2,7 @@
 title: Custom patterns
 shortTitle: Custom patterns
 allowTitleToDifferFromFilename: true
-intro: 'You can extend the capabilities of {% data variables.product.prodname_secret_scanning %} by instructing the feature to search for your own patterns. These patterns, which can range from your servce API keys to connection strings into cloud resources, are referred to as custom patterns.'
+intro: 'You can extend the capabilities of {% data variables.product.prodname_secret_scanning %} to search for your own patterns. These custom patterns can range from your service API keys to connection strings into cloud resources.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   ghes: '*'

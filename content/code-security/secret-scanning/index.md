@@ -15,6 +15,7 @@ topics:
   - Advanced Security
   - Repositories
 children:
+  - /introduction
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
   - /managing-alerts-from-secret-scanning
@@ -27,4 +28,3 @@ children:
   - /troubleshooting-secret-scanning-and-push-protection
   - /secret-scanning-partnership-program
 ---
-
