@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
 type: how_to
 topics:
   - Secret scanning

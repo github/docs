@@ -24,7 +24,6 @@ children:
   - /secret-scanning-patterns
   - /about-the-detection-of-generic-secrets-with-secret-scanning
   - /enabling-ai-powered-generic-secret-detection
-  - /push-protection-for-repositories-and-organizations
   - /push-protection-for-users
   - /working-with-push-protection
   - /pushing-a-branch-blocked-by-push-protection

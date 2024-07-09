@@ -14,5 +14,6 @@ topics:
   - Advanced Security
 children:
   - /about-secret-scanning
+  - /about-push-protection
 ---
 
