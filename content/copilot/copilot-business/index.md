@@ -11,7 +11,5 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-github-copilot-business
-  - /github-copilot-business-feature-set
   - /enabling-and-setting-up-github-copilot-business
 ---

@@ -4,7 +4,7 @@ shortTitle: Pull request summaries
 intro: 'Learn how to use {% data variables.product.prodname_copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
-permissions: 'Members of an enterprise with a subscription to [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
+permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
 topics:
   - Copilot
 type: rai
