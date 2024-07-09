@@ -18,6 +18,11 @@ redirect_from:
   - /copilot/overview-of-github-copilot/about-github-copilot-for-business
   - /copilot/overview-of-github-copilot/about-github-copilot-business
   - /copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise
+  - /copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization
+  - /copilot/managing-copilot-business
+  - /copilot/managing-copilot-for-business
+  - /copilot/github-copilot-enterprise
+  - /copilot/copilot-business
 ---
 
 {% data variables.product.prodname_copilot %} is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration.
@@ -56,6 +61,7 @@ For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copi
 ## Next steps
 
 * To learn more about the Copilot features, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
+* To start using Copilot, see "[AUTOTITLE](/copilot/setting-up-github-copilot)."
 
 ## Further reading
 
