@@ -2,7 +2,7 @@
 title: Using advanced secret scanning and push protection features
 shortTitle: Advanced features
 allowTitleToDifferFromFilename: true
-intro: 'Learn more about advanced capabilities of {% data variables.secret-scanning.partner_alerts_caps %} and push protection, and assess whether your organization or repository could benefit from using these features.'
+intro: 'Learn how you can customize {% data variables.secret-scanning.partner_alerts %} to meet the needs of your company..'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
