@@ -29,7 +29,7 @@ This article explains how to enable or disable the features of {% data variables
 
 ## About {% data variables.product.prodname_copilot_enterprise_short %} features
 
-{% data variables.product.prodname_copilot_enterprise %} provides AI features to enhance your experience on {% data variables.product.prodname_dotcom_the_website %}, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} from across your project repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
+{% data variables.product.prodname_copilot_enterprise %} provides AI features to enhance your experience on {% data variables.product.prodname_dotcom_the_website %}, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} from across your project repositories. For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
 
 When members are granted access to the features, they'll be notified by email that they have access. The message includes instructions on how to start using the features.
 
