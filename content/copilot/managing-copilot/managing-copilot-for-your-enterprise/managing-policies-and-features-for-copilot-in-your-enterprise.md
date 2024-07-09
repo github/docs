@@ -43,7 +43,6 @@ With a {% data variables.product.prodname_copilot_enterprise_short %} license, y
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
 * **Opt in to user feedback collection** - If enabled, members of your enterprise can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, members of your enterprise can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
-* **Experimental {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features before they are released. Be aware that experimental features may have flaws, and the features may be changed or discontinued at any time.
 
 ### {% data variables.product.prodname_copilot_cli %}
 
