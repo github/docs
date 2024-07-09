@@ -82,8 +82,6 @@ You can also use the REST API to enable validity checks for partner patterns for
 
 {% endif %}
 
-TODO: removed non-provider pattern enablement here.
-
 {% ifversion secret-scanning-enable-by-default-for-public-repos %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories

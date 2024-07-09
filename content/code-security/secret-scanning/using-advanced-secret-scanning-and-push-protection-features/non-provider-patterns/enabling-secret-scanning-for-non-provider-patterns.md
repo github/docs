@@ -1,7 +1,7 @@
 ---
 title: Enabling secret scanning for non-provider patterns
 allowTitleToDifferFromFilename: true
-intro: 'You can enable {% data variables.product.prodname_secret_scanning %} for non-provider patterns at repository and organization level.'
+intro: 'You can enable {% data variables.product.prodname_secret_scanning %} for non-provider patterns at the repository and organization levels.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   feature: secret-scanning-non-provider-patterns
@@ -26,3 +26,7 @@ You can enable scanning for non-provider patterns. Non-provider patterns corresp
 1. Under {% data variables.product.prodname_secret_scanning_caps %}, select the checkbox next to "Scan for non-provider patterns".
 
 For more information about non-provider patterns, see "{% ifversion fpt or ghec %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-secret-scanning-alerts){% endif %}."
+
+## Further reading
+
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)"
