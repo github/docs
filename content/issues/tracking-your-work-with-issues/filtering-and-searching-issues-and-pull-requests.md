@@ -68,8 +68,8 @@ You can filter issues and pull requests to find:
 
 ## Filtering issues and pull requests by assignees
 
-Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
-
+Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users.md), you can find items based on who's working on them.
+                                                           
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Assignee** dropdown menu.
@@ -181,6 +181,7 @@ For issues, you can also use search to:
 
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`{% ifversion issue-close-reasons %}
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`{% endif %}
+* Filter issues by state of merging: `is:merged` or `is:unmerged`
 
 For pull requests, you can also use search to:
 * Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
