@@ -15,5 +15,6 @@ topics:
 children:
   - /about-secret-scanning
   - /about-push-protection
+  - /supported-secret-scanning-patterns
 ---
 

@@ -12,6 +12,7 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
+  - /code-security/secret-scanning/secret-scanning-patterns
 layout: inline
 ---
 
