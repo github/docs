@@ -27,7 +27,7 @@ Users input a text description of what they would like to detect, and optional e
 
 ### Response generation and output formatting
 
-The {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} uses GPT-3.5-Turbo and the {% data variables.product.prodname_copilot %} API to generate regular expressions that match your input.
+{% data variables.secret-scanning.copilot-secret-scanning %} uses GPT-3.5-Turbo and the {% data variables.product.prodname_copilot %} API to generate regular expressions that match your input.
 
 The model returns up to three regular expressions for you to review. You can click on the regular expression to get an AI-generated plain language description of the regular expression.
 
