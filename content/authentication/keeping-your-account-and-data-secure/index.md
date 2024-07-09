@@ -15,6 +15,7 @@ children:
   - /about-authentication-to-github
   - /creating-a-strong-password
   - /switching-between-accounts
+  - /verifying-new-devices-when-signing-in
   - /updating-your-github-access-credentials
   - /managing-your-personal-access-tokens
   - /reviewing-your-ssh-keys

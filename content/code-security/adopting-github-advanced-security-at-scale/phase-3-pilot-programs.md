@@ -60,10 +60,10 @@ You can also choose to enable {% data variables.product.prodname_code_scanning %
 {% data reusables.advanced-security.enable-default-setup-first %}
 {% else %}
 You can run {% data variables.product.prodname_code_scanning %} on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [{% data variables.product.prodname_codeql %} action](https://github.com/github/codeql-action/). For more information about {% data variables.product.prodname_actions %}, see:
-- "[AUTOTITLE](/actions/learn-github-actions)"
-- "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
-- "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
-- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+* "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
 We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
@@ -94,7 +94,7 @@ If you plan to configure a link to a resource in the message that's displayed wh
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 
-Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {%- endif %}
 

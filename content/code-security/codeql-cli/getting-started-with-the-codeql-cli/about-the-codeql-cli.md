@@ -31,16 +31,16 @@ using {% data variables.product.prodname_codeql %} analysis. For more informatio
 
 You can use the {% data variables.product.prodname_codeql_cli %} to:
 
-- Run {% data variables.product.prodname_codeql %} analyses using queries provided by {% data variables.product.prodname_dotcom %} engineers and the open source community
-- Generate code scanning alerts that you can upload to display in {% data variables.product.product_name %}
-- Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension.
-- Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
+* Run {% data variables.product.prodname_codeql %} analyses using queries provided by {% data variables.product.prodname_dotcom %} engineers and the open source community
+* Generate code scanning alerts that you can upload to display in {% data variables.product.product_name %}
+* Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension.
+* Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 The {% data variables.product.prodname_codeql_cli %} can analyze:
 
-- Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
-- Codebases written in a mixture of languages.
+* Dynamic languages, for example, JavaScript and Python.
+* Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
+* Codebases written in a mixture of languages.
 
 For information about setting up the {% data variables.product.prodname_codeql_cli %}, see
 "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."

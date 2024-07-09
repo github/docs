@@ -44,27 +44,27 @@ For example, you link your Azure subscription to your organization {% ifversion 
 
 ## Prerequisites
 
-- You must have {% ifversion ghec %}either {% endif %}an organization {% ifversion ghec %}or an enterprise {% endif %}account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+* You must have {% ifversion ghec %}either {% endif %}an organization {% ifversion ghec %}or an enterprise {% endif %}account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
   {%- ifversion ghec %}
 
-  - {% data reusables.enterprise.ghec-trial-azure %}
+  * {% data reusables.enterprise.ghec-trial-azure %}
     {%- endif %}
-  - If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
+  * If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
 
-- You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
+* You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
 
-  - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-  - "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+  * "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+  * "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)"
     {% endif %}
 
-- You must be logged into Azure as a user who is able to provide tenant-wide admin consent, which is required to install {% data variables.product.company_short %}'s Subscription Permission Validation app on the Azure AD tenant. The app requires read access to display a list of available subscriptions, and is only used during this one-time process of connecting the Azure subscription. For more information, see [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs.
+* You must be logged into Azure as a user who is able to provide tenant-wide admin consent, which is required to install {% data variables.product.company_short %}'s Subscription Permission Validation app on the Azure AD tenant. The app requires read access to display a list of available subscriptions, and is only used during this one-time process of connecting the Azure subscription. For more information, see [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) in Microsoft Docs.
 
-  - Alternatively, before following the instructions in this article, users who are not able to provide tenant-wide admin consent can work with an Azure AD global administrator to configure an admin consent workflow. For more information, see [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
+  * Alternatively, before following the instructions in this article, users who are not able to provide tenant-wide admin consent can work with an Azure AD global administrator to configure an admin consent workflow. For more information, see [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
 
-- To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. For more information, see [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
+* To select an Azure subscription from the list of available subscriptions, the user must be an owner of the Azure subscription. For more information, see [Assign a user as an administrator of an Azure subscription](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal-subscription-admin) in Microsoft docs.
 
-- You must know your Azure subscription ID. For more information, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs or [contact Azure support](https://azure.microsoft.com/support/).
+* You must know your Azure subscription ID. For more information, see [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft Docs or [contact Azure support](https://azure.microsoft.com/support/).
 
 ## Video demonstration of connecting a subscription
 

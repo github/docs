@@ -15,7 +15,7 @@ If you have access to {% data variables.product.prodname_copilot %} through an o
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown on the right.
-   - If you are on a monthly billing cycle, select **Change to yearly billing**.
-   - If you are on a yearly billing cycle, select **Change to monthly billing**.
+   * If you are on a monthly billing cycle, select **Change to yearly billing**.
+   * If you are on a yearly billing cycle, select **Change to monthly billing**.
 
 {% data reusables.billing.billing-info %}

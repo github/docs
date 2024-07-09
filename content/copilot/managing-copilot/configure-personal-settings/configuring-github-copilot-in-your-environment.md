@@ -81,8 +81,8 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
 {% data reusables.copilot.jetbrains-settings %}
 {% data reusables.copilot.jetbrains-languages-and-frameworks %}
 1. Edit the settings according to your personal preferences.
-   - To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
-   - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
+   * To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
+   * If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
 
 ## Configuring language settings for {% data variables.product.prodname_copilot %}
 
@@ -104,9 +104,9 @@ To configure language settings in the `github-copilot.xml` file, you must edit t
 
 The file is located in the following directory:
 
-- **macOS**: `~/Library/Application Support/JetBrains/<product><version>/options/github-copilot.xml`
-- **Windows**: `%APPDATA%\JetBrains\<product><version>\options\github-copilot.xml`
-- **Linux**: `~/.config/JetBrains/<product><version>/options/github-copilot.xml`
+* **macOS**: `~/Library/Application Support/JetBrains/<product><version>/options/github-copilot.xml`
+* **Windows**: `%APPDATA%\JetBrains\<product><version>\options\github-copilot.xml`
+* **Linux**: `~/.config/JetBrains/<product><version>/options/github-copilot.xml`
 
 For example, if you are using IntelliJ IDEA 2021.1 on macOS, the file is located at `~/Library/Application Support/JetBrains/IdeaIC2021.1/options/github-copilot.xml`.
 
@@ -189,7 +189,7 @@ You can also add a configuration to make the `languageAllowList` readonly in the
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
+* [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
 
 {% endjetbrains %}
 
@@ -246,7 +246,7 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
+* [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
 
 {% endvisualstudio %}
 
@@ -255,9 +255,9 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
 If you use {% data variables.product.prodname_vscode %}, you can use {% data variables.product.prodname_copilot %} to:
-- Generate code
-- Learn from the code {% data variables.product.prodname_copilot_short %} generates
-- Help you configure your editor
+* Generate code
+* Learn from the code {% data variables.product.prodname_copilot_short %} generates
+* Help you configure your editor
 
 You can learn more about scenarios and setup in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
 
@@ -375,8 +375,8 @@ After you have revoked authorization, if you want to continue using {% data vari
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/overview)
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
+* [{% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/overview)
+* [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
 
 {% endvscode %}
 
@@ -396,6 +396,6 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 
 ## Further reading
 
-- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
+* [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)
 
 {% endvimneovim %}

@@ -68,8 +68,8 @@ quantities, dates, or to exclude results, see "[AUTOTITLE](/search-github/gettin
 ### Limitations on query length
 
 You cannot use queries that:
-- are longer than 256 characters (not including operators or qualifiers).
-- have more than five `AND`, `OR`, or `NOT` operators.
+* are longer than 256 characters (not including operators or qualifiers).
+* have more than five `AND`, `OR`, or `NOT` operators.
 
 These search queries will return a "Validation failed" error message.
 

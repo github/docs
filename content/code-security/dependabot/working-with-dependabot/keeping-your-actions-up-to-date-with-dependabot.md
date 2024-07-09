@@ -77,4 +77,4 @@ When enabling {% data variables.product.prodname_dependabot_version_updates %} f
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/learn-github-actions)"
+* "[AUTOTITLE](/actions/learn-github-actions)"

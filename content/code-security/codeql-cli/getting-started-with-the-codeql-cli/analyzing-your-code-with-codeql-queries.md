@@ -26,8 +26,8 @@ To analyze a codebase, you run queries against a {% data variables.product.prodn
 
 Before starting an analysis you must:
 
-- [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli) to run commands locally.
-- [Create a {% data variables.product.prodname_codeql %} database](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis) for the source code you want to analyze.
+* [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli) to run commands locally.
+* [Create a {% data variables.product.prodname_codeql %} database](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis) for the source code you want to analyze.
 
 The simplest way to run `codeql database analyze` is using the standard queries included in the {% data variables.product.prodname_codeql_cli %} bundle.
 
@@ -209,11 +209,11 @@ If you are using {% data variables.product.prodname_codeql_cli %} v2.8.1 or late
 
 The complete way to specify a set of queries is in the form `scope/name@range:path`, where:
 
-- `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
+* `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
 
-- `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
+* `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
 
-- `path` is a file system path to a single query, a directory containing queries, or a query suite file.
+* `path` is a file system path to a single query, a directory containing queries, or a query suite file.
 
 When you specify a `scope/name`, the `range` and `path` are
 optional. If you omit a `range` then the latest version of the
@@ -321,4 +321,4 @@ You can choose to export and upload diagnostic information to {% data variables.
 
 ## Next steps
 
-- To learn how to upload your {% data variables.product.prodname_codeql %} analysis results to {% data variables.product.product_name %}, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)."
+* To learn how to upload your {% data variables.product.prodname_codeql %} analysis results to {% data variables.product.product_name %}, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)."

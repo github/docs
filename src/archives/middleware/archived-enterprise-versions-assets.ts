@@ -4,12 +4,12 @@ import got from 'got'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns.js'
-import isArchivedVersion from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
 } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl } from '@/frame/middleware/cache-control.js'
+import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
 import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
@@ -57,9 +57,21 @@ export default async function archivedEnterpriseVersionsAssets(
   // Referrer header also indicates that the request for this static
   // asset came from a page
   const { isArchived, requestedVersion } = isArchivedVersion(req)
-  if (!isArchived) return next()
+  if (!isArchived || !requestedVersion) return next()
 
   const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
+
+  // Just to be absolutely certain that the path can not contain
+  // a URL that might trip up the GET we're about to make.
+  if (
+    assetPath.includes('..') ||
+    assetPath.includes('://') ||
+    (assetPath.includes(':') && assetPath.includes('@'))
+  ) {
+    defaultCacheControl(res)
+    return res.status(404).type('text/plain').send('Asset path not valid')
+  }
+
   const proxyPath = path.join('/', requestedVersion, assetPath)
 
   try {

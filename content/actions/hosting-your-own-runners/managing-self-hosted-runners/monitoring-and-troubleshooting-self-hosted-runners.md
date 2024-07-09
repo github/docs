@@ -38,9 +38,9 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
     The status can be one of the following:
 
-    - **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
-    - **Active**: The runner is currently executing a job.
-    - **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
+    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
+    * **Active**: The runner is currently executing a job.
+    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
 ## Troubleshooting network connectivity
 
@@ -50,8 +50,8 @@ You can use the self-hosted runner application's `config` script with the `--che
 
 In addition to `--check`, you must provide two arguments to the script:
 
-- `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-- `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 For example:
 

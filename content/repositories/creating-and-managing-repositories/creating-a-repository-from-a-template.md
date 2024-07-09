@@ -27,9 +27,9 @@ shortTitle: Create from a template
 You can choose to include the directory structure and files from only the default branch of the template repository or to include all branches. Branches created from a template have unrelated histories, which means you cannot create pull requests or merge between the branches.
 
 Creating a repository from a template is similar to forking a repository, but there are important differences:
-- A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
-- Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
-- A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
+* A new fork includes the entire commit history of the parent repository, while a repository created from a template starts with a single commit.
+* Commits to a fork don't appear in your contributions graph, while commits to a repository created from a template do appear in your contribution graph.
+* A fork can be a temporary way to contribute code to an existing project, while creating a repository from a template starts a new project quickly.
 
 For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 

@@ -50,9 +50,9 @@ You can also create your own starter workflow to share with your organization. T
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)"
-- "[AUTOTITLE](/actions/managing-workflow-runs)"
-- "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
+* "[AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration)"
+* "[AUTOTITLE](/actions/managing-workflow-runs)"
+* "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 {% endif %}

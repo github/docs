@@ -35,19 +35,15 @@ If your project communicates with an external service, you might use a token or 
 
 1. **{% data variables.secret-scanning.user_alerts_caps %}.** These alerts are reported on {% data variables.product.prodname_dotcom_the_website %}{% ifversion secret-scanning-non-provider-patterns %} and can be high confidence alerts or non-provider alerts (such as private keys){% endif %}.
    {% ifversion fpt %}The following users can enable and configure additional scanning:
-      - Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
-      - Organizations owning _public_ repositories, on any of these repositories.
-      - Organizations using {% data variables.product.prodname_ghe_cloud %}, on any public repositories (for free), and on any private and internal repositories, when you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} for any public repositories (for free), and for private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}. Enterprise owners can manage the automatic enablement of {% data variables.product.prodname_GH_advanced_security %} for new repositories owned by {% data variables.product.prodname_emus %} with an enterprise level setting.{% endif %}
+      * Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
+      * Organizations owning _public_ repositories, on any of these repositories.
+      * Organizations using {% data variables.product.prodname_ghe_cloud %}, on any public repositories (for free), and on any private and internal repositories, when you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} for any public repositories (for free), and for private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}. Enterprise owners can manage the automatic enablement of {% data variables.product.prodname_GH_advanced_security %} for new repositories owned by {% data variables.product.prodname_emus %} with an enterprise level setting.{% endif %}
 
   Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
 
-{% ifversion secret-scanning-push-protection %}
-
 {% data reusables.secret-scanning.push-protection-high-level %} To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-
-{% endif %}
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
@@ -92,9 +88,9 @@ You can also define custom {% data variables.product.prodname_secret_scanning %}
 
 {% data reusables.secret-scanning.secret-scanning-about-alerts %}
 
-- {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository{% ifversion secret-scanning-notification-settings %}, {% else %}, and {% endif %}if you have enabled notifications either for security alerts or for all the activity on the repository{% ifversion secret-scanning-notification-settings %}, and if, in your notification settings, you have selected to receive email notifications for the repositories that you are watching.{% else %}.{% endif %}
-- If the person who introduced the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The email contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
-- {% data reusables.secret-scanning.repository-alert-location %}
+* {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository{% ifversion secret-scanning-notification-settings %}, {% else %}, and {% endif %}if you have enabled notifications either for security alerts or for all the activity on the repository{% ifversion secret-scanning-notification-settings %}, and if, in your notification settings, you have selected to receive email notifications for the repositories that you are watching.{% else %}.{% endif %}
+* If the person who introduced the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The email contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
+* {% data reusables.secret-scanning.repository-alert-location %}
 
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -112,10 +108,10 @@ You can also use the REST API to monitor results from {% data variables.product.
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
-- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
+* "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
 {%- ifversion fpt or ghec %}
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"
-- "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
+* "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"
+* "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"

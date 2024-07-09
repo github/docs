@@ -15,8 +15,8 @@ Admins of enterprises that have a {% data variables.product.prodname_copilot_ent
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. In the "{% data variables.product.prodname_copilot_short %} is active in your enterprise" section, configure the access for your {% data variables.product.prodname_copilot %} subscription.
-    - To enable {% data variables.product.prodname_copilot %} for all organizations in your enterprise, both current and future, select **Allow for: All organizations**.
-    - To enable {% data variables.product.prodname_copilot %} for specific organizations, select **Allow for specific organizations**.
+    * To enable {% data variables.product.prodname_copilot %} for all organizations in your enterprise, both current and future, select **Allow for: All organizations**.
+    * To enable {% data variables.product.prodname_copilot %} for specific organizations, select **Allow for specific organizations**.
 
 1. If you selected **Allow for specific organizations**, select the organizations you want to enable {% data variables.product.prodname_copilot %} for. Then, click the **Set organization permissions** dropdown and select **Enable** to grant {% data variables.product.prodname_copilot %} access for the specified organizations.
 

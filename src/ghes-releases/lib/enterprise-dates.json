@@ -133,7 +133,7 @@
   },
   "3.9": {
     "releaseDate": "2023-06-08",
-    "deprecationDate": "2024-06-29"
+    "deprecationDate": "2024-07-09"
   },
   "3.10": {
     "releaseDate": "2023-08-08",
@@ -148,7 +148,7 @@
     "deprecationDate": "2025-03-05"
   },
   "3.13": {
-    "releaseDate": "2024-05-14",
+    "releaseDate": "2024-05-16",
     "deprecationDate": "2025-06-04"
   },
   "3.14": {
@@ -158,5 +158,17 @@
   "3.15": {
     "releaseDate": "2024-10-29",
     "deprecationDate": "2025-11-19"
+  },
+  "3.16": {
+    "releaseDate": "2025-02-18",
+    "deprecationDate": "2026-03-11"
+  },
+  "3.17": {
+    "releaseDate": "2025-05-13",
+    "deprecationDate": "2026-06-03"
+  },
+  "3.18": {
+    "releaseDate": "2025-08-05",
+    "deprecationDate": "2026-08-26"
   }
 }

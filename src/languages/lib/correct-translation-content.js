@@ -22,6 +22,12 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
 
+  // We've seen a lot of these across different languages.
+  content = content.replaceAll('{{% octicon', '{% octicon')
+  content = content.replaceAll('{{%octicon', '{% octicon')
+  content = content.replaceAll('{{% endif %}', '{% endif %}')
+  content = content.replaceAll('{{%endif %}', '{% endif %}')
+
   // For a short while we injected `replacedomain` into code snippets
   // to activate the Domain Edit functionality. That was in `main` for a
   // while and was later removed in English. But during that window of
@@ -323,5 +329,15 @@ export function correctTranslatedContentStrings(content, englishContent, context
       content = content.replace(keyString, '[redacted in translation]')
     }
   }
+
+  if (content.includes('{{%')) {
+    content.split('\n').forEach((line, i) => {
+      if (line.includes('{{%') && !line.includes('{{{% endraw')) {
+        console.log(context.code, 'context.relativePath', context.relativePath)
+        console.log(i, line)
+      }
+    })
+  }
+
   return content
 }

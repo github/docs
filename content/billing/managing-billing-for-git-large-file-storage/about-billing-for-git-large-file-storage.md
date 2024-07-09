@@ -41,6 +41,6 @@ If you downgrade your number of additional data packs, your changes will take ef
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)"

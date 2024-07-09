@@ -72,9 +72,9 @@ Instead of using **{% data variables.product.prodname_codeql %}: Run Query on Se
 
 Possible targets for quick evaluation include:
 
-- Selecting the name of a {% data variables.product.prodname_codeql %} entity (such as a [class](https://codeql.github.com/docs/ql-language-reference/types/#classes) or [predicate](https://codeql.github.com/docs/ql-language-reference/predicates/#predicates)) to evaluate that entity.
+* Selecting the name of a {% data variables.product.prodname_codeql %} entity (such as a [class](https://codeql.github.com/docs/ql-language-reference/types/#classes) or [predicate](https://codeql.github.com/docs/ql-language-reference/predicates/#predicates)) to evaluate that entity.
 
-- Selecting a [formula](https://codeql.github.com/docs/ql-language-reference/formulas/#formulas) or [expression](https://codeql.github.com/docs/ql-language-reference/expressions/#expressions) with free variables to evaluate that formula or expression.
+* Selecting a [formula](https://codeql.github.com/docs/ql-language-reference/formulas/#formulas) or [expression](https://codeql.github.com/docs/ql-language-reference/expressions/#expressions) with free variables to evaluate that formula or expression.
 
 For example, in the following snippet, you could select the predicate name `foo` or the formula `s = "bar"` for quick evaluation:
 
@@ -98,15 +98,15 @@ To see the queries that you have run in the current session, open the "Query His
 
 The "Query History" view contains information including the date and time when the query was run, the name of the query, the database on which it was run, and how long it took to run the query:
 
-- To customize the information that is displayed, right-click an entry and select **Rename**.
+* To customize the information that is displayed, right-click an entry and select **Rename**.
 
-- Optionally, filter the view by language using the language selector. For more information, see "[Filtering databases and queries by language](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#filtering-databases-and-queries-by-language)."
+* Optionally, filter the view by language using the language selector. For more information, see "[Filtering databases and queries by language](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#filtering-databases-and-queries-by-language)."
 
-- Click an entry to display the corresponding results, and double-click to display the query itself in the editor (or right-click and select **View Query**).
+* Click an entry to display the corresponding results, and double-click to display the query itself in the editor (or right-click and select **View Query**).
 
-- To display the exact text that produced the results for a particular entry, right-click it and select **View Query Text**. This can differ from **View Query**, as the query file may have been modified since you last ran it.
+* To display the exact text that produced the results for a particular entry, right-click it and select **View Query Text**. This can differ from **View Query**, as the query file may have been modified since you last ran it.
 
-- To remove queries from the view, select all the queries you want to remove, then right-click and select **Delete**.
+* To remove queries from the view, select all the queries you want to remove, then right-click and select **Delete**.
 
 ## Understanding your query results
 

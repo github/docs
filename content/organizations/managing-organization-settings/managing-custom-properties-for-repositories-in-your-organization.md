@@ -21,8 +21,8 @@ You can use repository properties to determine which repositories to target with
 
 Custom property names and values may only contain certain characters:
 
-- Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
-- Values: All printable ASCII characters except `"`.
+* Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
+* Values: All printable ASCII characters except `"`.
 
 ## Adding custom properties
 

@@ -8,11 +8,11 @@
    {% endnote %}
 
 1. In the sliding panel that is displayed:
-   - Complete the "I want a regular expression that" field, describing, ideally in plain English, what patterns you want your regular expression to capture. You can use other natural languages, but the performance may not be as good as with English.
-   - Complete the "Examples of what I'm looking for" field, giving an example of a pattern you want to scan for.
-   - Click **Generate suggestions**.
-   - Optionally, click on a suggestion to view a description of the regular expression.
-   - Click **Use results** in the Results section that appears, for the result you want to use.
+   * Complete the "I want a regular expression that" field, describing, ideally in plain English, what patterns you want your regular expression to capture. You can use other natural languages, but the performance may not be as good as with English.
+   * Complete the "Examples of what I'm looking for" field, giving an example of a pattern you want to scan for.
+   * Click **Generate suggestions**.
+   * Optionally, click on a suggestion to view a description of the regular expression.
+   * Click **Use results** in the Results section that appears, for the result you want to use.
 
      ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form for the generator to use.](/assets/images/help/repository/secret-scanning-use-regular-expression-generator.png)
 

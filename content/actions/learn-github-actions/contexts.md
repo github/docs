@@ -47,8 +47,8 @@ You can access contexts using the expression syntax. For more information, see "
 
 As part of an expression, you can access context information using one of two syntaxes.
 
-- Index syntax: `github['sha']`
-- Property dereference syntax: `github.sha`
+* Index syntax: `github['sha']`
+* Property dereference syntax: `github.sha`
 
 In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
@@ -58,8 +58,8 @@ If you attempt to dereference a nonexistent property, it will evaluate to an emp
 
 {% data variables.product.prodname_actions %} includes a collection of variables called _contexts_ and a similar collection of variables called _default variables_. These variables are intended for use at different points in the workflow:
 
-- **Default environment variables:** These environment variables exist only on the runner that is executing your job. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
-- **Contexts:** You can use most contexts at any point in your workflow, including when _default variables_ would be unavailable. For example, you can use contexts with expressions to perform initial processing before the job is routed to a runner for execution; this allows you to use a context with the conditional `if` keyword to determine whether a step should run. Once the job is running, you can also retrieve context variables from the runner that is executing the job, such as `runner.os`. For details of where you can use various contexts within a workflow, see "[Context availability](#context-availability)."
+* **Default environment variables:** These environment variables exist only on the runner that is executing your job. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+* **Contexts:** You can use most contexts at any point in your workflow, including when _default variables_ would be unavailable. For example, you can use contexts with expressions to perform initial processing before the job is routed to a runner for execution; this allows you to use a context with the conditional `if` keyword to determine whether a step should run. Once the job is running, you can also retrieve context variables from the runner that is executing the job, such as `runner.os`. For details of where you can use various contexts within a workflow, see "[Context availability](#context-availability)."
 
 The following example demonstrates how these different types of variables can be used together in a job:
 

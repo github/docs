@@ -46,14 +46,14 @@ If you want to create a new repository from the contents of an existing reposito
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 
-- You can use a pull request to suggest changes from your fork to the upstream repository.
-- You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
-- Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
-- Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
+* You can use a pull request to suggest changes from your fork to the upstream repository.
+* You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
+* Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
+* Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+* [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+* [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

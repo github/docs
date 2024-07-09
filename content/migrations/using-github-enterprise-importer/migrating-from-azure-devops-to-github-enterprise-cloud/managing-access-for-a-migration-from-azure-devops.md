@@ -13,11 +13,11 @@ versions:
 {% data reusables.enterprise-migration-tool.required-access-intro %}
 
 To migrate a repository from Azure DevOps to GitHub, you need sufficient access to both the source (an organization on Azure DevOps) and the destination (an organization on {% data variables.product.prodname_dotcom %}). To have sufficient access, you'll need all of the following things.
-- A required role in the destination organization on {% data variables.product.prodname_dotcom %}
-- A {% data variables.product.pat_generic %} that can access the destination organization on {% data variables.product.prodname_dotcom %}
-  - The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
-  - If the destination organization uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
-- A {% data variables.product.pat_generic %} that can access the source organization on Azure DevOps
+* A required role in the destination organization on {% data variables.product.prodname_dotcom %}
+* A {% data variables.product.pat_generic %} that can access the destination organization on {% data variables.product.prodname_dotcom %}
+  * The {% data variables.product.pat_generic %} must have all the required scopes, which depend on your role and the task you want to complete.
+  * If the destination organization uses SAML single sign-on for {% data variables.product.prodname_dotcom_the_website %}, you must authorize the {% data variables.product.pat_generic %} for SSO.
+* A {% data variables.product.pat_generic %} that can access the source organization on Azure DevOps
 
 Additionally, if you use IP allow lists with the source or destination, you may need to configure the allow lists to allow access by {% data variables.product.prodname_importer_proper_name %}.
 
@@ -57,8 +57,8 @@ To allow someone other than an organization owner to run a migration or download
 
 You can grant the migrator role using either the {% data variables.product.prodname_ado2gh_cli %} or the GraphQL API.
 
-- "[Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
-- "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+* "[Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
+* "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
 
 ### Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}
 
@@ -90,4 +90,4 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"

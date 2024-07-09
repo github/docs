@@ -79,8 +79,8 @@ Storing an action in its own repository makes it easier for the {% data variable
 
 To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
 
-- For the REST API, use the `GITHUB_API_URL` environment variable.
-- For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
+* For the REST API, use the `GITHUB_API_URL` environment variable.
+* For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
 
@@ -100,11 +100,11 @@ To use a specific action version, users can configure their {% data variables.pr
 
 We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
 
-- Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
-- Create a release using semantic versioning. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
-- Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
-- Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
-- Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
+* Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
+* Create a release using semantic versioning. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+* Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
+* Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
+* Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
 
 This example demonstrates how a user can reference a major release tag:
 
@@ -142,12 +142,12 @@ steps:
 
 We recommend creating a README file to help people learn how to use your action. You can include this information in your `README.md`:
 
-- A detailed description of what the action does
-- Required input and output arguments
-- Optional input and output arguments
-- Secrets the action uses
-- Environment variables the action uses
-- An example of how to use your action in a workflow
+* A detailed description of what the action does
+* Required input and output arguments
+* Optional input and output arguments
+* Secrets the action uses
+* Environment variables the action uses
+* An example of how to use your action in a workflow
 
 ## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
@@ -158,18 +158,18 @@ We recommend creating a README file to help people learn how to use your action.
 While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
 
 {% data variables.product.prodname_github_apps %}:
-- Run persistently and can react to events quickly.
-- Work great when persistent data is needed.
-- Work best with API requests that aren't time consuming.
-- Run on a server or compute infrastructure that you provide.
+* Run persistently and can react to events quickly.
+* Work great when persistent data is needed.
+* Work best with API requests that aren't time consuming.
+* Run on a server or compute infrastructure that you provide.
 
 {% data variables.product.prodname_actions %}:
-- Provide automation that can perform continuous integration and continuous deployment.
-- Can run directly on runner machines or in Docker containers.
-- Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
-- Don't require you to deploy code or serve an app.
-- Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
+* Provide automation that can perform continuous integration and continuous deployment.
+* Can run directly on runner machines or in Docker containers.
+* Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
+* Don't require you to deploy code or serve an app.
+* Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)"
+* "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)"

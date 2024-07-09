@@ -19,22 +19,22 @@ shortTitle: Delete & restore a package
 ## Package deletion and restoration support on {% data variables.product.prodname_dotcom %}
 
 On {% data variables.product.prodname_dotcom %} if you have the required access, you can delete:
-- an entire private package
-- an entire public package, if there's not more than 5000 downloads of any version of the package
-- a specific version of a private package
-- a specific version of a public package, if the package version doesn't have more than 5,000 downloads
+* an entire private package
+* an entire public package, if there's not more than 5000 downloads of any version of the package
+* a specific version of a private package
+* a specific version of a public package, if the package version doesn't have more than 5,000 downloads
 
 {% note %}
 
 **Note:**
-- You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
-- When deleting public packages, be aware that you may break projects that depend on your package.
+* You cannot delete a public package if any version of the package has more than 5,000 downloads. In this scenario, contact us through the {% data variables.contact.contact_support_portal %} for further assistance.
+* When deleting public packages, be aware that you may break projects that depend on your package.
 
 {% endnote %}
 
 On {% data variables.product.prodname_dotcom %}, you can also restore an entire package or package version, if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace is still available and not used for a new package.
+* You restore the package within 30 days of its deletion.
+* The same package namespace is still available and not used for a new package.
 
 ## Packages API support
 
@@ -164,16 +164,16 @@ To review who can delete a package, see "[Required permissions](#required-permis
 ## Restoring packages
 
 You can restore a deleted package or version if:
-- You restore the package within 30 days of its deletion.
-- The same package namespace and version is still available and not reused for a new package.
+* You restore the package within 30 days of its deletion.
+* The same package namespace and version is still available and not reused for a new package.
 
 For example, if you're the user `octocat`, and you have a deleted RubyGems package named `my-package` that was scoped to the repo `octocat/my-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octocat/my-repo/my-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-- For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
-- For user-account scoped packages: The deleted package is scoped to your personal account.
-- For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+* For user-account scoped packages: The deleted package is scoped to your personal account.
+* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
 {% ifversion ghes %}

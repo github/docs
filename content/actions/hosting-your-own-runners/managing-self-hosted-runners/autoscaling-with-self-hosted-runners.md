@@ -79,8 +79,8 @@ For instructions on how to install the latest runner version, see the installati
 
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
-- For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
+* For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+* To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
 
 ## Authentication requirements
 
@@ -88,14 +88,14 @@ You can register and delete repository and organization self-hosted runners usin
 
 Your access token will require the following scope:
 
-- For private repositories, use an access token with the [`repo` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
-- For public repositories, use an access token with the [`public_repo` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
-- For organizations, use an access token with the [`admin:org` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
+* For private repositories, use an access token with the [`repo` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
+* For public repositories, use an access token with the [`public_repo` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
+* For organizations, use an access token with the [`admin:org` scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
 
 To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
 
-- For repositories, assign the `administration` permission.
-- For organizations, assign the `organization_self_hosted_runners` permission.
+* For repositories, assign the `administration` permission.
+* For organizations, assign the `organization_self_hosted_runners` permission.
 
 You can register and delete enterprise self-hosted runners using [the API](/rest/actions/self-hosted-runners). To authenticate to the API, your autoscaling implementation can use an access token.
 

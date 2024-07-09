@@ -31,10 +31,10 @@ You can configure an HTTP proxy for {% data variables.product.prodname_copilot %
 
 If you don't configure a proxy directly in your editor, {% data variables.product.prodname_copilot %} checks if a proxy URL is set in any of the following environment variables, listed from highest to lowest priority.
 
-- `HTTPS_PROXY`
-- `https_proxy`
-- `HTTP_PROXY`
-- `http_proxy`
+* `HTTPS_PROXY`
+* `https_proxy`
+* `HTTP_PROXY`
+* `http_proxy`
 
 {% note %}
 
@@ -153,8 +153,8 @@ Generally, if you're using company equipment, your company's IT department shoul
 
 {% endwarning %}
 
-- For Windows, see [Installing the trusted root certificate](https://learn.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) in the Microsoft documentation.
-- For macOS, see [Add certificates to a keychain using Keychain Access on Mac](https://support.apple.com/en-gb/guide/keychain-access/kyca2431/mac) in the Keychain Access User Guide.
-- For Linux, see [Installing a root CA certificate in the trust store](https://ubuntu.com/server/docs/security-trust-store) in the Ubuntu documentation. Similar instructions should apply to most Linux distributions.
+* For Windows, see [Installing the trusted root certificate](https://learn.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) in the Microsoft documentation.
+* For macOS, see [Add certificates to a keychain using Keychain Access on Mac](https://support.apple.com/en-gb/guide/keychain-access/kyca2431/mac) in the Keychain Access User Guide.
+* For Linux, see [Installing a root CA certificate in the trust store](https://ubuntu.com/server/docs/security-trust-store) in the Ubuntu documentation. Similar instructions should apply to most Linux distributions.
 
 If you have installed a certificate but {% data variables.product.prodname_copilot_short %} isn't detecting it, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot#troubleshooting-certificate-related-errors)."

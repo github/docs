@@ -28,3 +28,5 @@ sections:
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
       Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

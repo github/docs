@@ -35,9 +35,9 @@ If you have installed the {% data variables.product.prodname_codeql_cli %} in a 
 
 Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created in the previous section to the {% data variables.product.prodname_codeql_cli %}. We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
 
-- Interfacing with a secret store using the `--github-auth-stdin` option (recommended).
-- Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
-- For testing purposes you can pass the `--github-auth-stdin` command-line option and supply a temporary token via standard input.
+* Interfacing with a secret store using the `--github-auth-stdin` option (recommended).
+* Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
+* For testing purposes you can pass the `--github-auth-stdin` command-line option and supply a temporary token via standard input.
 
 When you have decided on the most secure and reliable method for your configuration, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 

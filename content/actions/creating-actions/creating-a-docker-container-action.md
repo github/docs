@@ -31,9 +31,9 @@ Once you complete this project, you should understand how to build your own Dock
 
 ## Prerequisites
 
-- You must create a repository on {% data variables.location.product_location %} and clone it to your workstation. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
-- If your repository uses {% data variables.large_files.product_name_short %}, you must include the objects in archives of your repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
-- You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %}, environment variables and the Docker container filesystem. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+* You must create a repository on {% data variables.location.product_location %} and clone it to your workstation. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+* If your repository uses {% data variables.large_files.product_name_short %}, you must include the objects in archives of your repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
+* You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %}, environment variables and the Docker container filesystem. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 
 ## Creating a Dockerfile
 
@@ -128,12 +128,12 @@ To let people know how to use your action, you can create a README file. A READM
 
 In your `hello-world-docker-action` directory, create a `README.md` file that specifies the following information:
 
-- A detailed description of what the action does.
-- Required input and output arguments.
-- Optional input and output arguments.
-- Secrets the action uses.
-- Environment variables the action uses.
-- An example of how to use your action in a workflow.
+* A detailed description of what the action does.
+* Required input and output arguments.
+* Optional input and output arguments.
+* Secrets the action uses.
+* Environment variables the action uses.
+* An example of how to use your action in a workflow.
 
 **README.md**
 
@@ -180,7 +180,7 @@ Now you're ready to test your action out in a workflow.
 
 {% ifversion private-actions %}- When an action is in a private repository, you can control who can access it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)."{% else %}- When an action is in a private repository, the action can only be used in workflows in the same repository.{% endif %}
 {% ifversion ghes or ghec %}{% ifversion internal-actions %}- When an action is in an internal repository, you can control who can access it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."{% else %}- When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}{% endif %}
-- Public actions can be used by workflows in any repository.
+* Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
@@ -269,6 +269,6 @@ For more information about uploading build output as an artifact, see "[AUTOTITL
 
 You can find many examples of Docker container actions on {% data variables.product.prodname_dotcom_the_website %}.
 
-- [github/issue-metrics](https://github.com/github/issue-metrics)
-- [microsoft/infersharpaction](https://github.com/microsoft/infersharpaction)
-- [microsoft/ps-docs](https://github.com/microsoft/ps-docs)
+* [github/issue-metrics](https://github.com/github/issue-metrics)
+* [microsoft/infersharpaction](https://github.com/microsoft/infersharpaction)
+* [microsoft/ps-docs](https://github.com/microsoft/ps-docs)

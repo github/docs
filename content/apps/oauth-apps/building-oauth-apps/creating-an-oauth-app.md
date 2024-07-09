@@ -67,4 +67,4 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)"

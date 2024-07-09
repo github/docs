@@ -42,6 +42,7 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 |                     | Ubuntu | Windows | macOS |
 | ------------------- | ------ | ------- | ----- |
 | Static IP addresses | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Azure private networking | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Autoscaling         | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Runner groups       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
@@ -49,9 +50,9 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 These features can enhance your CI/CD pipelines in the following ways.
 
-- Assigning {% data variables.actions.hosted_runners %}  static IP addresses from a specific range enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runners %}](#networking-for-larger-runners)."
-- Autoscaling enables {% data variables.actions.hosted_runners %}  to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
-- Runner groups allow you to control access to {% data variables.actions.hosted_runners %} for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+* Assigning {% data variables.actions.hosted_runners %}  static IP addresses from a specific range enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runners %}](#networking-for-larger-runners)."
+* Autoscaling enables {% data variables.actions.hosted_runners %}  to scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runners %}](#autoscaling-larger-runners)."
+* Runner groups allow you to control access to {% data variables.actions.hosted_runners %} for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 ### Runner images
 
@@ -98,12 +99,6 @@ You can choose from several specifications for {% data variables.actions.hosted_
 >[!NOTE] The 4-vCPU Windows runner only works with the Windows 11 Desktop image.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
-
-{% note %}
-
-**Note:** GPU runners are currently in beta and subject to change.
-
-{% endnote %}
 
 | CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
 | --- | --- | -------- | ------------ | ----------------- | ------------- | --------------------- |
@@ -156,8 +151,8 @@ You can configure the maximum job concurrency, which allows you to control your 
 {% note %}
 
 **Notes:**
-- Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
-- {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
+* Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
+* {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
 
 {% endnote %}
 

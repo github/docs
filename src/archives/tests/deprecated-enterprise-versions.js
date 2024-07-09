@@ -308,4 +308,43 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(404)
     expect(result.headers['x-is-archived']).toBeUndefined()
   })
+
+  test('404 if the pathname contains URL characters (..)', async () => {
+    const result = await get('/enterprise/2.18/dist/index..css', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+
+  test('404 if the pathname contains URL characters (://)', async () => {
+    const result = await get('/enterprise/2.18/dist/index.csshttp://example.com', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+
+  test('404 if the pathname contains URL characters (@)', async () => {
+    const result = await get('/enterprise/2.18/dist/index.css:password@example.com', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
 })

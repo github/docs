@@ -18,11 +18,7 @@ You can filter for iterations by specifying the iteration name or `@current` for
 
 When you first create an iteration field, three iterations are automatically created.  You can add additional iterations and make other changes on your project's settings page.
 
-{% ifversion projects-v2-roadmaps %}
-
 If your project makes use of iteration fields, you can use the roadmap layout to view items on a timeline. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-roadmap-layout)."
-
-{% endif %}
 
 ## Adding an iteration field
 
@@ -31,8 +27,6 @@ If your project makes use of iteration fields, you can use the roadmap layout to
 1. Optionally, if you don't want the iteration to start today, select the calendar dropdown next to "Starts on" and choose a new start date.
 1. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
 1. Click **Save**.
-
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
 
 ## Adding new iterations
 

@@ -26,10 +26,10 @@ For your site to render at the correct domain, make sure your CNAME file still e
 
 Then, make sure the CNAME file is formatted correctly.
 
-- The CNAME filename must be all uppercase.
-- The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
-- The CNAME file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
-- The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's CNAME file contains `example.com`, you cannot use `example.com` in the CNAME file for your repository.
+* The CNAME filename must be all uppercase.
+* The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
+* The CNAME file must contain the domain name only. For example, `www.example.com`, `blog.example.com`, or `example.com`.
+* The domain name must be unique across all {% data variables.product.prodname_pages %} sites. For example, if another repository's CNAME file contains `example.com`, you cannot use `example.com` in the CNAME file for your repository.
 
 ## DNS misconfiguration
 
@@ -37,17 +37,17 @@ If you have trouble pointing the default domain for your site to your custom dom
 
 You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
 
-- A CLI tool such as `dig`. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+* A CLI tool such as `dig`. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)".
+* An online DNS lookup tool.
 
 ## Custom domain names that are unsupported
 
 If your custom domain is unsupported, you may need to change your domain to a supported domain. You can also contact your DNS provider to see if they offer forwarding services for domain names.
 
 Make sure your site does not:
-- Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
-- Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
-- Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
+* Use more than one apex domain. For example, both `example.com` and `anotherexample.com`.
+* Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
+* Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
   The one exception is the `www` subdomain. If configured correctly, the `www` subdomain is automatically redirected to the apex domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain)."
 

@@ -47,4 +47,4 @@ If your organization is owned by an enterprise account, requiring SAML for the e
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"
+* "[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"

@@ -8,4 +8,4 @@
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases
 
-Knowledge bases are collections of Markdown documentation from one or more repositories. When you ask a question in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} and in {% data variables.product.prodname_vscode_shortname %} you can specify a knowledge base as the context for your question. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
+Knowledge bases are collections of Markdown documentation from one or more repositories. When you ask a question in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} and in {% data variables.product.prodname_vscode_shortname %} you can specify a knowledge base as the context for your question. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."

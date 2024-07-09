@@ -7,7 +7,5 @@ topics:
 versions:
   feature: copilot
 children:
-  - /overview
-  - /copilot-pull-request-summaries
+  - /enabling-github-copilot-enterprise-features
 ---
-
