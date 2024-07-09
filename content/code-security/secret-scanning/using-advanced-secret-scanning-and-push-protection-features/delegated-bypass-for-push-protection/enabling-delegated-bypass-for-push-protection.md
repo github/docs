@@ -1,6 +1,6 @@
 ---
 title: Enabling delegated bypass for push protection
-intro: 'You can enable delegated bypass for your organization or repository so that you have full control over who can bypass blocks, and which blocks are allowed.'
+intro: 'You can use delegated bypass for your organization or repository to control who can push commits that contain secrets identified by {% data variables.product.prodname_secret_scanning %}.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 permissions: 'Organization owners and repository administrators can enable delegated bypass for push protection for their organization and repository, respectively.'
 versions:
