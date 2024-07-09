@@ -12,4 +12,7 @@ type: overview
 topics:
   - Secret scanning
   - Advanced Security
+children:
+  - /about-secret-scanning
 ---
+

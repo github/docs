@@ -112,7 +112,7 @@ secret_scanning:
     Set up secret scanning to guard against accidental check-ins of tokens,
     passwords, and other secrets to your repository.
   guides:
-    - /code-security/secret-scanning/about-secret-scanning
+    - /code-security/secret-scanning/introduction/about-secret-scanning
     - >-
       /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
     - >-

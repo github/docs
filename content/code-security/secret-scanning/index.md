@@ -16,7 +16,6 @@ topics:
   - Repositories
 children:
   - /introduction
-  - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
   - /about-the-regular-expression-generator-for-custom-patterns
@@ -33,3 +32,4 @@ children:
   - /troubleshooting-secret-scanning-and-push-protection
   - /secret-scanning-partnership-program
 ---
+

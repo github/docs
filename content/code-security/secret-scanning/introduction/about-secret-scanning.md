@@ -8,6 +8,7 @@ redirect_from:
   - /articles/about-token-scanning-for-private-repositories
   - /github/administering-a-repository/about-secret-scanning
   - /code-security/secret-security/about-secret-scanning
+  - /code-security/secret-scanning/about-secret-scanning
 versions:
   fpt: '*'
   ghes: '*'
