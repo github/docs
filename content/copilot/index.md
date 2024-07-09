@@ -23,10 +23,9 @@ versions:
 children:
   - /quickstart
   - /about-github-copilot
+  - /setting-up-github-copilot
   - /using-github-copilot
   - /managing-copilot
-  - /copilot-business
-  - /github-copilot-enterprise
   - /troubleshooting-github-copilot
   - /responsible-use-of-github-copilot-features
 topics:

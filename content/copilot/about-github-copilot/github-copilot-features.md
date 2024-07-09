@@ -61,3 +61,4 @@ Configure {% data variables.product.prodname_copilot_short %} to ignore certain 
 ## Next steps
 
 * To learn more about the subscription plans available for {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)."
+* To start using Copilot, see "[AUTOTITLE](/copilot/setting-up-github-copilot)."
