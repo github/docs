@@ -1,7 +1,7 @@
 ---
 title: Enabling secret scanning for non-provider patterns
 allowTitleToDifferFromFilename: true
-intro: 'TODO'
+intro: 'You can enable {% data variables.product.prodname_secret_scanning %} for non-provider patterns at repository and organization level.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   feature: secret-scanning-non-provider-patterns
