@@ -69,7 +69,7 @@ You can filter issues and pull requests to find:
 ## Filtering issues and pull requests by assignees
 
 Once you've [assigned an issue or pull request to someone](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
-                                                           
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Assignee** dropdown menu.
