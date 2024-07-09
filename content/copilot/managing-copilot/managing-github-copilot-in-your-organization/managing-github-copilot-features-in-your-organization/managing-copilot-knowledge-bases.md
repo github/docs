@@ -23,7 +23,7 @@ redirect_from:
 
 ## About knowledge bases
 
-Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %} and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
+Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
 When you ask a question in {% data variables.product.prodname_copilot_chat %} with a knowledge base selected, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response.
 
