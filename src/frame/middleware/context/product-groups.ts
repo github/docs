@@ -2,7 +2,7 @@ import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
 import { getProductGroups } from '@/products/lib/get-product-groups'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { languageKeys } from '@/languages/lib/languages.js'
 import { allVersionKeys } from '@/versions/lib/all-versions.js'
 

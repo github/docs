@@ -145,22 +145,6 @@ To allow {% data variables.product.prodname_dependabot %} to access a private{% 
 1. A list of matching repositories in the organization is displayed, click the repository you want to allow access to and this adds the repository to the allowed list.
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-## Allowing validity checks for partner patterns in an organization
-
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
-{% data reusables.gated-features.partner-pattern-validity-check-ghas %}
-
-You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret by sending it to the relevant partner. When you select the checkbox in the organization settings, the feature is enabled for all repositories in the organization. Alternatively, you can enable the validity check for a single repository, or at the enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-validity-checks-for-partner-patterns)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
-
-You can also use the REST API to enable validity checks for partner patterns for your organization. For more information, see "[AUTOTITLE](/rest/orgs/orgs#update-an-organization)."
-
-1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
-{% data reusables.secret-scanning.validity-check-auto-enable %}
-
-{% endif %}
-
 {% ifversion ghes or ghec %}
 
 ## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization

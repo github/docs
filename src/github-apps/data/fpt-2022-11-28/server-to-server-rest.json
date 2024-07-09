@@ -4213,12 +4213,6 @@
       "requestPath": "/users"
     },
     {
-      "slug": "get-a-user",
-      "subcategory": "users",
-      "verb": "get",
-      "requestPath": "/users/{username}"
-    },
-    {
       "slug": "list-attestations",
       "subcategory": "attestations",
       "verb": "get",

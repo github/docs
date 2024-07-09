@@ -245,6 +245,14 @@ variable.
 
 This overrides the GITHUB\_TOKEN environment variable.
 
+### Options to specify which extensions to use when interpreting the results
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
+
 ### Options for finding QL packs (which may be necessary to interpret query suites)
 
 #### `--search-path=<dir>[:<dir>...]`

@@ -49,7 +49,7 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
 1. Click **Licensing**.
-1. To download a CSV report of the license usage, click  {% octicon "download" aria-hidden="true" %} **CSV report** to the right of the usage you want to download.
+1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click {% octicon "download" aria-hidden="true" %} **CSV report**.
 
 ## Further reading
 
