@@ -14,7 +14,7 @@ topics:
 {% ifversion ghec %}
 {% webui %}
 
-You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot)."
+You can use {% data variables.product.prodname_copilot_chat_dotcom %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)."
 
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on whether you are in an editor or on {% data variables.product.prodname_dotcom_the_website %}. This version of the quickstart is for {% data variables.product.prodname_dotcom_the_website %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in an editor.
 

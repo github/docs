@@ -1,6 +1,6 @@
 ---
 title: Annotating code examples
-shortTitle: Annotating code examples
+shortTitle: Annotate code examples
 intro: "You can annotate longer code examples to explain how they work and how people can customize them for other uses."
 layout: inline
 versions:
