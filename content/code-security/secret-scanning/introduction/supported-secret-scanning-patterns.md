@@ -1,5 +1,5 @@
 ---
-title: Secret scanning patterns
+title: Supported secret scanning patterns
 intro: 'Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -14,6 +14,7 @@ redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
   - /code-security/secret-scanning/secret-scanning-patterns
 layout: inline
+shortTitle: Supported patterns
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}

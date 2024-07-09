@@ -1,5 +1,5 @@
 ---
-title: Push protection for repositories and organizations
+title: About push protection
 intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
@@ -16,7 +16,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Push protection for repositories
+shortTitle: Push protection
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
