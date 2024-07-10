@@ -1,0 +1,5 @@
+# Reference: ghes#6726, ghes#6731
+# Encryption bug in GitHub Enterprise Server Backup Utilities
+
+versions:
+  ghes: '>=3.7 <=3.9'
