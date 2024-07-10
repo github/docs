@@ -10,6 +10,8 @@ topics:
   - Advanced Security
   - Alerts
   - User account
+redirect_from:
+  - /code-security/secret-scanning/push-protection-for-users
 ---
 
 ## About push protection for users

@@ -2,7 +2,7 @@
 title: Working with secret scanning and push protection
 shortTitle: Work with secret scanning
 allowTitleToDifferFromFilename: true
-intro: 'TODO'
+intro: TODO
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -12,4 +12,7 @@ topics:
   - Secret scanning
   - Advanced Security
   - Repositories
+children:
+  - /push-protection-for-users
 ---
+
