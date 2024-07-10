@@ -13,6 +13,9 @@ topics:
   - Advanced Security
   - Repositories
 children:
+  - /secret-scanning-for-your-user-owned-repositories
   - /push-protection-for-users
+redirect_from:
+  - /code-security/secret-scanning/working-with-push-protection
 ---
 
