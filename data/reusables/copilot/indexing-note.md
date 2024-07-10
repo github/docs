@@ -1,7 +1,1 @@
-{% note %}
-
-**Note:**
-
-Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
-
-{% endnote %}
+> [!NOTE] Initial indexing can take up to 30 minutes for large repositories. Once a repository has been indexed for the first time, updates should be indexed much more quickly (typically within 5 minutes).
