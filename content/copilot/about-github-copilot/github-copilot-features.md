@@ -54,7 +54,7 @@ AI assistant lives in your Pull Request workflow to identify potential Bugs, Vu
 
 ### Model Fine tuning Private Beta
 
-Fine tune a custom model based on data that lives in a GitHub repository. 
+Fine tune a custom model based on data that lives in a GitHub repository.
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
