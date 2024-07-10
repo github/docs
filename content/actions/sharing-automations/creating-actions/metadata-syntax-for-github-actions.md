@@ -45,7 +45,7 @@ This example configures two inputs: `num-octocats` and `octocat-eye-color`. The 
 
 {% note %}
 
-**Note:** Workflows using `required: true` will not automatically return an error if the input is not specified for events that automatically trigger workflow runs. If you set `required: true` in your workflow file and are using `workflow_dispatch` to manually run the workflow, you will be required to specify inputs on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+**Note:** If input is not required and default values is not defined, {% data variables.product.prodname_dotcom %} will use empty string as default value.
 
 {% endnote %}
 
