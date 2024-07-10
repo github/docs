@@ -27,6 +27,7 @@ Due to {% data variables.product.prodname_copilot_short %}'s interaction with a 
 | `https://copilot-proxy.githubusercontent.com/` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://origin-tracker.githubusercontent.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.githubcopilot.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://vscode.dev` | Used when logging in with GitHub or Microsoft for an extension or Settings Sync |
 
 Additional domains and URLs may require allowlisting, depending on your organization's security policies and the editors in use. For more information about specific editors, see "[Further reading](#further-reading)."
 
