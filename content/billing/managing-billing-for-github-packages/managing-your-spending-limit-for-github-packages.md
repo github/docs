@@ -17,6 +17,13 @@ topics:
   - User account
 shortTitle: Your spending limit
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About spending limits for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}

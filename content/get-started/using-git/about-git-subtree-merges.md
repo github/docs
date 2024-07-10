@@ -19,10 +19,10 @@ Typically, a subtree merge is used to contain a repository within a repository. 
 
 The best way to explain subtree merges is to show by example. We will:
 
-- Make an empty repository called `test` that represents our project
-- Merge another repository into it as a subtree called `Spoon-Knife`.
-- The `test` project will use that subproject as if it were part of the same repository.
-- Fetch updates from `Spoon-Knife` into our `test` project.
+* Make an empty repository called `test` that represents our project.
+* Merge another repository into it as a subtree called `Spoon-Knife`.
+* The `test` project will use that subproject as if it were part of the same repository.
+* Fetch updates from `Spoon-Knife` into our `test` project.
 
 ## Setting up the empty repository for a subtree merge
 
@@ -123,5 +123,5 @@ git pull -s subtree spoon-knife main
 
 ## Further reading
 
-- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
-- "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"
+* [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
+* "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

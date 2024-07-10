@@ -18,4 +18,4 @@ After you authenticate to {% data variables.product.prodname_dotcom %}, you can 
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)"
+* "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)"

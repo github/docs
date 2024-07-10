@@ -48,6 +48,10 @@ redirect_from:
 
 {% data reusables.actions.jobs.matrix-exclude %}
 
+## Example: Using an output to define two matrices
+
+{% data reusables.actions.jobs.matrix-used-twice %}
+
 ## Handling failures
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}

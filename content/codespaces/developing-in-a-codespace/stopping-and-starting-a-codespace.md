@@ -79,13 +79,13 @@ You can stop a codespace from the "Your codespaces" page (see [the web browser i
 
 When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser.
 
-- To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
+* To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
   ```shell copy
   gh codespace code
   ```
 
-- To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+* To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
   ```shell copy
   gh codespace open --web
@@ -109,4 +109,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
+* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"

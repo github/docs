@@ -3,7 +3,9 @@ title: Push protection for repositories and organizations
 intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
-  feature: secret-scanning-push-protection
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
@@ -42,7 +44,7 @@ You can monitor security alerts to discover when users are bypassing push protec
 
 {% ifversion security-overview-push-protection-metrics-page %}
 
-If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {% endif %}
 
@@ -267,5 +269,5 @@ The contributor is notified of the decision by email and must take the required 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-- "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"

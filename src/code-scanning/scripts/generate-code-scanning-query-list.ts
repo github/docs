@@ -55,7 +55,7 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites' // eslint-disable-line import/no-extraneous-dependencies
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' // eslint-disable-line import/no-extraneous-dependencies
 import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
 
 /**
@@ -78,7 +78,7 @@ import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-li
  * Note that we never publicly ship a language for which we don't have autofix support, so if a language
  * has been shipped, we know for sure that it is supported.
  */
-const AUTOFIX_SHIPPED_LANGUAGES = ['csharp', 'java', 'javascript', 'python', 'go', 'ruby']
+const AUTOFIX_SHIPPED_LANGUAGES = ['csharp', 'java', 'javascript', 'python', 'go', 'ruby', 'cpp']
 
 program
   .description('Generate a reusable Markdown for for a code scanning query language')

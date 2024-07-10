@@ -15,9 +15,9 @@ versions:
 
 Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
 
-- Verified ownership of their domain and has a verified badge on their profile
-- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
-- Required two-factor authentication for their organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+* Verified ownership of their domain and has a verified badge on their profile
+* Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
+* Required two-factor authentication for their organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
 ![Screenshot of a marketplace badge for a {% data variables.product.prodname_github_app %}. The mouse pointer is hovering over an icon displaying the tooltip "Publisher domain and email verified."](/assets/images/marketplace/apps-with-verified-publisher-badge-tooltip.png)
 

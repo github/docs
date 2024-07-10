@@ -38,15 +38,15 @@ The Candidate Personal Information we collect, use, and maintain (or â€œprocessâ
 ## How do we use the Candidate Personal Information we collect?
 
 We use the Candidate Personal Information for the following purposes:
- - To assess your skills, qualifications and interests for employment opportunities with GitHub;
- - To verify the information provided by you or others, including checking your references;
- - To communicate with you about your application and the recruitment process, including informing you of other potential employment opportunities at GitHub;
- - If you were referred, to inform the referrer of the status of your application;
- - If you are offered a position, to prepare your offer letter and conduct a background check (to the extent permitted by applicable law);
- - If you are offered a position and where requested by you, to assist you with obtaining an immigration visa or work permit;
- - To comply with local laws, regulations, legal processes or enforceable government requests; and
- - To prepare and submit reports as required under local laws and regulations;
- - To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
+ * To assess your skills, qualifications and interests for employment opportunities with GitHub;
+ * To verify the information provided by you or others, including checking your references;
+ * To communicate with you about your application and the recruitment process, including informing you of other potential employment opportunities at GitHub;
+ * If you were referred, to inform the referrer of the status of your application;
+ * If you are offered a position, to prepare your offer letter and conduct a background check (to the extent permitted by applicable law);
+ * If you are offered a position and where requested by you, to assist you with obtaining an immigration visa or work permit;
+ * To comply with local laws, regulations, legal processes or enforceable government requests; and
+ * To prepare and submit reports as required under local laws and regulations;
+ * To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
 
 ## How do we share your Candidate Personal Information?
 

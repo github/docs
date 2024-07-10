@@ -18,17 +18,17 @@ shortTitle: Proxy servers
 
 If you need a self-hosted runner to communicate via a proxy server, the self-hosted runner application uses proxy configurations set in the following environment variables:
 
-- `https_proxy`: Proxy URL for HTTPS traffic. You can also include basic authentication credentials, if required. For example:
-  - `http://proxy.local`
-  - `http://192.168.1.1:8080`
-  - `http://username:password@proxy.local`
-- `http_proxy`: Proxy URL for HTTP traffic. You can also include basic authentication credentials, if required. For example:
-  - `http://proxy.local`
-  - `http://192.168.1.1:8080`
-  - `http://username:password@proxy.local`
-- `no_proxy`: Comma separated list of hosts that should not use a proxy. Only hostnames are allowed in `no_proxy`, you cannot use IP addresses. For example:
-  - `example.com`
-  - `example.com,myserver.local:443,example.org`
+* `https_proxy`: Proxy URL for HTTPS traffic. You can also include basic authentication credentials, if required. For example:
+  * `http://proxy.local`
+  * `http://192.168.1.1:8080`
+  * `http://username:password@proxy.local`
+* `http_proxy`: Proxy URL for HTTP traffic. You can also include basic authentication credentials, if required. For example:
+  * `http://proxy.local`
+  * `http://192.168.1.1:8080`
+  * `http://username:password@proxy.local`
+* `no_proxy`: Comma separated list of hosts that should not use a proxy. Only hostnames are allowed in `no_proxy`, you cannot use IP addresses. For example:
+  * `example.com`
+  * `example.com,myserver.local:443,example.org`
 
 The proxy environment variables are read when the self-hosted runner application starts, so you must set the environment variables before configuring or starting the self-hosted runner application. If your proxy configuration changes, you must restart the self-hosted runner application.
 

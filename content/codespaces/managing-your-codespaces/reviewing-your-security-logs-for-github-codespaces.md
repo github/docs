@@ -23,7 +23,7 @@ The security log includes details on what action occurred and when you performed
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
-- "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)"
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
+* "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"

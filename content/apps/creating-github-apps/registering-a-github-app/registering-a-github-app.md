@@ -31,7 +31,7 @@ You can register a {% data variables.product.prodname_github_app %} under your p
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 1. Click **New GitHub App**.
-1. Under "GitHub App name", enter a name for your app. You should choose a clear and short name. Your app's name (converted to lowercase, with spaces replaced by `-`, and with special characters replaced) will be shown in the user interface when your app takes an action. For example, `My APp Näme` would display as `my-app-name`.
+1. Under "GitHub App name", enter a name for your app. You should choose a clear and short name. The name cannot be longer than 34 characters. Your app's name (converted to lowercase, with spaces replaced by `-`, and with special characters replaced) will be shown in the user interface when your app takes an action. For example, `My APp Näme` would display as `my-app-name`.
 
    The name must be unique across {% data variables.product.company_short %}. You cannot use same name as an existing GitHub account, unless it is your own user or organization name.
 
@@ -65,11 +65,11 @@ You can register a {% data variables.product.prodname_github_app %} under your p
 
 After registering a {% data variables.product.prodname_github_app %}, you will want to write code to make your {% data variables.product.prodname_github_app %} do something. For examples of how to write code, see:
 
-- "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/quickstart)"
-- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)"
-- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)"
-- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)"
-- "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)"
+* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/quickstart)"
+* "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)"
+* "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)"
+* "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)"
+* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)"
 
 You should aim to follow best practices. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
 

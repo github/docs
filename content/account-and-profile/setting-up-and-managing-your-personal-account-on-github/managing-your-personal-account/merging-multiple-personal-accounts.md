@@ -33,10 +33,10 @@ shortTitle: Merge multiple accounts
 {% warning %}
 
 **Warning:**
-- Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
-- Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
-- Issues, pull requests, and discussions will not be attributed to the new account.
-- Achievements are not able to be transferred between accounts.
+* Organization and repository access permissions aren't transferable between accounts. If the account you want to delete has an existing access permission, an organization owner or repository administrator will need to invite the account that you want to keep.
+* Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
+* Issues, pull requests, and discussions will not be attributed to the new account.
+* Achievements are not able to be transferred between accounts.
 
 {% endwarning %}
 
@@ -47,4 +47,4 @@ shortTitle: Merge multiple accounts
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"
+* "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)"

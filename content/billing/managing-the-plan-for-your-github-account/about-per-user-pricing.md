@@ -51,24 +51,25 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 {% data variables.product.company_short %} bills for the following people:
 
-- Organization members, including owners
-- Outside collaborators on private repositories owned by your organization, excluding forks
-- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
-- Dormant users
+* Organization members, including owners
+* Outside collaborators on private repositories owned by your organization, excluding forks
+* Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+* Dormant users
 
 {% note %}
 
 **Notes:**
-- {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
-- {% data reusables.organizations.org-invite-scim %}
+* {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
+* {% data reusables.organizations.org-invite-scim %}
+* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% endnote %}
 
 {% data variables.product.company_short %} does not bill for the following people:
 
-- Billing managers
-- Anyone with a pending invitation to become a billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+* Billing managers
+* Anyone with a pending invitation to become a billing manager
+* Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
 
 {% else %}
 
@@ -78,35 +79,36 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 {% data variables.product.company_short %} bills for each of the following accounts on {% data variables.product.prodname_ghe_cloud %}:
 
-- Enterprise owners who are a member or owner of at least one organization in the enterprise
-- Organization members, including owners
-- Outside collaborators on private or internal repositories owned by your organization, excluding forks
-- Dormant users who are a member or owner of at least one organization in the enterprise
+* Enterprise owners who are a member or owner of at least one organization in the enterprise
+* Organization members, including owners
+* Outside collaborators on private or internal repositories owned by your organization, excluding forks
+* Dormant users who are a member or owner of at least one organization in the enterprise
 
 If your enterprise does not use {% data variables.product.prodname_emus %}, you will also be billed for each of the following accounts:
 
-- Anyone with a pending invitation to become an organization owner or member
-- Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
+* Anyone with a pending invitation to become an organization owner or member
+* Anyone with a pending invitation to become an outside collaborator on private or internal repositories owned by your organization, excluding forks
 
 {% note %}
 
 **Notes:**
-- {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
-- {% data reusables.organizations.org-invite-scim %}
+* {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
+* {% data reusables.organizations.org-invite-scim %}
+* Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
 
 {% endnote %}
 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 
-- {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
-- Enterprise owners who are not a member or owner of at least one organization in the enterprise, except for the user who set up the enterprise
-- Enterprise billing managers
-- Billing managers for individual organizations
-- Anyone with a pending invitation to become a billing manager
-- Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
-- Guest collaborators who are not organization members (see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)")
-- Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom_the_website %} are not linked, and who do not meet any of the other criteria for per-user pricing
-- Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
+* {% data variables.enterprise.prodname_managed_users_caps %} that are suspended
+* Enterprise owners who are not a member or owner of at least one organization in the enterprise, except for the user who set up the enterprise
+* Enterprise billing managers
+* Billing managers for individual organizations
+* Anyone with a pending invitation to become a billing manager
+* Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
+* Guest collaborators who are not organization members (see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)")
+* Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom_the_website %} are not linked, and who do not meet any of the other criteria for per-user pricing
+* Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
 
 ### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
 
@@ -160,8 +162,8 @@ When you downgrade to a legacy paid plan with fewer private repositories, your n
 ## Further reading
 
 {%- ifversion not fpt %}
-- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
-- "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
+* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
 {%- endif %}
-- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
+* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"

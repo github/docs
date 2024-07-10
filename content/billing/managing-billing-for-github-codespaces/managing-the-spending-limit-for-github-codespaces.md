@@ -17,6 +17,13 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces
   - /billing/managing-billing-for-github-codespaces/managing-spending-limits-for-github-codespaces
 ---
+
+{% ifversion enhanced-billing-platform %}
+
+{% data reusables.billing.enhanced-billing-platform %}
+
+{% endif %}
+
 ## About the {% data variables.product.prodname_github_codespaces %} spending limit
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
@@ -88,5 +95,5 @@ For personal accounts only, you can also choose to turn off email notifications 
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"

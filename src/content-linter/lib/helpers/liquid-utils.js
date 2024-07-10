@@ -2,8 +2,13 @@ import { Tokenizer } from 'liquidjs'
 
 const liquidTokenCache = new Map()
 
-export function getLiquidTokens(content) {
+export function getLiquidTokens(content, { noCache = false } = {}) {
   if (!content) return []
+
+  if (noCache) {
+    const tokenizer = new Tokenizer(content)
+    return tokenizer.readTopLevelTokens()
+  }
 
   if (liquidTokenCache.has(content)) {
     return liquidTokenCache.get(content)

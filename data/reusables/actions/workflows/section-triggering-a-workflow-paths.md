@@ -7,8 +7,8 @@ Use the `paths` filter when you want to include file path patterns or when you w
 
 **Note:** The order that you define `paths` patterns matters:
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
-- A matching positive pattern after a negative match will include the path again.
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+* A matching positive pattern after a negative match will include the path again.
 
 {% endnote %}
 
@@ -52,8 +52,8 @@ If you define a path with the `!` character, you must also define at least one p
 
 The order that you define `paths` patterns matters:
 
-- A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
-- A matching positive pattern after a negative match will include the path again.
+* A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+* A matching positive pattern after a negative match will include the path again.
 
 This example runs anytime the `push` event includes a file in the `sub-project` directory or its subdirectories, unless the file is in the `sub-project/docs` directory. For example, a push that changed `sub-project/index.js` or `sub-project/src/index.js` will trigger a workflow run, but a push changing only `sub-project/docs/readme.md` will not.
 
@@ -76,9 +76,9 @@ on:
 The filter determines if a workflow should run by evaluating the changed files and running them against the `paths-ignore` or `paths` list. If there are no files changed, the workflow will not run.
 
 {% data variables.product.prodname_dotcom %} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
-- **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
-- **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
-- **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
+* **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+* **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
+* **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
 Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 

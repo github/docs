@@ -20,9 +20,9 @@ shortTitle: Deploy with GitHub Actions
 
 {% data variables.product.prodname_actions %} offers features that let you control deployments. You can:
 
-- Trigger workflows with a variety of events.
-- Configure environments to set rules before a job can proceed and to limit access to secrets.
-- Use concurrency to control the number of deployments running at a time.
+* Trigger workflows with a variety of events.
+* Configure environments to set rules before a job can proceed and to limit access to secrets.
+* Use concurrency to control the number of deployments running at a time.
 
 For more information about continuous deployment, see "[AUTOTITLE](/actions/deployment/about-deployments/about-continuous-deployment)."
 
@@ -36,9 +36,9 @@ You can use a variety of events to trigger your deployment workflow. Some of the
 
 For example, a workflow with the following triggers runs whenever:
 
-- There is a push to the `main` branch.
-- A pull request targeting the `main` branch is opened, synchronized, or reopened.
-- Someone manually triggers it.
+* There is a push to the `main` branch.
+* A pull request targeting the `main` branch is opened, synchronized, or reopened.
+* Someone manually triggers it.
 
 ```yaml
 on:

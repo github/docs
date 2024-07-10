@@ -16,9 +16,9 @@ While using {% data variables.product.prodname_github_codespaces %}, you may wan
 
 You can export your changes in one of several ways, depending on how you created the codespace. In every case, only the Git branch that is currently checked out in the codespace is exported. Work contained in other branches is not exported.
 
-- If you created the codespace from a repository to which you have write access, you can export your changes to a new branch of the repository.
-- If you created the codespace from a repository to which you only have read access, you can export your changes to a fork of the repository. {% data variables.product.prodname_github_codespaces %} will create a new fork for you, or link your codespace to an existing fork if you already have one for the repository, and export your changes to a new branch of the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
-- If you created the codespace from a template, and have not yet published it, you can publish the codespace to a new repository.
+* If you created the codespace from a repository to which you have write access, you can export your changes to a new branch of the repository.
+* If you created the codespace from a repository to which you only have read access, you can export your changes to a fork of the repository. {% data variables.product.prodname_github_codespaces %} will create a new fork for you, or link your codespace to an existing fork if you already have one for the repository, and export your changes to a new branch of the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
+* If you created the codespace from a template, and have not yet published it, you can publish the codespace to a new repository.
 
 {% note %}
 

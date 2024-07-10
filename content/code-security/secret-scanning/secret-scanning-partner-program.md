@@ -46,16 +46,16 @@ You will receive details on the {% data variables.product.prodname_secret_scanni
 ### Identify your secrets and create regular expressions
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
-- A unique, human-readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-- A regular expression which finds the secret type. We recommend you are as precise as possible, because this will help reduce the number of false positives. Some best practices for high quality, identifiable secrets are:
-  - A uniquely defined prefix
-  - High entropy random strings
-  - A 32-bit checksum
+* A unique, human-readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
+* A regular expression which finds the secret type. We recommend you are as precise as possible, because this will help reduce the number of false positives. Some best practices for high quality, identifiable secrets are:
+  * A uniquely defined prefix
+  * High entropy random strings
+  * A 32-bit checksum
 
   ![Screenshot showing the breakdown of a secret into details to be considered when submitting to GitHub a regular expression to find high quality secrets.](/assets/images/help/security/regular-expression-guidance.png)
 
-- A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
-- The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.
+* A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
+* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
@@ -78,29 +78,29 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-- **token**: The value of the secret match.
-- **type**: The unique name you provided to identify your regular expression.
-- **url**: The public URL where the match was found (may be empty)
-- **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+* **token**: The value of the secret match.
+* **type**: The unique name you provided to identify your regular expression.
+* **url**: The public URL where the match was found (may be empty)
+* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 
-- content
-- commit
-- pull_request_title
-- pull_request_description
-- pull_request_comment
-- issue_title
-- issue_description
-- issue_comment
-- discussion_title
-- discussion_body
-- discussion_comment
-- commit_comment
-- gist_content
-- gist_comment
-- npm
-- unknown
+* content
+* commit
+* pull_request_title
+* pull_request_description
+* pull_request_comment
+* issue_title
+* issue_description
+* issue_comment
+* discussion_title
+* discussion_body
+* discussion_comment
+* commit_comment
+* gist_content
+* gist_comment
+* npm
+* unknown
 
 ### Implement signature verification in your secret alert service
 
@@ -109,8 +109,8 @@ to validate the messages you receive are genuinely from {% data variables.produc
 
 The two HTTP headers to look for are:
 
-- `Github-Public-Key-Identifier`: Which `key_identifier` to use from our API
-- `Github-Public-Key-Signature`: Signature of the payload
+* `Github-Public-Key-Identifier`: Which `key_identifier` to use from our API
+* `Github-Public-Key-Signature`: Signature of the payload
 
 You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
 will provide several `key_identifier` and public keys. You can determine which public
@@ -395,9 +395,9 @@ You may also provide the token in hashed form after performing a one way cryptog
 ```
 
 A few important points:
-- You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
-- For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
-- The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
+* You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
+* For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
+* The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
 
 {% note %}
 

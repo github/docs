@@ -1,0 +1,32 @@
+# This workflow provides information when a contributor edits a release note file
+
+name: Comment on release note changes
+
+on:
+  pull_request:
+    types:
+      - opened
+    paths:
+      - data/release-notes/enterprise-server/**
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment:
+    # Do not add this comment on PRs created by the bot during the standard patch release process
+    # or in the github/docs repository
+    if: github.event.pull_request.user.login != 'release-controller[bot]' && github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Thank you for updating our GitHub Enterprise Server release notes. A member of the `docs-content-enterprise` team will review your changes.
+
+            - If the change is urgent, post in `#docs-content-enterprise` on Slack.
+            - Review the [style guide for release notes](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#release-notes).
+            - If you're updating or adding a note, add a datestamp in the format `[Updated: YYYY-MM-DD]`.
+            - If you're removing a note, add an "[Errata](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide#errata)" section with details of the change.

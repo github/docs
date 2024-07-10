@@ -182,6 +182,8 @@ rest_reference:
   installation_access_token_name: GitHub App installation access tokens
   fine_grained_access_token_name: Fine-grained personal access tokens
   no_fine_grained_access: This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+  basic_auth_heading: Basic authentication for "{{ RESTOperationTitle }}"
+  basic_auth: You must use <a href="/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication">Basic Authentication</a> to use this endpoint. Use the application's <code>client_id</code> as the username and the <code>client_secret</code> as the password.
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type

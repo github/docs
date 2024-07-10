@@ -21,11 +21,11 @@ redirect_from:
 
 There are{% ifversion codeql-model-packs %} three{% else %} two{% endif %} types of {% data variables.product.prodname_codeql %} packs: {% ifversion codeql-model-packs %}query packs, library packs, and model packs{% else %} query packs and library packs{% endif %}.
 
-- Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
+* Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
 
-- Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs %}
+* Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs %}
 
-- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. {% data reusables.code-scanning.codeql-model-packs-availability %} For more information about creating your own model packs, see "[Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack)."{% endif %}
+* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. {% data reusables.code-scanning.codeql-model-packs-availability %} For more information about creating your own model packs, see "[Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack)."{% endif %}
 
 You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
 
@@ -35,13 +35,13 @@ For more information about compatibility between published query packs and diffe
 
 The standard {% data variables.product.prodname_codeql %} packages for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages). The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains source files for the standard {% data variables.product.prodname_codeql %} packs for all supported languages. The core query packs, which are included in the {% data variables.product.prodname_codeql %} CLI bundle, but you can otherwise download, are:
 
-  - `codeql/cpp-queries`
-  - `codeql/csharp-queries`
-  - `codeql/go-queries`
-  - `codeql/java-queries`
-  - `codeql/javascript-queries`
-  - `codeql/python-queries`
-  - `codeql/ruby-queries`
+  * `codeql/cpp-queries`
+  * `codeql/csharp-queries`
+  * `codeql/go-queries`
+  * `codeql/java-queries`
+  * `codeql/javascript-queries`
+  * `codeql/python-queries`
+  * `codeql/ruby-queries`
 
 ## {% data variables.product.prodname_codeql %} pack structure
 
@@ -49,9 +49,9 @@ A {% data variables.product.prodname_codeql %} pack must contain a file called `
 
 The other files and directories within the pack should be logically organized. For example, typically:
 
-- Queries are organized into directories for specific categories.
+* Queries are organized into directories for specific categories.
 
-- Queries for specific products, libraries, and frameworks are organized into
+* Queries for specific products, libraries, and frameworks are organized into
 their own top-level directories.
 
 ## Creating a {% data variables.product.prodname_codeql %} pack
@@ -64,9 +64,9 @@ codeql pack init <scope>/<pack>
 
 You must specify:
 
-- `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
+* `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
 
-- `<pack>`: the name for the pack that you are creating.
+* `<pack>`: the name for the pack that you are creating.
 
 The `codeql pack init` command creates the directory structure and configuration files for a {% data variables.product.prodname_codeql %} pack. By default, the command creates a query pack. If you want to create a library pack, you must edit the `qlpack.yml` file to explicitly declare the file as a library pack by including the `library:true` property.
 
@@ -80,10 +80,10 @@ Model packs can be used to expand {% data variables.product.prodname_code_scanni
 
 A model pack is a {% data variables.product.prodname_codeql %} pack with the following characteristics in the `qlpack.yml` file:
 
-- It defines `library: true`.
-- It has no dependencies.
-- It has one or more `extensionTargets`.
-- It has a `dataExtensions` property that points to one or more data extension files.
+* It defines `library: true`.
+* It has no dependencies.
+* It has one or more `extensionTargets`.
+* It has a `dataExtensions` property that points to one or more data extension files.
 
 A model pack will inject its specified data extensions into each query pack that is named in `extensionTargets`, if it falls within the specified version range. For example:
 
@@ -133,9 +133,9 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 **Notes:**
 
-- Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see "[About codeql-pack.lock.yml files](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs##about-codeql-packlockyml-files)."
+* Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see "[About codeql-pack.lock.yml files](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs##about-codeql-packlockyml-files)."
 
-- By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see "[AUTOTITLE](/enterprise-server@latest/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)" in the {% data variables.product.prodname_ghe_server %} documentation.
+* By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see "[AUTOTITLE](/enterprise-server@latest/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)" in the {% data variables.product.prodname_ghe_server %} documentation.
 
 {% endnote %}
 
@@ -147,8 +147,8 @@ The recommended way to experiment with changes to a pack is to clone the reposit
 
 If no source repository is available and you need to base modifications on a pack downloaded from the {% data variables.product.prodname_container_registry %}, be aware that these packs are not intended to be modified or customized after downloading, and their format may change in the future without much notice.  We recommend taking the following steps after downloading a pack if you need to modify the content:
 
-- Change the pack _name_ in `qlpack.yml` so you avoid confusion with results from the unmodified pack.
+* Change the pack _name_ in `qlpack.yml` so you avoid confusion with results from the unmodified pack.
 
-- Remove all files named `*.qlx` anywhere in the unpacked directory structure. These files contain precompiled versions of the queries, and in some situations {% data variables.product.prodname_codeql %} will use them in preference to the QL source you have modified.
+* Remove all files named `*.qlx` anywhere in the unpacked directory structure. These files contain precompiled versions of the queries, and in some situations {% data variables.product.prodname_codeql %} will use them in preference to the QL source you have modified.
 
 {% endif %}

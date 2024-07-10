@@ -30,9 +30,9 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 {% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
-- The **Files changed** tab of the pull request
+* Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
+* The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
+* The **Files changed** tab of the pull request
 
 {% ifversion code-scanning-alerts-in-pr-diff %}
 {% note %}
@@ -133,8 +133,8 @@ When autofix is enabled for a repository, alerts are displayed in pull requests 
 {% note %}
 
 **Notes:**
-- Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
-- When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+* Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
 
 {% endnote %}
 
@@ -147,8 +147,8 @@ Usually, when you suggest changes to a pull request, your comment contains chang
 Each autofix suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of autofix suggestions, see "[Limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning/#limitations-of-autofix-suggestions)" and "[Mitigating the limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-autofix-suggestions)" in "About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
 
 1. Click **Edit** to display the editing options and select your preferred method.
-   - Select **Edit with codespaces** to open a codespace showing your branch with the suggested fix applied.
-   - Select **Edit locally with {% data variables.product.prodname_cli %}** to display instructions for applying the suggested fix to any local repository or branch.
+   * Select **Edit with codespaces** to open a codespace showing your branch with the suggested fix applied.
+   * Select **Edit locally with {% data variables.product.prodname_cli %}** to display instructions for applying the suggested fix to any local repository or branch.
 1. Test and modify the suggested fix as needed.
 1. When you have finished testing your changes, commit the changes, and push them to your branch.
 1. Pushing the changes to your branch will trigger all the usual tests for your pull request. Confirm that your unit tests still pass and that the {% data variables.product.prodname_code_scanning %} alert is now fixed.

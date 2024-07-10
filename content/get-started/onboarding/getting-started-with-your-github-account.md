@@ -236,6 +236,6 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security)."
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-team)"
+* "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-team)"
 {% endif %}
 {% endif %}

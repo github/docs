@@ -51,7 +51,7 @@ Within the blame view, you can view the line-by-line revision history for an ent
       ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
 
 1. To return to the raw code view, above the file content, click **Code**.
-   - If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
+   * If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
 {% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
 

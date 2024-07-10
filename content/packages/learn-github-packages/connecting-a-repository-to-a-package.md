@@ -98,3 +98,18 @@ When you publish a package that is scoped to a personal account or an organizati
    ```shell
    docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
+
+## Unlinking a repository from a package on GitHub
+
+> [!NOTE]
+> Unlinking a package from a repository will remove the repository information from the package's landing page and can affect the access pattern depending on whether the package inherits its access permissions from the repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#about-inheritance-of-access-permissions)". This behavior does not apply to Apache Maven packages, as outlined in "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)".
+
+1. On GitHub, navigate to the settings page of the Package you'd like to unlink.
+
+1. On the Package settings page, you will see a Repository source section. If this section is not present, then the Package is not currently linked to a repository.
+
+1. Click on the trash icon in the top right corner of the Repository source section.
+
+> It is possible that the Repository source section exists, but there is no trash icon present. This is because a repository source has been defined as part of the packaged code i.e. a `package.json` file, `.gemspec` file, however, it is not actually linked to a repository on GitHub. To link the package to a repository, you will need to follow the steps in the section above.
+
+1. Confirm that you would like to unlink the repository from the package with the dialogue.
