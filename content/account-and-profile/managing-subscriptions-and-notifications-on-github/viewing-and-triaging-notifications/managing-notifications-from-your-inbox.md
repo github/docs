@@ -80,7 +80,6 @@ Custom filters do not currently support:
 * Changing the default filters or their order
 * Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`
 
-
 ## Supported queries for custom filters
 
 These are the types of filters that you can use:
