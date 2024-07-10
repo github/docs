@@ -47,16 +47,7 @@ Callouts should be concise. If the information consists of more than a couple of
 
 ### Callout types
 
-There are four types of callouts: tip, note, warning, and caution.
-
-#### Tip
-
-Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
-
-For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
-
-> [!TIP]
-> When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+There are five types of callouts: Note, Tip, Important, Warning, and Caution.
 
 #### Note
 
@@ -70,6 +61,20 @@ For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-se
 
 > [!NOTE]
 > Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
+
+#### Tip
+
+Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
+
+For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
+
+> [!TIP]
+> When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
+#### Important
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
 
 #### Warning
 
@@ -94,6 +99,13 @@ We use standard formatting and colors for different types of callouts across doc
 
 Callouts are rendered using Markdown.
 
+Note:
+
+```markdown
+> [!NOTE]
+> Keep this in mind.
+```
+
 Tip:
 
 ```markdown
@@ -101,11 +113,11 @@ Tip:
 > Here's a suggestion.
 ```
 
-Note:
+Important:
 
 ```markdown
-> [!NOTE]
-> Keep this in mind.
+> [!IMPORTANT]
+> This is important.
 ```
 
 Warning:
