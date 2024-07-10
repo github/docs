@@ -33,6 +33,12 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 You can estimate the number of licenses your enterprise would need to purchase {% data variables.product.prodname_GH_advanced_security %} or to enable {% data variables.product.prodname_GH_advanced_security %} for additional organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
 {% endif %}
 
+{% ifversion security-configurations-ga %}
+
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
 You can view the enterprise account's current {% ifversion ghas-billing-UI-update %}license{% endif %} limits and usage.
@@ -47,13 +53,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
    If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 
 {% ifversion security-configurations %}
-      {% note %}
-
-      **Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
-
+      {% data reusables.security-configurations.managing-GHAS-licenses %}
       {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-      {% endnote %}
 {% endif %}
 
 {% elsif ghes %}
@@ -83,13 +84,10 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
   For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion security-configurations %}
-{% note %}
 
-**Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+> {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
 {% endif %}
 {% endif %}
 
