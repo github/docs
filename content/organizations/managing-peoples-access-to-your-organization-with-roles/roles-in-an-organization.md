@@ -26,6 +26,16 @@ Team-level roles are roles that give permissions to manage a team. You can give 
 
 Organization-level roles are sets of permissions that can be assigned to individuals or teams to manage an organization and the organization's repositories, teams, and settings. For more information about all the roles available at the organization level, see "[About organization roles](#about-organization-roles)."
 
+{% ifversion org-pre-defined-roles %}
+
+## About pre-defined organization roles
+
+{% data reusables.organizations.pre-defined-organization-roles %}
+
+For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles)."
+
+{% endif %}
+
 ## About organization roles
 
 You can assign people to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
