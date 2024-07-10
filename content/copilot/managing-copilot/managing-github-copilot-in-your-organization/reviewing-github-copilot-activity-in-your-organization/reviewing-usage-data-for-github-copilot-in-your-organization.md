@@ -54,6 +54,8 @@ To align the `last_activity_at` data point with _actual usage_, the system retur
 
 The `last_activity_at` date is consistent across the CSV generated via `Get Report` in Copilot Access settings as well as through {% data variables.product.prodname_dotcom %}'s REST API. The events which are tracked come from both client, and server-side telemetry. This allows the timestamp to be durable in the event that network conditions would impact client-telemetry.
 
+Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again.
+
 ## Further reading
 
 {% ifversion ghec%}

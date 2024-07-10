@@ -63,8 +63,8 @@ After triaging the higher priority notifications, review the remaining notificat
 Choose which type of notifications are quickest and easiest for you to triage and remove from your inbox, ideally triaging multiple notifications at once.
 
 For example, you may decide to clear notifications in this order:
-* Participating notifications that you can unsubscribe to.
-* Repository updates that are not relevant to keep or follow-up on.
+* Participating notifications that you can unsubscribe to
+* Repository updates that are not relevant to keep or follow-up on
 
 For more information on managing multiple notifications in your inbox at the same time, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 
