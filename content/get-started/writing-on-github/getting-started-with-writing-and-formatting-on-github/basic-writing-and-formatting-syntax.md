@@ -310,13 +310,13 @@ The footnote will render like this:
 
 {% ifversion markdown-alerts %}
 
-## Alerts
+## Callouts
 
-Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
+Callouts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
 
-Use alerts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing alerts consecutively. Alerts cannot be nested within other elements.
+Use callouts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing callouts consecutively. Callouts cannot be nested within other elements.
 
-To add an alert, use a special blockquote line specifying the alert type, followed by the alert information in a standard blockquote. Five types of alerts are available:
+To add a callout, use a special blockquote line specifying the callout type, followed by the callout information in a standard blockquote. Five types of alerts are available:
 
 ```markdown
 > [!NOTE]
@@ -335,7 +335,7 @@ To add an alert, use a special blockquote line specifying the alert type, follow
 > Advises about risks or negative outcomes of certain actions.
 ```
 
-Here are the rendered alerts:
+Here are the rendered callouts:
 
 ![Screenshot of rendered Markdown alerts showing how Note, Tip, Important, Warning, and Caution render with different colored text and icons.](/assets/images/help/writing/alerts-rendered.png)
 
