@@ -15,7 +15,9 @@ topics:
 children:
   - /secret-scanning-for-your-user-owned-repositories
   - /push-protection-for-users
+  - /working-with-push-protection-from-the-command-line
 redirect_from:
   - /code-security/secret-scanning/working-with-push-protection
+  - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
 ---
 
