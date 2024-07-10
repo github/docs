@@ -1,8 +1,4 @@
-{% note %}
-
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
-
-{% endnote %}
+> [!NOTE] If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
 
 {% data variables.product.prodname_copilot_chat %} is available to all organizations {% ifversion ghec %}and enterprises{% endif %} that have an active {% data variables.product.prodname_copilot_for_business %} {% ifversion ghec %}or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization {% ifversion ghec %}or enterprise{% endif %} in the settings page for {% data variables.product.prodname_copilot_short %}.
 
