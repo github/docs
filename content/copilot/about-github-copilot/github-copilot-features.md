@@ -50,7 +50,7 @@ Enables better contextualized prompts and code search for Copilot responses tail
 
 ### Code Review Assistant Beta 
 
-AI assistant lives in your Pull Request workflow to identify potential Bugs, Vulnerabilities or general improvements.
+AI assistant lives in your Pull Request workflow to identify potential bugs, vulnerabilities or general improvements.
 
 ### Model Fine tuning Private Beta
 
