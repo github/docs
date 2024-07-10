@@ -48,7 +48,7 @@ Copilot Skills enable an agentic workflow that leverages NLP to map your prompts
 
 Enables better contextualized prompts and code search for Copilot responses tailored to your repository.
 
-### Code Review Assistant Beta 
+### Code Review Assistant Beta
 
 AI assistant lives in your Pull Request workflow to identify potential bugs, vulnerabilities or general improvements.
 
