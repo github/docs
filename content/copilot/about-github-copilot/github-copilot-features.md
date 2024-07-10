@@ -44,7 +44,7 @@ Create and manage collections of documentation to use as context for chatting wi
 
 Copilot Skills enable an agentic workflow that leverages NLP to map your prompts to predefined agents which complete tasks on your behalf. For example, a recency dependent query will be handed off to a GitHub Copilot BING skill, which performs a query and pads your prompt with the context of the response.
 
-### Repo Indexing 
+### Repo Indexing
 
 Enables better contextualized prompts and code search for Copilot responses tailored to your repository.
 
