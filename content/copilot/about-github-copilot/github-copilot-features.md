@@ -30,7 +30,7 @@ A chat-like interface in the terminal, where you can ask questions about the com
 
 ### GitHub Copilot Chat in GitHub.com
 
-Leverage the latest GPT models, live within the native GitHub.com interface to interrogate repositories, documentation, lines of source code and more. 
+Leverage the latest GPT models, live within the native GitHub.com interface to interrogate repositories, documentation, lines of source code and more.
 
 ### {% data variables.product.prodname_copilot_for_prs %}
 
