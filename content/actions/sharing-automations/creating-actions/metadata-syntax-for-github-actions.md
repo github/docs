@@ -45,7 +45,7 @@ This example configures two inputs: `num-octocats` and `octocat-eye-color`. The 
 
 {% note %}
 
-**Note:** If input is not required and default values is not defined, {% data variables.product.prodname_dotcom %} will use empty string as default value.
+**Note:** If input is not required and default value is not specified, {% data variables.product.prodname_dotcom %} will use empty string as a default value.
 
 {% endnote %}
 
