@@ -26,13 +26,35 @@ A chat interface that lets you ask coding-related questions. {% data variables.p
 
 A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands.
 
-### {% data variables.product.prodname_copilot_for_prs %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_
+## Copilot Enterprise
+
+### GitHub Copilot Chat in GitHub.com
+
+Leverage the latest GPT models, live within the native GitHub.com interface to interrogate repositories, documentation, lines of source code and more. 
+
+### {% data variables.product.prodname_copilot_for_prs %}
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review.
 
-### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
+### {% data variables.product.prodname_copilot_short %} knowledge bases
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question.
+
+### Copilot Skills
+
+Copilot Skills enable an agentic workflow that leverages NLP to map your prompts to predefined agents which complete tasks on your behalf. For example, a recency dependent query will be handed off to a GitHub Copilot BING skill, which performs a query and pads your prompt with the context of the response.
+
+### Repo Indexing 
+
+Enables better contextualized prompts and code search for Copilot responses tailored to your repository.
+
+### Code Review Assistant Beta 
+
+AI assistant lives in your Pull Request workflow to identify potential Bugs, Vulnerabilities or general improvements.
+
+### Model Fine tuning Private Beta
+
+Fine tune a custom model based on data that lives in a GitHub repository. 
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
