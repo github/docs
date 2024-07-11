@@ -1,5 +1,5 @@
 ---
-title: About the regular expression generator for custom patterns
+title: About generating regular expressions with AI
 shortTitle: Generate regular expressions with AI
 intro: 'You can define your own custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %} by generating one or more regular expressions for each pattern, using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}.'
 product: '{% data reusables.gated-features.secret-scanning %}'
@@ -15,7 +15,7 @@ topics:
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
 
-## About the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
+## About generating regular expressions with AI
 
 {% data variables.product.prodname_secret_scanning_caps %} scans repositories for a predefined set of secrets from our partner program, as well as custom patterns that are user-defined. Custom patterns are formatted as regular expressions.
 
@@ -35,7 +35,7 @@ Some results may be quite similar, and some results may not find every instance 
 
 When you click **Use result** on a regular expression, the expression and any examples inputted will be copied over to the main custom pattern form. There, you can perform a dry run of the pattern to see how it performs across your repository or organization.{% ifversion secret-scanning-custom-pattern-ai-generated %} For more information on how to define a custom pattern for your repository or organization, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
 
-## Improving performance for the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
+## Improving performance when generating regular expressions with AI
 
 To enhance performance and address some of the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, there are various measures that you can adopt. For more information on the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, see "[Limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}](#limitations-of-the-regular-expression-generator)."
 
@@ -43,7 +43,7 @@ To enhance performance and address some of the limitations of the {% data variab
 
 While the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} is a powerful tool to create custom patterns without you having to write regular expressions yourself, it is important to use it as a tool rather than a replacement for manual input. You should carefully validate the performance of the results by performing a dry run across your organization or repository. It's a good idea to run the pattern on a repository (or repositories) that are representative of the repositories in your organization. In some cases, it may be beneficial to modify a generated regular expression to more fully meet your needs. You remain ultimately responsible for any custom patterns you decide to use.
 
-## Limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
+## Limitations of generating regular expressions with AI
 
 Depending on factors such as your input description and examples, you may experience different levels of performance when using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}. You need to be as specific as possible with your description, and provide different types of examples of tokens that match your pattern, to be sure that the regular expression encompasses all the patterns you want {% data variables.product.prodname_secret_scanning %} to search for.
 
