@@ -42,4 +42,4 @@ topics:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expression-with-AI)"
+* "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expressions-with-ai)"
