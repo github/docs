@@ -39,7 +39,7 @@ When you click **Use result** on a regular expression, the expression and any ex
 
 ## Improving performance when generating regular expressions with AI
 
-To enhance performance and address some of the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, there are various measures that you can adopt. For more information on the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, see "[Limitations of generating regular expressions with AI](#limitations-of-generating-regular-expressions-with-AI)."
+To enhance performance and address some of the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, there are various measures that you can adopt. For more information on the limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}, see "[Limitations of generating regular expressions with AI](#limitations-of-generating-regular-expressions-with-ai)."
 
 ### Use the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} as a tool, not a replacement
 
