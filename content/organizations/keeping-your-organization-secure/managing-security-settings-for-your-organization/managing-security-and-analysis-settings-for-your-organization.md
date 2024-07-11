@@ -26,14 +26,12 @@ shortTitle: Manage security & analysis
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
+
+{% ifversion security-configurations-beta-and-pre-beta %}
 
 ## Displaying the security and analysis settings
 
@@ -118,7 +116,15 @@ You can use security overview to find a set of repositories and enable or disabl
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
 
+{% endif %}
+
 ## Allowing {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies
+
+{% ifversion security-configurations-ga %}
+
+You can use {% data variables.product.prodname_security_configurations %} to allow {% data variables.product.prodname_dependabot %} to access private{% ifversion ghec or ghes %} or internal{% endif %} dependencies. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#granting-dependabot-access-to-private-and-internal-repositories)."
+
+{% elsif security-configurations-beta-and-pre-beta %}
 
 {% data variables.product.prodname_dependabot %} can check for outdated dependency references in a project and automatically generate a pull request to update them. To do this, {% data variables.product.prodname_dependabot %} must have access to all of the targeted dependency files. Typically, version updates will fail if one or more dependencies are inaccessible. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
@@ -145,9 +151,17 @@ To allow {% data variables.product.prodname_dependabot %} to access a private{% 
 1. A list of matching repositories in the organization is displayed, click the repository you want to allow access to and this adds the repository to the allowed list.
 1. Optionally, to remove a repository from the list, to the right of the repository, click {% octicon "x" aria-label="The X icon" %}.
 
+{% endif %}
+
 {% ifversion ghes or ghec %}
 
 ## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+
+{% ifversion security-configurations-ga %}
+
+You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization)."
+
+{% elsif security-configurations-beta-and-pre-beta %}
 
 You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)." However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
 
@@ -164,6 +178,7 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 {% endnote %}
 
+{% endif %}
 {% endif %}
 
 ## Further reading
