@@ -41,7 +41,7 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ### Example: Specifying inputs
 
-This example configures three inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
+This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
 
 Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
 
@@ -58,7 +58,7 @@ inputs:
 
 When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions youu can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
