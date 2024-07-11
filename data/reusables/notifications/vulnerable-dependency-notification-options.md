@@ -1,9 +1,9 @@
 {% ifversion fpt or ghec %}By default, you will receive notifications:{% endif %}{% ifversion ghes %}By default, if your enterprise owner has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %}:{% endif %}
 
-* in your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**On {% data variables.product.prodname_dotcom %}** option).
-* by email, an email is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Email** option).
-* on the command line, warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**CLI** option).
-* on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+* In your inbox, as web notifications. A web notification is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**On {% data variables.product.prodname_dotcom %}** option).
+* By email. An email is sent when {% data variables.product.prodname_dependabot %} is enabled for a repository, when a new manifest file is committed to the repository, and when a new vulnerability with a critical or high severity is found (**Email** option).
+* On the command line. Warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**CLI** option).
+* On {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 
 {% note %}
 

@@ -49,6 +49,11 @@ For more information, see the following articles.
 * "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)"
 * "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)"
 
+{% ifversion ghes %}
+> [!NOTE]
+> * You should contact an enterprise owner before deleting your account on {% data variables.product.product_name %}.
+{% endif %}
+
 ## Back up your account data
 
 Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository)."

@@ -159,7 +159,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptio
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. In the upper-right corner, select the "Watch" drop-down menu, then click a watch option.
@@ -232,9 +232,9 @@ For repositories that are set up with {% data variables.product.prodname_actions
 1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
 
    ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is highlighted with an orange outline.](/assets/images/help/notifications/github-actions-customize-notifications.png)
-1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}".
+1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}."
 
-   To opt into email notifications, from the dropdown menu, select "Email".
+   To opt into email notifications, from the dropdown menu, select "Email."
 1. Optionally, to only receive notifications for failed workflow runs, from the dropdown menu, select "Only notify for failed workflows", then click **Save**.{% endif %}
 
 {% ifversion ghes %}

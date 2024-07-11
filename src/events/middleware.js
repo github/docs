@@ -3,7 +3,6 @@ import { omit, without, mapValues } from 'lodash-es'
 import QuickLRU from 'quick-lru'
 
 import { schemas, hydroNames } from './lib/schema.js'
-import statsd from '@/observability/lib/statsd.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
@@ -70,6 +69,13 @@ router.post(
       return res.status(400).json(isProd ? {} : validate.errors)
     }
 
+    if (type === 'survey' && req.body.survey_comment) {
+      req.body.survey_rating = await getSurveyCommentRating({
+        comment: req.body.survey_comment,
+        language: req.body.context.path_language,
+      })
+    }
+
     await publish({
       schema: hydroNames[type],
       value: omit(req.body, OMIT_FIELDS),
@@ -79,26 +85,13 @@ router.post(
   }),
 )
 
-router.post(
-  '/survey/preview/v1',
-  catchMiddlewareError(async function previewComment(req, res) {
-    noCacheControl(res)
+async function getSurveyCommentRating({ comment, language }) {
+  if (!comment || !comment.trim()) {
+    return
+  }
 
-    const { comment, locale, url, vote } = req.body
-    const tags = [`url:${url}`, `vote:${vote}`]
-
-    if (!comment || !comment.trim()) {
-      statsd.increment('events.survey_preview.empty', 1, tags)
-      return res.status(400).json({ message: 'Empty comment' })
-    }
-
-    const { rating, signals } = await analyzeComment(comment, locale)
-
-    res.json({ rating, comment })
-
-    tags.push(...signals.map((signal) => `signal:${signal}`))
-    statsd.increment('events.survey_preview.signals', 1, tags)
-  }),
-)
+  const { rating } = await analyzeComment(comment, language)
+  return rating
+}
 
 export default router

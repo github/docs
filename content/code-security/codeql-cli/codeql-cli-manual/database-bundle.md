@@ -47,24 +47,30 @@ that results, logs, TRAP, or similar should be included.
 
 \[Mandatory] The output file, typically with the extension ".zip".
 
-#### `--include-diagnostics`
+#### `--[no-]include-diagnostics`
 
 Include diagnostics in the bundle.
 
 Available since `v2.16.0`.
 
-#### `--include-results`
+#### `--[no-]include-results`
 
 Include any precomputed query results in the bundle.
 
-#### `--include-temp`
+#### `--[no-]include-logs`
+
+Include the logs directory in the bundle.
+
+Available since `v2.17.6`.
+
+#### `--[no-]include-temp`
 
 Includes the "temp" directory, where any generated packs, queries, and
 suites are located.
 
 Available since `v2.13.3`.
 
-#### `--include-uncompressed-source`
+#### `--[no-]include-uncompressed-source`
 
 Include an uncompressed version of the source archive directory. This is
 necessary for legacy CodeQL plugins (like CodeQL for Eclipse).

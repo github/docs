@@ -1,1 +1,1 @@
-Organizations with a subscription to [{% data variables.product.prodname_copilot_for_business %}](/copilot/copilot-business/about-github-copilot-business) or [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise).
+Organizations with a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
