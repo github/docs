@@ -1,6 +1,6 @@
 # GraphQL scripts
 
-A [scheduled workflow](../.github/workflows/sync-graphql.yml) runs the following
+A [scheduled workflow](../../../.github/workflows/sync-graphql.yml) runs the following
 scripts on a daily basis:
 ```
 src/graphql/scripts/sync.js
