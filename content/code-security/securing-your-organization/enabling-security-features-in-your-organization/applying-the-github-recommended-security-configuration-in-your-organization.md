@@ -50,8 +50,12 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 ## Enforcing the {% data variables.product.prodname_github_security_configuration %}
 
+{% ifversion enforce-security-configurations-beta %}
+
 >[!NOTE]
 > This feature is in beta, and is subject to change.
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
