@@ -45,7 +45,7 @@ For simple tokens you will usually only need to specify a secret format. The oth
 
 ### Using the regular expression generator
 
-{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
+{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expression-with-AI)" and "[AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
 
 {% endif %}
 
