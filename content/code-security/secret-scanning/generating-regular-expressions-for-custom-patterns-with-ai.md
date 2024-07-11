@@ -1,7 +1,7 @@
 ---
-title: Generating regular expressions for custom patterns with GitHub Copilot Secret Scanning
-shortTitle: Generate custom patterns with AI
-intro: '{% data variables.secret-scanning.copilot-secret-scanning %} helps you generate regular expressions for custom patterns that match your input, and optionally example strings.'
+title: Generating regular expressions for custom patterns with AI
+shortTitle: Use the regular expression generator
+intro: 'You can use the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} to generate regular expressions for custom patterns. The generator uses an AI model to generate expressions that match your input, and optionally example strings.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
@@ -12,7 +12,7 @@ topics:
   - AI
 ---
 
-## Generating a regular expression for a repository with {% data variables.secret-scanning.copilot-secret-scanning %}
+## Generating a regular expression for a repository using the generator
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -26,7 +26,7 @@ topics:
 
 {% data reusables.secret-scanning.link-to-push-protection %}
 
-## Generating a regular expression for an organization with {% data variables.secret-scanning.copilot-secret-scanning %}
+## Generating a regular expression for an organization using the generator
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
