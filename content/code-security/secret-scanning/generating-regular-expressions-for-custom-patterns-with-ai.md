@@ -30,14 +30,8 @@ topics:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-
-{% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For detail on using {% data variables.secret-scanning.copilot-secret-scanning %}, reference the following steps in this procedure. For more information on configuring {% data variables.product.prodname_global_settings %} for your organization, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
-{% endif %}
-
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.advanced-security.secret-scanning-new-custom-pattern-org %}
 {% data reusables.advanced-security.secret-scanning-generate-regular-expression-custom-pattern %}
 1. When you're ready to test your new custom pattern, to identify matches in selected repositories without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}

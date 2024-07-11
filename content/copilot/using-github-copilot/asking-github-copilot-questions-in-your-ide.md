@@ -174,14 +174,9 @@ Use the `@terminal` chat participant to ask specific questions about the command
 
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
 
-{% note %}
-
-**Notes**:
-
-* This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-* The `@github` chat participant is currently in beta and is subject to change.
-
-{% endnote %}
+> [!NOTE]
+> * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+> * The `@github` chat participant is currently in beta and is subject to change.
 
 {% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, include `@github` in your question.
 
@@ -205,11 +200,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 ## Asking a question about a knowledge base
 
-{% note %}
-
-**Note**: This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-
-{% endnote %}
+> [!NOTE] This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
 
 Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
 
@@ -363,14 +354,9 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %} (preview)
 
-{% note %}
-
-**Notes**:
-
-* This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-* The `@github` chat participant is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 2](https://visualstudio.microsoft.com/vs/preview/) onwards.
-
-{% endnote %}
+> [!NOTE]
+> * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+> * The `@github` chat participant is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 2](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
 {% data variables.product.prodname_copilot_short %} has a collection of {% data variables.product.prodname_dotcom %}-specific skills that it can use to answer your questions. To access these skills in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}, include `@github` in your question.
 
@@ -392,14 +378,9 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_short 
 
 ## Asking a question about a knowledge base (preview)
 
-{% note %}
-
-**Notes**:
-
-* This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
-* Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
-
-{% endnote %}
+> [!NOTE]
+> * This feature is only available if you have a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+> * Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
 Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases)."
 
