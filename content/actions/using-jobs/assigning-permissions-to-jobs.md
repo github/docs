@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
-## Defining access for the `GITHUB_TOKEN` scopes
+## Defining access for the `GITHUB_TOKEN` permissions
 
 {% data reusables.actions.github-token-available-permissions %}
 
