@@ -27,10 +27,10 @@ For an example workflow of removing notifications that are easy to remove or tri
 Choose which type of notifications are most urgent to review and pick a time to review them that's best for you. You might consider the question "Who am I blocking?"
 
 For example, you may decide to check your notifications in this order in the morning during your daily planning time:
-* Pull requests where your review is requested. (filter by `reason:review-requested`)
-* Events where your username is @mentioned, also called direct mentions. (filter by `reason:mention`)
-* Events where a team you're a member of is @mentioned, also called team mentions. (filter by `reason:team-mention`)
-* CI workflow failures for a specific repository. (filter by `reason:ci-activity` and `repo:owner/repo-name` and ensure you've enabled CI activity notifications for workflow failures in your notification settings)
+* Pull requests where your review is requested (filter by `reason:review-requested`)
+* Events where your username is @mentioned, also called direct mentions (filter by `reason:mention`)
+* Events where a team you're a member of is @mentioned, also called team mentions (filter by `reason:team-mention`)
+* CI workflow failures for a specific repository (filter by `reason:ci-activity` and `repo:owner/repo-name` and ensure you've enabled CI activity notifications for workflow failures in your notification settings)
 
   {% tip %}
 
