@@ -34,21 +34,21 @@ When writing the description for an audit log event, describe the event that too
 * **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
 * **Avoid**: Triggered when a user updates which repositories a codespace can access.
 
-## Callouts
+## Alerts
 
-Callouts emphasize information within an article that is of special importance and justifies breaking the flow of information.
+Alerts emphasize information within an article that is of special importance and justifies breaking the flow of information.
 
-Use callouts sparingly. Do not use consecutive callouts, or more than one callout per section.
+Use alerts sparingly. Do not use consecutive alerts, or more than one alert per section.
 
-Callouts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
+Alerts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
 
 ### Alert types
 
-There are five types of callouts: Note, Tip, Important, Warning, and Caution.
+We use four types of alerts: Note, Tip, Warning, and Caution.
 
 #### Note
 
-Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note callouts, but some users in some contexts may benefit from the note.
+Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note alerts, but some users in some contexts may benefit from the note.
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
 * Caveats that might affect the outcome of a process, such as specific user settings.
@@ -63,7 +63,7 @@ For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-se
 
 Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
 
-For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
+For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip alert to help users understand what to expect when they @mention an organization.
 
 > [!TIP]
 > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
@@ -77,9 +77,9 @@ For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-gith
 
 Highlights potential risks that a user should be aware of before starting or continuing with a task.
 
-Warning callouts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+Warning alerts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
-For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning callout to alert users that once issued, certificates cannot be revoked:
+For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning alert to inform users that once issued, certificates cannot be revoked:
 
 > [!WARNING]
 > After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
@@ -88,13 +88,13 @@ For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-ac
 
 Alerts users to dangerous or destructive actions that warrant extreme caution before performing, particularly where there is a security risk or potential for data loss.
 
-Caution callouts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+Caution alerts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
-### Formatting callouts
+### Formatting alerts
 
-We use standard formatting and colors for different types of callouts across doc sets.
+We use standard formatting and colors for different types of alerts across doc sets.
 
-Callouts are rendered using Markdown.
+Alerts are rendered using Markdown.
 
 Note:
 
@@ -131,9 +131,9 @@ Caution:
 > Be extremely careful.
 ```
 
-Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
+Liquid syntax for alerts is still supported and may still appear in older articles, but should not be used for new alerts.
 
-For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
+For more information on formatting alerts, see “Alerts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
 
 ## Buttons
 
