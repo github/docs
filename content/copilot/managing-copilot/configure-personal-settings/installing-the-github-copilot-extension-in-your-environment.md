@@ -100,32 +100,32 @@ To see instructions for other popular coding environments, use the tool switcher
 
 1. Install {% data variables.product.prodname_copilot %} using the built-in plugin manager:
 
-   * For **Vim on macOS or Linux**, run the following command in the terminal.
-
-     ```shell copy
-     git clone https://github.com/github/copilot.vim \
-     ~/.vim/pack/github/start/copilot.vim
-     ```
-
-   * For **Vim on Windows**, run the following command in Git Bash:
-
-     ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/vimfiles/pack/github/start/copilot.vim
-     ```
-
-   * For **Neovim on macOS or Linux**, run the following command in the terminal.
+   * For **_Neovim_ on macOS or Linux**, run the following command in the terminal.
 
      ```shell copy
      git clone https://github.com/github/copilot.vim \
      ~/.config/nvim/pack/github/start/copilot.vim
      ```
 
-   * For **Neovim on Windows**, run the following command in Git Bash:
+   * For **_Neovim_ on Windows**, run the following command in Git Bash:
 
      ```shell copy
      git clone https://github.com/github/copilot.vim.git \
      $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+     ```
+
+   * For **_Vim_ on macOS or Linux**, run the following command in the terminal.
+
+     ```shell copy
+     git clone https://github.com/github/copilot.vim \
+     ~/.vim/pack/github/start/copilot.vim
+     ```
+
+   * For **_Vim_ on Windows**, run the following command in Git Bash:
+
+     ```shell copy
+     git clone https://github.com/github/copilot.vim.git \
+     $HOME/vimfiles/pack/github/start/copilot.vim
      ```
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
