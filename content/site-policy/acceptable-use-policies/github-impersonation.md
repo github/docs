@@ -21,4 +21,4 @@ You may not misrepresent your identity or your association with another person o
 
 Impersonation is a form of harassment and violation of this policy may lead to loss of access to your account.
 
-Please note, having a username similar to another is not necessarily impersonation. GitHub will take context into account. For example, as in cases involving claims of [misinformation or disinformation](/site-policy/acceptable-use-policies/github-misinformation-and-disinformation), we generally allow parody and satire that is in line with our [Acceptable Use Polices](/site-policy/acceptable-use-policies/github-acceptable-use-policies).
+Please note, having a username similar to another is not necessarily impersonation. GitHub will take context into account. For example, as in cases involving claims of [misinformation or disinformation](/site-policy/acceptable-use-policies/github-misinformation-and-disinformation), we generally allow parody and satire that is in line with our [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies).
