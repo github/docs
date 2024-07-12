@@ -70,7 +70,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**Optional** A `string` description of the input parameter.
 
 ### `inputs.<input_id>.required`
 
