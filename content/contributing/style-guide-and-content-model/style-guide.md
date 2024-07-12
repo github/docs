@@ -42,7 +42,7 @@ Use callouts sparingly. Do not use consecutive callouts, or more than one callou
 
 Callouts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
 
-### Callout types
+### Alert types
 
 There are five types of callouts: Note, Tip, Important, Warning, and Caution.
 
