@@ -68,11 +68,6 @@ For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-gith
 > [!TIP]
 > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
-#### Important
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
 #### Warning
 
 Highlights potential risks that a user should be aware of before starting or continuing with a task.
@@ -110,12 +105,6 @@ Tip:
 > Here's a suggestion.
 ```
 
-Important:
-
-```markdown
-> [!IMPORTANT]
-> This is important.
-```
 
 Warning:
 
