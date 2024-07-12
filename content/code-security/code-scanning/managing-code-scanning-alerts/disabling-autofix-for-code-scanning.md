@@ -44,13 +44,12 @@ Note that disabling autofix at the organization level will remove all open autof
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
 
-{% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For more information on {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
-{% endif %}
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 
 1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **Autofix for {% data variables.product.prodname_codeql %}**.
+
+For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings)."
 
 ## Disabling autofix for a repository
 

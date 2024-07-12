@@ -14,6 +14,7 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
+  - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/migrating-to-internal-repositories
 versions:
   ghes: '*'
 type: how_to
