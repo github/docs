@@ -299,7 +299,7 @@ If you must document content that you know will expire, you can use the content 
 
 ## Footnotes
 
-Avoid using footnotes where possible. Consider instead whether you could use a [callout](#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+Avoid using footnotes where possible. Consider instead whether you could use a [alert](#alerts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
 
 If you must use footnotes, use [Markdown-native footnotes](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes) (`[^1]`). Footnote markers will be hyperlinked to the footnote reference, which will be listed at the bottom of the page with a backlink to the marker.
 
