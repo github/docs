@@ -105,7 +105,6 @@ Tip:
 > Here's a suggestion.
 ```
 
-
 Warning:
 
 ```markdown
