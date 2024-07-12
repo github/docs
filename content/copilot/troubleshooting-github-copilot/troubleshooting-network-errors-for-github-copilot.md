@@ -66,11 +66,7 @@ Some possible ways to resolve certificate-related errors are:
   * On Linux, {% data variables.product.prodname_copilot_short %} checks the standard OpenSSL files `/etc/ssl/certs/ca-certificates.crt` and `/etc/ssl/certs/ca-bundle.crt`.
 * Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#configuring-proxy-settings-for-github-copilot)."
 
-  {% warning %}
-
-  **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
-
-  {% endwarning %}
+  > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 
 ### Troubleshooting security software-related certificate errors
 

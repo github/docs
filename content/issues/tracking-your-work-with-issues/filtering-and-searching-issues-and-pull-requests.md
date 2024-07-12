@@ -193,6 +193,7 @@ For pull requests, you can also use search to:
 * Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`
 * Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/docs`
 * Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
+* Filter pull requests by state of [merging](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges): `is:merged` or `is:unmerged`
 
 ## Sorting issues and pull requests
 

@@ -800,6 +800,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "external_group.scim_api_failure",
+    "description": "Failed external group SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_group.scim_api_success",
+    "description": "Successful external group SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
     "action": "external_group.unlink",
     "description": "An external group was unlinked to a GitHub team.",
     "docs_reference_links": "N/A"
@@ -823,6 +833,16 @@
     "action": "external_identity.provision",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "external_identity.scim_api_failure",
+    "description": "Failed external identity SCIM API request.",
+    "docs_reference_links": "/rest/scim/scim"
+  },
+  {
+    "action": "external_identity.scim_api_success",
+    "description": "Successful external identity SCIM API request. Excludes GET API requests.",
+    "docs_reference_links": "/rest/scim/scim"
   },
   {
     "action": "external_identity.update",
