@@ -1,6 +1,6 @@
 ---
 title: Managing alerts from secret scanning
-intro: You can view, evaluate and resolve alerts for secrets checked in to your repository.
+intro: 'You can view, evaluate and resolve alerts for secrets checked in to your repository.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view and dismiss secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
@@ -81,14 +81,11 @@ You can apply various filters to the alerts list to help you find the alerts you
 
 ## Evaluating alerts
 
-{% ifversion ghes = 3.9 %}You can check the validity of a secret, to see if the secret is still active. **Applies to GitHub tokens only**. For more information, see "[Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
-{% else %}
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
 * Perform an "on-demand" validity check, to get the most up to date validiation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}{% ifversion secret-scanning-github-token-metadata %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}
-{% endif %}
 
 ### Checking a secret's validity
 
