@@ -52,7 +52,7 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 Alerts highlight important information that users need to know. We use standard formatting and colors for four different types of Alerts: Note, Tip, Warning, and Caution.
 
-For information on when to use alerts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
+For information on when to use alerts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alerts)."
 
 ### Examples of alerts
 

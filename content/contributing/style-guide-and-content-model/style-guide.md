@@ -121,7 +121,7 @@ Caution:
 
 Liquid syntax for alerts is still supported and may still appear in older articles, but should not be used for new alerts.
 
-For more information on formatting alerts, see “Alerts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
+For more information on formatting alerts, see “Alerts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts)."
 
 ## Buttons
 
