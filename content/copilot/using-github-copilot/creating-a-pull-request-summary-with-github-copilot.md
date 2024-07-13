@@ -4,7 +4,7 @@ shortTitle: Create a PR summary
 intro: 'You can generate a summary in the description of a pull request, or as a comment.'
 versions:
   feature: copilot-pr-summaries
-permissions: 'Members of an enterprise with a subscription to [{% data variables.product.prodname_copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
+permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
 topics:
   - Copilot
 redirect_from:
@@ -28,11 +28,7 @@ To learn more about {% data variables.product.prodname_copilot_for_prs %} and ho
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
 
-   {% note %}
-
-   **Note:** {% data variables.product.prodname_copilot %} does not take into account any existing content in the pull request description, so it is best to start with a blank description.
-
-   {% endnote %}
+   > [!NOTE] {% data variables.product.prodname_copilot %} does not take into account any existing content in the pull request description, so it is best to start with a blank description.
 
 1. Navigate to the text field where you want to add the pull request summary.
 

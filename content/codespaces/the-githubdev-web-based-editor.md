@@ -15,7 +15,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** The {% data variables.codespaces.serverless %} editor is currently in beta preview. You can provide feedback [in our Discussions](https://github.com/community/community/discussions/categories/general).
+**Note:** The {% data variables.codespaces.serverless %} editor is currently in beta preview. You can provide feedback [in our Discussions](https://github.com/community/community/discussions/categories/codespaces).
 
 {% endnote %}
 
