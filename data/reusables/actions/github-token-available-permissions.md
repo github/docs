@@ -2,7 +2,8 @@ You can define the access that the `GITHUB_TOKEN` will permit by specifying `rea
 
 ```yaml
 permissions:
-  actions: read|write|none
+  actions: read|write|none{% ifversion artifact-attestations %}
+  attestations: read|write|none{% endif %}
   checks: read|write|none
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
