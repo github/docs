@@ -113,15 +113,15 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
-      
-      {% ifversion artifact-attestations %}
+
+{% ifversion artifact-attestations %}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
           subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
           push-to-registry: true
-      {% endif %}
+{% endif %}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
@@ -227,14 +227,14 @@ jobs:
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 
-      {% ifversion artifact-attestations %}
+{% ifversion artifact-attestations %}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
           subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
           push-to-registry: true
-      {% endif %}
+{% endif %}
 ```
 
 The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
