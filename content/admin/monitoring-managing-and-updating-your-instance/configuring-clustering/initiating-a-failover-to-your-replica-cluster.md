@@ -27,8 +27,6 @@ After failover, you will have two standalone clusters without high availability 
 
 To fail over to replica nodes, you must have configured high availability replication for your cluster. For more information, see "[AUTOTITLE](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster)."
 
-{% data reusables.enterprise_clustering.high-availability-requires-391 %}
-
 ## Initiating a failover to your replica cluster
 
 {% ifversion ghes < 3.13 %}{% data reusables.enterprise_clustering.cluster-ip-note %} For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover)."{% endif %}

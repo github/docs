@@ -6,7 +6,7 @@ permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-security-multi-repo-enablement
+  feature: security-configurations-beta-and-pre-beta
 type: how_to
 topics:
   - Security overview

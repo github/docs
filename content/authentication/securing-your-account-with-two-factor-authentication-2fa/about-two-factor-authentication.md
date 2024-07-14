@@ -42,6 +42,10 @@ You can also configure additional recovery methods in case you lose access to yo
 
 We **strongly** urge you to enable 2FA for the safety of your account, not only on {% data variables.product.product_name %}, but on other websites and apps that support 2FA. You can enable 2FA to access {% data variables.product.product_name %} and {% data variables.product.prodname_desktop %}.
 
+{% ifversion fpt or ghec %}
+If you don't enable 2FA, {% data variables.product.product_name %} may ask for additional verification to confirm that it is you when you sign in for the first time from a new or unrecognized device. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/verifying-new-devices-when-signing-in)."
+{% endif %}
+
 For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)."
 
 ## Two-factor authentication recovery codes

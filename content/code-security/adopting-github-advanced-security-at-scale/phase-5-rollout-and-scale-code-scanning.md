@@ -16,13 +16,11 @@ This article is part of a series on adopting {% data variables.product.prodname_
 {% endnote %}
 
 {% ifversion security-configurations %}
-{% note %}
 
-**Note:** {% data reusables.security-configurations.enable-security-features-with-gh-config %}
+{% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
 {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-{% endnote %}
 {% endif %}
 
 ## Enabling code scanning

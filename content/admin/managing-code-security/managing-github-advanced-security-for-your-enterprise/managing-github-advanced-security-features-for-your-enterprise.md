@@ -20,11 +20,7 @@ redirect_from:
 
 You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise. {% ifversion security-configurations %}{% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 To manage individual {% data variables.product.prodname_GH_advanced_security %} features, {% else %}To streamline management of {% data variables.product.prodname_advanced_security %}, {% endif %}you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
 

@@ -9,6 +9,6 @@ topics:
   - Organizations
   - Security
 children:
-  - /a-repository-has-an-existing-advanced-setup-for-code-scanning
+  - /a-repository-is-using-advanced-setup-for-code-scanning
   - /not-enough-github-advanced-security-licenses
 ---

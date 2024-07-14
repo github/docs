@@ -52,6 +52,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
+* {% data variables.large_files.product_name_long %}
 * For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 
 If you invite an existing organization into your trial enterprise, **all of these features will be disabled**. If you remove the organization from the enterprise, the features will be re-enabled.

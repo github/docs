@@ -1,4 +1,4 @@
-{% ifversion ghes > 3.9 %}
+{% ifversion ghes %}
 
 {% note %}
 

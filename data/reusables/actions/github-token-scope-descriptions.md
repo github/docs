@@ -1,8 +1,8 @@
-For each of the available scopes, shown in the table below, you can assign one of the permissions: `read`, `write`, or `none`. If you specify the access for any of these scopes, all of those that are not specified are set to `none`.
+For each of the available permissions, shown in the table below, you can assign one of the access levels: `read`, `write`, or `none`. `write` includes `read`. If you specify the access for any of these permissions, all of those that are not specified are set to `none`.
 
-Available scopes and details of what each allows an action to do:
+Available permissions and details of what each allows an action to do:
 
-| Scope | Allows an action using `GITHUB_TOKEN` to |
+| Permission | Allows an action using `GITHUB_TOKEN` to |
 | --- | --- |
 |  `actions` | Work with GitHub Actions. For example, `actions: write` permits an action to cancel a workflow run. For more information, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-actions)." |
 {% ifversion artifact-attestations %}|  `attestations` | Work with artifact attestations. For example, `attestations: write` permits an action to generate an artifact attestation for a build. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)" |{% endif %}

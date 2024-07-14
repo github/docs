@@ -1,4 +1,4 @@
-{% ifversion ghes = 3.9 or ghes = 3.10 %}
+{% ifversion ghes = 3.10 %}
 
 {% note %}
 

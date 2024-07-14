@@ -61,15 +61,6 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
       * third-party/dependencies/dependency1
       * vendors/dependency1
       * /externals/vendor1/dependency1
-{% ifversion ghes < 3.10 %}
-1. **Visualization limits**
-
-    These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
-
-    The Dependencies view of the dependency graph for a repository only displays 100 manifests. Typically this is adequate as it is significantly higher than the processing limit described above. In situations where the processing limit is over 100, {% data variables.product.prodname_dependabot_alerts %} are still created for any manifests that are not shown within {% data variables.product.prodname_dotcom %}.
-
-**Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
-{% endif %}
 
 ## Further reading
 

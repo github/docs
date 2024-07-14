@@ -18,7 +18,7 @@ When you are signed in to multiple accounts and using the account switcher, thos
 
 If you are signed in to multiple accounts and follow a link to {% data variables.product.product_name %} from an external source, such as a request to install or approve a {% data variables.product.prodname_github_app %}, you will first be prompted to choose which account you want to use.
 
-Your SSO sessions will persist when you switch away from an account and return, this means you will not always need to authenticate with your identity provider (IdP) each time you want to use your SSO-linked account. If you're a member of an enterprise that uses {% data variables.product.prodname_emus %} and add your {% data variables.enterprise.prodname_managed_user %} to the account switcher, the {% data variables.enterprise.prodname_managed_user %} will appear grayed out if your session has expired. Selecting the expired account will send you to reauthenticate with your IdP.
+Your SSO sessions will persist when you switch away from an account and return. This means you will not always need to authenticate with your identity provider (IdP) each time you want to use your SSO-linked account. If you're a member of an enterprise that uses {% data variables.product.prodname_emus %} and add your {% data variables.enterprise.prodname_managed_user %} to the account switcher, the {% data variables.enterprise.prodname_managed_user %} will appear grayed out if your session has expired. Selecting the expired account will send you to reauthenticate with your IdP.
 
 ## Adding an account to the account switcher
 

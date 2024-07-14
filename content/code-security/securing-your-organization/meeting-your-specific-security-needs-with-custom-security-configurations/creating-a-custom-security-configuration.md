@@ -55,7 +55,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or both.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}{% ifversion enforce-security-configurations %}
-1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu. This feature is in beta, and is subject to change.
+1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.{% ifversion enforce-security-configurations-beta %} This feature is in beta, and is subject to change.{% endif %}
 
     >[!NOTE]
     {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}

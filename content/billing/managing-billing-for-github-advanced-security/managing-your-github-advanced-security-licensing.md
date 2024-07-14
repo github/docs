@@ -18,13 +18,10 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 ## Managing the number of committers in your subscription
 
 {% ifversion security-configurations %}
-{% note %}
 
-**Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
-
+{% data reusables.security-configurations.managing-GHAS-licenses %}
 {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

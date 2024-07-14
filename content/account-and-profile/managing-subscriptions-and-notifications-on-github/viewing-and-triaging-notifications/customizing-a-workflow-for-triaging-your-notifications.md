@@ -27,10 +27,10 @@ For an example workflow of removing notifications that are easy to remove or tri
 Choose which type of notifications are most urgent to review and pick a time to review them that's best for you. You might consider the question "Who am I blocking?"
 
 For example, you may decide to check your notifications in this order in the morning during your daily planning time:
-* Pull requests where your review is requested. (filter by `reason:review-requested`)
-* Events where your username is @mentioned, also called direct mentions. (filter by `reason:mention`)
-* Events where a team you're a member of is @mentioned, also called team mentions. (filter by `reason:team-mention`)
-* CI workflow failures for a specific repository. (filter by `reason:ci-activity` and `repo:owner/repo-name` and ensure you've enabled CI activity notifications for workflow failures in your notification settings)
+* Pull requests where your review is requested (filter by `reason:review-requested`)
+* Events where your username is @mentioned, also called direct mentions (filter by `reason:mention`)
+* Events where a team you're a member of is @mentioned, also called team mentions (filter by `reason:team-mention`)
+* CI workflow failures for a specific repository (filter by `reason:ci-activity` and `repo:owner/repo-name` and ensure you've enabled CI activity notifications for workflow failures in your notification settings)
 
   {% tip %}
 
@@ -63,8 +63,8 @@ After triaging the higher priority notifications, review the remaining notificat
 Choose which type of notifications are quickest and easiest for you to triage and remove from your inbox, ideally triaging multiple notifications at once.
 
 For example, you may decide to clear notifications in this order:
-* Participating notifications that you can unsubscribe to.
-* Repository updates that are not relevant to keep or follow-up on.
+* Participating notifications that you can unsubscribe to
+* Repository updates that are not relevant to keep or follow-up on
 
 For more information on managing multiple notifications in your inbox at the same time, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
 

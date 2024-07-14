@@ -28,11 +28,7 @@ redirect_from:
 
 The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
-
-{% endnote %}
+> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data variables.product.prodname_copilot_chat %} can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. {% data variables.product.prodname_copilot_chat %} is not designed to answer non-coding questions or provide general information on topics outside of coding.
 

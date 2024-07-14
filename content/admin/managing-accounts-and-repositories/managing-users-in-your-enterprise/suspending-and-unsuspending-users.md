@@ -29,18 +29,17 @@ When you suspend a user, the change takes effect immediately with no notificatio
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
 Cloning into 'test-repo'...
-ERROR: Your account is suspended. Please check with 
+ERROR: Your account is suspended. Please check with
 your installation administrator.
 fatal: The remote end hung up unexpectedly
 ```
 
 Before suspending site administrators, you must demote them to regular users. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
 
-{% tip %}
-
-**Note:** If [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
-
-{% endtip %}
+> [!TIP]
+> * If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
+> * A user cannot be suspended or unsuspended from the site admin dashboard or from the command line when LDAP Sync is enabled for your instance.
+> * {% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts.
 
 ## Viewing suspended users in the site admin dashboard
 

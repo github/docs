@@ -104,7 +104,9 @@ For a blocked commit, you can remove the secret from the file using the web UI. 
 
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 
-You can bypass the block by specifying a reason for allowing the secret. For more information on how to bypass push protection and commit the blocked secret, see "[Bypassing push protection when working with the web UI](#bypassing-push-protection-when-working-with-the-web-ui)."
+You may be able to bypass the block by specifying a reason for allowing the secret. For more information on how to bypass push protection and commit the blocked secret, see "[Bypassing push protection when working with the web UI](#bypassing-push-protection-when-working-with-the-web-ui)."
+
+{% ifversion push-protection-delegated-bypass %} Alternatively, you may be required to submit a request for "bypass privileges" in order to commit your changes. For information on how to request permission to bypass push protection and allow the commit containing the secret, see "[Requesting bypass privileges when working with the web UI](#requesting-bypass-privileges-when-working-with-the-web-ui)."{% endif %}
 
 ### Bypassing push protection when working with the web UI
 
@@ -118,10 +120,40 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
+{% ifversion push-protection-delegated-bypass %}
+
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to commit your changes. For more information, see "[Requesting bypass privileges when working with the web UI](#requesting-bypass-privileges-when-working-with-the-web-ui)."
+
+{% endif %}
+
 1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
+
+{% ifversion push-protection-delegated-bypass %}
+
+### Requesting bypass privileges when working with the web UI
+
+{% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
+
+If your commit has been blocked by push protection, you can request permission to bypass the block. The request is sent to a designated group of reviewers, who will either approve or deny the request.
+
+Requests expire after 7 days.
+
+1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
+1. Click **Start request**. The request will open in a new tab.
+{% data reusables.secret-scanning.push-protection-bypass-request-add-comment %}
+{% data reusables.secret-scanning.push-protection-submit-bypass-request %}
+{% data reusables.secret-scanning.push-protection-bypass-request-check-email %}
+
+{% data reusables.secret-scanning.push-protection-bypass-request-decision-email %}
+
+If your request is approved, you can commit the changes containing the secret to the file. You can also commit any future changes that contain the same secret.
+
+If your request is denied, you will need to remove the secret from the file before you can commit your changes.
+
+{% endif %}
 
 ## Further reading
 

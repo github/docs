@@ -8,4 +8,4 @@ Site administrators can control the retention policy for checks data on {% data 
 
 {% endif %}
 
-{% ifversion ghes < 3.10 %} For archived checks data, a rollup commit status appears that represents the state of all of the checks for the commit. {% endif %} To merge a pull request with checks that are both required and archived, you must rerun the checks.
+To merge a pull request with checks that are both required and archived, you must rerun the checks.

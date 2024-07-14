@@ -41,6 +41,8 @@ Dormancy applies to both enterprise members and outside collaborators.
 
 {% ifversion ghes %}
 
+Dormant users are not automatically suspended. Consider suspending dormant users to release license seats. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
+
 ## Viewing dormant users
 
 {% data reusables.enterprise-accounts.viewing-dormant-users %}

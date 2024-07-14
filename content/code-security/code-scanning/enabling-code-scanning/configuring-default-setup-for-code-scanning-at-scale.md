@@ -20,7 +20,8 @@ versions:
 
 With default setup for {% data variables.product.prodname_code_scanning %}, you can quickly secure code in repositories across your organization.
 
-You can use the organization settings page labeled "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
+You can enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
+
 * On each push to the repository's default branch, or any protected branch. For more information on protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 * When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
 * On a weekly schedule.{% endif %}
@@ -73,6 +74,8 @@ If the code in a repository changes to include {% ifversion code-scanning-defaul
 
 ## Configuring default setup for all eligible repositories in an organization
 
+{% ifversion security-configurations-ga %} You can enable default setup for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
+{% elsif security-configurations-beta-and-pre-beta %}
 Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
 
 {% data reusables.code-scanning.beta-org-enable-all %}
@@ -100,6 +103,8 @@ Through the "Code security and analysis" page of your organization's settings, y
 
 {% endnote %}
 
+{% endif %}
+
 {% ifversion codeql-model-packs-org %}
 
 ### Extending {% data variables.product.prodname_codeql %} coverage in default setup
@@ -110,6 +115,12 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% ifversion code-security-multi-repo-enablement %}
 
 ## Configuring default setup for a subset of repositories in an organization
+
+{% ifversion security-configurations-ga %}
+
+You can filter for specific repositories you would like to configure default setup for. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration)."
+
+{% endif %}
 
 Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
 
@@ -139,6 +150,8 @@ Through security overview for your organization, you can find eligible repositor
       - The repositories only contain languages that cannot be analyzed by default setup.
       - The repositories do not have {% data variables.product.prodname_GH_advanced_security %} enabled.
 {%- endif %}
+
+{% ifversion security-configurations-beta-and-pre-beta %}
 
 You can select all of the displayed repositories, or a subset of them, and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see step 5 of "[Configuring default setup at scale for multiple repositories in an organization](#configuring-default-setup-at-scale-for-multiple-repositories-in-an-organization)."
 
@@ -175,6 +188,8 @@ You can select all of the displayed repositories, or a subset of them, and enabl
   ![Screenshot of the "Security coverage" view with the side panel open. The "Apply changes" button is highlighted in a dark orange outline.](/assets/images/help/security-overview/security-coverage-view-multi-repo-side-panel.png)
 
   If you're blocked from enabling {% data variables.product.prodname_code_scanning %} due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that you cannot enable {% data variables.product.prodname_code_scanning %} for the selected repositories. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+
+{% endif %}
 
 {% endif %}
 

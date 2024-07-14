@@ -1,4 +1,4 @@
-In GitHub Enterprise Server 3.10 and later, the requirements for TLS security levels have changed due to an upgrade to containers in the underlying OS. {% ifversion ghes < 3.10 %}After upgrading from GitHub Enterprise Server {{ allVersions[currentVersion].currentRelease }}, on{% elsif ghes > 3.9 %}On{% endif %} an instance with GitHub Actions enabled and a custom TLS certificate, users may experience disruptions with workflow runs if the TLS certificate uses weak encryption. Workflow runs will not trigger, and the following error message will appear in system logs for `babeld`.
+In GitHub Enterprise Server 3.10 and later, the requirements for TLS security levels have changed due to an upgrade to containers in the underlying OS. On an instance with GitHub Actions enabled and a custom TLS certificate, users may experience disruptions with workflow runs if the TLS certificate uses weak encryption. Workflow runs will not trigger, and the following error message will appear in system logs for `babeld`.
 
 ```text
 CA certificate key too weak

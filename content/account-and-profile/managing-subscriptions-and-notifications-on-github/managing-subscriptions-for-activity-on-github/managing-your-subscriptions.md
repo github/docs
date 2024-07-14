@@ -32,7 +32,7 @@ When you unsubscribe from notifications in your inbox, you have several other tr
 
 ### Benefits of unsubscribing from the subscriptions page
 
-When you unsubscribe from notifications on the subscriptions page, you can see more of the notifications you're subscribed to and sort them by "Most recently subscribed" or "Least recently subscribed".
+When you unsubscribe from notifications on the subscriptions page, you can see more of the notifications you're subscribed to and sort them by "Most recently subscribed" or "Least recently subscribed."
 
 The subscriptions page shows you all of the notifications that you're currently subscribed to, including notifications that you have marked as **Done** in your inbox.
 
