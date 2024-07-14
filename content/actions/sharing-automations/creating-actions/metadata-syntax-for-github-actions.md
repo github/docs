@@ -102,11 +102,11 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, space, `-`, or `_`.
 
 ### `outputs.<output_id>.description`
 
-**Required** A `string` description of the output parameter.
+**Optional** A `string` description of the output parameter.
 
 ## `outputs` for composite actions
 
