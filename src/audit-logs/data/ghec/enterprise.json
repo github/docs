@@ -1216,17 +1216,17 @@
   },
   {
     "action": "external_identity.deprovision",
-    "description": "N/A",
+    "description": "An external identity was deprovisioned, suspending the linked GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.provision",
-    "description": "N/A",
+    "description": "An external identity was created and linked to a GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.update",
-    "description": "N/A",
+    "description": "An external identity was updated.",
     "docs_reference_links": "N/A"
   },
   {
