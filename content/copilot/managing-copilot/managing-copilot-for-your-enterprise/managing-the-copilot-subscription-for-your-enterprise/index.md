@@ -12,4 +12,3 @@ children:
   - /upgrading-copilot-for-your-enterprise
   - /downgrading-copilot-for-your-enterprise
 ---
-
