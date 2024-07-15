@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat
 ---
 
 ## About indexing repositories
