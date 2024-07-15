@@ -1,5 +1,5 @@
 ---
-title: Getting free access to Copilot as a student, teacher, or maintainer
+title: 'Getting free access to Copilot as a student, teacher, or maintainer'
 shortTitle: Get free access
 intro: 'Learn how to use {% data variables.product.prodname_copilot_short %} for free as a student, teacher, or open-source maintainer.'
 versions:
@@ -7,6 +7,8 @@ versions:
 type: how_to
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer
 ---
 
 ## About free {% data variables.product.prodname_copilot_short %} access

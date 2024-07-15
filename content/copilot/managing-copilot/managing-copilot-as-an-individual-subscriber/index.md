@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /getting-free-access-to-copilot-as-a-student-teacher-or-maintainer
   - /subscribing-to-copilot-as-an-individual-user
   - /installing-github-copilot-extensions-for-your-personal-account
   - /managing-copilot-policies-as-an-individual-subscriber
@@ -15,3 +14,4 @@ children:
   - /canceling-your-copilot-trial-as-an-individual-user
   - /canceling-copilot-as-an-individual-user
 ---
+
