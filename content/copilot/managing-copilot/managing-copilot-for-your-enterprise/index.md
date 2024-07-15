@@ -14,6 +14,5 @@ children:
   - /viewing-copilot-usage-for-your-enterprise
   - /upgrading-copilot-for-your-enterprise
   - /downgrading-copilot-for-your-enterprise
-  - /canceling-copilot-for-your-enterprise
 ---
 
