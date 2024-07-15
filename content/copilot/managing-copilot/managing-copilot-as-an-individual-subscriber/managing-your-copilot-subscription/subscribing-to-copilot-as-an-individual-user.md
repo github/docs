@@ -7,6 +7,7 @@ redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-individual-subscription
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/subscribing-to-copilot-as-an-individual-user
 versions:
   feature: copilot
 type: how_to
