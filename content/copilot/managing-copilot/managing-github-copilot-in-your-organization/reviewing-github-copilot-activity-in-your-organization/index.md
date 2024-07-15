@@ -7,4 +7,3 @@ versions:
 topics:
   - Copilot
 ---
-
