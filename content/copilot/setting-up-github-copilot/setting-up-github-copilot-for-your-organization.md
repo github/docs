@@ -49,7 +49,7 @@ Alternatively, you can set up a self-serve workflow using the API. See "[Add tea
 
 Enhance the {% data variables.product.prodname_copilot_short %} experience for your organization by:
 
-* **Indexing repositories** to improve {% data variables.product.prodname_copilot_chat_short %} in github.com _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See "[AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#repo-indexing-note)."
+* **Indexing repositories** to improve {% data variables.product.prodname_copilot_short %}'s responses relating to {% data variables.product.prodname_dotcom %} repositories _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
 * **Setting up knowledge bases** for use with {% data variables.product.prodname_copilot_chat_short %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
 * **Installing {% data variables.product.prodname_copilot_extensions_short %}** to integrate other tools with {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization)."
 

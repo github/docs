@@ -49,16 +49,19 @@ There are some features you must configure for each repository individually. For
 
 ## Enabling security features in your organization
 
+{% ifversion security-configurations-ga %}
+
+You can use {% data variables.product.prodname_security_configurations %} to enable security features using the {% data variables.product.prodname_github_security_configuration %}, or you can create a {% data variables.product.prodname_custom_security_configuration %}. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)" and "[AUTOTITLE](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/creating-a-custom-security-configuration)."
+
+{% elsif security-configurations-beta-and-pre-beta %}
+
 When you have decided to enable a security feature, the next step is to decide how to roll out that feature across your organization.
 
 {% ifversion security-configurations %}
 * If you want to enable multiple security features at scale, you can use the {% data variables.product.prodname_github_security_configuration %}, a collection of security enablement settings you can apply to repositories in your organization. See "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
 
-    {% note %}
+    {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-    **Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-    {% endnote %}
 {% endif %}
 * If you want to roll out a {% ifversion security-configurations %}single {% endif %}feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
 * If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
@@ -128,6 +131,8 @@ You can choose to enable a security feature automatically in all new repositorie
 1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
    ![Screenshot of the "Code security and analysis" page. Below "Dependabot alerts", a checkbox for enabling the feature in future repositories is highlighted with an orange outline.](/assets/images/help/security/enable-for-new-repos.png)
+
+{% endif %}
 
 ## Monitoring the impact of security features
 
