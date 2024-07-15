@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization
   - /copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile
   - /copilot/github-copilot-chat/github-copilot-extensions/managing-github-copilot-extensions
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization
 topics:
   - Copilot
 shortTitle: Managing policies

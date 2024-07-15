@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /managing-policies-for-copilot-in-your-organization
   - /managing-copilot-knowledge-bases
   - /installing-github-copilot-extensions-for-your-organization
   - /indexing-repositories-for-copilot-chat
@@ -16,3 +15,4 @@ children:
   - /testing-changes-to-content-exclusions-in-your-ide
   - /reviewing-changes-to-content-exclusions-for-github-copilot
 ---
+
