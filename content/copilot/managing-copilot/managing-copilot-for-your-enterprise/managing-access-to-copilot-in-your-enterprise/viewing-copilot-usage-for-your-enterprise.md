@@ -11,6 +11,7 @@ topics:
 shortTitle: View usage
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-your-github-copilot-usage
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise
 ---
 
 {% ifversion enhanced-billing-platform %}
