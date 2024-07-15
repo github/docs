@@ -1,6 +1,6 @@
 ---
 title: Managing the Copilot subscription for your enterprise
-shortTitle: Manage for enterprise
+shortTitle: Manage subscription
 intro: 'TODOCS'
 versions:
   feature: copilot-enterprise
