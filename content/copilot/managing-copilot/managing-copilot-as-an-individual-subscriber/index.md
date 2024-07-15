@@ -7,7 +7,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /installing-github-copilot-extensions-for-your-personal-account
+  - /managing-your-copilot-subscription
   - /managing-copilot-policies-as-an-individual-subscriber
+  - /installing-github-copilot-extensions-for-your-personal-account
 ---
-
