@@ -10,8 +10,8 @@ redirect_from:
 topics:
   - Copilot
 children:
+  - /managing-the-copilot-subscription-for-your-organization
+  - /setting-policies-for-copilot-in-your-organization
   - /managing-access-to-github-copilot-in-your-organization
-  - /managing-github-copilot-features-in-your-organization
-  - /reviewing-github-copilot-activity-in-your-organization
+  - /enhancing-copilot-for-your-organization
 ---
-
