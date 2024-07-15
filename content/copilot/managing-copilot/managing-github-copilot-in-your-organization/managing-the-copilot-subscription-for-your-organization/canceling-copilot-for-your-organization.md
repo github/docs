@@ -8,6 +8,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/canceling-copilot-for-your-organization
 ---
 
 {% ifversion ghec %}

@@ -13,6 +13,5 @@ children:
   - /managing-access-to-github-copilot-in-your-organization
   - /managing-github-copilot-features-in-your-organization
   - /reviewing-github-copilot-activity-in-your-organization
-  - /canceling-copilot-for-your-organization
 ---
 
