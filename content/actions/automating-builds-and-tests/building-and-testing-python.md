@@ -315,7 +315,7 @@ steps:
 - name: Lint with Ruff
   run: |
     pip install ruff
-    ruff --output-format=github .
+    ruff check --output-format=github .
   continue-on-error: true
 ```
 
