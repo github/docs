@@ -9,7 +9,6 @@ topics:
 children:
   - /installing-github-copilot-extensions-for-your-personal-account
   - /managing-copilot-policies-as-an-individual-subscriber
-  - /canceling-your-copilot-trial-as-an-individual-user
   - /canceling-copilot-as-an-individual-user
 ---
 
