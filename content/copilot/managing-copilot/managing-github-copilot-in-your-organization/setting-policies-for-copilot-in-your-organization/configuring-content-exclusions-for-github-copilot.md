@@ -9,6 +9,8 @@ versions:
 topics:
   - Copilot
 shortTitle: Configure content exclusions
+redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/configuring-content-exclusions-for-github-copilot
 ---
 
 {% data reusables.copilot.content-exclusions-availability-and-beta-note %}
