@@ -19,7 +19,7 @@ redirect_from:
 
 Set up a subscription to {% data variables.product.prodname_copilot_business_short %} for your organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization)."
 
-If your organization is part of an enterprise that has a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription, your enterprise owner can instead enable {% data variables.product.prodname_copilot_short %} for your organization.
+If your organization is part of an enterprise that has a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription, your enterprise owner can instead enable {% data variables.product.prodname_copilot_short %} for your organization. You can request access from your enterprise owner by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
 
 ## 2. Set policies
 
