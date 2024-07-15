@@ -10,7 +10,6 @@ children:
   - /managing-the-copilot-subscription-for-your-enterprise
   - /managing-policies-and-features-for-copilot-in-your-enterprise
   - /managing-access-to-copilot-in-your-enterprise
-  - /disabling-copilot-for-organizations-in-your-enterprise
   - /viewing-copilot-usage-for-your-enterprise
 ---
 

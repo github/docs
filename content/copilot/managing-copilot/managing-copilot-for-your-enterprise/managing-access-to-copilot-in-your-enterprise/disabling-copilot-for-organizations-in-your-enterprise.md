@@ -8,6 +8,8 @@ versions:
   feature: copilot-enterprise
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/disabling-copilot-for-organizations-in-your-enterprise
 ---
 
 {% data reusables.enterprise-accounts.policies-tab %}
