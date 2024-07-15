@@ -1,5 +1,5 @@
 ---
-title: 'Upgrading Copilot for your enterprise'
+title: Upgrading Copilot for your enterprise
 shortTitle: Upgrade subscription
 intro: 'Change from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise %} for your enterprise.'
 permissions: Enterprise admins
@@ -8,6 +8,8 @@ versions:
   feature: copilot-enterprise
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
 ---
 
 Enterprise admins can change their enterprise's {% data variables.product.prodname_copilot_short %} subscription from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}.

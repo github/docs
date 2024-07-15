@@ -12,7 +12,6 @@ children:
   - /managing-access-to-copilot-in-your-enterprise
   - /disabling-copilot-for-organizations-in-your-enterprise
   - /viewing-copilot-usage-for-your-enterprise
-  - /upgrading-copilot-for-your-enterprise
   - /downgrading-copilot-for-your-enterprise
 ---
 
