@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-content-exclusions-for-github-copilot
   - /managing-policies-for-copilot-in-your-organization
+  - /about-content-exclusions-for-github-copilot
 ---
-
