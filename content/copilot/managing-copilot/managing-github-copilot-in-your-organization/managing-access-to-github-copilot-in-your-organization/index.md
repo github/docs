@@ -8,6 +8,6 @@ topics:
   - Copilot
 children:
   - /granting-access-to-copilot-for-members-of-your-organization
-  - /managing-requests-for-copilot-access-in-your-organization
+  - /managing-requests-for-copilot-business-in-your-organization
   - /revoking-access-to-copilot-for-members-of-your-organization
 ---
