@@ -7,7 +7,7 @@ redirect_from:
 changelog:
   label: copilot
 introLinks:
-  overview: /copilot/about-github-copilot
+  overview: /copilot/about-github-copilot/what-is-github-copilot
   quickstart: /copilot/quickstart
 featuredLinks:
   startHere:
@@ -21,13 +21,11 @@ layout: product-landing
 versions:
   feature: copilot
 children:
-  - /about-github-copilot
   - /quickstart
+  - /about-github-copilot
+  - /setting-up-github-copilot
   - /using-github-copilot
   - /managing-copilot
-  - /copilot-individual
-  - /copilot-business
-  - /github-copilot-enterprise
   - /troubleshooting-github-copilot
   - /responsible-use-of-github-copilot-features
 topics:
