@@ -10,6 +10,7 @@ shortTitle: Install organization extensions
 type: how_to
 redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization
 ---
 
 {% data reusables.copilot.copilot-extensions.beta-note %}
