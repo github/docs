@@ -4,6 +4,58 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ProjectV2PermissionLevel' was added</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Issue.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Organization.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'ProjectV2Owner.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'PullRequest.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Repository.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'Team.projectsV2'</p>",
+          "<p>Argument 'minPermissionLevel: ProjectV2PermissionLevel' (with default value) added to field 'User.projectsV2'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>source</code> was added to object type <code>PropertyTargetDefinition</code></p>",
+          "<p>Input field <code>source</code> of type <code>String</code> was added to input object type <code>PropertyTargetDefinitionInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-06-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>Workflow.hasWorkflowDispatchTrigger</code>:<code>hasWorkflowDispatchTrigger</code> will be removed. Use <code>has_workflow_dispatch_trigger_for_branch(branch_ref)</code> instead. <strong>Effective 2024-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-06-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ConvertProjectV2DraftIssueItemToIssueInput' was added</p>",
           "<p>Type 'ConvertProjectV2DraftIssueItemToIssuePayload' was added</p>",
           "<p>Type 'CreateProjectV2StatusUpdateInput' was added</p>",

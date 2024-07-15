@@ -18,13 +18,11 @@ This article is part of a series on adopting {% data variables.product.prodname_
 You can enable secret scanning for individual repositories or for all repositories in an organization or enterprise. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)", "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)", or "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 {% ifversion security-configurations %}
-{% note %}
 
-**Note:** {% data reusables.security-configurations.enable-security-features-with-gh-config %}
+{% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
 {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-{% endnote %}
 {% endif %}
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
@@ -65,7 +63,7 @@ Once enabled, you can do the following:
 
 {%- ifversion security-overview-push-protection-metrics-page %}
 
-1. **Monitor**: Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+1. **Monitor**: Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 {%- endif %}
 

@@ -44,27 +44,26 @@ import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
 import breadcrumbs from './context/breadcrumbs'
 import glossaries from './context/glossaries'
-import renderProductName from './context/render-product-name.js'
-import features from '@/versions/middleware/features.js'
-import productExamples from './context/product-examples.js'
-import productGroups from './context/product-groups.js'
-import featuredLinks from '@/landings/middleware/featured-links.js'
-import learningTrack from '@/learning-track/middleware/learning-track.js'
-import next from './next.js'
-import renderPage from './render-page.js'
-import assetPreprocessing from '@/assets/middleware/asset-preprocessing.js'
-import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects.js'
-import favicons from './favicons.js'
-import setStaticAssetCaching from '@/assets/middleware/static-asset-caching.js'
-import fastHead from './fast-head.js'
-import fastlyCacheTest from './fastly-cache-test.js'
-import trailingSlashes from './trailing-slashes.js'
-import fastlyBehavior from './fastly-behavior.js'
-import mockVaPortal from './mock-va-portal.js'
-import dynamicAssets from '@/assets/middleware/dynamic-assets.js'
+import renderProductName from './context/render-product-name'
+import features from '@/versions/middleware/features'
+import productExamples from './context/product-examples'
+import productGroups from './context/product-groups'
+import featuredLinks from '@/landings/middleware/featured-links'
+import learningTrack from '@/learning-track/middleware/learning-track'
+import next from './next'
+import renderPage from './render-page'
+import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
+import archivedAssetRedirects from '@/archives/middleware/archived-asset-redirects'
+import favicons from './favicons'
+import setStaticAssetCaching from '@/assets/middleware/static-asset-caching'
+import fastHead from './fast-head'
+import fastlyCacheTest from './fastly-cache-test'
+import trailingSlashes from './trailing-slashes'
+import mockVaPortal from './mock-va-portal'
+import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import contextualizeSearch from '@/search/middleware/contextualize.js'
 import shielding from '@/shielding/middleware'
-import tracking from '@/tracking/middleware/index.js'
+import tracking from '@/tracking/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
@@ -204,10 +203,6 @@ export default function (app: Express) {
   app.use(helmet)
   app.use(cookieParser)
   app.use(express.json())
-
-  if (ENABLE_FASTLY_TESTING) {
-    app.use(fastlyBehavior) // FOR TESTING.
-  }
 
   if (process.env.NODE_ENV === 'development') {
     app.use(mockVaPortal) // FOR TESTING.

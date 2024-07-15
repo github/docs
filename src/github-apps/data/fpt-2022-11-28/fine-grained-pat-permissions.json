@@ -3452,6 +3452,30 @@
       }
     ]
   },
+  "attestations": {
+    "title": "Attestations",
+    "displayTitle": "Repository permissions for \"Attestations\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-attestation",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/attestations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "list-attestations",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "checks": {
     "title": "Checks",
     "displayTitle": "Repository permissions for \"Checks\"",
@@ -4170,7 +4194,16 @@
         "subcategory": "contents",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4179,7 +4212,16 @@
         "subcategory": "contents",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -7050,6 +7092,24 @@
     "title": "Workflows",
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
       {
         "category": "git",
         "slug": "create-a-reference",

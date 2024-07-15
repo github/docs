@@ -1,4 +1,4 @@
-1. {% ifversion projects-v2-roadmaps %}If you're using a table or board layout, first select{% else %}Select{% endif %} the item:
+1. If you're using a table or board layout, first select the item:
      * In a table layout, click on the row number.
      * In a board layout, click on the card.
 

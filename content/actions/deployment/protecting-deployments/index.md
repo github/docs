@@ -5,7 +5,7 @@ intro: You can create and configure custom deployment protection rules to approv
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.10'
+  ghes: '*'
 children:
   - /creating-custom-deployment-protection-rules
   - /configuring-custom-deployment-protection-rules

@@ -12,7 +12,7 @@ redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription
 ---
 
-Enterprise admins can set up a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription for their enterprise. To learn more about each subscription, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)" and "[AUTOTITLE](/copilot/copilot-business/about-github-copilot-business)."
+Enterprise admins can set up a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription for their enterprise. For more information, see "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)."
 
 If your enterprise is already subscribed to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}, you can upgrade or downgrade the subscription. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise)" and "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/downgrading-copilot-for-your-enterprise)."
 

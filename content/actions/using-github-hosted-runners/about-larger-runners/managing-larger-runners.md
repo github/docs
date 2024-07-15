@@ -14,7 +14,7 @@ redirect_from:
 **Notes:**
 
 * {% data reusables.actions.windows-linux-larger-runners-note %}
-* GPU-powered runners and ARM-powered runners are currently in beta and are subject to change.
+* ARM-powered runners are currently in beta and are subject to change.
 
 {% endnote %}
 

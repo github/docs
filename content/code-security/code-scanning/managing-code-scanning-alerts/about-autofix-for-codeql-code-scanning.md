@@ -40,7 +40,7 @@ After committing a suggested fix or modified fix, the developer should always ve
 
 ## Supported languages
 
-{% data variables.product.prodname_code_scanning_caps %} autofix supports fix generation for a subset of queries included in the default query suite for C#, Go, Java, JavaScript/TypeScript, Python, and Ruby. For more information on the default query suite, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
+{% data variables.product.prodname_code_scanning_caps %} autofix supports fix generation for a subset of queries included in the default and security-extended query suites for C#, C/C++, Go, Java/Kotlin, JavaScript/TypeScript, Python, and Ruby. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
 
 ## Autofix generation process
 

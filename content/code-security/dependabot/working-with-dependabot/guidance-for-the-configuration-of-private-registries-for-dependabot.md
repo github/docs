@@ -630,7 +630,7 @@ For information about {% data variables.product.prodname_registry %} registries,
 * {% data variables.product.prodname_actions %}
 * Gradle
 * Maven
-* npm
+* Npm
 * NuGet
 * Yarn
 
