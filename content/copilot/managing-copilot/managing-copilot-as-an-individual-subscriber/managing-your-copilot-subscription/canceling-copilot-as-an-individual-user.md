@@ -1,13 +1,15 @@
 ---
 title: Canceling Copilot as an individual user
 shortTitle: Cancel subscription
-intro: "You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription if you no longer want to use {% data variables.product.prodname_copilot_individuals_short %}."
+intro: 'You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription if you no longer want to use {% data variables.product.prodname_copilot_individuals_short %}.'
 product: '{% data variables.product.prodname_copilot_individuals_short %}'
 versions:
   feature: copilot
 type: how_to
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-copilot-as-an-individual-user
 ---
 
 To cancel a free {% data variables.product.prodname_copilot_short %} trial, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user)."
