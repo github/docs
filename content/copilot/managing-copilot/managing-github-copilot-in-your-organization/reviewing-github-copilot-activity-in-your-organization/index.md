@@ -7,6 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /reviewing-usage-data-for-github-copilot-in-your-organization
   - /reviewing-audit-logs-for-copilot-business
 ---
+

@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
   - /billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
 ---
 
 ## Reviewing usage data for {% data variables.product.prodname_copilot %} in your organization
