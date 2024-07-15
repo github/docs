@@ -8,6 +8,8 @@ versions:
   feature: copilot-enterprise
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise
 ---
 
 Admins of enterprises that have a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription can enable {% data variables.product.prodname_copilot %} for all, none, or some organizations within the enterprise.
