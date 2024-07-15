@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /reviewing-changes-to-content-exclusions-for-github-copilot
   - /testing-changes-to-content-exclusions-in-your-ide
   - /managing-policies-for-copilot-in-your-organization
   - /about-content-exclusions-for-github-copilot

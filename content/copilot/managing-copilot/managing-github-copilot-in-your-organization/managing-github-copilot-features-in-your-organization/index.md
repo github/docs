@@ -6,7 +6,5 @@ versions:
   feature: copilot
 topics:
   - Copilot
-children:
-  - /reviewing-changes-to-content-exclusions-for-github-copilot
 ---
 
