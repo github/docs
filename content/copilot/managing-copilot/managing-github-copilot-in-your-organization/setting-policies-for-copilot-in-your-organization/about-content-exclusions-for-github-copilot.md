@@ -9,6 +9,7 @@ redirect_from:
   - /copilot/managing-copilot-business/configuring-content-exclusions-for-github-copilot
   - /copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/about-content-exclusions-for-github-copilot
 topics:
   - Copilot
 shortTitle: About content exclusions
