@@ -6,7 +6,5 @@ versions:
   feature: copilot
 topics:
   - Copilot
-children:
-  - /reviewing-audit-logs-for-copilot-business
 ---
 

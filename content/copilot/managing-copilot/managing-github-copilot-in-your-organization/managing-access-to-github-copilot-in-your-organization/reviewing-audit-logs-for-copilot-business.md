@@ -8,6 +8,7 @@ redirect_from:
   - /copilot/managing-github-copilot-in-your-organization/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business
   - /copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-audit-logs-for-copilot-business
 versions:
   feature: copilot
 product: '{% data reusables.gated-features.copilot-audit-logs %}'
