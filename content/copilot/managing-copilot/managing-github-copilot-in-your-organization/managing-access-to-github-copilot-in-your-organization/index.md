@@ -7,9 +7,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /reviewing-usage-data-for-github-copilot-in-your-organization
   - /granting-access-to-copilot-for-members-of-your-organization
   - /managing-requests-for-copilot-business-in-your-organization
   - /revoking-access-to-copilot-for-members-of-your-organization
+  - /reviewing-usage-data-for-github-copilot-in-your-organization
 ---
-
