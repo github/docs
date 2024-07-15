@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /managing-copilot-knowledge-bases
   - /installing-github-copilot-extensions-for-your-organization
   - /about-content-exclusions-for-github-copilot
   - /configuring-content-exclusions-for-github-copilot

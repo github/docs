@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/github-copilot-chat/copilot-chat-in-github/managing-copilot-knowledge-bases
   - /copilot/github-copilot-enterprise/managing-copilot-knowledge-bases
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-copilot-knowledge-bases
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases
 ---
 
 {% ifversion fpt %}
