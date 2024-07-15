@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /subscribing-to-copilot-for-your-enterprise
   - /managing-policies-and-features-for-copilot-in-your-enterprise
   - /enabling-copilot-for-organizations-in-your-enterprise
   - /disabling-copilot-for-organizations-in-your-enterprise
