@@ -11,4 +11,3 @@ children:
   - /disabling-copilot-for-organizations-in-your-enterprise
   - /viewing-copilot-usage-for-your-enterprise
 ---
-

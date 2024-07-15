@@ -1,12 +1,12 @@
 ---
 title: Installing GitHub Copilot Extensions for your organization
+shortTitle: Install extensions
 intro: 'You can install {% data variables.product.prodname_copilot_extensions %} for your organization from {% data variables.product.prodname_marketplace %}.'
 product: 'Organization owners can install {% data variables.product.prodname_copilot_extensions %} for an organization.'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Install organization extensions
 type: how_to
 redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization

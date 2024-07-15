@@ -1,6 +1,6 @@
 ---
 title: Canceling Copilot for your organization
-shortTitle: Cancel subscription
+shortTitle: Cancel
 intro: 'Removing all assigned {% data variables.product.prodname_copilot %} seats in your organization will cancel your organization''s {% data variables.product.prodname_copilot_short %} subscription.'
 permissions: Organization owners
 product: '{% data variables.product.prodname_copilot_business_short %}'

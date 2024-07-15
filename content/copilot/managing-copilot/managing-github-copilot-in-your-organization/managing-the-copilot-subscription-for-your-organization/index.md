@@ -1,6 +1,6 @@
 ---
-title: Managing access to Copilot for your organization
-shortTitle: Manage access
+title: Managing the Copilot subscription for your organization
+shortTitle: Manage subscription
 intro: TODOCS
 versions:
   feature: copilot

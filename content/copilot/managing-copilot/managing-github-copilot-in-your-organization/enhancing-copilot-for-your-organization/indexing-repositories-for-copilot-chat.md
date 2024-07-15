@@ -1,6 +1,6 @@
 ---
 title: Indexing repositories for Copilot Chat
-shortTitle: Indexing repositories
+shortTitle: Index repositories
 intro: 'You can improve the responses {% data variables.product.prodname_copilot_chat %} is able to provide by indexing your repositories.'
 permissions: '{% data reusables.copilot.indexing-who-can-do-this %}'
 versions:
