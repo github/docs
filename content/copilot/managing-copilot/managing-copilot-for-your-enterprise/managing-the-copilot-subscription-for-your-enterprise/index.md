@@ -1,0 +1,11 @@
+---
+title: Managing the Copilot subscription for your enterprise
+shortTitle: Manage for enterprise
+intro: 'TODOCS'
+versions:
+  feature: copilot-enterprise
+topics:
+  - Copilot
+children:
+  - /subscribing-to-copilot-for-your-enterprise
+---
