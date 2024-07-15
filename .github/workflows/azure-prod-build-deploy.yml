@@ -64,6 +64,11 @@ jobs:
           node-version-file: 'package.json'
           cache: npm
 
+      # Currently we only need this to run dependencies in
+      # src/workflows/check-canary-slots.js
+      - name: Install dependencies
+        run: npm install
+
       - name: Clone docs-early-access
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:

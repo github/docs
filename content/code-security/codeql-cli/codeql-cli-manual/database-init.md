@@ -67,8 +67,15 @@ referred to by their relative path from this directory.
 #### `--[no-]overwrite`
 
 \[Advanced] If the database already exists, delete it and proceed with
-this command instead of failing. This option should be used with caution
-as it may recursively delete the entire database directory.
+this command instead of failing. If the directory exists, but it does
+not look like a database, an error will be thrown.
+
+#### `--[no-]force-overwrite`
+
+\[Advanced] If the database already exists, delete it even if it does
+not look like a database and proceed with this command instead of
+failing. This option should be used with caution as it may recursively
+delete the entire database directory.
 
 #### `--codescanning-config=<file>`
 
