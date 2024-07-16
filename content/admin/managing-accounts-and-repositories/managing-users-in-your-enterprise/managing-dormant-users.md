@@ -23,6 +23,8 @@ topics:
 
 {% data reusables.enterprise-accounts.dormant-user-activity %}
 
+> [!NOTE] You cannot mark a dormant user as active. To become active, a user must perform one of the activities listed above.
+
 {% ifversion ghec %}
 When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
 {% endif %}
@@ -38,6 +40,8 @@ You can customize the dormancy threshold for {% data variables.location.product_
 Dormancy applies to both enterprise members and outside collaborators.
 
 {% ifversion ghes %}
+
+Dormant users are not automatically suspended. Consider suspending dormant users to release license seats. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
 
 ## Viewing dormant users
 

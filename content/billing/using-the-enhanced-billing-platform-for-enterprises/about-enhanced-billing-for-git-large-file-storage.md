@@ -50,10 +50,10 @@ If you use more than the included amount of bandwidth or storage for your plan t
 
 For example, if you use 1 GiB above what is included for free for the first 15 days of April, then use 2 GiB starting from April 16th to the end of the month, your storage costs will be calculated in the following way.
 
-- 1 GiB × 15 days × 24 hours per day = 360 GiB-hours
-- 2 GiB × 15 days × 24 hours per day = 720 GiB-hours
-- 360 GiB-hours + 720 GiB-hours = 1080 GiB-hours
-- 1080 GiB-hours / 720 hours in the month = 1.5 GiB-months
+* 1 GiB × 15 days × 24 hours per day = 360 GiB-hours
+* 2 GiB × 15 days × 24 hours per day = 720 GiB-hours
+* 360 GiB-hours + 720 GiB-hours = 1080 GiB-hours
+* 1080 GiB-hours / 720 hours in the month = 1.5 GiB-months
 
 In this example, {% data variables.product.company_short %} would bill for 1.5 GiB of storage for the month of April.
 
@@ -63,5 +63,5 @@ The default budget for paid usage is $0 for accounts that do not have a payment 
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"

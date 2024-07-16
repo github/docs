@@ -9,6 +9,7 @@ redirect_from:
 ---
 
 {% data reusables.command-palette.beta-note %}
+{% data reusables.command-palette.default %}
 
 ## About the {% data variables.product.prodname_command_palette %}
 

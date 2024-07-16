@@ -379,6 +379,96 @@
         "access": "read"
       },
       {
+        "category": "code-security",
+        "slug": "get-code-security-configurations-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "create-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-default-code-security-configurations",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/defaults",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "update-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "delete-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "attach-a-configuration-to-repositories",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/attach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "set-a-code-security-configuration-as-a-default-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/defaults",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
+        "slug": "get-repositories-associated-with-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "copilot",
         "slug": "get-copilot-seat-information-and-settings-for-an-organization",
         "subcategory": "copilot-user-management",
@@ -1051,7 +1141,7 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/usage",
         "additional-permissions": true,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "copilot",
@@ -4031,6 +4121,30 @@
       }
     ]
   },
+  "attestations": {
+    "title": "Attestations",
+    "displayTitle": "Repository permissions for \"Attestations\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-attestation",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/attestations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "list-attestations",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "checks": {
     "title": "Checks",
     "displayTitle": "Repository permissions for \"Checks\"",
@@ -4749,7 +4863,16 @@
         "subcategory": "contents",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -4758,7 +4881,16 @@
         "subcategory": "contents",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/contents/{path}",
-        "additional-permissions": false,
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -7647,6 +7779,24 @@
     "title": "Workflows",
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "additional-permissions": true,
+        "access": "write"
+      },
       {
         "category": "git",
         "slug": "create-a-reference",

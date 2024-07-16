@@ -197,3 +197,16 @@ If you're affected by this problem, restore your {% data variables.product.prodn
 For more information about restoring from a failed upgrade, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade)."
 
 {% endif %}
+{% ifversion ghes > 3.10 and ghes < 3.13 %}
+
+## Recommendations for server resources
+
+If your appliance averages more than 70% CPU utilization, {% data variables.product.company_short %} strongly recommends scaling up your server resources before upgrading to 3.11 or above. The new hardware or instance type should have more vCPUs to accommodate the additional load from new features and improvements included with the latest releases.
+{% endif %}
+
+{% ifversion ghes > 3.12 and ghes < 3.15 %}
+
+## Elasticsearch Upgrade
+
+As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade)."
+{% endif %}

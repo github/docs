@@ -26,13 +26,9 @@ For information on the most simple setup of the {% data variables.product.prodna
 
 Some users prefer working with {% data variables.product.prodname_codeql %} query sources directly in order to work on or contribute to the Open Source shared queries. In order to do this, the following steps are recommended.
 
-### 1. Download the {% data variables.product.prodname_codeql_cli %} zip
+### 1. Download the {% data variables.product.prodname_codeql_cli %} tar archive
 
-{% data reusables.codeql-cli.download-codeql-cli-zip %}
-
-#### Download information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}
+{% data reusables.codeql-cli.download-codeql-cli %}
 
 ### 2. Create a new {% data variables.product.prodname_codeql %} directory
 
@@ -73,16 +69,12 @@ see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-t
 
 {% endnote %}
 
-### 4. Extract the zip archive
+### 4. Extract the {% data variables.product.prodname_codeql_cli %} tar archive
 
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive into the directory you created in step 2.
+Extract the tar archive into the directory you created in step 2.
 
 For example, if the path to your copy of the {% data variables.product.prodname_codeql %} repository is `$HOME/codeql-home/codeql-repo`, then extract the CLI into
 `$HOME/codeql-home/`.
-
-#### Extraction information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.extraction-info-macos-catalina-or-newer %}
 
 ### 5. Launch `codeql`
 

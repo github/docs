@@ -7,8 +7,6 @@ versions:
 shortTitle: Artifact attestations
 ---
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 ## About artifact attestations
 
 {% data reusables.actions.about-artifact-attestations %}
@@ -28,6 +26,20 @@ To generate artifact attestations, {% data variables.product.prodname_dotcom %} 
 **Public repositories** that generate artifact attestations use the [Sigstore Public Good Instance](https://openssf.org/blog/2023/10/03/running-sigstore-as-a-managed-service-a-tour-of-sigstores-public-good-instance/). A copy of the generated Sigstore bundle is stored with GitHub and is also written to an immutable transparency log that is publicly readable on the internet.
 
 **Private repositories** that generate artifact attestations use GitHub's Sigstore instance. GitHub's Sigstore instance uses the same codebase as the Sigstore Public Good Instance, but it does not have a transparency log and only federates with {% data variables.product.prodname_actions %}.
+
+### What to attest
+
+Generating attestations alone doesn't provide any security benefit, the attestations must be verified for the benefit to be realized. Here are some guidelines for how to think about what to sign and how often:
+
+You should sign:
+
+* Software you are releasing that you expect people to run `gh attestation verify ...` on.
+* Binaries people will run, packages people will download, or manifests that include hashes of detailed contents.
+
+You should **not** sign:
+
+* Frequent builds that are just for automated testing.
+* Individual files like source code, documentation files, or embedded images.
 
 ### About verifying artifact attestations
 

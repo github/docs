@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-for-vs-code/running-codeql-queries-at-scale-with-mrva
 ---
 
-{% data reusables.code-scanning.mrva-beta %}
-
 ## About running {% data variables.product.prodname_codeql %} queries at scale with multi-repository variant analysis
 
 With multi-repository variant analysis (MRVA), you can run {% data variables.product.prodname_codeql %} queries on a list of up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %} from {% data variables.product.prodname_vscode %}.
@@ -55,7 +53,7 @@ The name of the controller repository is saved in your settings for the {% data 
 
 1. By default, the "Variant Analysis Repositories" view shows the default lists of the Top 10, Top 100, and Top 1000 public repositories on {% data variables.product.prodname_dotcom_the_website %} for the language that you are analyzing.
 
-1. Optionally, you can add a new repository, organization, or list. For more information, see "[Creating custom lists of repositories](#creating-a-custom-list-of-repositories).
+1. Optionally, you can add a new repository, organization, or list. For more information, see "[Creating custom lists of repositories](#creating-a-custom-list-of-repositories)."
 
 1. Select which {% data variables.product.company_short %} repository or repositories you want to run your query against.
 

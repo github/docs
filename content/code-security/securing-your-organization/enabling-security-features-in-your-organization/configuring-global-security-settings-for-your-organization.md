@@ -51,7 +51,7 @@ For more information on {% data variables.dependabot.auto_triage_rules %}, see "
 
 ### Enabling dependency updates on {% data variables.product.prodname_actions %} runners
 
-You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, click **Enable all**. To automatically enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on new repositories in your organization, select **Automatically enable for new repositories**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, select **Dependabot on Actions runners**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
@@ -93,19 +93,11 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-* [Verifying partner pattern secrets automatically](#verifying-partner-pattern-secrets-automatically){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion secret-scanning-non-provider-patterns %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-### Verifying partner pattern secrets automatically
-
-To reduce the rate of false positive {% data variables.product.prodname_secret_scanning %} alerts, you can automatically verify the validity of some partner pattern secrets by sending each secret to the provider. To enable this automatic verification, select **Automatically verify if a secret is valid by sending it to the relevant partner**. For information on which partners support validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
-
-{% endif %}
 {% ifversion secret-scanning-non-provider-patterns %}
 
 ### Scanning for non-provider patterns

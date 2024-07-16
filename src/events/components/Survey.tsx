@@ -2,18 +2,15 @@ import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import { Spinner } from '@primer/react'
-import useSWR from 'swr'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent, EventType, startVisitTime } from 'src/events/components/events'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
 
 enum ViewState {
   START = 'START',
-  NEXT = 'NEXT',
   END = 'END',
 }
 
@@ -27,7 +24,6 @@ type EventData = {
   token?: string
   comment?: string
   email?: string
-  rating?: number
 }
 
 export const Survey = () => {
@@ -82,63 +78,26 @@ export const Survey = () => {
     }
   }, [email])
 
-  useEffect(() => {
-    if (state === ViewState.NEXT && data?.comment !== comment.trim()) {
-      setState(ViewState.START)
-      setIsEmailError(false)
-    }
-  }, [comment])
-
-  const { data, error, isLoading } = useSWR(
-    state === ViewState.NEXT && comment.trim() ? '/api/events/survey/preview/v1' : null,
-    async (url: string) => {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          comment: comment.trim(),
-          locale,
-          url: `/${locale}${asPath}`,
-          vote: voteState,
-          token,
-        }),
-      })
-      if (response.ok) {
-        return await response.json()
-      } else {
-        throw new Error(`${response.status} on preview`)
-      }
-    },
-  )
-
-  const hasPreview = !!data && !error && ViewState.NEXT
-
   function submit(evt: React.FormEvent) {
     evt.preventDefault()
     if (voteState === null) return
-    if (hasPreview) {
-      trackEvent(getEventData(voteState === VoteState.YES))
-      if (!isEmailError) {
-        setState(ViewState.END)
-        setIsEmailError(false)
-        setComment('')
-      }
-    } else if (comment.trim()) {
-      setState(ViewState.NEXT)
-    }
+
+    trackEvent(getEventData(voteState === VoteState.YES))
+    completeSurvey()
+  }
+
+  function completeSurvey() {
+    setState(ViewState.END)
+    setIsEmailError(false)
+    setComment('')
   }
 
   function getEventData(vote: boolean): EventData {
-    const rating = data?.rating
     return {
       vote,
       comment,
       email,
       token,
-      rating,
     }
   }
 
@@ -161,7 +120,7 @@ export const Survey = () => {
         onChange={(event) => setToken(event.target.value)}
       />
 
-      {state !== ViewState.END && (
+      {voteState === null && (
         <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
@@ -180,7 +139,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
-            <span className="visually-hidden">{t`yes`}</span>
+            <span className="mr-2">{t`yes`}</span>
             <ThumbsupIcon
               size={16}
               className={voteState === VoteState.YES ? '' : 'color-fg-muted'}
@@ -203,7 +162,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
-            <span className="visually-hidden">{t`no`}</span>
+            <span className="mr-2">{t`no`}</span>
             <ThumbsdownIcon
               size={16}
               className={voteState === VoteState.NO ? '' : 'color-fg-muted'}
@@ -212,16 +171,19 @@ export const Survey = () => {
         </div>
       )}
 
-      {error && <span className="f6 color-fg-danger">{t`server_error`}</span>}
+      {state === ViewState.START && voteState && (
+        <p
+          role="status"
+          className="color-fg-muted f6 mb-3"
+          data-testid="survey-end"
+        >{t`feedback`}</p>
+      )}
 
-      {[ViewState.START, ViewState.NEXT].includes(state) && voteState && (
+      {state === ViewState.START && voteState && (
         <>
           <p className="mb-3">
             <label className="d-block mb-1 f6" htmlFor="survey-comment">
-              <span>
-                {voteState === VoteState.YES && t`comment_yes_label`}
-                {voteState === VoteState.NO && t`comment_no_label`}
-              </span>
+              <span>{t`additional_feedback`}</span>
             </label>
             <textarea
               className="form-control input-sm width-full"
@@ -231,72 +193,51 @@ export const Survey = () => {
               onChange={(event) => setComment(event.target.value)}
             ></textarea>
           </p>
-          {hasPreview && (
-            <div className={cx('form-group', isEmailError ? 'warn' : '')}>
-              <label className="d-block mb-1 f6" htmlFor="survey-email">
-                {t`email_label`}
-                <span className="text-normal color-fg-muted float-right ml-1">{t`optional`}</span>
-              </label>
-              <input
-                type="email"
-                className="form-control input-sm width-full"
-                name="survey-email"
-                id="survey-email"
-                placeholder={t`email_placeholder`}
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                aria-invalid={isEmailError}
-                {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
-              />
-              {isEmailError && (
-                <p className="note warning" id="email-input-validation">
-                  {t`email_validation`}
-                </p>
-              )}
-            </div>
-          )}
 
-          {hasPreview && (
-            <span
-              className="f6 color-fg-muted"
-              dangerouslySetInnerHTML={{ __html: t`not_support` }}
-            ></span>
-          )}
+          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
+            <label className="d-block mb-1 f6" htmlFor="survey-email">
+              {t`email_label`}
+              {/* <p className="text-normal color-fg-muted">{t`email_placeholder`}</p> */}
+            </label>
+            <input
+              type="email"
+              className="form-control input-sm width-full"
+              name="survey-email"
+              id="survey-email"
+              placeholder={t`email_placeholder`}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              aria-invalid={isEmailError}
+              {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
+            />
+            {isEmailError && (
+              <p className="note warning" id="email-input-validation">
+                {t`email_validation`}
+              </p>
+            )}
+          </div>
+
+          <span
+            className="f6 color-fg-muted"
+            dangerouslySetInnerHTML={{ __html: t`not_support` }}
+          ></span>
           <div className="d-flex flex-justify-end flex-items-center mt-3">
             <button
               type="button"
               className="btn btn-sm btn-invisible mr-3"
               onClick={() => {
-                setState(ViewState.START)
-                setVoteState(null)
-                setIsEmailError(false)
+                completeSurvey()
               }}
             >
-              Cancel
+              {t`cancel`}
             </button>
-            {hasPreview ? (
-              <button
-                disabled={isEmailError}
-                type="submit"
-                className="btn btn-sm color-border-accent-emphasis"
-              >
-                {t`send`}
-              </button>
-            ) : (
-              <button
-                type="submit"
-                className="btn btn-sm color-border-accent-emphasis"
-                disabled={isLoading || !comment.trim()}
-              >
-                {t`next`}
-                {isLoading && (
-                  <>
-                    {' '}
-                    <Spinner size="small" />
-                  </>
-                )}
-              </button>
-            )}
+            <button
+              disabled={isEmailError}
+              type="submit"
+              className="btn btn-sm color-border-accent-emphasis"
+            >
+              {t`send`}
+            </button>
           </div>
         </>
       )}
@@ -324,7 +265,5 @@ function trackEvent(eventData: EventData) {
     survey_vote: eventData.vote,
     survey_comment: eventData.comment || undefined,
     survey_email: eventData.email || undefined,
-    survey_visit_duration: (Date.now() - startVisitTime) / 1000,
-    survey_rating: eventData.rating,
   })
 }

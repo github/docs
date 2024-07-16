@@ -87,8 +87,11 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | {% endif %}                               |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
-| deployments   | read/write  | none | read |{% ifversion fpt or ghec %}
-| id-token      | none        | none | read |{% endif %}
+| deployments   | read/write  | none | read |
+| discussions   | read/write  | none | read |
+| {% ifversion fpt or ghec %} |
+| id-token      | none        | none | read |
+| {% endif %} |
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | {% ifversion actions-default-workflow-permissions-restrictive %}read{% else %}none{% endif %} | read |

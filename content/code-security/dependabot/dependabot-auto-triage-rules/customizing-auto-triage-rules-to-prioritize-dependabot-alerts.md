@@ -17,8 +17,6 @@ redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/customizing-alert-rules-to-prioritize-dependabot-alerts
 ---
 
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
-
 ## About {% data variables.dependabot.custom_rules %}
 
 You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
@@ -81,6 +79,10 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Adding {% data variables.dependabot.custom_rules %} to your organization
 
+{% ifversion security-configurations-ga %} You can add {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+
+{% elsif security-configurations-beta-and-pre-beta %}
+
 {% note %}
 
 **Note:** During the public beta, you can create up to 25 {% data variables.dependabot.custom_rules %} for your organization.
@@ -91,7 +93,7 @@ For more information about enabling or disabling {% data variables.product.prodn
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-{% ifversion security-configurations %}
+{% ifversion security-configurations-beta-only %}
     {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on adding {% data variables.dependabot.auto_triage_rules %} to your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
 {% endif %}
 
@@ -108,6 +110,8 @@ For more information about enabling or disabling {% data variables.product.prodn
    * Select **Open a pull request to resolve this alert** if you want {% data variables.product.prodname_dependabot %} to suggest changes to resolve alerts that match the metadata. Note that this option is unavailable if you have selected the option to dismiss the alerts indefinitely.
 {% data reusables.dependabot.dependabot-alert-rules-click-create-rule %}
 
+{% endif %}
+
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your repository
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -120,11 +124,15 @@ For more information about enabling or disabling {% data variables.product.prodn
 
 ## Editing or deleting {% data variables.dependabot.custom_rules %} for your organization
 
+{% ifversion security-configurations-ga %} You can edit or delete {% data variables.dependabot.custom_rules %} for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
+
+{% elsif security-configurations-beta-and-pre-beta %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-{% ifversion security-configurations %}
+{% ifversion security-configurations-beta-only %}
     {% data reusables.security-configurations.changed-org-settings-global-settings-callout %} For next steps on editing or deleting {% data variables.dependabot.auto_triage_rules %} in your organization with {% data variables.product.prodname_global_settings %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#creating-and-managing-dependabot-auto-triage-rules)."
 {% endif %}
 
@@ -132,3 +140,5 @@ For more information about enabling or disabling {% data variables.product.prodn
 1. Under "Organization rules", to the right of the rule that you want to edit or delete, click {% octicon "pencil" aria-label="Edit custom rule" %}.
 {% data reusables.dependabot.custom-alert-rules-edit-rule %}
 {% data reusables.dependabot.custom-alert-rules-delete-rule %}
+
+{% endif %}

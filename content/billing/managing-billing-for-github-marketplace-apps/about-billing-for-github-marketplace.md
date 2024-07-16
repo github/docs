@@ -24,21 +24,21 @@ shortTitle: Billing for GitHub Marketplace
 You will have the same payment method for all paid plans and subscriptions across {% data variables.product.prodname_dotcom %}.
 
 If your personal account or organization doesn't have a payment method on file, when you choose a paid plan for an app:
-- Your billing date is today.
-- You must add a payment method to your personal account or the organization in which you want to install the app.
-- Your payment method is charged the full amount of your subscription.
-- Your receipt is sent to the primary or billing email address on file for your personal account or organization.
+* Your billing date is today.
+* You must add a payment method to your personal account or the organization in which you want to install the app.
+* Your payment method is charged the full amount of your subscription.
+* Your receipt is sent to the primary or billing email address on file for your personal account or organization.
 
 If your personal account or organization has an existing payment method, when you choose a paid plan for an app:
-- The payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
-- The monthly or yearly billing date for your app subscription is the same as the account or organization's regular billing date.
-- On your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
+* The payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
+* The monthly or yearly billing date for your app subscription is the same as the account or organization's regular billing date.
+* On your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
 
 When you choose a paid plan with a free trial:
-- You must have an existing payment method or add a new payment method for your personal account or the organization in which you want to install the app.
-- If you don't have any other paid plans or subscriptions, you are charged the full amount of your subscription at the end of the 14-day free trial.
-- If you have other paid plans or subscriptions, once your 14-day free trial ends, the payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
-- If you have other paid plans or subscriptions, on your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
+* You must have an existing payment method or add a new payment method for your personal account or the organization in which you want to install the app.
+* If you don't have any other paid plans or subscriptions, you are charged the full amount of your subscription at the end of the 14-day free trial.
+* If you have other paid plans or subscriptions, once your 14-day free trial ends, the payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
+* If you have other paid plans or subscriptions, on your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
 
 {% data reusables.user-settings.context_switcher %}
 
@@ -64,5 +64,5 @@ If you cancel a free trial on a paid plan, your subscription is immediately canc
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/using-github-apps)"
-- "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
+* "[AUTOTITLE](/apps/using-github-apps)"
+* "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"

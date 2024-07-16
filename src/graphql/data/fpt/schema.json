@@ -2369,6 +2369,40 @@
       ]
     },
     {
+      "name": "convertProjectV2DraftIssueItemToIssue",
+      "kind": "mutations",
+      "id": "convertprojectv2draftissueitemtoissue",
+      "href": "/graphql/reference/mutations#convertprojectv2draftissueitemtoissue",
+      "description": "<p>Converts a projectV2 draft issue item to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ConvertProjectV2DraftIssueItemToIssueInput!",
+          "id": "convertprojectv2draftissueitemtoissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#convertprojectv2draftissueitemtoissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "ProjectV2Item",
+          "id": "projectv2item",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2item",
+          "description": "<p>The updated project item.</p>"
+        }
+      ]
+    },
+    {
       "name": "convertPullRequestToDraft",
       "kind": "mutations",
       "id": "convertpullrequesttodraft",
@@ -3093,6 +3127,40 @@
           "kind": "unions",
           "href": "/graphql/reference/unions#projectv2fieldconfiguration",
           "description": "<p>The new field.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "createprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#createprojectv2statusupdate",
+      "description": "<p>Creates a status update within a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateProjectV2StatusUpdateInput!",
+          "id": "createprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "statusUpdate",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate",
+          "description": "<p>The status update updated in the project.</p>"
         }
       ]
     },
@@ -4069,6 +4137,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "description": "<p>The ID of the deleted item.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "deleteprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#deleteprojectv2statusupdate",
+      "description": "<p>Deletes a project status update.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteProjectV2StatusUpdateInput!",
+          "id": "deleteprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedStatusUpdateId",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The ID of the deleted status update.</p>"
+        },
+        {
+          "name": "projectV2",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2",
+          "description": "<p>The project the deleted status update was in.</p>"
         }
       ]
     },
@@ -8785,6 +8895,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectv2itemconnection",
           "description": "<p>The items in the new order.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateProjectV2StatusUpdate",
+      "kind": "mutations",
+      "id": "updateprojectv2statusupdate",
+      "href": "/graphql/reference/mutations#updateprojectv2statusupdate",
+      "description": "<p>Updates a status update within a Project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2StatusUpdateInput!",
+          "id": "updateprojectv2statusupdateinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectv2statusupdateinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "statusUpdate",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate",
+          "description": "<p>The status update updated in the project.</p>"
         }
       ]
     },
@@ -21178,6 +21322,22 @@
           "href": "/graphql/reference/objects#enterpriseownerinfo"
         },
         {
+          "name": "readme",
+          "description": "<p>The raw content of the enterprise README.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "readmeHTML",
+          "description": "<p>The content of the enterprise README as HTML.</p>",
+          "type": "HTML!",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this enterprise.</p>",
           "type": "URI!",
@@ -28381,6 +28541,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
               }
             },
             {
@@ -40554,6 +40725,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -45849,6 +46031,66 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "statusUpdates",
+          "description": "<p>List of the status updates in the project.</p>",
+          "type": "ProjectV2StatusUpdateConnection!",
+          "id": "projectv2statusupdateconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdateconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Order for connection.</p>",
+              "type": {
+                "name": "ProjectV2StatusOrder",
+                "id": "projectv2statusorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#projectv2statusorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "teams",
           "description": "<p>The teams the project is linked to.</p>",
           "type": "TeamConnection!",
@@ -48112,6 +48354,176 @@
       ]
     },
     {
+      "name": "ProjectV2StatusUpdate",
+      "kind": "objects",
+      "id": "projectv2statusupdate",
+      "href": "/graphql/reference/objects#projectv2statusupdate",
+      "description": "<p>A status update within a project.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "bodyHTML",
+          "description": "<p>The body of the status update rendered to HTML.</p>",
+          "type": "HTML",
+          "id": "html",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "creator",
+          "description": "<p>The actor who created the status update.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2StatusUpdate object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>The project that contains this status update.</p>",
+          "type": "ProjectV2!",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateConnection",
+      "kind": "objects",
+      "id": "projectv2statusupdateconnection",
+      "href": "/graphql/reference/objects#projectv2statusupdateconnection",
+      "description": "<p>The connection type for ProjectV2StatusUpdate.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2StatusUpdateEdge]",
+          "id": "projectv2statusupdateedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdateedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2StatusUpdate]",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateEdge",
+      "kind": "objects",
+      "id": "projectv2statusupdateedge",
+      "href": "/graphql/reference/objects#projectv2statusupdateedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2StatusUpdate",
+          "id": "projectv2statusupdate",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2statusupdate"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2View",
       "kind": "objects",
       "id": "projectv2view",
@@ -48898,6 +49310,14 @@
           "name": "propertyValues",
           "description": "<p>The values to match for.</p>",
           "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -50236,6 +50656,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
               }
             },
             {
@@ -61979,6 +62410,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -69983,6 +70425,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -75242,6 +75695,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -80319,6 +80783,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -85351,6 +85826,27 @@
       ]
     },
     {
+      "name": "ProjectV2PermissionLevel",
+      "kind": "enums",
+      "id": "projectv2permissionlevel",
+      "href": "/graphql/reference/enums#projectv2permissionlevel",
+      "description": "<p>The possible roles of a collaborator on a project.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>The collaborator can view, edit, and maange the settings of the project.</p>"
+        },
+        {
+          "name": "READ",
+          "description": "<p>The collaborator can view the project.</p>"
+        },
+        {
+          "name": "WRITE",
+          "description": "<p>The collaborator can view and edit the project.</p>"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2Roles",
       "kind": "enums",
       "id": "projectv2roles",
@@ -85430,6 +85926,48 @@
         {
           "name": "OPEN",
           "description": "<p>A project v2 that is still open.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateOrderField",
+      "kind": "enums",
+      "id": "projectv2statusupdateorderfield",
+      "href": "/graphql/reference/enums#projectv2statusupdateorderfield",
+      "description": "<p>Properties by which project v2 status updates can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Allows chronological ordering of project v2 status updates.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2StatusUpdateStatus",
+      "kind": "enums",
+      "id": "projectv2statusupdatestatus",
+      "href": "/graphql/reference/enums#projectv2statusupdatestatus",
+      "description": "<p>The possible statuses of a project v2.</p>",
+      "values": [
+        {
+          "name": "AT_RISK",
+          "description": "<p>A project v2 that is at risk and encountering some challenges.</p>"
+        },
+        {
+          "name": "COMPLETE",
+          "description": "<p>A project v2 that is complete.</p>"
+        },
+        {
+          "name": "INACTIVE",
+          "description": "<p>A project v2 that is inactive.</p>"
+        },
+        {
+          "name": "OFF_TRACK",
+          "description": "<p>A project v2 that is off track and needs attention.</p>"
+        },
+        {
+          "name": "ON_TRACK",
+          "description": "<p>A project v2 that is on track with no risks.</p>"
         }
       ]
     },
@@ -93131,6 +93669,41 @@
       ]
     },
     {
+      "name": "ConvertProjectV2DraftIssueItemToIssueInput",
+      "kind": "inputObjects",
+      "id": "convertprojectv2draftissueitemtoissueinput",
+      "href": "/graphql/reference/input-objects#convertprojectv2draftissueitemtoissueinput",
+      "description": "<p>Autogenerated input type of ConvertProjectV2DraftIssueItemToIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The ID of the draft issue ProjectV2Item to convert.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to create the issue in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "ConvertPullRequestToDraftInput",
       "kind": "inputObjects",
       "id": "convertpullrequesttodraftinput",
@@ -94447,6 +95020,64 @@
       ]
     },
     {
+      "name": "CreateProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "createprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#createprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of CreateProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to create the status update in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        }
+      ]
+    },
+    {
       "name": "CreatePullRequestInput",
       "kind": "inputObjects",
       "id": "createpullrequestinput",
@@ -95667,6 +96298,32 @@
         {
           "name": "projectId",
           "description": "<p>The ID of the Project from which the item should be removed.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "deleteprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#deleteprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of DeleteProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "statusUpdateId",
+          "description": "<p>The ID of the status update to be removed.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -98262,6 +98919,31 @@
       ]
     },
     {
+      "name": "ProjectV2StatusOrder",
+      "kind": "inputObjects",
+      "id": "projectv2statusorder",
+      "href": "/graphql/reference/input-objects#projectv2statusorder",
+      "description": "<p>Ways in which project v2 status updates can be ordered.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order nodes.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field by which to order nodes.</p>",
+          "type": "ProjectV2StatusUpdateOrderField!",
+          "id": "projectv2statusupdateorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdateorderfield"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2ViewOrder",
       "kind": "inputObjects",
       "id": "projectv2vieworder",
@@ -98330,6 +99012,14 @@
           "name": "propertyValues",
           "description": "<p>The values to match for.</p>",
           "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The source of the property. Choose<code>custom</code>or 'system'. Defaults to 'custom' if not specified.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -103339,6 +104029,64 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectV2StatusUpdateInput",
+      "kind": "inputObjects",
+      "id": "updateprojectv2statusupdateinput",
+      "href": "/graphql/reference/input-objects#updateprojectv2statusupdateinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2StatusUpdate.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the status update.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "status",
+          "description": "<p>The status of the status update.</p>",
+          "type": "ProjectV2StatusUpdateStatus",
+          "id": "projectv2statusupdatestatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2statusupdatestatus"
+        },
+        {
+          "name": "statusUpdateId",
+          "description": "<p>The ID of the status update to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "targetDate",
+          "description": "<p>The target date of the status update.</p>",
+          "type": "Date",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
         }
       ]
     },

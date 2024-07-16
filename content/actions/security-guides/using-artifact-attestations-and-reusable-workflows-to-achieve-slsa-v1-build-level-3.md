@@ -14,8 +14,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 ## Introduction
 
 Artifact attestations are a great way to create unfalsifiable provenance and integrity guarantees for the software you build.
@@ -25,8 +23,8 @@ But remember that by itself, artifact attestations provides links, like the buil
 You can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3.
 
 Before starting this guide, you should be familiar with:
-- Generating artifact attestations. See "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
-- Writing and using reusable workflows. See "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+* Generating artifact attestations. See "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+* Writing and using reusable workflows. See "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 ## Step 1: Configuring your builds
 
@@ -57,13 +55,13 @@ To verify the artifact attestations generated with your builds, you can use [`gh
 
 The `gh attestation verify` command requires either `--owner` or `--repo` flags to be used with it. These flags do two things.
 
-- They tell `gh attestation verify` where to fetch the attestation from. This will always be your caller workflow.
-- They tell `gh attestation verify` where the workflow that did the signing came from. This will always be the workflow that uses [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance), which may be a reusable workflow.
+* They tell `gh attestation verify` where to fetch the attestation from. This will always be your caller workflow.
+* They tell `gh attestation verify` where the workflow that did the signing came from. This will always be the workflow that uses [`attest-build-provenance` action](https://github.com/actions/attest-build-provenance), which may be a reusable workflow.
 
 You can use optional flags with the `gh attestation verify` command.
 
-- If your reusable workflow is not in the same repository as the caller workflow, use the `--signer-repo` flag to specify the repository that contains the reusable workflow.
-- If you would like to require an artifact attestation to be signed with a specific workflow, use the `--signer-workflow` flag to indicate the workflow file that should be used.
+* If your reusable workflow is not in the same repository as the caller workflow, use the `--signer-repo` flag to specify the repository that contains the reusable workflow.
+* If you would like to require an artifact attestation to be signed with a specific workflow, use the `--signer-workflow` flag to indicate the workflow file that should be used.
 
 For example, if your calling workflow is `ORGANIZATION_NAME/REPOSITORY_NAME/.github/workflows/calling.yml` and it uses `REUSABLE_ORGANIZATION_NAME/REUSABLE_REPOSITORY_NAME/.github/workflows/reusable.yml` you could do:
 

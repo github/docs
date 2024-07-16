@@ -39,7 +39,9 @@ describe('siteTree', () => {
       // TODO: use new findPageInSiteTree helper when it's available
       const pageWithDynamicTitle = ghesSiteTree.childPages
         .find((child) => child.href === `/en/${ghesLatest}/admin`)
-        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/installation`)
+        .childPages.find(
+          (child) => child.href === `/en/${ghesLatest}/admin/installing-your-enterprise-server`,
+        )
 
       // Confirm the raw title contains Liquid
       expect(pageWithDynamicTitle.page.title).toEqual(

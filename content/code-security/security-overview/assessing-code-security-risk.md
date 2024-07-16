@@ -74,11 +74,7 @@ You can download a CSV file of the data displayed on the "Security risk" page. T
 
 You can view data for security alerts across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
 
-{% tip %}
-
-**Tip:** You can use the `org:` filter in the search field to filter the data by organization. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
-
-{% endtip %}
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% endif %}
 

@@ -10,7 +10,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20,50 * * * *' # Run every hour at 20 and 50 minutes after
+    - cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
 
 permissions:
   contents: write

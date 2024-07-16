@@ -28,7 +28,7 @@ You can set a goal for your sponsorships. For more information, see "[AUTOTITLE]
 
 ## Sponsorship tiers
 
-{% data reusables.sponsors.tier-details %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization), and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
+{% data reusables.sponsors.tier-details %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)," "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)," and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)."
 
 It's best to set up a range of different sponsorship options, including monthly and one-time tiers, to make it easy for anyone to support your work. In particular, one-time payments allow people to reward your efforts without worrying about whether their finances will support a regular payment schedule.
 

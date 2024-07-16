@@ -51,7 +51,7 @@ A Python test runs a setup command, then runs `pytest`. The number of points awa
 | Setting | Description |
 | :- | :- |
 | **Test name** | The name of the test, to identify the test in logs |
-| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation. [Some dependencies are already installed](https://github.com/education/autograding-python-grader/blob/main/requirements.txt), but you can install more if needed. You do not need to use `sudo`, and should use `pip` instead of `pip3`. |
+| **Setup command** | _Optional_. A command to run before tests, such as compilation or installation. [Some dependencies are already installed](https://github.com/classroom-resources/autograding-python-grader/blob/main/requirements.txt), but you can install more if needed. You do not need to use `sudo`, and should use `pip` instead of `pip3`. |
 | **Run command** | The command to run the test and generate an exit code for evaluation |
 | **Timeout** | In minutes, how long a test should run before resulting in failure |
 | **Points** | _Optional_. The total number of points the entire `pytest` suite is worth. Each test will be worth `Points / number_of_tests` |
@@ -114,7 +114,7 @@ By default, autograding tests will automatically run whenever a student pushes t
 
 ### Download autograding results
 
-You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
+{% data reusables.classroom.download-results %}
 
 ### View individual logs
 

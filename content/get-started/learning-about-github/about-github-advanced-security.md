@@ -57,8 +57,10 @@ The table below summarizes the availability of {% data variables.product.prodnam
 | --- | --- | --- | --- |
 | Code scanning     | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% data variables.product.prodname_codeql_cli %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% ifversion dependabot-auto-triage-rules %}
-| {% data variables.dependabot.custom_rules_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
+| Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% ifversion dependabot-auto-triage-rules %} |
+| {% data variables.dependabot.custom_rules_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | Dependency review | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}
@@ -86,15 +88,11 @@ To learn about what you need to know to plan your {% data variables.product.prod
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 {%- ifversion ghes %}
-The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.location.product_location %} before you can use these features. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
+The site administrator must enable {% data variables.product.prodname_advanced_security %} for {% data variables.location.product_location %} before you can use these features. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise)."
 
 Once your system is set up, you can enable and disable these features at the organization or repository level.
 
