@@ -1,7 +1,7 @@
 ---
 title: Setting policies for Copilot in your organization
 shortTitle: Set policies
-intro: TODOCS
+intro: Organization owners can set policies for GitHub Copilot in the organization.
 versions:
   feature: copilot
 topics:

@@ -1,7 +1,7 @@
 ---
 title: Enhancing Copilot for your organization
 shortTitle: Enhance Copilot
-intro: TODOCS
+intro: Organization owners can enhance GitHub Copilot in the organization.
 versions:
   feature: copilot
 topics:

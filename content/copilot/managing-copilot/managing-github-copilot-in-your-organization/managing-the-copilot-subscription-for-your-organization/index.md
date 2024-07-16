@@ -1,7 +1,7 @@
 ---
 title: Managing the Copilot subscription for your organization
 shortTitle: Manage subscription
-intro: TODOCS
+intro: Organization owners can manage the Copilot subscription for the organization.
 versions:
   feature: copilot
 topics:

@@ -1,7 +1,7 @@
 ---
 title: Managing your Copilot subscription
 shortTitle: Manage subscription
-intro: TODOCS
+intro: Subscribe to GitHub Copilot and manage your subscription as an individual user.
 versions:
   feature: copilot
 topics:

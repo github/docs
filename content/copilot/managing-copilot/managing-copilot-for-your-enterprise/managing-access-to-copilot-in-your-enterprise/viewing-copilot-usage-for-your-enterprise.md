@@ -1,6 +1,6 @@
 ---
 title: Viewing Copilot usage for your enterprise
-intro: 'You can view how many users have access to {% data variables.product.prodname_copilot %} across {% ifversion fpt %}your organization{% else %} all the organizations in your enterprise{% endif %}.'
+intro: 'View how many users have access to {% data variables.product.prodname_copilot %} across {% ifversion fpt %}your organization{% else %} all the organizations in your enterprise{% endif %}.'
 product: '{% data reusables.gated-features.copilot-billing %}'
 permissions: '{% ifversion fpt %}Organization admins{% else %}Enterprise owners{% endif %} can view usage for {% data variables.product.prodname_copilot %} in their {% ifversion fpt %}organization{% else %}enterprise{% endif %}.'
 versions:

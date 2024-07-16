@@ -1,7 +1,7 @@
 ---
 title: Managing access to Copilot in your enterprise
 shortTitle: Manage access
-intro: TODOCS
+intro: Enterprise owners can manage Copilot for organizations in the enterprise.
 versions:
   feature: copilot-enterprise
 topics:
