@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription
   - /enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
 ---
 
 Enterprise admins can set up a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription for their enterprise. For more information, see "[AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)."
