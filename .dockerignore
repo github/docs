@@ -5,7 +5,7 @@
 contributing/
 docs/
 node_modules/
-tests/
+delete rot/
 # Folder is cloned during the preview + prod workflows, the assets are merged into other locations for use before the build
 docs-early-access/
 # During the preview deploy untrusted user code may be cloned into this directory
