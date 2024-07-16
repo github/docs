@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization
   - /enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization
 ---
+
 {% ifversion ghec %}
 >[!NOTE]
 > If your organization is part of an enterprise, you can gain {% data variables.product.prodname_copilot_short %} through your enterprise instead. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise)" and "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
