@@ -10,7 +10,6 @@ topics:
   - Copilot
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription
-  - /enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
 ---
 
