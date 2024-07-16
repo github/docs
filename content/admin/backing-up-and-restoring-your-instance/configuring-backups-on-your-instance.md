@@ -140,29 +140,11 @@ When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
 ## Scheduling a backup
 
-{% ifversion backup-utilities-encryption-bug %}
-{% warning %}
-
-**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
-
-{% endwarning %}
-{% endif %}
-
 You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
 
 If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 ## Restoring a backup
-
-{% ifversion backup-utilities-encryption-bug %}
-
-{% warning %}
-
-**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
-
-{% endwarning %}
-
-{% endif %}
 
 In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another instance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} instance as an authorized SSH key before restoring an instance.
 
