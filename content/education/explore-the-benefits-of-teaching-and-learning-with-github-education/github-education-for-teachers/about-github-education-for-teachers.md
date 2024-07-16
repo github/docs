@@ -29,7 +29,7 @@ Before applying for an individual discount, check if your learning community is 
 * Stay in the know on what the student community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
 * Request a {% data variables.product.prodname_dotcom %} swag bag with educational materials and goodies for your students.
 
-A free subscription for {% data variables.product.prodname_copilot %} is available to verified teachers with {% data variables.product.prodname_education %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/subscribing-to-copilot-as-an-individual-user)" and "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-individual)."
+A free subscription for {% data variables.product.prodname_copilot %} is available to verified teachers with {% data variables.product.prodname_education %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
 
 ## Further reading
 

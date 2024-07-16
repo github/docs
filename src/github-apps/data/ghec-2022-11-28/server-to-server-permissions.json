@@ -561,6 +561,17 @@
       },
       {
         "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
         "slug": "get-a-code-security-configuration",
         "subcategory": "configurations",
         "verb": "get",

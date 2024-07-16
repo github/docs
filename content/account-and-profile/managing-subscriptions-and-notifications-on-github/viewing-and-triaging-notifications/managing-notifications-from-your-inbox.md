@@ -73,11 +73,12 @@ You can add up to 15 of your own custom filters.
 ## Custom filter limitations
 
 Custom filters do not currently support:
-* Full text search in your inbox, including searching for pull request or issue titles.
+
+* Full text search in your inbox, including searching for pull request or issue titles
 * Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
-* Creating more than 15 custom filters.
-* Changing the default filters or their order.
-* Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+* Creating more than 15 custom filters
+* Changing the default filters or their order
+* Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`
 
 ## Supported queries for custom filters
 

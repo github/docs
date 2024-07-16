@@ -1,7 +1,7 @@
 ---
 title: Managing custom repository roles for an organization
-intro: 'You can create, edit, or delete custom repository roles for your organization.'
-permissions: Organization owners can manage custom repository roles.
+intro: 'Learn how to create, edit, or delete custom repository roles for your organization.'
+permissions: Organization owners.
 versions:
   feature: custom-repository-roles
 topics:

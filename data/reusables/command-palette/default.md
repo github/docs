@@ -1,0 +1,1 @@
+The {% data variables.product.prodname_command_palette %} is deactivated by default. You can enable the {% data variables.product.prodname_command_palette %} with feature preview. See "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."

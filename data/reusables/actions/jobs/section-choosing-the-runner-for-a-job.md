@@ -5,10 +5,10 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 {% ifversion target-runner-groups %}- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.{% else %}
 * You can target runners based on the labels assigned to them.{% endif %}
 * You can provide `runs-on` as:
-  * a single string
-  * a single variable containing a string
-  * an array of strings, variables containing strings, or a combination of both
-  * a `key: value` pair using the `group` or `labels` keys
+  * A single string
+  * A single variable containing a string
+  * An array of strings, variables containing strings, or a combination of both
+  * A `key: value` pair using the `group` or `labels` keys
 * If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
 
   ```yaml
@@ -82,7 +82,7 @@ The <code>windows-latest</code> label currently uses the Windows 2022 runner ima
 </tr>
 <tr>
 <td>
-<code>macos-latest</code>, <code>macos-14</code>, <code>macos-13</code>, <code>macos-12</code>, <code>macos-11</code>
+<code>macos-latest</code>, <code>macos-14</code>, <code>macos-13</code>, <code>macos-12</code>
 </td>
 <td>
 The <code>macos-latest</code> workflow label currently uses the macOS 14 runner image.

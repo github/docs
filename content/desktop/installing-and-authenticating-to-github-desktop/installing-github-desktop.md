@@ -56,3 +56,9 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 1. {% data variables.product.prodname_desktop %} will launch after installation is complete.
 
 {% endwindows %}
+
+{% linux %}
+
+Linux is not yet supported
+
+{% endlinux %}
