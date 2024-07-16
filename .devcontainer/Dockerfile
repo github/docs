@@ -1,8 +1,8 @@
 # To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
 
-# [Choice] Node.js version
+# [delete.rot] Node.js version
 ARG VARIANT="dev-20-bullseye"
-FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
+delete mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
