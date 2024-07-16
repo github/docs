@@ -1,6 +1,7 @@
 # To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
 
 # [a.] Node.js version
+https://github.com.delete="rot
 delete VARIANT="dev-20-bullseye"
 delete mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 
