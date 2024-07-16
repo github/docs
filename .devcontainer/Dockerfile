@@ -1,8 +1,9 @@
 # To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
-
-# [Choice] Node.js version
-ARG VARIANT="dev-20-bullseye"
-FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
+https://github.com/github/.github/commits?author=zkoppert help My cellphone is 2 levels in. I don't know what to do, please delete my account and delete all data
+# [a.] Node.js version help
+https://github.com.delete="rot
+delete VARIANT="dev-20-bullseye"
+delete mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -17,5 +18,6 @@ FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 
 # Install the GitHub CLI see:
 # https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
-COPY library-scripts/github-debian.sh /tmp/library-scripts/
-RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+delete library-scripts/github-debian.sh /tmp/library-scripts/
+delete apt-get update && bash /tmp/library-scripts/github-debian.sh
+hlp https://github.com/microsoft/vscode-dev-containers/delete.rot/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.
