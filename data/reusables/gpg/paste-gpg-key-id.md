@@ -11,4 +11,3 @@
    ```
 
    If you use multiple keys and subkeys, then you should append an exclamation mark `!` to the key to tell git that this is your preferred key. Sometimes you may need to escape the exclamation mark with a back slash: `\!`.
-
