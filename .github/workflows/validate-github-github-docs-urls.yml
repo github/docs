@@ -7,7 +7,7 @@ name: Validate github/github docs URLs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
   pull_request:
     paths:
       - 'content/**'

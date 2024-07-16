@@ -17,13 +17,13 @@ topics:
 
 Before you can start using {% data variables.product.prodname_copilot_for_individuals %}, you will need to set up a free trial or subscription.
 
-{% data reusables.copilot.copilot-individual-emus %}
-
-{% data reusables.copilot.tp-users-trial-eligibility %}
+>[!NOTE]
+>
+> * _If you are a member of an organization or enterprise_ that has a subscription to {% data variables.product.prodname_copilot %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."{% ifversion ghec %} If you have a {% data variables.enterprise.prodname_managed_user %} account instead of a personal account, you cannot get a {% data variables.product.prodname_copilot_for_individuals %} subscription.{% endif %}
+> * _If you are a verified student, teacher, or maintainer of a popular open source project_, {% data variables.product.prodname_copilot %} is free to use. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
 
 {% data reusables.copilot.signup-procedure %}
 
-## Further reading
+## Next steps
 
-* "[AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot)"
-* "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)"
+To start using {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)."
