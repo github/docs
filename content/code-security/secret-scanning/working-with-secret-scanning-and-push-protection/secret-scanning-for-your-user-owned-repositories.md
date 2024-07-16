@@ -2,6 +2,7 @@
 title: Enabling secret scanning alerts for your user-owned repositories
 shortTitle: Secret scanning alerts for user-owned repositories
 intro: 'TODO'
+allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-enable-by-default-for-public-repos
 type: how_to
