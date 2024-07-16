@@ -10,11 +10,15 @@ labels:
 
 ## Instructions for triage
 
-- [ ] In the Enterprise focus area's project, adjust the "Cycle" field for this issue to the cycle four weeks before the target date.
+- [ ] In the Enterprise project, adjust the "Cycle" field to the cycle **four weeks** before the target date.
 
 ## Instructions for assignee
 
-To prepare for a GHES RC, you must monitor for late-breaking content changes, validate the content we're publishing, gather and revise release notes, and share the release notes with stakeholders.
+To prepare for a GHES RC, you will:
+- monitor for late-breaking content changes
+- validate the content being published
+- gather and edit release notes
+- share release notes with stakeholders
 
 - [Track content work and progress toward final builds](#tracking)
 - [Populate the Release Tracker's "GHES Docs" view](#population)
@@ -176,7 +180,7 @@ At least a week before the ship date for the RC, request review of the PR with t
 
 1. After you've received writer and PM approval, merge the PR into the topic branch that you created for the PR to close {{ release-steps-1-url }}.
 
-1. Link the PR to this issue as well. For more information, see "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
+1. Link the PR to this issue as well. See "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
 
 1. To provide other GTM teams like Support Delivery an advance look at changes in the release, share a link to the release notes on the staging deployment and a link to the YAML file in **Files changed** tab within the PR for {{ release-steps-1-url }}.
 
