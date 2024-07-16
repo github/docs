@@ -11,7 +11,7 @@ redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization/subscribing-to-copilot-for-your-organization
-  - /enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization
 ---
 {% ifversion ghec %}
 >[!NOTE]

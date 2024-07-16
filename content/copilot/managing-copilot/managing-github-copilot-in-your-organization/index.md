@@ -7,6 +7,7 @@ versions:
 redirect_from:
   - /copilot/managing-copilot/managing-policies-for-copilot-business-in-your-organization
   - /copilot/managing-github-copilot-in-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization
 topics:
   - Copilot
 children:
