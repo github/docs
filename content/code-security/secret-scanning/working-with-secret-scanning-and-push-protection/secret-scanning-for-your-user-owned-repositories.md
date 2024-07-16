@@ -1,9 +1,8 @@
 ---
-title: Enabling secret scanning alerts for your user-owned repositories 
+title: Enabling secret scanning alerts for your user-owned repositories
 shortTitle: Secret scanning alerts for user-owned repositories
 intro: 'TODO'
-product: '{% data reusables.gated-features.secret-scanning %}'
-versions: 
+versions:
   feature: secret-scanning-enable-by-default-for-public-repos
 type: how_to
 topics:

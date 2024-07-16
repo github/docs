@@ -1,7 +1,7 @@
 ---
 title: Working with push protection in the GitHub UI
 shortTitle: Work with push protection in the GitHub UI
-intro: 'TODO'
+intro: 'Push protection proactively secures you against leaked secrets in your repositories by blocking commits containing secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
