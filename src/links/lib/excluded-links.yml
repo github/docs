@@ -67,3 +67,5 @@
 - is: https://docs.openstack.org/horizon/latest/
 - is: https://packages.ubuntu.com/search?keywords=netcat&searchon=names
 - is: https://vimeo.com/333786093
+- is: https://www.gnu.org/software/bash/
+- is: https://www.gnu.org/software/bash/manual/

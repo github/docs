@@ -11,9 +11,8 @@ topics:
   - Secret scanning
   - AI
 ---
-{% data reusables.secret-scanning.beta-custom-pattern-regular-expression-generator %}
 
-## Generating a regular expression for a repository using the generator
+## Generating a regular expression for a repository with AI
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -27,7 +26,7 @@ topics:
 
 {% data reusables.secret-scanning.link-to-push-protection %}
 
-## Generating a regular expression for an organization using the generator
+## Generating a regular expression for an organization with AI
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -43,4 +42,4 @@ topics:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns)"
+* "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expressions-with-ai)"
