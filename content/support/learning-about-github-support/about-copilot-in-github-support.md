@@ -59,7 +59,7 @@ Currently, {% data variables.product.prodname_copilot_in_support %} cannot take 
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_in_support %}
 
-We greatly value your feedback. As we continuously improve {% data variables.product.prodname_copilot_in_support %}, we value knowing which answers were helpful and which were not. To let us know, just click the thumbs up or thumbs down under the corresponding response from {% data variables.product.prodname_copilot_short %}.
+We greatly value your feedback. As we continuously improve {% data variables.product.prodname_copilot_in_support %}, we value knowing which answers were helpful and which were not. To let us know, just click the thumbs down under the corresponding response from {% data variables.product.prodname_copilot_short %}.
 
 ## Further reading
 
