@@ -26,6 +26,7 @@ children:
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
+  - /managing-requests-for-copilot-business-from-organizations-in-your-enterprise
   - /removing-organizations-from-your-enterprise
   - /restoring-a-deleted-organization
   - /managing-projects-using-jira

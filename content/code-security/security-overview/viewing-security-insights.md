@@ -152,11 +152,11 @@ Alerts that are reopened and re-closed during the chosen time period are ignored
 
 ### Autofix suggestions
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
-Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
-The "Autofix suggestions" metric is the total number of Autofix suggestions generated in open and closed pull requests during the chosen time period.
+The "Autofix suggestions" metric is the total number of autofix suggestions generated in open and closed pull requests during the chosen time period.
 
 {% endif %}
 
