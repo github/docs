@@ -1,6 +1,6 @@
 ---
 title: Testing changes to content exclusions in your IDE
-intro: You can confirm your changes to content exclusions work as expected using your IDE.
+intro: 'You can confirm your changes to content exclusions work as expected using your IDE.'
 permissions: '{% data reusables.copilot.content-exclusion-permissions %}'
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:

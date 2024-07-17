@@ -1,7 +1,7 @@
 ---
 title: Managing access to Copilot in your enterprise
 shortTitle: Manage access
-intro: Enterprise owners can manage Copilot for organizations in the enterprise.
+intro: 'Enterprise owners can manage {% data variables.product.prodname_copilot_short %} for organizations in the enterprise.'
 versions:
   feature: copilot-enterprise
 topics:

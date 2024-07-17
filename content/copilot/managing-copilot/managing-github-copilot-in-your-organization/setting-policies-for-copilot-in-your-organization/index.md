@@ -1,7 +1,7 @@
 ---
 title: Setting policies for Copilot in your organization
 shortTitle: Set policies
-intro: Organization owners can set policies for GitHub Copilot in the organization.
+intro: 'Organization owners can set policies for {% data variables.product.prodname_copilot %} in their organization.'
 versions:
   feature: copilot
 topics:

@@ -1,7 +1,7 @@
 ---
 title: Managing the Copilot subscription for your organization
 shortTitle: Manage subscription
-intro: Organization owners can manage the Copilot subscription for the organization.
+intro: 'Organization owners can manage the {% data variables.product.prodname_copilot_short %} subscription for their organization.'
 versions:
   feature: copilot
 topics:

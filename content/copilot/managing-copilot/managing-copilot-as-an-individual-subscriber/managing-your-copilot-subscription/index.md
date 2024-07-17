@@ -1,7 +1,7 @@
 ---
 title: Managing your Copilot subscription
 shortTitle: Manage subscription
-intro: Subscribe to GitHub Copilot and manage your subscription as an individual user.
+intro: 'Subscribe to {% data variables.product.prodname_copilot %} and manage your subscription as an individual user.'
 versions:
   feature: copilot
 topics:

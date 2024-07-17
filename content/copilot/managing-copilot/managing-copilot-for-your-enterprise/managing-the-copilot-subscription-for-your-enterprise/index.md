@@ -1,7 +1,7 @@
 ---
 title: Managing the Copilot subscription for your enterprise
 shortTitle: Manage subscription
-intro: Enterprise owners can manage the Copilot subscription for the enterprise.
+intro: 'Enterprise owners can manage the {% data variables.product.prodname_copilot_short %} subscription for the enterprise.'
 versions:
   feature: copilot-enterprise
 topics:

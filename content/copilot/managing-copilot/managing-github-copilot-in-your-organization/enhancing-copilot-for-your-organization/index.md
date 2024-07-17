@@ -1,7 +1,7 @@
 ---
 title: Enhancing Copilot for your organization
 shortTitle: Enhance Copilot
-intro: Organization owners can enhance GitHub Copilot in the organization.
+intro: 'Organization owners can enhance {% data variables.product.prodname_copilot %} in their organization.'
 versions:
   feature: copilot
 topics:
