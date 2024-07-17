@@ -94,7 +94,8 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
 {% ifversion secret-scanning-non-provider-patterns %}
-* [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
+* [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+* [Generic secret detection](#generic-secret-detection){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
@@ -105,6 +106,16 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user-alerts)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
 
    {% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+{% endif %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### Generic secret detection
+
+Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."
+
+{% data reusables.secret-scanning.generic-secret-detection-ai %}
 
 {% endif %}
 
