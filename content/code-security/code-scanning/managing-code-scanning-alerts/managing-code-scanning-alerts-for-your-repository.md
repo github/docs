@@ -116,7 +116,24 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 {% endif %}
 
-## Fixing an alert
+{% ifversion code-scanning-autofix %}
+
+## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
+
+{% data reusables.rai.code-scanning.autofix-note %}
+
+{% data variables.product.prodname_code_scanning_caps %} autofix can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Click the name of an alert.
+1. If autofix can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
+1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
+
+{% endif %}
+
+## Fixing an alert {% ifversion code-scanning-autofix %}manually{% endif %}
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
 

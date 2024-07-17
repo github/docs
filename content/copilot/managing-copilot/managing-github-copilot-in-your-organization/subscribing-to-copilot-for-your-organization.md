@@ -20,6 +20,5 @@ redirect_from:
 
 ## Next steps
 
-* Configure policies for {% data variables.product.prodname_copilot_short %} in your organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)."
-* Grant {% data variables.product.prodname_copilot_short %} access to some or all members of the organization. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)."
+* To finish setting up {% data variables.product.prodname_copilot_short %} for your organization, see "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization)."
 * For billing information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)" and "[AUTOTITLE](/billing/managing-your-github-billing-settings)."
