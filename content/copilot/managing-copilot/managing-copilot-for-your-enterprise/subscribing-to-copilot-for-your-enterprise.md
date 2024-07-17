@@ -30,6 +30,4 @@ For billing information, see "[AUTOTITLE](/billing/managing-billing-for-github-c
 
 ## Next steps
 
-* Configure policies for {% data variables.product.prodname_copilot_short %} in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
-* Enable {% data variables.product.prodname_copilot_short %} for organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
-* When {% data variables.product.prodname_copilot_short %} is enabled for an organization, owners of the organization can grant access to some or all members of the organization. See "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)."
+To finish setting up {% data variables.product.prodname_copilot_short %} for your enterprise, see "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)."
