@@ -4,6 +4,7 @@ shortTitle: Chat in GitHub.com
 intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
   feature: copilot-on-dotcom
+permissions: 'Members of an enterprise with a subscription to {% data variables.product.prodname_copilot_enterprise %}'
 topics:
   - Copilot
 redirect_from:

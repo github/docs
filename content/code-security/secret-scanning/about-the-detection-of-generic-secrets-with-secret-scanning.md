@@ -24,7 +24,7 @@ Generic secret detection is an AI-powered expansion of {% data variables.product
 
 When a password is detected, an alert is displayed in the list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
 
-In order to use generic secret detection, the enterprise owner sets a policy at the enterprise level. The feature must then be enabled for repositories. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-generic-secret-detection-for-secret-scanning-in-your-enterprises-repositories)."
+To use the feature, an enterprise owner sets a policy at the enterprise level that controls whether repositories can enable or disable AI detection. This policy is set to "allowed" by default. The feature must then be enabled for repositories and organizations.
 
 ### Input processing
 
@@ -82,3 +82,4 @@ Generic secret detection has been subject to Responsible AI Red Teaming and {% d
 ## Further reading
 
 * [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-generic-secret-detection-for-secret-scanning-in-your-enterprises-repositories)
