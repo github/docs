@@ -265,7 +265,7 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
-To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables).
+To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables#readme).
 
 ### Scheduled workflows
 
