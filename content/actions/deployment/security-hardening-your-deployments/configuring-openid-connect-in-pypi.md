@@ -68,6 +68,7 @@ jobs:
       - name: build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
+          python -m pip install build
           python -m build
 
       - name: upload windows dists
