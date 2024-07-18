@@ -22,6 +22,8 @@ shortTitle: Enable delegated bypass
 
 When you enable this feature, you will create a bypass list of roles and teams who can manage requests to bypass push protection. If you don't already have appropriate teams or roles to use, you should create additional teams before you start.
 
+>[!NOTE] You can't add secret teams to the bypass list.
+
 ### Configuring delegated bypass for an organization
 
 {% data reusables.organizations.navigate-to-org %}
@@ -33,7 +35,6 @@ When you enable this feature, you will create a bypass list of roles and teams w
 {% data reusables.repositories.navigate-to-ghas-settings %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
-   >[!NOTE] You can't add secret teams to the bypass list.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
 
 ### Configuring delegated bypass for a repository
