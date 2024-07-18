@@ -34,6 +34,8 @@ An organization owner or repository administrator defines which roles and teams 
 1. Review the details of the request.
 1. To allow the contributor to push the commit containing the secret, click **Approve bypass request**. Or, to require the contributor to remove the secret from the commit, click **Deny bypass request**.
 
+### Filtering by request status
+
 You can filter requests by approver (member of the bypass list), requester (contributor making the request), timeframe, and status. The following statuses are assigned to a request:
 
 |Status|Description|
