@@ -265,7 +265,7 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
-To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables).
+To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables#readme).
 
 ### Scheduled workflows
 
@@ -577,6 +577,7 @@ Links must be consistent, accessible to as many people as possible, translatable
 Some best practices for using links:
 * Links should be meaningful and provide high value to the user’s journey. Link out thoughtfully.
 * Do not repeat the same link more than once in the same article.
+* Consider adding "earlier/later in this article" after a link to a section in the same article.
 * Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
 ### Formatting links
@@ -628,7 +629,7 @@ Links to specific sections of articles must be descriptive enough that someone u
 To link to a specific header in the same article, use this format:
 
 ```markdown
-For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+For more information, see "[HEADER TITLE](#HEADER-TITLE)," later in this article.
 ```
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, you must type out the full header text.

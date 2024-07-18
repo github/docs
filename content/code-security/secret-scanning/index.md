@@ -19,7 +19,7 @@ children:
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
-  - /about-the-regular-expression-generator-for-custom-patterns
+  - /about-generating-regular-expressions-with-ai
   - /generating-regular-expressions-for-custom-patterns-with-ai
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns

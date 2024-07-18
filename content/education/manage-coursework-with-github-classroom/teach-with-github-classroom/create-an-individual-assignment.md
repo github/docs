@@ -10,8 +10,6 @@ redirect_from:
 shortTitle: Individual assignment
 ---
 
-{% data reusables.classroom.note-on-assignment-changes %}
-
 ## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}
