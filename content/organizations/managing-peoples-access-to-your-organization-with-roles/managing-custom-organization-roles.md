@@ -16,7 +16,7 @@ product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifv
 
 If you are an organization owner or have a custom role with the "View organization roles" or "Manage custom organization roles" permissions, you can view custom roles for the organization. To find the "Custom roles" page, you can follow the first steps in "[Creating a custom role](#creating-a-custom-role)." The exact steps will vary depending on which other settings page you have access to.
 
-To manage the use of custom organization roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles)"
+To{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles)"
 
 ## Creating a custom role
 
