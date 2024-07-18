@@ -54,7 +54,7 @@ Alternatively, enterprises and organizations may opt to be billed by recurring i
 
 {% warning %}
 
-**Warning:** As of February 23, 2023, GitHub Sponsors does not longer support sponsorships using PayPal. Unfortunately, sponsoring the GitHub community using PayPal wallets is now impossible. While this only affects GitHub Sponsors, please note that it is still possible to fund GitHub Pro, GitHub Copilot, Actions and Packages, Storage, Codespaces and Git LFS Data using PayPal, however.
+**Warning:** As of February 23, 2023, GitHub Sponsors does not support PayPal. While this only affects GitHub Sponsors, please note that it is still possible to fund GitHub Pro, GitHub Copilot, Actions and Packages, Storage, Codespaces and Git LFS Data using PayPal.
 
 {% endwarning %}
 
