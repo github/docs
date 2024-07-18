@@ -239,6 +239,8 @@ updates:
       interval: "weekly"
 ```
 
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %}  For more information about grouping, see "[`groups`](#groups)."
+
 {% endif %}
 
 ### `schedule.interval`
@@ -458,6 +460,12 @@ When a scheduled update runs, {% data variables.product.prodname_dependabot %} w
 You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% ifversion dependabot-grouped-security-updates-config %}
+
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %} For more information about multidirectory support, see "[`directories`](#directories)."
+
+{% endif %}
 
 {% endif %}
 

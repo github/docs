@@ -18014,6 +18014,46 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   closedAt: DateTime
 
   """
+  List of open pull requests referenced from this issue
+  """
+  closedByPullRequestsReferences(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Include closed PRs in results
+    """
+    includeClosedPrs: Boolean = false
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Return results ordered by state
+    """
+    orderByState: Boolean = false
+
+    """
+    Return only manually linked PRs
+    """
+    userLinkedOnly: Boolean = false
+  ): PullRequestConnection
+
+  """
   A list of comments associated with the Issue.
   """
   comments(
@@ -18291,6 +18331,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
 
     """
     How to order the returned projects.
@@ -29430,6 +29475,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -35005,6 +35055,11 @@ interface ProjectV2Owner {
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -35014,6 +35069,26 @@ interface ProjectV2Owner {
     """
     query: String
   ): ProjectV2Connection!
+}
+
+"""
+The possible roles of a collaborator on a project.
+"""
+enum ProjectV2PermissionLevel {
+  """
+  The collaborator can view, edit, and maange the settings of the project
+  """
+  ADMIN
+
+  """
+  The collaborator can view the project
+  """
+  READ
+
+  """
+  The collaborator can view and edit the project
+  """
+  WRITE
 }
 
 """
@@ -36784,6 +36859,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
 
     """
     How to order the returned projects.
@@ -45499,6 +45579,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
 
     """
     How to order the returned projects.
@@ -54660,6 +54745,11 @@ type Team implements MemberStatusable & Node & Subscribable {
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -61436,6 +61526,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
 
     """
     How to order the returned projects.

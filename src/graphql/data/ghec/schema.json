@@ -28010,6 +28010,89 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "closedByPullRequestsReferences",
+          "description": "<p>List of open pull requests referenced from this issue.</p>",
+          "type": "PullRequestConnection",
+          "id": "pullrequestconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeClosedPrs",
+              "defaultValue": false,
+              "description": "<p>Include closed PRs in results.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderByState",
+              "defaultValue": false,
+              "description": "<p>Return results ordered by state.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "userLinkedOnly",
+              "defaultValue": false,
+              "description": "<p>Return only manually linked PRs.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
           "name": "comments",
           "description": "<p>A list of comments associated with the Issue.</p>",
           "type": "IssueCommentConnection!",
@@ -28541,6 +28624,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
               }
             },
             {
@@ -40714,6 +40808,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -50634,6 +50739,17 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
               }
             },
             {
@@ -62377,6 +62493,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -70381,6 +70508,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -75640,6 +75778,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -80717,6 +80866,17 @@
               }
             },
             {
+              "name": "minPermissionLevel",
+              "defaultValue": "READ",
+              "description": "<p>Filter projects based on user role.</p>",
+              "type": {
+                "name": "ProjectV2PermissionLevel",
+                "id": "projectv2permissionlevel",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectv2permissionlevel"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>How to order the returned projects.</p>",
               "type": {
@@ -85745,6 +85905,27 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2PermissionLevel",
+      "kind": "enums",
+      "id": "projectv2permissionlevel",
+      "href": "/graphql/reference/enums#projectv2permissionlevel",
+      "description": "<p>The possible roles of a collaborator on a project.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>The collaborator can view, edit, and maange the settings of the project.</p>"
+        },
+        {
+          "name": "READ",
+          "description": "<p>The collaborator can view the project.</p>"
+        },
+        {
+          "name": "WRITE",
+          "description": "<p>The collaborator can view and edit the project.</p>"
         }
       ]
     },

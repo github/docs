@@ -28,7 +28,7 @@ After you create a {% data variables.product.prodname_custom_security_configurat
      * To select all repositories displayed on the current page of the repository table, select **NUMBER repositories**.
      * After selecting **NUMBER repositories**, to select _all_ repositories in your organization that match any filters you have applied, click **Select all**.{% ifversion enforce-security-configurations %}
      >[!NOTE]
-     > The repository table will show which repositories have an enforced configuration (beta). This means that repository owners will be blocked from changing features that have been enabled or disabled in the configuration, but features that are not set aren't enforced.{% endif %}
+     > The repository table will show which repositories have an enforced configuration{% ifversion enforce-security-configurations-beta %} (beta){% endif %}. This means that repository owners will be blocked from changing features that have been enabled or disabled in the configuration, but features that are not set aren't enforced.{% endif %}
 1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **YOUR-CONFIGURATION-NAME**.
 {% data reusables.security-configurations.apply-configuration-by-default %}
 

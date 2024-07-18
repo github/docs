@@ -17,8 +17,6 @@ shortTitle: Configure HA replication
 
 ## About high availability replication for clusters
 
-{% data reusables.enterprise_clustering.high-availability-requires-391 %}
-
 You can provide protection against disruption in a datacenter or cloud region by configuring a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability. In a high availability configuration, an identical set of replica nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests, minimizing the impact of the outage.
 
 In a high availability configuration, nodes that host data services sync regularly with the replica cluster. Replica nodes run in standby and do not serve applications or process user requests.
