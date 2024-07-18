@@ -250,7 +250,7 @@ You can security harden your OIDC configuration by customizing the claims that a
 
 * You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. For more information, see {% ifversion ghec %}"[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)" and {% endif %}"[Customizing the `audience` value](#customizing-the-audience-value)."
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[Understanding the OIDC token](#understanding-the-oidc-token)".
 
 ### Customizing the `audience` value
 
@@ -298,7 +298,7 @@ To help improve security, compliance, and standardization, you can customize the
 
 {% endnote %}
 
-Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
+Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[Example subject claims](#example-subject-claims)."
 
 {% note %}
 
@@ -346,7 +346,7 @@ In your cloud provider's OIDC configuration, configure the `sub` condition to re
 
 #### Example: Requiring a reusable workflow
 
-This example template allows the `sub` claim to have a new format that contains the value of the `job_workflow_ref` claim. This enables an enterprise to use [reusable workflows](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims) to enforce consistent deployments across its organizations and repositories.
+This example template allows the `sub` claim to have a new format that contains the value of the `job_workflow_ref` claim. This enables an enterprise to use [reusable workflows](#example-subject-claims) to enforce consistent deployments across its organizations and repositories.
 
 {% data reusables.actions.use-request-body-api %}
 
@@ -366,7 +366,7 @@ The following example template combines the requirement of a specific reusable w
 
 {% data reusables.actions.use-request-body-api %}
 
-This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
+This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
 
 ```json
 {
