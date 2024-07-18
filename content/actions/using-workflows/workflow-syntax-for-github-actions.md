@@ -52,15 +52,55 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
+{% data reusables.actions.workflows.triggering-workflow-branches1 %}
+
+### Example: Including branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches2 %}
+
+### Example: Excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches3 %}
+
+### Example: Including and excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
 ## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
-{% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
+
+### Example: Including branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags2 %}
+
+### Example: Excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags3 %}
+
+### Example: Including and excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags4 %}
 
 ## `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
+{% data reusables.actions.workflows.triggering-a-workflow-paths1 %}
+
+### Example: Including paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths2 %}
+
+### Example: Excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths3 %}
+
+### Example: Including and excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths4 %}
+
+### Git diff comparisons
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths5 %}
 
 ## `on.schedule`
 
