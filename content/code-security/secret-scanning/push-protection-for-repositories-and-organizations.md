@@ -125,5 +125,5 @@ You can use the organization settings page for "Code security and analysis" to e
 ## Further reading
 
 * "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"{% ifversion push-protection-delegated-bypass %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)"{% endif %}
