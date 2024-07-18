@@ -20,7 +20,7 @@ shortTitle: Enable delegated bypass
 
 {% data reusables.secret-scanning.push-protection-delegated-bypass-intro %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
-To enable this feature, you first need to create a bypass list to add roles and teams who will manage request to bypass push protection. This step is included in the sections below.
+When you enable this feature, you will create a bypass list of roles and teams who can manage requests to bypass push protection. If you don't already have appropriate teams or roles to use, you should create additional teams before you start.
 
 ### Configuring delegated bypass for an organization
 
