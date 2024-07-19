@@ -109,7 +109,7 @@ You can also remove the secret if the secret appears in an earlier commit in the
 1. Run `git rebase --continue` to finish the rebase.
 1. Push your changes with `git push`.
 
-## Bypassing push protection when working from the command line
+## Bypassing push protection
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you {% ifversion push-protection-delegated-bypass %}may be able to {% else %}can {% endif %}bypass the block by specifying a reason for allowing the secret to be pushed.
 
