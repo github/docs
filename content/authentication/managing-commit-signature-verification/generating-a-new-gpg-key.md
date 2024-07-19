@@ -55,7 +55,7 @@ topics:
 {% data reusables.gpg.copy-gpg-key-id %}
 1. Paste the text below, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
 
-   ```shell
+   ```shell copy
    gpg --armor --export 3AA5C34371567BD2
    # Prints the GPG key ID, in ASCII armor format
    ```

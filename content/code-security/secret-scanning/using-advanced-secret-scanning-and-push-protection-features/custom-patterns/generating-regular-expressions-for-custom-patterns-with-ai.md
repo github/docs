@@ -10,6 +10,8 @@ topics:
   - Advanced Security
   - Secret scanning
   - AI
+redirect_from:
+  - /code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
 ---
 
 ## Generating a regular expression for a repository with AI
@@ -42,4 +44,4 @@ topics:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expressions-with-ai)"
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)"

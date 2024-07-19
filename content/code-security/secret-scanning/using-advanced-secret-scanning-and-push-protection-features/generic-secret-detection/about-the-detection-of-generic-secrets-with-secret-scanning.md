@@ -10,6 +10,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - AI
+redirect_from:
+  - /code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning
 ---
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
@@ -74,7 +76,7 @@ Generic secret detection has been subject to Responsible AI Red Teaming and {% d
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 
 {% endif %}
