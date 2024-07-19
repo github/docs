@@ -59,7 +59,7 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
 1. Paste a pre-invalidated secret, or a test secret.
 1. Commit the change.
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %} There should be no new open alerts for the secret you just introduced into the `README.md` file.
+{% data reusables.repositories.sidebar-security %} There should be no new open alerts for the secret you just introduced into the file.
 
 ## Best practices
 
