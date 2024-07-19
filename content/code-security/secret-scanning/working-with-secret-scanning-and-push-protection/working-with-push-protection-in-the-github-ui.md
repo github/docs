@@ -36,7 +36,7 @@ You should either:
 
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 
-## Resolving a blocked commit in the {% data variables.product.prodname_dotcom %} UI
+## Resolving a blocked commit
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
