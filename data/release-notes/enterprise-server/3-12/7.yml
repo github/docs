@@ -1,4 +1,7 @@
-date: '2024-07-10'
+date: '2024-07-19'
+intro: |
+
+   >[!NOTE] Due to a bug that caused hotpatch upgrades to fail for instances on Microsoft Azure, the previous patch release in this series (**3.12.6**) is not available for download. The following release notes include the updates introduced in that release.
 sections:
   security_fixes:
     - |
@@ -25,7 +28,11 @@ sections:
       Packages have been updated to the latest security versions.
   bugs:
     - |
+      When an instance hosted on Azure was upgraded with a hotpatch, the upgrade failed with an `rsync` error.
+    - |
       On an instance with GitHub Actions enabled, remote blob storage could fill up with large amounts of data because cleanup jobs were skipped on old hosts.
+    - |
+      The `ghe-cluster-repl-status` command could be run on instance configurations other than high-availability clusters, resulting in an incorrect or incomplete status.
     - |
       The threshold set by `server_rejoin_age_max` for single-node GHES deployments was too low.
     - |
@@ -61,6 +68,8 @@ sections:
     - |
       On instances with SCIM enabled, the administrator was unable to view users without an external identity record (for example, because they were provisioned before SCIM was enabled on the instance) in stafftools.
     - |
+      After navigating to a discussion, the link underline for the Discussions tab in the GitHub UI incorrectly appeared under the Settings tab heading.
+    - |
       On instances enrolled in the SCIM private beta, built-in authentication users can be added to organizations and teams. Organization owners will no longer see the misleading message that the organization membership is managed by the SAML identity provider when updating organization memberships.
     - |
       Enterprise owners managed by an identity provider were asked to authenticate within GitHub when performing privileged actions.
@@ -75,11 +84,17 @@ sections:
     - |
       The `SpokesSyncCacheReplicaJob` could not initialize in some cases, resulting in an exception when handling the error.
     - |
+      In the sidebar menu that is displayed when a user clicks their profile picture, users who are not enterprise owners saw an "Enterprise settings" option, linking to the main page of an enterprise. This option is now labeled "Your enterprise".
+    - |
       On the "Code scanning" page of a repository, the branch filter did not correctly display all branches.
     - |
       When including a `.gitignore` or `README.md` file on repository creation failed due to a ruleset or pre-receive hook, no error message displayed.
     - |
       On an instance with a GitHub Advanced Security license, requests to the `/enterprises/{enterprise}/settings/billing/advanced-security` REST API endpoint could fail due to timeout.
+    - |
+      On some instances, users were unable to save historical insights charts for Projects.
+    - |
+      The setting to enable or view non-provider patterns was not available for public repositories.
     - |
       Users viewing the alerts index page experienced inconsistencies in rendering the closed alert state.
     - |
@@ -135,15 +150,11 @@ sections:
     - |
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
-      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
-    - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
       {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
-    - |
-      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
     - |
       Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
     - |
