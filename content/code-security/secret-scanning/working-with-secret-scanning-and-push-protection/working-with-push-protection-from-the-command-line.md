@@ -127,7 +127,7 @@ If you don't see the option to bypass the block, the repository administrator or
 
 {% ifversion push-protection-delegated-bypass %}
 
-## Requesting bypass privileges when working from the command line
+## Requesting bypass privileges
 
 {% data reusables.secret-scanning.push-protection-delegate-bypass-beta-note %}
 
