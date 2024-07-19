@@ -36,7 +36,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 To resolve a blocked push, you must remove the secret from all of the commits it appears in.
 * If the secret was introduced by your latest commit, see "[Removing a secret introduced by the latest commit on your branch](#removing-a-secret-introduced-by-the-latest-commit-on-your-branch)."
-* If the secret appears in multiple earlier commits, see "[Removing a secret introduced by an earlier commit on your branch](#removing-a-secret-introduced-by-an-earlier-commit-on-your-branch)."
+* If the secret appears in earlier commits, see "[Removing a secret introduced by an earlier commit on your branch](#removing-a-secret-introduced-by-an-earlier-commit-on-your-branch)."
 
 ### Removing a secret introduced by the latest commit on your branch
 
