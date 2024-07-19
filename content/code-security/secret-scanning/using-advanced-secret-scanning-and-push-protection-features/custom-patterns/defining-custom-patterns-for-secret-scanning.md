@@ -5,6 +5,7 @@ intro: 'You can define your own custom patterns to extend the capabilities of {%
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
+  - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
 versions:
   ghes: '*'
   ghec: '*'
@@ -45,7 +46,7 @@ For simple tokens you will usually only need to specify a secret format. The oth
 
 ### Using the regular expression generator
 
-{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-generating-regular-expressions-with-ai)" and "[AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
+{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/generating-regular-expressions-for-custom-patterns-with-ai)."
 
 {% endif %}
 
@@ -178,44 +179,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
 After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found, and can review the alert in the repository where the secret is found. For more information on viewing {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
-## Editing a custom pattern
+## Further reading
 
-When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
-{% data reusables.secret-scanning.view-custom-pattern %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
-{%- ifversion custom-pattern-dry-run-ga  %}
-1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
-{%- endif %}
-1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}
-{% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
-1. Optionally, to disable push protection for your custom pattern, click **Disable**.
-
-   ![Screenshot of the custom pattern page with the button to disable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png){% endif %}
-
-## Removing a custom pattern
-
-{% data reusables.secret-scanning.view-custom-pattern %}
-1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="Remove pattern" %}.
-1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
-1. Click **Yes, delete this pattern**.
-
-{% ifversion secret-scanning-custom-patterns-metrics %}
-
-## Metrics for custom patterns
-
-Organization owners and people with admin permissions can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
-
-{% note %}
-
-**Note:** Metrics for custom patterns are in public beta and subject to change.
-
-{% endnote %}
-
-### Viewing metrics for custom patterns
-
-{% data reusables.secret-scanning.view-custom-pattern %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the custom pattern you want to view.
-
-The metrics are displayed under the custom pattern's name.
-
-{% endif %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/managing-custom-patterns)" {% ifversion secret-scanning-custom-patterns-metrics %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/metrics-for-custom-patterns)"{% endif %}

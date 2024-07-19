@@ -2,7 +2,7 @@
 title: Using advanced secret scanning and push protection features
 shortTitle: Advanced features
 allowTitleToDifferFromFilename: true
-intro: 'Learn how use advanced features for {% data variables.product.prodname_secret_scanning_caps %} and push protection.'
+intro: 'Learn how you can customize {% data variables.secret-scanning.partner_alerts %} to meet the needs of your company..'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -13,6 +13,7 @@ topics:
   - Advanced Security
   - Repositories
 children:
+  - /non-provider-patterns
   - /generic-secret-detection
   - /custom-patterns
   - /delegated-bypass-for-push-protection
