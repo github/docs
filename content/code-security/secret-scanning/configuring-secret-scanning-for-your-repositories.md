@@ -102,7 +102,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for all of 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/excluding-folders-and-files-from-secret-scanning)."
+You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)."
 
 You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
