@@ -116,6 +116,8 @@ secret_scanning:
     - >-
       /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
     - >-
+      /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning.md
+    - >-
       {% ifversion not fpt
       %}/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning{%
       endif %}
