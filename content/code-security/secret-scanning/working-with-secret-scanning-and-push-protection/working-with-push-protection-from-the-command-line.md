@@ -32,7 +32,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-## Resolving a blocked push from the command line
+## Resolving a blocked push
 
 To resolve a blocked push, you must remove the secret from all of the commits it appears in.
 * If the secret was introduced by your latest commit, see "[Removing a secret introduced by the latest commit on your branch](#removing-a-secret-introduced-by-the-latest-commit-on-your-branch)."
