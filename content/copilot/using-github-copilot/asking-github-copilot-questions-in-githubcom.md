@@ -110,12 +110,6 @@ Depending on the question you ask, and your enterprise and organization settings
 
 {% data reusables.copilot.ask-copilot-not-displayed %}
 
-   <a id="repo-indexing-note"></a>
-
-   > [!NOTE]
-   >
-   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
-
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    For example, you could ask:
@@ -127,6 +121,12 @@ Depending on the question you ask, and your enterprise and organization settings
    * Where are SAT tokens generated?
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
+
+   <a id="repo-indexing-note"></a>
+
+   > [!NOTE]
+   >
+   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
 
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
@@ -148,6 +148,10 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
+
+   > [!NOTE]
+   >
+   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions in the context of a repository is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
 
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
