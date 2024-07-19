@@ -23,6 +23,12 @@ You can configure {% data variables.product.prodname_code_scanning %} to check t
 
 By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
 
+{% ifversion code-scanning-autofix %}
+
+You can use autofix to generate fixes automatically for {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#generating-suggested-fixes-for-code-scanning-alerts)."
+
+{% endif %}
+
 {% data reusables.code-scanning.audit-code-scanning-events %}
 
 ## About alert details

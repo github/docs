@@ -40,6 +40,16 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
+## Create a {% data variables.product.pat_generic %}
+
+Next, create a {% data variables.product.pat_generic %} that you can use to configure provisioning.
+
+* You must be **signed in as the setup user** when you create the token.
+* The token must have **admin:enterprise** scope.
+* The token must have **no expiration**.
+
+To learn how to create a {% data variables.product.pat_v1 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+
 ## Configure authentication
 
 Next, configure how your members will authenticate.
