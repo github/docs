@@ -1,7 +1,7 @@
 ---
 title: Enabling secret scanning alerts for your user-owned repositories
 shortTitle: Secret scanning alerts for user-owned repositories
-intro: 'TODO'
+intro: 'You can protect yourself from accidentally leaking secrets from your {% ifversion ghec %}user-owned {% endif %}public repositories using {% data variables.product.prodname_secret_scanning %} and push protection.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-enable-by-default-for-public-repos
