@@ -18,7 +18,7 @@ redirect_from:
 
 You can enable {% data variables.product.prodname_secret_scanning %} for all of your existing {% ifversion ghec %}user-owned {% endif %}public repositories through your personal account settings.
 
->! NOTE
+> [! NOTE]
 > As of March 11, 2024, {% data variables.product.prodname_secret_scanning %} and push protection will be enabled by default for all new {% ifversion ghec %}user-owned {% endif %}public repositories that you create. You can still choose to disable these features for an individual repository in the repository's "Code security and analysis" settings page. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-public-repositories)".
 
 ## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories
