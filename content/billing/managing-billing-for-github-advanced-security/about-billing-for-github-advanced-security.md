@@ -40,11 +40,7 @@ If you want to use {% data variables.product.prodname_GH_advanced_security %} fe
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 
@@ -61,11 +57,7 @@ You can make extra features for code security available to users by buying and u
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 

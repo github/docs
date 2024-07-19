@@ -93,19 +93,18 @@ Enterprise administrators can also enable or disable {% data variables.product.p
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
 
-{% ifversion code-security-multi-repo-enablement %}
-You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+{% ifversion security-configurations-ga %}
+You can find a set of repositories and enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for them all at the same time. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
 
-You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization.
-{% else %}
+{% elsif security-configurations-beta-and-pre-beta %}
+
 You can use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization.
-{% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 
-{% ifversion security-configurations %}
+{% ifversion security-configurations-beta-only %}
     {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling push protection and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
 {% endif %}
 
@@ -113,6 +112,7 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.advanced-security.secret-scanning-push-protection-org %}
 
 {% data reusables.security.note-securing-your-org %}
+{% endif %}
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository
 
@@ -144,11 +144,22 @@ Members of the bypass list are still protected from accidentally pushing secrets
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
+{% ifversion security-configurations-beta-and-pre-beta %}
 {% data reusables.organizations.security-and-analysis %}
-{% ifversion security-configurations %}
+{% else %}
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% endif %}
+
+{% ifversion security-configurations-beta-only %}
     {% data reusables.security-configurations.changed-org-settings-global-settings-callout %}
 {% endif %}
+
+{% ifversion security-configurations-beta-and-pre-beta %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
+{% else %}
+1. Find "{% data variables.product.prodname_GH_advanced_security %}."
+{% endif %}
+
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
    >[!NOTE] You can't add secret teams to the bypass list.
