@@ -12,7 +12,7 @@ topics:
   - CI
   - CD
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow triggers
@@ -103,15 +103,55 @@ You can use activity types and filters to further control when your workflow wil
 
 ### Using filters to target specific branches for pull request events
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
+{% data reusables.actions.workflows.triggering-workflow-branches1 %}
+
+#### Example: Including branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches2 %}
+
+#### Example: Excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches3 %}
+
+#### Example: Including and excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
 ### Using filters to target specific branches or tags for push events
 
-{% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
+
+#### Example: Including branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags2 %}
+
+#### Example: Excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags3 %}
+
+#### Example: Including and excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags4 %}
 
 ### Using filters to target specific paths for pull request or push events
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
+{% data reusables.actions.workflows.triggering-a-workflow-paths1 %}
+
+#### Example: Including paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths2 %}
+
+#### Example: Excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths3 %}
+
+#### Example: Including and excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths4 %}
+
+#### Git diff comparisons
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths5 %}
 
 ### Using filters to target specific branches for workflow run events
 

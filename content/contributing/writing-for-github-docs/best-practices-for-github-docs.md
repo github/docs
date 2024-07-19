@@ -85,7 +85,7 @@ For related information, see "Voice and tone" in [AUTOTITLE](/contributing/style
 
 Most readers don't consume articles in their entirety. Instead they either _scan_ the page to locate specific information, or _skim_ the page to get a general idea of the concepts.
 
-When scanning or skimming content, readers skip over large chunks of text. They look for elements that are related to their task or that stand out on the page, such as headings, callouts, lists, tables, code blocks, visuals, and the first few words in each section.
+When scanning or skimming content, readers skip over large chunks of text. They look for elements that are related to their task or that stand out on the page, such as headings, alerts, lists, tables, code blocks, visuals, and the first few words in each section.
 
 Once the article has a clearly defined purpose and structure, you can apply the following formatting techniques to optimize the content for scanning and skimming. These techniques can also help to make content more understandable for all readers.
 
@@ -93,7 +93,7 @@ Once the article has a clearly defined purpose and structure, you can apply the 
 * **Use formatting elements** to separate the content and create space on the page. For example:
   * Bulleted lists (with optional run-in subheads)
   * Numbered lists
-  * [Callouts](/contributing/style-guide-and-content-model/style-guide#callouts)
+  * [Alerts](/contributing/style-guide-and-content-model/style-guide#alerts)
   * Tables
   * Visuals
   * Code blocks and code annotations
