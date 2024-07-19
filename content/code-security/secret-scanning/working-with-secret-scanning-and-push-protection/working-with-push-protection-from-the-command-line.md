@@ -1,6 +1,6 @@
 ---
 title: Working with push protection from the command line
-shortTitle: Work with push protection from the command line
+shortTitle: Push protection on the command line
 intro: 'Push protection proactively secures you against leaked secrets in your repositories by blocking pushes containing secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
