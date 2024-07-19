@@ -117,7 +117,7 @@ secret_scanning:
       /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
     - >-
       {% ifversion not fpt
-      %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning{%
+      %}/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning{%
       endif %}
     - /code-security/secret-scanning/managing-alerts-from-secret-scanning
     - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns

@@ -17,12 +17,9 @@ topics:
 children:
   - /introduction
   - /configuring-secret-scanning-for-your-repositories
-  - /defining-custom-patterns-for-secret-scanning
-  - /about-generating-regular-expressions-with-ai
-  - /generating-regular-expressions-for-custom-patterns-with-ai
   - /managing-alerts-from-secret-scanning
-  - /about-the-detection-of-generic-secrets-with-secret-scanning
-  - /enabling-ai-powered-generic-secret-detection
+  - /secret-scanning-patterns
+  - /push-protection-for-repositories-and-organizations
   - /push-protection-for-users
   - /working-with-push-protection
   - /pushing-a-branch-blocked-by-push-protection
@@ -30,4 +27,3 @@ children:
   - /troubleshooting-secret-scanning-and-push-protection
   - /secret-scanning-partnership-program
 ---
-

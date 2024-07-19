@@ -9,6 +9,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - AI
+redirect_from:
+  - /code-security/secret-scanning/enabling-ai-powered-generic-secret-detection
 ---
 
 {% data reusables.secret-scanning.generic-secret-detection-ai %}
@@ -40,5 +42,5 @@ For information on how to view alerts for generic secrets that have been detecte
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)

@@ -77,7 +77,7 @@ Dormant users are not automatically suspended. Consider suspending dormant users
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Scroll to "Other."
+1. Scroll to "Reports".
 1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
 1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-hidden="true" %} **Download**.
 {% endif %}
