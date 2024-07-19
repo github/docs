@@ -188,4 +188,6 @@ docker login ghcr.io
 gh attestation verify oci://ghcr.io/ORGANIZATION_NAME/IMAGE_NAME:test -R ORGANIZATION_NAME/REPOSITORY_NAME
 ```
 
+>[!NOTE]These commands assume you are in an online environment. If you are in an offline or air-gapped environment, see "[AUTOTITLE](/actions/security-guides/verifying-attestations-offline)."
+
 For more information, see the [`attestation`](https://cli.github.com/manual/gh_attestation) section of the {% data variables.product.prodname_cli %} manual.
