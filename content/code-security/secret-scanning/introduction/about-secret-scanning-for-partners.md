@@ -3,7 +3,7 @@ title: About secret scanning for partners
 intro: 'TODO'
 versions:
   fpt: '*'
-  ghes: '*'
+  ghec: '*'
 type: overview
 topics:
   - Secret scanning
@@ -12,6 +12,10 @@ shortTitle: Secret scanning for partners
 ---
 
 ## About {% data variables.secret-scanning.partner_alerts %}
+
+Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)."
+
+{% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 TODO: Provide high-level overview of partner program
 

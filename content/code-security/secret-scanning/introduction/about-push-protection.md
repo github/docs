@@ -19,7 +19,9 @@ topics:
 shortTitle: Push protection
 ---
 
-Push protection is a {% data variables.product.prodname_secret_scanning %} that
+Push protection is a {% data variables.product.prodname_secret_scanning %} feature that checks commits for highly identifiable secrets before these commits are pushed to a repository.
+
+You can apply push protection at repository/organization level, and for your user account on {% data variables.product.prodname_dotcom %}.
 
 ## About push protection for repositories and organizations
 
