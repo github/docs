@@ -1,6 +1,6 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} that you''ve subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
+intro: 'Notifications provide updates about the activity on {% data variables.product.prodname_dotcom %} that you've subscribed to. You can use the notifications inbox to customize, triage, and manage your updates.'
 redirect_from:
   - /articles/notifications
   - /articles/about-notifications
