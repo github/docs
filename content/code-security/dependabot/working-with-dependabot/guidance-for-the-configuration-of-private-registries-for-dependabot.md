@@ -627,7 +627,7 @@ For information about Cloudsmith and instructions on how to configure {% data va
 
 #### Upstreams to remote repositories
 
-Cloudsmith Upstreams proxy and cache dependencies into Cloudsmith from remote or public repositories. Instead of directly accessing a public repository (e.g., PyPI, Maven Central, Gradle, or NuGet), Cloudsmith proxies and caches the required dependencies. By caching packages from upstream sources, Cloudsmith ensures uninterrupted access to critical dependencies, mitigates risks associated with external service disruptions, optimizes package retrieval, and strengthens supply chain security. For more information, see [Upstreams]([https://help.cloudsmith.io/docs/upstream-proxying-caching]) in the Cloudsmith documentation.
+Cloudsmith Upstreams proxy and cache dependencies into Cloudsmith from remote or public repositories. Instead of directly accessing a public repository (e.g., PyPI, Maven Central, Gradle, or NuGet), Cloudsmith proxies and caches the required dependencies. By caching packages from upstream sources, Cloudsmith ensures uninterrupted access to critical dependencies, mitigates risks associated with external service disruptions, optimizes package retrieval, and strengthens supply chain security. For more information, see [Upstreams](https://help.cloudsmith.io/docs/upstream-proxying-caching) in the Cloudsmith documentation.
 
 If the `replaces-base` setting is set to `true`, Dependabot will use the specified Cloudsmith URL as the primary source for dependencies instead of the default public repository for that package ecosystem. This means you should configure a corresponding Cloudsmith upstream to ensure Dependabot checks Cloudsmith first for dependencies. Here's an example configuration for Python:
 ```yaml
