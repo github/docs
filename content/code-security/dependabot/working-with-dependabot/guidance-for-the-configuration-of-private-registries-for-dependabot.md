@@ -42,6 +42,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 * [Artifactory](#artifactory)
 * [Azure Artifacts](#azure-artifacts)
+* [Cloudsmith](#cloudsmith)
 * [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 * [Nexus](#nexus)
 * [ProGet](#proget)
@@ -52,7 +53,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 ### Bundler
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 You can authenticate with either a username and password, or a token. For more information, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
@@ -323,7 +324,7 @@ Registries should be configured using the `https` protocol.
 
 ### Nuget
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
 
@@ -406,7 +407,7 @@ pub supports URL and token authentication. The URL used for the registry should 
 
 ### Python
 
-Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
+Supported by Artifactory, Azure Artifacts, Cloudsmith, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
 The `python-index` type supports username and password, or token. For more information, see `python-index` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
 
@@ -620,6 +621,36 @@ registries:
 The Azure Artifacts password must be an unencoded token and should include a `:` after the token. In addition, the password cannot be base64-encoded.
 
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
+
+### Cloudsmith
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate Github Dependabot with Cloudsmith](https://help.cloudsmith.io/docs/dependabot), respectively.
+
+#### Upstreams to remote repositories
+
+Cloudsmith Upstreams proxy and cache dependencies into Cloudsmith from remote or public repositories. Instead of directly accessing a public repository (e.g., PyPI, Maven Central, Gradle, or NuGet), Cloudsmith proxies and caches the required dependencies. By caching packages from upstream sources, Cloudsmith ensures uninterrupted access to critical dependencies, mitigates risks associated with external service disruptions, optimizes package retrieval, and strengthens supply chain security. For more information, see [Upstreams]([https://help.cloudsmith.io/docs/upstream-proxying-caching]) in the Cloudsmith documentation.
+
+If the `replaces-base` setting is set to `true`, Dependabot will use the specified Cloudsmith URL as the primary source for dependencies instead of the default public repository for that package ecosystem. This means you should configure a corresponding Cloudsmith upstream to ensure Dependabot checks Cloudsmith first for dependencies. Here's an example configuration for Python:
+```yaml
+version: 2
+registries:
+  cloudsmith:
+    type: python-index
+    url: https://dl.cloudsmith.io/basic/YOUR-ORG/YOUR-REPO/python/
+    username: "${{ secrets.CLOUDSMITH_USER_NAME }}"
+    password: "${{ secrets.CLOUDSMITH_API_KEY }}"
+    replaces-base: true
+
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    registries:
+      - cloudsmith
+    commit-message:
+      prefix: "deps"
+    open-pull-requests-limit: 10
+```
 
 ### {% data variables.product.prodname_registry %} registry
 
