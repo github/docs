@@ -623,6 +623,7 @@ The Azure Artifacts password must be an unencoded token and should include a `:`
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
 
 ### Cloudsmith
+
 For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate Github Dependabot with Cloudsmith](https://help.cloudsmith.io/docs/dependabot), respectively.
 
 #### Upstreams to remote repositories
