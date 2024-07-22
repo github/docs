@@ -1,7 +1,7 @@
 ---
 title: Resolving alerts from secret scanning
-intro: 'You can should fix and close alerts for secrets checked in to your repository and you can use filters to help you prioritize alerts.'
-permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view secret scanning alerts for the repository.'
+intro: 'After reviewing the details of alert, you should fix and then close the alert.'
+permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can dismiss secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -13,7 +13,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Evaluate alerts
+shortTitle: Resolve alerts
 ---
 
 ## Fixing alerts
