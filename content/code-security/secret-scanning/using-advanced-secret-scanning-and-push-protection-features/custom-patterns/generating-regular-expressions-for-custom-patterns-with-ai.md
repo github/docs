@@ -12,7 +12,6 @@ topics:
   - AI
 redirect_from:
   - /code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai
-  - /code-security/secret-scanning/about-generating-regular-expressions-with-ai.md
 ---
 
 ## Generating a regular expression for a repository with AI
