@@ -30,5 +30,5 @@ children:
   - /troubleshooting-github-copilot
   - /responsible-use-of-github-copilot-features
 topics:
-  - Copilot
+  - Copilot For IDE
 ---
