@@ -36,11 +36,11 @@ After you synchronize license usage, {% data variables.product.prodname_dotcom %
 
 First, we check the primary email address of each user on {% data variables.product.prodname_ghe_server %}. Then, we attempt to match that address with the email address for a user account on {% data variables.product.prodname_ghe_cloud %}. If your enterprise on {% data variables.product.prodname_dotcom_the_website %} or any of the enterprise's organizations use SAML authentication or SCIM provisioning, we first check the linked SAML or SCIM identities to see if the identity contains one of the attributes below. We attempt to match the values of these attributes to the primary email address of each {% data variables.product.prodname_ghe_server %} user.
 
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-- `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
-- `username`
-- `NameID`
-- `emails`
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+* `username`
+* `NameID`
+* `emails`
 
 If there is no match, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
@@ -63,16 +63,16 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | github_com_verified_domain_emails | All email addresses associated with the user's GHEC account that match your enterprise's verified domains |
 | github_com_saml_name_id | The SAML username |
 | github_com_orgs_with_pending_invites | All pending invitations for the user's GHEC account to join organizations within your enterprise |
-{%- ifversion ghas-in-license-sync %}
+| {% ifversion ghas-in-license-sync %} |
 | github_com_advanced_security_license_user | Whether or not the user consumes a {% data variables.product.prodname_GH_advanced_security %} license on GHEC |
-{%- endif %}
+| {% endif %} |
 | license_type | Can be one of: `Visual Studio subscription` or `Enterprise`
 | enterprise_server_user| Whether or not the user has at least one account on GHES |
 | enterprise_server_primary_emails | The primary email addresses associated with each of the user's GHES accounts |
 | enterprise_server_user_ids | For each of the user's GHES accounts, the account's user ID
-{%- ifversion ghas-in-license-sync %}
+| {% ifversion ghas-in-license-sync %} |
 | enterprise_server_advanced_security_user_ids | The GHES instances where the user is using {% data variables.product.prodname_GH_advanced_security %} {% ifversion ghec %}(only present if you are using GHES version 3.12 or later, and have enabled license sync){% endif %} |
-{%- endif %}
+| {% endif %} |
 | total_user_accounts | The total number of accounts the person has across both GHEC and GHES
 | visual_studio_subscription_user | Whether or not the user is a {% data variables.visual_studio.prodname_vs_subscriber %} |
 | visual_studio_subscription_email | The email address associated with the user's VSS |

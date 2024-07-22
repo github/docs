@@ -43,4 +43,4 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

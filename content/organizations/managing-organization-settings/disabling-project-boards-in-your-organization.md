@@ -30,8 +30,8 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under "Projects":
-    - To disable {% data variables.projects.projects_v2_and_v1 %}, deselect **Enable Projects for the organization**.
-    - To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
+    * To disable {% data variables.projects.projects_v2_and_v1 %}, deselect **Enable Projects for the organization**.
+    * To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
 1. Click **Save**.
 
 If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any {% data variables.projects.projects_v2_and_v1 %} that were previously added will be available.
@@ -46,8 +46,8 @@ You can control whether organization members can create {% data variables.projec
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under "Projects (classic) only":
-    - To enable {% data variables.projects.projects_v1_boards %} in repositories, select **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
-    - To disable {% data variables.projects.projects_v1_boards %} in repositories, deselect **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
+    * To enable {% data variables.projects.projects_v1_boards %} in repositories, select **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
+    * To disable {% data variables.projects.projects_v1_boards %} in repositories, deselect **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
 1. Click **Save**.
 
 {% endif %}
@@ -55,7 +55,7 @@ You can control whether organization members can create {% data variables.projec
 ## Further reading
 
 {% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"

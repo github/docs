@@ -34,8 +34,8 @@ If you want to skip authorizing your app in the standard way, such as when testi
 
 To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+* [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+* [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
 ## Web application flow
 
@@ -131,11 +131,7 @@ Every time you receive an access token, you should use the token to revalidate t
 
 The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
-{% ifversion device-flow-is-opt-in %}
-
 Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for {% data variables.product.prodname_github_apps %} and "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for {% data variables.product.prodname_oauth_apps %}.
-
-{% endif %}
 
 ### Overview of the device flow
 
@@ -258,8 +254,8 @@ If you make more than one access token request (`POST {% data variables.product.
 | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
 | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.
 | `incorrect_device_code` | The device_code provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
+| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.
+| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."
 
 For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
 
@@ -327,11 +323,11 @@ To build this link, you'll need your {% data variables.product.prodname_oauth_ap
 
 ## Troubleshooting
 
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-- "[Device flow errors](#error-codes-for-the-device-flow)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
+* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+* "[Device flow errors](#error-codes-for-the-device-flow)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

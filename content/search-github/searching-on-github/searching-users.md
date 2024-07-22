@@ -102,4 +102,4 @@ You can search for users and organizations who can be sponsored on {% data varia
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

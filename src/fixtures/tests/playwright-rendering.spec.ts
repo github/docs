@@ -500,7 +500,7 @@ test.describe('test nav at different viewports', () => {
 })
 
 test.describe('survey', () => {
-  test('happy path, thumbs up and enter email', async ({ page }) => {
+  test('happy path, thumbs up and enter comment and email', async ({ page }) => {
     let fulfilled = 0
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
@@ -518,17 +518,11 @@ test.describe('survey', () => {
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
-    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
-    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
     await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill('This is a comment')
-    await page.getByRole('button', { name: 'Next' }).click()
-    await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
-    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
-    await expect(page.getByRole('button', { name: 'Next' })).not.toBeVisible()
-
     await page.getByPlaceholder('email@example.com').click()
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
@@ -538,7 +532,7 @@ test.describe('survey', () => {
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
-  test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
+  test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
@@ -558,7 +552,7 @@ test.describe('survey', () => {
     // One for the page view event and one for the thumbs up click
     expect(fulfilled).toBe(1 + 1)
 
-    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()
   })
 
@@ -573,10 +567,11 @@ test.describe('survey', () => {
 
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
     await page.locator('[for=survey-yes]').click()
-    await expect(page.getByRole('button', { name: 'Next' })).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await expect(page.locator('[for=survey-comment]')).toBeVisible()
 
     await page.getByTestId('product-sidebar').getByLabel('Bar', { exact: true }).click()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
     await expect(page.locator('[for=survey-comment]')).not.toBeVisible()
   })
 })
@@ -615,6 +610,7 @@ test.describe('translations', () => {
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {
     await page.goto('/get-started/start-your-journey/hello-world')
+    await expect(page).toHaveURL('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
     await page.getByRole('menuitemradio', { name: '日本語' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
@@ -631,7 +627,6 @@ test.describe('translations', () => {
     // If you go, with the Japanese cookie, to the English page directly,
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
-    await page.getByRole('link', { name: 'Japanese' }).click()
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
 })

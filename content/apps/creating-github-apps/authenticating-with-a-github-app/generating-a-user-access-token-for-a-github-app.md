@@ -67,7 +67,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
-{% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
+Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 The device flow uses the OAuth 2.0 Device Authorization Grant.
 
@@ -105,8 +105,8 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
    | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The client ID is different from the app ID and client secret.
    | `incorrect_device_code` | The `device_code` provided is not valid.
-   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."{% endif %}
+   | `access_denied` | When a user clicks cancel during the authorization process, you'll receive an `access_denied` error, and the user won't be able to use the verification code again.
+   | `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 1. Once the user has entered the `user_code`, {% data variables.product.company_short %} will give a response that includes the following query parameters:
 

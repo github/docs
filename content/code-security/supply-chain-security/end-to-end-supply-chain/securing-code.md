@@ -24,9 +24,9 @@ This guide describes the highest impact changes you can make to improve the secu
 
 Key risks in the development process include:
 
-- Using dependencies with security vulnerabilities that an attacker could exploit.
-- Leaking authentication credentials or a token that an attacker could use to access your resources.
-- Introducing a vulnerability to your own code that an attacker could exploit.
+* Using dependencies with security vulnerabilities that an attacker could exploit.
+* Leaking authentication credentials or a token that an attacker could use to access your resources.
+* Introducing a vulnerability to your own code that an attacker could exploit.
 
 These risks open your resources and projects to attack and those risks are passed directly on to anyone who uses a package that you create. The following sections explain how you can protect yourself and your users from these risks.
 
@@ -79,8 +79,8 @@ Code often needs to communicate with other systems over a network, and requires 
 
 {% ifversion fpt %}
 You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
-   - public repositories on {% data variables.product.prodname_dotcom_the_website %}.
-   - an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
+   * public repositories on {% data variables.product.prodname_dotcom_the_website %}.
+   * an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
 If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
@@ -120,8 +120,8 @@ Insecure code patterns are often difficult for reviewers to spot unaided. In add
 
 ## Next steps
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

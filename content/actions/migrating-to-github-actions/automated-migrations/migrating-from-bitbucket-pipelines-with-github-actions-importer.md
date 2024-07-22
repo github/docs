@@ -27,10 +27,10 @@ The instructions below will guide you through configuring your environment to us
 
 There are some limitations when migrating from Bitbucket Pipelines to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}.
 
-- Images in a private AWS ECR are not supported.
-- The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."{% endif %}
-- Metrics detailing the queue time of jobs is not supported by the `forecast` command.
-- Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+* Images in a private AWS ECR are not supported.
+* The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."{% endif %}
+* Metrics detailing the queue time of jobs is not supported by the `forecast` command.
+* Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
 
   The following is an example of using the `always()` with `steps.<step_id>.conclusion`.
 
@@ -53,8 +53,8 @@ There are some limitations when migrating from Bitbucket Pipelines to {% data va
 
 Certain Bitbucket Pipelines constructs must be migrated manually. These include:
 
-- Secured repository, workspace, and deployment variables
-- SSH keys
+* Secured repository, workspace, and deployment variables
+* SSH keys
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -79,11 +79,11 @@ The `configure` CLI command is used to set required credentials and options for 
 
    The `configure` command will prompt you for the following information:
 
-   - For "Which CI providers are you configuring?", use the arrow keys to select `Bitbucket`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
-   - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
-   - For "{% data variables.product.pat_generic_caps %} for Bitbucket", enter the Workspace Access Token that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the Bitbucket instance", enter the URL for your Bitbucket instance, and press <kbd>Enter</kbd>.
+   * For "Which CI providers are you configuring?", use the arrow keys to select `Bitbucket`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
+   * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "{% data variables.product.pat_generic_caps %} for Bitbucket", enter the Workspace Access Token that you created earlier, and press <kbd>Enter</kbd>.
+   * For "Base url of the Bitbucket instance", enter the URL for your Bitbucket instance, and press <kbd>Enter</kbd>.
 
    An example of the `configure` command is shown below:
 
@@ -125,7 +125,7 @@ The audit command performs the following steps.
 To perform an audit run the following command in your terminal, replacing `:workspace` with the name of the Bitbucket workspace to audit.
 
 ```bash
-gh actions-importer audit bitbucket --workspace :workspace--output-dir tmp/audit
+gh actions-importer audit bitbucket --workspace :workspace --output-dir tmp/audit
 ```
 
 Optionally, a `--project-key` option can be provided to the audit command to limit the results to only pipelines associated with a project.
@@ -166,11 +166,11 @@ The `forecast_report.md` file in the specified output directory contains the res
 
 Listed below are some key terms that can appear in the forecast report:
 
-- The **job count** is the total number of completed jobs.
-- The **pipeline count** is the number of unique pipelines used.
-- **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
-  - This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
-- **Concurrent jobs** metrics describe the amount of jobs running at any given time.
+* The **job count** is the total number of completed jobs.
+* The **pipeline count** is the number of unique pipelines used.
+* **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
+  * This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
+* **Concurrent jobs** metrics describe the amount of jobs running at any given time.
 
 ## Performing a dry-run migration
 
@@ -198,9 +198,9 @@ You can use the migrate command to convert a Bitbucket pipeline and open a pull 
 
 To migrate a Bitbucket pipeline to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing the following values.
 
-- Replace `target-url` value with the URL for your {% data variables.product.company_short %} repository.
-- Replace `:repo` with the name of the repository in Bitbucket.
-- Replace `:workspace` with the name of the workspace.
+* Replace `target-url` value with the URL for your {% data variables.product.company_short %} repository.
+* Replace `:repo` with the name of the repository in Bitbucket.
+* Replace `:workspace` with the name of the workspace.
 
 ```bash
 gh actions-importer migrate bitbucket --workspace :workspace --repository :repo --target-url https://github.com/:owner/:repo --output-dir tmp/dry-run
@@ -226,9 +226,9 @@ This section contains reference information on environment variables, optional a
 
 {% data variables.product.prodname_actions_importer %} uses the following environment variables to connect to your Bitbucket instance.
 
-- `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a transformed workflow (requires `repo` and `workflow` scopes).
-- `GITHUB_INSTANCE_URL`: The url to the target GitHub instance. (e.g. `https://github.com`)
-- `BITBUCKET_ACCESS_TOKEN`: The workspace access token with read scopes for pipeline, project, and repository.
+* `GITHUB_ACCESS_TOKEN`: The {% data variables.product.pat_v1 %} used to create pull requests with a transformed workflow (requires `repo` and `workflow` scopes).
+* `GITHUB_INSTANCE_URL`: The url to the target GitHub instance. (e.g. `https://github.com`)
+* `BITBUCKET_ACCESS_TOKEN`: The workspace access token with read scopes for pipeline, project, and repository.
 
 These environment variables can be specified in a `.env.local` file that will be loaded by {% data variables.product.prodname_actions_importer %} at run time. The distribution archive contains a `.env.local.template` file that can be used to create these files.
 

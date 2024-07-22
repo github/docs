@@ -40,6 +40,26 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "audit_log_streaming.check",
+    "description": "A manual check of the endpoint configured for audit log streaming was performed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.create",
+    "description": "An endpoint was added for audit log streaming.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.destroy",
+    "description": "An audit log streaming endpoint was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "audit_log_streaming.update",
+    "description": "An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "billing.change_billing_type",
     "description": "The way the account pays for GitHub was changed.",
     "docs_reference_links": "/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method"
@@ -85,6 +105,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_advanced_security.disabled_for_new_user_namespace_repos",
+    "description": "GitHub Advanced Security was disabled for new user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
     "action": "business_advanced_security.enabled",
     "description": "GitHub Advanced Security was enabled for your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
@@ -92,6 +117,11 @@
   {
     "action": "business_advanced_security.enabled_for_new_repos",
     "description": "GitHub Advanced Security was enabled for new repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
+    "action": "business_advanced_security.enabled_for_new_user_namespace_repos",
+    "description": "GitHub Advanced Security was enabled for new user namespace repositories in your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
@@ -103,6 +133,16 @@
     "action": "business.advanced_security_repo_admin_enablement_policy_update",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business_advanced_security.user_namespace_repos_disabled",
+    "description": "GitHub Advanced Security was disabled for user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
+  },
+  {
+    "action": "business_advanced_security.user_namespace_repos_enabled",
+    "description": "GitHub Advanced Security was enabled for user namespace repositories in your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
     "action": "business.clear_actions_settings",
@@ -387,6 +427,11 @@
   {
     "action": "codespaces.restore",
     "description": "A codespace was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "codespaces.start_environment",
+    "description": "A codespace was started.",
     "docs_reference_links": "N/A"
   },
   {
@@ -865,9 +910,19 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "integration.suspend",
+    "description": "A GitHub App was suspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+  },
+  {
     "action": "integration.transfer",
     "description": "Ownership of a GitHub App was transferred to another user or organization.",
     "docs_reference_links": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
+  },
+  {
+    "action": "integration.unsuspend",
+    "description": "A GitHub App was unsuspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
   {
     "action": "ip_allow_list.disable",
@@ -1153,11 +1208,6 @@
     "action": "org.async_delete",
     "description": "A user initiated a background job to delete an organization.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.audit_log_export",
-    "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
   },
   {
     "action": "org.billing_signup_error",
@@ -1467,17 +1517,17 @@
   {
     "action": "org.secret_scanning_push_protection_enable",
     "description": "Push protection for secret scanning was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
     "description": "Push protection for secret scanning was disabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
     "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
     "action": "org.self_hosted_runner_offline",
@@ -2115,6 +2165,26 @@
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
   },
   {
+    "action": "repo.code_scanning_third_party_tools_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_third_party_tools_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.codeql_advanced_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.codeql_advanced_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
@@ -2573,6 +2643,11 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.validate",
+    "description": "A secret scanning alert was validated.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",

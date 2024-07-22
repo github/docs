@@ -17,6 +17,7 @@ children:
   - /using-the-dependency-submission-api
   - /about-dependency-review
   - /configuring-dependency-review
+  - /enforcing-dependency-review-across-an-organization
   - /exploring-the-dependencies-of-a-repository
   - /troubleshooting-the-dependency-graph
 ---

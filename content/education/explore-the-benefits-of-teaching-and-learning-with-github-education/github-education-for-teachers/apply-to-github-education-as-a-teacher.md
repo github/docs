@@ -37,7 +37,7 @@ For more information about personal accounts on {% data variables.product.produc
 
 ## Further reading
 
-- "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/why-wasnt-my-application-to-global-campus-for-teachers-approved)"
-- [{% data variables.product.prodname_education %}](https://education.github.com)
-- [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
+* "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/why-wasnt-my-application-to-global-campus-for-teachers-approved)"
+* [{% data variables.product.prodname_education %}](https://education.github.com)
+* [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
+* [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

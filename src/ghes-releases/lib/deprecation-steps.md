@@ -1,5 +1,5 @@
 ---
-title: Enterprise Server {{ release-number }} deprecation steps`
+title: Enterprise Server {{ release-number }} deprecation steps
 labels:
   - enterprise deprecation
   - priority-1

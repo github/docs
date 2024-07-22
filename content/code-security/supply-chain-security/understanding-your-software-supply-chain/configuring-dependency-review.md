@@ -47,22 +47,24 @@ Dependency review is available when dependency graph is enabled for {% data vari
 
 {% endif %}
 
-{% ifversion dependency-review-action-configuration %}
-
 ## About configuring the {% data variables.dependency-review.action_name %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
+
+{% data reusables.dependency-review.org-level-enforcement %}
 
 Here is a list of common configuration options.  For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
 
 | Option | Required | Usage |
 |------------------|-------------------------------|--------|
 | `fail-on-severity` | {% octicon "x" aria-label="Optional" %} | Defines the threshold for level of severity (`low`, `moderate`, `high`, `critical`).</br>The action will fail on any pull requests that introduce vulnerabilities of the specified severity level or higher. |
-{%- ifversion dependency-review-action-licenses %}
-| `allow-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
-{%- ifversion dependency-review-action-licenses %}
-| `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
-| `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|{% endif %}
+| {% ifversion dependency-review-action-licenses %} |
+| `allow-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|
+| {% endif %} |
+| {% ifversion dependency-review-action-licenses %} |
+| `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|
+| {% endif %} |
+| `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|
 | `comment-summary-in-pr` | {% octicon "x" aria-label="Optional" %} | Enable or disable the reporting of the review summary as a comment in the pull request. If enabled, you must give the workflow or job the `pull-requests: write` permission. |
 | `allow-ghsas` | {% octicon "x" aria-label="Optional" %} | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
 | `config-file` | {% octicon "x" aria-label="Optional" %} | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
@@ -74,13 +76,12 @@ Here is a list of common configuration options.  For more information, and a ful
 **Tip:** The  `allow-licenses` and  `deny-licenses` options are mutually exclusive.
 
 {% endtip %}
-{% endif %}
 
 ## Configuring the {% data variables.dependency-review.action_name %}
 
 There are two methods of configuring the {% data variables.dependency-review.action_name %}:
-- Inlining the configuration options in your workflow file.
-- Referencing a configuration file in your workflow file.
+* Inlining the configuration options in your workflow file.
+* Referencing a configuration file in your workflow file.
 
 Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
 
@@ -144,11 +145,9 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
            # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories
            allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
-           {% ifversion dependency-review-action-fail-on-scopes %}
            # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
            # Possible values: "development", "runtime", "unknown"
            fail-on-scopes: development, runtime
-           {% endif %}
    ```
 
    <!-- markdownlint-enable search-replace -->
@@ -214,13 +213,11 @@ Notice that all of the examples use a short version number for the action (`v3`)
      allow-ghsas:
        - GHSA-abcd-1234-5679
        - GHSA-efgh-1234-5679
-   {% ifversion dependency-review-action-fail-on-scopes %}
       # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
       # Possible values: "development", "runtime", "unknown"
      fail-on-scopes:
        - development
        - runtime
-   {% endif %}
    ```
 
    <!-- markdownlint-enable search-replace -->

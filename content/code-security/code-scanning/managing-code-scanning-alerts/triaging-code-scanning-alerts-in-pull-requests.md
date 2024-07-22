@@ -30,9 +30,9 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 {% ifversion code-scanning-alerts-in-pr-diff %}If the lines of code changed in the pull request generate {% data variables.product.prodname_code_scanning %} alerts, the alerts are reported in the following places on the pull request{% else %}If merging the changes would introduce new {% data variables.product.prodname_code_scanning %} alerts to the target branch, the alerts are reported in the following places{% endif %}.
 
-- Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
-- The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
-- The **Files changed** tab of the pull request
+* Check results in the pull request {% ifversion code-scanning-pr-conversations-tab %}
+* The **Conversation** tab of the pull request, as part of a pull request review {% endif %}
+* The **Files changed** tab of the pull request
 
 {% ifversion code-scanning-alerts-in-pr-diff %}
 {% note %}
@@ -40,6 +40,12 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 **Note:** {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
 
 {% endnote %}
+{% endif %}
+
+{% ifversion code-scanning-autofix %}
+
+{% data variables.product.prodname_code_scanning_caps %} autofix will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information on working with suggestions from autofix in pull requests, see "[Working with autofix suggestions for alerts on a pull request](#working-with-autofix-suggestions-for-alerts-on-a-pull-request)."
+
 {% endif %}
 
 If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
@@ -118,9 +124,9 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 {% ifversion code-scanning-autofix %}
 
-## Working with autofix suggestions for alerts
+## Working with autofix suggestions for alerts on a pull request
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
 Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
@@ -133,8 +139,9 @@ When autofix is enabled for a repository, alerts are displayed in pull requests 
 {% note %}
 
 **Notes:**
-- Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
-- When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+* Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+* On alerts generated from queries that are not supported by autofix, you will see a note telling you that the query is not supported. If an autofix suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
 
 {% endnote %}
 
@@ -144,11 +151,14 @@ Usually, when you suggest changes to a pull request, your comment contains chang
 
 ### Assessing and committing an autofix suggestion
 
-Each autofix suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of autofix suggestions, see "[Limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning/#limitations-of-autofix-suggestions)" and "[Mitigating the limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-autofix-suggestions)" in "About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
+Each autofix suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of autofix suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-suggestions)" in "About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
 
 1. Click **Edit** to display the editing options and select your preferred method.
-   - Select **Edit with codespaces** to open a codespace showing your branch with the suggested fix applied.
-   - Select **Edit locally with {% data variables.product.prodname_cli %}** to display instructions for applying the suggested fix to any local repository or branch.
+   * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
+   * Select **Edit FILENAME** to edit the file directly on {% data variables.product.prodname_dotcom %} with the suggested fix applied.
+1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" %} dropdown menu on the suggestion.
+   * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
+   * Select **Copy modified line LINE_NUMBER** to copy a specific line of the suggestion.
 1. Test and modify the suggested fix as needed.
 1. When you have finished testing your changes, commit the changes, and push them to your branch.
 1. Pushing the changes to your branch will trigger all the usual tests for your pull request. Confirm that your unit tests still pass and that the {% data variables.product.prodname_code_scanning %} alert is now fixed.

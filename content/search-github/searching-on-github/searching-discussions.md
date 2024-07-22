@@ -147,4 +147,4 @@ You can filter discussions by specific labels that are applied to discussions.
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

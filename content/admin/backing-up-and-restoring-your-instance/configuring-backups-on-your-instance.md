@@ -135,34 +135,16 @@ When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
 1. To determine how to upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, review the output from `git rev-parse --is-inside-work-tree`.
 
-   - If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
-   - If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   * If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   * If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
 
 ## Scheduling a backup
-
-{% ifversion backup-utilities-encryption-bug %}
-{% warning %}
-
-**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
-
-{% endwarning %}
-{% endif %}
 
 You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
 
 If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 ## Restoring a backup
-
-{% ifversion backup-utilities-encryption-bug %}
-
-{% warning %}
-
-**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
-
-{% endwarning %}
-
-{% endif %}
 
 In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another instance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} instance as an authorized SSH key before restoring an instance.
 
@@ -181,8 +163,8 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 To restore {% data variables.location.product_location %} from your backup host using the last successful snapshot, use the `ghe-restore` command. You can use the following additional options with `ghe-restore`.
 
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the github/backup-utils repository.
-- The `-s` flag allows you to select a different backup snapshot.
+* The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the github/backup-utils repository.
+* The `-s` flag allows you to select a different backup snapshot.
 
 After you run `ghe-restore`, the command confirms the restoration, then outputs details and status during the operation.
 

@@ -41,9 +41,9 @@ The support options available to {% data variables.product.prodname_dotcom %} us
 {% ifversion ghes %}
 
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
-- Installing and using {% data variables.product.product_name %}
-- Identifying and verifying the causes of suspected errors
-- Installing and using {% data variables.product.prodname_advanced_security %}
+* Installing and using {% data variables.product.product_name %}
+* Identifying and verifying the causes of suspected errors
+* Installing and using {% data variables.product.prodname_advanced_security %}
 
 {% endif %}
 
@@ -189,7 +189,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 ## Further reading
 
 {%- ifversion ghes %}
-- Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
+* Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
 {%- endif %}
-- "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
-- "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)"
+* "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
+* "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)"

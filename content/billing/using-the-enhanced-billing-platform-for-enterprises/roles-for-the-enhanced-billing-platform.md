@@ -15,19 +15,19 @@ Three roles have access to the enhanced billing platform: enterprise owners, bil
 
 As an enterprise owner or a billing manager, you can access the enhanced billing platform for your enterprise account. You can:
 
-- View all metered usage in your enterprise and set budgets for your enterprise and organizations.
-- See enterprise usage, including costs for organizations and repositories.
-- Download CSV usage reports for products your enterprise is using.
-- Create cost centers for all organizations within your enterprise.
-- Set budgets for your enterprise and organizations.
+* View all metered usage in your enterprise and set budgets for your enterprise and organizations.
+* See enterprise usage, including costs for organizations and repositories.
+* Download CSV usage reports for products your enterprise is using.
+* Create cost centers for all organizations within your enterprise.
+* Set budgets for your enterprise and organizations.
 
 ## Organization owners
 
 As an organization owner, you have administrative access to your organization. You can:
 
-- View metered usage and budgets for the organizations and repositories you manage.
-- View promotions and discounts.
-- View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_GH_advanced_security %} based on your usage.
-- See organization usage and download CSV usage reports.
-- Create cost centers by grouping repositories you manage.
-- Set budgets for the repositories you manage.
+* View metered usage and budgets for the organizations and repositories you manage.
+* View promotions and discounts.
+* View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_GH_advanced_security %} based on your usage.
+* See organization usage and download CSV usage reports.
+* Create cost centers by grouping repositories you manage.
+* Set budgets for the repositories you manage.

@@ -104,8 +104,8 @@ You can't delete a branch if it's currently associated with an open pull request
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)"
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
-- "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
-- "[AUTOTITLE](/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)"
+* "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)"
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+* "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
+* "[AUTOTITLE](/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)"

@@ -113,3 +113,9 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 {% endif %}
 
 {% endif %}
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.managing-delegated-bypass %}
+
+{% endif %}

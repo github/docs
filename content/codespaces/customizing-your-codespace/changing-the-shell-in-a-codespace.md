@@ -159,5 +159,5 @@ To access the web-based interface for `fish_config`:
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces)"

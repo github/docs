@@ -18,11 +18,11 @@ allowTitleToDifferFromFilename: true
 
 There are several different ways to give the extension access to the standard libraries and queries from the [`github/codeql`](https://github.com/github/codeql) repository:
 
-- Use the {% data variables.product.prodname_codeql %} starter workspace, which contains a series of directories named in the format `codeql-custom-queries-LANGUAGE`. These are ready for you to start developing your own custom queries for each language, using the standard libraries. There are also some example queries to get you started. This is the recommended method.
+* Use the {% data variables.product.prodname_codeql %} starter workspace, which contains a series of directories named in the format `codeql-custom-queries-LANGUAGE`. These are ready for you to start developing your own custom queries for each language, using the standard libraries. There are also some example queries to get you started. This is the recommended method.
 
-- Update an existing workspace for {% data variables.product.prodname_codeql %}. This is recommended for advanced users.
+* Update an existing workspace for {% data variables.product.prodname_codeql %}. This is recommended for advanced users.
 
-- {% data variables.product.prodname_codeql_cli %} users can open the directory containing their extracted {% data variables.product.prodname_codeql_cli %} archive.
+* {% data variables.product.prodname_codeql_cli %} users can open the directory containing their extracted {% data variables.product.prodname_codeql_cli %} archive.
 
 ### Option 1: Using the starter workspace (recommended)
 

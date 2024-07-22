@@ -1,4 +1,4 @@
-1. In AWS, create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
+1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket. Copy the following JSON and replace `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
    ```json
    {
@@ -16,4 +16,4 @@
    }
    ```
 
-   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
+   See [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.

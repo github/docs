@@ -17,11 +17,11 @@ You can write an action to provide a way for users to access your servers via a 
 
 Your action should:
 
-- Make it simple for users to specify the version of the CLI to install
-- Support multiple operating systems
-- Run in an efficient fashion to minimize run-time and associated costs
-- Work across {% data variables.product.product_name %}-hosted and self-hosted runners
-- Leverage community tooling when possible
+* Make it simple for users to specify the version of the CLI to install
+* Support multiple operating systems
+* Run in an efficient fashion to minimize run-time and associated costs
+* Work across {% data variables.product.product_name %}-hosted and self-hosted runners
+* Leverage community tooling when possible
 
 This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`.
 
@@ -66,6 +66,6 @@ To use this script, replace `getDownloadURL` with a function that downloads your
 
 This pattern is employed in several actions. For more examples, see:
 
-- [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
-- [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
-- [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
+* [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
+* [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
+* [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)

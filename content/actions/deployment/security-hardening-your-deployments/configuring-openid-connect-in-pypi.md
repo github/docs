@@ -38,10 +38,10 @@ To use OIDC with PyPI, add a trust configuration that links each project on PyPI
 
    {% endnote %}
 
-   - Owner: `myorg`
-   - Repository name: `myproject`
-   - Workflow name: `release.yml`
-   - (Optionally) a {% data variables.product.prodname_actions %} environment name: `release`
+   * Owner: `myorg`
+   * Repository name: `myproject`
+   * Workflow name: `release.yml`
+   * (Optionally) a {% data variables.product.prodname_actions %} environment name: `release`
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
@@ -68,6 +68,7 @@ jobs:
       - name: build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
+          python -m pip install build
           python -m build
 
       - name: upload windows dists

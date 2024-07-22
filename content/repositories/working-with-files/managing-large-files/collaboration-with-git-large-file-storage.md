@@ -46,4 +46,4 @@ You can push {% data variables.large_files.product_name_short %} objects to publ
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)"

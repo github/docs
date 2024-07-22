@@ -42,9 +42,9 @@ This should return the system time on {% data variables.location.product_locatio
 ## User-based security
 
 If you enable SNMP v3, you can take advantage of increased user based security through the User Security Model (USM). For each unique user, you can specify a security level:
-- `noAuthNoPriv`: This security level provides no authentication and no privacy.
-- `authNoPriv`: This security level provides authentication but no privacy. To query the appliance you'll need a username and password (that must be at least eight characters long). Information is sent without encryption, similar to SNMPv2. The authentication protocol can be either MD5 or SHA and defaults to SHA.
-- `authPriv`: This security level provides authentication with privacy. Authentication, including a minimum eight-character authentication password, is required and responses are encrypted. A privacy password is not required, but if provided it must be at least eight characters long. If a privacy password isn't provided, the authentication password is used. The privacy protocol can be either DES or AES and defaults to AES.
+* `noAuthNoPriv`: This security level provides no authentication and no privacy.
+* `authNoPriv`: This security level provides authentication but no privacy. To query the appliance you'll need a username and password (that must be at least eight characters long). Information is sent without encryption, similar to SNMPv2. The authentication protocol can be either MD5 or SHA and defaults to SHA.
+* `authPriv`: This security level provides authentication with privacy. Authentication, including a minimum eight-character authentication password, is required and responses are encrypted. A privacy password is not required, but if provided it must be at least eight characters long. If a privacy password isn't provided, the authentication password is used. The privacy protocol can be either DES or AES and defaults to AES.
 
 ## Configuring users for SNMP v3
 
@@ -56,15 +56,15 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 1. Under "Username", type the unique username of your SNMP v3 user.
 1. Select the **Security Level** dropdown menu, then click the security level for your SNMP v3 user.
 1. For SNMP v3 users with the `authnopriv` security level, configure authentication.
-    - {% data reusables.enterprise_management_console.authentication-password %}
-    - {% data reusables.enterprise_management_console.authentication-protocol %}
-    - If your external monitoring system requires the SHA algorithm, {% data variables.product.product_name %} currently uses SHA-1.
+    * {% data reusables.enterprise_management_console.authentication-password %}
+    * {% data reusables.enterprise_management_console.authentication-protocol %}
+    * If your external monitoring system requires the SHA algorithm, {% data variables.product.product_name %} currently uses SHA-1.
 1. For SNMP v3 users with the `authpriv` security level, configure authentication.
-    - {% data reusables.enterprise_management_console.authentication-password %}
-    - {% data reusables.enterprise_management_console.authentication-protocol %}
-    - Optionally, under "Privacy password", type the privacy password.
-    - Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
-    - If your external monitoring system requires the AES algorithm, {% data variables.product.product_name %} currently uses AES-128.
+    * {% data reusables.enterprise_management_console.authentication-password %}
+    * {% data reusables.enterprise_management_console.authentication-protocol %}
+    * Optionally, under "Privacy password", type the privacy password.
+    * Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
+    * If your external monitoring system requires the AES algorithm, {% data variables.product.product_name %} currently uses AES-128.
 1. Click **Add user**.
 {% data reusables.enterprise_management_console.save-settings %}
 

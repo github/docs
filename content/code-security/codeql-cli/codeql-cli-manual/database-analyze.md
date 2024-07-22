@@ -55,9 +55,9 @@ being interpreted as source-code alerts, use
 Queries to execute. Each argument is in the form `scope/name@range:path`
 where:
 
-- `scope/name` is the qualified name of a CodeQL pack.
-- `range` is a semver range.
-- `path` is a file system path.
+* `scope/name` is the qualified name of a CodeQL pack.
+* `range` is a semver range.
+* `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A
@@ -179,6 +179,11 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
 
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
 #### `--no-group-results`
 
 \[SARIF formats only] Produce one result per message, rather than one
@@ -238,6 +243,14 @@ during database creation from a Code Scanning configuration file.
 #### `--[no-]download`
 
 Download any missing queries before analyzing.
+
+### Options to control the model packs to be used
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
 
 ### Options to control the threat models to be used
 

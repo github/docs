@@ -16,15 +16,15 @@ redirect_from:
 
 Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error.
 
-- If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-- Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+* If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
+* Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## Browser cannot connect
 
 Sometimes you may not be able to access a codespace from your browser. If this happens, go to https://github.com/codespaces and try connecting to the codespace from that page.
 
-- If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created.
-- If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
+* If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created.
+* If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
 
 ### Diagnose by error message
 

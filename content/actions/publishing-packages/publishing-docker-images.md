@@ -35,10 +35,10 @@ We recommend that you have a basic understanding of workflow configuration optio
 
 You might also find it helpful to have a basic understanding of the following:
 
-- "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
-- "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
+* "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
+* "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
 
 ## About image configuration
 
@@ -52,21 +52,21 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type.
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-- `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 The `metadata-action` option required for Docker Hub is:
-- `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
+* `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
 
 The `build-push-action` options required for Docker Hub are:
-- `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
-- `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
+* `tags`: The tag of your new image in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY:VERSION`. You can set a single tag as shown below, or specify multiple tags in a list.
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -113,10 +113,15 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
-      
-      {% ifversion artifact-attestations %}
-      {% data reusables.actions.artifact-attestations-step-for-container-images %}
-      {% endif %}
+
+{% ifversion artifact-attestations %}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
+{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
@@ -129,26 +134,26 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when a change is pushed to the `release` branch.
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
 The `login-action` options required for {% data variables.product.prodname_registry %} are:
-- `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
-- `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)."
-- `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+* `registry`: Must be set to {% ifversion fpt or ghec %}`ghcr.io`{% elsif ghes %}`{% data reusables.package_registry.container-registry-hostname %}`{% else %}`docker.pkg.github.com`{% endif %}.
+* `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)."
+* `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 {% ifversion fpt or ghec %}
 The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
-- `images`: The namespace and name for the Docker image you are building.
+* `images`: The namespace and name for the Docker image you are building.
 {% endif %}
 
 The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
 
-- `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
-- `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
-- `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-- `tags`: Must be set in the format {% ifversion ghes %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
+* `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
+* `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
+* `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
+* `tags`: Must be set in the format {% ifversion ghes %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
 
    For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
 
@@ -222,9 +227,14 @@ jobs:
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 
-      {% ifversion artifact-attestations %}
-      {% data reusables.actions.artifact-attestations-step-for-container-images %}
-      {% endif %}
+{% ifversion artifact-attestations %}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
+{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
