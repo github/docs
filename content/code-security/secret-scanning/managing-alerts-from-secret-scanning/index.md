@@ -17,4 +17,10 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Managing alerts
+children:
+  - /about-alerts
+  - /viewing-alerts
+  - /evaluating-alerts
+  - /resolving-alerts
+  - /monitoring-alerts
 ---
