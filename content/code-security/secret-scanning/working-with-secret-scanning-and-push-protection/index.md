@@ -13,7 +13,6 @@ topics:
   - Advanced Security
   - Repositories
 children:
-  - /secret-scanning-for-your-user-owned-repositories
   - /push-protection-for-users
   - /working-with-push-protection-from-the-command-line
   - /working-with-push-protection-in-the-github-ui

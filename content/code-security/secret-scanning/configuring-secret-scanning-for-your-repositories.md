@@ -99,6 +99,24 @@ For more information about non-provider patterns, see "{% ifversion fpt or ghec 
 
 {% endif %}
 
+{% ifversion secret-scanning-enable-by-default-for-public-repos %}
+
+## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories
+
+You can enable {% data variables.product.prodname_secret_scanning %} for all of your existing {% ifversion ghec %}user-owned {% endif %}public repositories through your personal account settings.
+{% note %}
+
+**Note**: As of March 11, 2024, {% data variables.product.prodname_secret_scanning %} and push protection will be enabled by default for all new {% ifversion ghec %}user-owned {% endif %}public repositories that you create. You can still choose to disable these features for an individual repository in the repository's "Code security and analysis" settings page. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-public-repositories)".
+
+{% endnote %}
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Disable all** or **Enable all**.
+{% data reusables.secret-scanning.push-protection-optional-enable %}
+
+{% endif %}
+
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
 You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)."
