@@ -23,8 +23,8 @@ The stable image is the default selected setting. Changing the setting to the be
 
 **Notes**:
 
-- It's unlikely you will encounter problems using the beta host image unless your dev container configuration has dependencies on components of the VM host kernel.
-- The virtual machine host image should not be confused with the dev container image, which provides the environment of your codespace. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces#overview)."
+* It's unlikely you will encounter problems using the beta host image unless your dev container configuration has dependencies on components of the VM host kernel.
+* The virtual machine host image should not be confused with the dev container image, which provides the environment of your codespace. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces#overview)."
 
 {% endnote %}
 
@@ -42,5 +42,5 @@ For information about the current host image versions, including the date on whi
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces)"

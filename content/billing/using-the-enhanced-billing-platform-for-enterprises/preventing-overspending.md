@@ -16,8 +16,8 @@ The budget only applies to expenses incurred from the date of its creation onwar
 
 Budgets are not applicable to:
 
-- Seat-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
-- Pre-paid volume licenses.
+* Seat-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
+* Pre-paid volume licenses.
 
 ## Viewing budgets
 

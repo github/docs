@@ -29,17 +29,17 @@ Alongside {% data variables.product.prodname_security_configurations %}, which d
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_dependabot %}:
 
-- [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
-- [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
-- [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
-- [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
-- [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
+* [Creating and managing {% data variables.dependabot.auto_triage_rules %}](#creating-and-managing-dependabot-auto-triage-rules)
+* [Grouping {% data variables.product.prodname_dependabot %} security updates](#grouping-dependabot-security-updates){% ifversion fpt or ghec %}
+* [Enabling dependency updates on {% data variables.product.prodname_actions %} runners](#enabling-dependency-updates-on-github-actions-runners){% endif %}{% ifversion fpt %}
+* [Granting {% data variables.product.prodname_dependabot %} access to private repositories](#granting-dependabot-access-to-private-repositories){% else %}
+* [Granting {% data variables.product.prodname_dependabot %} access to private and internal repositories](#granting-dependabot-access-to-private-and-internal-repositories){% endif %}
 
 ### Creating and managing {% data variables.dependabot.auto_triage_rules %}
 
 You can create and manage {% data variables.dependabot.auto_triage_rules %} to instruct {% data variables.product.prodname_dependabot %} to automatically dismiss or snooze {% data variables.product.prodname_dependabot_alerts %}, and even open pull requests to attempt to resolve them. To configure {% data variables.dependabot.auto_triage_rules %}, click {% octicon "gear" aria-label="Configure {% data variables.product.prodname_dependabot %} rules" %}, then create or edit a rule:
-  - You can create a new rule by clicking **New rule**, then entering the details for your rule and clicking **Create rule**.
-  - You can edit an existing rule by clicking {% octicon "pencil" aria-label="Edit CURATED-OR-CUSTOM rule" %}, then making the desired changes and clicking **Save rule**.
+  * You can create a new rule by clicking **New rule**, then entering the details for your rule and clicking **Create rule**.
+  * You can edit an existing rule by clicking {% octicon "pencil" aria-label="Edit CURATED-OR-CUSTOM rule" %}, then making the desired changes and clicking **Save rule**.
 
 For more information on {% data variables.dependabot.auto_triage_rules %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules)" and "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-organization)."
 
@@ -51,7 +51,7 @@ For more information on {% data variables.dependabot.auto_triage_rules %}, see "
 
 ### Enabling dependency updates on {% data variables.product.prodname_actions %} runners
 
-You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, click **Enable all**. To automatically enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on new repositories in your organization, select **Automatically enable for new repositories**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
+You can allow {% data variables.product.prodname_dependabot %} to use {% data variables.product.prodname_actions %} runners and the {% data variables.product.prodname_dependabot %} action to perform dependency updates. To enable {% data variables.product.prodname_dependabot %} for {% data variables.product.company_short %}-hosted runners on all repositories in your organization, select **Dependabot on Actions runners**. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners)."
 
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
@@ -67,9 +67,9 @@ To update private dependencies of repositories in your organization, {% data var
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
-- [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
-- [Enabling autofix for {% data variables.product.prodname_codeql %}](#enabling-autofix-for-codeql) {% endif %}
-- [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
+* [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion code-scanning-autofix %}
+* [Enabling autofix for {% data variables.product.prodname_codeql %}](#enabling-autofix-for-codeql) {% endif %}
+* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
 
 ### Recommending the extended query suite for default setup
 
@@ -79,7 +79,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Enabling autofix for {% data variables.product.prodname_codeql %}
 
-You can select **Autofix for {% data variables.product.prodname_codeql %}** to enable autofix for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. Autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts in pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+You can select **Autofix for {% data variables.product.prodname_codeql %}** to enable autofix for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. Autofix is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% endif %}
 
@@ -93,19 +93,12 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-- [Verifying partner pattern secrets automatically](#verifying-partner-pattern-secrets-automatically){% endif %}{% ifversion secret-scanning-non-provider-patterns %}
-- [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}
-- [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
-- [Defining custom patterns](#defining-custom-patterns){% endif %}
+{% ifversion secret-scanning-non-provider-patterns %}
+* [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+* [Generic secret detection](#generic-secret-detection){% endif %}
+* [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
+* [Defining custom patterns](#defining-custom-patterns){% endif %}
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-### Verifying partner pattern secrets automatically
-
-To reduce the rate of false positive {% data variables.product.prodname_secret_scanning %} alerts, you can automatically verify the validity of some partner pattern secrets by sending each secret to the provider. To enable this automatic verification, select **Automatically verify if a secret is valid by sending it to the relevant partner**. For information on which partners support validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
-
-{% endif %}
 {% ifversion secret-scanning-non-provider-patterns %}
 
 ### Scanning for non-provider patterns
@@ -113,6 +106,16 @@ To reduce the rate of false positive {% data variables.product.prodname_secret_s
 You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user-alerts)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
 
    {% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+{% endif %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### Generic secret detection
+
+Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."
+
+{% data reusables.secret-scanning.generic-secret-detection-ai %}
 
 {% endif %}
 

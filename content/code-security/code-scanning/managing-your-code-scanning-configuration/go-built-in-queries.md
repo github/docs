@@ -5,7 +5,9 @@ intro: 'Explore the queries that {% data variables.product.prodname_codeql %} us
 product: '{% data reusables.gated-features.code-scanning %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: reference
 topics:
   - Code scanning
@@ -18,6 +20,6 @@ topics:
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
 {% data reusables.code-scanning.codeql-query-tables.go %}

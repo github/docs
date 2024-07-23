@@ -46,7 +46,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-To learn more about {% data variables.product.prodname_copilot_extensions_short %}, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions)."
+To learn more about {% data variables.product.prodname_copilot_extensions_short %}, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions)."
 
 ## Publishing an app to {% data variables.product.prodname_marketplace %} overview
 
@@ -68,8 +68,8 @@ When you have finished creating your app, you can share it with other users by p
 
 You can access metrics and transactions for your listing. For more information, see:
 
-- "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-metrics-for-your-listing)"
-- "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing)"
+* "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-metrics-for-your-listing)"
+* "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing)"
 
 ## Contacting Support
 

@@ -56,18 +56,17 @@ support:
   contact_support: Contact support
   ask_community: Ask the GitHub community
 survey:
-  able_to_find: Did this doc help you?
+  able_to_find: Did you find what you needed?
   yes: Yes
   no: No
-  comment_yes_label: Let us know what we do well
-  comment_no_label: Let us know what we can do better
+  cancel: Cancel
+  additional_feedback: Can you tell us more about your rating? (Optional)
   optional: Optional
   required: Required
-  email_placeholder: email@example.com
-  email_label: If we can contact you with more questions, please enter your email address
+  email_placeholder: 'Example: email@example.com'
+  email_label: Leave your email if we can contact you. (Optional)
   email_validation: Please enter a valid email address
   send: Send
-  next: Next
   feedback: Thank you! We received your feedback.
   not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
@@ -182,6 +181,8 @@ rest_reference:
   installation_access_token_name: GitHub App installation access tokens
   fine_grained_access_token_name: Fine-grained personal access tokens
   no_fine_grained_access: This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+  basic_auth_heading: Basic authentication for "{{ RESTOperationTitle }}"
+  basic_auth: You must use <a href="/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication">Basic Authentication</a> to use this endpoint. Use the application's <code>client_id</code> as the username and the <code>client_secret</code> as the password.
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type

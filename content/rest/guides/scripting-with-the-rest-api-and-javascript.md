@@ -428,5 +428,5 @@ await commentIfDataFilesChanged({owner: "github", repo: "docs", pullNumber: 191}
 
 ## Next steps
 
-- To learn more about Octokit.js see [the Octokit.js documentation](https://github.com/octokit/octokit.js/#readme).
-- For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.js by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).
+* To learn more about Octokit.js see [the Octokit.js documentation](https://github.com/octokit/octokit.js/#readme).
+* For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.js by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).

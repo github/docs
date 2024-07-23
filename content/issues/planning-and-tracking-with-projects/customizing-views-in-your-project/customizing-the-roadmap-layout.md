@@ -3,7 +3,9 @@ title: Customizing the roadmap layout
 shortTitle: Customizing roadmaps
 intro: You can use the roadmap layout to view your project's items on a timeline.
 versions:
-  feature: projects-v2-roadmaps
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Projects

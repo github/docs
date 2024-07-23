@@ -6,6 +6,7 @@ export const internalLinksSlash = {
   names: ['GHD003', 'internal-links-slash'],
   description: 'Internal links must start with a /',
   tags: ['links', 'url'],
+  parser: 'markdownit',
   function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {

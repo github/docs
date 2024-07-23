@@ -141,5 +141,5 @@ Review the security configuration and alerts for your organization and identify 
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
-- "[AUTOTITLE](/get-started/learning-about-github/github-language-support)"
+* "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+* "[AUTOTITLE](/get-started/learning-about-github/github-language-support)"

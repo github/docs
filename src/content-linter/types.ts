@@ -22,6 +22,7 @@ export type Config = {
   allowed_languages?: string[]
   style?: string
   rules?: RuleDetail[]
+  context?: string
 }
 
 export type RuleConfig = {

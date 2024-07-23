@@ -36,12 +36,12 @@ For more information about configuring notification preferences, see "[AUTOTITLE
    ![Screenshot of a "Security Advisories" list.](/assets/images/help/security/advisory-list.png)
 
 1. Carefully review the report, then choose how to proceed.
-   - To collaborate on a patch in private, click **Start a temporary private fork** to create a place for further discussions with the contributor. This does not change the status of the proposed advisory from `Triage`.
-   - To accept the reported vulnerability, click **Accept and open as draft** to accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}. If you choose this option:
-      - This doesn't make the report public.
-      - The report becomes a draft repository security advisory and you can work on it in the same way as any draft advisory that you create.
+   * To collaborate on a patch in private, click **Start a temporary private fork** to create a place for further discussions with the contributor. This does not change the status of the proposed advisory from `Triage`.
+   * To accept the reported vulnerability, click **Accept and open as draft** to accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}. If you choose this option:
+      * This doesn't make the report public.
+      * The report becomes a draft repository security advisory and you can work on it in the same way as any draft advisory that you create.
      For more information on security advisories, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
-   - To ask for more information, or to open a discussion with the reporter, you can comment on the advisory. Any comments are visible only to the reporter and to any collaborators on the advisory.
-   - If you have enough information to determine that the problem the reporter describes is not a security risk, click **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
+   * To ask for more information, or to open a discussion with the reporter, you can comment on the advisory. Any comments are visible only to the reporter and to any collaborators on the advisory.
+   * If you have enough information to determine that the problem the reporter describes is not a security risk, click **Close security advisory**. Where possible, you should add a comment explaining why you don't consider the report a security risk before you close the advisory.
 
      ![Screenshot showing the options available to the repository maintainer when reviewing an externally submitted vulnerability report.](/assets/images/help/security/advisory-maintainer-options.png)

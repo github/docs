@@ -12,9 +12,9 @@ shortTitle: Manage your payment information
 
 You can view your payment information and history, and update your billing contacts. Supported payment methods include:
 
-- Credit card
-- PayPal
-- Azure Subscription ID
+* Credit card
+* PayPal
+* Azure Subscription ID
 
 ## Viewing payment information
 

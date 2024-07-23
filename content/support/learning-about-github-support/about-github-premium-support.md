@@ -26,9 +26,9 @@ topics:
 
 **Notes:**
 
-- The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
+* The terms of {% data variables.contact.premium_support %} are subject to change without notice and are effective as of November 2021.
 
-- {% data reusables.support.data-protection-and-privacy %}
+* {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
@@ -53,9 +53,9 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 Escalation management | For high and urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For urgent priority tickets, as needed
 | Health checks | {% ifversion not ghes %}None{% else %}Unlimited automated health check reports (see "[Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
-{%- ifversion ghes %}
+| {% ifversion ghes %} |
 | Crisis prevention | None | Yearly participation in guided incident simulations to help you be prepared |
-{%- endif %}
+| {% endif %} |
 | Technical advisory hours| None | 12 hours per quarter |
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |
@@ -95,10 +95,10 @@ For tickets you submit, support is available 24 hours a day, 7 days per week. Th
 
 During the initial response time for Urgent priority tickets, you can expect us to do the following:
 
-- The paged Support Engineer or CRE assigns and carefully reviews your ticket. The goal is to understand the issue, start troubleshooting, and identify next steps.
-- In the initial response, the assigned Support Engineer or CRE will acknowledge ticket receipt and assignment as well as provide next steps to clarify and troubleshoot the situation. To assist with resolving your issue, the Support Engineer or CRE may ask for additional information such as screenshots, error messages, log files, diagnostics files, support bundles, or the output of specific console commands.
-- Depending on the issue, the assigned Support Engineer or CRE may collaborate with others in Support, Engineering, or the regional incident commander.
-- If a callback was requested upon opening the Urgent ticket, the assigned Support Engineer or CRE will determine if, at the current time, screen sharing is the most efficient way of driving the ticket towards resolution. If so, they will extend an offer to you to join a screen sharing session.
+* The paged Support Engineer or CRE assigns and carefully reviews your ticket. The goal is to understand the issue, start troubleshooting, and identify next steps.
+* In the initial response, the assigned Support Engineer or CRE will acknowledge ticket receipt and assignment as well as provide next steps to clarify and troubleshoot the situation. To assist with resolving your issue, the Support Engineer or CRE may ask for additional information such as screenshots, error messages, log files, diagnostics files, support bundles, or the output of specific console commands.
+* Depending on the issue, the assigned Support Engineer or CRE may collaborate with others in Support, Engineering, or the regional incident commander.
+* If a callback was requested upon opening the Urgent ticket, the assigned Support Engineer or CRE will determine if, at the current time, screen sharing is the most efficient way of driving the ticket towards resolution. If so, they will extend an offer to you to join a screen sharing session.
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 
@@ -125,17 +125,17 @@ If you don't receive an initial response within the guaranteed response time to 
 The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit. Credit requests may take the form of a refund or credit to your account, cannot be exchanged into a cash amount, require you to have paid any outstanding invoices, and expire upon termination of your agreement with {% data variables.product.company_short %}.
 
 To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-- Be sent from an email address associated with your account on {% data variables.location.product_location %}
-- Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
-- Include "Credit Request" in the subject line
+* Be sent from an email address associated with your account on {% data variables.location.product_location %}
+* Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
+* Include "Credit Request" in the subject line
 
 The following information **must be included** in your credit request:
-- **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
-- **Customer contact** (You must specify both name and email address.)
-- **Customer address**
-- **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt or ghec %}
-- **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
-- **Ticket numbers**
+* **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
+* **Customer contact** (You must specify both name and email address.)
+* **Customer address**
+* **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt or ghec %}
+* **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
+* **Ticket numbers**
 
 ## Accessing premium content
 

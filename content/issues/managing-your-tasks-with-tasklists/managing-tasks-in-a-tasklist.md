@@ -23,10 +23,10 @@ You can add issues and pull requests from any repository you have access to. Peo
   
 1. Add your draft task, issue, or pull request.
 
-   - To add a draft task, just type your task and press <kbd>Enter</kbd>.
-   - To add a recently updated issue, click an issue from the list, or use your arrow keys to select it and then press <kbd>Enter</kbd>.
-   - To search for an issue in the current repository, start typing the title of an issue or the issue's number and click on the result, or use your arrow keys to select it and press <kbd>Enter</kbd>.
-   - To add an issue directly using its URL, paste the URL of an issue and press <kbd>Enter</kbd>.
+   * To add a draft task, just type your task and press <kbd>Enter</kbd>.
+   * To add a recently updated issue, click an issue from the list, or use your arrow keys to select it and then press <kbd>Enter</kbd>.
+   * To search for an issue in the current repository, start typing the title of an issue or the issue's number and click on the result, or use your arrow keys to select it and press <kbd>Enter</kbd>.
+   * To add an issue directly using its URL, paste the URL of an issue and press <kbd>Enter</kbd>.
 
 ## Converting draft tasks to issues in a tasklist
 
@@ -45,9 +45,9 @@ You can convert draft tasks into issues. Issues are created in the same reposito
     ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png)
 
 1. Using the context menu, make your changes.
-   - To set labels, select **Set labels**, and then select one or more labels from the menu.
-   - To set assignees, select **Set assignees**, and then select one or more people from the menu.
-   - To add the issue or pull request to a project, select **Set project**, and then select a project from the menu.
+   * To set labels, select **Set labels**, and then select one or more labels from the menu.
+   * To set assignees, select **Set assignees**, and then select one or more people from the menu.
+   * To add the issue or pull request to a project, select **Set project**, and then select a project from the menu.
 
 ## Dragging tasks to change position and move between tasklists
 
@@ -55,8 +55,8 @@ You can move tasks within a tasklist and move tasks to other tasklists in the sa
 
 1. Hover your cursor to the left of the task you want to move until a {% octicon "grabber" aria-hidden="true" %} drag handle appears.
 1. Click on the {% octicon "grabber" aria-hidden="true" %} drag handle and drag the task to the new destination.
-   - Drag the task to another position in the same tasklist.
-   - Drag the task to another tasklist in the same issue.
+   * Drag the task to another position in the same tasklist.
+   * Drag the task to another tasklist in the same issue.
 
 ## Removing tasks from a tasklist
 

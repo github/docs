@@ -1,12 +1,12 @@
 ---
 title: Configuring custom deployment protection rules
 shortTitle: Configure custom protection rules
-intro: Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.
+intro: 'Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.'
 product: '{% data reusables.actions.custom-deployment-protection-rules-availability %}'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.10'
+  ghes: '*'
 topics:
   - Actions
   - CD
@@ -19,7 +19,7 @@ topics:
 
 Custom deployment protection rules are powered by {% data variables.product.prodname_github_apps %}. Once a deployment protection rule is configured and installed in a repository, it can be enabled for any environments in the repository.
 
-After you enable a custom deployment protection rule on an environment, every time a workflow step targets that environment, the deployment protection rule will run automatically. For more information about targeting an environment for deployments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+After you enable a custom deployment protection rule on an environment, every time a workflow step targets that environment, the deployment protection rule will run automatically. For more information about targeting an environment for deployments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
 When a custom deployment protection rule is triggered it will wait for up to 30 days for a webhook event response before it times out and the workflow job fails.
 
@@ -33,12 +33,12 @@ You can choose to create your own custom deployment protection rules or you may 
 
 The following is a list of official partner implementations for deployment protection rules.
 
-- Datadog: you can enforce protection rules on your {% data variables.product.prodname_actions %} deployment workflows using Datadog monitors. For more information, see [Gating your {% data variables.product.prodname_actions %} Deployments with Datadog Monitors](https://docs.datadoghq.com/continuous_integration/guides/github_gating/) in the Datadog documentation.
-- Honeycomb: you can define thresholds to reject or approve deployments based on data you are sending to Honeycomb. For more information, see [the Honeycomb app](https://github.com/apps/honeycomb-io) in the {% data variables.product.prodname_marketplace %}.
-- New Relic: for more information, see [the New Relic app](https://github.com/apps/new-relic-gate) in the {% data variables.product.prodname_marketplace %}.
-- NCM NodeSource: for more information, see [the NCM NodeSource app](https://github.com/apps/ncm-nodesource) in the {% data variables.product.prodname_marketplace %}.
-- Sentry: for more information, see [the Sentry Deployment Gate app](https://github.com/apps/sentry-deployment-gate) in the {% data variables.product.prodname_marketplace %}.
-- ServiceNow: for more information, see [GitHub integration with DevOps Change Velocity](https://docs.servicenow.com/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html) in the ServiceNow documentation.
+* Datadog: you can enforce protection rules on your {% data variables.product.prodname_actions %} deployment workflows using Datadog monitors. For more information, see [Gating your {% data variables.product.prodname_actions %} Deployments with Datadog Monitors](https://docs.datadoghq.com/continuous_integration/guides/github_gating/) in the Datadog documentation.
+* Honeycomb: you can define thresholds to reject or approve deployments based on data you are sending to Honeycomb. For more information, see [the Honeycomb app](https://github.com/apps/honeycomb-io) in the {% data variables.product.prodname_marketplace %}.
+* New Relic: for more information, see [the New Relic app](https://github.com/apps/new-relic-gate) in the {% data variables.product.prodname_marketplace %}.
+* NCM NodeSource: for more information, see [the NCM NodeSource app](https://github.com/apps/ncm-nodesource) in the {% data variables.product.prodname_marketplace %}.
+* Sentry: for more information, see [the Sentry Deployment Gate app](https://github.com/apps/sentry-deployment-gate) in the {% data variables.product.prodname_marketplace %}.
+* ServiceNow: for more information, see [GitHub integration with DevOps Change Velocity](https://docs.servicenow.com/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html) in the ServiceNow documentation.
 
 ## Prerequisites
 

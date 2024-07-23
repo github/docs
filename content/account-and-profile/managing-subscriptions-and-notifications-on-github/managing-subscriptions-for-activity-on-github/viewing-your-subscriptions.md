@@ -54,9 +54,9 @@ Many people forget about repositories that they've chosen to watch in the past. 
 {% tip %}
 
 **Tips:**
-- To review subscriptions you may have forgotten about, sort by "least recently subscribed."
+* To review subscriptions you may have forgotten about, sort by "least recently subscribed."
 
-- To review a list of repositories that you can still receive notifications for, see the repository list in the "filter by repository" drop-down menu.
+* To review a list of repositories that you can still receive notifications for, see the repository list in the "filter by repository" drop-down menu.
 
 {% endtip %}
 

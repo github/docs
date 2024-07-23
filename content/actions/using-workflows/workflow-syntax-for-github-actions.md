@@ -52,15 +52,55 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
+{% data reusables.actions.workflows.triggering-workflow-branches1 %}
+
+### Example: Including branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches2 %}
+
+### Example: Excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches3 %}
+
+### Example: Including and excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
 ## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
-{% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
+
+### Example: Including branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags2 %}
+
+### Example: Excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags3 %}
+
+### Example: Including and excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags4 %}
 
 ## `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
+{% data reusables.actions.workflows.triggering-a-workflow-paths1 %}
+
+### Example: Including paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths2 %}
+
+### Example: Excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths3 %}
+
+### Example: Including and excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths4 %}
+
+### Git diff comparisons
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths5 %}
 
 ## `on.schedule`
 
@@ -476,9 +516,9 @@ A name for your step to display on {% data variables.product.prodname_dotcom %}.
 Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
-- Using the commit SHA of a released action version is the safest for stability and security.
-- If the action publishes major version tags, you should expect to receive critical fixes and security patches while still retaining compatibility. Note that this behavior is at the discretion of the action's author.
-- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+* Using the commit SHA of a released action version is the safest for stability and security.
+* If the action publishes major version tags, you should expect to receive critical fixes and security patches while still retaining compatibility. Note that this behavior is at the discretion of the action's author.
+* Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
@@ -615,14 +655,14 @@ Commands run using non-login shells by default. You can choose a different shell
 
 Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
-- A single-line command:
+* A single-line command:
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-- A multi-line command:
+* A multi-line command:
 
   ```yaml
   - name: Clean install dependencies and build
@@ -724,19 +764,19 @@ For information about the software included on GitHub-hosted runners, see "[AUTO
 
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
-- `bash`/`sh`:
-  - By default, fail-fast behavior is enforced using `set -e` for both `sh` and `bash`. When `shell: bash` is specified, `-o pipefail` is also applied to enforce early exit from pipelines that generate a non-zero exit status.
-  - You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
-  - `sh`-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
+* `bash`/`sh`:
+  * By default, fail-fast behavior is enforced using `set -e` for both `sh` and `bash`. When `shell: bash` is specified, `-o pipefail` is also applied to enforce early exit from pipelines that generate a non-zero exit status.
+  * You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
+  * `sh`-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
-- `powershell`/`pwsh`
-  - Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
-  - We append `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` to powershell scripts so action statuses reflect the script's last exit code.
-  - Users can always opt out by not using the built-in shell, and providing a custom shell option like: `pwsh -File {0}`, or `powershell -Command "& '{0}'"`, depending on need.
+* `powershell`/`pwsh`
+  * Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
+  * We append `if ((Test-Path -LiteralPath variable:\LASTEXITCODE)) { exit $LASTEXITCODE }` to powershell scripts so action statuses reflect the script's last exit code.
+  * Users can always opt out by not using the built-in shell, and providing a custom shell option like: `pwsh -File {0}`, or `powershell -Command "& '{0}'"`, depending on need.
 
-- `cmd`
-  - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+* `cmd`
+  * There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
+  * `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
 ## `jobs.<job_id>.steps[*].with`
 
@@ -957,7 +997,7 @@ If you configure the job to run directly on the runner machine and your step doe
 
 For more information about the differences between networking service containers, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 
-## Example: Using localhost
+### Example: Using localhost
 
 This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
@@ -1146,12 +1186,12 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 
 You can use special characters in path, branch, and tag filters.
 
-- `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
-- `**`: Matches zero or more of any character.
-- `?`: Matches zero or one of the preceding character.
-- `+`: Matches one or more of the preceding character.
-- `[]` Matches one alphanumeric character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
-- `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
+* `*`: Matches zero or more characters, but does not match the `/` character. For example, `Octo*` matches `Octocat`.
+* `**`: Matches zero or more of any character.
+* `?`: Matches zero or one of the preceding character.
+* `+`: Matches one or more of the preceding character.
+* `[]` Matches one alphanumeric character listed in the brackets or included in ranges. Ranges can only include `a-z`, `A-Z`, and `0-9`. For example, the range`[0-9a-z]` matches any digit or lowercase letter. For example, `[CB]at` matches `Cat` or `Bat` and `[1-2]00` matches `100` and `200`.
+* `!`: At the start of a pattern makes it negate previous positive patterns. It has no special meaning if not the first character.
 
 The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes. Also, if you use a [flow sequence](https://yaml.org/spec/1.2.2/#flow-sequences) with a pattern containing `[` and/or `]`, the pattern must be enclosed in quotes.
 
