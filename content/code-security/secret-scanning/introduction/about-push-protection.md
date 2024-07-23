@@ -27,16 +27,14 @@ Push protection is a {% data variables.product.prodname_secret_scanning %} featu
 
 You can enable push protection:
 
-* At repository/organization level, if you are a repository administrator or an organization owner For more information, see
+* At repository/organization level, if you are a repository administrator or an organization owner.
 * For your account on {% data variables.product.prodname_dotcom %}, as a user.
 
 ## About push protection for repositories and organizations
 
-{% else %}
+{% endif %}
 
 If you are a repository administrator or an organization owner, you can enable push protection at repository/organization level.
-
-{% endif %}
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
@@ -62,7 +60,7 @@ When you enable push protection, by default, anyone with write access to the rep
 
 If the request to bypass push protection is approved, the contributor can push the commit containing the secret. If the request is denied, the contributor must remove the secret from the commit (or commits) containing the secret before pushing again.
 
-For information about delegated bypass for push protection, see "[Configuring delegated bypass for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+For information about delegated bypass for push protection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
 {% endif %}
 
