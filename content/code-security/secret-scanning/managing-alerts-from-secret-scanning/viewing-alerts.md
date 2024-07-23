@@ -1,7 +1,7 @@
 ---
 title: Viewing and filtering alerts from secret scanning
-intro: 'You can view alerts for secrets checked in to your repository and you can use filters to help you prioritize alerts.'
-permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view secret scanning alerts for the repository.'
+intro: 'Learn how to find and filter {% data variables.secret-scanning.user_alerts_caps %} alerts for your repository.'
+permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view {% data variables.secret-scanning.user_alerts_caps %} for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -15,6 +15,34 @@ topics:
   - Repositories
 shortTitle: View alerts
 ---
+
+## About the {% data variables.product.prodname_secret_scanning %} alerts page
+
+{% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %}
+
+{% ifversion secret-scanning-non-provider-patterns %}
+To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
+* **High confidence** alerts.
+* **Other** alerts.
+
+![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "High confidence" and "Other" alerts is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-high-confidence-alert-view.png)
+
+### High confidence alerts list
+
+The "High confidence" alerts list displays alerts that relate to supported patterns and specified custom patterns. This list is always the default view for the alerts page.
+
+### Other alerts list
+
+The "Other" alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts have a higher rate of false positives.
+
+In addition, alerts that fall into this category:
+* Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
+* Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
+* Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected generic secrets{% endif %}.
+
+For {% data variables.product.company_short %} to scan for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and generic secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-scanning-for-non-provider-patterns){% ifversion secret-scanning-ai-generic-secret-detection %}" and "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection){% endif %}."
+
+{% endif %}
 
 ## Viewing alerts
 
@@ -52,3 +80,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`confidence:high`| Displays alerts for high-confidence secrets, which relate to supported secrets and custom patterns. For a list of supported high-confidence patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#high-confidence-patterns)." |
 |`confidence:other`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns)." {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."{% endif %}|
 | {% endif %} |
+
+## Next steps
+
+* [AUTOTITLE](/TODO)
