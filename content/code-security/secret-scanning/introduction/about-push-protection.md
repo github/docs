@@ -1,6 +1,6 @@
 ---
 title: About push protection
-intro: 'TODO.'
+intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block. TODO'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   fpt: '*'
@@ -38,41 +38,45 @@ If you are a repository administrator or an organization owner, you can enable p
 
 {% endif %}
 
-{% ifversion security-overview-push-protection-metrics-page %}
-
-If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
-
-{% endif %}
-
-{% ifversion ghec or fpt %}
-{% note %}
-
-**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)."
-
-{% endnote %}
-{% endif %}
-
-By default, anyone with write access to the repository can choose to bypass push protection by specifying one of the bypass reasons outlined in the table. If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see "[Enabling delegated bypass for push protection](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)."
-
-You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
-
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
-
 {% ifversion secret-scanning-push-protection-for-users %}
 
 ## About push protection for users
 
-Everyone across {% data variables.product.prodname_dotcom %} can enable push protection for themselves within your individual settings. This ensures your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
+Every user across {% data variables.product.prodname_dotcom %} can enable push protection for themselves within their individual settings.
+
+Enabling push protection for your user account means that your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
-TODO Add link to enabling article, which is new.
+## What are the supported secrets
 
-## Next steps
+For information about the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
-Mention custom patterns at the end?
-{% data reusables.secret-scanning.push-protection-custom-pattern %} {% ifversion secret-scanning-push-protection-custom-patterns %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %}
+{% ifversion push-protection-delegated-bypass %}
+
+## Delegated bypass
+
+{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %}
+
+When you enable push protection, by default, anyone with write access to the repository can choose to bypass the protection by specifying a reason for allowing the push containing a secret. With delegated bypass, contributors to a repository are instead obligated to request "bypass privileges." The request is sent to a designated group of reviewers, who either approve or deny the request to bypass push protection.
+
+If the request to bypass push protection is approved, the contributor can push the commit containing the secret. If the request is denied, the contributor must remove the secret from the commit (or commits) containing the secret before pushing again.
+
+For information about delegated bypass for push protection, see "[Configuring delegated bypass for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+
+{% endif %}
+
+{% ifversion secret-scanning-push-protection-custom-patterns %}
+
+## Custom patterns
+
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by push protection. For example, you might have a secret pattern that is internal to your organization.
+
+{% data reusables.secret-scanning.push-protection-custom-pattern %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+{% endif %}
 
 ## Further reading
 
+* TODO: add link to enabling push protection
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"

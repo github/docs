@@ -17,6 +17,7 @@ type: overview
 topics:
   - Secret scanning
   - Advanced Security
+shortTitle: Secret scanning
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
