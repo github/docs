@@ -10,7 +10,7 @@ redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
   - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
-type: how_to
+type: overview
 topics:
   - Secret scanning
   - Advanced Security
@@ -60,7 +60,9 @@ For information on the secrets and service providers supported for push protecti
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
-## About push protection for users.
+## About push protection for users
+
+Everyone across {% data variables.product.prodname_dotcom %} can enable push protection for themselves within your individual settings. This ensures your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
