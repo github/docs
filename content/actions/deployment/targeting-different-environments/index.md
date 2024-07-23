@@ -7,6 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /using-environments-for-deployment
+  - /managing-environments-for-deployment
 ---
 
