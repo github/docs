@@ -3,12 +3,14 @@ title: Managing environments for deployment
 shortTitle: Manage environments
 intro: You can create environments and secure those environments with deployment protection rules. A job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 product: '{% data reusables.gated-features.environments %}'
-permissions: 'Repository owners'
+permissions: Repository owners
 redirect_from:
   - /actions/reference/environments
   - /actions/deployment/environments
   - /actions/deployment/using-environments-for-deployment
   - /actions/deployment/targeting-different-environments/using-environments-for-deployment
+  - /actions/deployment/targeting-different-environments
+  - /actions/deployment/targeting-different-environments/managing-environments-for-deployment
 topics:
   - CD
   - Deployment
