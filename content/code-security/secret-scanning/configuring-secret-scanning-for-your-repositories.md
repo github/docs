@@ -101,27 +101,7 @@ For more information about non-provider patterns, see "{% ifversion fpt or ghec 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For example, you can exclude directories that contain tests or randomly generated content.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-1. In the file name field, type _.github/secret_scanning.yml_.
-1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
-
-    ``` yaml
-    paths-ignore:
-      - "foo/bar/*.js"
-    ```
-
-    You can use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
-
-    {% note %}
-
-    **Notes:**
-    * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
-
-    {% endnote %}
+You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)."
 
 You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

@@ -13,6 +13,7 @@ topics:
   - Advanced Security
   - Repositories
 children:
+  - /excluding-folders-and-files-from-secret-scanning
   - /non-provider-patterns
   - /generic-secret-detection
   - /custom-patterns

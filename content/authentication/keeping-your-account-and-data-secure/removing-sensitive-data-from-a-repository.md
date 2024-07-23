@@ -188,10 +188,11 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 1. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
-1. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+1. If you used `git filter-repo`, you can skip this step.
+
+   If you used the BFG tool, after rewriting, you can clean up references in your local repository to the old history to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
 
    ```shell
-   $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
    $ git reflog expire --expire=now --all
    $ git gc --prune=now
    > Counting objects: 2437, done.

@@ -1535,6 +1535,21 @@
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
+    "action": "org.security_center_export_coverage",
+    "description": "A CSV export was requested on the Coverage page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the Overview Dashboard page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_risk",
+    "description": "A CSV export was requested on the Risk page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.self_hosted_runner_offline",
     "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
