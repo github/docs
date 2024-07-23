@@ -61,6 +61,10 @@ For more information about dependency review, see "[AUTOTITLE](/code-security/su
 
 {% data reusables.dependency-review.about-dependency-review-action %}
 
+![Screenshot of a workflow run that uses the dependency review action.](/assets/images/help/graphs/dependency-review-action.png)
+
+{% data reusables.dependency-review.about-dependency-review-action2 %}
+
 ## Keeping the actions in your workflows secure and up to date
 
 {% data reusables.actions.dependabot-version-updates-for-actions %}

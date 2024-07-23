@@ -16,7 +16,7 @@ To keep your account secure when two-factor authentication (2FA) is not enabled,
 
 You will only need to verify a new device once. If you clear your cookies, or use a different browser on the same device, {% data variables.product.prodname_dotcom %} may ask you to verify your device again.
 
-{% data variables.product.prodname_dotcom %} will not ask you to perform device verification when you have 2FA enabled.
+{% data variables.product.prodname_dotcom %} will not ask you to perform device verification when you have 2FA enabled, or when you sign in using a passkey. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."
 
 ## Verifying your sign-in attempt
 
@@ -40,3 +40,5 @@ If you receive a verification code from {% data variables.product.prodname_dotco
 ## Disabling device verification
 
 You can disable the requirement to verify new devices via email by enabling 2FA. It is not possible to opt-out of device verification entirely without enabling 2FA. See "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+
+You can sign in using a passkey to skip the device verification prompt. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."

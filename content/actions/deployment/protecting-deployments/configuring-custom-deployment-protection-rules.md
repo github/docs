@@ -1,12 +1,12 @@
 ---
 title: Configuring custom deployment protection rules
 shortTitle: Configure custom protection rules
-intro: Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.
+intro: 'Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.'
 product: '{% data reusables.actions.custom-deployment-protection-rules-availability %}'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.10'
+  ghes: '*'
 topics:
   - Actions
   - CD
@@ -19,7 +19,7 @@ topics:
 
 Custom deployment protection rules are powered by {% data variables.product.prodname_github_apps %}. Once a deployment protection rule is configured and installed in a repository, it can be enabled for any environments in the repository.
 
-After you enable a custom deployment protection rule on an environment, every time a workflow step targets that environment, the deployment protection rule will run automatically. For more information about targeting an environment for deployments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+After you enable a custom deployment protection rule on an environment, every time a workflow step targets that environment, the deployment protection rule will run automatically. For more information about targeting an environment for deployments, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
 When a custom deployment protection rule is triggered it will wait for up to 30 days for a webhook event response before it times out and the workflow job fails.
 

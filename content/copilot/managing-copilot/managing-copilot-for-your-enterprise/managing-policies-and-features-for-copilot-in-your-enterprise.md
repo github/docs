@@ -1,6 +1,6 @@
 ---
 title: Managing policies and features for Copilot in your enterprise
-intro: 'You can control the availability of {% data variables.product.prodname_copilot %} and its features for all organizations in your enterprise.'
+intro: 'Enterprise owners can control the availability of {% data variables.product.prodname_copilot %} and its features for all organizations in the enterprise.'
 permissions: Enterprise owners
 product: '{% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
 versions:
@@ -39,11 +39,10 @@ You can configure any of the following policies for your enterprise:
 With a {% data variables.product.prodname_copilot_enterprise_short %} license, you can enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" to provide members of your enterprise access to AI features on {% data variables.product.prodname_dotcom_the_website %}, including:
 * **{% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %}** - You can ask {% data variables.product.prodname_copilot %} coding-related questions within a chat interface on {% data variables.product.prodname_dotcom_the_website %}. You can ask general questions or questions within a specific context such as a repository, issue, file, or symbol.
 * **{% data variables.product.prodname_copilot_short %} pull request summaries** - {% data variables.product.prodname_copilot_short %} can generate a summary of the changes made in a pull request, as well as a list of impacted files, using natural language. This overview helps reviewers quickly understand the proposed changes.
-* **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.product.prodname_copilot_chat_dotcom %} and {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}.
+* **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
 If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
 * **Opt in to user feedback collection** - If enabled, members of your enterprise can provide feedback after {% data variables.product.prodname_copilot_short %} generates a pull request summary, and the summary will be sent to {% data variables.product.prodname_dotcom %} for context. If disabled, members of your enterprise can still provide feedback after each {% data variables.product.prodname_copilot_chat_short %} response, and via the "Give feedback" link in conversations.
-* **Experimental {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features before they are released. Be aware that experimental features may have flaws, and the features may be changed or discontinued at any time.
 
 ### {% data variables.product.prodname_copilot_cli %}
 

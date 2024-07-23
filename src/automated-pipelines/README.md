@@ -10,10 +10,12 @@ Automated pages allow for manually created content to be prepended to the automa
 
 ## What automation pipelines are available
 
+- [Audit Logs](../audit-logs/README.md)
 - [CodeQL CLI](../codeql-cli/README.md)
 - [GitHub Apps](../github-apps/README.md)
 - [GraphQL](../graphql/README.md)
 - [REST](../rest/README.md)
+- [Secret Scanning](../secret-scanning/README.md)
 - [Webhooks](../webhooks/README.md)
 
 ## How does it work
