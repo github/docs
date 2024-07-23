@@ -43,7 +43,7 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
   * Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
   * Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
 * **Consider requiring review for access to secrets**
-  * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+  * You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
 {% warning %}
 
