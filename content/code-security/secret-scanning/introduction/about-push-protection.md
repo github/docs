@@ -1,6 +1,6 @@
 ---
 title: About push protection
-intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block. TODO'
+intro: 'Push protection helps detect secrets in code as changes are pushed. Push protection blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block. TODO for users'
 product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   fpt: '*'
@@ -18,6 +18,8 @@ topics:
   - Repositories
 shortTitle: Push protection
 ---
+
+## What is push protection
 
 Push protection is a {% data variables.product.prodname_secret_scanning %} feature that checks commits for highly identifiable secrets before these commits are pushed to a repository.
 
@@ -48,7 +50,7 @@ Enabling push protection for your user account means that your pushes are protec
 
 ## What are the supported secrets
 
-For information about the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% ifversion push-protection-delegated-bypass %}
 
@@ -66,11 +68,9 @@ For information about delegated bypass for push protection, see "[AUTOTITLE](/co
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}
 
-## Custom patterns
+## Custom pattern support
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by push protection. For example, you might have a secret pattern that is internal to your organization.
-
-{% data reusables.secret-scanning.push-protection-custom-pattern %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+You can define custom patterns to identify secrets that are not detected by the default patterns supported by push protection. For example, you might have a secret pattern that is internal to your organization. {% data reusables.secret-scanning.push-protection-custom-pattern %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 {% endif %}
 

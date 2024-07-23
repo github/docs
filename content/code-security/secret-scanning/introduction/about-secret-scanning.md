@@ -20,6 +20,8 @@ topics:
 shortTitle: Secret scanning
 ---
 
+## What is {% data variables.product.prodname_secret_scanning %}
+
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 <a name="about-secret-scanning"></a>
@@ -58,6 +60,10 @@ If your project communicates with an external service, you might use a token or 
 **Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} or push protection enabled, these features are not enabled by default on the fork. You can enable {% data variables.product.prodname_secret_scanning %} or push protection on the fork the same way you enable them on a standalone repository.
 
 {% endnote %}
+
+## What are the supported secrets
+
+For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% ifversion fpt or ghec %}
 
