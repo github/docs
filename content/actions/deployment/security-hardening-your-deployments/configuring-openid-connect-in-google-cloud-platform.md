@@ -57,7 +57,7 @@ The `google-github-actions/auth` action receives a JWT from the {% data variable
 
 This example has a job called `Get_OIDC_ID_token` that uses actions to request a list of services from GCP.
 
-* `<example-workload-identity-provider>`: Replace this with the path to your identity provider in GCP. For example, `projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool/providers/<name-of-provider>`
+* `<example-workload-identity-provider>`: Replace this with the path to your identity provider in GCP. For example, `projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool>/providers/<name-of-provider>`
 * `<example-service-account>`: Replace this with the name of your service account in GCP.
 * `<project-id>`: Replace this with the ID of your GCP project.
 
