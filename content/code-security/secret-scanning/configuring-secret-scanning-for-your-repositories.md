@@ -82,6 +82,23 @@ You can also use the REST API to enable validity checks for partner patterns for
 
 {% endif %}
 
+{% ifversion secret-scanning-non-provider-patterns %}
+
+### Enabling scanning for non-provider patterns
+
+{% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+You can enable scanning for non-provider patterns. Non-provider patterns correspond to secrets such as private keys and they have a higher ratio of false positives.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under {% data variables.product.prodname_secret_scanning_caps %}, select the checkbox next to "Scan for non-provider patterns".
+
+For more information about non-provider patterns, see "{% ifversion fpt or ghec %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-secret-scanning-alerts){% endif %}."
+
+{% endif %}
+
 {% ifversion secret-scanning-enable-by-default-for-public-repos %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories
