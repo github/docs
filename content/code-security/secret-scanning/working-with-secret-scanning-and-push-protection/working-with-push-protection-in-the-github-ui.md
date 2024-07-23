@@ -29,8 +29,8 @@ When you are creating and editing files in the {% data variables.product.prodnam
 
 You should either:
 
-* **Remove** the secret from the commit. For more information, see "[Resolving a blocked commit in the {% data variables.product.prodname_dotcom %} UI](#resolving-a-blocked-commit-in-the-github-ui)."
-* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection when working in the {% data variables.product.prodname_dotcom %} UI](#bypassing-push-protection-when-working-in-the-github-ui){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges when working in the {% data variables.product.prodname_dotcom %} UI](#requesting-bypass-privileges-when-working-in-the-github-ui){% endif %}."
+* **Remove** the secret from the commit. For more information, see "[Resolving a blocked commit](#resolving-a-blocked-commit)."
+* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges](#requesting-bypass-privileges){% endif %}."
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
@@ -55,7 +55,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges when working from the command line](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges-when-working-in-the-github-ui)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 {% ifversion push-protection-delegated-bypass %}
 

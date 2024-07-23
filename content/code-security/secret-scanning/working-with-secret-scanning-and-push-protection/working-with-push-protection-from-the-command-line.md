@@ -23,8 +23,8 @@ When you attempt to push a supported secret from the command line to a repositor
 
 You should either:
 
-* **Remove** the secret from your branch. For more information, see "[Resolving a blocked push from the command line](#resolving-a-blocked-push-from-the-command-line)."
-* **Follow a provided URL** {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection when working from the command line](#bypassing-push-protection-when-working-from-the-command-line){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges when working from the command line](#requesting-bypass-privileges-when-working-from-the-command-line){% endif %}."
+* **Remove** the secret from your branch. For more information, see "[Resolving a blocked push](#resolving-a-blocked-push)."
+* **Follow a provided URL** {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges](#requesting-bypass-privileges){% endif %}."
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
@@ -117,7 +117,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges when working from the command line](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges-when-working-from-the-command-line)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 {% data reusables.secret-scanning.push-protection-visit-URL %}
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
@@ -144,7 +144,7 @@ Requests expire after 7 days.
 
 If your request is approved, you can push the commit (or commits) containing the secret to the repository, as well as any future commits that contain the same secret.
 
-If your request is denied, you will need to remove the secret from all commits containing the secret before pushing again. For information on how to remove a blocked secret, see "[Resolving a blocked push from the command line](#resolving-a-blocked-push-from-the-command-line)."
+If your request is denied, you will need to remove the secret from all commits containing the secret before pushing again. For information on how to remove a blocked secret, see "[Resolving a blocked push](#resolving-a-blocked-push)."
 
 {% endif %}
 
