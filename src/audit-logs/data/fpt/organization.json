@@ -2855,6 +2855,26 @@
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
   },
   {
+    "action": "repository_security_configuration.applied",
+    "description": "A code security configuration was applied to a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.failed",
+    "description": "A code security configuration failed to attach to the repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed",
+    "description": "A code security configuration was removed from a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_security_configuration.removed_by_settings_change",
+    "description": "A code security configuration was removed due to a change in repository or enterprise settings.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_visibility_change.clear",
     "description": "The repository visibility change setting was cleared for an organization or enterprise.",
     "docs_reference_links": "/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility"
@@ -3028,6 +3048,36 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "security_configuration.create",
+    "description": "A security configuration was created",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.delete",
+    "description": "A default security configuration setting for new repositories was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_default.update",
+    "description": "A default security configuration setting for new repositories was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.delete",
+    "description": "A security configuration was deleted",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration_policy.update",
+    "description": "A security configuration policy was updated",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_configuration.update",
+    "description": "A security configuration was updated",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "sponsors.agreement_sign",
