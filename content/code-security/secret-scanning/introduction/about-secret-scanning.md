@@ -1,5 +1,5 @@
 ---
-title: About secret scanning
+title: Secret scanning
 intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:

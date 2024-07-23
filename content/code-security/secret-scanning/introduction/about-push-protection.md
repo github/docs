@@ -56,7 +56,7 @@ By default, anyone with write access to the repository can choose to bypass push
 
 You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns.md#supported-secrets)."
+For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
@@ -75,5 +75,4 @@ Mention custom patterns at the end?
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)"
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
