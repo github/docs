@@ -82,6 +82,23 @@ You can also use the REST API to enable validity checks for partner patterns for
 
 {% endif %}
 
+{% ifversion secret-scanning-non-provider-patterns %}
+
+### Enabling scanning for non-provider patterns
+
+{% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+You can enable scanning for non-provider patterns. Non-provider patterns correspond to secrets such as private keys and they have a higher ratio of false positives.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Under {% data variables.product.prodname_secret_scanning_caps %}, select the checkbox next to "Scan for non-provider patterns".
+
+For more information about non-provider patterns, see "{% ifversion fpt or ghec %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-secret-scanning-alerts){% endif %}."
+
+{% endif %}
+
 {% ifversion secret-scanning-enable-by-default-for-public-repos %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %} for all your {% ifversion ghec %}user-owned {% endif %}public repositories
@@ -102,27 +119,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for all of 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For example, you can exclude directories that contain tests or randomly generated content.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.files.add-file %}
-1. In the file name field, type _.github/secret_scanning.yml_.
-1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
-
-    ``` yaml
-    paths-ignore:
-      - "foo/bar/*.js"
-    ```
-
-    You can use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
-
-    {% note %}
-
-    **Notes:**
-    * If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    * If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
-
-    {% endnote %}
+You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)."
 
 You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

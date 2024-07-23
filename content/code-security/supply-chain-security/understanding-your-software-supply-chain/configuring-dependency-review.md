@@ -51,6 +51,8 @@ Dependency review is available when dependency graph is enabled for {% data vari
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
+{% data reusables.dependency-review.org-level-enforcement %}
+
 Here is a list of common configuration options.  For more information, and a full list of options, see [Dependency Review](https://github.com/marketplace/actions/dependency-review) on the {% data variables.product.prodname_marketplace %}.
 
 | Option | Required | Usage |
