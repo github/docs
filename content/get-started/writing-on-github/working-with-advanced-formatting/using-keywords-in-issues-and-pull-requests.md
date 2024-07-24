@@ -26,7 +26,7 @@ To link a pull request to an issue to show that a fix is in progress and to auto
 * resolves
 * resolved
 
-Other equvaillent form of word in other language may also works, like "修复"。
+Other equvailent words in other languages may also works, like "修复"。
 
 For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
