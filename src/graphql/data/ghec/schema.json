@@ -19647,6 +19647,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanLabel",
+          "description": "<p>Indicates if the viewer can edit labels for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
           "type": "Boolean!",
@@ -29138,6 +29146,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanLabel",
+          "description": "<p>Indicates if the viewer can edit labels for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
           "type": "Boolean!",
@@ -33007,6 +33023,71 @@
           "id": "mergequeueentry",
           "kind": "objects",
           "href": "/graphql/reference/objects#mergequeueentry"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueParameters",
+      "kind": "objects",
+      "id": "mergequeueparameters",
+      "href": "/graphql/reference/objects#mergequeueparameters",
+      "description": "<p>Merges must be performed via a merge queue.</p>",
+      "fields": [
+        {
+          "name": "checkResponseTimeoutMinutes",
+          "description": "<p>Maximum time for a required status check to report a conclusion. After this\nmuch time has elapsed, checks that have not reported a conclusion will be\nassumed to have failed.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "groupingStrategy",
+          "description": "<p>When set to ALLGREEN, the merge commit created by merge queue for each PR in\nthe group must pass all required checks to merge. When set to HEADGREEN, only\nthe commit at the head of the merge group, i.e. the commit containing changes\nfrom all of the PRs in the group, must pass its required checks to merge.</p>",
+          "type": "MergeQueueGroupingStrategy!",
+          "id": "mergequeuegroupingstrategy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuegroupingstrategy"
+        },
+        {
+          "name": "maxEntriesToBuild",
+          "description": "<p>Limit the number of queued pull requests requesting checks and workflow runs at the same time.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maxEntriesToMerge",
+          "description": "<p>The maximum number of PRs that will be merged together in a group.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>Method to use when merging changes from queued pull requests.</p>",
+          "type": "MergeQueueMergeMethod!",
+          "id": "mergequeuemergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuemergemethod"
+        },
+        {
+          "name": "minEntriesToMerge",
+          "description": "<p>The minimum number of PRs that will be merged together in a group.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "minEntriesToMergeWaitMinutes",
+          "description": "<p>The time merge queue should wait after the first PR is added to the queue for\nthe minimum group size to be met. After this time has elapsed, the minimum\ngroup size will be ignored and a smaller group will be merged.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -51369,6 +51450,14 @@
         {
           "name": "viewerCanEnableAutoMerge",
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanLabel",
+          "description": "<p>Indicates if the viewer can edit labels for this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -79865,6 +79954,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "viewerCanLabel",
+          "description": "<p>Indicates if the viewer can edit labels for this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -84657,6 +84754,44 @@
       ]
     },
     {
+      "name": "MergeQueueGroupingStrategy",
+      "kind": "enums",
+      "id": "mergequeuegroupingstrategy",
+      "href": "/graphql/reference/enums#mergequeuegroupingstrategy",
+      "description": "<p>When set to ALLGREEN, the merge commit created by merge queue for each PR in the\ngroup must pass all required checks to merge. When set to HEADGREEN, only the\ncommit at the head of the merge group, i.e. the commit containing changes from\nall of the PRs in the group, must pass its required checks to merge.</p>",
+      "values": [
+        {
+          "name": "ALLGREEN",
+          "description": "<p>The merge commit created by merge queue for each PR in the group must pass all required checks to merge.</p>"
+        },
+        {
+          "name": "HEADGREEN",
+          "description": "<p>Only the commit at the head of the merge group must pass its required checks to merge.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueMergeMethod",
+      "kind": "enums",
+      "id": "mergequeuemergemethod",
+      "href": "/graphql/reference/enums#mergequeuemergemethod",
+      "description": "<p>Method to use when merging changes from queued pull requests.</p>",
+      "values": [
+        {
+          "name": "MERGE",
+          "description": "<p>Merge commit.</p>"
+        },
+        {
+          "name": "REBASE",
+          "description": "<p>Rebase and merge.</p>"
+        },
+        {
+          "name": "SQUASH",
+          "description": "<p>Squash and merge.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeQueueMergingStrategy",
       "kind": "enums",
       "id": "mergequeuemergingstrategy",
@@ -87170,11 +87305,11 @@
         },
         {
           "name": "FILE_EXTENSION_RESTRICTION",
-          "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: Thie rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>"
         },
         {
           "name": "FILE_PATH_RESTRICTION",
-          "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: Thie rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>"
         },
         {
           "name": "LOCK_BRANCH",
@@ -87182,11 +87317,11 @@
         },
         {
           "name": "MAX_FILE_PATH_LENGTH",
-          "description": "<p>Prevent commits that include file paths that exceed a specified character\nlimit from being pushed to the commit graph. NOTE: Thie rule is in beta and\nsubject to change.</p>"
+          "description": "<p>Prevent commits that include file paths that exceed a specified character\nlimit from being pushed to the commit graph. NOTE: This rule is in beta and\nsubject to change.</p>"
         },
         {
           "name": "MAX_FILE_SIZE",
-          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to\nthe commit. NOTE: Thie rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to\nthe commit. NOTE: This rule is in beta and subject to change.</p>"
         },
         {
           "name": "MAX_REF_UPDATES",
@@ -91227,6 +91362,11 @@
           "name": "MaxFileSizeParameters",
           "id": "maxfilesizeparameters",
           "href": "/graphql/reference/objects#maxfilesizeparameters"
+        },
+        {
+          "name": "MergeQueueParameters",
+          "id": "mergequeueparameters",
+          "href": "/graphql/reference/objects#mergequeueparameters"
         },
         {
           "name": "PullRequestParameters",
@@ -98337,6 +98477,71 @@
       ]
     },
     {
+      "name": "MergeQueueParametersInput",
+      "kind": "inputObjects",
+      "id": "mergequeueparametersinput",
+      "href": "/graphql/reference/input-objects#mergequeueparametersinput",
+      "description": "<p>Merges must be performed via a merge queue.</p>",
+      "inputFields": [
+        {
+          "name": "checkResponseTimeoutMinutes",
+          "description": "<p>Maximum time for a required status check to report a conclusion. After this\nmuch time has elapsed, checks that have not reported a conclusion will be\nassumed to have failed.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "groupingStrategy",
+          "description": "<p>When set to ALLGREEN, the merge commit created by merge queue for each PR in\nthe group must pass all required checks to merge. When set to HEADGREEN, only\nthe commit at the head of the merge group, i.e. the commit containing changes\nfrom all of the PRs in the group, must pass its required checks to merge.</p>",
+          "type": "MergeQueueGroupingStrategy!",
+          "id": "mergequeuegroupingstrategy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuegroupingstrategy"
+        },
+        {
+          "name": "maxEntriesToBuild",
+          "description": "<p>Limit the number of queued pull requests requesting checks and workflow runs at the same time.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maxEntriesToMerge",
+          "description": "<p>The maximum number of PRs that will be merged together in a group.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>Method to use when merging changes from queued pull requests.</p>",
+          "type": "MergeQueueMergeMethod!",
+          "id": "mergequeuemergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuemergemethod"
+        },
+        {
+          "name": "minEntriesToMerge",
+          "description": "<p>The minimum number of PRs that will be merged together in a group.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "minEntriesToMergeWaitMinutes",
+          "description": "<p>The time merge queue should wait after the first PR is added to the queue for\nthe minimum group size to be met. After this time has elapsed, the minimum\ngroup size will be ignored and a smaller group will be merged.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "MilestoneOrder",
       "kind": "inputObjects",
       "id": "milestoneorder",
@@ -100620,6 +100825,14 @@
           "id": "maxfilesizeparametersinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#maxfilesizeparametersinput"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>Parameters used for the <code>merge_queue</code> rule type.</p>",
+          "type": "MergeQueueParametersInput",
+          "id": "mergequeueparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#mergequeueparametersinput"
         },
         {
           "name": "pullRequest",
