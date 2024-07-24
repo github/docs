@@ -18,11 +18,11 @@ shortTitle: About alerts
 
 ## About the different types of {% data variables.product.prodname_secret_scanning %} alerts
 
-There are three types of {% data variables.product.prodname_secret_scanning %} alerts:
+There are {% ifversion fpt or ghec %}three{% else %}two{% endif %} types of {% data variables.product.prodname_secret_scanning %} alerts:
 
 * **{% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts**: When [GitHub] detects a supported secret in a repository that has {% data variables.product.prodname_secret_scanning %} enabled, a {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alert is generated and displayed in the **Security** tab of the repository.
-* **Push protection alerts**: When a contributor pushes a supported secret to a repository that has push protection enabled, a push protection alert is generated and displayed in the **Security** tab of the repository.
-* **Partner alerts**: Unlike other alerts, partner alerts are sent directly to the secret providers whenever a secret leak is reported for one of their secrets, as part of {% data variables.product.prodname_secret_scanning %}'s partner program.
+* **Push protection alerts**: When a contributor bypasses push protection to push a secret to the repository that has {% data variables.product.prodname_secret_scanning %} and push protection enabled, an alert is generated and displayed in the **Security** tab of the repository.{% ifversion fpt or ghec %}
+* **Partner alerts**: When [GitHub] detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider if they are part of GitHub's secret scanning partner program. Partner alerts are not displayed in the **Security** tab of the repository.{% endif %}
 
 ### About {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts
 
@@ -31,7 +31,7 @@ There are three types of {% data variables.product.prodname_secret_scanning %} a
 {% ifversion secret-scanning-non-provider-patterns %}{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts can be of the following types:
 
 * High confidence alerts, which relate to supported patterns and specified custom patterns.
-* Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys.
+* Non-provider alerts, which have a higher ratio of false positives, and correspond to secrets such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}or AI-detected generic secrets{% endif %}.
 
 {% data variables.product.prodname_dotcom %} displays non-provider alerts in a different list to high confidence alerts, making triaging a better experience for users. For more information, see "[AUTOTITLE](/TODO)."
 
