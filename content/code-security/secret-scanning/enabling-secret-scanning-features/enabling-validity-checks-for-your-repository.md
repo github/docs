@@ -1,7 +1,7 @@
 ---
 title: Enabling validity checks for your repository
 shortTitle: Enable validity checks
-intro: 'TODO.'
+intro: 'Validity checks tell you if a secret is active or inactive, which can help you to prioritize remediation of alerts.'
 product: '{% data reusables.gated-features.partner-pattern-validity-check-ghas %}'
 versions:
   feature: secret-scanning-validity-check-partner-patterns
@@ -18,12 +18,12 @@ You can choose to enable validity checks for partner patterns for your repositor
 
 {% data variables.product.company_short %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
 
-You can also filter by validity status on the alerts page, to help you prioritize which alerts you need to take action on.
+You can also filter by validation status on the alerts page, to help you prioritize which alerts you need to take action on.
 
 > [!NOTE]
 > {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
 
-For more information on using validity checks, see "Checking a secret's validity" in "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
+For more information on using validity checks, see "[AUTOTITLE](/TODO)."
 
 ## Enabling validity checks
 
