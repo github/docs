@@ -1,7 +1,7 @@
 ---
-title: TODO
-shortTitle: TODO
-intro: 'TODO.'
+title: Enabling secret scanning for your repository
+shortTitle: Enable secret scanning
+intro: '{% data variables.product.prodname_secret_scanning %} scans your repositories for leaked secrets and generates alerts.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -14,4 +14,32 @@ topics:
   - Alerts
 ---
 
-## About enabling
+## About enabling {% data variables.secret-scanning.user_alerts %}
+
+You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}repository{% else %} repository that is owned by an organization, and for repositories owned by user accounts when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% elsif fpt %}free public repository that you own{% else %}repository that is owned by an organization{% endif %}. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data reusables.secret-scanning.what-is-scanned %}
+
+You can also enable {% data variables.product.prodname_secret_scanning %} for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+
+{% ifversion secret-scanning-enterprise-level %}
+{% note %}
+
+**Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+{% endnote %}
+{% endif %}
+
+A repository administrator can choose to disable {% data variables.product.prodname_secret_scanning %} for a repository at any time. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+
+## Enabling {% data variables.secret-scanning.user_alerts %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghec or ghes %}
+1. If {% data variables.product.prodname_advanced_security %} is not already enabled for the repository, to the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+1. Review the impact of enabling {% data variables.product.prodname_advanced_security %}, then click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository**.
+1. When you enable {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} may automatically be enabled for the repository due to the organization's settings. If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled.
+
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the "Code security and analysis" page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}{% ifversion fpt %}
+1. Scroll down to the bottom of the page, and click **Enable** for {% data variables.product.prodname_secret_scanning %}. If you see a **Disable** button, it means that {% data variables.product.prodname_secret_scanning %} is already enabled for the repository.
+
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the "Code security and analysis" page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}
