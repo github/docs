@@ -4,6 +4,28 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>MergeQueueGroupingStrategy</code> was added</p>",
+          "<p>Type <code>MergeQueueMergeMethod</code> was added</p>",
+          "<p>Type <code>MergeQueueParameters</code> was added</p>",
+          "<p>Type <code>MergeQueueParametersInput</code> was added</p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to interface <code>Labelable</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Member <code>MergeQueueParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>mergeQueue</code> of type <code>MergeQueueParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>closedByPullRequestsReferences</code> was added to object type <code>Issue</code></p>"
         ]
       }
