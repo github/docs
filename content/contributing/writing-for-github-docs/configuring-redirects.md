@@ -1,5 +1,6 @@
 ---
 title: Configuring redirects
+shortTitle: Configure redirects
 intro: "If an article's title, version, or location changes, you can create a redirect to the current content."
 versions:
   feature: 'contributing'

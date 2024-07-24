@@ -219,6 +219,116 @@
         "additional-permissions": false
       },
       {
+        "category": "code-security",
+        "slug": "get-code-security-configurations-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "create-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "get-default-code-security-configurations",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/defaults",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "get-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "update-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "delete-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "attach-a-configuration-to-repositories",
+        "subcategory": "configurations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/attach",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "set-a-code-security-configuration-as-a-default-for-an-organization",
+        "subcategory": "configurations",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/defaults",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
+        "slug": "get-repositories-associated-with-a-code-security-configuration",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "copilot",
         "slug": "get-copilot-seat-information-and-settings-for-an-organization",
         "subcategory": "copilot-user-management",
@@ -562,17 +672,6 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "list-organization-fine-grained-permissions-for-an-organization",
-        "subcategory": "organization-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-roles-for-an-organization",
         "subcategory": "organization-roles",
         "verb": "get",
@@ -584,44 +683,11 @@
       },
       {
         "category": "orgs",
-        "slug": "create-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/organization-roles",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
         "slug": "get-an-organization-role",
         "subcategory": "organization-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/organization-roles/{role_id}",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "update-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "delete-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -2820,17 +2886,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -3651,6 +3706,17 @@
       },
       {
         "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "deployments",
         "slug": "disable-a-custom-protection-rule-for-an-environment",
         "subcategory": "protection-rules",
         "verb": "delete",
@@ -4109,6 +4175,34 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "attestations": {
+    "title": "Attestations",
+    "displayTitle": "Repository permissions for \"Attestations\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-an-attestation",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/attestations",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "list-attestations",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
         "additional-permissions": false
       }
     ]
@@ -4982,7 +5076,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -4993,7 +5098,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "dependency-graph",
@@ -8490,6 +8606,28 @@
     "title": "Workflows",
     "displayTitle": "Repository permissions for \"Workflows\"",
     "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-file-contents",
+        "subcategory": "contents",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "repos",
+        "slug": "delete-a-file",
+        "subcategory": "contents",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/contents/{path}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
       {
         "category": "git",
         "slug": "create-a-reference",

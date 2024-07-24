@@ -118,7 +118,11 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
+{% ifversion security-configurations-beta-and-pre-beta %}
 1. Click **Code security and analysis**.
+{% else %}
+1. Click **Code security** then **Global settings**.
+{% endif %}
 1. Find the "{% data variables.product.prodname_code_scanning_caps %}" section.
 1. Next to "Expand {% data variables.product.prodname_codeql %} analysis", click **Configure**.
 1. Enter references to the published model packs you want to use, one per line, then click **Save**.

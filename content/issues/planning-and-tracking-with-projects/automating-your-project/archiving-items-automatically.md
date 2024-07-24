@@ -3,7 +3,9 @@ title: Archiving items automatically
 shortTitle: Archiving items automatically
 intro: You can configure your project's built-in workflows to automatically archive items that match a filter.
 versions:
-  feature: projects-v2-auto-archive
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Projects
@@ -51,6 +53,4 @@ Projects also have a limit on the number of archived items they can contain. You
 ## Further reading
 
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-{%- ifversion projects-v2-workflows %}
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
-{%- endif %}

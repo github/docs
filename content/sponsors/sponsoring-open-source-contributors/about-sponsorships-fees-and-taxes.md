@@ -37,23 +37,30 @@ If the account you want to sponsor does not have a profile on {% data variables.
 
 {% endnote %}
 
-## About payment methods for sponsorships
+## About billing and sponsorship payments
 
-You can pay for sponsorships:
-* With a credit card. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)."
-* Through Patreon. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)."
+GitHub provides the following billing methods to show love and support to your fellow collaborators and developers in the form of paid sponsorships: debit or credit cards, and Patreon.
+For additional information on your preferred funding, please click on any of the links below.
+* [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)
+* [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-patreon)
 
 {% note %}
 
-**Note:** When you sponsor an account using a credit card, the charge will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+**Note:** When sponsoring through GitHub, your balance will be charged effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
 {% endnote %}
 
-Organizations can also pay for sponsorships by invoice. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)."
+Alternatively, enterprises and organizations may opt to be billed by recurring invoice. For additional information on billing by invoice, please click on [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice).
+
+{% warning %}
+
+**Warning:** As of February 23, 2023, GitHub Sponsors does not support PayPal. While this only affects GitHub Sponsors, please note that it is still possible to fund GitHub Pro, GitHub Copilot, Actions and Packages, Storage, Codespaces and Git LFS Data using PayPal.
+
+{% endwarning %}
 
 {% ifversion enterprise-orgs-sponsors-with-cc %}
 
-If your enterprise pays by credit card, you can allow your enterprise's organizations to sponsor open source contributors using the credit card. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise)."
+When an enterprise opts to pay by credit card, it can enforce policies within its organizations that allow sponsoring of open source contributors by payments from the same card that was used for billing. For additional information, please click on [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise).
 
 {% endif %}
 

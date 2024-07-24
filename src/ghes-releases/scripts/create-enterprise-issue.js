@@ -90,7 +90,7 @@ async function createReleaseIssue() {
   // If an issue already exists for this release, do nothing
   if (
     await isExistingIssue(repo, {
-      labels: ['new-release', `GHES ${releaseNumber}`],
+      labels: ['ghes-release-automation', `GHES ${releaseNumber}`],
     })
   ) {
     return
@@ -316,6 +316,7 @@ async function isExistingIssue(
         console.log(`Issue ${issue.html_url} already exists for this release.`)
         return true
       }
+      return
     }
   }
 

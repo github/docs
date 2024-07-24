@@ -315,7 +315,7 @@ steps:
 - name: Lint with Ruff
   run: |
     pip install ruff
-    ruff --output-format=github .
+    ruff check --output-format=github .
   continue-on-error: true
 ```
 
@@ -392,11 +392,11 @@ jobs:
         if: {% raw %}${{ always() }}{% endraw %}
 ```
 
-## Publishing to package registries
+## Publishing to PyPI
 
-You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
+You can configure your workflow to publish your Python package to PyPI once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you publish a release. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
 
-For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+The example workflow below uses [Trusted Publishing](https://docs.pypi.org/trusted-publishers/) to authenticate with PyPI, eliminating the need for a manually configured API token.
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -409,25 +409,62 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: read
+
 jobs:
-  deploy:
+  release-build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Python
-        uses: {% data reusables.actions.action-setup-python %}
+
+      - uses: {% data reusables.actions.action-setup-python %}
         with:
-          python-version: '3.x'
-      - name: Install dependencies
+          python-version: "3.x"
+
+      - name: Build release distributions
         run: |
-          python -m pip install --upgrade pip
-          pip install build
-      - name: Build package
-        run: python -m build
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@release/v1
+          # NOTE: put your own distribution build steps here.
+          python -m pip install build
+          python -m build
+
+      - name: Upload distributions
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
+          name: release-dists
+          path: dist/
+
+  pypi-publish:
+    runs-on: ubuntu-latest
+
+    needs:
+      - release-build
+
+    permissions:
+      # IMPORTANT: this permission is mandatory for trusted publishing
+      id-token: write
+
+    # Dedicated environments with protections for publishing are strongly recommended.
+    environment:
+      name: pypi
+      # OPTIONAL: uncomment and update to include your PyPI project URL in the deployment status:
+      # url: https://pypi.org/p/YOURPROJECT
+
+    steps:
+      - name: Retrieve release distributions
+        uses: {% data reusables.actions.action-download-artifact %}
+        with:
+          name: release-dists
+          path: dist/
+
+      - name: Publish release distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
 ```
 
-For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+{% ifversion not ghes %}
+
+For more information about this workflow, including the PyPI settings
+needed, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi).
+
+{% endif %}

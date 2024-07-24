@@ -7,9 +7,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /subscribing-to-copilot-as-an-individual-user
+  - /managing-your-copilot-subscription
   - /managing-copilot-policies-as-an-individual-subscriber
-  - /modifying-your-copilot-subscription-as-an-individual-user
-  - /canceling-your-copilot-trial-as-an-individual-user
-  - /canceling-copilot-as-an-individual-user
+  - /installing-github-copilot-extensions-for-your-personal-account
 ---

@@ -1505,6 +1505,68 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"
     }
   ],
+  "code-security": [
+    {
+      "slug": "get-code-security-configurations-for-an-organization",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations"
+    },
+    {
+      "slug": "create-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/code-security/configurations"
+    },
+    {
+      "slug": "get-default-code-security-configurations",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/defaults"
+    },
+    {
+      "slug": "detach-configurations-from-repositories",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/detach"
+    },
+    {
+      "slug": "get-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "update-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "delete-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}"
+    },
+    {
+      "slug": "attach-a-configuration-to-repositories",
+      "subcategory": "configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/attach"
+    },
+    {
+      "slug": "set-a-code-security-configuration-as-a-default-for-an-organization",
+      "subcategory": "configurations",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/defaults"
+    },
+    {
+      "slug": "get-repositories-associated-with-a-code-security-configuration",
+      "subcategory": "configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/code-security/configurations/{configuration_id}/repositories"
+    }
+  ],
   "codes-of-conduct": [
     {
       "slug": "get-all-codes-of-conduct",
@@ -3151,6 +3213,12 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "list-attestations",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/attestations/{subject_digest}"
+    },
+    {
       "slug": "get-the-audit-log-for-an-organization",
       "subcategory": "orgs",
       "verb": "get",
@@ -4421,6 +4489,18 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
+      "slug": "create-an-attestation",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/attestations"
+    },
+    {
+      "slug": "list-attestations",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}"
+    },
+    {
       "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
@@ -5219,10 +5299,10 @@
       "requestPath": "/users"
     },
     {
-      "slug": "get-a-user",
-      "subcategory": "users",
+      "slug": "list-attestations",
+      "subcategory": "attestations",
       "verb": "get",
-      "requestPath": "/users/{username}"
+      "requestPath": "/users/{username}/attestations/{subject_digest}"
     },
     {
       "slug": "list-followers-of-a-user",

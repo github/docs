@@ -7,11 +7,8 @@ redirect_from:
   - /contributing/writing-for-github-docs/style-guide
 ---
 
-{% note %}
-
-**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line search-replace -->
-
-{% endnote %}
+> [!NOTE]
+> These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line search-replace -->
 
 ## The {% data variables.product.prodname_docs %} approach to style
 
@@ -37,30 +34,21 @@ When writing the description for an audit log event, describe the event that too
 * **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
 * **Avoid**: Triggered when a user updates which repositories a codespace can access.
 
-## Callouts
+## Alerts
 
-Callouts emphasize information within an article that is of special importance and justifies breaking the flow of information.
+Alerts emphasize information within an article that is of special importance and justifies breaking the flow of information.
 
-Use callouts sparingly. Do not use consecutive callouts, or more than one callout per section.
+Use alerts sparingly. Do not use consecutive alerts, or more than one alert per section.
 
-Callouts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
+Alerts should be concise. If the information consists of more than a couple of sentences, or requires an ordered or unordered list, consider placing the information under a section heading instead.
 
-### Callout types
+### Alert types
 
-There are four types of callouts: tip, note, warning, and caution.
-
-#### Tip
-
-Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
-
-For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip callout to help users understand what to expect when they @mention an organization.
-
-> [!TIP]
-> When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+We use four types of alerts: Note, Tip, Warning, and Caution.
 
 #### Note
 
-Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note callouts, but some users in some contexts may benefit from the note.
+Provides additional context that users may need to take into account. Tasks can be accomplished without the information in note alerts, but some users in some contexts may benefit from the note.
 
 Notes are particularly useful for communicating parenthetical information that is not central to the process being described:
 * Caveats that might affect the outcome of a process, such as specific user settings.
@@ -71,13 +59,22 @@ For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-se
 > [!NOTE]
 > Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.
 
+#### Tip
+
+Recommendations, best practices or product hints. Tips contain non-essential information that users can follow at their discretion. Particularly useful in articles aimed at new users.
+
+For example, "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)" uses a tip alert to help users understand what to expect when they @mention an organization.
+
+> [!TIP]
+> When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+
 #### Warning
 
 Highlights potential risks that a user should be aware of before starting or continuing with a task.
 
-Warning callouts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+Warning alerts are particularly relevant for processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
-For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning callout to alert users that once issued, certificates cannot be revoked:
+For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" includes instructions for the command line, and uses a warning alert to inform users that once issued, certificates cannot be revoked:
 
 > [!WARNING]
 > After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -V flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
@@ -86,26 +83,26 @@ For example, "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-git-ac
 
 Alerts users to dangerous or destructive actions that warrant extreme caution before performing, particularly where there is a security risk or potential for data loss.
 
-Caution callouts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
+Caution alerts will generally only be necessary when describing processes that occur outside the {% data variables.product.prodname_dotcom %} UI, such as in the command line or through an API.
 
-### Formatting callouts
+### Formatting alerts
 
-We use standard formatting and colors for different types of callouts across doc sets.
+We use standard formatting and colors for different types of alerts across doc sets.
 
-Callouts are rendered using Markdown.
-
-Tip:
-
-```markdown
-> [!TIP]
-> Here's a suggestion.
-```
+Alerts are rendered using Markdown.
 
 Note:
 
 ```markdown
 > [!NOTE]
 > Keep this in mind.
+```
+
+Tip:
+
+```markdown
+> [!TIP]
+> Here's a suggestion.
 ```
 
 Warning:
@@ -122,9 +119,9 @@ Caution:
 > Be extremely careful.
 ```
 
-Liquid syntax for callouts is still supported and may still appear in older articles, but should not be used for new callouts.
+Liquid syntax for alerts is still supported and may still appear in older articles, but should not be used for new alerts.
 
-For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
+For more information on formatting alerts, see “Alerts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts)."
 
 ## Buttons
 
@@ -268,7 +265,7 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
-To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables).
+To indent reusables, see [`data/reusables/README.md`](https://github.com/github/docs/tree/main/data/reusables#readme).
 
 ### Scheduled workflows
 
@@ -302,11 +299,13 @@ If you must document content that you know will expire, you can use the content 
 
 ## Footnotes
 
-Avoid using footnotes where possible. Consider instead whether you could use a [callout](#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+Avoid using footnotes where possible. Consider instead whether you could use a [alert](#alerts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
 
 If you must use footnotes, use [Markdown-native footnotes](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes) (`[^1]`). Footnote markers will be hyperlinked to the footnote reference, which will be listed at the bottom of the page with a backlink to the marker.
 
 Note that regardless of the identifier you use (letters, words), footnotes will render as sequential numbers.
+
+ {% rowheaders %}
 
 | | Mona | Ursula | Paul | Davy Jones[^1] |
 |---|---|---|---|---|
@@ -315,6 +314,8 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 [^1]: Not to be confused with Davy Jones of The Monkees
 [^2]: Also humans
+
+{% endrowheaders %}
 
 ````markdown
 | | Mona | Ursula | Paul | Davy Jones[^1] |
@@ -576,6 +577,7 @@ Links must be consistent, accessible to as many people as possible, translatable
 Some best practices for using links:
 * Links should be meaningful and provide high value to the user’s journey. Link out thoughtfully.
 * Do not repeat the same link more than once in the same article.
+* Consider adding "earlier/later in this article" after a link to a section in the same article.
 * Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
 ### Formatting links
@@ -627,7 +629,7 @@ Links to specific sections of articles must be descriptive enough that someone u
 To link to a specific header in the same article, use this format:
 
 ```markdown
-For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+For more information, see "[HEADER TITLE](#HEADER-TITLE)," later in this article.
 ```
 
 Same-page section links do **not** work with `AUTOTITLE`. Instead, you must type out the full header text.
@@ -723,7 +725,7 @@ Together, permission statements and product callouts tell readers who can use th
 
 Consider what information belongs in a permission statement or a product callout.
 
-For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
+For example, when creating permissions and product callouts for the article "[AUTOTITLE](/free-pro-team@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)," the permission statement would answer "What role can manage policies and features for {% data variables.product.prodname_copilot %} in an organization?" And the product callout would answer "What {% data variables.product.prodname_copilot_short %} subscriptions do users need to manage {% data variables.product.prodname_copilot_short %} policies and features for an organization?"
 
 #### Focus on key information, not explanations
 

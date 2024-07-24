@@ -12,7 +12,7 @@ Read on for more about how redirects work under the hood.
 
 Precompiled redirects account for the majority of the docs site's redirect handling.
 
-When [`lib/warm-server.js`](lib/warm-server.js) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.js) for each content file, then passes the pages to `lib/redirects/precompile.js` to create redirects. The precompile script runs `lib/redirects/permalinks.js`, which:
+When [`lib/warm-server.ts`](lib/warm-server.ts) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.js) for each content file, then passes the pages to `lib/redirects/precompile.js` to create redirects. The precompile script runs `lib/redirects/permalinks.js`, which:
 
 1. Includes all legacy redirects from `static/developerjson`
 2. Loops over each page's [frontmatter `redirect_from` entries](content/README.md#redirect_from) and creates an array of legacy paths for each one (using the same handling as for permalinks).

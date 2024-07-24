@@ -31,7 +31,7 @@ For more information about creating a CI workflow for your Java project with Gra
 
 You may also find it helpful to have a basic understanding of the following:
 
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
 * "[AUTOTITLE](/actions/learn-github-actions/variables)"
 * "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
 * "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
@@ -98,7 +98,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+        uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
 
       - name: Publish package
         run: ./gradlew publish
@@ -173,7 +173,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+        uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
 
       - name: Publish package
         run: ./gradlew publish
@@ -256,7 +256,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+        uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
 
       - name: Publish package
         run: ./gradlew publish

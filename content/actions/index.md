@@ -59,6 +59,7 @@ children:
   - /hosting-your-own-runners
   - /security-guides
   - /creating-actions
+  - /administering-github-actions
   - /guides
 ---
 

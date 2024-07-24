@@ -67,8 +67,10 @@ The following table shows the accessibility of reusable workflows to a caller wo
 
 | Caller repository | Accessible workflows repositories |
 |----|----|
-| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and  `public` |{% ifversion ghes or ghec %}
-| `internal` | `internal`, and `public` |{% endif %}
+| `private` | `private`{% ifversion ghes or ghec %}, `internal`,{% endif %} and  `public` |
+| {% ifversion ghes or ghec %} |
+| `internal` | `internal`, and `public` |
+| {% endif %} |
 | `public` | `public` |
 
 The **Actions permissions** on the callers repository's Actions settings page must be configured to allow the use of actions and reusable workflows - see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-select-actions-and-reusable-workflows-to-run)."
@@ -170,7 +172,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    {% note %}
 
-   **Note**: Environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   **Note**: Environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#environment-secrets)."
 
    {% endnote %}
 

@@ -12,7 +12,7 @@ topics:
   - CI
   - CD
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow triggers
@@ -103,15 +103,55 @@ You can use activity types and filters to further control when your workflow wil
 
 ### Using filters to target specific branches for pull request events
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
+{% data reusables.actions.workflows.triggering-workflow-branches1 %}
+
+#### Example: Including branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches2 %}
+
+#### Example: Excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches3 %}
+
+#### Example: Including and excluding branches
+
+{% data reusables.actions.workflows.triggering-workflow-branches4 %}
 
 ### Using filters to target specific branches or tags for push events
 
-{% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags1 %}
+
+#### Example: Including branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags2 %}
+
+#### Example: Excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags3 %}
+
+#### Example: Including and excluding branches and tags
+
+{% data reusables.actions.workflows.run-on-specific-branches-or-tags4 %}
 
 ### Using filters to target specific paths for pull request or push events
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
+{% data reusables.actions.workflows.triggering-a-workflow-paths1 %}
+
+#### Example: Including paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths2 %}
+
+#### Example: Excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths3 %}
+
+#### Example: Including and excluding paths
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths4 %}
+
+#### Git diff comparisons
+
+{% data reusables.actions.workflows.triggering-a-workflow-paths5 %}
 
 ### Using filters to target specific branches for workflow run events
 
@@ -237,7 +277,7 @@ For more information about what information is available in the event context, s
 
 ### Using environments to manually trigger workflow jobs
 
-If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
+If you want to manually trigger a specific job in a workflow, you can use an environment that requires approval from a specific team or user. First, configure an environment with required reviewers. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)." Then, reference the environment name in a job in your workflow using the `environment:` key. Any job referencing the environment will not run until at least one reviewer approves the job.
 
 For example, the following workflow will run whenever there is a push to main. The `build` job will always run. The `publish` job will only run after the `build` job successfully completes (due to `needs: [build]`) and after all of the rules (including required reviewers) for the environment called `production` pass (due to `environment: production`).
 

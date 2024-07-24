@@ -46,10 +46,14 @@ For a real-world example of `dependabot.yml` file, see  [{% data variables.produ
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
 {% data reusables.dependabot.configuration-options %}
+{% ifversion dependabot-updates-multidirectory-support %}
 
+{% data reusables.dependabot.directory-directories-required %}
+
+{% endif %}
 These options fit broadly into the following categories.
 
-* Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
+* Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory){% ifversion dependabot-updates-multidirectory-support %} or [`directories`](#directories){% endif %},[`schedule.interval`](#scheduleinterval).
 * Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
 * Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
 * Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
@@ -117,6 +121,14 @@ updates:
 
 **Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}.
 
+{% ifversion dependabot-updates-multidirectory-support %}
+
+{% data reusables.dependabot.directories-option-overview %} For more information, see [`directories`](#directories).
+
+{% data reusables.dependabot.directory-directories-required %}
+
+{% endif %}
+
 For {% data variables.product.prodname_actions %}, you do not need to set the directory to `/.github/workflows`. Configuring the key to `/` automatically instructs {% data variables.product.prodname_dependabot %} to search the `/.github/workflows` directory, as well as the _action.yml_ / _action.yaml_ file from the root directory.
 
 ```yaml
@@ -142,6 +154,94 @@ updates:
     schedule:
       interval: "weekly"
 ```
+
+{% ifversion dependabot-updates-multidirectory-support %}
+
+### `directories`
+
+**Required**. You must define the locations of the package manifests for each package manager. You define directories relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}. The `directories` option contains a list of strings representing directories.
+
+{% data reusables.dependabot.directory-directories-required %}
+
+```yaml
+# Specify locations of manifest files for each package manager using `directories`
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/admin"
+    schedule:
+      interval: "weekly"
+```
+
+{% data reusables.dependabot.directories-option-overview %}
+
+{% data reusables.dependabot.directory-vs-directories-guidance %}
+
+```yaml
+# Specify locations of manifest files for each package manager using both `directories` and `directory`
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/admin"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+
+>[!TIP]
+> The `directories` key supports globbing and the wildcard character `*`. These features are not supported by the `directory` key.
+
+```yaml
+# Specify the root directory and directories that start with "lib-", using globbing, for locations of manifest files
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "/"
+      - "/lib-*"
+    schedule:
+      interval: "weekly"
+```
+
+```yaml
+# Specify the root directory and directories in the root directory as the location of manifest files using the wildcard character
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "*"
+    schedule:
+      interval: "weekly"
+```
+
+```yaml
+# Specify all directories from the current layer and below recursively, using globstar, for locations of manifest files
+
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directories:
+      - "**/*"
+    schedule:
+      interval: "weekly"
+```
+
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %}  For more information about grouping, see "[`groups`](#groups)."
+
+{% endif %}
 
 ### `schedule.interval`
 
@@ -360,6 +460,12 @@ When a scheduled update runs, {% data variables.product.prodname_dependabot %} w
 You can also manage pull requests for grouped version updates and security updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-{% ifversion dependabot-grouped-security-updates-config %}{% else %}version-{% endif %}updates-with-comment-commands)."
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% ifversion dependabot-grouped-security-updates-config %}
+
+{% data reusables.dependabot.multidirectory-vs-pr-grouping %} For more information about multidirectory support, see "[`directories`](#directories)."
+
+{% endif %}
 
 {% endif %}
 

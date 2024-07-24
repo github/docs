@@ -43,8 +43,6 @@ In addition to the security benefits, {% data variables.product.prodname_actions
 
 ## Generate artifact attestations for your builds
 
-{% data reusables.actions.artifact-attestations-public-beta-note %}
-
 {% data reusables.actions.about-artifact-attestations %}
 
 Artifact attestations include a signature over a built artifact, along with links to the source code and build instructions. If you sign your build with artifact attestations, you do not have to manage your own signing key material. {% data variables.product.prodname_dotcom %} handles this for you with the signing authority we operate.

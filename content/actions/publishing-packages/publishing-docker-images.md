@@ -52,7 +52,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type.
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
@@ -113,10 +113,15 @@ jobs:
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
-      
-      {% ifversion artifact-attestations %}
-      {% data reusables.actions.artifact-attestations-step-for-container-images %}
-      {% endif %}
+
+{% ifversion artifact-attestations %}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
+{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
@@ -129,7 +134,7 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-{% data reusables.actions.release-trigger-workflow %}
+Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when a change is pushed to the `release` branch.
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
@@ -222,9 +227,14 @@ jobs:
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 
-      {% ifversion artifact-attestations %}
-      {% data reusables.actions.artifact-attestations-step-for-container-images %}
-      {% endif %}
+{% ifversion artifact-attestations %}
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
+{% endif -%}
 ```
 
 The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
