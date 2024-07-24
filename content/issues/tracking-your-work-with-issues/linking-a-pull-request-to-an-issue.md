@@ -45,6 +45,8 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * `resolves`
 * `resolved`
 
+Other equvaillent form of word in other language may also works, like "修复"。
+
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
 The syntax for closing keywords depends on whether the issue is in the same repository as the pull request.
