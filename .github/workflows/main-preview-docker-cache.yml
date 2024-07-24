@@ -68,7 +68,7 @@ jobs:
         run: src/workflows/prune-for-preview-env.sh
 
       - name: 'Build and push image'
-        uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c
+        uses: docker/build-push-action@5176d81f87c23d6fc96624dfdbcd9f3830bbe445
         with:
           context: .
           push: true
