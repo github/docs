@@ -41,7 +41,7 @@ In addition, alerts that fall into this category:
 * Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
 * Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %} for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %}, and only the first detected location shown for AI-detected generic secrets{% endif %}.
 
-For {% data variables.product.company_short %} to scan for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and generic secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#enabling-scanning-for-non-provider-patterns){% ifversion secret-scanning-ai-generic-secret-detection %}" and "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection){% endif %}."
+For {% data variables.product.company_short %} to scan for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} and generic secrets{% endif %}, you must first enable the feature{% ifversion secret-scanning-ai-generic-secret-detection %}s{% endif %} for your repository or organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns){% ifversion secret-scanning-ai-generic-secret-detection %}" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection){% endif %}."
 
 {% endif %}
 
@@ -84,4 +84,4 @@ You can apply various filters to the alerts list to help you find the alerts you
 
 ## Next steps
 
-* [AUTOTITLE](/TODO)
+TODO
