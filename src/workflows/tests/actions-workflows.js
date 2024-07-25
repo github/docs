@@ -100,9 +100,7 @@ describe('GitHub Actions workflows', () => {
     'scheduled workflows slack alert on fail $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
-        if (
-          !job.steps.find((step) => step.uses && step.uses.endsWith('.github/actions/slack-alert'))
-        ) {
+        if (!job.steps.find((step) => step.uses === './.github/actions/slack-alert')) {
           throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
         }
       }

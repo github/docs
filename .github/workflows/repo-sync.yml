@@ -17,72 +17,13 @@ permissions:
   pull-requests: write
 
 jobs:
-  test-for-equality:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    name: Test for equality
-    runs-on: ubuntu-latest
-    outputs:
-      is-different: ${{ steps.set-is-different.outputs.result }}
-    steps:
-      - name: Check out docs
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          ref: main
-          repository: github/docs
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
-          path: docs
-      - name: Check out docs-internal
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          ref: main
-          repository: github/docs-internal
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
-          path: docs-internal
-
-      - name: Diff the two repos
-        id: set-is-different
-        run: |
-
-          # Order doesn't matter because we only care if they're different or not
-          # First a test to print the differences, if there is any.
-          # The '|| true' is just to avoid failing the job just because there is a difference.
-          diff -qr -x .git docs docs-internal || true
-
-          # The output means, for example, `true` means there
-          # *are* differences.
-          diff -qr -x .git docs docs-internal && echo "result=false" >> $GITHUB_OUTPUT || echo "result=true" >> $GITHUB_OUTPUT
-
-      # Doesn't matter which repo we use
-      - uses: ./docs-internal/.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
   repo-sync:
-    # This is deliberately commented out like this.
-    # The job before this, `test-for-equality`, will set the output which
-    # will conclude if the files in github/docs and github/docs-internal
-    # are NOT identical.
-    # But as as of June 2024, let's be careful and let this logic just
-    # print until we're confident that the comparison is working correctly.
-    # Once we're confident, we can uncomment this.
-    # if: (github.repository == 'github/docs-internal' || github.repository == 'github/docs') && needs.test-for-equality.outputs.is-different == 'true'
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    needs: test-for-equality
     name: Repo Sync
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-
-      - name: Test for equality (different)
-        if: ${{ needs.test-for-equality.outputs.is-different == 'true' }}
-        run: echo "github/docs and github/docs-internal are different."
-
-      - name: Test for equality (same)
-        if: ${{ needs.test-for-equality.outputs.is-different == 'false' }}
-        run: echo "You'll find that github/docs and github/docs-internal are identical."
 
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88

@@ -4,6 +4,7 @@ intro: 'There are usage limits for {% data variables.product.prodname_actions %}
 redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
+  - /actions/learn-github-actions/usage-limits-billing-and-administration
 versions:
   fpt: '*'
   ghes: '*'

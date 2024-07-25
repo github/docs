@@ -1,12 +1,16 @@
 ---
-title: Using environments for deployment
-shortTitle: Use environments for deployment
-intro: You can configure environments with protection rules and secrets. A workflow job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
+title: Managing environments for deployment
+shortTitle: Manage environments
+intro: You can create environments and secure those environments with deployment protection rules. A job that references an environment must follow any protection rules for the environment before running or accessing the environment's secrets.
 product: '{% data reusables.gated-features.environments %}'
+permissions: Repository owners
 redirect_from:
   - /actions/reference/environments
   - /actions/deployment/environments
   - /actions/deployment/using-environments-for-deployment
+  - /actions/deployment/targeting-different-environments/using-environments-for-deployment
+  - /actions/deployment/targeting-different-environments
+  - /actions/deployment/targeting-different-environments/managing-environments-for-deployment
 topics:
   - CD
   - Deployment
@@ -204,7 +208,7 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
 {%- endif %}
-1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
+1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#deployment-branches{% ifversion deployment-protections-tag-patterns %}-and-tags{% endif %})."
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
    {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-label="The branch icon" %} Branch** or **{% octicon "tag" aria-label="The tag icon" %} Tag**.{% endif %}
@@ -229,14 +233,6 @@ Variables stored in an environment are only available to workflow jobs that refe
 You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets)," "[AUTOTITLE](/rest/actions/variables)," and "[AUTOTITLE](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.
-
-## Using an environment
-
-Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. The job can access the environment's secrets only after the job is sent to a runner.
-
-When a workflow references an environment, the environment will appear in the repository's deployments. For more information about viewing current and previous deployments, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
-
-{% data reusables.actions.environment-example %}
 
 ## Deleting an environment
 

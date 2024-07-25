@@ -5,6 +5,7 @@ intro: 'Learn how you can use organization features to collaborate with your tea
 redirect_from:
   - /actions/learn-github-actions/sharing-workflows-with-your-organization
   - /actions/learn-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
+  - /actions/using-workflows/sharing-workflows-secrets-and-runners-with-your-organization
 versions:
   fpt: '*'
   ghes: '*'

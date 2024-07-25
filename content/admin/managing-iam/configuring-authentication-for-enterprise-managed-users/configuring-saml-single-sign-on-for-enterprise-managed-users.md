@@ -33,21 +33,20 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
 
 ## Prerequisites
 
-* Ensure that you understand the integration requirements and level of support for your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."
+* Understand the integration requirements and level of support for your IdP. See "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."
+* Your IdP must adhere to the SAML 2.0 specification. See the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
+* You must have tenant administrative access to your IdP.
+* If you're configuring SAML SSO for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
 
-* Your IdP must adhere to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
-
-{% ifversion emu-public-scim-schema %}-{% endif %} To configure your IdP for SAML SSO with {% data variables.product.prodname_emus %}, you must have a tenant and administrative access on your IdP.
-
-## Configuring SAML SSO for {% data variables.product.prodname_emus %}
+## Configure SAML SSO for {% data variables.product.prodname_emus %}
 
 To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterprise %}, you must configure an application on your IdP, then configure your enterprise on {% data variables.location.product_location %}. After you configure SAML SSO, you can configure user provisioning.
 
-1. [Configure your IdP](#configuring-your-idp)
-1. [Configure your enterprise](#configuring-your-enterprise)
-1. [Enable provisioning](#enabling-provisioning)
+1. [Configure your IdP](#configure-your-idp)
+1. [Configure your enterprise](#configure-your-enterprise)
+1. [Enable provisioning](#enable-provisioning)
 
-### Configuring your IdP
+### Configure your IdP
 
 1. {% ifversion emu-public-scim-schema %}If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click one of the following links.{% else %}To install the {% data variables.product.prodname_emu_idp_application %} application, click the link for your IdP below:{% endif %}
 
@@ -78,7 +77,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
     | IdP Identifier URL | Issuer | IdP's identifier to service providers for SAML authentication |
     | Signing certificate, Base64-encoded | Public certificate | Public certificate that IdP uses to sign authentication requests |
 
-### Configuring your enterprise
+### Configure your enterprise
 
 After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.location.product_location %}.
 
@@ -111,11 +110,11 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 
-### Enabling provisioning
+### Enable provisioning
 
 After you enable SAML SSO, enable provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
 
-### Enabling guest collaborators
+### Enable guest collaborators
 
 You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
 

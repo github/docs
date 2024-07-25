@@ -10,6 +10,8 @@ You will use a script to automate configuring your Azure resources.
 
 * Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
+  The `.bicep` file we provide contains the minimal set of rules to use {% data variables.product.company_short %}-hosted runners with Azure VNET. You may need to add rules for your specific use case.
+
   {% note %}
 
   **Note:** Alternatively, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)." To determine the appropriate subnet IP address range,  we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.

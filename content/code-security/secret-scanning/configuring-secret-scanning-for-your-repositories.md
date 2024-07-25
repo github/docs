@@ -53,7 +53,7 @@ A repository administrator can choose to disable {% data variables.product.prodn
 
 You can enable the following additional {% data variables.product.prodname_secret_scanning %} feature{% ifversion ghec or ghes %}s{% endif %} through your repository's "Code security and analysis" settings:
 * **Push protection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-secret-scanning-as-a-push-protection-for-a-repository)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-* **Validity checks for partner patterns**. For more infomation, see "[Enabling validity checks for partner patterns](#enabling-validity-checks-for-partner-patterns)."{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+* **Validity checks for partner patterns**. For more information, see "[Enabling validity checks for partner patterns](#enabling-validity-checks-for-partner-patterns)."{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
 * **Scanning for non-provider patterns**. For more information, see "[Enabling scanning for non-provider patterns](#enabling-scanning-for-non-provider-patterns)."{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection%}
 * **AI-powered generic secret detection**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)."{% endif %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 * **Scanning for custom patterns**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{% endif %}
@@ -62,7 +62,6 @@ You can enable the following additional {% data variables.product.prodname_secre
 
 ### Enabling validity checks for partner patterns
 
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
 You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. For more information on validity checks, see "Checking a secret's validity" in "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."

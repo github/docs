@@ -1,5 +1,8 @@
-date: '2024-07-10'
+date: '2024-07-19'
 intro: |
+
+  >[!NOTE] Due to a bug that caused hotpatch upgrades to fail for instances on Microsoft Azure, the previous patch release in this series (**3.10.14**) is not available for download. The following release notes include the updates introduced in that release.
+
   {% warning %}
 
   **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.14-known-issues)" section of these release notes.
@@ -32,6 +35,8 @@ sections:
     - |
       Packages have been updated to the latest security versions.
   bugs:
+    - |
+      When an instance hosted on Azure was upgraded with a hotpatch, the upgrade failed with an `rsync` error.
     - |
       On an instance with GitHub Actions enabled, remote blob storage could fill up with large amounts of data because cleanup jobs were skipped on old hosts.
     - |
