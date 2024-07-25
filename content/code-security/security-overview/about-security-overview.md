@@ -150,7 +150,7 @@ If you are an organization or team member, you can view security overview for th
 | `admin` access for one or more repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
 | `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
 | `read` or `triage` access for one or more repositories | No access | No access |
-| Security alert access for one or more repositories | View all security alert data for those repositories | No access 
+| Security alert access for one or more repositories | View all security alert data for those repositories | No access |
 | Custom organization role with permission to view one or more types of security alert |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
