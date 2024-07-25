@@ -4,6 +4,7 @@ shortTitle: Visualization graph
 intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
+  - /actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph
 versions:
   fpt: '*'
   ghes: '*'

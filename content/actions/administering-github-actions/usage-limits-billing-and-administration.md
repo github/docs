@@ -93,9 +93,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 ## {% data variables.product.prodname_actions %} usage metrics
 
-{% data reusables.actions.actions-usage-metrics-beta-note %}
-
-If you are on a {% data variables.product.prodname_ghe_cloud %} plan, organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+Organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
 
 When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
 
