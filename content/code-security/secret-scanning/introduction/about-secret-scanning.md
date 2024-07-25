@@ -22,9 +22,78 @@ shortTitle: Secret scanning
 
 ## What is {% data variables.product.prodname_secret_scanning %}
 
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
+{% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in public repositories for known types of secrets and alerts repository administrators upon detection.
 
-<a name="about-secret-scanning"></a>
+For private repositories, {% data variables.product.prodname_secret_scanning %} is available if you have a {% data variables.product.prodname_GH_advanced_security %} (GHAS) license, providing additional scanning capabilities and custom patterns for detection.
+
+Below is a typical workflow:
+
+* Detection of secrets: {% data variables.product.prodname_secret_scanning_caps %}automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
+
+* Alerts and notifications: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository.
+
+TODO:
+* Review Alerts: When a secret is detected, review the alert details provided by GitHub.
+
+* *Remediation: Take appropriate actions to remediate the exposure. This might include:
+   * Rotating the affected credential to ensure it is no longer usable.
+   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or GitHub's built-in features).
+* Audit and Monitor: Regularly audit and monitor your repositories to ensure no other secrets are exposed.
+
+{% ifversion fpt or ghec %}
+
+* Integration with partners: {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+
+{% endif %}
+
+## What are the benefits of {% data variables.product.prodname_secret_scanning %}
+
+* **Enhanced security**—{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
+
+* **Automated detection**—The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
+
+* **Real-time alerts**—When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
+
+* **Historical scanning**—{% data variables.product.prodname_secret_scanning_caps %} can be configured to scan the entire commit history of your repository. This retrospective analysis helps in identifying and mitigating risks from previously committed secrets that may have gone unnoticed.
+
+{% ifversion fpt or ghec %}
+
+* **Integration with service providers**—{% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential.
+
+{% endif %}
+
+* **Custom patterns**—Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
+
+* **Educational value**—Developers receive notifications when secrets are detected, which serves as a learning opportunity. This ongoing education helps in fostering a culture of security awareness within the development team.
+
+* **Remediation guidance**—Along with alerts, {% data variables.product.prodname_dotcom %}provides remediation guidance, helping teams understand how to safely remove the sensitive information from their codebase and rotate the compromised credentials.
+
+## Enabling {% data variables.product.prodname_secret_scanning %}
+
+{% data variables.product.prodname_secret_scanning_caps %} is automatically enabled for all public repositories on GitHub.
+For private repositories, {% data variables.product.prodname_secret_scanning %} can be enabled as part of {% data variables.product.prodname_GH_advanced_security %}.
+
+For more information, see TODO: - link to enabling article.
+
+## What are the supported secrets
+
+For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+
+{% ifversion ghec or ghes %}
+
+## Custom patterns
+
+For advanced users, GitHub allows custom patterns to be added to Secret Scanning. This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
+
+* Tailored Security Detect secrets unique to your applications, APIs, or internal tools.
+* Increased Coverage Capture additional types of sensitive data that default patterns might miss.
+* Prevent Data Leaks Proactively identify and mitigate risks associated with exposed proprietary secrets.
+
+{% endif %}
+
+OLD
+
+{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
 
@@ -60,10 +129,6 @@ If your project communicates with an external service, you might use a token or 
 **Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} or push protection enabled, these features are not enabled by default on the fork. You can enable {% data variables.product.prodname_secret_scanning %} or push protection on the fork the same way you enable them on a standalone repository.
 
 {% endnote %}
-
-## What are the supported secrets
-
-For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% ifversion fpt or ghec %}
 

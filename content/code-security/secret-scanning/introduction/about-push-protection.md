@@ -21,26 +21,60 @@ shortTitle: Push protection
 
 ## What is push protection
 
-Push protection is a {% data variables.product.prodname_secret_scanning %} feature that checks commits for highly identifiable secrets before these commits are pushed to a repository.
+Push protection is a {% data variables.product.prodname_secret_scanning %} feature that is designed to prevent sensitive information, such as secrets or tokens, from being pushed to your repository in the first place. Unlike {% data variables.product.prodname_secret_scanning %} , which detects secrets after they have been committed, push protection proactively scans your code for secrets during the push process and blocks the push if any are detected.
 
-{% data reusables.secret-scanning.pre-push-protection %} {% data reusables.secret-scanning.push-protection-overview %}
+Push protection helps you avoid the risks associated with exposed secrets, like unauthorized access to resources or services. With this feature, developers get immediate feedback and can address potential issues before they become a security concern.
+
+Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push. For some {% data variables.product.prodname_dotcom %} products, more advanced feature are available:
+
+* Delegated bypass—allows repository administrators or designated users to temporarily bypass the push protection mechanism. This can be useful in situations where a developer needs to push a commit that contains strings or patterns that resemble secrets but are actually safe and necessary for the project.This allows gives users with administrative rights more control about what is committed.
+* Custom patterns—allows you to define specific patterns or regular expressions that represent the types of secrets unique to your environment or organization. These patterns are used to identify sensitive information that might not be covered by the default scanning rules implemented by {% data variables.product.prodname_dotcom %}.
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
 You can enable push protection:
 
-* At repository/organization level, if you are a repository administrator or an organization owner.
-* For your account on {% data variables.product.prodname_dotcom %}, as a user.
-
-## About push protection for repositories and organizations
+* At repository/organization level, if you are a repository administrator or an organization owner. This type of push protection is referred to as "push protection".
+* For your account on {% data variables.product.prodname_dotcom %}, as a user. This type of push protection is referred to as "push protection for users".
 
 {% endif %}
 
-If you are a repository administrator or an organization owner, you can enable push protection at repository/organization level.
+## What are the benefits of push protection
+
+* **Proactive Security**—
+Push Protection acts as a front-line defense mechanism by scanning code for secrets at the time of the push. This proactive approach helps to catch potential issues before they are merged into your repository.
+
+* **Immediate Feedback**—
+Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
+
+* **Reduced Risk of Data Leaks**—
+By blocking commits that contain sensitive information, Push Protection significantly reduces the risk of accidental data leaks. This helps in safeguarding against unauthorized access to your infrastructure, services, and data.
+
+* **Efficient Secret Management**—
+Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
+
+* **Integration with CI/CD Pipelines**—
+Push Protection can be integrated into your Continuous Integration/Continuous Deployment (CI/CD) pipelines, ensuring that every push is scanned for secrets before it gets deployed. This adds an extra layer of security to your DevOps practices.
+
+* **Customizable Rules**—
+Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that Push Protection can effectively identify and block even non-standard secrets.
+
+* **Delegated Bypass for Flexibility**—
+For cases where false positives occur or when certain patterns are necessary, the Delegated Bypass feature allows designated users to approve specific pushes. This provides flexibility without compromising overall security.
+
+* **Audit and Monitoring**—
+Push Protection maintains logs of all blocked attempts and bypass approvals. These logs can be audited to ensure compliance and to review any potential security incidents, thereby providing transparency and accountability.
+
+* **Collaboration and Education**—
+By frequently reminding developers of secure coding practices, Push Protection helps foster a culture of security within development teams. It serves as a constant reminder that security is everyone's responsibility.
+
+## Configuring push protection
+
+To use push protection, you need to have administrative access to the repository or organization you want to configure. Also, your repository or organization should be hosted on {% data variables.product.prodname_dotcom %}.
+
+Enabling and configuring push protection involves a few steps. For more information, see TODO: - link to enabling article.
 
 {% ifversion secret-scanning-push-protection-for-users %}
-
-## About push protection for users
 
 Every user across {% data variables.product.prodname_dotcom %} can enable push protection for themselves within their individual settings.
 
@@ -52,9 +86,29 @@ Enabling push protection for your user account means that your pushes are protec
 
 For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
+## Customizing push protection
+
+Once push protection is enabled, you can customize it further, if needed:
+
+### Integration with CI/CD Pipelines
+
+You can integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
+
+### Handling false positives
+
+If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. This may also involve adding specific rules or exceptions within your security settings.
+
+{% ifversion secret-scanning-push-protection-custom-patterns %}
+
+### Defining custom patterns
+
+If you have specific patterns or types of secrets that are unique to your environment, you can define custom patterns that push protection will use to identify secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+{% endif %}
+
 {% ifversion push-protection-delegated-bypass %}
 
-## Delegated bypass
+### Using delegated bypass
 
 {% data reusables.secret-scanning.push-protection-delegated-bypass-intro %}
 
@@ -66,15 +120,6 @@ For information about delegated bypass for push protection, see "[AUTOTITLE](/co
 
 {% endif %}
 
-{% ifversion secret-scanning-push-protection-custom-patterns %}
-
-## Custom pattern support
-
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by push protection. For example, you might have a secret pattern that is internal to your organization. {% data reusables.secret-scanning.push-protection-custom-pattern %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-
-{% endif %}
-
 ## Further reading
 
-* TODO: add link to enabling push protection
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"
