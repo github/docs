@@ -91,12 +91,6 @@ There are some additional features that can help you to evaluate alerts in order
 
 ### Checking a secret's validity
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
-
-{% endif %}
-
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. An `active` secret is one that could still be exploited, so these alerts should be reviewed and remediated as a priority.
 
 By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validitation status of the token in the alert view.
