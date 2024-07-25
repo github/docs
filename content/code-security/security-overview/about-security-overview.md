@@ -128,27 +128,29 @@ For information about permissions, see "[Permission to view data in security ove
 
 If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.
 
-If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.
+If you are an organization or team member, you can view security overview for the organization and see data for repositories where you have an appropriate level of access.
 
 {% ifversion security-overview-dashboard %}
 {% rowheaders %}
 
-| Organization member with | Overview dashboard (beta) view | Risk and alerts views | Coverage view |
+| Organization or team member with | Overview dashboard (beta) view | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|---------|
 | `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion security-configurations-beta-and-pre-beta %}, and enable and disable security features{% endif %} |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
-| Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access for those repositories
+| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
+| `read` or `triage` access for one or more repositories | No access | No access | No access |
+| Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access |
 | Custom organization role with permission to view one or more types of security alert | View allowed alert data for all repositories |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
 {% else %}
 {% rowheaders %}
 
-| Organization member with | Risk and alerts views | Coverage view |
+| Organization or team member with | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|
 | `admin` access for one or more repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
-| Security alert access for one or more repositories | View all security alert data for those repositories | No access for those repositories
+| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
+| `read` or `triage` access for one or more repositories | No access | No access |
+| Security alert access for one or more repositories | View all security alert data for those repositories | No access |
 | Custom organization role with permission to view one or more types of security alert |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
