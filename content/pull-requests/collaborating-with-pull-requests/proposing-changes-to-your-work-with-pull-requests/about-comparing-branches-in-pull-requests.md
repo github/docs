@@ -54,7 +54,7 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
 ## Three-dot and two-dot Git diff comparisons
 
-There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
+There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). Pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
 
 ### Three-dot Git diff comparison
 
