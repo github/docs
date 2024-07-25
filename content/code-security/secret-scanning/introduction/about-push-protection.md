@@ -46,7 +46,7 @@ You can enable push protection:
 
 * **Efficient secret management**—Instead of retrospectively dealing with exposed secrets, developers can address issues at the source. This makes secret management more efficient and less time-consuming.
 
-* **Integration with CI/CD Pipelines**—
+* **Integration with CI/CD pipelines**—
 Push Protection can be integrated into your Continuous Integration/Continuous Deployment (CI/CD) pipelines, ensuring that every push is scanned for secrets before it gets deployed. This adds an extra layer of security to your DevOps practices.
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}* **Ability to detect custom patterns**—Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push Protection can effectively identify and block even non-standard secrets.{% endif %}
@@ -65,9 +65,7 @@ Enabling and configuring push protection involves a few steps. For more informat
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
-Every user across {% data variables.product.prodname_dotcom %} can also enable push protection for themselves within their individual settings.
-
-Enabling push protection for your user account means that your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
+Every user across {% data variables.product.prodname_dotcom %} can also enable push protection for themselves within their individual settings. Enabling push protection for your user account means that your pushes are protected whenever you push to a public repository on {% data variables.product.prodname_dotcom %}, without relying on that repository to have push protection enabled. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
@@ -79,7 +77,7 @@ For information about the secrets and service providers supported by push protec
 
 Once push protection is enabled, you can customize it further, if needed:
 
-### Integration with CI/CD Pipelines
+### Integration with CI/CD pipelines
 
 You can integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
 

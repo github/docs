@@ -30,19 +30,19 @@ shortTitle: Secret scanning
 
 For private repositories, {% data variables.product.prodname_secret_scanning %} is available if you have a {% data variables.product.prodname_GH_advanced_security %} (GHAS) license, providing additional scanning capabilities and custom patterns for detection.
 
-Below is a typical workflow:
+Below is a typical workflow that explains how {% data variables.product.prodname_secret_scanning %} works:
 
-* Detection of secrets: {% data variables.product.prodname_secret_scanning_caps %}automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
+* Detection of secrets: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* Alerts and notifications: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository.
+* Alerts and notifications: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
 
-TODO:
-* Review Alerts: When a secret is detected, review the alert details provided by GitHub.
+* Review Alerts: When a secret is detected, you'll need to review the alert details provided.
 
-* *Remediation: Take appropriate actions to remediate the exposure. This might include:
+* *Remediation: You then need take appropriate actions to remediate the exposure. This might include:
    * Rotating the affected credential to ensure it is no longer usable.
-   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or GitHub's built-in features).
-* Audit and Monitor: Regularly audit and monitor your repositories to ensure no other secrets are exposed.
+   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
+
+* Audit and monitor: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
 {% ifversion fpt or ghec %}
 
@@ -62,7 +62,7 @@ TODO:
 
 {% ifversion fpt or ghec %}
 
-* **Integration with service providers**—{% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential.
+* **Integration with service providers**—{% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
 {% endif %}
 
@@ -91,17 +91,25 @@ For information about the secrets and service providers supported by {% data var
 
 Once {% data variables.product.prodname_secret_scanning %} is enabled, you can customize it further, if needed:
 
+{% ifversion secret-scanning-non-provider-patterns %}
+
 ### Detection of non-provider patterns
 
-### eneric secret detection
+{% endif %}
 
-### Validity checks
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### Generic secret detection
+
+{% endif %}
+
+### Performing validity checks
 
 {% ifversion ghec or ghes %}
 
-### Custom patterns
+### Defining custom patterns
 
-For advanced users, GitHub allows custom patterns to be added to Secret Scanning. This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
+You can define advanced users, GitHub allows custom patterns to be added to Secret Scanning. This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
 
 * Tailored Security Detect secrets unique to your applications, APIs, or internal tools.
 * Increased Coverage Capture additional types of sensitive data that default patterns might miss.
@@ -132,7 +140,7 @@ OLD
 
 {% data variables.secret-scanning.user_alerts_caps %} is available {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}on all repositories with a license for {% data variables.product.prodname_GH_advanced_security %}{% else %}for free on all public repositories, and for private and internal repositories that are owned by organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}{% elsif fpt %}for free on all public repositories that you own{% else %}on all organization-owned repositories with a license for {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories{% endif %}. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
 
-When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. {% ifversion secret-scanning-backfill-email %}When the scan is completed, {% data variables.product.prodname_dotcom %} sends an email alert to the enterprise and organization owners, even if no secrets were found.{% endif %} For more information about the repository content that is scanned, see the [beginning of this article](#about-secret-scanning).
+When you enable {% data variables.product.prodname_secret_scanning %} for a repository, {% data variables.product.prodname_dotcom %} scans the code for patterns that match secrets used by many service providers. {% ifversion secret-scanning-backfill-email %}When the scan is completed, {% data variables.product.prodname_dotcom %} sends an email alert to the enterprise and organization owners, even if no secrets were found.{% endif %}
 
 When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings.{% endif %}{% ifversion secret-scanning-non-provider-patterns %} User alerts can be of two types: high confidence alerts, or non-provider alerts.{% endif %} For more information, see "{% ifversion fpt or ghec %}[About user alerts](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#about-user-secret-scanning-alerts){% endif %}."
 
