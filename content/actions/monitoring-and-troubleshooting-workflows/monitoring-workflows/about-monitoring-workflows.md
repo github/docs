@@ -1,13 +1,13 @@
 ---
-title: About monitoring and troubleshooting
-intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor and debug your workflows.'
+title: About monitoring workflows
+intro: 'You can use the tools in {% data variables.product.prodname_actions %} to monitor your workflows.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: About monitoring and troubleshooting
+shortTitle: About monitoring
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Monitoring your workflows
@@ -45,21 +45,7 @@ To identify how long a job took to run, you can view its execution time. For mor
 
 You can view the status of each job and step in a workflow. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
-## Troubleshooting your workflows
-
-### Using workflow run logs
-
-Each workflow run generates activity logs that you can view, search, and download. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
-
-### Enabling debug logging
-
-If the workflow logs do not provide enough detail to diagnose why a workflow, job, or step is not working as expected, you can enable additional debug logging. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
-
-### Canceling a workflow
-
-If you attempt to cancel a workflow and the cancellation doesn't succeed, make sure you aren't using the `always` expression. The `always` expression causes a workflow step to run even when the workflow is canceled, which results in a hanging cancellation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#always)".
-
-## Monitoring and troubleshooting self-hosted runners
+## Monitoring self-hosted runners
 
 If you use self-hosted runners, you can view their activity and diagnose common issues.
 

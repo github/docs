@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

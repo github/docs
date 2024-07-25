@@ -9,7 +9,9 @@ type: reference
 topics:
   - Actions
   - Support
-shortTitle: Working with {% data variables.contact.github_support %}
+shortTitle: 'Working with {% data variables.contact.github_support %}'
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows/working-with-support-for-github-actions
 ---
 
 You can [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with {% data variables.product.prodname_actions %}.
