@@ -11,8 +11,6 @@ redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/viewing-github-actions-usage-metrics-for-your-organization
 ---
 
-{% data reusables.actions.actions-usage-metrics-beta-note %}
-
 If you are on a {% data variables.product.prodname_ghe_cloud %} plan, {% data reusables.actions.about-actions-usage-metrics %}
 
 For more information about how to use {% data variables.product.prodname_actions %} usage metrics, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
