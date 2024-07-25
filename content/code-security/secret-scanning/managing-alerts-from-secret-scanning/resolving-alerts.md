@@ -14,6 +14,7 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Resolve alerts
+allowTitleToDifferFromFilename: true
 ---
 
 ## Fixing alerts

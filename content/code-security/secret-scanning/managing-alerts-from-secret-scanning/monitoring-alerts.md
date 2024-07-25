@@ -13,6 +13,7 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Monitor alerts
+allowTitleToDifferFromFilename: true
 ---
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}

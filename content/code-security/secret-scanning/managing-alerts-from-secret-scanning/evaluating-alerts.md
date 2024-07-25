@@ -14,6 +14,7 @@ topics:
   - Alerts
   - Repositories
 shortTitle: Evaluate alerts
+allowTitleToDifferFromFilename: true
 ---
 
 ## About evaluating alerts

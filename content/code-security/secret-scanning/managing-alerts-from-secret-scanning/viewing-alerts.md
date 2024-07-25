@@ -14,6 +14,7 @@ topics:
   - Alerts
   - Repositories
 shortTitle: View alerts
+allowTitleToDifferFromFilename: true
 ---
 
 ## About the {% data variables.product.prodname_secret_scanning %} alerts page
