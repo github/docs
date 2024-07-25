@@ -95,15 +95,34 @@ Once {% data variables.product.prodname_secret_scanning %} is enabled, you can c
 
 ### Detection of non-provider patterns
 
+Non-provider patterns refer to patterns used to identify secrets that are not specific to any particular service provider. These patterns are general and can apply to a wide range of sensitive data types. Here are a few examples of non-provider patterns:
+
+* Generic API Keys: Identifiable by common structural attributes like specific lengths or character sets. For example, a string of 32 alphanumeric characters.
+* Tokens: Generic patterns used to detect various types of tokens that might be common across different services.
+* Private Keys: Patterns identifying sections of code that look like private keys, such as those used in SSH or GPG.
+
+For more information about
+
 {% endif %}
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
 ### Generic secret detection
 
+TODO:
+or generic secrets detected using AI (such as passwords)
+
 {% endif %}
 
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
 ### Performing validity checks
+
+{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+
+TODO:
+
+{% endif %}
 
 {% ifversion ghec or ghes %}
 
