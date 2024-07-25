@@ -36,9 +36,9 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * Alerts and notifications: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
 
-* Review Alerts: When a secret is detected, you'll need to review the alert details provided.
+* Review of alerts: When a secret is detected, you'll need to review the alert details provided.
 
-* *Remediation: You then need take appropriate actions to remediate the exposure. This might include:
+* Alert remediation: You then need take appropriate actions to remediate the exposure. This might include:
    * Rotating the affected credential to ensure it is no longer usable.
    * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
@@ -109,7 +109,8 @@ Once {% data variables.product.prodname_secret_scanning %} is enabled, you can c
 
 ### Defining custom patterns
 
-You can define advanced users, GitHub allows custom patterns to be added to Secret Scanning. This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
+You can scan custom patterns with {% data variables.product.prodname_secret_scanning %}
+. This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
 
 * Tailored Security Detect secrets unique to your applications, APIs, or internal tools.
 * Increased Coverage Capture additional types of sensitive data that default patterns might miss.
