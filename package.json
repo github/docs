@@ -273,7 +273,7 @@
     "javascript-stringify": "^2.1.0",
     "js-cookie": "^3.0.1",
     "js-yaml": "^4.1.0",
-    "liquidjs": "^10.14.0",
+    "liquidjs": "^10.16.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lowdb": "7.0.1",
