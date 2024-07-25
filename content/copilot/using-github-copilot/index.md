@@ -17,6 +17,7 @@ children:
   - /prompt-engineering-for-github-copilot
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
   - /finding-public-code-that-matches-github-copilot-suggestions
+  - /example-use-cases
 redirect_from:
   - /copilot/github-copilot-chat
   - /copilot/github-copilot-in-the-cli
