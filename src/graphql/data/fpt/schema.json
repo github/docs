@@ -65785,6 +65785,14 @@
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
       "fields": [
         {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiredStatusChecks",
           "description": "<p>Status checks that are required.</p>",
           "type": "[StatusCheckConfiguration!]!",
@@ -79152,6 +79160,14 @@
       "href": "/graphql/reference/objects#workflowsparameters",
       "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
       "fields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
         {
           "name": "workflows",
           "description": "<p>Workflows that must pass for this rule to pass.</p>",
@@ -100517,6 +100533,14 @@
       "description": "<p>Choose which status checks must pass before the ref is updated. When enabled,\ncommits must first be pushed to another ref where the checks pass.</p>",
       "inputFields": [
         {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "requiredStatusChecks",
           "description": "<p>Status checks that are required.</p>",
           "type": "[StatusCheckConfigurationInput!]!",
@@ -105491,6 +105515,14 @@
       "href": "/graphql/reference/input-objects#workflowsparametersinput",
       "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
       "inputFields": [
+        {
+          "name": "doNotEnforceOnCreate",
+          "description": "<p>Allow repositories and branches to be created if a check would otherwise prohibit it.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
         {
           "name": "workflows",
           "description": "<p>Workflows that must pass for this rule to pass.</p>",
