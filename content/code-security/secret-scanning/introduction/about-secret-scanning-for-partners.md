@@ -1,6 +1,6 @@
 ---
 title: About secret scanning for partners
-intro: '{% data variables.product.prodname_secret_scanning_caps %} sends directly alerts to partners when partner secrets are found in codebases. This allows partners to promtply take action to secure their systems.'
+intro: '{% data variables.product.prodname_secret_scanning_caps %} sends directly alerts to partners when any of the partner secrets are found in repositories on {% data variables.product.prodname_dotcom %}. This allows partners to promtply take action to secure their systems.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +17,7 @@ shortTitle: Secret scanning for partners
 
 > [!NOTE]You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
 
-The reason partner alerts are directly sent to the secret providers whenever a secret leak is reported for one of their secrets is because this way of proceeding helps ensure that secrets are not inadvertently exposed in public or private repositories. This workflow allows partner organizations to address the exposure prompt. The notification for regular alerts is different. Regular alerts are displayed on the repository's **Security** tab on {% data variables.product.prodname_dotcom %}.
+The reason partner alerts are directly sent to the secret providers whenever a secret leak is reported for one of their secrets is because this way of proceeding helps ensure that secrets are not inadvertently exposed in public or private repositories. This workflow allows partner organizations to address the exposure promptly. The notification for regular alerts is different. Regular alerts are displayed on the repository's **Security** tab on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
