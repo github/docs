@@ -111,7 +111,7 @@ pat_generic_title_case: 'Personal Access Token'
 pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
 pat_v2_plural: 'fine-grained personal access tokens'
-pat_v2_caps: 'Fine-grained personal access token'
+pat_v2_caps: 'Fine-grained personal access tokens'
 pat_v1: >-
   {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
 pat_v1_plural: >-
