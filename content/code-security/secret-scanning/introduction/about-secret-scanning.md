@@ -97,11 +97,13 @@ Once {% data variables.product.prodname_secret_scanning %} is enabled, you can c
 
 Non-provider patterns refer to patterns used to identify secrets that are not specific to any particular service provider. These patterns are general and can apply to a wide range of sensitive data types. Here are a few examples of non-provider patterns:
 
-* Generic API Keys: Identifiable by common structural attributes like specific lengths or character sets. For example, a string of 32 alphanumeric characters.
+* Generic API Keys: Identifiable by common structural attributes like specific lengths or character sets (for example, a string of 32 alphanumeric characters).
 * Tokens: Generic patterns used to detect various types of tokens that might be common across different services.
 * Private Keys: Patterns identifying sections of code that look like private keys, such as those used in SSH or GPG.
 
-For more information about
+Non-provider pattern detection is not enabled by default because the feature can potentially generate a high ratio of false positives.
+
+For more information about non-provider pattern detection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
 
 {% endif %}
 
@@ -109,8 +111,11 @@ For more information about
 
 ### Generic secret detection
 
-TODO:
-or generic secrets detected using AI (such as passwords)
+You can also enable generic secret detection to instruct {% data variables.product.prodname_secret_scanning %} to search your codebase for generic secrets. Generic secrets are unstructured secrets, such as passwords.
+
+{% data variables.product.prodname_secret_scanning_caps %} uses AI to detect unstructured passwords in git content and generate an alert. Alerts for passwords appear in a separated tab from regular {% data variables.product.prodname_secret_scanning %} alerts.
+
+For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection\about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
 
 {% endif %}
 
@@ -120,7 +125,11 @@ or generic secrets detected using AI (such as passwords)
 
 {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 
-TODO:
+{% data reusables.secret-scanning.validity-checks-intro %}
+
+You can
+
+For more information, see TODO: article about validity checks.
 
 {% endif %}
 
@@ -128,6 +137,7 @@ TODO:
 
 ### Defining custom patterns
 
+TODO:
 You can scan custom patterns with {% data variables.product.prodname_secret_scanning %}
 . This is useful if you have unique types of secrets that don’t match default patterns. Benefits are:
 
