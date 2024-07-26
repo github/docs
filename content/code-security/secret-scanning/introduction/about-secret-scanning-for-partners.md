@@ -1,6 +1,6 @@
 ---
 title: About secret scanning for partners
-intro: 'TODO'
+intro: '{% data variables.product.prodname_secret_scanning_caps %} sends directly alerts to partners when partner secrets are found in codebases. This allows partners to promtply take action to secure their systems.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,27 +11,23 @@ topics:
 shortTitle: Secret scanning for partners
 ---
 
-TODO:
-
 ## About {% data variables.secret-scanning.partner_alerts %}
 
-When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. Public packages on the npm registry are also scanned. If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+{% data variables.product.product_name %} scans public repositories and public npm packages for secrets issued by specific service providers who joined our partnership program, and alerts the relevant service provider whenever a secret is detected in a commit. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
-You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
+> [!NOTE]You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
 
-## About {% data variables.secret-scanning.partner_alerts %}
+The reason partner alerts are directly sent to the secret providers whenever a secret leak is reported for one of their secrets is because this way of proceeding helps ensure that secrets are not inadvertently exposed in public or private repositories. This workflow allows partner organizations to address the exposure prompt. The notification for regular alerts is different. Regular alerts are displayed on the repository's **Security** tab on {% data variables.product.prodname_dotcom %}.
 
-{% data variables.product.product_name %} scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit.
-
-{% data variables.product.prodname_secret_scanning %} generates partner alerts when it detects secrets from providers who joined our partnership program. For information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
-
-You cannot change the configuration of {% data variables.product.prodname_secret_scanning %} for partner patterns on public repositories.
-
-Partner alerts are not displayed on {% data variables.product.prodname_dotcom %}. Instead, partner alerts are directly sent to the secret providers whenever a secret leak is reported for one of their secrets.
-
-For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)."
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
-When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. Public packages on the npm registry are also scanned. If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+## What are the supported secrets
 
-TODO: apply scannability techniques
+For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+
+## Further reading
+
+* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"
+* "[AUTOTITLE](/ccode-security/secret-scanning/introduction/supported-secret-scanning-patterns)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)"
+* TODO: add link to "About alerts" article
