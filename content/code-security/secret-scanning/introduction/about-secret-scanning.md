@@ -32,6 +32,12 @@ For private repositories, {% data variables.product.prodname_secret_scanning %} 
 
 When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings.{% endif %} For more information, see "{% ifversion fpt or ghec %}[About user alerts](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns#about-user-secret-scanning-alerts){% endif %}."
 
+{% ifversion ghec or ghes %}
+You can use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
+{% endif %}
+
+You can also use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."
+
 Below is a typical workflow that explains how {% data variables.product.prodname_secret_scanning %} works:
 
 * Detection of secrets: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
@@ -117,7 +123,7 @@ You can also enable generic secret detection to instruct {% data variables.produ
 
 {% data variables.product.prodname_secret_scanning_caps %} uses AI to detect unstructured passwords in git content and generate an alert. Alerts for passwords appear in a separated tab from regular {% data variables.product.prodname_secret_scanning %} alerts.
 
-For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection\about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
+For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
 
 {% endif %}
 
@@ -175,18 +181,8 @@ If you're a repository administrator, you can enable {% data variables.secret-sc
 {% ifversion secret-scanning-store-tokens %}
 {% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes %} To rotate the encryption keys used for storing the detected secrets, you can contact us by visiting {% data variables.contact.contact_ent_support %}.{% endif %}
 
-{% ifversion ghec or ghes %}
-You can use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
-{% endif %}
-
-You can also use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."
-
 ## Further reading
 
 * "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
 * "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
 * "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
-{%- ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-* "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"
-* "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
