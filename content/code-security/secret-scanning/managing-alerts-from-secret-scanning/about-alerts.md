@@ -44,7 +44,7 @@ When {% data variables.product.company_short %} detects a supported secret in a 
 
 ## About push protection alerts
 
-Push protection scans pushes from contributors for supported secrets. If push protection detects a supported secret, it will block the push. When a contributor bypasses push protection to push a secret to the repository, a push protection alert is generated and displayed in the **Security** tab of the repository.
+Push protection scans pushes for supported secrets. If push protection detects a supported secret, it will block the push. When a contributor bypasses push protection to push a secret to the repository, a push protection alert is generated and displayed in the **Security** tab of the repository. To see all push protection alerts for a repository, you must filter by `bypassed: true` on the alerts page. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#filtering-alerts)."
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 

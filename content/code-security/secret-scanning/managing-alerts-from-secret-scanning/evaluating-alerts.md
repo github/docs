@@ -1,6 +1,6 @@
 ---
 title: Evaluating alerts from secret scanning
-intro: 'You can view alerts for secrets checked in to your repository and you can use filters to help you prioritize alerts.'
+intro: 'There are some additional features that can help you evaluate alerts and prioritize their remediation, such as checking the secret''s validity.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -22,7 +22,7 @@ allowTitleToDifferFromFilename: true
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
-* Perform an "on-demand" validity check, to get the most up to date validiation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}{% ifversion secret-scanning-github-token-metadata %}
+* Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}{% ifversion secret-scanning-github-token-metadata %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}
 
 ## Checking a secret's validity
