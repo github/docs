@@ -50,7 +50,7 @@ To avoid losing your password in the future, we suggest using a secure password 
 1. Sign in to {% data variables.product.product_name %}.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)"
+1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 1. Click **Update password**.
 
 {% tip %}
