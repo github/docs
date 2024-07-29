@@ -3,11 +3,15 @@ import { existsSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
 
-import { updateRestFiles } from './update-markdown.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { createOperations, processOperations } from './get-operations.js'
-import { getProgAccessData } from '#src/github-apps/scripts/sync.js'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
+import { updateRestFiles } from './update-markdown'
+import { allVersions } from '@/versions/lib/all-versions'
+import { createOperations, processOperations } from './get-operations'
+import { getProgAccessData } from '@/github-apps/scripts/sync'
+import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index'
+
+type Schema = Record<string, any>
+type Operation = { category: string; subcategory: string; [key: string]: any }
+type OperationsByCategory = Record<string, Record<string, Operation[]>>
 
 // All of the schema releases that we store in allVersions
 //  Ex: 'api.github.com', 'ghec', 'ghes-3.6', 'ghes-3.5',
@@ -16,13 +20,17 @@ const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
   (elem) => allVersions[elem].openApiVersionName,
 )
 
-export async function syncRestData(sourceDirectory, restSchemas, progAccessSource) {
+export async function syncRestData(
+  sourceDirectory: string,
+  restSchemas: string[],
+  progAccessSource: string,
+): Promise<void> {
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      const schema = JSON.parse(await readFile(file, 'utf-8'))
+      const schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
 
-      const operations = []
+      const operations: Operation[] = []
       console.log('Instantiating operation instances from schema ', schemaName)
       try {
         const newOperations = await createOperations(schema)
@@ -62,30 +70,10 @@ export async function syncRestData(sourceDirectory, restSchemas, progAccessSourc
   await updateRestConfigData(restSchemas)
 }
 
-/*
-  Orders the operations by their category and subcategories.
-  All operations must have a category, but operations don't need
-  a subcategory. When no subcategory is present, the subcategory
-  property is an empty string ('').
-
-  Example:
-  {
-    [category]: {
-      '': {
-        "description": "",
-        "operations": []
-      },
-      [subcategory sorted alphabetically]: {
-        "description": "",
-        "operations": []
-      }
-    }
-  }
-*/
-async function formatRestData(operations) {
+async function formatRestData(operations: Operation[]): Promise<OperationsByCategory> {
   const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
-  const operationsByCategory = {}
+  const operationsByCategory: OperationsByCategory = {}
   categories.forEach((category) => {
     operationsByCategory[category] = {}
     const categoryOperations = operations.filter((operation) => operation.category === category)
@@ -102,7 +90,7 @@ async function formatRestData(operations) {
     }
 
     subcategories.forEach((subcategory) => {
-      operationsByCategory[category][subcategory] = {}
+      operationsByCategory[category][subcategory] = []
 
       const subcategoryOperations = categoryOperations.filter(
         (operation) => operation.subcategory === subcategory,
@@ -116,9 +104,12 @@ async function formatRestData(operations) {
 
 // Every time we update the REST data files, we'll want to make sure the
 // config.json file is updated with the latest api versions.
-async function updateRestConfigData(schemas) {
+async function updateRestConfigData(schemas: string[]): Promise<void> {
   const restConfigFilename = 'src/rest/lib/config.json'
-  const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8'))
+  const restConfigData = JSON.parse(await readFile(restConfigFilename, 'utf8')) as Record<
+    string,
+    any
+  >
   const restApiVersionData = restConfigData['api-versions'] || {}
   // If the version isn't one of the OpenAPI version,
   // then it's an api-versioned schema
@@ -126,6 +117,9 @@ async function updateRestConfigData(schemas) {
     const schemaBaseName = path.basename(schema, '.json')
     if (!OPENAPI_VERSION_NAMES.includes(schemaBaseName)) {
       const openApiVer = OPENAPI_VERSION_NAMES.find((ver) => schemaBaseName.startsWith(ver))
+      if (!openApiVer) {
+        throw new Error(`Could not find the OpenAPI version for schema ${schemaBaseName}`)
+      }
       const date = schemaBaseName.split(`${openApiVer}-`)[1]
 
       if (!restApiVersionData[openApiVer]) {
@@ -142,9 +136,11 @@ async function updateRestConfigData(schemas) {
   await writeFile(restConfigFilename, JSON.stringify(restConfigData, null, 2))
 }
 
-export async function getOpenApiSchemaFiles(schemas) {
-  const restSchemas = []
-  const webhookSchemas = []
+export async function getOpenApiSchemaFiles(
+  schemas: string[],
+): Promise<{ restSchemas: string[]; webhookSchemas: string[] }> {
+  const restSchemas: string[] = []
+  const webhookSchemas: string[] = []
   // The full list of dereferened OpenAPI schemas received from
   // bundling the OpenAPI in github/github
   const schemaNames = schemas.map((schema) => path.basename(schema, '.json'))

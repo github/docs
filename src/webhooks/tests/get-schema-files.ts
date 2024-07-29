@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { getOpenApiSchemaFiles } from '../../rest/scripts/utils/sync.js'
+import { getOpenApiSchemaFiles } from '../../rest/scripts/utils/sync'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
 describe('webhook data files are generated correctly from dereferenced openapi files', () => {

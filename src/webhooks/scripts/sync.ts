@@ -3,14 +3,26 @@ import { existsSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
 
-import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../lib/index.js'
-import Webhook from './webhook.js'
+import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../lib/index'
+import Webhook, { WebhookSchema } from '@/webhooks/scripts/webhook'
 
-export async function syncWebhookData(sourceDirectory, webhookSchemas) {
+interface WebhookFile {
+  webhooks?: {
+    post: WebhookSchema
+  }[]
+  'x-webhooks'?: {
+    post: WebhookSchema
+  }[]
+}
+
+export async function syncWebhookData(
+  sourceDirectory: string,
+  webhookSchemas: string[],
+): Promise<void> {
   await Promise.all(
     webhookSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      const schema = JSON.parse(await readFile(file, 'utf-8'))
+      const schema: WebhookFile = JSON.parse(await readFile(file, 'utf-8'))
       // In OpenAPI version 3.1, the schema data is under the `webhooks`
       // key, but in 3.0 the schema data was in `x-webhooks`.
       // We just fallback to `x-webhooks` for now since there's
@@ -47,7 +59,7 @@ export async function syncWebhookData(sourceDirectory, webhookSchemas) {
   )
 }
 
-async function processWebhookSchema(webhooks) {
+async function processWebhookSchema(webhooks: Webhook[]): Promise<void> {
   try {
     if (webhooks.length) {
       await Promise.all(webhooks.map((webhook) => webhook.process()))
@@ -62,9 +74,11 @@ async function processWebhookSchema(webhooks) {
 // Create an object with all webhooks where the key is the webhook name.
 // Webhooks typically have a property called `action` that describes the
 // events that trigger the webhook. Some webhooks (like `ping`) don't have
-// action types -- in that case we set a the value of action to 'default'.
-async function formatWebhookData(webhooks) {
-  const categorizedWebhooks = {}
+// action types -- in that case we set the value of action to 'default'.
+async function formatWebhookData(
+  webhooks: Webhook[],
+): Promise<Record<string, Record<string, Webhook>>> {
+  const categorizedWebhooks: Record<string, Record<string, Webhook>> = {}
   for (const webhook of Object.values(webhooks)) {
     if (!webhook.action) webhook.action = 'default'
 
