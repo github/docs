@@ -1,0 +1,414 @@
+	
+name	"X \\ آنا خولانيه عامريه (Nora___mohammed@)"
+role	"document"
+actions	[]
+value	""
+nodeCssSelector	""
+nodeType	9
+description	""
+keyboardShortcut	""
+childCount	2
+indexInParent	0
+states	
+0	"readonly"
+1	"focusable"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	
+name	null
+role	"generic"
+actions	
+0	"انقر"
+value	""
+nodeCssSelector	"#react-root"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	3
+indexInParent	0
+states	
+0	"selectable text"
+1	"opaque"
+2	"enabled"
+3	"sensitive"
+children	
+0	
+name	"لعرض اختصارات لوحة المفاتيح، اضغط على علامة الاستفهام عرض اختصارات لوحة المفاتيح"
+role	"heading"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"h2.css-175oi2r"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	2
+indexInParent	0
+states	
+0	"floating"
+1	"selectable text"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	
+name	null
+role	"generic"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"h2.css-175oi2r > div:nth-child(1)"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	0
+states	
+0	"selectable text"
+1	"opaque"
+2	"enabled"
+3	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+formatting	"block"
+tag	"div"
+class	"css-146c3p1 r-bcqeeo r-1…23e6 r-rjixqe r-16dba41"
+margin-top	"0px"
+margin-bottom	"0px"
+margin-right	"0px"
+display	"block"
+1	
+name	"عرض اختصارات لوحة المفاتيح"
+role	"link"
+actions	
+0	"اقفز"
+value	"https://x.com/i/keyboard_shortcuts"
+nodeCssSelector	"a.r-a023e6:nth-child(2)"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	1
+states	
+0	"focusable"
+1	"linked"
+2	"traversed"
+3	"selectable text"
+4	"opaque"
+5	"enabled"
+6	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+draggable	"true"
+text-indent	"0px"
+formatting	"block"
+tag	"a"
+class	"css-146c3p1 r-bcqeeo r-1…xqe r-16dba41 r-1loqt21"
+xml-roles	"link"
+margin-top	"0px"
+margin-bottom	"0px"
+margin-right	"0px"
+display	"block"
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+level	"2"
+margin-right	"0px"
+tag	"h2"
+class	"css-175oi2r r-4iw3lz r-1xk2f4g r-109y4c4 r-1udh08x r-wwvuq4 r-u8s1d r-92ng3h"
+margin-top	"0px"
+margin-bottom	"0px"
+xml-roles	"heading"
+display	"flex"
+1	
+name	null
+role	"generic"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"#layers"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	1
+states	
+0	"floating"
+1	"selectable text"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	
+name	null
+role	"generic"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"#layers > div:nth-child(1)"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	0
+states	
+0	"floating"
+1	"selectable text"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"div"
+class	"css-175oi2r r-aqfbo4 r-z…jam r-1p0dtai r-12vffkv"
+margin-top	"0px"
+margin-bottom	"0px"
+display	"flex"
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+formatting	"block"
+tag	"div"
+class	"r-zchlnj r-1d2f490 r-u8s1d r-ipm5af"
+margin-top	"0px"
+margin-bottom	"0px"
+margin-right	"0px"
+display	"block"
+id	"layers"
+2	
+name	null
+role	"generic"
+actions	
+0	"انقر"
+value	""
+nodeCssSelector	".r-1f2l425"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	4
+indexInParent	2
+states	
+0	"selectable text"
+1	"opaque"
+2	"enabled"
+3	"sensitive"
+children	
+0	
+name	"التخطي إلى يوميات الصفحة الرئيسيّة"
+role	"button"
+actions	
+0	"اضغط"
+value	""
+nodeCssSelector	"button.r-4iw3lz:nth-child(1)"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	0
+states	
+0	"floating"
+1	"focusable"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"button"
+class	"css-175oi2r r-sdzlij r-1…ynqc r-6416eg r-1ny4l3l"
+margin-top	"0px"
+margin-bottom	"0px"
+xml-roles	"button"
+display	"flex"
+explicit-name	"true"
+1	
+name	"التخطي إلى الموضوعات المتداوَلة"
+role	"button"
+actions	
+0	"اضغط"
+value	""
+nodeCssSelector	"button.r-4iw3lz:nth-child(2)"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	1
+states	
+0	"floating"
+1	"focusable"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"button"
+class	"css-175oi2r r-sdzlij r-1…ynqc r-6416eg r-1ny4l3l"
+margin-top	"0px"
+margin-bottom	"0px"
+xml-roles	"button"
+display	"flex"
+explicit-name	"true"
+2	
+name	null
+role	"banner"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"header.css-175oi2r"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	2
+states	
+0	"opaque"
+1	"enabled"
+2	"sensitive"
+children	
+0	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"header"
+class	"css-175oi2r r-lrvibr r-1g40b8q r-obd0qt r-16y2uox"
+margin-top	"0px"
+margin-bottom	"0px"
+xml-roles	"banner"
+display	"flex"
+3	
+name	null
+role	"main"
+actions	
+0	"Click ancestor"
+value	""
+nodeCssSelector	"main.css-175oi2r"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	2
+indexInParent	3
+states	
+0	"selectable text"
+1	"opaque"
+2	"enabled"
+3	"sensitive"
+children	
+0	{…}
+1	{…}
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"main"
+class	"css-175oi2r r-16y2uox r-1wbh5a2 r-1habvwh"
+margin-top	"0px"
+margin-bottom	"0px"
+xml-roles	"main"
+display	"flex"
+attributes	
+margin-left	"0px"
+data-at-shortcutkeys	'{"n":"منشور جديد","CTRL Enter":"إرسال المنشور","m":"كتم الفيديو المحدد","/":"بحث","l":"أعجبني","r":"ردّ","t":"إعادة النشر","s":"مشاركة المنشور","b":"إضافة إلى العلامات المرجعية","u":"كتم الحساب","x":"حظر الحساب","Enter":"فتح تفاصيل المنشور","o":"توسيع الصورة","i":"فتح/غلق تصغير الرسائل","k":"المنشور السابق","space":"إيقاف مؤقت/تشغيل الفيديو المحدد","a d":"انتقل إلى إرساء الصوت","a space":"تشغيل/إيقاف إرساء الصوت مؤقتًا","a m":"كتم/إلغاء كتم إرساء الصوت","?":"المساعدة حول الاختصارات","j":"المنشور التالي","Space":"أسفل الصفحة",".":"تحميل منشورات جديدة","g h":"الرئيسيّة","g e":"استكشف","g n":"التنبيهات","g r":"الإشارات","g p":"الملف الشخصيّ","g f":"المسودات","g t":"تمت جدولة المنشورات","g l":"الإعجابات","g i":"القوائم","g m":"الرسائل الخاصّة","g s":"الإعدادات","g b":"العلامات المرجعية","g a":"أهم المقالات","g u":"الانتقال إلى المستخدم...","g d":"إعدادات العرض"}'
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"div"
+class	"css-175oi2r r-1f2l425 r-13qz1uu r-417010 r-18u37iz"
+margin-top	"0px"
+margin-bottom	"0px"
+display	"flex"
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+id	"react-root"
+tag	"div"
+margin-top	"0px"
+margin-bottom	"0px"
+margin-right	"0px"
+display	"flex"
+1	
+name	"grammarly-integration"
+role	"group"
+actions	[]
+value	""
+nodeCssSelector	".grammarly-desktop-integration"
+nodeType	1
+description	""
+keyboardShortcut	""
+childCount	1
+indexInParent	1
+states	
+0	"floating"
+1	"focusable"
+2	"opaque"
+3	"enabled"
+4	"sensitive"
+children	
+0	
+name	'{"mode":"full","isActive":true,"isUserDisabled":false}'
+role	"statictext"
+actions	[]
+value	""
+nodeCssSelector	".grammarly-desktop-integration#text"
+nodeType	3
+description	""
+keyboardShortcut	""
+childCount	0
+indexInParent	0
+states	
+0	"opaque"
+1	"enabled"
+2	"sensitive"
+children	[]
+attributes	
+explicit-name	"true"
+attributes	
+margin-left	"-1px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"-1px"
+tag	"div"
+class	"grammarly-desktop-integration"
+margin-top	"-1px"
+margin-bottom	"-1px"
+xml-roles	"group"
+display	"block"
+explicit-name	"true"
+attributes	
+margin-left	"0px"
+text-align	"start"
+text-indent	"0px"
+margin-right	"0px"
+tag	"body"
+margin-top	"0px"
+margin-bottom	"0px"
+display	"block"
+explicit-name	"true"
