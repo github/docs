@@ -1,6 +1,6 @@
 ---
 title: About secret scanning for partners
-intro: '{% data variables.product.prodname_secret_scanning_caps %} sends directly alerts to partners when any of the partner secrets are found in repositories on {% data variables.product.prodname_dotcom %}. This allows partners to promtply take action to secure their systems.'
+intro: '{% data variables.product.prodname_secret_scanning_caps %} sends alerts directly to partners when any of the partner's secrets are found in repositories on {% data variables.product.prodname_dotcom %}. This allows partners to promptly take action to secure their systems.'
 versions:
   fpt: '*'
   ghec: '*'
