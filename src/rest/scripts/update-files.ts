@@ -17,12 +17,12 @@ import { fileURLToPath } from 'url'
 import walk from 'walk-sync'
 import { existsSync } from 'fs'
 
-import { syncRestData, getOpenApiSchemaFiles } from './utils/sync.js'
-import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { syncWebhookData } from '../../webhooks/scripts/sync.js'
-import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
-import { syncRestRedirects } from './utils/get-redirects.js'
+import { syncRestData, getOpenApiSchemaFiles } from './utils/sync'
+import { validateVersionsOptions } from './utils/get-openapi-schemas'
+import { allVersions } from '@/versions/lib/all-versions'
+import { syncWebhookData } from '../../webhooks/scripts/sync'
+import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
+import { syncRestRedirects } from './utils/get-redirects'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
@@ -30,7 +30,9 @@ const TEMP_BUNDLED_OPENAPI_DIR = path.join(TEMP_OPENAPI_DIR, 'bundled')
 const GITHUB_REP_DIR = '../github'
 const REST_API_DESCRIPTION_ROOT = 'rest-api-description'
 const REST_DESCRIPTION_DIR = path.join(REST_API_DESCRIPTION_ROOT, 'descriptions-next')
-const VERSION_NAMES = JSON.parse(await readFile('src/rest/lib/config.json', 'utf8')).versionMapping
+const VERSION_NAMES: Record<string, string> = JSON.parse(
+  await readFile('src/rest/lib/config.json', 'utf8'),
+).versionMapping
 const noConfig = ['rest-redirects']
 
 program
@@ -105,7 +107,10 @@ async function main() {
   // so that we don't spend time generating data files for them.
   if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
-    const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
+    // TODO: After migrating all-version.js to TypeScript, we can remove the type assertion
+    const currentOpenApiVersions = Object.values(allVersions).map(
+      (elem) => (elem as any).openApiVersionName,
+    )
 
     for (const schema of derefDir) {
       // if the schema does not start with a current version name, delete it
@@ -162,7 +167,7 @@ async function main() {
   )
 }
 
-async function getBundledFiles() {
+async function getBundledFiles(): Promise<void> {
   // Get the github/github repo branch name and pull latest
   const githubBranch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: GITHUB_REP_DIR })
     .toString()
@@ -197,7 +202,7 @@ async function getBundledFiles() {
   }
 }
 
-async function getBundlerOptions() {
+async function getBundlerOptions(): Promise<string> {
   let includeParams = ['--generate_dref_json_only']
 
   if (versions) {
@@ -213,7 +218,7 @@ async function getBundlerOptions() {
   return includeParams.join(' ')
 }
 
-async function validateInputParameters() {
+async function validateInputParameters(): Promise<void> {
   // The `--versions` option cannot be used
   // with the `--include-deprecated` option
   if (includeDeprecated && versions) {
@@ -248,7 +253,7 @@ async function validateInputParameters() {
 // the short name of the version defined in lib/allVersions.js.
 // This function also translates calendar-date format from .2022-11-28 to
 // -2022-11-28
-export async function normalizeDataVersionNames(sourceDirectory) {
+export async function normalizeDataVersionNames(sourceDirectory: string): Promise<void> {
   const schemas = await readdir(sourceDirectory)
 
   for (const schema of schemas) {
@@ -259,8 +264,8 @@ export async function normalizeDataVersionNames(sourceDirectory) {
     // Update the version name to use docs convention, e.g.,
     // api.github.com.2022-11-28 -> fpt.2022-11-28
     const docsBaseName = baseName.replace(
-      matchingSourceVersion,
-      VERSION_NAMES[matchingSourceVersion],
+      matchingSourceVersion!,
+      VERSION_NAMES[matchingSourceVersion!],
     )
     // Match a calendar version if it exists, e.g., .2022-11-28
     const regex = /.\d{4}-\d{2}-\d{2}/

@@ -310,6 +310,10 @@ async function getIndexFileVersions(directory, files) {
           `File ${filepath} does not exist while assembling directory index.md files to create parent version.`,
         )
       }
+      // If not a markdown(x) file, skip it
+      if (!file.endsWith('.md') && !file.endsWith('.mdx')) {
+        return
+      }
       const { data } = matter(await readFile(filepath, 'utf-8'))
       if (!data || !data.versions) {
         throw new Error(`Frontmatter in ${filepath} does not contain versions.`)
