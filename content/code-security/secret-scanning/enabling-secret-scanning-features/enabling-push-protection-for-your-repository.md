@@ -33,8 +33,7 @@ Organization owners, security managers, and repository administrators can also e
 
 {% ifversion secret-scanning-enterprise-level %}
 
->[!NOTE]
-> If your organization is owned by an enterprise account, an enterprise owner can also enable push protection at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+If your organization is owned by an enterprise account, an enterprise owner can also enable push protection at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 {% endif %}
 

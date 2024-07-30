@@ -23,7 +23,7 @@ You can also filter by validation status on the alerts page, to help you priorit
 > [!NOTE]
 > {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
 
-For more information on using validity checks, see "[AUTOTITLE](/TODO)."
+For more information on using validity checks, see "TODO."
 
 ## Enabling validity checks
 
