@@ -2,8 +2,8 @@
 title: Disabling Copilot for organizations in your enterprise
 shortTitle: Disable for organizations
 intro: 'Disable {% data variables.product.prodname_copilot %} for some or all of the organizations in your enterprise.'
-permissions: Enterprise admins
-product: '{% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+permissions: Enterprise owners
+product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot-enterprise
 topics:
@@ -12,16 +12,21 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/disabling-copilot-for-organizations-in-your-enterprise
 ---
 
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. In the "{% data variables.product.prodname_copilot_short %} is active in your enterprise" section, configure the access for your {% data variables.product.prodname_copilot %} subscription.
     * To disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise, select **Disabled**.
     * To disable {% data variables.product.prodname_copilot %} for specific organizations, select **Allow for specific organizations**.
 
-1. If you selected **Allow for specific organizations**, select the organizations you want to disable {% data variables.product.prodname_copilot %} for. Then, click the **Set organization permissions** dropdown and select **Disable** to deny {% data variables.product.prodname_copilot %} access for the specified organizations.
+1. If you selected **Allow for specific organizations**:
 
-   ![Screenshot of the {% data variables.product.prodname_copilot %} policy page. The organization permissions dropdown is outlined in dark orange.](/assets/images/help/copilot/set-org-permissions-enterprise.png)
+   1. Under "Access management", locate the organization for which you want to disable {% data variables.product.prodname_copilot_short %}.
+   1. To the right of the organization name, select the **Copilot** dropdown menu.
+       * If your enterprise has a {% data variables.product.prodname_copilot_business_short %} subscription, click **Disabled**.
+       * If your enterprise has a {% data variables.product.prodname_copilot_enterprise_short %} subscription, click **Remove access**.
 
-1. Review your selection.
-    * If you selected **Disabled**, you will see a warning that disabling {% data variables.product.prodname_copilot %} will revoke access for all organizations and members. To confirm, click **Confirm and save**.
-    * If you selected **Allow for specific organizations**, click **Save**.
+## Further reading
+
+* "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)"
+* "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)"

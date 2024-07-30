@@ -7,6 +7,7 @@ labels:
   - priority-0
   - skip FR board
   - GHES {{ release-number }}
+  - ghes-release-automation
 ---
 
 This issue tracks Docs work for the GA release of GHES {{ release-number }}.

@@ -1,3 +1,6 @@
+# Reference: #2703 and #15120
+# 2024-07-17 GA
+
 versions:
   fpt: '*'
   ghec: '*'

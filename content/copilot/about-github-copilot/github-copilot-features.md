@@ -30,6 +30,10 @@ A chat-like interface in the terminal, where you can ask questions about the com
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review.
 
+### {% data variables.product.prodname_copilot_autocomplete_pr %} (beta) _({% data variables.product.prodname_copilot_enterprise_short %} only)_
+
+AI-generated text completion to help you write pull request descriptions quickly and accurately.
+
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question.

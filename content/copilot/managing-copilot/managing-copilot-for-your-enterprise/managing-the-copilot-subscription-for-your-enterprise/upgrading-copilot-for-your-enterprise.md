@@ -1,9 +1,9 @@
 ---
 title: Upgrading Copilot for your enterprise
 shortTitle: Upgrade subscription
-intro: 'Change from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise %} for your enterprise.'
-permissions: Enterprise admins
-product: '{% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_copilot_business_short %}'
+intro: 'Change your enterprise''s subscription from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}.'
+permissions: Enterprise owners
+product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot-enterprise
 topics:
@@ -11,10 +11,6 @@ topics:
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
 ---
-
-Enterprise admins can change their enterprise's {% data variables.product.prodname_copilot_short %} subscription from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}.
-
-When you upgrade, all users with a {% data variables.product.prodname_copilot_business_short %} seat will be upgraded to {% data variables.product.prodname_copilot_enterprise_short %}. Your enterprise will be charged pro rata for these seats for the rest of the billing cycle.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -25,3 +21,11 @@ When you upgrade, all users with a {% data variables.product.prodname_copilot_bu
 
 1. In the dialog, click **Continue to billing summary**.
 1. Review your updated billing summary, then click **Enable plan**.
+
+## Next steps
+
+After upgrading to {% data variables.product.prodname_copilot_enterprise_short %}, you can assign {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} to individual organizations in the enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)."
+
+## Further reading
+
+* "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)"
