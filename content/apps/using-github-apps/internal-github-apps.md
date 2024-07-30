@@ -16,10 +16,17 @@ These internal apps will appear in the user security log, but will not appear in
 
 These {% data variables.product.prodname_github_apps %} are:
 
-* {% data variables.product.prodname_classroom %}
-* VSCode Auth Provider
+* Actions
+* Dependabot
 * Git Src Migrator
-* MS Teams
+* GitHub Advanced Security
+* GitHub Classroom
+* GitHub Codespaces
+* GitHub Copilot Plugin
+* GitHub Merge Queue
+* GitHub Pages
+* GitHub Project Automation
+* GitHub Team Synchronization
+* Microsoft Teams for GitHub
+* OpenGraph (`custom-og-image`)
 * Slack
-* {% data variables.product.prodname_codespaces %}
-* {% data variables.product.prodname_copilot_short %} plugin

@@ -34,7 +34,8 @@ If the OpenAPI has changed, you will need to first wait for the OpenAPI to be me
 To run the GitHub Apps pipeline locally:
 
 1. Clone the [`github/rest-api-description`](https://github.com/github/rest-api-description) repository inside your local `docs-internal` repository. 
-1. Run `src/rest/scripts/update-files.js -s rest-api-description -o github-apps`.
+1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
+1. Run `npm run sync-rest -- -s rest-api-description -o github-apps`.
 
 ## About this directory
 
