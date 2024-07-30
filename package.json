@@ -58,6 +58,7 @@
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "node src/workflows/prevent-pushes-to-main.js",
     "release-banner": "node src/ghes-releases/scripts/release-banner.js",
+    "reusables": "tsx src/content-render/scripts/reusables-cli.ts",
     "remove-version-markup": "node src/ghes-releases/scripts/remove-version-markup.js",
     "rendered-content-link-checker": "tsx src/links/scripts/rendered-content-link-checker.ts",
     "rendered-content-link-checker-cli": "tsx src/links/scripts/rendered-content-link-checker-cli.ts",
