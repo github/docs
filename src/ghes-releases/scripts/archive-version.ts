@@ -15,16 +15,22 @@ import { program } from 'commander'
 import { rimraf } from 'rimraf'
 import http from 'http'
 
-import createApp from '#src/frame/lib/app.js'
+import createApp from '@/frame/lib/app'
 import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { loadPageMap, loadPages } from '#src/frame/lib/page-data.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
+import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/rewrite-asset-paths'
 
 const port = '4001'
 const host = `http://localhost:${port}`
 const version = EnterpriseServerReleases.oldestSupported
 const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
+
+// Once page-data.js is converted to TS,
+// we can import the more comprehesive type
+type PageList = Array<Object>
+type MapObj = { [key: string]: string }
 
 program
   .description(
@@ -57,76 +63,10 @@ const tmpArchivalDirectory = output
   : path.join(process.cwd(), `tmpArchivalDir_${version}`)
 
 main()
-
-class RewriteAssetPathsPlugin {
-  constructor(version, tempDirectory) {
-    this.version = version
-    this.tempDirectory = tempDirectory
-  }
-
-  apply(registerAction) {
-    registerAction('onResourceSaved', async ({ resource }) => {
-      // Show some activity
-      process.stdout.write('.')
-
-      // Only operate on HTML files
-      if (!resource.isHtml() && !resource.isCss()) return
-
-      // Get the text contents of the resource
-      const text = resource.getText()
-      let newBody = text
-
-      // Rewrite HTML asset paths. Example:
-      // ../assets/images/foo/bar.png ->
-      // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
-
-      if (resource.isHtml()) {
-        // Remove nextjs scripts and manifest.json link
-        newBody = newBody.replace(
-          /<script\ssrc="(\.\.\/)*_next\/static\/[\w]+\/(_buildManifest|_ssgManifest).js?".*?><\/script>/g,
-          '',
-        )
-        newBody = newBody.replace(/<link href=".*manifest.json".*?>/g, '')
-
-        if (!localDev) {
-          // Rewrite asset paths
-          newBody = newBody.replace(
-            /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
-            (match, attribute, basepath) => {
-              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-              return `${attribute}="${replaced}`
-            },
-          )
-        }
-      }
-
-      // Rewrite CSS asset paths. Example
-      // url("../assets/fonts/alliance/alliance-no-1-regular.woff") ->
-      // url("https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/fonts/alliance/alliance-no-1-regular.woff")
-      // url(../../../assets/cb-303/images/octicons/search-24.svg) ->
-      // url(https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/cb-303/images/octicons/search-24.svg)
-      if (resource.isCss()) {
-        if (!localDev) {
-          newBody = newBody.replace(
-            /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
-            (match, attribute, paren, basepath) => {
-              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-              return `${attribute}${paren}${replaced}`
-            },
-          )
-        }
-      }
-
-      const filePath = path.join(this.tempDirectory, resource.getFilename())
-      await fs.promises.writeFile(filePath, newBody, resource.encoding)
-    })
-  }
-}
-
 async function main() {
   console.log(`Archiving Enterprise version: ${version}`)
 
-  let pageList, urls
+  let pageList: PageList, urls: Array<string>
   if (singlePage) {
     const pageName = singlePage.trim().startsWith('/') ? singlePage.slice(1) : singlePage
     const urls = languageKeys
@@ -160,7 +100,7 @@ async function main() {
 
       await scrape({
         urls,
-        urlFilter: (url) => {
+        urlFilter: (url: string) => {
           // Do not download assets from other hosts like S3 or octodex.github.com
           // (this will keep them as remote references in the downloaded pages)
           return url.startsWith(`http://localhost:${port}/`)
@@ -168,8 +108,15 @@ async function main() {
         directory: tmpArchivalDirectory,
         filenameGenerator: 'bySiteStructure',
         requestConcurrency: 6,
-        plugins: [new RewriteAssetPathsPlugin(version, tmpArchivalDirectory)],
-      }).catch((err) => {
+        plugins: [
+          new RewriteAssetPathsPlugin(
+            version,
+            tmpArchivalDirectory,
+            localDev,
+            REMOTE_ENTERPRISE_STORAGE_URL,
+          ),
+        ],
+      }).catch((err: Error) => {
         console.error('scraping error')
         console.error(err)
       })
@@ -195,12 +142,14 @@ async function main() {
     })
 }
 
-async function createRedirectsFile(pageList, outputDirectory) {
+async function createRedirectsFile(pageList: PageList, outputDirectory: string) {
   console.log('Creating redirects file...')
   const redirects = await loadRedirects(pageList)
-  const redirectsPerVersion = {}
+  const redirectsPerVersion: MapObj = {}
 
-  Object.entries(redirects).forEach(([oldPath, newPath]) => {
+  const redirectEntries: Array<[string, string]> = Object.entries(redirects)
+
+  redirectEntries.forEach(([oldPath, newPath]) => {
     // remove any liquid variables that sneak in
     oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version

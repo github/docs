@@ -1,15 +1,16 @@
 ---
 title: Reviewing changes to content exclusions for GitHub Copilot
-intro: 'You can monitor changes to content exclusions in your repositories and organizations.'
+shortTitle: Content exclusion changes
+intro: You can monitor changes to content exclusions in your repositories and organizations.
 permissions: Organization owners
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Review content exclusion changes
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot
 ---
 
 {% data reusables.copilot.content-exclusions-availability-and-beta-note %}

@@ -6,7 +6,15 @@
 // {% if ghes %}
 //
 // For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.js`.
-export default function shortVersions(req, res, next) {
+import type { ExtendedRequest } from '@/types.js'
+import type { Response, NextFunction } from 'express'
+
+export default function shortVersions(
+  req: ExtendedRequest,
+  res: Response | null,
+  next: NextFunction,
+): void {
+  if (!req.context) throw new Error('No context on request')
   const { currentVersion, currentVersionObj } = req.context
   if (!currentVersionObj) {
     return next()
@@ -16,8 +24,10 @@ export default function shortVersions(req, res, next) {
   req.context[currentVersionObj.shortName] = true
 
   // Add convenience props.
-  req.context.currentRelease = currentVersion.split('@')[1]
-  req.context.currentVersionShortName = currentVersionObj.shortName
+  if (currentVersion) {
+    req.context.currentRelease = currentVersion.split('@')[1]
+    req.context.currentVersionShortName = currentVersionObj.shortName
+  }
 
   return next()
 }

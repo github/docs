@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 import { get, isPlainObject } from 'lodash-es'
-
-import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
-import { renderContent } from '#src/content-render/index.js'
-import webhookSchema from './webhook-schema.js'
-import { getBodyParams } from '../../rest/scripts/utils/get-body-params.js'
+import { getJsonValidator } from '@/tests/lib/validate-json-schema'
+import { renderContent } from '@/content-render/index'
+import webhookSchema from './webhook-schema'
+import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-body-params'
 
 const NO_CHILD_PROPERTIES = [
   'action',
@@ -17,13 +16,45 @@ const NO_CHILD_PROPERTIES = [
 
 const validate = getJsonValidator(webhookSchema)
 
-export default class Webhook {
-  #webhook
-  constructor(webhook) {
+export interface WebhookSchema {
+  description: string
+  summary: string
+  requestBody?: {
+    content: {
+      'application/json': {
+        schema: Record<string, any>
+      }
+    }
+  }
+  'x-github': {
+    'supported-webhook-types': string[]
+    subcategory: string
+  }
+}
+
+interface WebhookInterface {
+  descriptionHtml: string
+  summaryHtml: string
+  bodyParameters: TransformedParam[]
+  availability: string[]
+  action: string | null
+  category: string
+  process(): Promise<void>
+  renderDescription(): Promise<this>
+  renderBodyParameterDescriptions(): Promise<void>
+}
+
+export default class Webhook implements WebhookInterface {
+  #webhook: WebhookSchema
+  descriptionHtml: string = ''
+  summaryHtml: string = ''
+  bodyParameters: TransformedParam[] = []
+  availability: string[]
+  action: string | null
+  category: string
+
+  constructor(webhook: WebhookSchema) {
     this.#webhook = webhook
-    this.descriptionHtml = ''
-    this.summaryHtml = ''
-    this.bodyParameters = []
     this.availability = webhook['x-github']['supported-webhook-types']
     this.action = get(
       webhook,
@@ -45,30 +76,29 @@ export default class Webhook {
     // The OpenAPI uses hyphens for the webhook names, but the webhooks
     // are sent using underscores (e.g. `branch_protection_rule` instead
     // of `branch-protection-rule`)
-    this.category = webhook['x-github'].subcategory.replaceAll('-', '_')
-    return this
+    this.category = webhook['x-github'].subcategory.replace(/-/g, '_')
   }
 
-  async process() {
+  async process(): Promise<void> {
     await Promise.all([this.renderDescription(), this.renderBodyParameterDescriptions()])
 
-    const isValid = validate(this)
+    const isValid = validate(this as WebhookInterface) // Add type assertion here
     if (!isValid) {
       console.error(JSON.stringify(validate.errors, null, 2))
       throw new Error(`Invalid OpenAPI webhook found: ${this.category}`)
     }
   }
 
-  async renderDescription() {
+  async renderDescription(): Promise<this> {
     this.descriptionHtml = await renderContent(this.#webhook.description)
     this.summaryHtml = await renderContent(this.#webhook.summary)
     return this
   }
 
-  async renderBodyParameterDescriptions() {
-    if (!this.#webhook.requestBody) return []
-    const schema = get(this.#webhook, `requestBody.content.['application/json'].schema`, {})
-    this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true, this.title) : []
+  async renderBodyParameterDescriptions(): Promise<void> {
+    if (!this.#webhook.requestBody) return
+    const schema = get(this.#webhook, `requestBody.content['application/json'].schema`, {})
+    this.bodyParameters = isPlainObject(schema) ? await getBodyParams(schema, true) : []
 
     // Removes the children of the common properties
     this.bodyParameters.forEach((param) => {
