@@ -305,7 +305,7 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | `indirect` | `bundler`, `pip`, `composer`, `cargo`{% ifversion dependabot-updates-gomod-indirect %}, `gomod`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
   | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`,{% ifversion dependabot-updates-gomod-indirect %} `gomod`,{% endif %} also the dependencies of direct dependencies.|
   | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
-  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Development dependency group". |
+  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm` | Only dependencies in the "Development dependency group". |
 
 ```yaml
 # Use `allow` to specify which dependencies to maintain
@@ -381,7 +381,7 @@ Supported options
    The code snippet below provides examples of both in the same configuration file.
 
 * `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-* `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
+* `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit. Values possible values for list of dependencies are: `deps`, `deps-dev`
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
