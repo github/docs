@@ -32,7 +32,7 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 * In any clones or forks of your repository
 * Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
-* Through any pull requests that reference them.
+* Through any pull requests that reference them
 
 You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 

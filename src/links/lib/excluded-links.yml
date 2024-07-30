@@ -72,3 +72,4 @@
 - startsWith: https://github.com/actions/actions-runner-controller
 - is: https://github.com/actions/runner/pkgs/container/actions-runner
 - is: https://github.com/Codertocat/hello-world-npm/pkgs/npm/hello-world-npm
+- is: https://jsonformatter.org/
