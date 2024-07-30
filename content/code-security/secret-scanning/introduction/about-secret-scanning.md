@@ -24,15 +24,15 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in public repositories for known types of secrets and alerts repository administrators upon detection.
 
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %}
-
-{% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.{% endif %}
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}.{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %}{% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled.{% endif %}
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
-When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on {% data variables.product.prodname_dotcom_the_website %}, where you can view, evaluate, and manage (fix or dismiss) them. For more information, see TODO: link to Managing alerts.
+When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories in {% data variables.product.prodname_dotcom_the_website %}, where you can view, evaluate, and manage (fix or dismiss) them. For more information, see TODO: link to Managing alerts.
 
-{% ifversion fpt or ghec %} Additionally, we automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages. This is a partnership program that Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning{% endif %}{% data reusables.secret-scanning.partner-program-link %} Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
+
+Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom_the_website %}. For more information, see TODO: link to about secret scanning for partner alerts.{% endif %}
 
 You can use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."
 
@@ -53,8 +53,8 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 * Review of alerts: When a secret is detected, you'll need to review the alert details provided.
 
 * Alert remediation: You then need take appropriate actions to remediate the exposure. This might include:
-   *Rotating the affected credential to ensure it is no longer usable.
-   *Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
+  * Rotating the affected credential to ensure it is no longer usable.
+  * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
 * Audit and monitor: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
@@ -171,12 +171,6 @@ You can use AI to generate regular expressions that will capture all your custom
 {% endif %}
 
 OLD
-
-{% ifversion fpt or ghec %}
-
-1. **{% data variables.secret-scanning.partner_alerts_caps %}** Runs automatically on all public repositories and public npm packages. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning, hence the term "partners." {% data reusables.secret-scanning.partner-program-link %} Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see TODO:
-
-Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see TODO: the About secret scanning for users section below.{% endif %}
 
 About {% data variables.secret-scanning.user_alerts %}{% ifversion ghes %} on {% data variables.product.product_name %}{% endif %}
 
