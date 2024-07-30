@@ -381,7 +381,7 @@ Supported options
    The code snippet below provides examples of both in the same configuration file.
 
 * `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
-* `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit. Values possible values for list of dependencies are: `deps`, `deps-dev`
+* `include: "scope"` specifies that any prefix is followed by the type of the dependencies (`deps` or `deps-dev`) updated in the commit.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
