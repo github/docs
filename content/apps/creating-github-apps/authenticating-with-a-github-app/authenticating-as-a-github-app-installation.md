@@ -26,7 +26,7 @@ You can also use an installation access token to authenticate for HTTP-based Git
 
 Requests made with an installation access token are sometimes called "server-to-server" requests.
 
-For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)".
+For more information about authenticating as an app on behalf of a user instead of as an app installation, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 ## Using an installation access token to authenticate as an app installation
 

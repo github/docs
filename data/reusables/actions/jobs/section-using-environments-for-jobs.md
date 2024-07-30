@@ -1,6 +1,9 @@
-Use `jobs.<job_id>.environment` to define the environment that the job references. All deployment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
+Use `jobs.<job_id>.environment` to define the environment that the job references.
 
 You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[AUTOTITLE](/rest/repos#deployments)."
+
+> [!NOTE]
+> All deployment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)."
 
 ### Example: Using a single environment name
 

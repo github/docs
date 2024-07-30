@@ -178,7 +178,7 @@ The following examples demonstrate how to use "Subject" as a condition, and expl
 
 The subject claim includes the environment name when the job references an environment.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:<orgName/repoName>:environment:<environmentName>`
 * Example: `repo:octo-org/octo-repo:environment:Production`

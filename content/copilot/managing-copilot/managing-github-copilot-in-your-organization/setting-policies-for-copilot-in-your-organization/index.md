@@ -8,10 +8,8 @@ topics:
   - Copilot
 children:
   - /managing-policies-for-copilot-in-your-organization
-  - /about-content-exclusions-for-github-copilot
-  - /configuring-content-exclusions-for-github-copilot
-  - /testing-changes-to-content-exclusions-in-your-ide
-  - /reviewing-changes-to-content-exclusions-for-github-copilot
+  - /excluding-content-from-github-copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization
 ---
+
