@@ -357,7 +357,7 @@
     "event-to-promise": "^0.8.0",
     "graphql": "^16.9.0",
     "http-status-code": "^2.1.0",
-    "husky": "^9.0.8",
+    "husky": "^9.1.4",
     "json-schema-merge-allof": "^0.8.1",
     "kill-port": "2.0.1",
     "lint-staged": "^15.2.2",
