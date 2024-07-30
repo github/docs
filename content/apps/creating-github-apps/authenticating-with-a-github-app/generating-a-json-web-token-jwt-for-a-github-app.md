@@ -165,18 +165,11 @@ exp=$((${now} + 600)) # Expires 10 minutes in the future
 
 b64enc() { openssl base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n'; }
 
-header_json='{
-    "typ":"JWT",
-    "alg":"RS256"
-}'
+header_json='{"typ":"JWT","alg":"RS256"}'
 # Header encode
 header=$( echo -n "${header_json}" | b64enc )
 
-payload_json='{
-    "iat":'"${iat}"',
-    "exp":'"${exp}"',
-    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${app_id}"'{% endif %}
-}'
+payload_json='{"iat":"'"${iat}"'","exp":"'"${exp}"'",{% ifversion client-id-for-app %}"iss":"'"${client_id}"'"{% else %}"iss":"'"${app_id}"'"{% endif %}}'
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
 
@@ -189,7 +182,7 @@ signature=$(
 
 # Create JWT
 JWT="${header_payload}"."${signature}"
-printf '%s\n' "JWT: $JWT"
+printf '%s\n' $JWT
 ```
 
 ### Example: Using PowerShell to generate a JWT
