@@ -12,6 +12,10 @@ topics:
   - Secret scanning
   - Advanced Security
   - Alerts
+redirect_from:
+  - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
+  - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
+  - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
 ---
 
 ## About enabling {% data variables.secret-scanning.user_alerts %}
