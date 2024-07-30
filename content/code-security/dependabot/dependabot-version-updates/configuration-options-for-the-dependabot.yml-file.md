@@ -425,7 +425,6 @@ updates:
     commit-message:
       prefix: "pip prod"
       prefix-development: "pip dev"
-      include: "scope"
 ```
 
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
