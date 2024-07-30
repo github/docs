@@ -28,7 +28,7 @@ shortTitle: Secret scanning
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
-When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories in {% data variables.product.prodname_dotcom_the_website %}, where you can view, evaluate, and manage (fix or dismiss) them. For more information, see TODO: link to Managing alerts.
+When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.product_name %}, where you can view, evaluate, and manage (fix or dismiss) them. For more information, see TODO: link to Managing alerts.
 
 {% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
 
@@ -46,21 +46,21 @@ You can also use security overview to see an organization-level view of which re
 
 Below is a typical workflow that explains how {% data variables.product.prodname_secret_scanning %} works:
 
-* Detection of secrets: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
+* **Detection of secrets**: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* Alerts and notifications: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
+* **Alerts and notifications**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
 
-* Review of alerts: When a secret is detected, you'll need to review the alert details provided.
+* **Review of alerts**: When a secret is detected, you'll need to review the alert details provided.
 
-* Alert remediation: You then need take appropriate actions to remediate the exposure. This might include:
+* **Alert remediation**: You then need take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
-* Audit and monitor: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
+* **Audit and monitor**: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
 {% ifversion fpt or ghec %}
 
-* Integration with partners: {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with partners**: {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
 
 {% endif %}
 
@@ -95,6 +95,8 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 ## Enabling {% data variables.product.prodname_secret_scanning %}
+
+TODO: PLEASE DO NOT REVIEW THIS SECTION AS I WANT TO MAKE IT CONCISE AND SEE WHAT IS IN THE ENABLING ARTICLE(S)
 
 {% data variables.secret-scanning.user_alerts_caps %} is available {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}on all repositories with a license for {% data variables.product.prodname_GH_advanced_security %}{% else %}for free on all public repositories, and for private and internal repositories that are owned by organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}{% elsif fpt %}for free on all public repositories that you own{% else %}on all organization-owned repositories with a license for {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories{% endif %}.
 
