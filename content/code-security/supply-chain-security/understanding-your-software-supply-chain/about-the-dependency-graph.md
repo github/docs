@@ -45,12 +45,12 @@ For more information about configuration of the dependency graph, see "[AUTOTITL
 
 ## Dependencies included
 
-The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems, as well as any dependencies that are submitted using the {% data variables.dependency-submission-api.name %} (beta). This includes:
+The dependency graph includes all the dependencies of a repository that are detailed in the manifest and lock files, or their equivalent, for supported ecosystems, as well as any dependencies that are submitted using the {% data variables.dependency-submission-api.name %}. This includes:
 
-* Direct dependencies, that are explicitly defined in a manifest or lock file or have been submitted using the {% data variables.dependency-submission-api.name %} (beta)
+* Direct dependencies, that are explicitly defined in a manifest or lock file or have been submitted using the {% data variables.dependency-submission-api.name %}
 * Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
 
-The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file or have been submitted using the {% data variables.dependency-submission-api.name %} (beta). For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. If your ecosystem does not have lock files, you can use  pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions)."
+The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file or have been submitted using the {% data variables.dependency-submission-api.name %}. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. If your ecosystem does not have lock files, you can use  pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions)."
 
 For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
@@ -115,7 +115,7 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% endnote %}
 
-You can use the {% data variables.dependency-submission-api.name %} (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. {% data reusables.dependency-graph.dependency-submission-API-short %}
+You can use the {% data variables.dependency-submission-api.name %} to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. {% data reusables.dependency-graph.dependency-submission-API-short %}
 
 You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 

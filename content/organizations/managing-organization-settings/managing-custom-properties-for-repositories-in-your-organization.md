@@ -1,7 +1,7 @@
 ---
 title: Managing custom properties for repositories in your organization
 intro: 'With custom properties, you can add metadata to repositories in your organization. You can use those properties to target repositories with rulesets.'
-permissions: 'Organization owners can add and set a custom property schema at the organization level. People with read permissions to a repository can view the values of custom properties for that repository.'
+permissions: 'Organization owners {% ifversion custom-org-roles %}and users with the "Manage the organization''s custom properties definitions" permission {% endif %}can add and set a custom property schema at the organization level.'
 versions:
   feature: repository-properties
 topics:
@@ -43,7 +43,7 @@ You can add custom properties to your organization and set values for those prop
 
 ## Setting values for repositories in your organization
 
-You can set values for custom properties for repositories in your organization.
+You{% ifversion custom-org-roles %}, and any users with the "Edit custom properties values at the organization level" permission,{% endif %} can set values for custom properties for repositories in your organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -30,6 +30,7 @@ If you have a subscription to {% data variables.product.prodname_copilot_for_bus
 
 ### At the enterprise-level
 
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Under "{% data variables.product.prodname_copilot_short %} monthly usage," view the breakdown of your {% data variables.product.prodname_copilot %} usage.
