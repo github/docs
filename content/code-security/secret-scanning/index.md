@@ -16,6 +16,7 @@ topics:
   - Repositories
 children:
   - /introduction
+  - /enabling-secret-scanning-features
   - /about-secret-scanning
   - /configuring-secret-scanning-for-your-repositories
   - /managing-alerts-from-secret-scanning
