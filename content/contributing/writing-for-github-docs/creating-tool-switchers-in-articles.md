@@ -1,6 +1,6 @@
 ---
 title: Creating tool switchers in articles
-shortTitle: Creating tool switchers
+shortTitle: Create tool switchers
 intro: 'You can use a tool switcher to show how to complete tasks using specific tools.'
 versions:
   feature: 'contributing'

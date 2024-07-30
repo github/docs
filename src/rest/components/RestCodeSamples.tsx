@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
+import { FormControl, Select, TabNav } from '@primer/react'
+import { Tooltip } from '@primer/react/next'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
 import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
@@ -283,7 +284,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <Tooltip
               className="mr-2"
               direction="w"
-              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
+              text={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
               <button
                 className="js-btn-copy btn-octicon"

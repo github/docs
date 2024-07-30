@@ -35,36 +35,7 @@ To configure team and organization membership, repository access, and permission
 
 ## Prerequisites
 
-* {% data reusables.scim.emu-prerequisite-authentication %}
-
-{%- ifversion emu-public-scim-schema %}
-* {% data reusables.scim.emu-understand-types-and-support %}
-{%- endif %}
-
-## Creating a {% data variables.product.pat_generic %}
-
-To configure provisioning for your {% data variables.enterprise.prodname_emu_enterprise %}, you need a {% data variables.product.pat_v1 %} with the **admin:enterprise** scope that belongs to the setup user.
-
-{% warning %}
-
-**Warning:** If the token expires or a provisioned user creates the token, SCIM provisioning may unexpectedly stop working. Make sure that you create the token while signed in as the setup user and that the token expiration is set to "No expiration".
-
-{% endwarning %}
-
-1. Sign into {% data variables.product.prodname_dotcom %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.personal_access_tokens %}
-{% data reusables.user-settings.generate_new_token %}
-1. Under **Note**, give your token a descriptive name.
-1. Select the **Expiration** dropdown menu, then click **No expiration**.
-1. Select the **admin:enterprise** scope.
-   ![Screenshot of a list of scopes with checkboxes. The "admin:enterprise" scope, accompanied by the text "Full control of enterprises," is selected and highlighted with an orange outline.](/assets/images/help/enterprises/enterprise-pat-scope.png)
-1. Click **Generate token**.
-1. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
-
-   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png)
-1. To save the token for use later, store the new token securely in a password manager.
+If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
@@ -83,9 +54,7 @@ To use a partner IdP's application both authentication and provisioning, review 
 
 | IdP | SSO method | More information |
 |---|---|---|
-{%- ifversion oidc-for-emu %}
 | Microsoft Entra ID (previously known as Azure AD) | OIDC | [Tutorial: Configure GitHub Enterprise Managed User (OIDC) for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-enterprise-managed-user-oidc-provisioning-tutorial) on Microsoft Learn |
-{%- endif %}
 | Entra ID | SAML | [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) on Microsoft Learn |
 | Okta | SAML | "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)" |
 | PingFederate | SAML | [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) and [Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate) in the PingFederate documentation |

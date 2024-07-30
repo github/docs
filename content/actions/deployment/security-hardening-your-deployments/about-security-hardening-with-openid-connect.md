@@ -132,7 +132,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | {% ifversion actions-OIDC-enterprise_id-claim %} |
 | `enterprise_id`| The ID of the enterprise that contains the repository from where the workflow is running.                  |
 | {% endif %} |
-| `environment`| The name of the environment used by the job. To include the `environment` claim you must reference an environment.                   |
+| `environment`| The name of the environment used by the job. If the `environment` claim is included (also via `include_claim_keys`), an environment is required and must be provided.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  |
@@ -178,7 +178,7 @@ The following examples demonstrate how to use "Subject" as a condition, and expl
 
 The subject claim includes the environment name when the job references an environment.
 
-You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 * Syntax: `repo:<orgName/repoName>:environment:<environmentName>`
 * Example: `repo:octo-org/octo-repo:environment:Production`

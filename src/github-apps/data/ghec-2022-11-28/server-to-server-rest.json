@@ -1421,6 +1421,12 @@
       "requestPath": "/orgs/{org}/code-security/configurations/defaults"
     },
     {
+      "slug": "detach-configurations-from-repositories",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/detach"
+    },
+    {
       "slug": "get-a-code-security-configuration",
       "subcategory": "configurations",
       "verb": "get",
@@ -4613,12 +4619,6 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
-    },
-    {
-      "slug": "get-a-user",
-      "subcategory": "users",
-      "verb": "get",
-      "requestPath": "/users/{username}"
     },
     {
       "slug": "list-attestations",

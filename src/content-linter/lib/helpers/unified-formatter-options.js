@@ -1,5 +1,5 @@
 export const MARKDOWN_OPTIONS = {
-  bullet: '-',
+  bullet: '*',
   emphasis: '_',
   closeAtx: false,
   fence: '`',

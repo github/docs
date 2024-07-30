@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Copilot in your environment
-shortTitle: Copilot in your environment
+shortTitle: Configure in your environment
 intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
@@ -213,7 +213,6 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |:---|:---|:---|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Edit.NextSuggestion|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Edit.PreviousSuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ### Rebinding keyboard shortcuts
 

@@ -30,8 +30,14 @@ If reported content is enabled for a public repository, you can also report cont
 ## Reporting an organization
 
 {% data reusables.organizations.navigate-to-org %}
-1. In the left sidebar, under the "Most used topics" section, click **Report abuse**.
+1. In the right sidebar, under the "Top languages" section, click **Report abuse**.
 1. Complete the contact form to tell {% data variables.contact.github_support %} about the organization's behavior, then click **Submit**.
+
+## Reporting a repository
+
+{% data reusables.repositories.navigate-to-repo %}
+1. In the right sidebar, under the "About" section, click **Report repository**.
+1. Complete the contact form to tell {% data variables.contact.github_support %} about the repository's behavior, then click **Submit**.
 
 ## Reporting an issue or pull request
 

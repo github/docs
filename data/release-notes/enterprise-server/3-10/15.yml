@@ -1,0 +1,139 @@
+date: '2024-07-19'
+intro: |
+
+  >[!NOTE] Due to a bug that caused hotpatch upgrades to fail for instances on Microsoft Azure, the previous patch release in this series (**3.10.14**) is not available for download. The following release notes include the updates introduced in that release.
+
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.14-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker could cause unbounded resource exhaustion on the instance by sending a large payload to the Git server. To mitigate this issue, GitHub has limited the count of "have" and "want" lines for Git read operations. GitHub has requested CVE ID [CVE-2024-5795](https://www.cve.org/cverecord?id=CVE-2024-5795) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An improper privilege management vulnerability allowed users to migrate private repositories without having appropriate scopes defined on the related {% data variables.product.pat_generic %}. GitHub has requested CVE ID [CVE-2024-5566](https://www.cve.org/cverecord?id=CVE-2024-5566) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An attacker could have unauthorized access in a public repository using a suspended GitHub App via a scoped user access token. This was only exploitable in public repositories while private repositories were not impacted. GitHub has requested CVE ID [CVE-2024-5816](https://www.cve.org/cverecord?id=CVE-2024-5816) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An attacker could execute a Cross Site Request Forgery (CSRF) attack to perform write operations on a victim-owned repository in GitHub Enterprise Server by exploiting incorrect request types. A mitigating factor is that the attacker has to be a trusted user and the victim has to visit a tag in the attacker's fork of their own repository. GitHub has requested CVE ID [CVE-2024-5815](https://nvd.nist.gov/vuln/detail/CVE-2024-5815) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** An attacker could disclose the name of a private repository on the GitHub Enterprise Server appliance when the private repository has a deploy key associated to it. GitHub has requested CVE ID [CVE-2024-6395](https://www.cve.org/cverecord?id=CVE-2024-6395) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **LOW:** Instance administrators could see fine-grained {% data variables.product.pat_generic_plural %} in plaintext in the babeld and gitauth logs.
+    - |
+      **LOW:** An attacker with read access to a project could use the REST API to view a list of all members in an organization, including members who had made their membership private. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
+    - |
+      **LOW:** An attacker could include MathJax syntax in Markdown to bypass GitHubs normal restrictions on CSS properties in Markdown. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
+    - |
+      **MEDIUM:** An attacker could disclose sensitive information from a private repository exploiting organization ruleset features. This attack required an organization member to explicitly change the visibility of a dependent repository from private to public. GitHub has requested CVE ID [CVE-2024-6336](https://www.cve.org/cverecord?id=CVE-2024-6336) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An attacker could have unauthorized read access to issue content inside an internal repository via GitHub projects. This attack required attacker access to the corresponding project board. GitHub has requested CVE ID [CVE-2024-5817](https://nvd.nist.gov/vuln/detail/CVE-2024-5817) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Firewall port 9199, which linked to a static maintenance page used when enabling maintenance mode with an IP exception list, was opened unnecessarily.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      When an instance hosted on Azure was upgraded with a hotpatch, the upgrade failed with an `rsync` error.
+    - |
+      On an instance with GitHub Actions enabled, remote blob storage could fill up with large amounts of data because cleanup jobs were skipped on old hosts.
+    - |
+      In some cases, commands run in an administrative SSH shell were not written to the audit log.
+    - |
+      When an administrator submitted support data to GitHub Support, spokesd keys were incorrectly sanitized.
+    - |
+      When log forwarding was enabled, some specific service logs, including babeld, gitauth, unicorn, and resqued, were duplicated.
+    - |
+      During the initial boot of an instance, a data disk attached as `/dev/sdb` may not have been recognized as an available disk.
+    - |
+      In some cases, the HAProxy `kill_timeout` setting caused service outages during upgrades or large transactions.
+    - |
+      The `ssh-audit-log.sh` script did not effectively log SSH commands, and the `ghe-sanitize-log.psed` script inadequately sanitized password-related logs.
+    - |
+      The default MSSQL timeout of 8 seconds sometimes caused issues during administrator activities. The default timeout has been increased to 30 seconds.
+    - |
+      For an instance running on Microsoft Azure, the user disk service failed to start because the attached volume could not be found.
+    - |
+      Establishing a new GitHub Connect connection could fail with a 500 error.
+    - |
+      When using `ghe-migrator` to migrate a repository, the links for pull requests merge commits were not imported.
+    - |
+      In some cases, reading data from repositories with a large number of objects would result in timeout or error.
+    - |
+      When a user used the REST API endpoints that returned secret scanning alerts at the repository or organization level with non-cursor-based pagination (for example, without `before` or `after` query parameters), the REST API endpoints for secret scanning returned incorrect `Link` headers.
+    - |
+      On instances with SAML authentication configured, users were unable to sign out and became stuck in an infinite SAML SSO loop.
+    - |
+      Deleting a branch that was targeted by many pull requests could result in delayed job processing and increased system memory usage.
+    - |
+      On an instance that restricts emails to verified domains, secret scanning emails would sometimes be sent to an unverified domain.
+    - |
+      In some cases, on the "Files" tab of a pull request, a comment on the first line did not render.
+    - |
+      Some organizations were not recognized as part of an instance's enterprise account.
+    - |
+      Some users would encounter an error when navigating to their personal security settings page at `https://HOSTNAME/settings/security`.
+    - |
+      On the "Code scanning" page of a repository, the branch filter did not correctly display all branches.
+    - |
+      Users viewing the alerts index page experienced inconsistencies in rendering the closed alert state.
+    - |
+      Organizations named "C" were incorrectly routed to the GitHub Enterprise Server contact page instead of their organization page.
+    - |
+      When servers responded with unsupported characters, webhook deliveries were not displayed in the UI.
+    - |
+      Chat integrations required frequent reauthentication, as a result of new app installations overwriting previous ones.
+    - |
+      On an instance in a cluster configuration, the `ghe-spokesctl ssh` command did not select the correct Nomad container when running a command within a git repository.
+    - |
+      On an instance with a GitHub Advanced Security license, disabling and re-enabling GitHub Advanced Security for an organization resulted in redundant scans of some repositories.
+  changes:
+    - |
+      The timeout for requests made to the REST API endpoints for secret scanning has been extended.
+    - |
+      When a user changes a repository's visibility to public, the user is now warned that previous Actions history and logs will become public as well.
+    - |
+      When using the `ghe-webhook-logs` utility, webhook delivery logs can be filtered by event and action. Users can use `ghe-webhook-logs --event issues` to filter by event, or `ghe-webhook-logs --event issues.opened` to filter by event and action.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
+    - |
+      After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %}
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %}
+    - |
+      The reply.[hostname] subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**.
+    - |
+      _Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised._
+    - |
+      If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.

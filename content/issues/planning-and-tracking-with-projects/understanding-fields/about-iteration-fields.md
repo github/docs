@@ -28,8 +28,6 @@ If your project makes use of iteration fields, you can use the roadmap layout to
 1. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
 1. Click **Save**.
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
-
 ## Adding new iterations
 
 {% data reusables.projects.project-settings %}

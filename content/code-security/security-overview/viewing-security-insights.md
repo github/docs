@@ -56,6 +56,8 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
+{% data reusables.security-overview.enterprise-filters-tip %}
+
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 {% data reusables.security-overview.filter-and-toggle %}
@@ -124,7 +126,7 @@ You can also see how many secrets were successfully blocked, which is calculated
 
 {% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected. This feature is in beta, and is subject to change.{% endif %}
 
-For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
 ### Mean time to remediate
 
@@ -150,11 +152,11 @@ Alerts that are reopened and re-closed during the chosen time period are ignored
 
 ### Autofix suggestions
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
-Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
-The "Autofix suggestions" metric is the total number of Autofix suggestions generated in open and closed pull requests during the chosen time period.
+The "Autofix suggestions" metric is the total number of autofix suggestions generated in open and closed pull requests during the chosen time period.
 
 {% endif %}
 
