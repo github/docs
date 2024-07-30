@@ -146,8 +146,6 @@ For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-adva
 
 ### Performing validity checks
 
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
-
 {% data reusables.secret-scanning.validity-checks-intro %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
@@ -178,7 +176,7 @@ OLD
 
 1. **{% data variables.secret-scanning.partner_alerts_caps %}** Runs automatically on all public repositories and public npm packages. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning, hence the term "partners." {% data reusables.secret-scanning.partner-program-link %} Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see TODO:
 
-Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see the "[About {% data variables.secret-scanning.user_alerts %}](#about-secret-scanning-alerts-for-users)" section below.{% endif %}
+Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by you or your organization, are reported as alerts in the **Security** tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. For more information, see TODO: the About secret scanning for users section below.{% endif %}
 
 About {% data variables.secret-scanning.user_alerts %}{% ifversion ghes %} on {% data variables.product.product_name %}{% endif %}
 
