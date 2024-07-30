@@ -34,7 +34,7 @@ For example, you can use forks to propose changes related to fixing a bug. Rathe
 
 ### Use someone else's project as a starting point for your own idea.
 
-Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
+Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.  "[Motivational Quotes](https://hiddenmantra.com/quotes/motivational-quotes/)"
 
 For more information about applying open source principles to your organization's development work on {% data variables.location.product_location %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
 
