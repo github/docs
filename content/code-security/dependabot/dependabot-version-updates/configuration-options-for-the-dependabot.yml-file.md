@@ -305,7 +305,7 @@ Use the `allow` option to customize which dependencies are updated. This applies
   | `indirect` | `bundler`, `pip`, `composer`, `cargo`{% ifversion dependabot-updates-gomod-indirect %}, `gomod`{% endif %} | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
   | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`,{% ifversion dependabot-updates-gomod-indirect %} `gomod`,{% endif %} also the dependencies of direct dependencies.|
   | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` | Only dependencies in the "Production dependency group". |
-  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm` | Only dependencies in the "Development dependency group". |
+  | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only dependencies in the "Development dependency group". |
 
 ```yaml
 # Use `allow` to specify which dependencies to maintain
