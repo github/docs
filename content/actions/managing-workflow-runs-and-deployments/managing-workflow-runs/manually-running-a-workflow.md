@@ -8,6 +8,7 @@ versions:
 shortTitle: Manually run a workflow
 redirect_from:
   - /actions/managing-workflow-runs/manually-running-a-workflow
+  - /actions/using-workflows/manually-running-a-workflow
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -5,6 +5,7 @@ intro: 'You can re-run a workflow run{% ifversion re-run-jobs %}, all failed job
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 redirect_from:
   - /actions/managing-workflow-runs/re-running-a-workflow
+  - /actions/managing-workflow-runs/re-running-workflows-and-jobs
 versions:
   fpt: '*'
   ghes: '*'

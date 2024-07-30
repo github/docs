@@ -11,6 +11,7 @@ redirect_from:
   - /actions/deployment/targeting-different-environments/using-environments-for-deployment
   - /actions/deployment/targeting-different-environments
   - /actions/deployment/targeting-different-environments/managing-environments-for-deployment
+  - /actions/administering-github-actions/managing-environments-for-deployment
 topics:
   - CD
   - Deployment

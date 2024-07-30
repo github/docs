@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Remove workflow artifacts
+redirect_from:
+  - /actions/managing-workflow-runs/removing-workflow-artifacts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

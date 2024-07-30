@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Download workflow artifacts
+redirect_from:
+  - /actions/managing-workflow-runs/downloading-workflow-artifacts
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

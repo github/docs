@@ -46,7 +46,7 @@ children:
   - /examples
   - /writing-workflows
   - /using-workflows
-  - /managing-workflow-runs
+  - /managing-workflow-runs-and-deployments
   - /automating-builds-and-tests
   - /deployment
   - /using-containerized-services

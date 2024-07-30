@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
+  - /actions/deployment/managing-your-deployments/viewing-deployment-history
 ---
 {% ifversion actions-deployment-history-beta %}
 

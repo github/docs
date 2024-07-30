@@ -11,6 +11,8 @@ topics:
   - Actions
   - CD
   - Deployment
+redirect_from:
+  - /actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules
 ---
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}

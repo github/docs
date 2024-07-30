@@ -5,6 +5,8 @@ permissions: Maintainers with write access to a repository can approve workflow 
 versions:
   feature: actions-private-fork-workflow-approvals
 shortTitle: Approve private fork runs
+redirect_from:
+  - /actions/managing-workflow-runs/approving-workflow-runs-from-private-forks
 ---
 
 ## About workflow runs from private forks

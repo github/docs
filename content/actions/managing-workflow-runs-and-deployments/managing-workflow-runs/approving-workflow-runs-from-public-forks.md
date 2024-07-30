@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Approve public fork runs
+redirect_from:
+  - /actions/managing-workflow-runs/approving-workflow-runs-from-public-forks
 ---
 
 ## About workflow runs from public forks

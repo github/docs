@@ -7,6 +7,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/managing-workflow-runs/reviewing-deployments
 ---
 
 

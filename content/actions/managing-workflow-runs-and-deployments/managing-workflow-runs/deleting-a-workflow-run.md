@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/managing-workflow-runs/deleting-a-workflow-run
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

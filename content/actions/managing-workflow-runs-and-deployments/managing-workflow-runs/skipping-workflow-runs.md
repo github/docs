@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: Skip workflow runs
+redirect_from:
+  - /actions/managing-workflow-runs/skipping-workflow-runs
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

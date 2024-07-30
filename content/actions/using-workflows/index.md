@@ -21,8 +21,6 @@ versions:
   ghec: '*'
 children:
   - /about-workflows
-  - /manually-running-a-workflow
-  - /disabling-and-enabling-a-workflow
   - /avoiding-duplication
   - /reusing-workflows
   - /required-workflows
