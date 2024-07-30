@@ -187,7 +187,8 @@ If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-* "[AUTOTITLE](/code-security/getting-started/securing-your-organization)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion security-configurations-ga %}
+* "[AUTOTITLE](/code-security/securing-your-organization)"{% else %}
+* "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)"{% endif %}
 * "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
 {% endif %}
