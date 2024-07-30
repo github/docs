@@ -17,6 +17,12 @@ shortTitle: Billing for GitHub Copilot
 
 ## About billing for {% data variables.product.prodname_copilot_short %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 You can set up a {% data variables.product.prodname_copilot %} subscription for your personal account, or for an organization or enterprise.
 
 * **For your personal account**, you can set up a subscription to {% data variables.product.prodname_copilot_for_individuals %}.
