@@ -6,6 +6,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/configuring-and-managing-workflows/authenticating-with-the-github_token
   - /actions/reference/authentication-in-a-workflow
+  - /actions/security-guides/automatic-token-authentication
 versions:
   fpt: '*'
   ghes: '*'

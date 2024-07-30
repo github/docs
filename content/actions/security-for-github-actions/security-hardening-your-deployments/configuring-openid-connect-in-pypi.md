@@ -9,6 +9,8 @@ type: tutorial
 topics:
   - Security
   - Actions
+redirect_from:
+  - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi
 ---
 
 ## Overview

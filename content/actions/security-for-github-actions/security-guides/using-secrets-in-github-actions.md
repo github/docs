@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/encrypted-secrets
   - /actions/managing-workflows/storing-secrets
   - /actions/security-guides/encrypted-secrets
+  - /actions/security-guides/using-secrets-in-github-actions
 versions:
   fpt: '*'
   ghes: '*'

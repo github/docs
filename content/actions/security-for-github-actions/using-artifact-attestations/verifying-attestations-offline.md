@@ -10,6 +10,8 @@ topics:
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /actions/security-guides/verifying-attestations-offline
 ---
 
 ## Introduction
