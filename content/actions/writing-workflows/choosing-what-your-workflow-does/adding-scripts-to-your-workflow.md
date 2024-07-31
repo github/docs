@@ -1,4 +1,4 @@
----
+-script.sh---
 title: Adding scripts to your workflow
 shortTitle: Add scripts
 intro: 'You can use {% data variables.product.prodname_actions %} workflows to run scripts.'
