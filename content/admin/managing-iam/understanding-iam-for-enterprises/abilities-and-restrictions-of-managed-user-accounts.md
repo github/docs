@@ -35,6 +35,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 * Cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Can install {% data variables.product.prodname_github_apps %} on a repository if the app doesn't request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repository.
 * Can install {% data variables.product.prodname_github_apps %} on an organization if the {% data variables.enterprise.prodname_managed_user %} is an organization owner.
+* Can purchase and install paid {% data variables.product.prodname_github_apps %} only if the {% data variables.enterprise.prodname_managed_user %} is an enterprise owner.
 * Can create {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
   {% data reusables.emus.oauth-app-note %}

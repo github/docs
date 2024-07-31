@@ -16,8 +16,6 @@ topics:
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Java and Kotlin code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}
 
-{% data reusables.code-scanning.beta-kotlin-support %}
-
 ## Built-in queries for Java and Kotlin analysis
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}

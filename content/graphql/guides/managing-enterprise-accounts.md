@@ -203,8 +203,6 @@ For more information about getting started with GraphQL, see "[AUTOTITLE](/graph
 
 ## GraphQL fields and types for the Enterprise Accounts API
 
-Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
-
 For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
 You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[AUTOTITLE](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)."

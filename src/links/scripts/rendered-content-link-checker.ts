@@ -1309,7 +1309,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   }
   // This will create and set `req.context = {...}`
   await contextualize(req as ExtendedRequest, res as Response, next)
-  await shortVersions(req, res, next)
+  await shortVersions(req as ExtendedRequest, res as Response, next)
   req.context.page = page
   features(req as ExtendedRequest, res as Response, next)
 

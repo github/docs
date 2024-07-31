@@ -503,7 +503,7 @@ template:
       - name: init-dind-externals
         image: ghcr.io/actions/actions-runner:latest
         command:
-          ["cp", "-r", "-v", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+          ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
         volumeMounts:
           - name: dind-externals
             mountPath: /home/runner/tmpDir
@@ -651,7 +651,7 @@ template:
     initContainers:
     - name: init-dind-externals
       image: ghcr.io/actions/actions-runner:latest
-      command: ["cp", "-r", "-v", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+      command: ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
       volumeMounts:
         - name: dind-externals
           mountPath: /home/runner/tmpDir
@@ -753,7 +753,7 @@ template:
     initContainers:
     - name: init-dind-externals
       image: ghcr.io/actions/actions-runner:latest
-      command: ["cp", "-r", "-v", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+      command: ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
       volumeMounts:
         - name: dind-externals
           mountPath: /home/runner/tmpDir

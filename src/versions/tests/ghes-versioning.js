@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, test } from 'vitest'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
-import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
+import shortVersionsMiddleware from '#src/versions/middleware/short-versions'
 
 const contextualize = (req) => {
   req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]
