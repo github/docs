@@ -16,7 +16,6 @@ redirect_from:
   - /actions/guides/building-and-testing-nodejs-or-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs-or-python
 children:
-  - /about-continuous-integration
   - /building-and-testing-go
   - /building-and-testing-java-with-ant
   - /building-and-testing-java-with-gradle
