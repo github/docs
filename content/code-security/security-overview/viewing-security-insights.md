@@ -79,7 +79,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 {% ifversion security-overview-additional-tools %}
 
-Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%. This feature is in beta, and is subject to change. This feature is in beta, and is subject to change.
+Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%. This feature is in beta, and is subject to change.
 
 {% endif %}
 
