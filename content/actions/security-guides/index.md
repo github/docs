@@ -9,7 +9,11 @@ versions:
 children:
   - /security-hardening-for-github-actions
   - /using-secrets-in-github-actions
-  - /automatic-token-authentication
   - /using-githubs-security-features-to-secure-your-use-of-github-actions
+  - /automatic-token-authentication
+  - /using-artifact-attestations-to-establish-provenance-for-builds
+  - /enforcing-artifact-attestations-with-a-kubernetes-admission-controller
+  - /using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
+  - /verifying-attestations-offline
 ---
 

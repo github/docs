@@ -5,7 +5,6 @@ intro: 'Good security practices for using {% data variables.product.prodname_act
 redirect_from:
   - /actions/getting-started-with-github-actions/security-hardening-for-github-actions
   - /actions/learn-github-actions/security-hardening-for-github-actions
-  - /actions/security-guides/security-hardening-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

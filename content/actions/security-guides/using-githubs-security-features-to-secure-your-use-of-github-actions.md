@@ -6,8 +6,6 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: GitHub security features
-redirect_from:
-  - /actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions
 ---
 
 ## About {% data variables.product.prodname_dotcom %}'s security features
