@@ -8,7 +8,7 @@ import walk from 'walk-sync'
 
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
 
@@ -77,7 +77,8 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
   const illegalTags = new Map<string, number>()
 
   function countError(error: TokenizationError, where: string) {
-    const errorString = (error as any).originalError.message as string
+    const originalError = (error as any).originalError
+    const errorString = originalError ? originalError.message : error.message
     if (errorString.includes('illegal tag syntax')) {
       const illegalTag = (error as any).token.content
       illegalTags.set(illegalTag, (illegalTags.get(illegalTag) || 0) + 1)

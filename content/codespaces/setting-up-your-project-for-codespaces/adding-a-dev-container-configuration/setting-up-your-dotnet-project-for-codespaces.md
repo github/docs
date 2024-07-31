@@ -85,7 +85,7 @@ The default development container, or "dev container," for {% data variables.pro
 ```
 
 {% data reusables.codespaces.devcontainer-properties-1 %}
-- **portsAttributes** - This property maps a specified port to one or more default options. For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#port-attributes) on the Development Containers website.
+* **portsAttributes** - This property maps a specified port to one or more default options. For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#port-attributes) on the Development Containers website.
 {% data reusables.codespaces.devcontainer-properties-2 %}
 
 {% data reusables.codespaces.additional-container-config %}
@@ -93,9 +93,9 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-- Forward the port on which the application runs on the remote machine to your local machine.
-- Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
-- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+* Forward the port on which the application runs on the remote machine to your local machine.
+* Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
+* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 

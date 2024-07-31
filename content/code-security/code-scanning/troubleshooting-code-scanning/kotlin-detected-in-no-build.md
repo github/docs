@@ -25,9 +25,9 @@ The {% data variables.product.prodname_codeql %} action and {% data variables.pr
 
 You can verify the presence of Kotlin files by looking at the repository or pull request that triggered the warning. The `none` build mode is used only in the following circumstances:
 
-- {% data variables.product.prodname_code_scanning_caps %} was enabled for the repository before Kotlin code was added and after the new mode was introduced (previously it would have used the `autobuild` mode).
-- The {% data variables.product.prodname_codeql %} workflow specifies a build mode of `none` for the repository (check for `build-mode: none`).
-- The {% data variables.product.prodname_codeql_cli %} is called without a `--command` and with `--build-mode none`.
+* {% data variables.product.prodname_code_scanning_caps %} was enabled for the repository before Kotlin code was added and after the new mode was introduced (previously it would have used the `autobuild` mode).
+* The {% data variables.product.prodname_codeql %} workflow specifies a build mode of `none` for the repository (check for `build-mode: none`).
+* The {% data variables.product.prodname_codeql_cli %} is called without a `--command` and with `--build-mode none`.
 
 ## Fixing the problem
 
@@ -40,13 +40,13 @@ If you want to update the analysis to also include Kotlin files, then {% data va
 1. Wait until the Kotlin code is merged into the default branch for the repository.
 1. Disable and then re-enable default setup on the "Settings" page for your repository.
 
-This will trigger a new analysis using automatic build detection. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java--and-kotlin)."
+This will trigger a new analysis using automatic build detection. See "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin)."
 
 If the automatic build detection fails, you will need to use advanced setup with the correct build commands for the project to analyze both languages.
 
 ### {% data variables.product.prodname_code_scanning_caps %} advanced setup
 
-If you already use advanced setup, you can edit the {% data variables.product.prodname_codeql %} workflow and change the build mode for `java-kotlin` from `none` to either `autobuild` to automatically build your project, or `manual` to specify your own build steps. "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java--and-kotlin)."
+If you already use advanced setup, you can edit the {% data variables.product.prodname_codeql %} workflow and change the build mode for `java-kotlin` from `none` to either `autobuild` to automatically build your project, or `manual` to specify your own build steps. "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin)."
 
 If you need to convert from default setup to advanced setup, you need enable advanced setup on the on the "Settings" page for your repository and create a {% data variables.product.prodname_codeql %} workflow. Then you can define a `manual` build mode for `java-kotlin` and define the build commands for the project.
 
@@ -56,7 +56,7 @@ Update your calls to run the {% data variables.product.prodname_codeql_cli %} fo
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning)"
-- "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java--and-kotlin){% ifversion codeql-no-build %}
-- "[CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)"{% elsif ghes %}
-- "[Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language)"{% endif %}
+* "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning)"
+* "[Building Java and Kotlin](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#building-java-and-kotlin){% ifversion codeql-no-build %}
+* "[CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes)"{% elsif ghes %}
+* "[Adding build steps for a compiled language](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#adding-build-steps-for-a-compiled-language)"{% endif %}

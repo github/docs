@@ -31,16 +31,16 @@ using {% data variables.product.prodname_codeql %} analysis. For more informatio
 
 You can use the {% data variables.product.prodname_codeql_cli %} to:
 
-- Run {% data variables.product.prodname_codeql %} analyses using queries provided by {% data variables.product.prodname_dotcom %} engineers and the open source community
-- Generate code scanning alerts that you can upload to display in {% data variables.product.product_name %}
-- Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension.
-- Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
+* Run {% data variables.product.prodname_codeql %} analyses using queries provided by {% data variables.product.prodname_dotcom %} engineers and the open source community
+* Generate code scanning alerts that you can upload to display in {% data variables.product.product_name %}
+* Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension.
+* Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 The {% data variables.product.prodname_codeql_cli %} can analyze:
 
-- Dynamic languages, for example, JavaScript and Python.
-- Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
-- Codebases written in a mixture of languages.
+* Dynamic languages, for example, JavaScript and Python.
+* Compiled languages, for example, {% data variables.code-scanning.compiled_languages %}
+* Codebases written in a mixture of languages.
 
 For information about setting up the {% data variables.product.prodname_codeql_cli %}, see
 "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
@@ -49,7 +49,7 @@ For information about setting up the {% data variables.product.prodname_codeql_c
 
 You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. {% data reusables.code-scanning.about-code-scanning %} For an overview of using code scanning with external CI systems, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)." For recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
 
-Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"{% else %}"[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)"{% endif %} or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+Alternatively, you can use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 For an overview of all the options for using {% data variables.product.prodname_codeql %} analysis for code scanning, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 

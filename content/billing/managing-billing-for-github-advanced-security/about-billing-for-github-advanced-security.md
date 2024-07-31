@@ -21,6 +21,12 @@ shortTitle: Advanced Security billing
 
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% ifversion fpt %}
 
 {% data reusables.advanced-security.ghas-license-info-for-fpt %}
@@ -40,11 +46,7 @@ If you want to use {% data variables.product.prodname_GH_advanced_security %} fe
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 
@@ -61,11 +63,7 @@ You can make extra features for code security available to users by buying and u
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
 
-{% note %}
-
-**Note:** {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
+{% data reusables.security-configurations.security-configurations-beta-note-short %}
 
 {% endif %}
 
@@ -95,8 +93,8 @@ For more information on viewing license usage, see "[AUTOTITLE](/billing/managin
 
 We record and display two numbers of {% ifversion ghas-billing-UI-update %}active {% endif %}committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
 
-- **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}organization-owned repository{% ifversion secret-scanning-user-owned-repos %} or one user-owned repository{% ifversion ghec %} when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% endif %}, and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
-- **Unique to this repository/organization** is the number of {% ifversion ghas-billing-UI-update %}active {% endif %}committers who contributed only to this repository, or to repositories in this organization. This number shows how many {% ifversion ghas-billing-UI-update %}licenses {% else %}seats {% endif %}you can free up by deactivating {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
+* **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}organization-owned repository{% ifversion secret-scanning-user-owned-repos %} or one user-owned repository{% ifversion ghec %} when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% endif %}, and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
+* **Unique to this repository/organization** is the number of {% ifversion ghas-billing-UI-update %}active {% endif %}committers who contributed only to this repository, or to repositories in this organization. This number shows how many {% ifversion ghas-billing-UI-update %}licenses {% else %}seats {% endif %}you can free up by deactivating {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
 If there are no unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Deactivating the feature for that repository or organization would not free any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
 
@@ -134,8 +132,8 @@ The following example timeline demonstrates how active committer count for {% da
 
 When you decide which repositories and organizations to prioritize for {% data variables.product.prodname_GH_advanced_security %}, you should review them and identify:
 
-- Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or insecure dependencies would have the greatest impact on your company.
-- Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
+* Codebases that are the most critical to your company's success. These are the projects for which the introduction of vulnerable code, hard-coded secrets, or insecure dependencies would have the greatest impact on your company.
+* Codebases with the highest commit frequency. These are the most actively developed projects, consequently there is a higher risk that security problems could be introduced.
 
 When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, assess which other codebases you could add without incurring billing for unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers. Finally, review the remaining important and busy codebases. If you want to increase the number of {% ifversion ghas-billing-UI-update %}licensed active committers, {% else %}seats in your license, {% endif %}contact {% data variables.contact.contact_enterprise_sales %}.
 

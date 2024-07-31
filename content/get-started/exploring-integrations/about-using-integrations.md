@@ -34,8 +34,8 @@ If you want your {% data variables.product.prodname_ghe_server %} instance to us
 
 For more information about using integrations, see:
 
-- "[AUTOTITLE](/apps/using-github-apps/about-using-github-apps)"
-- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps)"
-- "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
+* "[AUTOTITLE](/apps/using-github-apps/about-using-github-apps)"
+* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps)"
+* "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
 
 You can also build your own integrations. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-building-integrations)."

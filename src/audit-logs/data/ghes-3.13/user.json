@@ -135,6 +135,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "codespaces.start_environment",
+    "description": "A codespace was started.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "codespaces.suspend_environment",
     "description": "A codespace was stopped.",
     "docs_reference_links": "N/A"
@@ -450,9 +455,19 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "integration.suspend",
+    "description": "A GitHub App was suspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
+  },
+  {
     "action": "integration.transfer",
     "description": "Ownership of a GitHub App was transferred to another user or organization.",
     "docs_reference_links": "/apps/maintaining-github-apps/transferring-ownership-of-a-github-app"
+  },
+  {
+    "action": "integration.unsuspend",
+    "description": "A GitHub App was unsuspended.",
+    "docs_reference_links": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
   {
     "action": "marketplace_agreement_signature.create",

@@ -32,10 +32,10 @@ For more information about creating a CI workflow for your Node.js project, see 
 
 You may also find it helpful to have a basic understanding of the following:
 
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-- "[AUTOTITLE](/actions/learn-github-actions/variables)"
-- "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
-- "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
+* "[AUTOTITLE](/actions/learn-github-actions/variables)"
+* "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
+* "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
 
 ## About package configuration
 
@@ -69,6 +69,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    {% ifversion artifact-attestations %}permissions:
+      contents: read
+      id-token: write{% endif %}
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm

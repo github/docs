@@ -91,13 +91,13 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```
 
 1. Tell npm which scope and registry to publish packages to using one of the following methods:
-   - Add an npm configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
+   * Add an npm configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
 
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
 
-   - Edit the `package.json` file and specify the `publishConfig` key:
+   * Edit the `package.json` file and specify the `publishConfig` key:
 
       ```shell
       "publishConfig": {
@@ -137,6 +137,6 @@ The basic workflow you just added runs any time a new release is created in your
 
 Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
-- "[AUTOTITLE](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-- "[AUTOTITLE](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-- "[AUTOTITLE](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+* "[AUTOTITLE](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
+* "[AUTOTITLE](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
+* "[AUTOTITLE](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples

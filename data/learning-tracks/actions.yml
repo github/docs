@@ -4,9 +4,8 @@ getting_started:
     Discover the possibilities of {% data variables.product.prodname_actions %}
     by creating your first workflow.
   guides:
-    - /actions/learn-github-actions/understanding-github-actions
-    - /actions/learn-github-actions/finding-and-customizing-actions
-    - /actions/learn-github-actions/essential-features-of-github-actions
+    - /actions/about-github-actions/understanding-github-actions
+    - /actions/writing-workflows/choosing-what-your-workflow-does/finding-and-customizing-actions
     - /actions/using-workflows/about-workflows
     - /actions/using-workflows/reusing-workflows
     - /actions/security-guides/security-hardening-for-github-actions
@@ -19,14 +18,14 @@ adopting_github_actions_for_your_enterprise_ghec:
     ghec: '*'
   guides:
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/about-github-actions/understanding-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - /actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -39,18 +38,18 @@ adopting_github_actions_for_your_enterprise_ghes:
     ghes: '*'
   guides:
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/about-github-actions/understanding-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
     - >-
-      /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
+      /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
     - /actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
@@ -60,14 +59,18 @@ hosting_your_own_runners:
     You can create self-hosted runners to run workflows in a highly customizable
     environment.
   guides:
-    - /actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
-    - /actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
+    - >-
+      /actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
+    - >-
+      /actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners
     - >-
       /actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service
     - >-
       /actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners
-    - /actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners
-    - /actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow
+    - >-
+      /actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners
+    - >-
+      /actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow
     - >-
       /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups
     - >-

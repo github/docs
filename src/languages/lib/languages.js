@@ -44,14 +44,12 @@ function getRoot(languageCode) {
 }
 
 // Languages in order of accept-language header frequency
-// 92BD1212-61B8-4E7A: Remove `wip: Boolean` for the public ship of ko, fr, de, ru
 const allLanguages = {
   en: {
     name: 'English',
     code: 'en',
     hreflang: 'en',
     dir: getRoot('en'),
-    wip: false,
   },
   zh: {
     name: 'Simplified Chinese',
@@ -60,7 +58,6 @@ const allLanguages = {
     hreflang: 'zh-Hans',
     redirectPatterns: [/^\/cn/, /^\/zh-\w{2}/],
     dir: getRoot('zh-cn'),
-    wip: false,
   },
   es: {
     name: 'Spanish',
@@ -68,7 +65,6 @@ const allLanguages = {
     code: 'es',
     hreflang: 'es',
     dir: getRoot('es-es'),
-    wip: false,
   },
   pt: {
     name: 'Portuguese',
@@ -77,7 +73,6 @@ const allLanguages = {
     hreflang: 'pt',
     redirectPatterns: [/^\/br/],
     dir: getRoot('pt-br'),
-    wip: false,
   },
   ru: {
     name: 'Russian',
@@ -85,7 +80,6 @@ const allLanguages = {
     code: 'ru',
     hreflang: 'ru',
     dir: getRoot('ru-ru'),
-    wip: false,
   },
   ja: {
     name: 'Japanese',
@@ -94,7 +88,6 @@ const allLanguages = {
     hreflang: 'ja',
     redirectPatterns: [/^\/jp/],
     dir: getRoot('ja-jp'),
-    wip: false,
   },
   fr: {
     name: 'French',
@@ -102,7 +95,6 @@ const allLanguages = {
     code: 'fr',
     hreflang: 'fr',
     dir: getRoot('fr-fr'),
-    wip: false,
   },
   de: {
     name: 'German',
@@ -110,7 +102,6 @@ const allLanguages = {
     code: 'de',
     hreflang: 'de',
     dir: getRoot('de-de'),
-    wip: false,
   },
   ko: {
     name: 'Korean',
@@ -119,7 +110,6 @@ const allLanguages = {
     hreflang: 'ko',
     redirectPatterns: [/^\/kr/],
     dir: getRoot('ko-kr'),
-    wip: false,
   },
 }
 // Some markdownlint tests depend on having access to all

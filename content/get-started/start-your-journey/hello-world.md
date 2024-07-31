@@ -19,16 +19,16 @@ This tutorial teaches you {% data variables.product.product_name %} essentials l
 
 In this quickstart guide, you will:
 
-- Create and use a repository.
-- Start and manage a new branch.
-- Make changes to a file and push them to {% data variables.product.product_name %} as commits.
-- Open and merge a pull request.
+* Create and use a repository.
+* Start and manage a new branch.
+* Make changes to a file and push them to {% data variables.product.product_name %} as commits.
+* Open and merge a pull request.
 
 ### Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
+* You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
 
-- You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
+* You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
 
 ## Step 1: Create a repository
 
@@ -59,9 +59,9 @@ When you create a branch off the `main` branch, you're making a copy, or snapsho
 
 This diagram shows:
 
-- The `main` branch
-- A new branch called `feature`
-- The journey that `feature` takes before it's merged into `main`
+* The `main` branch
+* A new branch called `feature`
+* The journey that `feature` takes before it's merged into `main`
 
 ![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
 
@@ -148,17 +148,17 @@ By completing this tutorial, you've learned to create a project and make a pull 
 
 As part of that, we've learned how to:
 
-- Create a repository.
-- Start and manage a new branch.
-- Change a file and commit those changes to {% data variables.product.product_name %}.
-- Open and merge a pull request.
+* Create a repository.
+* Start and manage a new branch.
+* Change a file and commit those changes to {% data variables.product.product_name %}.
+* Open and merge a pull request.
 
 ## Next steps
 
-- Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
-- If you want to practice the skills you've learned in this tutorial again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
-- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile)," you'll learn how to personalize your profile and you'll also learn some basic Markdown syntax for writing on {% data variables.product.product_name %}.
+* Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+* If you want to practice the skills you've learned in this tutorial again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
+* In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile)," you'll learn how to personalize your profile and you'll also learn some basic Markdown syntax for writing on {% data variables.product.product_name %}.
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-github/github-flow)"
+* "[AUTOTITLE](/get-started/using-github/github-flow)"

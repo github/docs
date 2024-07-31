@@ -47,6 +47,6 @@ You can finish your trial at any time by purchasing {% data variables.product.pr
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
-- "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)"
-- "[AUTOTITLE](/code-security/getting-started/securing-your-organization)"
+* "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
+* "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)"
+* "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)"

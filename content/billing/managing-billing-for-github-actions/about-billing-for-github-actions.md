@@ -42,8 +42,8 @@ Minutes reset every month, while storage usage does not.
 
 **Notes**:
 
-- Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
-- Logs and job summaries do not count towards storage usage.
+* Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+* Logs and job summaries do not count towards storage usage.
 
 {% endnote %}
 
@@ -64,10 +64,10 @@ If your account's usage surpasses these limits and you have set a spending limit
 Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
 
 | Operating system | Minute multiplier |
-|------- | ---------|
-| Linux | 1 |
-| Windows | 2 |
-| macOS| 10 |
+|----------------- | ------------------|
+| Linux            | 1                 |
+| Windows          | 2                 |
+| macOS            | 10                |
 
 {% note %}
 
@@ -79,11 +79,11 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Per-minute rates for standard runners
 
-| Operating system            | Per-minute rate (USD) |
-|-----------------------------| ----------------------|
-|  Linux 2-core               |   $0.008              |
-|  Windows 2-core             |   $0.016              |
-|  macOS 3 or 4 (M1 or Intel) |   $0.08               |
+| Operating system                      | Per-minute rate (USD) |
+|---------------------------------------| ----------------------|
+|  Linux 2-core                         |   $0.008              |
+|  Windows 2-core                       |   $0.016              |
+|  macOS 3-core or 4-core (M1 or Intel) |   $0.08               |
 
 #### Per-minute rates for x64-powered {% data variables.actions.hosted_runners %}
 
@@ -126,17 +126,17 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | Operating system    | Per-minute rate (USD) |
 |---------------------| -----------|
 |  Linux 4-core       |   $0.07    |
-|  Windows 4-core     |   $0.14   |
+|  Windows 4-core     |   $0.14    |
 
 #### Points to note about rates for runners
 
-- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
-- {% data reusables.user-settings.context_switcher %}
-- {% data reusables.actions.larger-runner-permissions %}
-- {% data reusables.actions.about-larger-runners-billing %}
-- For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
-- Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
-- The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+* {% data reusables.user-settings.context_switcher %}
+* {% data reusables.actions.larger-runner-permissions %}
+* {% data reusables.actions.about-larger-runners-billing %}
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
+* Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+* The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 
 ## Calculating minute and storage spending
 
@@ -148,9 +148,9 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 
 For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
-- 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
-  - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
-  - 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
+* 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
+  * 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
+  * 2,000 Windows minutes at $0.016 USD per minute = $32 USD.
 
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
 
@@ -164,10 +164,10 @@ For example, if your organization uses {% data variables.product.prodname_team %
 
 For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
-- 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
-- 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
-- 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
-- 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
+* 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
+* 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
+* 720 GB-Hours + 6,048 GB-Hours = 6,768 GB-Hours
+* 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
 
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
 

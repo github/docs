@@ -19,37 +19,37 @@ The following frontmatter values have special meanings and requirements for {% d
 There's also a schema that's used by the test suite to validate every page's frontmatter.
 For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 
-- [`versions`](#versions)
-- [`redirect_from`](#redirect_from)
-- [`title`](#title)
-- [`shortTitle`](#shorttitle)
-- [`intro`](#intro)
-- [`permissions`](#permissions)
-- [`product`](#product)
-- [`layout`](#layout)
-- [`children`](#children)
-- [`childGroups`](#childgroups)
-- [`featuredLinks`](#featuredlinks)
-- [`showMiniToc`](#showminitoc)
-- [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
-- [`changelog`](#changelog)
-- [`defaultPlatform`](#defaultplatform)
-- [`defaultTool`](#defaulttool)
-- [`learningTracks`](#learningtracks)
-- [`includeGuides`](#includeguides)
-- [`type`](#type)
-- [`topics`](#topics)
-- [`communityRedirect`](#communityredirect)
-- [`effectiveDate`](#effectivedate)
+* [`versions`](#versions)
+* [`redirect_from`](#redirect_from)
+* [`title`](#title)
+* [`shortTitle`](#shorttitle)
+* [`intro`](#intro)
+* [`permissions`](#permissions)
+* [`product`](#product)
+* [`layout`](#layout)
+* [`children`](#children)
+* [`childGroups`](#childgroups)
+* [`featuredLinks`](#featuredlinks)
+* [`showMiniToc`](#showminitoc)
+* [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
+* [`changelog`](#changelog)
+* [`defaultPlatform`](#defaultplatform)
+* [`defaultTool`](#defaulttool)
+* [`learningTracks`](#learningtracks)
+* [`includeGuides`](#includeguides)
+* [`type`](#type)
+* [`topics`](#topics)
+* [`communityRedirect`](#communityredirect)
+* [`effectiveDate`](#effectivedate)
 
 ### `versions`
 
-- Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
+* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
 For more information about the different types of versioning, see "[Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
-- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
-- This frontmatter value is currently **required** for all pages.
-- The `*` is used to denote all releases for the version.
-- Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
+* Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
+* This frontmatter value is currently **required** for all pages.
+* The `*` is used to denote all releases for the version.
+* Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
@@ -80,9 +80,9 @@ versions:
 
 ### `redirect_from`
 
-- Purpose: List URLs that should redirect to this page.
-- Type: `Array`
-- Optional
+* Purpose: List URLs that should redirect to this page.
+* Type: `Array`
+* Optional
 
 Example:
 
@@ -98,15 +98,15 @@ For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-g
 
 ### `title`
 
-- Purpose: Set a human-friendly title for use in the rendered page's `<title>` tag and an `h1` element at the top of the page.
-- Type: `String`
-- Optional. If omitted, the page `<title>` will still be set, albeit with a generic value like `GitHub.com` or `GitHub Enterprise`.
+* Purpose: Set a human-friendly title for use in the rendered page's `<title>` tag and an `h1` element at the top of the page.
+* Type: `String`
+* Optional. If omitted, the page `<title>` will still be set, albeit with a generic value like `GitHub.com` or `GitHub Enterprise`.
 
 ### `shortTitle`
 
-- Purpose: An abbreviated variant of the page title for use in breadcrumbs and navigation elements.
-- Type: `String`
-- Optional. If omitted, `title` will be used.
+* Purpose: An abbreviated variant of the page title for use in breadcrumbs and navigation elements.
+* Type: `String`
+* Optional. If omitted, `title` will be used.
 
 |Article type   |Maximum character length |
 ---  |  ---  |
@@ -123,46 +123,46 @@ shortTitle: Contributing to projects
 
 ### `intro`
 
-- Purpose: Sets the intro for the page. This string will render after the `title`.
-- Type: `String`
-- Optional.
+* Purpose: Sets the intro for the page. This string will render after the `title`.
+* Type: `String`
+* Optional.
 
 ### `permissions`
 
-- Purpose: Sets the permission statement for the article. This string will render after the `intro`.
-- Type: `String`
-- Optional.
+* Purpose: Sets the permission statement for the article. This string will render after the `intro`.
+* Type: `String`
+* Optional.
 
 ### `product`
 
-- Purpose: Sets the product callout for the article. This string will render after the `intro` and `permissions` statement.
-- Type: `String`
-- Optional.
+* Purpose: Sets the product callout for the article. This string will render after the `intro` and `permissions` statement.
+* Type: `String`
+* Optional.
 
 ### `layout`
 
-- Purpose: Render the proper page layout.
-- Type: `String` that matches the name of the layout.
+* Purpose: Render the proper page layout.
+* Type: `String` that matches the name of the layout.
 For a layout named `components/landing`, the value would be `product-landing`.
-- Optional. If omitted, `DefaultLayout` is used.
+* Optional. If omitted, `DefaultLayout` is used.
 
 ### `children`
 
-- Purpose: Lists the relative links that belong to the product/category/map topic. For more information, see [Index pages](#index-pages).
-- Type: `Array`. Default is `false`.
-- Required on `index.md` pages.
+* Purpose: Lists the relative links that belong to the product/category/map topic. For more information, see [Index pages](#index-pages).
+* Type: `Array`. Default is `false`.
+* Required on `index.md` pages.
 
 ### `childGroups`
 
-- Purpose: Renders children into groups on the homepage. For more information, see [Homepage](#homepage).
-- Type: `Array`. Default is `false`.
-- Require on the homepage `index.md`.
+* Purpose: Renders children into groups on the homepage. For more information, see [Homepage](#homepage).
+* Type: `Array`. Default is `false`.
+* Require on the homepage `index.md`.
 
 ### `featuredLinks`
 
-- Purpose: Renders the linked articles' titles and intros on product landing pages and the homepage.
-- Type: `Object`.
-- Optional.
+* Purpose: Renders the linked articles' titles and intros on product landing pages and the homepage.
+* Type: `Object`.
+* Optional.
 
 The list of popular links are the links displayed on the landing page under the title "Popular." Alternately, you can customize the title "Popular" by setting the `featuredLinks.popularHeading` property to a new string.
 
@@ -182,29 +182,29 @@ featuredLinks:
 
 ### `showMiniToc`
 
-- Purpose: Indicates whether an article should show a mini table of contents (TOC) above the rest of the content. For more information, see [Autogenerated mini TOCs](#autogenerated-mini-tocs).
-- Type: `Boolean`. Default is `true` on articles, and `false` on map topics and `index.md` pages.
-- Optional.
+* Purpose: Indicates whether an article should show a mini table of contents (TOC) above the rest of the content. For more information, see [Autogenerated mini TOCs](#autogenerated-mini-tocs).
+* Type: `Boolean`. Default is `true` on articles, and `false` on map topics and `index.md` pages.
+* Optional.
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`.
-- Type: `Boolean`. Default is `false`.
-- Optional.
+* Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`.
+* Type: `Boolean`. Default is `false`.
+* Optional.
 
 ### `changelog`
 
-- Purpose: Render a list of items pulled from [GitHub Changelog](https://github.blog/changelog/) on product landing pages (`components/landing`). The one exception is Education, which pulls from https://github.blog/category/community/education.
-- Type: `Object`, properties:
-  - `label` -- must be present and corresponds to the labels used in the [GitHub Changelog](https://github.blog/changelog/)
-  - `prefix` -- optional string that starts each changelog title that should be omitted in the docs feed. For example, with the prefix `GitHub Actions: ` specified, changelog titles like `GitHub Actions: Some Title Here` will render as `Some Title Here` in the docs feed.
-- Optional.
+* Purpose: Render a list of items pulled from [GitHub Changelog](https://github.blog/changelog/) on product landing pages (`components/landing`). The one exception is Education, which pulls from https://github.blog/category/community/education.
+* Type: `Object`, properties:
+  * `label` -- must be present and corresponds to the labels used in the [GitHub Changelog](https://github.blog/changelog/)
+  * `prefix` -- optional string that starts each changelog title that should be omitted in the docs feed. For example, with the prefix `GitHub Actions: ` specified, changelog titles like `GitHub Actions: Some Title Here` will render as `Some Title Here` in the docs feed.
+* Optional.
 
 ### `defaultPlatform`
 
-- Purpose: Override the initial platform selection for a page. If this frontmatter is omitted, then the platform-specific content matching the reader's operating system is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable. For example, most {% data variables.product.prodname_actions %} runners use Linux and their operating system is independent of the reader's operating system.
-- Type: `String`, one of: `mac`, `windows`, `linux`.
-- Optional.
+* Purpose: Override the initial platform selection for a page. If this frontmatter is omitted, then the platform-specific content matching the reader's operating system is shown by default. This behavior can be changed for individual pages, for which a manual selection is more reasonable. For example, most {% data variables.product.prodname_actions %} runners use Linux and their operating system is independent of the reader's operating system.
+* Type: `String`, one of: `mac`, `windows`, `linux`.
+* Optional.
 
 Example:
 
@@ -214,9 +214,9 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-- Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags)." If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
-- Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
-- Optional.
+* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags)." If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
+* Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
+* Optional.
 
 ```yaml
 defaultTool: cli
@@ -224,9 +224,9 @@ defaultTool: cli
 
 ### `learningTracks`
 
-- Purpose: Render a list of learning tracks on a product's sub-landing page.
-- Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
-- Optional
+* Purpose: Render a list of learning tracks on a product's sub-landing page.
+* Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
+* Optional
 
 {% note %}
 
@@ -236,9 +236,9 @@ defaultTool: cli
 
 ### `includeGuides`
 
-- Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
-- Type: `Array`
-- Optional.
+* Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
+* Type: `Array`
+* Optional.
 
 Example:
 
@@ -252,27 +252,27 @@ includeGuides:
 
 ### `type`
 
-- Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`, `rai`.
-- Optional.
+* Purpose: Indicate the type of article.
+* Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`, `rai`.
+* Optional.
 
 ### `topics`
 
-- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
-- Type: Array of `String`s
-- Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
+* Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
+* Type: Array of `String`s
+* Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
 ### `communityRedirect`
 
-- Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
-- Type: `Object`. Properties are `name` and `href`.
-- Optional.
+* Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
+* Type: `Object`. Properties are `name` and `href`.
+* Optional.
 
 ### `effectiveDate`
 
-- Purpose: Set an effective date for Terms of Service articles so that engineering teams can automatically re-prompt users to confirm the terms
-- Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
-- Optional.
+* Purpose: Set an effective date for Terms of Service articles so that engineering teams can automatically re-prompt users to confirm the terms
+* Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
+* Optional.
 
 {% note %}
 
@@ -320,9 +320,9 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 
 To create a product guides page (e.g. [{% data variables.product.prodname_actions %} Guide page](/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
 
-- Use the product guides page template by referencing `layout: product-guides`.
-- Include the learning tracks in [`learningTracks`](#learningtracks). Optional.
-- Define which articles to include with [`includeGuides`](#includeguides). Optional.
+* Use the product guides page template by referencing `layout: product-guides`.
+* Include the learning tracks in [`learningTracks`](#learningtracks). Optional.
+* Define which articles to include with [`includeGuides`](#includeguides). Optional.
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.

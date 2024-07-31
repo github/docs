@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -49,7 +49,7 @@ For example, Alibaba Cloud created [`aliyun/configure-aliyun-credentials-action`
 
 If your cloud provider doesn't have an official action, or if you prefer to create custom scripts, you can manually request the JSON Web Token (JWT) from {% data variables.product.prodname_dotcom %}'s OIDC provider.
 
-If you're not using an official action, then {% data variables.product.prodname_dotcom %} recommends that you use the Actions core toolkit. Alternatively, you can use the following environment variables to retrieve the token: `ACTIONS_RUNTIME_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
+If you're not using an official action, then {% data variables.product.prodname_dotcom %} recommends that you use the Actions core toolkit. Alternatively, you can use the following environment variables to retrieve the token: `ACTIONS_ID_TOKEN_REQUEST_TOKEN`, `ACTIONS_ID_TOKEN_REQUEST_URL`.
 
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
@@ -117,11 +117,7 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
             fi
         }
         jwtd $IDTOKEN
-{%- ifversion actions-save-state-set-output-envs %}
         echo "idToken=${IDTOKEN}" >> $GITHUB_OUTPUT
-{%- else %}
-        echo "::set-output name=idToken::${IDTOKEN}"
-{%- endif %}
       id: tokenid
 ```
 

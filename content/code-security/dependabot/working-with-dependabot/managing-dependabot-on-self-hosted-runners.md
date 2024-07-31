@@ -58,12 +58,12 @@ If {% data variables.product.prodname_dependabot %} needs to interact with regis
 1. Provision self-hosted runners, at the repository or organization level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 1. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
-   - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
-     - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
-     - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
-     - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
-   - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
-   - Install any self-signed certificates for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
+   * Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
+     * [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+     * Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
+     * Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
+   * Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
+   * Install any self-signed certificates for registries that {% data variables.product.prodname_dependabot %} will need to interact with.
 
 1. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
 
@@ -86,15 +86,13 @@ You can manage {% data variables.product.prodname_dependabot %} on self-hosted r
 
 ### Enabling or disabling for your organization
 
-You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_dependabot %} on self-hosted runners for all existing {% ifversion ghec %}private or internal{% else %}private{% endif %} repositories in an organization. Only repositories already configured to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} will be updated to run {% data variables.product.prodname_dependabot %} on self-hosted runners the next time a {% data variables.product.prodname_dependabot %} job is triggered.
+You can enable {% data variables.product.prodname_dependabot %} on self-hosted runners for all existing {% ifversion ghec %}private or internal{% else %}private{% endif %} repositories in an organization. Only repositories already configured to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} will be updated to run {% data variables.product.prodname_dependabot %} on self-hosted runners the next time a {% data variables.product.prodname_dependabot %} job is triggered.
 
 > [!NOTE] You need to enable self-hosted runners for your organization if you use {% data variables.actions.hosted_runners %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners#enabling-or-disabling-dependabot-on-larger-runners)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on self-hosted runners and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
-{% endif %}
-1. Under "Code security", select "Global settings".
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on self-hosted runners" to enable the feature or deselect to disable it. This action enables or disables the feature for all new repositories in the organization.
+
+For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."

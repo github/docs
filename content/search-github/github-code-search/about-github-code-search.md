@@ -32,14 +32,14 @@ We have indexed many public repositories for code search, and continue to index 
 
 The current limitations on indexed code are:
 
-- Vendored and generated code is excluded
-- Empty files and files over 350 KiB are excluded
-- Lines over 1,024 characters long are truncated
-- Binary files (PDF, etc.) are excluded
-- Only UTF-8 encoded files are included
-- Very large repositories may not be indexed
-- Exhaustive search is not supported
-- Files with more than one line over 4096 bytes are excluded
+* Vendored and generated code is excluded
+* Empty files and files over 350 KiB are excluded
+* Lines over 1,024 characters long are truncated
+* Binary files (PDF, etc.) are excluded
+* Only UTF-8 encoded files are included
+* Very large repositories may not be indexed
+* Exhaustive search is not supported
+* Files with more than one line over 4096 bytes are excluded
 
 We currently only support searching for code on the default branch of a repository. The query length is limited to 1000 characters.
 

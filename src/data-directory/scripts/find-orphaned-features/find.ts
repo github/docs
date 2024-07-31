@@ -35,7 +35,7 @@ import chalk from 'chalk'
 import { TokenizationError } from 'liquidjs'
 
 import type { Page } from '@/types'
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
 import languages from '@/languages/lib/languages.js'
@@ -223,7 +223,11 @@ function checkString(
   }: { page?: Page; filePath?: string; languageCode?: string; verbose?: boolean } = {},
 ) {
   try {
-    for (const token of getLiquidTokens(string)) {
+    // The reason for the `noCache: true` is that we're going to be sending
+    // a LOT of different strings in and the cache will fill up rapidly
+    // when testing every possible string in every possible language for
+    // every page.
+    for (const token of getLiquidTokens(string, { noCache: true })) {
       if (token.name === 'ifversion' || token.name === 'elsif') {
         for (const arg of token.args.split(/\s+/)) {
           if (IGNORE_ARGS.has(arg)) continue

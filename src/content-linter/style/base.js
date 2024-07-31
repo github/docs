@@ -25,9 +25,9 @@ export const baseConfig = {
   'ul-style': {
     // MD004
     severity: 'error',
-    style: 'dash',
+    style: 'asterisk',
     'partial-markdown-files': true,
-    'yml-files': true,
+    'yml-files': false,
   },
   'no-trailing-spaces': {
     // MD009

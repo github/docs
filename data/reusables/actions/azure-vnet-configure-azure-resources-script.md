@@ -8,10 +8,10 @@ To use the script, fill in the placeholder environment variable values with the 
 
 **Notes**:
 
-- Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
-- When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
-- When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
-- If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
+* Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
+* When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
+* When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+* If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
 
 {% endnote %}
 

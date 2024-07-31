@@ -38,9 +38,7 @@ topics:
 | Using a matrix to create different test configurations | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-{%- ifversion actions-caching %}
 | Caching dependencies | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
-{%- endif %}
 | Running tests on the runner | `npm test`|
 
 ## Example workflow
@@ -149,7 +147,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # {% ifversion actions-caching %}This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
+      # This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
       - name: Cache nextjs build
         uses: {% data reusables.actions.action-cache %}
         with:

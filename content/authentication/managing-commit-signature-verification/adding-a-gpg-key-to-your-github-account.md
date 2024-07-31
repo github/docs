@@ -44,7 +44,7 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 1. In the "Title" field, type a name for your GPG key.
 1. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 1. Click **Add GPG key**.
-1. To confirm the action, authenticate to your {% data variables.product.prodname_dotcom %} account.
+1. If prompted, authenticate to your {% data variables.product.prodname_dotcom %} account to confirm the action.
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}
@@ -62,9 +62,9 @@ If your key is invalid and you don't use another valid key in your key set, but 
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"

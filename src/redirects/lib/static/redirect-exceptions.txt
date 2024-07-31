@@ -22,7 +22,7 @@
 - /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 
 # As seen in PR 38572 we want specific versions to redirect to different articles

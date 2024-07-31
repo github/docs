@@ -64,9 +64,12 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 1. Optionally, if you have dependencies in a private registry, add a `registries` section containing authentication details. For more information, see [`registries`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries) in "Configuration options for the `dependabot.yml` file."
 1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager.
 1. For each package manager, use:
-    - `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem) in "Configuration options for the `dependabot.yml` file."
-    - `directory` to specify the location of the manifest or other definition files. For more information, see [`directory`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directory) in "Configuration options for the `dependabot.yml` file."
-    - `schedule.interval` to specify how often to check for new versions. For more information, see [`schedule.interval`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval) in "Configuration options for the `dependabot.yml` file."
+
+    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#package-ecosystem) in "Configuration options for the `dependabot.yml` file."
+    * `directory` to specify the location of the manifest or other definition files. For more information, see [`directory`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directory) in "Configuration options for the `dependabot.yml` file."
+    {% ifversion dependabot-updates-multidirectory-support %}- `directories` to specify the location of multiple manifest or other definition files. For more information, see [`directories`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#directories) in "Configuration options for the `dependabot.yml` file."{% endif %}
+    * `schedule.interval` to specify how often to check for new versions. For more information, see [`schedule.interval`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#scheduleinterval) in "Configuration options for the `dependabot.yml` file."
+
 {% data reusables.dependabot.check-in-dependabot-yml %}
 
 ### Example `dependabot.yml` file
@@ -104,22 +107,10 @@ If you want to enable version updates on forks, there's an extra step. Version u
 
 On a fork, you also need to explicitly enable {% data variables.product.prodname_dependabot %}.
 
-{% ifversion dependabot-version-updates-for-forks %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
-
-{% else %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}
-{% data reusables.dependabot.click-dependabot-tab %}
-1. Under "Enable Dependabot", click **Enable Dependabot**.
-
-{% endif %}
 
 ## Checking the status of version updates
 
@@ -133,8 +124,8 @@ For information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-u
 
 You can disable version updates entirely by deleting the `dependabot.yml` file from your repository. More usually, you want to disable updates temporarily for one or more dependencies, or package managers.
 
-- Package managers: disable by setting `open-pull-requests-limit: 0` or by commenting out the relevant `package-ecosystem` in the configuration file.
-- Specific dependencies: disable by adding `ignore` attributes for packages or applications that you want to exclude from updates.
+* Package managers: disable by setting `open-pull-requests-limit: 0` or by commenting out the relevant `package-ecosystem` in the configuration file.
+* Specific dependencies: disable by adding `ignore` attributes for packages or applications that you want to exclude from updates.
 
 When you disable dependencies, you can use wild cards to match a set of related libraries. You can also specify which versions to exclude. This is particularly useful if you need to block updates to a library, pending work to support a breaking change to its API, but want to get any security fixes to the version you use.
 

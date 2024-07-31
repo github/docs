@@ -16,21 +16,21 @@ The enhanced billing platform provides better spending control and detailed usag
 
 The following products are available in the enhanced billing platform:
 
-- {% data variables.product.prodname_actions %}
-- {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot %}
-- {% data variables.product.prodname_registry %}
-- {% data variables.large_files.product_name_long %}
+* {% data variables.product.prodname_actions %}
+* {% data variables.product.prodname_github_codespaces %}
+* {% data variables.product.prodname_copilot %}
+* {% data variables.product.prodname_registry %}
+* {% data variables.large_files.product_name_long %}
 
 ## Key functionalities
 
 With the enhanced billing platform, you can:
 
-- **Estimate spending:** Understand where your (annual, monthly, etc.) spending is trending based on the usage across costs centers and budgets.
-- **Gather insights and data:** Generate usage reports to share with your team or stakeholders, and know if you're on track with your budget.
-- **Charge business units:** Improve accountability by creating and assigning organizations, repositories, and members to cost centers.
-- **Prevent overspending:** Use budgets and alerts to track and control your spending.
-- **Observe and understand spending:** Understand how your spending changes over time and across which products.
+* **Estimate spending:** Understand where your (annual, monthly, etc.) spending is trending based on the usage across costs centers and budgets.
+* **Gather insights and data:** Generate usage reports to share with your team or stakeholders, and know if you're on track with your budget.
+* **Charge business units:** Improve accountability by creating and assigning organizations, repositories, and members to cost centers.
+* **Prevent overspending:** Use budgets and alerts to track and control your spending.
+* **Observe and understand spending:** Understand how your spending changes over time and across which products.
 
 ## How do I know if I can access the enhanced billing platform?
 

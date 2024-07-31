@@ -5,7 +5,9 @@ intro: 'Explore the queries that {% data variables.product.prodname_codeql %} us
 product: '{% data reusables.gated-features.code-scanning %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: reference
 topics:
   - Code scanning
@@ -14,12 +16,10 @@ topics:
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Java and Kotlin code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}
 
-{% data reusables.code-scanning.beta-kotlin-support %}
-
 ## Built-in queries for Java and Kotlin analysis
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
 {% data reusables.code-scanning.codeql-query-tables.java %}

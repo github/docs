@@ -24,9 +24,9 @@ topics:
 Using {% data variables.product.prodname_actions %} runners allows you to more easily identify {% data variables.product.prodname_dependabot %} job errors and manually detect and troubleshoot failed runs. You can also integrate {% data variables.product.prodname_dependabot %} into your CI/CD pipelines by using {% data variables.product.prodname_actions %} APIs and webhooks to detect {% data variables.product.prodname_dependabot %} job status such as failed runs, and perform downstream processing. For more information, see "[AUTOTITLE](/rest/actions)" and "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
-- {% data variables.product.prodname_dotcom %}-hosted runners
-- {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
-- Self-hosted runners
+* {% data variables.product.prodname_dotcom %}-hosted runners
+* {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
+* Self-hosted runners
 
 Using private networking with either an Azure Virtual Network (VNET) or Actions Runner Controller (ARC) is not supported.
 
@@ -43,8 +43,8 @@ If you are transitioning to using {% data variables.product.prodname_dependabot 
 This section only applies to standard {% data variables.product.prodname_dotcom %}-hosted runners, not larger runners.
 
 New repositories that you create in your user account or in your organization will automatically be configured to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} if any of the following is true:
-- {% data variables.product.prodname_dependabot %} is installed and enabled, and {% data variables.product.prodname_actions %} is enabled and in use.
-- The "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" setting for your organization is enabled.
+* {% data variables.product.prodname_dependabot %} is installed and enabled, and {% data variables.product.prodname_actions %} is enabled and in use.
+* The "{% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners" setting for your organization is enabled.
 
 For existing repositories, you can opt in to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} as follows.
 
@@ -67,21 +67,21 @@ You can manage {% data variables.product.prodname_dependabot %} on {% data varia
 
 ### Enabling or disabling for your organization
 
-You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} for all existing repositories in an organization. Only repositories with the following configuration will be updated to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} the next time a {% data variables.product.prodname_dependabot %} job is triggered.
+You can enable {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} for all existing repositories in an organization.
 
-  - {% data variables.product.prodname_dependabot %} is enabled in the repository.
-  - {% data variables.product.prodname_actions %} is enabled in the repository.
+Only repositories with the following configuration will be updated to run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} the next time a {% data variables.product.prodname_dependabot %} job is triggered.
+
+  * {% data variables.product.prodname_dependabot %} is enabled in the repository.
+  * {% data variables.product.prodname_actions %} is enabled in the repository.
 
 If a repository in your organization has {% data variables.product.prodname_dependabot %} enabled but {% data variables.product.prodname_actions %} disabled, {% data variables.product.prodname_dependabot %} will not run on {% data variables.product.prodname_actions %}, but will continue to run using the built-in {% data variables.product.prodname_dependabot %} application.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.security-and-analysis %}
-{% ifversion security-configurations %}
-    {% data reusables.security-configurations.changed-org-settings-security-configurations-callout %} For next steps on enabling {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} and other security features at scale with {% data variables.product.prodname_security_configurations %}, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization)."
-{% endif %}
-1. Under "Code security", select "Global settings".
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on Actions runners" to enable the feature or deselect to disable it.
+
+For more information, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#enabling-dependency-updates-on-github-actions-runners)."
 
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on {% data variables.actions.hosted_runners %}
 

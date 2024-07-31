@@ -51,17 +51,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-cod
 
 {% note %}
 
-{% ifversion code-scanning-tool-status-page %}
-
 **Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
-
-{% else %}
-
-**Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository.
-
-For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
-
-{% endif %}
 
 {% endnote %}
 
@@ -86,8 +76,8 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
-- The name of the alert
-- The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
+* The name of the alert
+* The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
 
 | Supported search | Syntax example | Results |
 | ---- | ---- | ---- |
@@ -100,8 +90,8 @@ You can search the list of alerts. This is useful if there is a large number of 
 {% tip %}
 
 **Tips:**
-- The multiple word search is equivalent to an OR search.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
+* The multiple word search is equivalent to an OR search.
+* The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% endtip %}
 
@@ -126,7 +116,24 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 {% endif %}
 
-## Fixing an alert
+{% ifversion code-scanning-autofix %}
+
+## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
+
+{% data reusables.rai.code-scanning.autofix-note %}
+
+{% data variables.product.prodname_code_scanning_caps %} autofix can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Click the name of an alert.
+1. If autofix can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
+1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
+
+{% endif %}
+
+## Fixing an alert {% ifversion code-scanning-autofix %}manually{% endif %}
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
 
@@ -158,12 +165,12 @@ Dismissing an alert is a way of closing an alert that you don't think needs to b
 
 When you dismiss an alert:
 
-- It's dismissed in all branches.
-- The alert is removed from the number of current alerts for your project.
-- The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
-- The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
-- Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
-- Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
+* It's dismissed in all branches.
+* The alert is removed from the number of current alerts for your project.
+* The alert is moved to the "Closed" list in the summary of alerts, from where you can reopen it, if required.
+* The reason why you closed the alert is recorded.{% ifversion comment-dismissed-code-scanning-alert %}
+* Optionally, you can comment on a dismissal to record the context of an alert dismissal.{% endif %}
+* Next time {% data variables.product.prodname_code_scanning %} runs, the same code won't generate an alert.
 
 To dismiss alerts:
 
@@ -214,8 +221,8 @@ You may have multiple code scanning configurations on a single repository. When 
 {% note %}
 
 **Notes:**
-- If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
-- If you remove all {% data variables.product.prodname_code_scanning %} configurations for any branch other than the default branch of your repository, that branch will be removed from the "Affected branches" sidebar.
+* If you remove all {% data variables.product.prodname_code_scanning %} configurations for the default branch of your repository, the default branch will remain in the "Affected branches" sidebar, but it will not be analyzed by any configurations.
+* If you remove all {% data variables.product.prodname_code_scanning %} configurations for any branch other than the default branch of your repository, that branch will be removed from the "Affected branches" sidebar.
 
 {% endnote %}
 
@@ -227,7 +234,6 @@ You may have multiple code scanning configurations on a single repository. When 
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"{% ifversion code-scanning-without-workflow %}
-- "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"{% else %}
-- "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)"{% endif %}
-- "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"
+* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"
+* "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
+* "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"

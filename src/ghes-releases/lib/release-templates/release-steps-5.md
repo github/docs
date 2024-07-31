@@ -133,7 +133,7 @@ The benefit of the first method is that you don't need to deal with merging two 
 - [ ] To update the OpenAPI data, run the following command.
 
   ```shell
-  src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+  npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
   ```
 
   You may see an error that indicates that "...you must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API." You can ignore this error.

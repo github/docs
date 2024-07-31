@@ -33,6 +33,12 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 You can estimate the number of licenses your enterprise would need to purchase {% data variables.product.prodname_GH_advanced_security %} or to enable {% data variables.product.prodname_GH_advanced_security %} for additional organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
 {% endif %}
 
+{% ifversion security-configurations-ga %}
+
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
 You can view the enterprise account's current {% ifversion ghas-billing-UI-update %}license{% endif %} limits and usage.
@@ -47,13 +53,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
    If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 
 {% ifversion security-configurations %}
-      {% note %}
-
-      **Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
-
+      {% data reusables.security-configurations.managing-GHAS-licenses %}
       {% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-      {% endnote %}
 {% endif %}
 
 {% elsif ghes %}
@@ -70,26 +71,23 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
    In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
 {% endif %}
 1. Optionally, display the security and analysis settings for an organization.
-   - Click the name of the organization.
+   * Click the name of the organization.
 
 {% ifversion ghec %}
-   - On the "Code security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see an overview of your organization's license usage, as well as a detailed breakdown of usage by repository for this organization.
+   * On the "Code security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see an overview of your organization's license usage, as well as a detailed breakdown of usage by repository for this organization.
 
       For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% else %}
-   - On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
+   * On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization.
 
   For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion security-configurations %}
-{% note %}
 
-**Note:** {% data reusables.security-configurations.managing-GHAS-licenses %}
+{% data reusables.security-configurations.managing-GHAS-licenses %}
+> {% data reusables.security-configurations.security-configurations-beta-note-short %}
 
-{% data reusables.security-configurations.security-configurations-beta-note-short %}
-
-{% endnote %}
 {% endif %}
 {% endif %}
 
@@ -97,10 +95,10 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 
 You can download a CSV file with {% data variables.product.prodname_GH_advanced_security %} license usage information at both the enterprise and organization levels. The CSV file contains information about each {% data variables.product.prodname_advanced_security %} license that is in use, including:
 
-- The username of the person using the {% ifversion ghas-billing-UI-update %}license{% endif %}
-- The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
-- The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using {% ifversion ghas-billing-UI-update %}licenses{% endif %} belong to
-- The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
+* The username of the person using the {% ifversion ghas-billing-UI-update %}license{% endif %}
+* The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
+* The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using {% ifversion ghas-billing-UI-update %}licenses{% endif %} belong to
+* The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
 
 You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} {% ifversion ghas-billing-UI-update %}license{% endif %} or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 

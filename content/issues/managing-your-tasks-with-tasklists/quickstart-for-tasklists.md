@@ -51,9 +51,9 @@ Draft tasks are text items that are added to your tasklist. Draft tasks appear i
 1. Add some draft tasks to sketch out this work. Type your draft task and then press <kbd>Enter</kbd> after each one.
 
    For our example landing page scenario, you can add:
-   - "Design new landing page"
-   - "Create content for landing page"
-   - "Translate content into supported languages"
+   * "Design new landing page"
+   * "Create content for landing page"
+   * "Translate content into supported languages"
 
 ## Converting a draft task into an issue
 

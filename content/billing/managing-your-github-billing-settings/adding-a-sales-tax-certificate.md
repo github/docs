@@ -14,9 +14,9 @@ shortTitle: Add a sales tax certificate
 
 If you're a {% data variables.product.company_short %} customer in the United States, you need to ensure that your account is set up to calculate sales tax correctly. If you're exempt from sales tax, you can upload a certificate to your account. The format of the certificate you upload must be one of the following:
 
-- JPEG (`.jpg`, `.jpeg`)
-- PNG (`.png`)
-- PDF (`.pdf`)
+* JPEG (`.jpg`, `.jpeg`)
+* PNG (`.png`)
+* PDF (`.pdf`)
 
 Your account is marked as tax exempt, while your certificate is reviewed. If your certificate is not approved, you will need to upload a new one.
 

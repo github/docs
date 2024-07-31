@@ -43,9 +43,9 @@ If the image for a codespace is specified in a Dockerfile, and does not match th
 {% note %}
 
 **Notes**:
-- The dev container base image should not be confused with the host image. The host image is the image used to build the virtual machine on which the dev container runs. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)."
-- The base image policy is applied when a codespace is created, and when you perform a full container rebuild. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
-- The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
+* The dev container base image should not be confused with the host image. The host image is the image used to build the virtual machine on which the dev container runs. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)."
+* The base image policy is applied when a codespace is created, and when you perform a full container rebuild. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
+* The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
 
@@ -78,11 +78,11 @@ For example, you could create an organization-wide policy that restricts the bas
 1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
-   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
 
 1. After you've finished adding constraints to your policy, click **Save**.
 

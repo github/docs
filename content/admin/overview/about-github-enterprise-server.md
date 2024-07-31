@@ -1,6 +1,6 @@
 ---
 title: About GitHub Enterprise Server
-intro: '{% data variables.product.product_name %} is a software development platform that you can host in a private environment.'
+intro: 'Find out if {% data variables.product.product_name %} is right for your business.'
 versions:
   ghes: '*'
 type: overview
@@ -9,97 +9,65 @@ topics:
   - Fundamentals
 ---
 
-## About {% data variables.product.product_name %}
+{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Your business can benefit from increased control and avoid issues associated the public cloud, while your developers can benefit from familiar features and workflows from {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data reusables.enterprise.ghes-is-a-self-hosted-platform %} Your team can use {% data variables.product.product_name %} to build and ship software using Git version control, powerful APIs, productivity and collaboration tools, and integrations. Developers familiar with {% data variables.product.prodname_dotcom_the_website %} can onboard and contribute seamlessly using familiar features and workflows. {% data reusables.enterprise.about-github-for-enterprises %}
+{% data variables.product.product_name %} is suitable for enterprises that are subject to regulatory compliance. It runs on your infrastructure and is governed by access and security controls that you define, such as firewalls, network policies, IAM, monitoring, and VPNs.
 
-{% data reusables.enterprise.ghes-runs-on-your-infrastructure %}
+{% data variables.product.product_name %} is a deployment option for the {% data variables.product.prodname_enterprise %} plan. To learn about available features and assess other deployment options, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises)."
 
-{% data reusables.enterprise.github-distributes-ghes %} For more information, see "[AUTOTITLE](/admin/overview/system-overview)."
+## Features and releases
 
-{% note %}
+{% data reusables.enterprise.constantly-improving %}
 
-**Note:** Installing third-party software or making changes to the underlying operating system is not supported for {% data variables.product.prodname_ghe_server %}.
+Most features are released on {% data variables.product.prodname_dotcom_the_website %} first, then come to {% data variables.product.product_name %} through the release process. You can see which features we're working on in the [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}).
 
-{% endnote %}
+### Optional features
 
-You can choose to deploy {% data variables.product.product_name %} on premises, or to a supported cloud environment.
+You can also configure optional features on {% data variables.product.product_name %} to improve the software development lifecycle for your enterprise.
 
-## Supported environments for deployment
+* **{% data variables.product.prodname_actions %}**: Automate CI/CD and development workflows
+* **{% data variables.product.prodname_GH_advanced_security %}**: Scan code for secrets and vulnerabilities
+* **{% data variables.product.prodname_github_connect %}**: Benefit from data and features on {% data variables.product.prodname_dotcom_the_website %}
+* **{% data variables.product.prodname_registry %}**: Host software packages for your enterprise
+
+## How do I deploy {% data variables.product.product_name %}?
+
+{% data reusables.enterprise.github-distributes-ghes %} Installing third-party software or making changes to the underlying operating system is not supported.
 
 You can deploy {% data variables.product.product_name %} to a virtualization hypervisor within your on-premises datacenter, or to a public cloud service.
 
-{% data variables.product.company_short %} supports the following virtualization hypervisors for on-premises deployment.
+### Supported on-premises hypervisors
 
-- Microsoft Hyper-V
-- OpenStack KVM
-- VMware ESXi
+* Microsoft Hyper-V
+* OpenStack KVM
+* VMware ESXi
 
-{% data variables.product.company_short %} supports the following services for cloud deployment.
+### Supported cloud services
 
-- Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
-- Microsoft Azure
+* Amazon Web Services (AWS)
+* Google Cloud Platform (GCP)
+* Microsoft Azure
 
-For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+## Administrative options
 
-## About releases and upgrades
+You can give certain employees administrative access to your {% data variables.product.product_name %} instance. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with deployment and maintenance.
 
-{% data reusables.enterprise.constantly-improving %} You are responsible for upgrades to your instance. For more information, see "[AUTOTITLE](/admin/all-releases)."
+Administrators can:
 
-## About administration
+* Configure and monitor the instance via browser, administrative SSH access, and REST or GraphQL APIs
+* Set up external authentication using CAS, LDAP, or SAML
+* Set usage policies to ensure compliance with business rules or regulatory restrictions
 
-You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintenance of {% data variables.product.product_name %}.
+## Backups and availability
 
-You can give certain employees administrative access to {% data variables.product.product_name %}, so they can set up external authentication, configure the instance to meet developer needs, and monitor the instance's activity and performance. To ensure compliance with business rules or regulatory restrictions, administrators can configure policies that control how people use {% data variables.location.product_location %}. For more information, see the following articles.
+{% data variables.product.product_name %} provides options for safeguarding against data loss or service disruptions.
 
-- "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)"
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)"
-- "[AUTOTITLE](/admin/overview/about-the-github-enterprise-api)"
-- "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)"
-- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise)"
-- "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)"
+* To back up configuration and user data, you can take regular snapshots of your instance using our Backup Utilities system.
+* To increase reliability, you can configure a passive replica instance to fail over to in the event of a system or network failure.
+* To improve performance, you can configure active replicas to scale the instance for dispersed users or high demand.
 
-## About optional features
+## Getting started
 
-You can configure optional features for {% data variables.product.product_name %} that improve the software development lifecycle for your enterprise.
+You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
 
-| Feature | Description | More information |
-| :- | :- | :- |
-| {% data variables.product.prodname_actions %} | Automate CI/CD and development workflows | "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)" |
-| {% data variables.product.prodname_github_connect %} | Benefit from the power of {% data variables.product.prodname_dotcom_the_website %} in limited ways | "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)" |
-| {% data variables.product.prodname_GH_advanced_security %} | Improve code security and quality | "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" |
-| {% data variables.product.prodname_registry %} | Host software packages for your enterprise | "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages)" |
-
-## About deployment topologies
-
-By default, {% data variables.product.product_name %} runs as a standalone instance. You can increase the reliability and performance of {% data variables.product.product_name %} by using a different topology for your deployment.
-
-- To mitigate the impact of system or network failures, you can deploy a passive replica instance. During an outage that affects your primary instance, you can manually fail over to the replica instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
-- You can configure multiple active replicas to improve performance for developers who are geographically distant from your primary instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-geo-replication)."
-- Some enterprises with tens of thousands of developers may benefit from a cluster configuration that scales horizontally instead of vertically. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
-
-## About backups and disaster recovery
-
-To safeguard against data loss or service disruptions for your developers, {% data variables.product.company_short %} strongly recommends that you establish a plan for disaster recovery. You can back up your instance's configuration and user data by deploying and configuring a Linux or Unix host system with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
-
-Additionally, you can configure a passive replica instance to fail over to in the event of a system or network failure. For more information, see "[About deployment topologies](#about-deployment-topologies)."
-
-## About documentation
-
-Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}.
-
-- [Enterprise administrator documentation](/admin)
-- [User documentation](/)
-
-Different versions of {% data variables.product.product_name %} are reflected separately in the documentation on {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
-
-## Trying {% data variables.product.product_name %}
-
-You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
-
-## Further reading
-
-- "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server)"
-- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+If you're ready to get started with a production instance, see "[AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-server)."
