@@ -18,7 +18,6 @@ children:
   - /introduction
   - /enabling-secret-scanning-features
   - /about-secret-scanning
-  - /configuring-secret-scanning-for-your-repositories
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns
   - /push-protection-for-repositories-and-organizations
