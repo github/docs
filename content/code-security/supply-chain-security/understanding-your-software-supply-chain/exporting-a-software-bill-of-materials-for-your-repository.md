@@ -26,6 +26,9 @@ You can export the current state of the dependency graph for your repository as 
 
 If your company provides software to the US federal government per [Executive Order 14028](https://www.gsa.gov/technology/it-contract-vehicles-and-purchasing-programs/information-technology-category/it-security/executive-order-14028), you will need to provide an SBOM for your product. You can also use SBOMs as part of your audit process and use them to comply with regulatory and legal requirements.
 
+> [!NOTE]
+> Dependents are not included in SBOMs.
+
 ## Exporting a software bill of materials for your repository from the UI
 
 {% data reusables.repositories.navigate-to-repo %}
