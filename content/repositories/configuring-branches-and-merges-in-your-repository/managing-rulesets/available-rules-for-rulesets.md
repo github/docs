@@ -45,7 +45,6 @@ Before you can require a linear commit history, your repository must allow squas
 ## Require merge queue
 
 > [!NOTE]
-> * Configuring a merge queue via rulesets is in public beta and subject to change.
 > * This rule is not available for rulesets created at the organization level. For more information about creating rulesets at the repository level, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 You can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues)."
