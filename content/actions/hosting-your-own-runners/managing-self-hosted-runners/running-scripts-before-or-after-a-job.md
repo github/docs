@@ -77,7 +77,7 @@ If you get a "permission denied" error when you attempt to run a script, make su
 chmod +x PATH/TO/FILE
 ```
 
-For information about using workflows to run scripts, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)."
+For information about using workflows to run scripts, see "[AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/adding-scripts-to-your-workflow)."
 
 ### No timeout setting
 
