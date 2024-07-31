@@ -1,5 +1,5 @@
 ---
-title: Guides for {% data variables.product.prodname_actions %}
+title: 'Guides for {% data variables.product.prodname_actions %}'
 intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -14,16 +14,16 @@ learningTracks:
   - hosting_your_own_runners
   - create_actions
 includeGuides:
-  - /actions/quickstart
-  - /actions/learn-github-actions/understanding-github-actions
+  - /actions/writing-workflows/quickstart
+  - /actions/about-github-actions/understanding-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/learn-github-actions/using-starter-workflows
+  - /actions/writing-workflows/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions
   - /actions/publishing-packages/publishing-docker-images
-  - /actions/using-workflows/caching-dependencies-to-speed-up-workflows
-  - /actions/automating-builds-and-tests/about-continuous-integration
+  - /actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows
+  - /actions/about-github-actions/about-continuous-integration
   - /actions/automating-builds-and-tests/building-and-testing-powershell
   - /actions/automating-builds-and-tests/building-and-testing-ruby
   - /actions/automating-builds-and-tests/building-and-testing-java-with-maven
@@ -35,13 +35,12 @@ includeGuides:
   - /actions/publishing-packages/publishing-nodejs-packages
   - /actions/publishing-packages/publishing-java-packages-with-maven
   - /actions/publishing-packages/publishing-java-packages-with-gradle
-  - /actions/using-workflows/storing-workflow-data-as-artifacts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-workflow-data-as-artifacts
   - /actions/using-containerized-services/about-service-containers
   - /actions/using-containerized-services/creating-redis-service-containers
   - /actions/using-containerized-services/creating-postgresql-service-containers
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine
-  - /actions/learn-github-actions/essential-features-of-github-actions
   - /actions/security-guides/security-hardening-for-github-actions
   - /actions/creating-actions/about-custom-actions
   - /actions/creating-actions/creating-a-javascript-action
@@ -69,3 +68,4 @@ includeGuides:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service
 ---
+
