@@ -2,8 +2,6 @@
 title: Security hardening your deployments
 shortTitle: Security harden deployments
 intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
-redirect_from:
-  - /actions/deployment/security-hardening-your-deployments
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,9 +12,8 @@ children:
   - /configuring-openid-connect-in-azure
   - /configuring-openid-connect-in-google-cloud-platform
   - /configuring-openid-connect-in-hashicorp-vault
-  - /configuring-openid-connect-in-jfrog
-  - /configuring-openid-connect-in-pypi
   - /configuring-openid-connect-in-cloud-providers
+  - /configuring-openid-connect-in-pypi
+  - /configuring-openid-connect-in-jfrog
   - /using-openid-connect-with-reusable-workflows
 ---
-

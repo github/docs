@@ -21,6 +21,11 @@ featuredLinks:
     - /actions/writing-workflows/workflow-syntax-for-github-actions
     - /actions/writing-workflows
     - /actions/examples
+    - /actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+    - /actions/writing-workflows/choosing-what-your-workflow-does/contexts
+    - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
+    - /actions/writing-workflows/choosing-what-your-workflow-does/variables
+    - /actions/security-guides/using-secrets-in-github-actions
 changelog:
   label: actions
 redirect_from:
@@ -51,7 +56,7 @@ children:
   - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
-  - /security-for-github-actions
+  - /security-guides
   - /creating-actions
   - /administering-github-actions
   - /guides
