@@ -28,6 +28,7 @@ You can control whether links in text blocks on {% data variables.location.produ
 
     * To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
     * To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
+    * To disable hovercards for previewing link content, deselect **Hovercards**.
 
 {% endif %}
 

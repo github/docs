@@ -17,6 +17,7 @@ labels:
 - [Prerequisites](#prerequisites)
 - [Create publication branch for a new version of GHES](#creation)
 - [Resolve check failures](#check-failures)
+- [Sync the search indices](#sync-search-indices)
 - [Maintain the publication branch](#maintenance)
 - [Complete preparation for the RC and publish the docset](#publication)
 
@@ -64,9 +65,9 @@ To enable a new version of GHES on GitHub Docs, update the site's supported vers
   - [ ] Add and commit the changes.
 
 - Create placeholder data files for release notes and content from automated pipelines.
-  
+
   - [ ] Run the following script.
-  
+
     ```shell
     src/ghes-releases/scripts/sync-automated-pipeline-data.js
     ```
@@ -98,9 +99,9 @@ Our link checker validates links the site. If links are broken immediately after
 If you aren't familiar with the content with the broken link, consult the DRI for the content's focus area. See the [README](https://github.com/github/docs-content/blob/main/focus-areas/README.md) in `github/docs-content`.
 
 For broken links due to in-progress work elsewhere in the docs, you can comment out problematic versioning temporarily by:
-- using {% raw %}`{% comment %}`{% endraw %} tags in Liquid or 
-- prepending `#` in YAML front matter. 
- 
+- using {% raw %}`{% comment %}`{% endraw %} tags in Liquid or
+- prepending `#` in YAML front matter.
+
 If you comment out versioning, explain the temporary change in a comment on the **Files changed** tab, and track the necessary updates PR's body. After the necessary changes are in `main`, uncomment the versioned content.
 
 For content from the OpenAPI schema, note the affected content with broken links in the PR's body.
@@ -108,6 +109,20 @@ For content from the OpenAPI schema, note the affected content with broken links
 <a name="rest-pull-request">
 
 <br/>
+
+<a name="sync-search-indices">
+
+### [🔎](#sync-search-indices) Sync the search indices
+
+1. Go to the [`sync-search-elasticsearch` workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-elasticsearch.yml) ([permalink](https://github.com/github/docs-internal/blob/f8ca45703c48c7d1976a278337bc3391fb14fe9e/.github/workflows/sync-search-elasticsearch.yml) in case it moves)
+1. Click on the **Run workflow** drop down and set the following parameters:
+    - `Branch:` set to the name of the publication branch
+    - `Version` set to the version you're publishing (e.g., `ghes-3.12` if you're publishing GHES 3.12)
+    - `Languages` left as default (blank, all languages. If time is a concern, can also set to just `en` and wait for the workflow to automatically include the other languages in later runs)
+1. Click **Run workflow** and wait for the workflow to finish running, which can take up to 30 minutes.
+
+_Note_: After performing these steps, search indices will be automatically updated when the workflow runs on `main`, once every 4 hours. However, it will not do so until you first complete the steps above which will manually create a search index for the new release.
+
 <a name="maintenance">
 
 ### [🔁](#maintenance) Maintain the publication branch

@@ -21,6 +21,12 @@ shortTitle: Advanced Security billing
 
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% ifversion fpt %}
 
 {% data reusables.advanced-security.ghas-license-info-for-fpt %}
