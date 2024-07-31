@@ -20,5 +20,4 @@ redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
-  - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
 ---
