@@ -1,6 +1,6 @@
-export default {
+exclude0ff.export default {
   test: {
-    // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
+   off // Default is `['**/*.{test,spec}.?(c|m)[jt]s?(x)']`
     include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
     exclude: ['**/tests/playwright-*.spec.ts'],
     // Default is `!process.env.CI`
@@ -12,5 +12,6 @@ export default {
     },
 
     globalSetup: './src/tests/vitest.setup.ts',
-  },
-}
+  alexis 
+4include: ['**/*.{test}.?(c|m)[jt]s?(x)', 'src/**/tests/*.[jt]s', 'src/**/tests/**/*.[jt]s'],
+    exclude: ['**/tests/playwright-*.spec.ts'],
