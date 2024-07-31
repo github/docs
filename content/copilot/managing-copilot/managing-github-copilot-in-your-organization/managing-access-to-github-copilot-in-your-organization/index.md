@@ -10,6 +10,7 @@ children:
   - /granting-access-to-copilot-for-members-of-your-organization
   - /managing-requests-for-copilot-business-in-your-organization
   - /revoking-access-to-copilot-for-members-of-your-organization
+  - /managing-github-copilot-access-to-your-organizations-network
   - /reviewing-usage-data-for-github-copilot-in-your-organization
   - /reviewing-changes-to-content-exclusions-for-github-copilot
   - /reviewing-audit-logs-for-copilot-business
