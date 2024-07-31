@@ -547,7 +547,7 @@
 /assets/images/help/desktop/cherry-picking.png 2x
 /assets/images/help/desktop/choose-repository-location-mac.png 2x
 /assets/images/help/desktop/click-two-commits.png 2x
-/assets/images/help/desktop/clone-a-repository-url-tab-name-input.png 2x
+/assets/images/help/desktop/clone-a-repository-list-mac.png 2x
 /assets/images/help/desktop/clone-choose-button-mac.png 2x
 /assets/images/help/desktop/clone-choose-button-url-mac.png 2x
 /assets/images/help/desktop/clone-file-menu-mac.png 2x
@@ -556,7 +556,6 @@
 /assets/images/help/desktop/commit-message.png 2x
 /assets/images/help/desktop/commit-revert-mac.png 2x
 /assets/images/help/desktop/create-branch-from-commit-context-menu.png 2x
-/assets/images/help/desktop/create-fork-button-windows.png 2x
 /assets/images/help/desktop/create-issue-mac.png 2x
 /assets/images/help/desktop/create-issue-windows.png 2x
 /assets/images/help/desktop/current-branch-menu.png 2x
