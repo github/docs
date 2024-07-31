@@ -12,9 +12,6 @@ topics:
   - Secret scanning
   - Advanced Security
   - Alerts
-redirect_from:
-  - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
-  - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
 ---
 
 ## About enabling push protection
