@@ -9,8 +9,6 @@ versions:
 type: tutorial
 topics:
   - Security
-redirect_from:
-  - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
