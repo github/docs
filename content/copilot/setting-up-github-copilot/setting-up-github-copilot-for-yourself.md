@@ -28,9 +28,9 @@ If you want to use {% data variables.product.prodname_copilot_short %} in the co
 
 ## 4. Set up networking (if necessary)
 
-If you connect through an HTTP proxy server or firewall, ensure that [these URLs](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot#urls-to-add-to-an-allowlist) are added to the allowlist for the proxy server or firewall.
+If you connect through an HTTP proxy server or firewall, ensure that key URLs are added to the allowlist for the proxy server or firewall. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
 
-You may also need to install a custom SSL certificate on your machine. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot)."
+You may also need to install a custom SSL certificate on your machine. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#installing-custom-certificates)."
 
 ## 5. Configure settings (optional)
 

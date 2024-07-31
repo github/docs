@@ -66,7 +66,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
       }
 
       await contextualize(req as ExtendedRequest, res as Response, next)
-      await shortVersions(req, res, next)
+      await shortVersions(req as ExtendedRequest, res as Response, next)
       req.context.page = page
       features(req as any, res as any, next)
 

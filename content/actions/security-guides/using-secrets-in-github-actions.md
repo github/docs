@@ -447,4 +447,27 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 
 ## Redacting secrets from workflow run logs
 
-While {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to workflow logs, runners can only delete secrets they have access to. This means a secret will only be redacted if it was used within a job. As a security measure, you can delete workflow run logs to prevent sensitive values being leaked. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs)."
+{% data variables.product.prodname_actions %} automatically redacts the contents of all {% data variables.product.prodname_dotcom %} secrets that are printed to workflow logs.
+
+{% data variables.product.prodname_actions %} also redacts information that is recognized as sensitive, but is not stored as a secret. Currently {% data variables.product.prodname_dotcom %} supports the following:
+
+* 32-byte and 64-byte Azure keys
+* Azure AD client app passwords
+* Azure Cache keys
+* Azure Container Registry keys
+* Azure Function host keys
+* Azure Search keys
+* Database connection strings
+* HTTP Bearer token headers
+* JWTs
+* NPM author tokens
+* NuGet API keys
+* v1 GitHub installation tokens
+* v2 GitHub installation tokens (`ghp`, `gho`, `ghu`, `ghs`, `ghr`)
+* v2 GitHub PATs
+
+> [!NOTE] If you would like other types of sensitive information to be automatically redacted, please reach out to us in our [community discussions](https://github.com/orgs/community/discussions?discussions_q=is%3Aopen+label%3AActions).
+
+As a habit of best practice, you should mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs. For more information about masking data, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log)."
+
+Redacting of secrets is performed by your workflow runners. This means a secret will only be redacted if it was used within a job and is accessible by the runner. If an unredacted secret is sent to a workflow run log, you should delete the log and rotate the secret. For information on deleting logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs)."
