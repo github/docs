@@ -36,7 +36,7 @@ By default, anyone with write access to the repository can choose to bypass push
 
 {% ifversion secret-scanning-bypass-filter %}
 
-On the {% data variables.product.prodname_secret_scanning %} alerts page for a repository or organization, you can apply the `bypassed:true` filter to easily see which alerts are the result of a user bypassing push protection. For more information on viewing these alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+On the {% data variables.product.prodname_secret_scanning %} alerts page for a repository or organization, you can apply the `bypassed:true` filter to easily see which alerts are the result of a user bypassing push protection. For more information on viewing these alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
 
 {% endif %}
 

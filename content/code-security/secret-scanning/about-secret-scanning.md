@@ -95,7 +95,7 @@ You can also define custom {% data variables.product.prodname_secret_scanning %}
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 {% ifversion secret-scanning-notification-settings %}
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[Configuring notifications for secret scanning alerts](/code-security/secret-scanning/managing-alerts-from-secret-scanning#configuring-notifications-for-secret-scanning-alerts)."
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)."
 {% endif %}
 
 Repository administrators and organization owners can grant users and teams access to {% data variables.secret-scanning.alerts %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."

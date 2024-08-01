@@ -64,7 +64,7 @@ You can enable the following additional {% data variables.product.prodname_secre
 
 {% data reusables.gated-features.partner-pattern-validity-check-ghas %}
 
-You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. For more information on validity checks, see "Checking a secret's validity" in "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
+You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. For more information on validity checks, see "Checking a secret's validity" in "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
 
 {% note %}
 

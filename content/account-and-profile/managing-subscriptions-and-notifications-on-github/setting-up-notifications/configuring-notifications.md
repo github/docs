@@ -220,7 +220,7 @@ For more information about the notification delivery methods available to you, a
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[Configuring notifications for secret scanning alerts](/code-security/secret-scanning/managing-alerts-from-secret-scanning#configuring-notifications-for-secret-scanning-alerts)."
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)."
 
 {% ifversion update-notification-settings-22 or ghes %}
 
