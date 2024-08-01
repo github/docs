@@ -72,7 +72,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 | {% ifversion secret-scanning-bypass-filter %} |
 |`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."|
 | {% endif %} |
-|`validity:active`| Displays alerts for secrets that are still active. {% ifversion fpt %}Applies to {% data variables.product.company_short %} tokens only.{% endif %} For more information about validity statuses, see "[Checking a secret's validity](#checking-a-secrets-validity)."|
+|`validity:active`| Displays alerts for secrets that are still active. {% ifversion fpt %}Applies to {% data variables.product.company_short %} tokens only.{% endif %} For more information about validity statuses, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."|
 |`validity:inactive`| Displays alerts for secrets that are no longer active.|
 |`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|
 |`secret-type:SECRET-NAME`| Displays alerts for a specific secret type, for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secret)." |
