@@ -24,13 +24,13 @@ Control which {% data variables.product.prodname_copilot_short %} features are a
 
 ## 3. Set up networking (if necessary)
 
-If your enterprise users connect through an HTTP proxy server or firewall, ensure that [these URLs](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot#urls-to-add-to-an-allowlist) are added to the allowlist for the proxy server or firewall.
+If your enterprise users connect through an HTTP proxy server or firewall, ensure that key URLs are added to the allowlist for the proxy server or firewall. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
 
-You may also need to install custom SSL certificates on your users' machines. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot)."
+You may also need to install custom SSL certificates on your users' machines. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#installing-custom-certificates)."
 
 ## 4. Grant access to organizations
 
-Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
+Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
 
 ## 5. Share onboarding material
 

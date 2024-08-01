@@ -4,9 +4,8 @@ getting_started:
     Discover the possibilities of {% data variables.product.prodname_actions %}
     by creating your first workflow.
   guides:
-    - /actions/learn-github-actions/understanding-github-actions
-    - /actions/learn-github-actions/finding-and-customizing-actions
-    - /actions/learn-github-actions/essential-features-of-github-actions
+    - /actions/about-github-actions/understanding-github-actions
+    - /actions/writing-workflows/choosing-what-your-workflow-does/finding-and-customizing-actions
     - /actions/using-workflows/about-workflows
     - /actions/using-workflows/reusing-workflows
     - /actions/security-guides/security-hardening-for-github-actions
@@ -20,7 +19,7 @@ adopting_github_actions_for_your_enterprise_ghec:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
@@ -40,7 +39,7 @@ adopting_github_actions_for_your_enterprise_ghes:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-

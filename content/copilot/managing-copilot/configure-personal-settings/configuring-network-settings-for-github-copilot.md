@@ -23,6 +23,8 @@ By default, {% data variables.product.prodname_copilot %} connects to {% data va
 
 Some networks use an HTTP proxy server to intercept Internet traffic before sending it to its intended location. Companies often use an HTTP proxy to detect suspicious traffic or restrict the content entering their networks. If you're working on a corporate network, you may need to configure {% data variables.product.prodname_copilot_short %} to connect via an HTTP proxy.
 
+> [!NOTE] The administrator of your proxy server or firewall also needs to configure network settings for {% data variables.product.prodname_copilot_short %} to work as expected. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
+
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
 {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups. If you need to authenticate to a proxy, {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If the proxy URL starts `https://`, the proxy is not currently supported.
