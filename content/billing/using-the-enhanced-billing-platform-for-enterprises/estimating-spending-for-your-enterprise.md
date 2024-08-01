@@ -29,7 +29,11 @@ On this page, you can view your usage in the following categories:
 * **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
 * **By products:** You can use the product tabs to view usage and discounts for different products. Only products with usage are shown.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
+    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png){% ifversion metered-ghe-ghas%}
+
+   > [!NOTE] There is a delay of up to 2 hours in the {% data variables.product.prodname_GH_advanced_security %} usage data after enabling the feature.
+
+   {% endif %}
 
 ## Viewing promotion and discounts
 
