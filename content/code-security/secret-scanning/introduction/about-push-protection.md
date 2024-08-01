@@ -21,7 +21,7 @@ shortTitle: Push protection
 
 ## What is push protection
 
-Push protection is a {% data variables.product.prodname_secret_scanning %} feature that is designed to prevent sensitive information, such as secrets or tokens, from being pushed to your repository in the first place. Unlike {% data variables.product.prodname_secret_scanning %} , which detects secrets after they have been committed, push protection proactively scans your code for secrets during the push process and blocks the push if any are detected.
+Push protection is a {% data variables.product.prodname_secret_scanning %} feature that is designed to prevent sensitive information, such as secrets or tokens, from being pushed to your repository in the first place. Unlike {% data variables.product.prodname_secret_scanning %}, which detects secrets after they have been committed, push protection proactively scans your code for secrets during the push process and blocks the push if any are detected.
 
 Push protection helps you avoid the risks associated with exposed secrets, like unauthorized access to resources or services. With this feature, developers get immediate feedback and can address potential issues before they become a security concern.
 
