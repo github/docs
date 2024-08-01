@@ -1,8 +1,9 @@
 ---
-title: Reviewing usage data for GitHub Copilot in your organization
-shortTitle: Usage data
+title: Reviewing user activity data for Copilot in your organization
+shortTitle: User activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
-permissions: 'Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.'
+permissions: Organization owners
+product: 'Organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot
 topics:
@@ -12,9 +13,10 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
   - /billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization
 ---
 
-## Reviewing usage data for {% data variables.product.prodname_copilot %} in your organization
+## Reviewing user activity data for {% data variables.product.prodname_copilot_short %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
