@@ -64,15 +64,13 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% endif %}
 
-## Benefits of using {% data variables.product.prodname_secret_scanning %}
+## Benefits of {% data variables.product.prodname_secret_scanning %}
 
 * **Enhanced security**—{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
 
 * **Automated detection**—The feature automatically scans your codebase, including commits, issues, and pull requests, ensuring continuous protection without requiring manual intervention. This automation helps in maintaining security even as your repository evolves.
 
 * **Real-time alerts**—When a secret is detected, {% data variables.product.prodname_secret_scanning %} provides real-time alerts to repository administrators and contributors. This immediate feedback allows for swift remediation actions.
-
-* **Historical scanning**—{% data variables.product.prodname_secret_scanning_caps %} can be configured to scan the entire commit history of your repository. This retrospective analysis helps in identifying and mitigating risks from previously committed secrets that may have gone unnoticed.
 
 {% ifversion fpt or ghec %}
 
@@ -82,13 +80,15 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% ifversion ghec or ghes %}
 
-* **Custom patterns**—Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
+* **Custom pattern support**—Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
 
 {% endif %}
 
-* **Educational value**—Developers receive notifications when secrets are detected, which serves as a learning opportunity. This ongoing education helps in fostering a culture of security awareness within the development team.
+{% ifversion secret-scanning-non-provider-patterns %}
 
-* **Remediation guidance**—Along with alerts, we provide remediation guidance, helping teams understand how to safely remove the sensitive information from their codebase and rotate the compromised credentials.
+* **Ability to detect non-provider patterns**—You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
+
+{% endif %}
 
 ## What are the supported secrets
 
