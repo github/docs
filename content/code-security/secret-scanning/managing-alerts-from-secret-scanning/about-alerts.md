@@ -55,7 +55,7 @@ Push protection scans pushes for supported secrets. If push protection detects a
 
 ## About partner alerts
 
-When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see "TODO."
 
 Partner alerts are not applicable to repository administrators, so you do not need to take any action for this type of alert.
 
