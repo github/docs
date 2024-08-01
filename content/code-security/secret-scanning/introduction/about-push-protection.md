@@ -77,7 +77,7 @@ If push protection occasionally flags non-sensitive information, you can configu
 
 ### Defining custom patterns
 
-If you have specific patterns or types of secrets that are unique to your environment or organization, you can define custom patterns that push protection will use to identify secrets. These patterns are used to identify sensitive information that might not be covered by the default scanning rules implemented by {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+If you have specific patterns or types of secrets that are unique to your environment or organization, you can define custom patterns that push protection will use to identify secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 {% endif %}
 
@@ -85,13 +85,7 @@ If you have specific patterns or types of secrets that are unique to your enviro
 
 ### Using delegated bypass
 
-{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %}
-
-When you enable push protection, by default, anyone with write access to the repository can choose to bypass the protection by specifying a reason for allowing the push containing a secret. With delegated bypass, contributors to a repository are instead obligated to request "bypass privileges." The request is sent to a designated group of reviewers, who either approve or deny the request to bypass push protection.
-
-If the request to bypass push protection is approved, the contributor can push the commit containing the secret. If the request is denied, the contributor must remove the secret from the commit (or commits) containing the secret before pushing again.
-
-For information about delegated bypass for push protection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %} For information about delegated bypass for push protection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
 {% endif %}
 
