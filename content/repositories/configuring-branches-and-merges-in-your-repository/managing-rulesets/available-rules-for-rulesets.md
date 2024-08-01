@@ -45,7 +45,6 @@ Before you can require a linear commit history, your repository must allow squas
 ## Require merge queue
 
 > [!NOTE]
-> * Configuring a merge queue via rulesets is in public beta and subject to change.
 > * This rule is not available for rulesets created at the organization level. For more information about creating rulesets at the repository level, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 You can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues)."
@@ -137,7 +136,7 @@ Required status checks ensure that all required CI tests are passing before coll
 
 You can use the commit status API to allow external services to mark commits with an appropriate status. For more information, see "[AUTOTITLE](/rest/commits/statuses)."
 
-After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag.
+After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag. {% ifversion repo-rules-ignorecheck %} Optionally, you can select "Do not require status checks on creation" if you wish to allow branch creation regardless of the status check result. {% endif %}
 
 Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
 
@@ -215,6 +214,7 @@ Applying this rule will block direct pushes because the ruleset workflows run as
 
 This rule should only be added to rulesets that target branches where all changes to the branch are performed by pull requests.
 
+{% ifversion repo-rules-ignorecheck %} Optionally, you can select "Do not require workflows checks on creation" if you wish to allow branch creation regardless of the status check result. {% endif %}
 {% endif %}
 
 {% ifversion repo-rules-enterprise %}

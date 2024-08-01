@@ -8,7 +8,7 @@ import { renderContent } from '#src/content-render/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
 import { validateJson } from '#src/tests/lib/validate-json-schema.js'
-import { getBodyParams } from './get-body-params.js'
+import { getBodyParams } from './get-body-params'
 
 export default class Operation {
   #operation

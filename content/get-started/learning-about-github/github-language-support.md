@@ -37,9 +37,7 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.ruby %}
 {% data reusables.supported-languages.rust %}
 {% data reusables.supported-languages.scala %}
-{%- ifversion codeql-swift-beta or supply-chain-features-swift-support %}
 {% data reusables.supported-languages.swift %}
-{%- endif %}
 {% data reusables.supported-languages.typescript %}
 
 {% note %}

@@ -19,9 +19,12 @@ When you sign up for a {% data variables.product.prodname_sponsors %} profile so
 
 {% data variables.product.prodname_sponsors %} supports these fiscal hosts:
 
-* [Open Source Collective](https://opencollective.com/opensource)
+* [Hack Club](https://hackclub.com/)
 * [NumFOCUS](https://www.numfocus.org/)
 * [Open Collective Europe](https://opencollective.com/europe)
+* [Open Source Collective](https://opencollective.com/opensource)
+* [Python Software Foundation](https://www.python.org/psf-landing/)
+* [Software in the Public Interest](https://www.spi-inc.org/)
 * [Software Underground](https://softwareunderground.org/)
 
 ## Choosing to use a fiscal host
