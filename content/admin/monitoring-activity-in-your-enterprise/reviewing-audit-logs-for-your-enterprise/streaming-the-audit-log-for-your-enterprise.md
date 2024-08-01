@@ -194,9 +194,12 @@ From {% data variables.product.prodname_dotcom %}:
 
 ### Setting up streaming to Azure Event Hubs
 
-Before setting up a stream in {% data variables.product.prodname_dotcom %}, you must first have an event hub namespace in Microsoft Azure. Next, create an event hub instance within the namespace. You'll need the details of this event hub instance when you set up the stream. See [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) in the Microsoft documentation.
+> [!NOTE] Event Hubs instances in Azure Government are not supported.
 
-You will also need your event hub's instance name and the connection string.
+Before setting up a stream in {% data variables.product.prodname_dotcom %}, you need:
+
+* An event hub namespace in Microsoft Azure
+* An event hub instance within the namespace (see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) in the Microsoft documentation)
 
 From the Microsoft Azure portal:
 1. At the top of the page, use the search box to search for "Event Hubs".
