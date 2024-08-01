@@ -20,7 +20,7 @@ topics:
 shortTitle: Secret scanning
 ---
 
-## What is {% data variables.product.prodname_secret_scanning %}
+## About {% data variables.product.prodname_secret_scanning %}
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in public repositories for known types of secrets and alerts repository administrators upon detection.
 
@@ -46,17 +46,17 @@ You can also use security overview to see an organization-level view of which re
 
 Below is a typical workflow that explains how {% data variables.product.prodname_secret_scanning %} works:
 
-* **Detection of secrets**: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
+* **Detection**: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* **Alerts and notifications**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
+* **Alerts**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
 
-* **Review of alerts**: When a secret is detected, you'll need to review the alert details provided.
+* **Review**: When a secret is detected, you'll need to review the alert details provided.
 
-* **Alert remediation**: You then need take appropriate actions to remediate the exposure. This might include:
+* **Remediation**: You then need take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
-* **Audit and monitor**: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
+* **Monitoring**: It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
 {% ifversion fpt or ghec %}
 
@@ -64,7 +64,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% endif %}
 
-## What are the benefits of {% data variables.product.prodname_secret_scanning %}
+## Benefits of using {% data variables.product.prodname_secret_scanning %}
 
 * **Enhanced security**—{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
 
@@ -93,26 +93,6 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 ## What are the supported secrets
 
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
-
-## Enabling {% data variables.product.prodname_secret_scanning %}
-
-TODO: PLEASE DO NOT REVIEW THIS SECTION AS I WANT TO MAKE IT CONCISE AND SEE WHAT IS IN THE ENABLING ARTICLE(S)
-
-{% data variables.secret-scanning.user_alerts_caps %} is available {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}on all repositories with a license for {% data variables.product.prodname_GH_advanced_security %}{% else %}for free on all public repositories, and for private and internal repositories that are owned by organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}{% elsif fpt %}for free on all public repositories that you own{% else %}on all organization-owned repositories with a license for {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories{% endif %}.
-
-{% data variables.product.prodname_secret_scanning_caps %} is automatically enabled for all public repositories on {% data variables.product.prodname_dotcom %}.
-For private repositories, {% data variables.product.prodname_secret_scanning %} can be enabled as part of {% data variables.product.prodname_GH_advanced_security %}.
-
-{% data variables.secret-scanning.user_alerts_caps %} is available {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}on all repositories with a license for {% data variables.product.prodname_GH_advanced_security %}{% else %}for free on all public repositories, and for private and internal repositories that are owned by organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}{% elsif fpt %}for free on all public repositories that you own{% else %}on all organization-owned repositories with a license for {% data variables.product.prodname_GH_advanced_security %}. The feature is not available on user-owned repositories{% endif %}. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
-
-If you're a repository administrator, you can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion fpt %}public{% endif %} repository{% ifversion ghec or ghes %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.secret-scanning.user_alerts %} for all {% ifversion fpt %}public {% endif %}repositories or for all new {% ifversion fpt %}public {% endif %}repositories within an organization. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-
-{% ifversion fpt %}The following users can enable and configure additional scanning:
-      *Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
-      *Organizations owning _public_ repositories, on any of these repositories.
-      *Organizations using {% data variables.product.prodname_ghe_cloud %}, on any public repositories (for free), and on any private and internal repositories, when you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} for any public repositories (for free), and for private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}. Enterprise owners can manage the automatic enablement of {% data variables.product.prodname_GH_advanced_security %} for new repositories owned by {% data variables.product.prodname_emus %} with an enterprise level setting.{% endif %}
-
-For more information, see TODO: - link to enabling article.
 
 ## Customizing {% data variables.product.prodname_secret_scanning %}
 
@@ -181,6 +161,7 @@ About {% data variables.secret-scanning.user_alerts %}{% ifversion ghes %} on {%
 
 ## Further reading
 
+* TODO: link to enabling secret scanning article
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)
 * "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
