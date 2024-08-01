@@ -64,7 +64,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% endif %}
 
-## Benefits of {% data variables.product.prodname_secret_scanning %}
+## About the benefits of {% data variables.product.prodname_secret_scanning %}
 
 * **Enhanced security**—{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for sensitive information like API keys, passwords, tokens, and other secrets. By detecting these early, you can mitigate potential security risks before they are exploited by malicious actors.
 
