@@ -25,7 +25,7 @@ Push protection is a {% data variables.product.prodname_secret_scanning %} featu
 
 Push protection helps you avoid the risks associated with exposed secrets, like unauthorized access to resources or services. With this feature, developers get immediate feedback and can address potential issues before they become a security concern.
 
-Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push. For some {% data variables.product.prodname_dotcom %} products, more advanced features such as delegated bypass and the use of custom patterns are available:
+Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push. For some {% data variables.product.prodname_dotcom %} products, more advanced features such as delegated bypass and the use of custom patterns are available. 
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
