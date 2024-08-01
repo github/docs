@@ -31,8 +31,8 @@ Once enabled, if push protection detects a potential secret during a push attemp
 
 You can enable push protection:
 
-* At repository/organization level, if you are a repository administrator or an organization owner. This type of push protection is referred to as "push protection".
-* For your account on {% data variables.product.prodname_dotcom %}, as a user. This type of push protection is referred to as "push protection for users".
+* At repository/organization level, if you are a repository administrator or an organization owner. You will see alerts in the **Security** tab of your repository when a contributor to the repository bypasses push protection. 
+* For your account on {% data variables.product.prodname_dotcom %}, as a user. This type of push protection is referred to as "push protection for users". It protects you from pushing secrets to _any_ public repository on {% data variables.product.prodname_dotcom %}, but it doesn't generate alerts.
 
 {% endif %}
 
