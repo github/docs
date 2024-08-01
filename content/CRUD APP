@@ -1,0 +1,155 @@
+import 'package:flutter/material.dart';
+import 'package:crud_app/models/note.dart';
+import 'package:crud_app/db/database_helper.dart';
+import 'login_page.dart';
+import 'home_page.dart';
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'CRUD App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final DatabaseHelper _dbHelper = DatabaseHelper();
+  List<Note> _notes = [];
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _refreshNotes();
+  }
+
+  Future<void> _refreshNotes() async {
+    final notes = await _dbHelper.getNotes();
+    setState(() {
+      _notes = notes;
+      _isLoading = false;
+    });
+  }
+
+  Future<void> _addOrEditNoteDialog([Note? note]) async {
+    final titleController = TextEditingController(text: note?.title);
+    final descriptionController = TextEditingController(text: note?.description);
+
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(note == null ? 'Add Note' : 'Edit Note'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: titleController,
+                decoration: InputDecoration(labelText: 'Title'),
+              ),
+              TextField(
+                controller: descriptionController,
+                decoration: InputDecoration(labelText: 'Description'),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final newNote = Note(
+                  id: note?.id,
+                  title: titleController.text,
+                  description: descriptionController.text,
+                );
+
+                if (note == null) {
+                  await _dbHelper.insertNote(newNote);
+                } else {
+                  await _dbHelper.updateNote(newNote);
+                }
+
+                _refreshNotes();
+                Navigator.of(context).pop();
+              },
+              child: Text('Save'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _deleteNoteDialog(int id) async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Delete Note'),
+          content: Text('Are you sure you want to delete this note?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () async {
+                await _dbHelper.deleteNote(id);
+                _refreshNotes();
+                Navigator.of(context).pop();
+              },
+              child: Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('CRUD App'),
+      ),
+      body: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: _notes.length,
+              itemBuilder: (context, index) {
+                final note = _notes[index];
+                return ListTile(
+                  title: Text(note.title),
+                  subtitle: Text(note.description),
+                  onTap: () => _addOrEditNoteDialog(note),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () => _deleteNoteDialog(note.id!),
+                  ),
+                );
+              },
+            ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _addOrEditNoteDialog(),
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
