@@ -34,6 +34,7 @@ The following sections list some of the available keyboard shortcuts, organized 
 |-----------|------------
 |<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|<kbd>Option</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>↑</kbd> (Windows/Linux) | Move focus from an element to its hovercard |
 |<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
 ## Repositories
