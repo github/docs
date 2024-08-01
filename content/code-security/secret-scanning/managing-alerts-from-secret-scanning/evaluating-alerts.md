@@ -1,6 +1,6 @@
 ---
 title: Evaluating alerts from secret scanning
-intro: 'There are some additional features that can help you evaluate alerts and prioritize their remediation, such as checking the secret''s validity.'
+intro: 'Learn about additional features that can help you evaluate alerts and prioritize their remediation, such as checking a secret''s validity.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -94,3 +94,7 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
 
 {% endif %}
+
+## Next steps
+
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts)"

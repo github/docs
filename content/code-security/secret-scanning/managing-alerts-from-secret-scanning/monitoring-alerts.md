@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-In addition to Notifications are different for incremental scans and historical scans.
+In addition to displaying an alert in the **Security** tab of the repository, {% data variables.product.product_name %} also sends email notifications for alerts. These notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
 

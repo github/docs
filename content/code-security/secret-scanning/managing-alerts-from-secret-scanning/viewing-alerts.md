@@ -1,6 +1,6 @@
 ---
 title: Viewing and filtering alerts from secret scanning
-intro: 'Learn how to find and filter {% data variables.secret-scanning.user_alerts_caps %} alerts for your repository.'
+intro: 'Learn how to find and filter {% data variables.secret-scanning.user_alerts %} alerts for your repository.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view {% data variables.secret-scanning.user_alerts_caps %} for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -84,4 +84,4 @@ You can apply various filters to the alerts list to help you find the alerts you
 
 ## Next steps
 
-TODO
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts)"
