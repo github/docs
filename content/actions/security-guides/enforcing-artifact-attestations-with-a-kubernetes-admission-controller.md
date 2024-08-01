@@ -78,7 +78,7 @@ metadata:
     policy.sigstore.dev/include: "true"
 ```
 
-After the annotation is added, the GitHub artifact attestation policy will be enforced in the namespace.
+After the label is added, the GitHub artifact attestation policy will be enforced in the namespace.
 
 Alternatively, you may run:
 
