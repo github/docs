@@ -25,7 +25,7 @@ shortTitle: Configure secret scans
 
 You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}repository{% else %} repository that is owned by an organization, and for repositories owned by user accounts when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% elsif fpt %}free public repository that you own{% else %}repository that is owned by an organization{% endif %}. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}{% ifversion ghes < 3.11 %} {% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %} {% data reusables.secret-scanning.what-is-scanned %}
 
-You can also enable {% data variables.product.prodname_secret_scanning %} for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+You can also enable {% data variables.product.prodname_secret_scanning %} for multiple repositories in an organization at the same time. For more information, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
 
 {% ifversion secret-scanning-enterprise-level %}
 {% note %}

@@ -127,6 +127,7 @@ prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth app'
 prodname_oauth_apps: 'OAuth apps'
+prodname_github_models: 'GitHub Models'
 
 # API and developer docs
 prodname_enterprise_api: 'GitHub Enterprise Server APIs'
@@ -276,6 +277,7 @@ prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
+prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
 prodname_copilot_autocomplete_pr: 'Copilot text completion'
 
 # Command Palette

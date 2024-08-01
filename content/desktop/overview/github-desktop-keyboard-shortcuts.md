@@ -30,6 +30,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>8</kbd> | Decrease active pane width
 |<kbd>Command</kbd>+<kbd>9</kbd> | Increase active pane width
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> | Toggle Developer Tools
+|<kbd>Shift</kbd>+<kbd>F10</kbd> | Open context menu of selected component
 
 ## Repositories
 

@@ -15,9 +15,11 @@
 | {% data variables.product.prodname_copilot_chat_short %} skills in IDEs[^3] | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_for_prs %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_short %} knowledge bases | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| Increased {% data variables.product.prodname_github_models %} rate limits[^4] | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
 
 [^1]: Code completion in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, and Vim/Neovim.
 [^2]: {% data variables.product.prodname_copilot_chat_short %} in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs.
 [^3]: {% data variables.product.prodname_copilot_chat_short %} skills in IDEs is available in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}.
+[^4]: For details about the increased rate limits, see "[AUTOTITLE](/github-models/prototyping-with-ai-models)."

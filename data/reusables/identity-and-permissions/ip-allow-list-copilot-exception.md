@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot %} features that do not require directly fetching private or organizational data from {% data variables.product.prodname_dotcom %} are not restricted by IP allow lists, as the only risk from incorrect use is to {% data variables.product.prodname_dotcom %}'s own compute resources.

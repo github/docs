@@ -29,7 +29,7 @@ You can use checkboxes to select which repositories you want to include, or use 
 
 For more information on filters you can use in different parts of security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
-For more information about the different ways of enabling security features in an organization, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+For more information about the different ways of enabling security features in an organization, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization)."{% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)."{% endif %}
 
 ## Enabling security features for multiple repositories
 
