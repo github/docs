@@ -38,7 +38,7 @@ You can enable push protection:
 
 ## What are the benefits of push protection
 
-* **Proactive security**—Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This proactive approach helps to catch potential issues before they are merged into your repository.
+* **Preventative security**—Push protection acts as a frontline defense mechanism by scanning code for secrets at the time of the push. This preventative approach helps to catch potential issues before they are merged into your repository.
 
 * **Immediate feedback**—Developers receive instant feedback if a potential secret is detected during a push attempt. This immediate notification allows for quick remediation, reducing the likelihood of sensitive information being exposed.
 
