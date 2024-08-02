@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 ## About types of alerts
 
-There are {% ifversion fpt or ghec %}three{% else %}two{% endif %} types of {% data variables.product.prodname_secret_scanning %} alerts:
+There are {% ifversion fpt or ghec %}three{% else %}two{% endif %} types of {% data variables.secret-scanning.alerts %}:
 
 * **{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts**: Reported to users in the **Security** tab of the repository, when a supported secret is detected in the repository.
 * **Push protection alerts**: Reported to users in the **Security** tab of the repository, when a contributor bypasses push protection. {% ifversion fpt or ghec %}
