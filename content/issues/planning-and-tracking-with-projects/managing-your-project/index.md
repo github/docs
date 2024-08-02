@@ -13,5 +13,6 @@ children:
   - /closing-and-deleting-your-projects
   - /adding-your-project-to-a-repository
   - /adding-your-project-to-a-team
+  - /exporting-your-projects-data
 allowTitleToDifferFromFilename: true
 ---
