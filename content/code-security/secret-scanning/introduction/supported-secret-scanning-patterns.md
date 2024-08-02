@@ -60,7 +60,7 @@ Partner alerts are alerts that are sent to the secret providers whenever a secre
 
 {% endif %}
 
-You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."{% endif %}
+You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see TODO: About secret scanning alerts for users{% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
