@@ -17,10 +17,7 @@ topics:
 children:
   - /introduction
   - /enabling-secret-scanning-features
-  - /about-secret-scanning
   - /managing-alerts-from-secret-scanning
-  - /secret-scanning-patterns
-  - /push-protection-for-repositories-and-organizations
   - /working-with-secret-scanning-and-push-protection
   - /using-advanced-secret-scanning-and-push-protection-features
   - /troubleshooting-secret-scanning-and-push-protection
