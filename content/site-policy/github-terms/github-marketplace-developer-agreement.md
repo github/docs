@@ -85,6 +85,7 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 * (iv) ensuring that Developer Products are not offensive, profane, obscene, libelous or otherwise illegal;
 * (v) ensuring that its Developer Products do not contain or introduce malicious software into Marketplace, a GitHub API, any Usage Data or other data stored or transmitted using Marketplace; and
 * (vi) ensuring that its Developer Products are not designed to or utilized for the purpose of sending commercial electronic messages to any GitHub.com users, agents or End Users without their consent.
+* (vii) ensuring the name and branding of its Developer Products do not imitate existing brands or companies that the publisher is not directly affiliated with. Text like "for GitHub" may be used in the listing title if it clearly indicates integration, and not affiliation, with GitHub. Violations may result in the denial of a request to publish or a listing being removed from the marketplace.
 
 **3.7**	Developer will respect and comply with the technical and policy-implemented limitations of a GitHub API and the restrictions of this Agreement in designing and implementing Developer Products. Developer shall not violate any explicit rate limitations on calling or otherwise utilizing a GitHub API.
 
