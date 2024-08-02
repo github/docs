@@ -34,6 +34,8 @@ When creating a {% data variables.product.pat_generic %}, only select the minimu
 
 {% endif %}
 
+{% data reusables.user-settings.token_access_capabilities %}
+
 When creating a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} will need. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
 
 When authenticating with `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow, only give the minimum amount of permissions needed. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
