@@ -92,17 +92,15 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% endif %}
 
-## What are the supported secrets
-
 ## Customizing {% data variables.product.prodname_secret_scanning %}
 
-Once {% data variables.product.prodname_secret_scanning %} is enabled, you can customize it further, if needed:
+Once {% data variables.product.prodname_secret_scanning %} is enabled, you can customize it further:
 
 {% ifversion secret-scanning-non-provider-patterns %}
 
 ### Detection of non-provider patterns
 
-Non-provider pattern detection is not enabled by default because the feature can potentially generate a high ratio of false positives. However, you can choose to enable that detection for your repositories or organizations. For more information about non-provider pattern detection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
+Scan for and detect secrets that are not specific to a service provider, such as private keys and generic API keys. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
 
 {% endif %}
 
@@ -110,31 +108,23 @@ Non-provider pattern detection is not enabled by default because the feature can
 
 ### Generic secret detection
 
-You can enable generic secret detection to instruct {% data variables.product.prodname_secret_scanning %} to search your codebase for generic secrets such as passwords. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
+Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."
 
 {% endif %}
 
 ### Performing validity checks
 
-{% data reusables.secret-scanning.validity-checks-intro %}
-
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for supported partner patterns in their repository, organization, or enterprise level code security settings. Wewill automatically check validation for patterns on a cadence by sending the pattern to our relevant partner provider. You can use the validation status on leaked secrets to help prioritize secrets needing remediation action.
-
-{% endif %}
-
-For more information, see TODO: article about validity checks.
+Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "TODO: link to Enable validity checks" and{% endif %} "TODO: Checking a secret's validity in Evaluating alerts."
 
 {% ifversion ghec or ghes %}
 
 ### Defining custom patterns
 
-You can define custom patterns and ask {% data variables.product.prodname_secret_scanning %} to scan for these user-defined patterns. This is useful if you have unique types of secrets that don’t match default patterns. This tailored security feature allows for increased coverage as custom pattern detection captures additional types of sensitive data that default patterns might miss, and allows for detection of secrets unique to your applications, APIs, or internal tools. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
+Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 
-You can use AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)."
+You can also leverage AI to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/about-generating-regular-expressions-with-ai)."
 
 {% endif %}
 
