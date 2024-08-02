@@ -4000,6 +4000,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "user_email.confirm_claim",
+    "description": "An enterprise managed user claimed an email address.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.mark_as_unclaimed",
+    "description": "N/A",
+    "docs_reference_links": "An enterprise managed user unclaimed an email address."
+  },
+  {
     "action": "user_license.create",
     "description": "A seat license for a user in an enterprise was created.",
     "docs_reference_links": "N/A"
