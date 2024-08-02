@@ -127,6 +127,7 @@ prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth app'
 prodname_oauth_apps: 'OAuth apps'
+prodname_github_models: 'GitHub Models'
 
 # API and developer docs
 prodname_enterprise_api: 'GitHub Enterprise Server APIs'
