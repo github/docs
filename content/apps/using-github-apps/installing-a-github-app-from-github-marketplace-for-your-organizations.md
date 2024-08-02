@@ -48,7 +48,11 @@ Admins of repositories that are owned by an organization can also install {% dat
 
 The "app manager" role in an organization does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
 
-For enterprise managed user accounts, only enterprise owners can purchase and install a paid {% data variables.product.prodname_github_app %} for an organization within their enterprise. Enterprise members cannot purchase a paid {% data variables.product.prodname_github_app %}. Organization owners with an enterprise managed user account can still install a free {% data variables.product.prodname_github_app %}.
+{% ifversion ghec %}
+
+For enterprise managed user accounts, only enterprise owners can purchase and install a paid {% data variables.product.prodname_github_app %} for an organization in the enterprise. Enterprise members cannot purchase a paid {% data variables.product.prodname_github_app %}. Organization owners with an enterprise managed user account can still install a free {% data variables.product.prodname_github_app %}.
+
+{% endif %}
 
 ## Installing a {% data variables.product.prodname_github_app %} in your organization
 
