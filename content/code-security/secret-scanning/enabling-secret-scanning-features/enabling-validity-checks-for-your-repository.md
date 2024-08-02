@@ -1,7 +1,7 @@
 ---
 title: Enabling validity checks for your repository
 shortTitle: Enable validity checks
-intro: 'Validity checks tell you if a secret is active or inactive, which can help you to prioritize the remediation of alerts.'
+intro: 'Enabling validity checks on your repository helps you prioritize the remediation of alerts as it tells you if a secret is active or inactive.'
 product: '{% data reusables.gated-features.partner-pattern-validity-check-ghas %}'
 versions:
   feature: secret-scanning-validity-check-partner-patterns
