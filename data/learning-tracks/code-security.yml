@@ -113,7 +113,6 @@ secret_scanning:
     passwords, and other secrets to your repository.
   guides:
     - /code-security/secret-scanning/introduction/about-secret-scanning
-    - /code-security/secret-scanning/about-secret-scanning
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
     - >-
