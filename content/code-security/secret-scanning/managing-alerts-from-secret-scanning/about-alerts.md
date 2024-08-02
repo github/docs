@@ -1,7 +1,7 @@
 ---
 title: About secret scanning alerts
 intro: 'Learn about the different types of {% data variables.secret-scanning.alerts %}.'
-permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can manage secret scanning alerts for the repository.'
+permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can manage {% data variables.secret-scanning.alerts %} for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
