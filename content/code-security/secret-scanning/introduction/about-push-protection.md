@@ -25,15 +25,26 @@ Push protection is a {% data variables.product.prodname_secret_scanning %} featu
 
 Push protection helps you avoid the risks associated with exposed secrets, like unauthorized access to resources or services. With this feature, developers get immediate feedback and can address potential issues before they become a security concern.
 
-Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push. For some {% data variables.product.prodname_dotcom %} products, more advanced features such as {% ifversion push-protection-delegated-bypass %}delegated bypass and {% endif %}the use of custom patterns are available.
-
 {% ifversion secret-scanning-push-protection-for-users %}
 
 You can enable push protection:
 
 * At repository/organization level, if you are a repository administrator or an organization owner. You will see alerts in the **Security** tab of your repository when a contributor to the repository bypasses push protection.
 * For your account on {% data variables.product.prodname_dotcom %}, as a user. This type of push protection is referred to as "push protection for users". It protects you from pushing secrets to _any_ public repository on {% data variables.product.prodname_dotcom %}, but no alerts are generated.
+
 {% endif %}
+
+For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+
+## How push protection works
+
+Once enabled, if push protection detects a potential secret during a push attempt, it will block the push and provide a detailed message explaining the reason for the block. You will need to review the code in question, remove any sensitive information, and reattempt the push.
+
+By default, anyone with write access to the repository can choose to bypass push protection by specifying one of the bypass reasons outlined in the table. {% data reusables.secret-scanning.push-protection-bypass %}
+
+{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
+
+{% ifversion push-protection-delegated-bypass %} If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see "TODO: link to delegated bypass."{% endif %}
 
 ## About the benefits of push protection
 
@@ -57,27 +68,23 @@ Every user across {% data variables.product.prodname_dotcom %} can also enable p
 
 {% endif %}
 
-## What are the supported secrets
-
-For information about the secrets and service providers supported by push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
-
 ## Customizing push protection
 
-Once push protection is enabled, you can customize it further, if needed:
+Once push protection is enabled, you can customize it further:
 
 ### Integration with CI/CD pipelines
 
-You can integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
+Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}. For more information, see "TODO - add link to something here?"
 
 ### Handling false positives
 
-If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. This may also involve adding specific rules or exceptions within your security settings.
+If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. For more information, see "TODO - not sure what to link to here?"
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}
 
 ### Defining custom patterns
 
-If you have specific patterns or types of secrets that are unique to your environment or organization, you can define custom patterns that push protection will use to identify secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 {% endif %}
 
@@ -85,7 +92,7 @@ If you have specific patterns or types of secrets that are unique to your enviro
 
 ### Using delegated bypass
 
-{% data reusables.secret-scanning.push-protection-delegated-bypass-intro %} For information about delegated bypass for push protection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
+Define contributors who can bypass push protection and add an approval process for other contributors. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
 {% endif %}
 
