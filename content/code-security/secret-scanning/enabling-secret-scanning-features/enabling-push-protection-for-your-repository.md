@@ -20,7 +20,7 @@ To enable push protection for a repository, you must first enable {% data variab
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
-You can additionally enable push protection for your own personal account, which prevents you from pushing secrets to _any_ public repository on [GitHub]. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
+You can additionally enable push protection for your own personal account, which prevents you from pushing secrets to _any_ public repository on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
