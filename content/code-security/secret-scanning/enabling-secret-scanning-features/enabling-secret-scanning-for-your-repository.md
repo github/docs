@@ -1,7 +1,7 @@
 ---
 title: Enabling secret scanning for your repository
 shortTitle: Enable secret scanning
-intro: '{% data variables.product.prodname_secret_scanning_caps %} scans your repositories for leaked secrets and generates alerts.'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for leaked secrets and generates alerts.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -41,3 +41,8 @@ A repository administrator can choose to disable {% data variables.product.prodn
 1. Scroll down to the bottom of the page, and click **Enable** for {% data variables.product.prodname_secret_scanning %}. If you see a **Disable** button, it means that {% data variables.product.prodname_secret_scanning %} is already enabled for the repository.
 
    ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the "Code security and analysis" page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}
+
+## Next steps
+
+* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)"{% ifversion secret-scanning-validity-check-partner-patterns %}
+* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)"{% endif %}
