@@ -102,15 +102,7 @@ Once {% data variables.product.prodname_secret_scanning %} is enabled, you can c
 
 ### Detection of non-provider patterns
 
-Non-provider patterns refer to patterns used to identify secrets that are not specific to any particular service provider. These patterns are general and can apply to a wide range of sensitive data types. Here are a few examples of non-provider patterns:
-
-* Generic API Keys: Identifiable by common structural attributes like specific lengths or character sets (for example, a string of 32 alphanumeric characters).
-* Tokens: Generic patterns used to detect various types of tokens that might be common across different services.
-* Private Keys: Patterns identifying sections of code that look like private keys, such as those used in SSH or GPG.
-
-Non-provider pattern detection is not enabled by default because the feature can potentially generate a high ratio of false positives.
-
-For more information about non-provider pattern detection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
+Non-provider pattern detection is not enabled by default because the feature can potentially generate a high ratio of false positives. However, you can choose to enable that detection for your repositories or organizations. For more information about non-provider pattern detection, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
 
 {% endif %}
 
@@ -118,11 +110,7 @@ For more information about non-provider pattern detection, see "[AUTOTITLE](/cod
 
 ### Generic secret detection
 
-You can also enable generic secret detection to instruct {% data variables.product.prodname_secret_scanning %} to search your codebase for generic secrets. Generic secrets are unstructured secrets, such as passwords.
-
-{% data variables.product.prodname_secret_scanning_caps %} uses AI to detect unstructured passwords in git content and generate an alert. Alerts for passwords appear in a separated tab from regular {% data variables.product.prodname_secret_scanning %} alerts.
-
-For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
+You can enable generic secret detection to instruct {% data variables.product.prodname_secret_scanning %} to search your codebase for generic secrets such as passwords. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/enabling-ai-powered-generic-secret-detection)."
 
 {% endif %}
 
@@ -151,13 +139,6 @@ You can use AI to generate regular expressions that will capture all your custom
 {% endif %}
 
 {% endif %}
-
-OLD
-
-About {% data variables.secret-scanning.user_alerts %}{% ifversion ghes %} on {% data variables.product.product_name %}{% endif %}
-
-{% ifversion secret-scanning-store-tokens %}
-{% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes %} To rotate the encryption keys used for storing the detected secrets, you can contact us by visiting {% data variables.contact.contact_ent_support %}.{% endif %}
 
 ## Further reading
 
