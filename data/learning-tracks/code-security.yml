@@ -116,6 +116,7 @@ secret_scanning:
     - /code-security/secret-scanning/about-secret-scanning
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
     - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
+    - >-
       {% ifversion secret-scanning-validity-check-partner-patterns %}
       /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository{% endif %}
     - >-
