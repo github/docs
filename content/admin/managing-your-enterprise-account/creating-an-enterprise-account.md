@@ -30,7 +30,6 @@ In most cases, you can create an enterprise account **yourself**.
 
 You'll **need help** creating an enterprise account for:
 
-* {% data variables.product.prodname_emus %}
 * {% data variables.product.prodname_ghe_server %}
 * Invoicing
 

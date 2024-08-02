@@ -8,10 +8,17 @@ redirect_from:
   - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
   - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription
 versions:
-  fpt: "*"
-  ghec: "*"
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.12'
 shortTitle: Connect an Azure subscription
 ---
+
+{% ifversion metered-ghe-ghas %}
+
+{% data reusables.billing.usage-based-billing %}
+
+{% endif %}
 
 ## About connection of an Azure subscription
 
@@ -25,6 +32,8 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
 ## About usage-based billing on {% data variables.product.prodname_dotcom_the_website %}
 
 {% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
@@ -35,6 +44,8 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"                                                                         |   "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits)" |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)"                                                                       | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits)" |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)" |                                                                                                                  N/A |
+
+{% endif %}
 
 ## About billing through Azure
 

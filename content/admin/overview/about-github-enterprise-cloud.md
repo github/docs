@@ -27,14 +27,7 @@ A key difference between {% data variables.product.product_name %} and other {% 
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information about {% data variables.product.prodname_ghe_server %} and how it differs from {% data variables.product.prodname_ghe_cloud %}, see "[AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options)."
 
-## About enterprise types
-
-**Before** starting with {% data variables.product.prodname_ghe_cloud %}, you must choose an enterprise type.
-
-* Enterprise with personal accounts
-* Enterprise with managed users
-
-To help you decide which choice is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)."
+{% data reusables.enterprise.enterprise-types %}
 
 ## About documentation
 
