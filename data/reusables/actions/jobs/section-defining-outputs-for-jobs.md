@@ -37,7 +37,7 @@ jobs:
 
 {% note %}
 
-**Note:** When using strategy matrix, job outputs will be combined from all jobs inside matrix. The last executed job outputs will override matching outputs from previous jobs within same matrix.
+Matrices can be used to generate multiple outputs of different names. When using a matrix, job outputs will be combined from all jobs inside the matrix.
 
 {% endnote %}
 
