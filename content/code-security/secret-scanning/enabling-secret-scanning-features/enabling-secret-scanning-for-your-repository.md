@@ -16,7 +16,15 @@ topics:
 
 ## About enabling {% data variables.secret-scanning.user_alerts %}
 
-You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion secret-scanning-user-owned-repos %}{% ifversion ghes %}repository{% else %} repository that is owned by an organization, and for repositories owned by user accounts when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% elsif fpt %}free public repository that you own{% else %}repository that is owned by an organization{% endif %}.
+{% ifversion fpt %}
+
+{% data variables.secret-scanning.user_alerts_caps %} can be enabled on any free public repository that you own.
+
+{% endif %}{% ifversion ghec or ghes %}
+
+{% data variables.secret-scanning.user_alerts_caps %} can be enabled for any repository that is owned by an organization{% ifversion secret-scanning-user-owned-repos %}, and for repositories owned by user accounts when using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}.
+
+{% endif %}
 
 If you're an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for multiple repositories at the same time{% ifversion security-configurations-ga %} using a security configuration{% endif %}. For more information, see {% ifversion security-configurations-ga %}"[AUTOTITLE](/code-security/securing-your-organization){% else %}"[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization#enabling-security-features-in-your-organization)"{% endif %}."
 
