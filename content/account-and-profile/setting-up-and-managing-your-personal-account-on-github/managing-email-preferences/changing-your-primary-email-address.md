@@ -1,6 +1,6 @@
 ---
 title: Changing your primary email address
-intro: You can change the email address associated with your personal account at any time.
+intro: To change your primary email address, you'll add a new email, then delete the old one.
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address
@@ -15,11 +15,14 @@ topics:
   - Notifications
 shortTitle: Primary email address
 ---
-{% note %}
 
-**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
+You can change the email address associated with your personal account at any time. You cannot change your primary email address to an email that is already set to be your backup email address.
 
-{% endnote %}
+{% ifversion ghec %}
+
+>[!NOTE] This article **does not apply** to {% data variables.enterprise.prodname_managed_users %}. To change your email address as a {% data variables.enterprise.prodname_managed_user %}, contact the administrator for your company's identity provider (IdP). Your primary email address is the first one assigned to you in the IdP.
+
+{% endif %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
