@@ -140,7 +140,7 @@ Push protection and validity checks are not supported for non-provider patterns.
 <!-- GHEC version of table -->
 {% ifversion ghec %}
 
-| Provider | Token | Partner | User | Push protection | Validity check |
+| Provider | Token | Partner Notification | User Notification | Push protection | Validity check |
 |----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
