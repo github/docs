@@ -1,6 +1,6 @@
 ---
 title: Resolving alerts from secret scanning
-intro: 'After reviewing the details of alert, you should fix and then close the alert.'
+intro: 'After reviewing the details of a secret scanning alert, you should fix and then close the alert.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can dismiss secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
