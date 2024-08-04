@@ -1,6 +1,6 @@
 ---
 title: Resolving alerts from secret scanning
-intro: 'After reviewing the details of alert, you should fix and then close the alert.'
+intro: 'After reviewing the details of a secret scanning alert, you should fix and then close the alert.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can dismiss secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -49,3 +49,7 @@ Once a secret has been committed to a repository, you should consider the secret
 
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
+
+## Next steps
+
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)"

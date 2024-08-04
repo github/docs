@@ -1,7 +1,7 @@
 ---
 title: Evaluating alerts from secret scanning
-intro: 'There are some additional features that can help you evaluate alerts and prioritize their remediation, such as checking the secret''s validity.'
-permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view secret scanning alerts for the repository.'
+intro: 'Learn about additional features that can help you evaluate alerts and prioritize their remediation, such as checking a secret''s validity.'
+permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view {% data variables.secret-scanning.alerts %} for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -27,19 +27,13 @@ There are some additional features that can help you to evaluate alerts in order
 
 ## Checking a secret's validity
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
-
-{% endif %}
-
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. An `active` secret is one that could still be exploited, so these alerts should be reviewed and remediated as a priority.
 
-By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validitation status of the token in the alert view.
+By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validation status of the token in the alert view.
 
 {% ifversion fpt %}
 
-Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see "[Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see "[Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 {% endif %}
 
@@ -100,3 +94,7 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 {% ifversion secret-scanning-user-owned-repos %}{% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %} If access is granted, {% data variables.product.prodname_dotcom %} will notify the owner of the repository containing the leaked secret, report the action in the repository owner and enterprise audit logs, and enable access for 2 hours.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}{% endif %}
 
 {% endif %}
+
+## Next steps
+
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts)"
