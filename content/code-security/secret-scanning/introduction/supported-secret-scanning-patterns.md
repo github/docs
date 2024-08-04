@@ -17,6 +17,8 @@ layout: inline
 shortTitle: Supported patterns
 ---
 
+TODO
+
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
