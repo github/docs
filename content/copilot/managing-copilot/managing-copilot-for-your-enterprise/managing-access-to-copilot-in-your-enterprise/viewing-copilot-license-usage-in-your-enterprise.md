@@ -1,17 +1,18 @@
 ---
-title: Viewing Copilot usage for your enterprise
+title: Viewing Copilot license usage in your enterprise
+shortTitle: View license usage
 intro: 'View how many users have access to {% data variables.product.prodname_copilot %} across {% ifversion fpt %}your organization{% else %} all the organizations in your enterprise{% endif %}.'
-product: '{% data reusables.gated-features.copilot-billing %}'
-permissions: '{% ifversion fpt %}Organization admins{% else %}Enterprise owners{% endif %} can view usage for {% data variables.product.prodname_copilot %} in their {% ifversion fpt %}organization{% else %}enterprise{% endif %}.'
+product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+permissions: Enterprise owners
 versions:
   feature: copilot-enterprise
 type: how_to
 topics:
   - Copilot
-shortTitle: View usage
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-your-github-copilot-usage
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/viewing-copilot-usage-for-your-enterprise
 ---
 
 {% ifversion enhanced-billing-platform %}
@@ -26,9 +27,7 @@ If you have a subscription to {% data variables.product.prodname_copilot_for_bus
 
 {% ifversion ghec %}
 
-## Viewing usage of {% data variables.product.prodname_copilot %}
-
-### At the enterprise-level
+## Viewing {% data variables.product.prodname_copilot_short %} license usage at the enterprise-level
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -45,7 +44,7 @@ If you have a subscription to {% data variables.product.prodname_copilot_for_bus
 
    ![Screenshot of the header of the billing settings page on GitHub. A button, labeled "Get usage report", is highlighted with an orange outline.](/assets/images/help/billing/actions-packages-report-download-enterprise.png)
 
-### At the organization-level
+## Viewing {% data variables.product.prodname_copilot_short %} license usage at the organization-level
 
 {% else %}
 

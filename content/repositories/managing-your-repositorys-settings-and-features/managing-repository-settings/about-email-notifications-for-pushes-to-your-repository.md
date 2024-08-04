@@ -31,6 +31,12 @@ Each email notification for a push to a repository lists the new commits and lin
 
 You can filter email notifications you receive for pushes to a repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications)."
 
+{% ifversion ghec %}
+
+>[!NOTE] Notifications for pushes to your repository will bypass restrictions for email notifications to verified domains configured in your enterprise account or organisation.
+
+{% endif %}
+
 ## Enabling email notifications for pushes to your repository
 
 {% data reusables.repositories.navigate-to-repo %}

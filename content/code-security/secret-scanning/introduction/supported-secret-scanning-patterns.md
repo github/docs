@@ -1,5 +1,5 @@
 ---
-title: Secret scanning patterns
+title: Supported secret scanning patterns
 intro: 'Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
@@ -12,7 +12,9 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
+  - /code-security/secret-scanning/secret-scanning-patterns
 layout: inline
+shortTitle: Supported patterns
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
@@ -58,7 +60,7 @@ Partner alerts are alerts that are sent to the secret providers whenever a secre
 
 {% endif %}
 
-You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."{% endif %}
+You can see these alerts on the **Security** tab of the repository. {% ifversion fpt or ghec %}For more information about {% data variables.secret-scanning.user_alerts %}, see TODO: About secret scanning alerts for users{% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
