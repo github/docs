@@ -25,7 +25,7 @@ There are {% ifversion fpt or ghec %}three{% else %}two{% endif %} types of {% d
 * **Push protection alerts**: Reported to users in the **Security** tab of the repository, when a contributor bypasses push protection. {% ifversion fpt or ghec %}
 * **Partner alerts**: Reported directly to secret providers that are part of {% data variables.product.prodname_secret_scanning %}'s partner program. These alerts are not reported in the **Security** tab of the repository.{% endif %}
 
-## About {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts
+## About {% ifversion fpt or ghec %}user alerts {% else %}{% data variables.secret-scanning.alerts %}{% endif %}
 
 When {% data variables.product.company_short %} detects a supported secret in a repository that has {% data variables.product.prodname_secret_scanning %} enabled, a {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alert is generated and displayed in the **Security** tab of the repository.
 
