@@ -62,3 +62,10 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 ## Next steps
 
 * "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)"
+
+## Further reading
+
+* TODO - link to supported patterns
+* TODO - link to define custom patterns
+* TODO - link to non-provider patterns
+* TODO - link to generic secret detection
