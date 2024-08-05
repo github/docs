@@ -25,19 +25,9 @@ For in-depth information about each alert type, see "[AUTOTITLE](/code-security/
 
 For details about all the supported patterns, see the "[Supported secrets](#supported-secrets)" section below.
 
-If you believe that {% data variables.product.prodname_secret_scanning %} should have detected a secret committed to your repository, and it has not, you first need to check that {% data variables.product.prodname_dotcom %} supports your secret. For more information, refer to the sections below. For more advanced troubleshooting information, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning)."
-
-From here but not in about alerts
-
 If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/rest/secret-scanning)."
 
-{% ifversion ghes or ghec %}
-{% note %}
-
-**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
-
-{% endnote %}
-{% endif %}
+If you believe that {% data variables.product.prodname_secret_scanning %} should have detected a secret committed to your repository, and it has not, you first need to check that {% data variables.product.prodname_dotcom %} supports your secret. For more information, refer to the sections below. For more advanced troubleshooting information, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning)."
 
 ## Supported secrets
 
@@ -78,7 +68,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 |  Generic | postgres_connection_string |
 |  Generic | rsa_private_key |
 
-Push protection and validity checks are not supported for non-provider patterns.
+>[!NOTE] Push protection and validity checks are not supported for non-provider patterns.
 
 ### High confidence patterns
 
