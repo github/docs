@@ -17,11 +17,7 @@ layout: inline
 shortTitle: Supported patterns
 ---
 
-TODO
-
-{% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
-
-{% ifversion fpt or ghec %}
+TODO:
 
 ## About {% data variables.product.prodname_secret_scanning %} patterns
 
@@ -44,8 +40,6 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)."
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
-
-{% endif %}
 
 ## About {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alerts
 
@@ -89,6 +83,7 @@ Push protection alerts are user alerts that are reported by push protection. {% 
 ## Supported secrets
 
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token, as well as whether a validity check is performed on the token.
+
 * **Provider**—name of the token provider.{% ifversion fpt or ghec %}
 * **Partner**—token for which leaks are reported to the relevant token partner. Applies to public repositories only.
 * **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
