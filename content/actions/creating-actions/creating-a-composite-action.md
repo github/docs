@@ -154,7 +154,7 @@ Before you begin, you'll create a repository on {% data variables.location.produ
 
 The following workflow code uses the completed hello world action that you made in "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `<username>/hello-world-composite-action@v1` with your <username> and the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 ```yaml copy
 on: [push]
@@ -166,7 +166,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - id: foo
-        uses: actions/hello-world-composite-action@v1
+        uses: <username>/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
