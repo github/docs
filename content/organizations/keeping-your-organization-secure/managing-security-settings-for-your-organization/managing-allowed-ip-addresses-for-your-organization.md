@@ -30,6 +30,8 @@ By default, authorized users can access your organization's resources from any I
 {% endnote %}
 {% endif %}
 
+{% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
+
 ## About IP allow list management
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}

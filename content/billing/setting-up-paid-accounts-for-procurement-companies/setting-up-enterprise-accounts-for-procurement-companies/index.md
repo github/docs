@@ -9,5 +9,5 @@ children:
   - /about-enterprise-accounts-for-procurement-companies
   - /creating-and-paying-for-an-enterprise-account-on-behalf-of-a-client
   - /renewing-your-clients-enterprise-account
+  - /creating-an-enterprise-account-as-a-microsoft-csp-partner
 ---
-

@@ -25,11 +25,11 @@ By default, authorized users can access your enterprise's resources from any IP 
 
 {% ifversion ghec %}
 
-{% data reusables.identity-and-permissions.ip-allow-list-copilot-exception %}
-
 If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
 {% endif %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
 
 {% ifversion ghec %}
 
