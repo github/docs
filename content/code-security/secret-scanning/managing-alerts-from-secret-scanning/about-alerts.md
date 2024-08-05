@@ -53,11 +53,15 @@ Push protection scans pushes for supported secrets. If push protection detects a
 >
 > {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
 
+{% ifversion fpt or ghec %}
+
 ## About partner alerts
 
 When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)" and "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
 
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
+
+{% endif %}
 
 ## Next steps
 
