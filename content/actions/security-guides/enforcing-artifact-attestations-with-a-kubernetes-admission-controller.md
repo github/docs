@@ -70,15 +70,15 @@ You've now installed the GitHub trust root, and an artifact attestation policy i
 > [!WARNING]
 > This policy will not be enforced until you specify which namespaces it should apply to.
 
-Each namespace in your cluster can independently enforce policies. To enable enforcement in a namespace, you can add the following annotation to the namespace:
+Each namespace in your cluster can independently enforce policies. To enable enforcement in a namespace, you can add the following label to the namespace:
 
 ```yaml
 metadata:
-  annotations:
-    policy.sigstore.dev/include: true
+  labels:
+    policy.sigstore.dev/include: "true"
 ```
 
-After the annotation is added, the GitHub artifact attestation policy will be enforced in the namespace.
+After the label is added, the GitHub artifact attestation policy will be enforced in the namespace.
 
 Alternatively, you may run:
 
