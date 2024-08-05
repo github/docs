@@ -1,6 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in GitHub Mobile
-intro: 'You can use {% data variables.product.prodname_copilot_mobile %} to answer general questions about software development{% ifversion ghec %}, or specific questions about the code in a repository{% endif %}.'
+intro: 'You can use {% data variables.product.prodname_copilot_mobile %} to answer general questions about software development, or specific questions about the code in a repository{% ifversion ghec %}. With {% data variables.product.prodname_copilot_enterprise_short %} you can also ask specific questions about a pull request, issue, or discussion{% endif %}.'
 topics:
   - Copilot
   - Mobile
@@ -19,12 +19,18 @@ redirect_from:
 
 {% data variables.product.prodname_copilot_mobile_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile)."
 
-{% ifversion ghec %}
 In {% data variables.product.prodname_mobile %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
 
 * General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
 * Questions asked in the context of your project. For more information, see "[Asking questions about a specific repository](#asking-exploratory-questions-about-a-repository)."
-* Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."{% endif %}
+* Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."{% ifversion ghec %}
+
+With {% data variables.product.prodname_copilot_enterprise_short %}, you can also ask:
+
+* Questions about a specific pull request. For more information, see "[Asking questions about a specific pull request](#asking-questions-about-a-specific-pull-request)."
+* Questions about a specific issue. For more information, see "[Asking questions about a specific issue](#asking-questions-about-a-specific-issue)."
+* Questions about a specific discussion. For more information, see "[Asking questions about a specific discussion](#asking-questions-about-a-specific-discussion)."
+{% endif %}
 
 ## Limitations
 
@@ -70,8 +76,6 @@ You can ask a general question about software development{% ifversion ghec %} th
 
 {% data reusables.copilot.chat-mobile-conversation-buttons %}
 
-{% ifversion ghec %}
-
 ## Asking exploratory questions about a repository
 
 You can ask questions about a specific repository, to get help with understanding the code, or to get help with a specific task you're working on.
@@ -116,6 +120,62 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    * How could I improve this class?
    * Add error handling to this code.
    * Write a unit test for this method.
+
+   {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
+
+1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
+
+{% ifversion ghec %}
+
+## Asking questions about a specific pull request
+
+You can ask questions about a specific pull request in a repository.
+
+1. In {% data variables.product.prodname_mobile %}, navigate to a pull request in a repository, and tap the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
+
+   For example, you could ask:
+
+   * What is the purpose of this pull request?
+   * What changes are being made in this pull request?
+   * Are there any potential issues with this pull request?
+   * What is the status of this pull request?
+
+   {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
+
+1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
+
+## Asking questions about a specific issue
+
+You can ask questions about a specific issue in a repository.
+
+1. In {% data variables.product.prodname_mobile %}, navigate to an issue in a repository, and tap the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
+
+   For example, you could ask:
+
+   * What is the purpose of this issue?
+   * What is the status of this issue?
+   * What are the steps to reproduce this issue?
+   * Are there any potential solutions to this issue?
+
+   {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
+
+1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
+
+## Asking questions about a specific discussion
+
+You can ask questions about a specific discussion in a repository.
+
+1. In {% data variables.product.prodname_mobile %}, navigate to a discussion in a repository, and tap the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
+
+   For example, you could ask:
+
+   * What is the purpose of this discussion?
+   * What are the main points of this discussion?
+   * What are the next steps for this discussion?
+   * Are there any potential issues with this discussion?
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
