@@ -62,7 +62,7 @@ When you create a new tasklist, the default title is "Tasks." You can modify the
 1. In the top-right of the issue body, select {% octicon "kebab-horizontal" aria-label="Show options" %} and click **Edit**.
 
    ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/issues/comment-menu.png)
-1. In the fenced code block that starts with ````[tasklist]`, add a header with your new title, such as `### My new title`.
+1. In the fenced code block that starts with `` ```[tasklist] ``, add a header with your new title, such as `### My new title`.
 
    ![Screenshot of an issue comment in edit mode. Under the line that says "```tasklist", a line that says "### My new title" is outlined in dark orange.](/assets/images/help/issues/edit-tasklist-title.png)
 
