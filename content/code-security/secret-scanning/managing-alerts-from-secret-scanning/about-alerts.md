@@ -55,7 +55,7 @@ Push protection scans pushes for supported secrets. If push protection detects a
 
 ## About partner alerts
 
-When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see "TODO."
+When {% data variables.product.company_short %} detects a leaked secret in a public repository or npm package, an alert is sent directly to the secret provider, if they are part of {% data variables.product.company_short %}'s secret scanning partner program. For more information about {% data variables.secret-scanning.partner_alerts %}, see TODO:.
 
 Partner alerts are not sent to repository administrators, so you do not need to take any action for this type of alert.
 
@@ -65,7 +65,7 @@ Partner alerts are not sent to repository administrators, so you do not need to 
 
 ## Further reading
 
-* TODO - link to supported patterns
-* TODO - link to define custom patterns
-* TODO - link to non-provider patterns
-* TODO - link to generic secret detection
+* "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns){% ifversion ghec or ghes %}
+* "[AUTOTITLE](/code-security/secret-scanning/ using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion secret-scanning-non-provider-patterns %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)"{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)"{% endif %}
