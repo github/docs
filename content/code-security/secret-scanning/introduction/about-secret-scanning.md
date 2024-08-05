@@ -114,7 +114,7 @@ Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities
 
 ### Performing validity checks
 
-Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "TODO: link to Enable validity checks" and{% endif %} "TODO: Checking a secret's validity in Evaluating alerts."
+Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)" and{% endif %} "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
 
 {% ifversion ghec or ghes %}
 
