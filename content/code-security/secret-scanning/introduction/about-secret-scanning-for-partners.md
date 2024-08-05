@@ -30,4 +30,4 @@ For information about the secrets and service providers supported by push protec
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"
 * "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)"
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)"
-* TODO: add link to "About alerts" article
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)"

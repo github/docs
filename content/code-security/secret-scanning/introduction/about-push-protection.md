@@ -44,7 +44,7 @@ By default, anyone with write access to the repository can choose to bypass push
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-{% ifversion push-protection-delegated-bypass %} If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see "TODO: link to delegated bypass."{% endif %}
+{% ifversion push-protection-delegated-bypass %} If you want greater control over which contributors can bypass push protection and which pushes containing secrets should be allowed, you can enable delegated bypass for push protection. Delegated bypass lets you configure a designated group of reviewers to oversee and manage requests to bypass push protection from contributors pushing to the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."{% endif %}
 
 ## About the benefits of push protection
 
@@ -74,11 +74,11 @@ Once push protection is enabled, you can customize it further:
 
 ### Integration with CI/CD pipelines
 
-Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}. For more information, see "TODO - add link to something here?"
+Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}. For more information, see "TODO: - add link to something here?"
 
 ### Handling false positives
 
-If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. For more information, see "TODO - not sure what to link to here?"
+If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. For more information, see "TODO: - not sure what to link to here?"
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}
 
@@ -98,7 +98,7 @@ Define contributors who can bypass push protection and add an approval process f
 
 ## Further reading
 
-* TODO: add link to enabling push protection article
+* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)"
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"{% ifversion secret-scanning-push-protection-custom-patterns %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion push-protection-delegated-bypass %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)"{% endif %}

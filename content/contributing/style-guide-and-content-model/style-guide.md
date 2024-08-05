@@ -54,7 +54,7 @@ Notes are particularly useful for communicating parenthetical information that i
 * Caveats that might affect the outcome of a process, such as specific user settings.
 * Products and features that are subject to changes in availability, such as those in beta or being deprecated.
 
-For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
+For example, "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#reviewing-github-token-metadata)" uses a note to inform users that metadata for {% data variables.product.prodname_dotcom %} tokens is currently in beta.
 
 > [!NOTE]
 > Metadata for {% data variables.product.prodname_dotcom %} tokens is currently in public beta and subject to change.

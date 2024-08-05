@@ -23,7 +23,7 @@ You can also filter by validation status on the alerts page, to help you priorit
 > [!NOTE]
 > {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
 
-For more information on using validity checks, see "TODO."
+For more information on using validity checks, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
 
 ## Enabling validity checks
 
@@ -38,4 +38,4 @@ Alternatively, organization owners and enterprise administrators can enable the 
 
 ## Further reading
 
-* TODO - add link to Managing alerts
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)"

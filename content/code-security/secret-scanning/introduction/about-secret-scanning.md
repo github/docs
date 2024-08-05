@@ -28,11 +28,11 @@ shortTitle: Secret scanning
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
-When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.product_name %}, where you can view, evaluate, and resolve them. For more information, see TODO: link to Managing alerts.
+When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.product_name %}, where you can view, evaluate, and resolve them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
 
-Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom_the_website %}. For more information, see TODO: link to about secret scanning for partner alerts.{% endif %}
+Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on  {% data variables.product.prodname_dotcom_the_website %}. For more information, see "Not sure which article to link to  TODO:"{% endif %}
 
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
@@ -50,7 +50,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Detection**: {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* **Alerts**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see TODO: - link to "About alerts" article.
+* **Alerts**: When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
 
 * **Review**: When a secret is detected, you'll need to review the alert details provided.
 
@@ -114,7 +114,7 @@ Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities
 
 ### Performing validity checks
 
-Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "TODO: link to Enable validity checks" and{% endif %} "TODO: Checking a secret's validity in Evaluating alerts."
+Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)" and{% endif %} "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
 
 {% ifversion ghec or ghes %}
 
@@ -132,9 +132,9 @@ You can also leverage AI to generate regular expressions that will capture all y
 
 ## Further reading
 
-* TODO: link to enabling secret scanning article
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)
+* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)"
+* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)"
 * "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
 * "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
 * "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
