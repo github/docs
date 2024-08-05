@@ -3,6 +3,8 @@ title: Viewing and filtering alerts from secret scanning
 intro: 'Learn how to find and filter {% ifversion fpt or ghec %}{% data variables.secret-scanning.user_alerts %}{% else %}{% data variables.secret-scanning.user_alerts %} alerts{% endif %} for your repository.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view {% data variables.secret-scanning.user_alerts %}{% ifversion ghes %} alerts{% endif %} for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
+redirect_from:
+  - /code-security/secret-scanning/managing-alerts-from-secret-scanning
 versions:
   fpt: '*'
   ghes: '*'
