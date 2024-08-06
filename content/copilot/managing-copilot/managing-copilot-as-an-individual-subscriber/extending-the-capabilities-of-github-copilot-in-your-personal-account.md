@@ -1,19 +1,22 @@
 ---
-title: Installing GitHub Copilot Extensions for your personal account
-intro: 'You can install {% data variables.product.prodname_copilot_extensions %} for your personal account from {% data variables.product.prodname_marketplace %}.'
+title: Extending the capabilities of GitHub Copilot in your personal account
+shortTitle: Install personal extensions
+intro: 'You can add additional functionality to {% data variables.product.prodname_copilot_short %} in your personal account, by installing certain {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}.'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Install personal extensions
 type: how_to
 redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account
 ---
 
 {% data reusables.copilot.copilot-extensions.beta-note %}
 
-## About installing {% data variables.product.prodname_copilot_extensions %} for your personal account
+## About {% data variables.product.prodname_copilot_extensions %} for your personal account
+
+{% data reusables.copilot.copilot-extensions.copilot-extensions-on-marketplace %}
 
 Anyone can install {% data variables.product.prodname_copilot_extensions_short %} for their personal account, but you must meet the following criteria to use a {% data variables.product.prodname_copilot_extension_short %} you install:
 
@@ -24,9 +27,10 @@ Anyone can install {% data variables.product.prodname_copilot_extensions_short %
 
 ## Installing {% data variables.product.prodname_copilot_extensions %} for your personal account
 
-{% data reusables.copilot.copilot-extensions.copilot-extensions-on-marketplace %}
-
-To install a {% data variables.product.prodname_copilot_extension_short %} on your personal account, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account#installing-a-github-app-in-your-personal-account)."
+1. Open [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true).
+1. In the left sidebar, click {% octicon "copilot" aria-hidden="true" %} **{% data variables.product.prodname_copilot_short %}**.
+1. In the list of {% data variables.product.prodname_copilot_extensions_short %}, locate an app you'd like to install.
+1. To install the {% data variables.product.prodname_copilot_extension_short %} on your personal account, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account#installing-a-github-app-in-your-personal-account)."
 
 ## Next steps
 
