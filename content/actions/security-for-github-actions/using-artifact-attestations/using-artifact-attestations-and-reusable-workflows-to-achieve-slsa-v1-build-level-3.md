@@ -1,9 +1,7 @@
 ---
-title: >-
-  Using artifact attestations and reusable workflows to achieve SLSA v1 Build Level 3
+title: Using artifact attestations and reusable workflows to achieve SLSA v1 Build Level 3
 shortTitle: Attest with reusable workflows
-intro: >-
-  Building software with reusable workflows and artifact attestations can streamline your supply chain security and help you achieve SLSA v1.0 Build Level 3.
+intro: Building software with reusable workflows and artifact attestations can streamline your supply chain security and help you achieve SLSA v1.0 Build Level 3.
 type: quick_start
 topics:
   - Actions
@@ -12,6 +10,8 @@ topics:
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /actions/security-guides/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
 ---
 
 ## Introduction

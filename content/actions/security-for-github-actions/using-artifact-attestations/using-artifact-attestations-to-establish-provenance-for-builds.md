@@ -1,10 +1,12 @@
 ---
 title: Using artifact attestations to establish provenance for builds
-intro: 'Artifact attestations enable you to increase the supply chain security of your builds by establishing where and how your software was built.'
+intro: Artifact attestations enable you to increase the supply chain security of your builds by establishing where and how your software was built.
 versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Artifact attestations
+redirect_from:
+  - /actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds
 ---
 
 ## About artifact attestations
