@@ -38,6 +38,8 @@ To resolve a blocked push, you must remove the secret from all of the commits it
 * If the secret was introduced by your latest commit, see "[Removing a secret introduced by the latest commit on your branch](#removing-a-secret-introduced-by-the-latest-commit-on-your-branch)."
 * If the secret appears in earlier commits, see "[Removing a secret introduced by an earlier commit on your branch](#removing-a-secret-introduced-by-an-earlier-commit-on-your-branch)."
 
+>[!NOTE] To learn how to resolved a blocked commit in the {% data variables.product.prodname_dotcom %} UI, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit)."
+
 ### Removing a secret introduced by the latest commit on your branch
 
 If the blocked secret was introduced by the latest commit on your branch, you can follow the guidance below.

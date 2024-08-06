@@ -42,6 +42,8 @@ Organization owners can provide a custom link that will be displayed when a push
 
 To resolve a blocked commit in the web UI, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.
 
+>[!NOTE] To learn how to resolved a blocked push on the command line, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push)."
+
 ## Bypassing push protection
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to commit, you {% ifversion push-protection-delegated-bypass %}may be able to {% else %}can {% endif %}bypass the block by specifying a reason for allowing the secret.
