@@ -55,7 +55,6 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
    * If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, enter the following command and interactive inputs:
 
      ```shell copy
-     ```suggestion
      $ git credential-osxkeychain erase
      host={% data variables.product.product_url %}
      protocol=https
