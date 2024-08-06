@@ -37,11 +37,7 @@ jobs:
 
 ### Using Job Outputs in a Matrix Job
 
-{% note %}
-
 Matrices can be used to generate multiple outputs of different names. When using a matrix, job outputs will be combined from all jobs inside the matrix.
-
-{% endnote %}
 
 {% raw %}
 
