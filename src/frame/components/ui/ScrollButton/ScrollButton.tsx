@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
 import styles from './ScrollButton.module.scss'
@@ -12,6 +12,7 @@ export type ScrollButtonPropsT = {
 
 export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [show, setShow] = useState(false)
+  const [isTallEnough, setIsTallEnough] = useState(false)
 
   useEffect(() => {
     // We cannot determine document.documentElement.scrollTop height because we set the height: 100vh and set overflow to auto to keep the header sticky
@@ -33,13 +34,27 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     }
   }, [])
 
+  // If the window isn't tall enough, the scroll button will hide some of the content
+  // A11y issue 8822
+  useLayoutEffect(() => {
+    function updateDocumentSize() {
+      setIsTallEnough(document.documentElement.clientHeight > 400)
+    }
+    updateDocumentSize()
+    window.addEventListener('resize', updateDocumentSize)
+    return () => window.removeEventListener('resize', updateDocumentSize)
+  }, [])
+
   const onClick = () => {
     document?.getElementById('github-logo')?.focus()
     document?.getElementById('main-content')?.scrollIntoView()
   }
 
   return (
-    <div role="tooltip" className={cx(className, transition200, show ? opacity100 : opacity0)}>
+    <div
+      role="tooltip"
+      className={cx(className, transition200, show && isTallEnough ? opacity100 : opacity0)}
+    >
       <button
         onClick={onClick}
         className={cx(
