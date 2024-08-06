@@ -235,6 +235,7 @@ product_landing:
   view: View all
   view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
+  all_content: 'View all {{ title }} content'
 product_guides:
   learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path

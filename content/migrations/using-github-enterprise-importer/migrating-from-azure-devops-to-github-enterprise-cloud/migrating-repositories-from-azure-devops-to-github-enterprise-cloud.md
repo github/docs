@@ -132,7 +132,7 @@ mutation startRepositoryMigration (
 ```
 
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
-| `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/_git/{repository}`.
+| `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/{project}/_git/{repository}`.
 
 For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 

@@ -24,3 +24,5 @@ Your integration can use {% data variables.product.company_short %}'s API to fet
 Your integration can use webhooks to learn when specific events happen on {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/about-webhooks)."
 
 {% ifversion fpt or ghec %} If your integration is a {% data variables.product.prodname_github_app %} or custom action, you can publish your integration on {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps)" and "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."{% endif %}
+
+If your integration uses generative AI, you can find and experiment with AI models for free on {% data variables.product.company_short %}. See "[AUTOTITLE](/github-models/prototyping-with-ai-models)."
