@@ -34,7 +34,9 @@ export const ArticleList = ({
             <Link
               href={viewAllHref}
               className="ml-4"
-              {...(viewAllTitleText ? { 'aria-label': `view ${viewAllTitleText}` } : {})}
+              {...(viewAllTitleText
+                ? { 'aria-label': t('all_content').replace('{{ title }}', viewAllTitleText) }
+                : {})}
             >
               {t('view')} <ArrowRightIcon size={14} className="v-align-middle" />
             </Link>
