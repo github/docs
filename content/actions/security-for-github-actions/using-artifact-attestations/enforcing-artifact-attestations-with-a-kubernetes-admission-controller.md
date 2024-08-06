@@ -1,10 +1,12 @@
 ---
 title: Enforcing artifact attestations with a Kubernetes admission controller
-intro: 'Use an admission controller to enforce artifact attestations in your Kubernetes cluster.'
+intro: Use an admission controller to enforce artifact attestations in your Kubernetes cluster.
 versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Artifact attestations Kubernetes admission controller
+redirect_from:
+  - /actions/security-guides/enforcing-artifact-attestations-with-a-kubernetes-admission-controller
 ---
 
 ## About Kubernetes admission controller
