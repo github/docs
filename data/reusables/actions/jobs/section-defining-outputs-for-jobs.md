@@ -35,6 +35,8 @@ jobs:
 
 {% endraw %}
 
+### Using Job Outputs in a Matrix Job
+
 {% note %}
 
 Matrices can be used to generate multiple outputs of different names. When using a matrix, job outputs will be combined from all jobs inside the matrix.
@@ -53,26 +55,20 @@ jobs:
       output_3: ${{ steps.gen_output.outputs.output_3 }}
     strategy:
       matrix:
-        job: [1, 2, 3]
+        version: [10, 12, 14]
     steps:
       - name: Generate output
         id: gen_output
         run: |
           job="${{ matrix.job }}"
           echo "output_${job}=${job}" >> "$GITHUB_OUTPUT"
-          if [[ $job -eq 3 ]]; then
-            # slow down job so it will hopefully finish executing last
-            sleep 10
-            # override output_1 param
-            echo "output_1=${job}" >> "$GITHUB_OUTPUT"
-          fi
   job2:
     runs-on: ubuntu-latest
     needs: [job1]
     steps:
       # Will show
       # {
-      #   "output_1": "3",
+      #   "output_1": "1",
       #   "output_2": "2",
       #   "output_3": "3"
       # }
@@ -80,3 +76,7 @@ jobs:
 ```
 
 {% endraw %}
+
+{% warning %}
+Actions does not guarantee the order that matrix jobs will run in. Ensure that the output name is unique, otherwise the last matrix job that runs will override the output value.
+{% endwarning %}
