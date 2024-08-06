@@ -55,7 +55,7 @@ jobs:
       output_3: ${{ steps.gen_output.outputs.output_3 }}
     strategy:
       matrix:
-        version: [10, 12, 14]
+        version: [1, 2, 3]
     steps:
       - name: Generate output
         id: gen_output
