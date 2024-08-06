@@ -60,8 +60,8 @@ jobs:
       - name: Generate output
         id: gen_output
         run: |
-          job="${{ matrix.job }}"
-          echo "output_${job}=${job}" >> "$GITHUB_OUTPUT"
+          version="${{ matrix.version }}"
+          echo "output_${version}=${version}" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: [job1]
