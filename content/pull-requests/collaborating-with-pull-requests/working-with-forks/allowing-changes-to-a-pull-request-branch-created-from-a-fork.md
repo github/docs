@@ -1,4 +1,4 @@
----
+truongmanhdinh@gmail.com
 title: Allowing changes to a pull request branch created from a fork
 intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your personal account.'
 redirect_from:
