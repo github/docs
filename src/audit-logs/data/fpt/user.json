@@ -670,6 +670,21 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.security_center_export_coverage",
+    "description": "A CSV export was requested on the Coverage page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the Overview Dashboard page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_risk",
+    "description": "A CSV export was requested on the Risk page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.set_actions_fork_pr_approvals_policy",
     "description": "The setting for requiring approvals for workflows from public forks was changed for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks"
@@ -855,6 +870,21 @@
     "docs_reference_links": "/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board"
   },
   {
+    "action": "project_collaborator.add",
+    "description": "A collaborator was added to a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.remove",
+    "description": "A collaborator was removed from a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.update",
+    "description": "A project collaborator's permission level was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "project.create",
     "description": "A project board was created.",
     "docs_reference_links": "N/A"
@@ -918,6 +948,16 @@
     "action": "project_view.delete",
     "description": "A view was deleted in a project board.",
     "docs_reference_links": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
+  },
+  {
+    "action": "project.visibility_private",
+    "description": "A project's visibility was changed from public to private.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project.visibility_public",
+    "description": "A project's visibility was changed from private to public.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "protected_branch.update_merge_queue_enforcement_level",
@@ -1638,6 +1678,16 @@
     "action": "user.disable_sockpuppet_disallowed",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.confirm_claim",
+    "description": "An enterprise managed user claimed an email address.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.mark_as_unclaimed",
+    "description": "N/A",
+    "docs_reference_links": "An enterprise managed user unclaimed an email address."
   },
   {
     "action": "user.enable_collaborators_only",

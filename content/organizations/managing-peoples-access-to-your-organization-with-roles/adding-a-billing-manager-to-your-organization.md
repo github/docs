@@ -26,7 +26,7 @@ Members of your organization's Owners team can give _billing manager_ permission
 
 Billing managers can:
 
-* Upgrade or downgrade the account
+* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
 * Add, update, or remove payment methods
 * View payment history
 * Download receipts
@@ -37,6 +37,7 @@ In addition, all billing managers will receive billing receipts by email on the 
 
 Billing managers **are not** able to:
 
+* Upgrade to {% data variables.product.prodname_enterprise %} or downgrade an enterprise account
 * Create or access repositories in your organizations
 * See private members of your organization
 * Be seen in the list of organization members

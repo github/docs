@@ -1,4 +1,4 @@
-## Administrative features
+## Administrative features for {% data variables.product.prodname_copilot_short %}
 
 These features are available to organization owners and administrators to manage {% data variables.product.prodname_copilot %} in their organization.
 

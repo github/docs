@@ -191,6 +191,15 @@
       },
       {
         "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
         "slug": "get-a-code-security-configuration",
         "subcategory": "configurations",
         "verb": "get",
@@ -527,15 +536,6 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "list-organization-fine-grained-permissions-for-an-organization",
-        "subcategory": "organization-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-roles-for-an-organization",
         "subcategory": "organization-roles",
         "verb": "get",
@@ -545,39 +545,12 @@
       },
       {
         "category": "orgs",
-        "slug": "create-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/organization-roles",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
         "slug": "get-an-organization-role",
         "subcategory": "organization-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/organization-roles/{role_id}",
         "additional-permissions": false,
         "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "update-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "delete-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "additional-permissions": false,
-        "access": "write"
       }
     ]
   },
@@ -2393,15 +2366,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -3071,6 +3035,15 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "deployments",

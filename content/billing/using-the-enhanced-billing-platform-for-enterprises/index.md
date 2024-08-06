@@ -9,6 +9,9 @@ versions:
   feature: enhanced-billing-platform
 children:
   - /about-the-enhanced-billing-platform-for-enterprises
+  - /getting-started-with-the-enhanced-billing-platform
+  - /about-usage-based-billing-for-licenses
+  - /adding-seats-to-your-enterprise-account
   - /roles-for-the-enhanced-billing-platform
   - /estimating-spending-for-your-enterprise
   - /gathering-insights-on-your-spending

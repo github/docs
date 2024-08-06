@@ -50,11 +50,11 @@ For each dependency, you can see its ecosystem, the manifest file in which it wa
 {% endif %}
 
 {% ifversion ghes %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes > 3.9 %}.{% else %}, grouped by ecosystem.{% endif %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes %}.{% else %}, grouped by ecosystem.{% endif %}
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} (beta) will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 

@@ -15,17 +15,21 @@ shortTitle: Billing for GitHub Copilot
 
 {% endif %}
 
-## About billing for {% data variables.product.prodname_copilot %}
+## About billing for {% data variables.product.prodname_copilot_short %}
+
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
 
 You can set up a {% data variables.product.prodname_copilot %} subscription for your personal account, or for an organization or enterprise.
 
 * **For your personal account**, you can set up a subscription to {% data variables.product.prodname_copilot_for_individuals %}.
 * **For an organization**, you can set up a subscription to {% data variables.product.prodname_copilot_for_business %}, then grant access to members.
-* **For an enterprise on {% data variables.product.prodname_ghe_cloud %}**, you can set up a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, then allow organizations to grant access to members.
+* **For an enterprise on {% data variables.product.prodname_ghe_cloud %}**, you can set up a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, then allow organizations to grant access to members. Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} subscription can assign either {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} to each organization in the enterprise.
 
-A free subscription for {% data variables.product.prodname_copilot %} is available to verified students, teachers, and maintainers of popular open-source repositories on {% data variables.product.company_short %}. If you meet the criteria as an open source maintainer, you will be automatically notified when you visit the {% data variables.product.prodname_copilot %} subscription page. As a student, if you receive the {% data variables.product.prodname_student_pack %}, you will also be offered a free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page. For more information about the {% data variables.product.prodname_student_pack %}, see "[AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
-
-{% data reusables.billing.billing-info %}
+> [!NOTE] A free subscription for {% data variables.product.prodname_copilot %} is available to verified students, teachers, and maintainers of popular open-source repositories on {% data variables.product.company_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer)."
 
 ## About billing for {% data variables.product.prodname_copilot_for_individuals %}
 
@@ -76,11 +80,7 @@ For a {% data variables.product.prodname_copilot_enterprise %} subscription, all
 For {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_ghe_cloud %}, policy settings and the usage overview are available at the enterprise level. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)" and "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/viewing-your-github-copilot-usage)."
 {% endif %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_copilot %} billing operates in Coordinated Universal Time (UTC), but it calculates your bill according to the timezone of your billing cycle. For example, if you're billed through Azure and your current billing cycle ends at 11:59 PM EST on December 1st, canceling a seat at 7:00 PM EST on December 1st might show the seat cancellation at 12:00 AM UTC on December 2nd. However, the seat would end within the billing cycle that you requested the cancellation, and you would not pay for that seat in the following cycle.
-
-{% endnote %}
+> [!NOTE] {% data variables.product.prodname_copilot %} billing operates in Coordinated Universal Time (UTC), but it calculates your bill according to the timezone of your billing cycle. For example, if you're billed through Azure and your current billing cycle ends at 11:59 PM EST on December 1st, canceling a seat at 7:00 PM EST on December 1st might show the seat cancellation at 12:00 AM UTC on December 2nd. However, the seat would end within the billing cycle that you requested the cancellation, and you would not pay for that seat in the following cycle.
 
 ### About seat assignment for {% data variables.product.prodname_copilot_for_business %} and {% data variables.product.prodname_copilot_enterprise %}
 
@@ -98,11 +98,7 @@ If you are a member of an organization or enterprise with a {% data variables.pr
 
 When you connect an Azure subscription to your organization or enterprise account and enable metered billing via Azure, metered usage will start to be sent to Azure. You will be billed through {% data variables.product.prodname_dotcom %} for usage from the start of the current billing cycle to when you enabled metered billing via Azure, on your next billing date. The period between the date you connected your Azure subscription and enabled metered billing via Azure, and the end of the calendar month will be charged in Azure on the first of the month. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
-{% note %}
-
-**Note:** Usage data is sent to Azure daily, but you are billed at the end of the month based on the number of seats used. This means that although you can track your daily spending (number of seats in this case), actual payments are processed monthly.
-
-{% endnote %}
+> [!NOTE] Usage data is sent to Azure daily, but you are billed at the end of the month based on the number of seats used. This means that although you can track your daily spending (number of seats in this case), actual payments are processed monthly.
 
 ### About changes to your {% data variables.product.prodname_copilot_enterprise %} subscription
 

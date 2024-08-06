@@ -407,6 +407,15 @@
       },
       {
         "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "code-security",
         "slug": "get-a-code-security-configuration",
         "subcategory": "configurations",
         "verb": "get",
@@ -3053,15 +3062,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -3731,6 +3731,15 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "deployments",

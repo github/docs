@@ -1305,6 +1305,12 @@
       "requestPath": "/orgs/{org}/code-security/configurations/defaults"
     },
     {
+      "slug": "detach-configurations-from-repositories",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/detach"
+    },
+    {
       "slug": "get-a-code-security-configuration",
       "subcategory": "configurations",
       "verb": "get",
@@ -2651,21 +2657,9 @@
       "requestPath": "/orgs/{org}/memberships/{username}"
     },
     {
-      "slug": "list-organization-fine-grained-permissions-for-an-organization",
-      "subcategory": "organization-roles",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/organization-fine-grained-permissions"
-    },
-    {
       "slug": "get-all-organization-roles-for-an-organization",
       "subcategory": "organization-roles",
       "verb": "get",
-      "requestPath": "/orgs/{org}/organization-roles"
-    },
-    {
-      "slug": "create-a-custom-organization-role",
-      "subcategory": "organization-roles",
-      "verb": "post",
       "requestPath": "/orgs/{org}/organization-roles"
     },
     {
@@ -2708,18 +2702,6 @@
       "slug": "get-an-organization-role",
       "subcategory": "organization-roles",
       "verb": "get",
-      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
-    },
-    {
-      "slug": "update-a-custom-organization-role",
-      "subcategory": "organization-roles",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
-    },
-    {
-      "slug": "delete-a-custom-organization-role",
-      "subcategory": "organization-roles",
-      "verb": "delete",
       "requestPath": "/orgs/{org}/organization-roles/{role_id}"
     },
     {

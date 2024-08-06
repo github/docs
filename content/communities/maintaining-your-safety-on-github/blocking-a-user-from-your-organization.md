@@ -64,6 +64,19 @@ In your organization's repositories, blocked users also cannot:
 1. Click **Block user**.
 1. Optionally, to add a note to describe why a user was blocked, click **Add Note**. The note will be visible to the owners and moderators of the organization.
 
+## Blocking a user on a discussion
+
+1. Navigate to the discussion whose author you would like to block.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Block user**.
+
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Block user" is outlined in orange.](/assets/images/help/repository/comment-menu-block-user.png)
+
+1. If you'd like to set a time limit for the block, select the **Block user** dropdown menu, and click the amount of time you'd like to block the user.
+1. If you'd like to hide all of the comments the user has made in the organization, select **Hide this user's comments** and choose a reason.
+1. If you'd like to delete just the discussion you're viewing, select **Delete this discussion**.
+1. If you'd like to delete all of the discussions the user has made in the organization, select **Delete all of USER's discussions in ORGANIZATION**.
+1. Click **Block user from organization**.
+
 ## Further reading
 
 * "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-who-are-blocked-from-your-organization)"

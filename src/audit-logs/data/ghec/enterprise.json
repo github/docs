@@ -495,6 +495,16 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the business level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the business level",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business_secret_scanning_non_provider_patterns.disabled",
     "description": "Secret scanning for non-provider patterns was disabled at the enterprise level.",
     "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
@@ -1211,17 +1221,17 @@
   },
   {
     "action": "external_identity.deprovision",
-    "description": "N/A",
+    "description": "An external identity was deprovisioned, suspending the linked GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.provision",
-    "description": "N/A",
+    "description": "An external identity was created and linked to a GitHub user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.update",
-    "description": "N/A",
+    "description": "An external identity was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2665,6 +2675,21 @@
     "docs_reference_links": "/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board"
   },
   {
+    "action": "project_collaborator.add",
+    "description": "A collaborator was added to a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.remove",
+    "description": "A collaborator was removed from a project.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_collaborator.update",
+    "description": "A project collaborator's permission level was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "project.create",
     "description": "A project board was created.",
     "docs_reference_links": "N/A"
@@ -2728,6 +2753,16 @@
     "action": "project_view.delete",
     "description": "A view was deleted in a project board.",
     "docs_reference_links": "/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views"
+  },
+  {
+    "action": "project.visibility_private",
+    "description": "A project's visibility was changed from public to private.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project.visibility_public",
+    "description": "A project's visibility was changed from private to public.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "protected_branch.authorized_users_teams",
@@ -3963,6 +3998,16 @@
     "action": "team.update_repository_permission",
     "description": "A team's permission to a repository was changed.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.confirm_claim",
+    "description": "An enterprise managed user claimed an email address.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_email.mark_as_unclaimed",
+    "description": "N/A",
+    "docs_reference_links": "An enterprise managed user unclaimed an email address."
   },
   {
     "action": "user_license.create",

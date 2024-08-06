@@ -55,7 +55,7 @@ One benefit of using an email client is that all of your notifications can be ke
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
-Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a  verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
+Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
 
 ## About participating and watching notifications
 
@@ -133,6 +133,20 @@ Email notifications from {% data variables.product.prodname_dotcom %} contain he
 | `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.product.product_url %}>`. |
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
 
+## Replying to email notifications
+
+You can reply to email notifications from {% data variables.product.product_name %} and your reply will be posted to the issue, pull request, or discussion.
+
+The `reply-to` address on each email notification identifies the thread and the account that the comment will be posted from. This email address remains valid until you reset your password.
+
+{% data variables.product.product_name %} will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
+
+* Email addresses in a standard format, such as `octocat@github.com`, are transformed to `***@***.***`.
+* Signatures and quoted reply chains, when the email client has used a `>` to mark those sections, are stripped.
+* While the unsubscribe link from your email notification is sometimes quoted, the link will only work when signed in to your account.
+* Email attachments are not included in the resulting comment.
+* The maximum length of a comment created via an email reply is 65530 characters.
+
 ## Choosing your notification settings
 
 {% data reusables.notifications.access_notifications %}
@@ -159,7 +173,7 @@ For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptio
 
 ## Configuring your watch settings for an individual repository
 
-You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository) , or completely ignore an individual repository.
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. In the upper-right corner, select the "Watch" drop-down menu, then click a watch option.
@@ -232,9 +246,9 @@ For repositories that are set up with {% data variables.product.prodname_actions
 1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
 
    ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is highlighted with an orange outline.](/assets/images/help/notifications/github-actions-customize-notifications.png)
-1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}".
+1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}."
 
-   To opt into email notifications, from the dropdown menu, select "Email".
+   To opt into email notifications, from the dropdown menu, select "Email."
 1. Optionally, to only receive notifications for failed workflow runs, from the dropdown menu, select "Only notify for failed workflows", then click **Save**.{% endif %}
 
 {% ifversion ghes %}

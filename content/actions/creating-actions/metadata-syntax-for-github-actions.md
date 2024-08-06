@@ -481,7 +481,7 @@ branding:
 
 ### `branding.color`
 
-The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
+The background color of the badge. Can be one of: `white`, `black`, `yellow`, `blue`, `green`, `orange`, `red`, `purple`, or `gray-dark`.
 
 ### `branding.icon`
 
@@ -725,6 +725,7 @@ Brand icons, and all the following icons, are omitted.
 <li>sun</li>
 <li>sunrise</li>
 <li>sunset</li>
+<li>table</li>
 <li>tablet</li>
 <li>tag</li>
 <li>target</li>

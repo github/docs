@@ -16,12 +16,10 @@ topics:
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Swift code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}
 
-{% data reusables.code-scanning.beta-swift-support %}
-
 ## Built-in queries for Swift analysis
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}
 
-{% data reusables.rai.code-scanning.beta-autofix %}
+{% data reusables.rai.code-scanning.autofix-note %}
 
 {% data reusables.code-scanning.codeql-query-tables.swift %}

@@ -1,12 +1,12 @@
 ---
 title: Configuring GitHub Copilot in the CLI
+shortTitle: Configure in the CLI
 intro: 'Learn how to configure settings and set up aliases for {% data variables.product.prodname_copilot_cli_short %}.'
 versions:
   feature: copilot-in-the-cli
 topics:
   - Copilot
   - CLI
-shortTitle: Configure Copilot in the CLI
 redirect_from:
   - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
 ---

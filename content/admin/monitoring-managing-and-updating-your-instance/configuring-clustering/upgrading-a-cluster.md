@@ -37,7 +37,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 
 ### Preparing to upgrade
 
-1. Review [Cluster network configuration](/admin/enterprise-management/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
+1. Review [AUTOTITLE](/admin/enterprise-management/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
 1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 1. Schedule a maintenance window for end users of your {% data variables.product.prodname_ghe_server %} cluster, as it will be unavailable for normal use during the upgrade. Maintenance mode blocks user access and prevents data changes while the cluster upgrade is in progress.
 1. On the [{% data variables.product.prodname_ghe_server %} Download Page](https://enterprise.github.com/download), copy the URL for the upgrade _.pkg_ file to the clipboard.
@@ -75,7 +75,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
    1. On any `elasticsearch-server` node, run `/usr/local/share/enterprise/ghe-es-auditlog-cluster-rebalance`.
 {% endif %}
 1. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes.
-Run the `ghe-upgrade` command, providing the package file name you downloaded in Step 4 of [Preparing to upgrade](#preparing-to-upgrade):
+Run the `ghe-upgrade` command, providing the package file name you downloaded in step 4 of [Preparing to upgrade](#preparing-to-upgrade):
 
    ```shell
    $ ghe-upgrade PACKAGE-FILENAME.pkg
@@ -89,7 +89,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
    ```
 
 1. The upgrade process will reboot the node once it completes. Verify that you can `ping` each node after it reboots.
-1. Connect to the administrative shell of the primary MySQL node. Run the `ghe-upgrade` command, providing the package file name you downloaded in Step 4 of [Preparing to upgrade](#preparing-to-upgrade):
+1. Connect to the administrative shell of the primary MySQL node. Run the `ghe-upgrade` command, providing the package file name you downloaded in step 4 of [Preparing to upgrade](#preparing-to-upgrade):
 
    ```shell
    $ ghe-upgrade PACKAGE-FILENAME.pkg
@@ -102,7 +102,14 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
    > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
    ```
 
-1. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots.{% ifversion ghes %}
+1. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots
+
+   > [!IMPORTANT] Before proceeding with the next step, you must wait for the post-upgrade configuration to complete. To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
+   >
+   > ```shell
+   > tail -f /data/user/common/ghe-config.log
+   > ```
+
 1. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
-1. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
+1. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.
 1. Exit maintenance mode from the administrative shell of any node by running `ghe-cluster-maintenance -u`.

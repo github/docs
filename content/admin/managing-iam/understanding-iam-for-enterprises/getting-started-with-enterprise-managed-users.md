@@ -21,12 +21,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-To request a new enterprise account, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact). You'll discuss options for trialing {% data variables.product.prodname_emus %} or migrating from an existing enterprise.
-
-When you're ready, your contact on the {% data variables.product.prodname_dotcom %} Sales team will create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll be asked to provide the following information:
-
-* The **email address** for the user who will set up your enterprise.
-* A **short code** that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %}
+Start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 ## Create the setup user
 
@@ -39,6 +34,16 @@ Using an **incognito or private browsing window**:
 1. Enable two-factor authentication. See "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
+
+## Create a {% data variables.product.pat_generic %}
+
+Next, create a {% data variables.product.pat_generic %} that you can use to configure provisioning.
+
+* You must be **signed in as the setup user** when you create the token.
+* The token must have **admin:enterprise** scope.
+* The token must have **no expiration**.
+
+To learn how to create a {% data variables.product.pat_v1 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 
 ## Configure authentication
 

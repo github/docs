@@ -143,7 +143,6 @@ This workflow scans:
 
 ## Specifying an operating system
 
-{% ifversion codeql-swift-beta %}
 {% note %}
 
 **Notes**:
@@ -153,8 +152,6 @@ This workflow scans:
 * {% data reusables.code-scanning.default-setup-swift-self-hosted-runners %}
 
 {% endnote %}
-
-{% endif %}
 
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 

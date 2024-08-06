@@ -253,6 +253,17 @@
       },
       {
         "category": "code-security",
+        "slug": "detach-configurations-from-repositories",
+        "subcategory": "configurations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/code-security/configurations/detach",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "code-security",
         "slug": "get-a-code-security-configuration",
         "subcategory": "configurations",
         "verb": "get",
@@ -661,17 +672,6 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "list-organization-fine-grained-permissions-for-an-organization",
-        "subcategory": "organization-roles",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-roles-for-an-organization",
         "subcategory": "organization-roles",
         "verb": "get",
@@ -683,44 +683,11 @@
       },
       {
         "category": "orgs",
-        "slug": "create-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/organization-roles",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
         "slug": "get-an-organization-role",
         "subcategory": "organization-roles",
         "verb": "get",
         "requestPath": "/orgs/{org}/organization-roles/{role_id}",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "update-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "delete-a-custom-organization-role",
-        "subcategory": "organization-roles",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -2919,17 +2886,6 @@
       },
       {
         "category": "deployments",
-        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
-        "subcategory": "protection-rules",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "deployments",
         "slug": "get-a-custom-deployment-protection-rule",
         "subcategory": "protection-rules",
         "verb": "get",
@@ -3744,6 +3700,17 @@
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
