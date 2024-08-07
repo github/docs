@@ -84,7 +84,7 @@ puts jwt
 
 {% note %}
 
-**Note:** You must run `pip install PyJWT` to install the `jwt` package in order to use this script.
+**Note:** You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
 
 {% endnote %}
 
