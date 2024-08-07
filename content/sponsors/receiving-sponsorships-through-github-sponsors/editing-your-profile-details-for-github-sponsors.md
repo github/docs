@@ -31,3 +31,19 @@ Your {% data variables.product.prodname_sponsors %} profile tells potential spon
 {% data reusables.sponsors.edit-featured-work %}
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
+
+## Selecting Featured Sponsors
+
+Featured sponsors allows you to spotlight your sponsors. You can opt to automatically display your top 10 sponsors, manually select 10 sponsors, or feature no sponsors.
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-profile-tab %}
+1. Under "Featured Sponsors", select the checkbox for the option to display your featured sponsors automatically or manually.
+
+    * If opting to automatically feature your top 10 sponsors, select the dial button and click **Update profile**.
+
+    * To manually add sponsors, select the **Manually add my featured sponsors** option and click **Add or remove**.
+
+    * A pop up window will display allowing you to search your sponsors. Click on the desired sponsors and click **Save**.
+
+{% data reusables.sponsors.save-profile %}
