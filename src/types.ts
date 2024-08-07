@@ -298,6 +298,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
+  isduplicate: boolean
 }
 
 type Language = {
