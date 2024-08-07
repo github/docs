@@ -95,15 +95,13 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %}
+{% data reusables.passkeys.about-passkeys %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 {% note %}
 
 **Note:** Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
 
 {% endnote %}
-
-For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}
