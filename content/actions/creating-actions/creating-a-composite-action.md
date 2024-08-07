@@ -166,7 +166,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - id: foo
-        uses: <username>/hello-world-composite-action@v1
+        uses: OWNER/hello-world-composite-action@TAG
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
