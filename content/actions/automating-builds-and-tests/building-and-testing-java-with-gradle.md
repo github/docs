@@ -74,7 +74,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
            distribution: 'temurin'
 
        - name: Setup Gradle
-         uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
+         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
        - name: Build with Gradle
          run: ./gradlew build
@@ -113,7 +113,7 @@ steps:
       distribution: 'temurin'
 
   - name: Setup Gradle
-    uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
+    uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
   - name: Build with Gradle
     run: ./gradlew -b ci.gradle package
@@ -144,7 +144,7 @@ steps:
       distribution: 'temurin'
 
   - name: Setup Gradle
-    uses: gradle/actions/setup-gradle@dbbdc275be76ac10734476cc723d82dfe7ec6eda # v3.4.2
+    uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
   - name: Build with Gradle
     run: ./gradlew build
