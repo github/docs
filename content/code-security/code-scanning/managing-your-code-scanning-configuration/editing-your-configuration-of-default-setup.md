@@ -108,13 +108,12 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 1. The model packs will be automatically detected and used in your {% data variables.product.prodname_code_scanning %} analysis.
 1. If you later change your configuration to use advanced setup, any model packs in the `.github/codeql/extensions` directory will still be recognized and used.
 
+{% ifversion codeql-model-packs-org %}
+
 ### Extending coverage for all repositories in an organization
 
-{% note %}
-
-**Note:** If you extend coverage with {% data variables.product.prodname_codeql %} model packs for all repositories in an organization, the model packs that you specify must be published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} and be accessible to the repositories that run code scanning. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
-
-{% endnote %}
+>[!NOTE]
+> If you extend coverage with {% data variables.product.prodname_codeql %} model packs for all repositories in an organization, the model packs that you specify must be published to the {% ifversion ghes %}container registry associated with the {% data variables.product.prodname_ghe_server %} instance (`https://containers.HOSTNAME`){% else %}{% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}{% endif %} and be accessible to the repositories that run {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -131,4 +130,5 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
 
+{% endif %}
 {% endif %}

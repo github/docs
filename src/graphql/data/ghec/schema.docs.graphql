@@ -6853,7 +6853,7 @@ input CopyProjectV2Input {
   """
   The owner ID of the new project.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The ID of the source Project to copy.
@@ -7902,7 +7902,7 @@ input CreateProjectV2Input {
   """
   The owner ID to create the project under.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The repository to link the project to.

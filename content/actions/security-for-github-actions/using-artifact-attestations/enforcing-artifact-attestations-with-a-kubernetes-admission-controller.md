@@ -1,10 +1,12 @@
 ---
 title: Enforcing artifact attestations with a Kubernetes admission controller
-intro: 'Use an admission controller to enforce artifact attestations in your Kubernetes cluster.'
+intro: Use an admission controller to enforce artifact attestations in your Kubernetes cluster.
 versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Artifact attestations Kubernetes admission controller
+redirect_from:
+  - /actions/security-guides/enforcing-artifact-attestations-with-a-kubernetes-admission-controller
 ---
 
 ## About Kubernetes admission controller
@@ -70,15 +72,15 @@ You've now installed the GitHub trust root, and an artifact attestation policy i
 > [!WARNING]
 > This policy will not be enforced until you specify which namespaces it should apply to.
 
-Each namespace in your cluster can independently enforce policies. To enable enforcement in a namespace, you can add the following annotation to the namespace:
+Each namespace in your cluster can independently enforce policies. To enable enforcement in a namespace, you can add the following label to the namespace:
 
 ```yaml
 metadata:
-  annotations:
-    policy.sigstore.dev/include: true
+  labels:
+    policy.sigstore.dev/include: "true"
 ```
 
-After the annotation is added, the GitHub artifact attestation policy will be enforced in the namespace.
+After the label is added, the GitHub artifact attestation policy will be enforced in the namespace.
 
 Alternatively, you may run:
 

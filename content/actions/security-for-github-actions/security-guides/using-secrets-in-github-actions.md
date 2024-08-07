@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/encrypted-secrets
   - /actions/managing-workflows/storing-secrets
   - /actions/security-guides/encrypted-secrets
+  - /actions/security-guides/using-secrets-in-github-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -195,7 +196,7 @@ gh secret set --org ORG_NAME SECRET_NAME --visibility all
 To specify that the secret should be available to selected repositories within the organization, use the `--repos` or `-r` flag.
 
 ```shell
-gh secret set --org ORG_NAME SECRET_NAME --repos REPO-NAME-1, REPO-NAME-2"
+gh secret set --org ORG_NAME SECRET_NAME --repos REPO-NAME-1, REPO-NAME-2
 ```
 
 To list all secrets for an organization, use the `gh secret list` subcommand with the `--org` or `-o` flag followed by the organization name.

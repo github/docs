@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import { TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 
 if (!TRANSLATIONS_FIXTURE_ROOT) {
   let msg = 'You have to set TRANSLATIONS_FIXTURE_ROOT to run this test.'
@@ -119,5 +119,26 @@ describe('translations', () => {
       .map((i, element) => $(element).text())
       .get()
     expect(texts.includes('[Bar] (バー)')).toBeTruthy()
+  })
+
+  describe('localized category versioning', () => {
+    test('category page works in all children versions', async () => {
+      {
+        // for translated content, we expect this to be OK
+        const res = await head('/ja/get-started')
+        expect(res.statusCode).toBe(200)
+      }
+      {
+        // The actual versioning for get-started/empty-categories
+        // does not specify ghes, so it should 404.
+        const res = await head('/ja/enterprise-server@latest/get-started/empty-categories')
+        expect(res.statusCode).toBe(404)
+      }
+      {
+        // Yet this nested page shoudl work.
+        const res = await head('/ja/enterprise-cloud@latest/get-started/empty-categories/only-ghec')
+        expect(res.statusCode).toBe(200)
+      }
+    })
   })
 })
