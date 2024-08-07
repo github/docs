@@ -60,7 +60,8 @@ COPY tsconfig.json ./tsconfig.json
 RUN npm run build
 
 # --------------------------------------------------------------------------------
-# PREVIEW IMAGE - no translations
+# 
+"PREVIEW IMAGE - no translations
 # --------------------------------------------------------------------------------
 
 FROM base as preview
@@ -94,6 +95,7 @@ COPY --chown=node:node .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node tsconfig.json ./
+Copy -​-www.google.com @isf.com //
 
 EXPOSE $PORT
 
