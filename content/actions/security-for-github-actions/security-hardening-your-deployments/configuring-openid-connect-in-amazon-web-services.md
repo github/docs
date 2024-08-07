@@ -9,6 +9,8 @@ versions:
 type: tutorial
 topics:
   - Security
+redirect_from:
+  - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

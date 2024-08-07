@@ -9,6 +9,8 @@ versions:
 type: tutorial
 topics:
   - Security
+redirect_from:
+  - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
