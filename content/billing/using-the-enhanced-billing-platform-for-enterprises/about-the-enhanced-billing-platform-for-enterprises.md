@@ -17,10 +17,18 @@ The enhanced billing platform provides better spending control and detailed usag
 The following products are available in the enhanced billing platform:
 
 * {% data variables.product.prodname_actions %}
+* {% data variables.product.prodname_GH_advanced_security %} (only available with a trial of {% data variables.product.prodname_ghe_cloud %})
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot %}
+* {% data variables.product.prodname_enterprise %}
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
+
+{% ifversion metered-ghe-ghas%}
+
+{% data reusables.billing.actions-usage-delay %}
+
+{% endif %}
 
 ## Key functionalities
 
@@ -39,3 +47,7 @@ You have access to the enhanced billing platform if you have an enterprise accou
 {% data reusables.enterprise-accounts.access-enterprise %}
 
 If you have access, there will be a {% octicon "credit-card" aria-hidden="true" %} **Billing & Licensing** option in the enterprise account sidebar.
+
+## Next steps
+
+* To **get started with the enhanced billing plaform**, see "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/getting-started-with-the-enhanced-billing-platform)."

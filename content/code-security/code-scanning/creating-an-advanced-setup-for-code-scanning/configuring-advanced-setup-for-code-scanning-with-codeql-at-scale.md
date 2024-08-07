@@ -33,7 +33,6 @@ For repositories that are not eligible for default setup, you can use a bulk con
 1. Use one of the example scripts or create a custom script to add the workflow to each repository in the group.
    * PowerShell example: [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository
    * NodeJS example: [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) repository
-   * Python example: [`Malwarebytes/ghas-cli`](https://github.com/Malwarebytes/ghas-cli) repository
 
 {% ifversion codeql-model-packs-org %}
 

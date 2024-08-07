@@ -22,7 +22,9 @@ Typing <kbd>?</kbd> on {% data variables.product.prodname_dotcom %} brings up a 
 You can disable character key shortcuts, while still allowing shortcuts that use modifier keys, in your accessibility settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-accessibility-settings)."{% endif %}
 
 {% ifversion command-palette %}
-The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."{% endif %}
+The {% data variables.product.prodname_command_palette %} also gives you quick access to a wide range of actions, without the need to remember keyboard shortcuts. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
+
+{% endif %}
 
 The following sections list some of the available keyboard shortcuts, organized by the pages where you can use them on {% data variables.location.product_location %}.
 
@@ -32,8 +34,8 @@ The following sections list some of the available keyboard shortcuts, organized 
 |-----------|------------
 |<kbd>S</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 |<kbd>G</kbd> <kbd>N</kbd> | Go to your notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|<kbd>Option</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Alt</kbd>+<kbd>↑</kbd> (Windows/Linux) | Move focus from an element to its hovercard |
 |<kbd>Esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
-{% ifversion command-palette %}|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Opens the {% data variables.product.prodname_command_palette %}. If you are editing Markdown text, open the command palette with <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."{% endif %}
 
 ## Repositories
 

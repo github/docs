@@ -28,11 +28,7 @@ redirect_from:
 
 The chat interface provides access to coding information and support without requiring you to navigate documentation or search online forums.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
-
-{% endnote %}
+> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} is also available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and the JetBrains suite of IDEs. However, features available in these IDEs differ from features available on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data variables.product.prodname_copilot_chat %} can answer a wide range of coding-related questions on topics including syntax, programming concepts, test cases, debugging, and more. {% data variables.product.prodname_copilot_chat %} is not designed to answer non-coding questions or provide general information on topics outside of coding.
 
@@ -152,7 +148,7 @@ One of the limitations of {% data variables.product.prodname_copilot_chat_short 
 
 ### Leveraging a web search to answer a question
 
-Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
+Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise)."
 
 When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 

@@ -9,8 +9,6 @@ versions:
   fpt: '*'
 ---
 
-{% data reusables.classroom.note-on-assignment-changes %}
-
 ## About assignments in {% data variables.product.prodname_classroom %}
 
 Assignments are coursework created for students in {% data variables.product.prodname_classroom %}. You can use assignments to test and grade your students, or to help your students practice their learnings.

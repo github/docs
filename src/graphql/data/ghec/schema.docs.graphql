@@ -6853,7 +6853,7 @@ input CopyProjectV2Input {
   """
   The owner ID of the new project.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The ID of the source Project to copy.
@@ -7902,7 +7902,7 @@ input CreateProjectV2Input {
   """
   The owner ID to create the project under.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"], abstractType: "OrganizationOrUser")
+  ownerId: ID! @possibleTypes(concreteTypes: ["Organization", "User"])
 
   """
   The repository to link the project to.
@@ -11643,6 +11643,11 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 
   """
   Can user react to this subject
@@ -18014,6 +18019,46 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   closedAt: DateTime
 
   """
+  List of open pull requests referenced from this issue
+  """
+  closedByPullRequestsReferences(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Include closed PRs in results
+    """
+    includeClosedPrs: Boolean = false
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Return results ordered by state
+    """
+    orderByState: Boolean = false
+
+    """
+    Return only manually linked PRs
+    """
+    userLinkedOnly: Boolean = false
+  ): PullRequestConnection
+
+  """
   A list of comments associated with the Issue.
   """
   comments(
@@ -18293,6 +18338,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -18553,6 +18603,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   Check if the current viewer can delete this object.
   """
   viewerCanDelete: Boolean!
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 
   """
   Can user react to this subject
@@ -19788,6 +19843,11 @@ interface Labelable {
     """
     orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
   ): LabelConnection
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 }
 
 """
@@ -21838,6 +21898,44 @@ enum MergeQueueEntryState {
 }
 
 """
+When set to ALLGREEN, the merge commit created by merge queue for each PR in the
+group must pass all required checks to merge. When set to HEADGREEN, only the
+commit at the head of the merge group, i.e. the commit containing changes from
+all of the PRs in the group, must pass its required checks to merge.
+"""
+enum MergeQueueGroupingStrategy {
+  """
+  The merge commit created by merge queue for each PR in the group must pass all required checks to merge
+  """
+  ALLGREEN
+
+  """
+  Only the commit at the head of the merge group must pass its required checks to merge.
+  """
+  HEADGREEN
+}
+
+"""
+Method to use when merging changes from queued pull requests.
+"""
+enum MergeQueueMergeMethod {
+  """
+  Merge commit
+  """
+  MERGE
+
+  """
+  Rebase and merge
+  """
+  REBASE
+
+  """
+  Squash and merge
+  """
+  SQUASH
+}
+
+"""
 The possible merging strategies for a merge queue.
 """
 enum MergeQueueMergingStrategy {
@@ -21850,6 +21948,100 @@ enum MergeQueueMergingStrategy {
   Failing Entires are allowed to merge if they are with a passing entry.
   """
   HEADGREEN
+}
+
+"""
+Merges must be performed via a merge queue.
+"""
+type MergeQueueParameters {
+  """
+  Maximum time for a required status check to report a conclusion. After this
+  much time has elapsed, checks that have not reported a conclusion will be
+  assumed to have failed
+  """
+  checkResponseTimeoutMinutes: Int!
+
+  """
+  When set to ALLGREEN, the merge commit created by merge queue for each PR in
+  the group must pass all required checks to merge. When set to HEADGREEN, only
+  the commit at the head of the merge group, i.e. the commit containing changes
+  from all of the PRs in the group, must pass its required checks to merge.
+  """
+  groupingStrategy: MergeQueueGroupingStrategy!
+
+  """
+  Limit the number of queued pull requests requesting checks and workflow runs at the same time.
+  """
+  maxEntriesToBuild: Int!
+
+  """
+  The maximum number of PRs that will be merged together in a group.
+  """
+  maxEntriesToMerge: Int!
+
+  """
+  Method to use when merging changes from queued pull requests.
+  """
+  mergeMethod: MergeQueueMergeMethod!
+
+  """
+  The minimum number of PRs that will be merged together in a group.
+  """
+  minEntriesToMerge: Int!
+
+  """
+  The time merge queue should wait after the first PR is added to the queue for
+  the minimum group size to be met. After this time has elapsed, the minimum
+  group size will be ignored and a smaller group will be merged.
+  """
+  minEntriesToMergeWaitMinutes: Int!
+}
+
+"""
+Merges must be performed via a merge queue.
+"""
+input MergeQueueParametersInput {
+  """
+  Maximum time for a required status check to report a conclusion. After this
+  much time has elapsed, checks that have not reported a conclusion will be
+  assumed to have failed
+  """
+  checkResponseTimeoutMinutes: Int!
+
+  """
+  When set to ALLGREEN, the merge commit created by merge queue for each PR in
+  the group must pass all required checks to merge. When set to HEADGREEN, only
+  the commit at the head of the merge group, i.e. the commit containing changes
+  from all of the PRs in the group, must pass its required checks to merge.
+  """
+  groupingStrategy: MergeQueueGroupingStrategy!
+
+  """
+  Limit the number of queued pull requests requesting checks and workflow runs at the same time.
+  """
+  maxEntriesToBuild: Int!
+
+  """
+  The maximum number of PRs that will be merged together in a group.
+  """
+  maxEntriesToMerge: Int!
+
+  """
+  Method to use when merging changes from queued pull requests.
+  """
+  mergeMethod: MergeQueueMergeMethod!
+
+  """
+  The minimum number of PRs that will be merged together in a group.
+  """
+  minEntriesToMerge: Int!
+
+  """
+  The time merge queue should wait after the first PR is added to the queue for
+  the minimum group size to be met. After this time has elapsed, the minimum
+  group size will be ignored and a smaller group will be merged.
+  """
+  minEntriesToMergeWaitMinutes: Int!
 }
 
 """
@@ -29430,6 +29622,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -35005,6 +35202,11 @@ interface ProjectV2Owner {
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -35014,6 +35216,26 @@ interface ProjectV2Owner {
     """
     query: String
   ): ProjectV2Connection!
+}
+
+"""
+The possible roles of a collaborator on a project.
+"""
+enum ProjectV2PermissionLevel {
+  """
+  The collaborator can view, edit, and maange the settings of the project
+  """
+  ADMIN
+
+  """
+  The collaborator can view the project
+  """
+  READ
+
+  """
+  The collaborator can view and edit the project
+  """
+  WRITE
 }
 
 """
@@ -36786,6 +37008,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -37116,6 +37343,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Whether or not the viewer can enable auto-merge
   """
   viewerCanEnableAutoMerge: Boolean!
+
+  """
+  Indicates if the viewer can edit labels for this object.
+  """
+  viewerCanLabel: Boolean!
 
   """
   Indicates whether the viewer can bypass branch protections and merge the pull request immediately
@@ -45501,6 +45733,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -47485,13 +47722,13 @@ enum RepositoryRuleType {
 
   """
   Prevent commits that include files with specified file extensions from being
-  pushed to the commit graph. NOTE: Thie rule is in beta and subject to change
+  pushed to the commit graph. NOTE: This rule is in beta and subject to change
   """
   FILE_EXTENSION_RESTRICTION
 
   """
   Prevent commits that include changes in specified file paths from being pushed
-  to the commit graph. NOTE: Thie rule is in beta and subject to change
+  to the commit graph. NOTE: This rule is in beta and subject to change
   """
   FILE_PATH_RESTRICTION
 
@@ -47502,14 +47739,14 @@ enum RepositoryRuleType {
 
   """
   Prevent commits that include file paths that exceed a specified character
-  limit from being pushed to the commit graph. NOTE: Thie rule is in beta and
+  limit from being pushed to the commit graph. NOTE: This rule is in beta and
   subject to change
   """
   MAX_FILE_PATH_LENGTH
 
   """
   Prevent commits that exceed a specified file size limit from being pushed to
-  the commit. NOTE: Thie rule is in beta and subject to change
+  the commit. NOTE: This rule is in beta and subject to change
   """
   MAX_FILE_SIZE
 
@@ -48587,6 +48824,11 @@ commits must first be pushed to another ref where the checks pass.
 """
 type RequiredStatusChecksParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Status checks that are required.
   """
   requiredStatusChecks: [StatusCheckConfiguration!]!
@@ -48604,6 +48846,11 @@ Choose which status checks must pass before the ref is updated. When enabled,
 commits must first be pushed to another ref where the checks pass.
 """
 input RequiredStatusChecksParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Status checks that are required.
   """
@@ -49224,6 +49471,7 @@ union RuleParameters =
   | FilePathRestrictionParameters
   | MaxFilePathLengthParameters
   | MaxFileSizeParameters
+  | MergeQueueParameters
   | PullRequestParameters
   | RequiredDeploymentsParameters
   | RequiredStatusChecksParameters
@@ -49279,6 +49527,11 @@ input RuleParametersInput {
   Parameters used for the `max_file_size` rule type
   """
   maxFileSize: MaxFileSizeParametersInput
+
+  """
+  Parameters used for the `merge_queue` rule type
+  """
+  mergeQueue: MergeQueueParametersInput
 
   """
   Parameters used for the `pull_request` rule type
@@ -54658,6 +54911,11 @@ type Team implements MemberStatusable & Node & Subscribable {
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
 
     """
     How to order the returned projects.
@@ -61438,6 +61696,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     last: Int
 
     """
+    Filter projects based on user role.
+    """
+    minPermissionLevel: ProjectV2PermissionLevel = READ
+
+    """
     How to order the returned projects.
     """
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
@@ -63444,6 +63707,11 @@ Require all changes made to a targeted branch to pass the specified workflows be
 """
 type WorkflowsParameters {
   """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean!
+
+  """
   Workflows that must pass for this rule to pass.
   """
   workflows: [WorkflowFileReference!]!
@@ -63453,6 +63721,11 @@ type WorkflowsParameters {
 Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
 """
 input WorkflowsParametersInput {
+  """
+  Allow repositories and branches to be created if a check would otherwise prohibit it.
+  """
+  doNotEnforceOnCreate: Boolean
+
   """
   Workflows that must pass for this rule to pass.
   """

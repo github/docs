@@ -11,6 +11,12 @@ topics:
   - Enterprise
 shortTitle: Sign up for Advanced Security
 ---
+{% ifversion metered-ghe-ghas %}
+
+{% data reusables.billing.ghas-metered-billing-note-with-link %}
+
+{% endif %}
+
 ## Purchasing {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -25,4 +31,4 @@ shortTitle: Sign up for Advanced Security
 ## Further reading
 
 * [Introduction to adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)
-* [Securing your organization](/code-security/getting-started/securing-your-organization)
+* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)

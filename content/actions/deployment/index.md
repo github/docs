@@ -9,10 +9,6 @@ versions:
 children:
   - /about-deployments
   - /deploying-to-your-cloud-provider
-  - /security-hardening-your-deployments
-  - /targeting-different-environments
-  - /protecting-deployments
-  - /managing-your-deployments
   - /deploying-xcode-applications
 ---
 

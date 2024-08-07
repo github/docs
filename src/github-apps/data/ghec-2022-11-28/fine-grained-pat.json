@@ -1525,6 +1525,12 @@
       "requestPath": "/orgs/{org}/code-security/configurations/defaults"
     },
     {
+      "slug": "detach-configurations-from-repositories",
+      "subcategory": "configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/code-security/configurations/detach"
+    },
+    {
       "slug": "get-a-code-security-configuration",
       "subcategory": "configurations",
       "verb": "get",

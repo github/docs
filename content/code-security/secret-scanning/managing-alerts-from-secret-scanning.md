@@ -1,6 +1,6 @@
 ---
 title: Managing alerts from secret scanning
-intro: You can view, evaluate and resolve alerts for secrets checked in to your repository.
+intro: 'You can view, evaluate and resolve alerts for secrets checked in to your repository.'
 permissions: 'People with admin access to a {% ifversion fpt %}public {% endif %}repository can view and dismiss secret scanning alerts for the repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
@@ -67,36 +67,29 @@ You can apply various filters to the alerts list to help you find the alerts you
 |Qualifier|Description|
 |---------|-----------|
 |`is:open`|Displays open alerts.|
-|`is:closed`|Displays closed alerts.|{% ifversion secret-scanning-bypass-filter %}
-|`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."|{% endif %}{% ifversion secret-scanning-validity-check %}
+|`is:closed`|Displays closed alerts.|
+| {% ifversion secret-scanning-bypass-filter %} |
+|`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."|
+| {% endif %} |
 |`validity:active`| Displays alerts for secrets that are still active. {% ifversion fpt %}Applies to {% data variables.product.company_short %} tokens only.{% endif %} For more information about validity statuses, see "[Checking a secret's validity](#checking-a-secrets-validity)."|
 |`validity:inactive`| Displays alerts for secrets that are no longer active.|
-|`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|{% endif %}
+|`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|
 |`secret-type:SECRET-NAME`| Displays alerts for a specific secret type, for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secret)." |
-|`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."|{% ifversion secret-scanning-non-provider-patterns %}
+|`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."|
+| {% ifversion secret-scanning-non-provider-patterns %} |
 |`confidence:high`| Displays alerts for high-confidence secrets, which relate to supported secrets and custom patterns. For a list of supported high-confidence patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#high-confidence-patterns)." |
-|`confidence:other`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns)." {% ifversion secret-scanning-ai-generic-secret-detection %}For more information AI-detected generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."{% endif %}|{% endif %}
-
-{% ifversion secret-scanning-validity-check %}
+|`confidence:other`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns)." {% ifversion secret-scanning-ai-generic-secret-detection %}For more information AI-detected generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."{% endif %}|
+| {% endif %} |
 
 ## Evaluating alerts
 
-{% ifversion ghes = 3.9 %}You can check the validity of a secret, to see if the secret is still active. **Applies to GitHub tokens only**. For more information, see "[Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning#checking-a-secrets-validity)."
-{% else %}
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
 * Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see "[Checking a secret's validity](#checking-a-secrets-validity)."{% ifversion secret-scanning-validity-check-partner-patterns %}
 * Perform an "on-demand" validity check, to get the most up to date validiation status. For more information, see "[Performing an on-demand-validity-check](#performing-an-on-demand-validity-check)."{% endif %}{% ifversion secret-scanning-github-token-metadata %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}
-{% endif %}
 
 ### Checking a secret's validity
-
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
-
-{% endif %}
 
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. An `active` secret is one that could still be exploited, so these alerts should be reviewed and remediated as a priority.
 
@@ -135,8 +128,6 @@ You can use the REST API to retrieve a list of the most recent validation status
 Once you have enabled validity checks for partner patterns for your repository, you can perform an "on-demand" validity check for any supported secret by clicking {% octicon "sync" aria-hidden="true" %} **Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 ![Screenshot of the UI showing a {% data variables.product.prodname_secret_scanning %} alert. A button, labeled "Verify secret" is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-verify-secret.png)
-
-{% endif %}
 
 {% endif %}
 
@@ -193,30 +184,22 @@ Once a secret has been committed to a repository, you should consider the secret
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view. {% ifversion secret-scanning-partner-documentation-link-UI %}
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.
 1. To dismiss an alert, select the "Close as" dropdown menu and click a reason for resolving an alert.
 
    ![Screenshot of a {% data variables.product.prodname_secret_scanning %} alert. A dropdown menu, titled "Close as", is expanded and highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
 
-   {% else %}
-1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
-   {% endif %}{% ifversion secret-scanning-dismissal-comment %}
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
-{% endif %}
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-{% ifversion secret-scanning-backfills %}
 Notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
 
-{% endif %}
-
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-{% ifversion secret-scanning-notification-settings %}
 {% data reusables.repositories.navigate-to-repo %}
 1. To start watching the repository, select **{% octicon "eye" aria-hidden="true" %} Watch**.
 
@@ -228,11 +211,8 @@ Notifications are different for incremental scans and historical scans.
 1. Select "Email" as a notification option, then click **Save**.
 
    ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
-{% endif %}
 
 {% data reusables.notifications.watch-settings %}
-
-{% ifversion secret-scanning-backfills %}
 
 ### Historical scans
 
@@ -244,8 +224,6 @@ For historical scans, {% data variables.product.product_name %} notifies the fol
 We do _not_ notify commit authors.
 
 {% data reusables.notifications.watch-settings %}
-
-{% endif %}
 
 ## Auditing responses to secret scanning alerts
 

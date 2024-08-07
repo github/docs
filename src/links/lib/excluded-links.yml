@@ -66,3 +66,10 @@
 - is: https://www.wireguard.com/quickstart/
 - is: https://docs.openstack.org/horizon/latest/
 - is: https://packages.ubuntu.com/search?keywords=netcat&searchon=names
+- is: https://vimeo.com/333786093
+- is: https://www.gnu.org/software/bash/
+- is: https://www.gnu.org/software/bash/manual/
+- startsWith: https://github.com/actions/actions-runner-controller
+- is: https://github.com/actions/runner/pkgs/container/actions-runner
+- is: https://github.com/Codertocat/hello-world-npm/pkgs/npm/hello-world-npm
+- is: https://jsonformatter.org/

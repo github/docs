@@ -47,6 +47,8 @@ If there is a problem with your proxy setup, you may see the following error: `{
 
 If you know you are connecting via a proxy, make sure the proxy is configured correctly in your environment. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#configuring-proxy-settings-for-github-copilot)."
 
+> [!NOTE] If you are an employee of a company with a proxy server, your company must also configure proxy settings for {% data variables.product.prodname_copilot_short %} at the company level. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."
+
 {% data variables.product.prodname_copilot %} uses custom code to connect to proxies. This means a proxy setup supported by your editor is not necessarily supported by {% data variables.product.prodname_copilot %}. Some common causes for errors related to proxies are:
 
 * If your proxy's URL starts `https://`, it is not currently supported by {% data variables.product.prodname_copilot %}.
@@ -66,11 +68,7 @@ Some possible ways to resolve certificate-related errors are:
   * On Linux, {% data variables.product.prodname_copilot_short %} checks the standard OpenSSL files `/etc/ssl/certs/ca-certificates.crt` and `/etc/ssl/certs/ca-bundle.crt`.
 * Configure {% data variables.product.prodname_copilot %} to ignore certificate errors. In your proxy settings, you can deselect **Proxy Strict SSL** in {% data variables.product.prodname_vscode %}, or select **Accept non-trusted certificates automatically** in a JetBrains IDE. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#configuring-proxy-settings-for-github-copilot)."
 
-  {% warning %}
-
-  **Warning:** Ignoring certificate errors can cause security issues and is not recommended.
-
-  {% endwarning %}
+  > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 
 ### Troubleshooting security software-related certificate errors
 

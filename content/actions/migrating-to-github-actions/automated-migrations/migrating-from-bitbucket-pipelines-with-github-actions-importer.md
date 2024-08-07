@@ -125,7 +125,7 @@ The audit command performs the following steps.
 To perform an audit run the following command in your terminal, replacing `:workspace` with the name of the Bitbucket workspace to audit.
 
 ```bash
-gh actions-importer audit bitbucket --workspace :workspace--output-dir tmp/audit
+gh actions-importer audit bitbucket --workspace :workspace --output-dir tmp/audit
 ```
 
 Optionally, a `--project-key` option can be provided to the audit command to limit the results to only pipelines associated with a project.
