@@ -34,6 +34,7 @@ export default {
       'isPrivateWithGhas',
       'hasPushProtection',
       'hasValidityCheck',
+      'isduplicate',
     ],
     properties: {
       provider: {
@@ -65,6 +66,11 @@ export default {
       hasValidityCheck: {
         description: 'whether the secret has its validation status checked',
         type: ['boolean', 'string'],
+      },
+      isduplicate: {
+        description:
+          'whether the token has more than one version, meaning there are more than one token descriptions with the same token key',
+        type: ['boolean'],
       },
     },
   },
