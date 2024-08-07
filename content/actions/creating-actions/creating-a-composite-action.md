@@ -154,7 +154,7 @@ Before you begin, you'll create a repository on {% data variables.location.produ
 
 The following workflow code uses the completed hello world action that you made in "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `<username>/hello-world-composite-action@v1` with your <username> and the repository and tag you created. You can also replace the `who-to-greet` input with your name.
+Copy the workflow code into a `.github/workflows/main.yml` file in another repository, replacing `OWNER` and `TAG` with the repository owner and the tag you created, respectively. You can also replace the `who-to-greet` input with your name.
 
 ```yaml copy
 on: [push]
