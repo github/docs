@@ -181,6 +181,17 @@
       },
       {
         "category": "copilot",
+        "slug": "get-a-summary-of-copilot-usage-for-an-enterprise-team",
+        "subcategory": "copilot-usage",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/team/{team_slug}/copilot/usage",
+        "access": "read",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
         "slug": "get-a-summary-of-copilot-usage-for-organization-members",
         "subcategory": "copilot-usage",
         "verb": "get",
