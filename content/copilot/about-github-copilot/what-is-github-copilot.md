@@ -60,6 +60,8 @@ For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copi
 
 **As an enterprise owner**, you can purchase a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} for your enterprise, and allow organizations to grant access to members. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise)."
 
+If you **don't need other features**, you can request an enterprise account specifically for managing {% data variables.product.prodname_copilot_for_business %} licenses. You won't pay for {% data variables.product.prodname_enterprise %} seats, and you won't be able to create organizations or repositories. See "[AUTOTITLE](/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business)."
+
 ## Next steps
 
 * To learn more about the Copilot features, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
