@@ -16,7 +16,7 @@ topics:
 
 ## About {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} automatically detects tokens or credentials that have been checked into a repository. You can view {% ifversion fpt or ghec %}{% data variables.secret-scanning.user_alerts %}{% else %}alerts{% endif %} for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+{% data variables.product.prodname_secret_scanning_caps %} automatically detects tokens or credentials that have been checked into a repository. You can view {% ifversion fpt or ghec %}{% data variables.secret-scanning.user_alerts %}{% else %}alerts{% endif %} for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning#about-secret-scanning-alerts-for-users)."
 
 ## About excluding directories from {% data variables.secret-scanning.user_alerts %}
 

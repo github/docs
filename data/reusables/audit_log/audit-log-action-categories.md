@@ -134,7 +134,7 @@
 | `repository_invitation` | Contains activities related to invitations to join a repository.
 | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
 {%- ifversion ghec or ghes %}
-| `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 {%- endif %}
 {%- ifversion secret-scanning-validity-check-audit-log %}
 | `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)."
@@ -163,7 +163,7 @@
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes %}
-| `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization.
 {%- endif %}
 {%- ifversion ghec or ghes %}

@@ -83,5 +83,5 @@ Generic secret detection has been subject to Responsible AI Red Teaming and {% d
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 * [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-to-manage-the-use-of-generic-secret-detection-for-secret-scanning-in-your-enterprises-repositories)

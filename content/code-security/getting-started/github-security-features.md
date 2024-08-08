@@ -77,13 +77,13 @@ Privately discuss and fix security vulnerabilities in your repository's code. Yo
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+Automatically detect tokens or credentials that have been checked into a {% ifversion ghec %}user-owned {% endif %}public repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning#about-secret-scanning-alerts-for-users)."
 
 {% ifversion secret-scanning-push-protection-for-users %}
 
 ### Push protection for users
 
-Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."
+Push protection for users automatically protects you from accidentally committing secrets to public repositories, regardless of whether the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. Push protection for users is on by default, but you can disable the feature at any time through your personal account settings. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users)."
 
 {% endif %}
 
@@ -114,7 +114,7 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
 
 {% ifversion dependabot-auto-triage-rules %}
 

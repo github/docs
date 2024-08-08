@@ -70,7 +70,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`is:open`|Displays open alerts.|
 |`is:closed`|Displays closed alerts.|
 | {% ifversion secret-scanning-bypass-filter %} |
-|`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."|
+|`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."|
 | {% endif %} |
 |`validity:active`| Displays alerts for secrets that are known to be active. {% ifversion fpt %}Applies to {% data variables.product.company_short %} tokens only.{% endif %} For more information about validity statuses, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."|
 |`validity:inactive`| Displays alerts for secrets that are no longer active.|
@@ -79,7 +79,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."|
 | {% ifversion secret-scanning-non-provider-patterns %} |
 |`confidence:high`| Displays alerts for high-confidence secrets, which relate to supported secrets and custom patterns. For a list of supported high-confidence patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#high-confidence-patterns)." |
-|`confidence:other`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)." {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."{% endif %}|
+|`confidence:other`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)." {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."{% endif %}|
 | {% endif %} |
 
 ## Next steps

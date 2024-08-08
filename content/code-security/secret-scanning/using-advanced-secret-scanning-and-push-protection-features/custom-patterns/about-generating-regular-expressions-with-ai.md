@@ -65,11 +65,11 @@ Note that the {% data variables.secret-scanning.custom-pattern-regular-expressio
 ## Further reading
 
 {% ifversion fpt %}
-* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
 
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)
-* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 {% endif %}
