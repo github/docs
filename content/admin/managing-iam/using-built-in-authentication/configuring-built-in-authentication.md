@@ -24,6 +24,12 @@ shortTitle: Configure built-in authentication
 
 By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.location.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
 
+{% ifversion passkeys %}
+
+By default, users can use passkeys for built-in authentication, but you can disable passkeys for your instance. See "[AUTOTITLE](/admin/managing-iam/using-built-in-authentication/disabling-passkeys-for-your-instance)."
+
+{% endif %}
+
 You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}

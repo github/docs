@@ -41,7 +41,6 @@ includeGuides:
   - /actions/using-containerized-services/creating-postgresql-service-containers
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine
-  - /actions/security-guides/security-hardening-for-github-actions
   - /actions/creating-actions/about-custom-actions
   - /actions/creating-actions/creating-a-javascript-action
   - /actions/creating-actions/creating-a-composite-action

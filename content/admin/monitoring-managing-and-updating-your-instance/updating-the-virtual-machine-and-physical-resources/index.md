@@ -19,6 +19,7 @@ children:
   - /increasing-cpu-or-memory-resources
   - /migrating-from-github-enterprise-1110x-to-2123
   - /preparing-for-the-elasticsearch-upgrade
+  - /using-generation-2-virtual-machines
   - /known-issues-with-upgrades-to-your-instance
 shortTitle: Update VM & resources
 ---

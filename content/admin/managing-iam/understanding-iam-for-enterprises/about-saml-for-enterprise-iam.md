@@ -68,9 +68,9 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
-{% ifversion scim-for-ghes %}
+{% ifversion ghes %}
 
 ## About creation of user accounts
 
@@ -113,6 +113,4 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 
 * "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 * [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
-{%- ifversion scim-for-ghes %}
 * [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
-{%- endif %}

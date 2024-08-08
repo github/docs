@@ -21,7 +21,7 @@ children:
   - /using-ldap-for-enterprise-iam
   - /using-saml-for-enterprise-iam
   - /configuring-authentication-for-enterprise-managed-users
-  - /provisioning-user-accounts-for-enterprise-managed-users
+  - /provisioning-user-accounts-with-scim
   - /reconfiguring-iam-for-enterprise-managed-users
   - /managing-recovery-codes-for-your-enterprise
 ---

@@ -23,12 +23,14 @@ Once a user account has been deleted, the username will be available for use wit
 
 ## When can I delete a user account?
 
-You cannot delete a user that is currently an organization owner.
+You cannot delete a user that is currently an **organization owner**.
 
 * **If the user is the only owner**: Transfer ownership to another person, or delete the organization. See "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)" and "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)."
 * **If there are other owners**: Remove the user from the organization. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)."
 
-You cannot delete your own user account. If you need to delete your own user account, ask another site administrator to delete your account for you.
+You cannot delete **your own user account**. If you need to delete your own user account, ask another site administrator to delete your account for you.
+
+If you have enabled SCIM provisioning on your instance, you cannot delete **users who have been provisioned by SCIM**.
 
 ## Should I delete or suspend a user account?
 

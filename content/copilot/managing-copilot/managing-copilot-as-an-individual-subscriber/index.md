@@ -9,5 +9,6 @@ topics:
 children:
   - /managing-your-copilot-subscription
   - /managing-copilot-policies-as-an-individual-subscriber
-  - /installing-github-copilot-extensions-for-your-personal-account
+  - /extending-the-capabilities-of-github-copilot-in-your-personal-account
 ---
+
