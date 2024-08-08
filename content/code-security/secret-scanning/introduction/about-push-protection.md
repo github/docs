@@ -95,6 +95,7 @@ Define contributors who can bypass push protection and add an approval process f
 ## Further reading
 
 * "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)"
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection)"{% ifversion secret-scanning-push-protection-custom-patterns %}
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)"
+* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)"{% ifversion secret-scanning-push-protection-custom-patterns %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)"{% endif %}{% ifversion push-protection-delegated-bypass %}
 * "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)"{% endif %}

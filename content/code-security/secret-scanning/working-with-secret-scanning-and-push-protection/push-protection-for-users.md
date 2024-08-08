@@ -18,7 +18,7 @@ redirect_from:
 
 Push protection for users automatically protects you from accidentally committing secrets to public repositories across {% data variables.product.product_name %}.
 
-When you try to push a secret to a public repository, {% data variables.product.prodname_dotcom %} blocks the push. If you believe it's safe to allow the secret, you have the option to bypass the block. Otherwise, you must remove the secret from the commit before pushing again. For more information on how to resolve a blocked push, see "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection)."
+When you try to push a secret to a public repository, {% data variables.product.prodname_dotcom %} blocks the push. If you believe it's safe to allow the secret, you have the option to bypass the block. Otherwise, you must remove the secret from the commit before pushing again. For more information on how to resolve a blocked push, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)" or "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)", depending on whether you use the {% data variables.product.product_name %} UI or the command line.
 
 Push protection for users is always on by default. You can disable the feature at any time through your personal account settings. This may cause secrets to be accidentally leaked. For more information, see "[Disabling push protection for users](#disabling-push-protection-for-users)."
 
