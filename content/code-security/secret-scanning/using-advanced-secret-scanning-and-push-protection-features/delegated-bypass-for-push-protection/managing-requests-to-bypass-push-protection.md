@@ -24,7 +24,7 @@ An organization owner or repository administrator defines which roles and teams 
 
 > [!NOTE] Members of the bypass list are still protected from accidentally pushing secrets to a repository. When a member of the bypass list attempts to push a commit containing a secret, their push is still blocked, but they can choose to bypass the block by specifying a reason for allowing the push. Members of the bypass list do not have to request bypass privileges from other members in order to override the block.
 
-### Managing requests to bypass push protection at the repository-level
+### Managing requests to bypass push protection at the repository level
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
