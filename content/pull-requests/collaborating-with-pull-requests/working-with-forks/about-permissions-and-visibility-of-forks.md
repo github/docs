@@ -32,6 +32,8 @@ All repositories belong to a repository network. A repository network contains t
 
 If you delete a repository or change the repository's visibility settings, you will affect the repository's forks. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 
+If you delete a fork, any code contributions of that fork will still be accessible to the repository network.
+
 ## About permissions of forks
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
@@ -55,11 +57,11 @@ For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-me
 If you work with forks, or if you're the owner of a repository or organization that allows forking, it's important to be aware of the following security considerations.
 
 * Forks have their own permissions separate from the upstream repository.
-* The owners of a repository that has been forked have read permission to all forks in the repository's fork network.
+* The owners of a repository that has been forked have read permission to all forks in the repository's network.
 * Organization owners of a repository that has been forked have admin permission to forks created in personal user namespaces, including the ability to delete the fork and its branches.
 * Organization owners of a repository that has been forked have read permission to forks created in organizations, but do not have the ability to delete the fork or its branches.
 * Forks created in another organization will not be deleted when individual access is removed from the upstream repository.
-* Commits to any repository in a fork network can be accessed from any repository in the same fork network, including the upstream repository.
+* Commits to any repository in a network can be accessed from any repository in the same network, including the upstream repository, even after a fork is deleted.
 
 ### About forks within an organization
 
