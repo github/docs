@@ -74,11 +74,7 @@ Once push protection is enabled, you can customize it further:
 
 ### Integration with CI/CD pipelines
 
-Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}. For more information, see "TODO: - add link to something here?"
-
-### Handling false positives
-
-If push protection occasionally flags non-sensitive information, you can configure the system to recognize these as false positives. For more information, see "TODO: - not sure what to link to here?"
+Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}
 
