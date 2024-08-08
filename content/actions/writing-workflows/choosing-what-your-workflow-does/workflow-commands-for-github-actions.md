@@ -628,7 +628,7 @@ jobs:
     steps:
       - shell: pwsh
         run: |
-          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append
+          "mypath" >> $env:GITHUB_PATH
 ```
 
 {% endnote %}
@@ -750,7 +750,7 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      $EOF = -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)})
+      $EOF = (New-Guid).Guid
       "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
       (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
       "$EOF" >> $env:GITHUB_ENV
