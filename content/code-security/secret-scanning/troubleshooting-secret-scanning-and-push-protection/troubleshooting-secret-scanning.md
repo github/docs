@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting secret scanning
 shortTitle: Troubleshoot secret scanning
-intro: 'If you have problems with {% data variables.product.prodname_secret_scanning %}, you can use these tips to help resolve issues.'
+intro: 'When using {% data variables.product.prodname_secret_scanning %} to detect secrets in your repository, or secrets about to be committed into your repository, you may need to troubleshoot unexpected issues.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -12,6 +12,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - Troubleshooting
+redirect_from:
+  - /code-security/secret-scanning/troubleshooting-secret-scanning
 ---
 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
@@ -20,7 +22,7 @@ topics:
 
 {% data variables.product.prodname_secret_scanning_caps %} will only detect pattern pairs, such as AWS Access Keys and Secrets, if the ID and the secret are found in the same file, and both are pushed to the repository. Pair matching helps reduce false positives since both elements of a pair (the ID and the secret) must be used together to access the provider's resource.
 
-Pairs pushed to different files, or not pushed to the same repository, will not result in alerts. For more information about the supported pattern pairs, see the table in "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
+Pairs pushed to different files, or not pushed to the same repository, will not result in alerts. For more information about the supported pattern pairs, see the table in "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
 
 {% ifversion secret-scanning-validity-check %}
 
@@ -32,7 +34,7 @@ For {% data variables.product.prodname_dotcom %} tokens, we check the validity o
 
 ## Push protection limitations
 
-If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 If your secret is in the supported list, there are various reasons why push protection may not detect it.
 

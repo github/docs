@@ -103,7 +103,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Scanning for non-provider patterns
 
-You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user-alerts)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#other-alerts-list)."
+You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#other-alerts-list)."
 
    {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
@@ -113,7 +113,7 @@ You can choose to scan for non-provider patterns, such as private keys, to detec
 
 ### Generic secret detection
 
-Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)."
+Generic secret detection is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords. To enable these scans, select **Use AI detection to find additional secrets**. Be aware that generic secrets often have a higher rate of false positives than other types of alert. To learn more about generic secrets, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)."
 
 {% data reusables.secret-scanning.generic-secret-detection-ai %}
 
@@ -126,7 +126,7 @@ To provide context for developers when {% data variables.product.prodname_secret
 
 ### Defining custom patterns
 
-You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+You can define custom patterns for {% data variables.product.prodname_secret_scanning %} with regular expressions. Custom patterns can identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. To create a custom pattern, click **New pattern**, then enter the details for your pattern and click **Save and dry run**. For more information on custom patterns, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 {% endif %}
 
