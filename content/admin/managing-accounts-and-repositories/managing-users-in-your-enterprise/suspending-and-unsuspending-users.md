@@ -20,6 +20,7 @@ topics:
   - User account
 shortTitle: Manage user suspension
 ---
+
 ## About suspended users
 
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
@@ -34,12 +35,16 @@ your installation administrator.
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
+> [!TIP] {% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts.
 
-> [!TIP]
-> * If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
-> * A user cannot be suspended or unsuspended from the site admin dashboard or from the command line when LDAP Sync is enabled for your instance.
-> * {% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts.
+## Scenarios where you cannot suspend users
+
+Before suspending site administrators, you must demote them to regular users. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
+
+If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
+
+* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
+* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.
 
 ## Viewing suspended users in the site admin dashboard
 

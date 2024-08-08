@@ -20,11 +20,9 @@ redirect_from:
 children:
   - /deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
   - /configuring-saml-single-sign-on-for-your-enterprise
-  - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /disabling-saml-single-sign-on-for-your-enterprise
-  - /configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
   - /enabling-encrypted-assertions
   - /updating-a-users-saml-nameid
   - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account

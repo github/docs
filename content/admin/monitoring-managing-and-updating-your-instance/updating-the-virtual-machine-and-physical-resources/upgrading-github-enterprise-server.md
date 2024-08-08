@@ -261,41 +261,18 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
 1. On the primary node, enable maintenance mode and wait for all active processes to complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 {% data reusables.enterprise_installation.replica-ssh %}
-1. To stop replication on all nodes, run `ghe-repl-stop` on each node.
+1. To stop replication on all nodes, run `ghe-repl-stop` on each node.{% ifversion ghes > 3.13 %} Alternatively, if there are mutliple replicas, run `ghe-repl-stop-all` on the primary node instead, which will stop replication in a single run.{% endif %}
 1. To upgrade the primary node, follow the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 
 #### Upgrading additional nodes with an upgrade package
 
-{% data reusables.enterprise_installation.multiple-node-upgrade-admonishment %}
-
 1. Upgrade the node by following the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
-{% data reusables.enterprise_installation.start-replication %}
-{% data reusables.enterprise_installation.replication-status %} If the command returns `Replication is not running`, the replication may still be starting. Wait about one minute before running `ghe-repl-status` again.
-
-   {% note %}
-
-   **Notes:**
-
-   * While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
-
-     ```text
-     CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
-     ```
-
-   * If {% data variables.product.prodname_actions %} is enabled on {% data variables.location.product_location %}, you may see a message like the following. This message is expected when replication is paused due to maintenance mode being set on the primary appliance. Once maintenance mode is unset, this message should be resolved.
-
-     ```text
-     CRITICAL: mssql replication is down, didn't find Token_Configuration!
-     ```
-
-   {% endnote %}
-
-    If `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
-
+{% data reusables.enterprise_installation.start-replication %}{% ifversion ghes > 3.13 %} Alternatively, if there are mutliple replicas, run `ghe-repl-start-all` on the primary node instead, which will start replications in a single run.{% endif %}
+{% data reusables.enterprise_installation.replication-status %} {% data reusables.enterprise_installation.replication-status-upgrade %}
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
-1. After you have upgraded the last replica node and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
+{% data reusables.enterprise_installation.disable-maintenance-mode-after-replica-upgrade %}
 
 ## Restoring from a failed upgrade
 
@@ -303,9 +280,9 @@ If an upgrade fails or is interrupted, you should revert your instance back to i
 
 ### Rolling back a patch release
 
-To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica nodes. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica nodes{% ifversion ghes > 3.13 %}, or `ghe-repl-stop-all` on the primary node{% endif %}. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-After the rollback is complete, restart replication by running `ghe-repl-start` on all nodes.
+After the rollback is complete, restart replication by running `ghe-repl-start` on all nodes{% ifversion ghes > 3.13 %}, or `ghe-repl-start-all` on the primary node{% endif %}.
 
 For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-upgrade)."
 

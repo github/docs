@@ -54,7 +54,7 @@ If you've set up a security key on your account, and your browser supports secur
 
 ### Using a passkey
 
-If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."
+If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 {% endif %}
 
