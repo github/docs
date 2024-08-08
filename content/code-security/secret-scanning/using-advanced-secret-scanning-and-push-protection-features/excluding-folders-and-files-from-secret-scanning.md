@@ -28,7 +28,7 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-1. In the file name field, type _.github/secret_scanning.yml_.
+1. In the file name field, enter ".github/secret_scanning.yml".
 1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
 
     ``` yaml copy
