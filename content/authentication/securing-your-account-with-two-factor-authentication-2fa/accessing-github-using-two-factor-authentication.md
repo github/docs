@@ -47,7 +47,7 @@ If you've set up a security key on your account, and your browser supports secur
 
 1. Using your username and password, sign in to {% data variables.product.product_name %} through your browser.
 1. If you use a physical security key, ensure it's connected to your device.
-1. To trigger the security key prompt from your operating system, select "Use security key".
+1. To trigger the security key prompt from your operating system, select "Use security key."
 1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
 
 {% ifversion passkeys %}
