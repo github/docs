@@ -84,7 +84,7 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
 
 For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 
-{% data reusables.secret-scanning.push-protection-high-level %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% ifversion ghec or ghes %} Finally, you can also extend the detection to include custom secret string structures. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %}
+{% data reusables.secret-scanning.push-protection-high-level %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% ifversion ghec or ghes %} Finally, you can also extend the detection to include custom secret string structures. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."{% endif %}
 
 ### Review the audit log for your organization
 

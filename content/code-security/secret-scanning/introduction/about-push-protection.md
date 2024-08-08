@@ -80,7 +80,7 @@ Integrate push protection with your Continuous Integration/Continuous Deployment
 
 ### Define custom patterns
 
-Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 {% endif %}
 
