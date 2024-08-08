@@ -57,7 +57,11 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% ifversion push-protection-delegated-bypass %}
+
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges)."
+
+{% endif %}
 
 {% ifversion push-protection-delegated-bypass %}
 
