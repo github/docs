@@ -26,7 +26,7 @@ topics:
 
 After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
 
-{% elsif scim-for-ghes %}
+{% elsif ghes %}
 
 Administrators who configure a {% data variables.product.product_name %} instance can use local accounts and built-in authentication on the instance. Alternatively, to centralize identity and access for an enterprise's web applications, administrators can configure an external authentication method. If you use SAML, you can optionally provision user accounts on the instance from your identity provider (IdP) using System for Cross-domain Identity Management (SCIM).
 
@@ -97,7 +97,7 @@ If you use [authentication through {% data variables.location.product_location %
 
 Alternatively, if you use [{% data variables.product.prodname_emus %}](#authentication-with-enterprise-managed-users-and-federation), you must configure your IdP to provision user accounts within your enterprise on {% data variables.location.product_location %} using System for Cross-domain Identity Management (SCIM). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users)."
 
-{% elsif scim-for-ghes %}
+{% elsif ghes %}
 
 If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.product.product_name %} creates a user account when an authorized person signs into the instance, or "just in time" (JIT). Optionally, if you use SAML, you can provision user accounts from your identity provider (IdP) using SCIM. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
 

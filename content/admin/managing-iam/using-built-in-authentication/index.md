@@ -12,7 +12,7 @@ children:
   - /configuring-built-in-authentication
   - /inviting-people-to-use-your-instance
   - /disabling-unauthenticated-sign-ups
+  - /disabling-passkeys-for-your-instance
 redirect_from:
   - /admin/identity-and-access-management/using-built-in-authentication
 ---
-

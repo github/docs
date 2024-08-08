@@ -20,18 +20,18 @@ learningTracks:
 includeGuides:
   - /admin/managing-iam/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
   - /admin/managing-iam/understanding-iam-for-enterprises/changing-authentication-methods
-  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
-  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes
   - /admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
-  - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
-  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-using-okta
-  - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+  - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
   - /admin/managing-iam/using-cas-for-enterprise-iam/using-cas
   - /admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap
   - /admin/managing-iam/using-saml-for-enterprise-iam
@@ -135,3 +135,4 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
+

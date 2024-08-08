@@ -1176,6 +1176,17 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
+{% ifversion ghes > 3.13 %}
+
+### ghe-repl-stop-all
+
+This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+
+### ghe-repl-start-all
+
+This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+{% endif %}
+
 ## Import and export
 
 ### ghe-migrator

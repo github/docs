@@ -79,7 +79,7 @@ If you don't already have single sign-on recovery codes for your enterprise, dow
 
 After you disable authentication and provisioning, {% data variables.product.product_name %} will suspend all of the {% data variables.enterprise.prodname_managed_users %} for your enterprise. You can validate suspension of your enterprise's members using the web UI.
 
-1. View the suspended members in your enterprise. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members-in-an-enterprise-with-managed-users)."
+1. View the suspended members in your enterprise. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members)."
 1. If all of your enterprise's members are not yet suspended, continue waiting, and review the logs on your SCIM provider.
 
    * If you use Entra ID, suspension of your members can take up to 40 minutes. To expedite the process for an individual user, click the **Provision on Demand** button in the "Provisioning" tab of the application for {% data variables.product.prodname_emus %}.

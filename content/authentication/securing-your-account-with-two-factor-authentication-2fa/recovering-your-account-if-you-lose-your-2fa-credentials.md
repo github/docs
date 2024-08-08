@@ -52,7 +52,7 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
 ## Authenticating with a passkey
 
-If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 {% endif %}
 
