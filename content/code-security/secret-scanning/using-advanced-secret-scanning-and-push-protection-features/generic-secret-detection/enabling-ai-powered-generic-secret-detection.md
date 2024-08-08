@@ -9,6 +9,8 @@ topics:
   - Secret scanning
   - Advanced Security
   - AI
+redirect_from:
+  - /code-security/secret-scanning/enabling-ai-powered-generic-secret-detection
 ---
 
 {% data reusables.secret-scanning.generic-secret-detection-ai %}
@@ -36,9 +38,9 @@ You can then enable the feature in the security settings page of your organizati
 1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Secret scanning", select the checkbox next to "Use AI detection to find additional secrets".
 
-For information on how to view alerts for generic secrets that have been detected using AI, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+For information on how to view alerts for generic secrets that have been detected using AI, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)
-* [AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection/about-the-detection-of-generic-secrets-with-secret-scanning)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)

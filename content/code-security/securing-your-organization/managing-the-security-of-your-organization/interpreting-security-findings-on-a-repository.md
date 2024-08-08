@@ -39,7 +39,7 @@ After you apply a {% data variables.product.prodname_security_configuration %} t
 {% endif %}
 You can view {% data variables.product.prodname_secret_scanning %} alerts for a repository by navigating to the main page of that repository, clicking the {% octicon "shield" aria-hidden="true" %} **Security** tab, then clicking {% octicon "key" aria-hidden="true" %} **{% data variables.product.prodname_secret_scanning_caps %}**.
 
-For an introduction to {% data variables.product.prodname_secret_scanning %} alerts, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+For an introduction to {% data variables.product.prodname_secret_scanning %} alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
 
 To learn how to interpret and resolve {% data variables.product.prodname_secret_scanning %} alerts, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

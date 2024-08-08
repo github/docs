@@ -47,7 +47,7 @@ Treat authentication credentials the same way you would treat your passwords or 
 * Don't share authentication credentials using an unencrypted messaging or email system.
 * Don't pass your {% data variables.product.pat_generic %} as plain text in the command line. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#keeping-your-personal-access-tokens-secure)."
 * Don't push unencrypted authentication credentials like tokens or keys to any repository, even if the repository is private. Instead consider using a {% data variables.product.prodname_actions %} secret{% ifversion fpt or ghec %} or Codespaces secret{% endif %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %} and "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}.
-* You can use secret scanning to discover tokens, private keys, and other secrets that were pushed to a repository, or to block future pushes that contain secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+* You can use secret scanning to discover tokens, private keys, and other secrets that were pushed to a repository, or to block future pushes that contain secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 
 ## Limit who can access your authentication credentials
 

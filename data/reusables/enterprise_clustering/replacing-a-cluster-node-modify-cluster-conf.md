@@ -5,6 +5,7 @@
      hostname = <em>ghe-replacement-data-node-3</em>
      ipv4 = <em>192.168.0.7</em>
      # ipv6 = fd12:3456:789a:1::7
+     consul-datacenter = PRIMARY-DATACENTER
      git-server = true
      pages-server = true
      mysql-server = true
