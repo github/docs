@@ -37,14 +37,6 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with a licen
 
 {% endif %}
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
-You can additionally choose to enable validity checks for partner patterns. Once enabled, {% data variables.product.company_short %} will periodically check the validity of a detected credential by sending the secret directly to the provider, as part of {% data variables.product.company_short %}'s formal secret scanning partnership program. {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
-
-{% data variables.product.company_short %} displays the validation status of the secret in the alert view.
-
-{% endif %}
-
 {% data reusables.secret-scanning.validity-check-table %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}

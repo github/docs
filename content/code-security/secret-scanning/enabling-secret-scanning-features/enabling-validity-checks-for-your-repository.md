@@ -18,7 +18,15 @@ You can enable validity checks for secrets identified as service provider tokens
 
 {% data variables.product.company_short %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
 
-You can also filter by validation status on the alerts page, to help you prioritize which alerts you need to take action on.
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+You can additionally choose to enable validity checks for partner patterns. Once enabled, {% data variables.product.company_short %} will periodically check the validity of a detected credential by sending the secret directly to the provider, as part of {% data variables.product.company_short %}'s formal secret scanning partnership program. {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
+
+{% data variables.product.company_short %} displays the validation status of the secret in the alert view.
+
+{% endif %}
+
+You can filter by validation status on the alerts page, to help you prioritize which alerts you need to take action on.
 
 > [!NOTE]
 > {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
