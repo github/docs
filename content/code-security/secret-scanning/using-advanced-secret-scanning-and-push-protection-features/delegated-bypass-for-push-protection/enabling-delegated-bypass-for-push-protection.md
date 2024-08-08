@@ -24,7 +24,7 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 >[!NOTE] You can't add secret teams to the bypass list.
 
-### Configuring delegated bypass for an organization
+## Configuring delegated bypass for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -37,7 +37,7 @@ When you enable this feature, you will create a bypass list of roles and teams w
 1. Under "Bypass list", click **Add role or team**.
 1. In the dialog box, select the roles and teams that you want to add to the bypass list, then click **Add selected**.
 
-### Configuring delegated bypass for a repository
+## Configuring delegated bypass for a repository
 
 >[!NOTE] If an organization owner configures delegated bypass at the organization-level, the repository-level settings are disabled.
 

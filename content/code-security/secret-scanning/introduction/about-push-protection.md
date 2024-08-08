@@ -72,13 +72,13 @@ Every user across {% data variables.product.prodname_dotcom %} can also enable p
 
 Once push protection is enabled, you can customize it further:
 
-### Integration with CI/CD pipelines
+### Integrate with CI/CD pipelines
 
 Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}
 
-### Defining custom patterns
+### Define custom patterns
 
 Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
@@ -86,7 +86,7 @@ Define custom patterns that push protection can use to identify secrets and bloc
 
 {% ifversion push-protection-delegated-bypass %}
 
-### Using delegated bypass
+### Configure delegated bypass
 
 Define contributors who can bypass push protection and add an approval process for other contributors. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)."
 
