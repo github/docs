@@ -10,7 +10,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/3542
         - |
-          To ensure an instance's readiness for an upgrade to a new feature release of GitHub Enterprise Server, administrators can ensure that background tasks from a previous upgrade are complete using the `ghe-check-background-upgrade-jobs` command-line utility. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-check-background-upgrade-jobs)."
+          To ensure an instance's readiness for an upgrade to a new feature release of GitHub Enterprise Server, administrators can ensure that background tasks from a previous upgrade are complete using the `ghe-check-background-upgrade-jobs` command-line utility. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package#upgrading-a-standalone-instance-using-an-upgrade-package)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-check-background-upgrade-jobs)."
         # https://github.com/github/releases/issues/3531
         - |
           When backing up an instance in a cluster configuration using GitHub Enterprise Server Backup Utilities, the pre-flight routine includes a health check for all nodes and notifies administrators of any issues before the backup begins.
@@ -25,7 +25,7 @@ sections:
         # https://github.com/github/releases/issues/3802
         - |
           On an instance in a cluster configuration, administrators can more easily configure or tear down a high availability replica of the cluster. For more information, see the documentation for the following utilities in the "Command-line utilities" article:
-          
+
           - [`ghe-cluster-repl-bootstrap`](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-repl-bootstrap)
           - [`ghe-cluster-repl-teardown`](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-repl-teardown)
 

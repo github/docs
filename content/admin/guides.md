@@ -63,17 +63,19 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
   - /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/setting-up-external-monitoring
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
+  - /admin/monitoring-and-managing-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
+  - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/setting-up-external-monitoring
+  - /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+  - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
+  - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+  - /admin/upgrading-your-instance/performing-an-upgrade
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs
   - /support/learning-about-github-support/about-github-support
   - /admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
