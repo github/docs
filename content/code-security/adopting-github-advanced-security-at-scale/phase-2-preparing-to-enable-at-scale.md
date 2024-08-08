@@ -132,7 +132,7 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 **Note:** When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
 
-Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."{% endif %}
+Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."{% endif %}
 
 {% endnote %}
 
@@ -158,13 +158,13 @@ If you are enabling {% data variables.product.prodname_secret_scanning %} on a l
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
+{% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
 
 As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 ### Push protection for {% data variables.product.prodname_secret_scanning %}
 
-Push protection for organizations and repositories instructs {% data variables.product.prodname_secret_scanning %} to check pushes for supported secrets _before_ secrets are committed to the codebase. For information on which secrets are supported, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+Push protection for organizations and repositories instructs {% data variables.product.prodname_secret_scanning %} to check pushes for supported secrets _before_ secrets are committed to the codebase. For information on which secrets are supported, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 If a secret is detected in a push, that push is blocked. {% data variables.product.prodname_secret_scanning_caps %} lists any secrets it detects so the author can review the secrets and remove them or, if needed, allow those secrets to be pushed. {% data reusables.secret-scanning.push-protection-custom-pattern %}
 

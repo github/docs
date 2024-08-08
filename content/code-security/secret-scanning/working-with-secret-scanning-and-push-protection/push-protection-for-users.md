@@ -26,7 +26,7 @@ Push protection for users is different from _push protection for repositories an
 
 With push protection for users, {% data variables.product.prodname_dotcom %} won't create an alert when you bypass the protection and push a secret to a public repository, unless the repository itself has {% data variables.product.prodname_secret_scanning %} enabled. However, if the bypassed secret is a {% data variables.product.prodname_dotcom %} token, the token will be revoked and you will be notified by email.
 
-For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 ## Disabling push protection for users
 

@@ -103,7 +103,7 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 
 ### Scanning for non-provider patterns
 
-You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#about-user-alerts)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
+You can choose to scan for non-provider patterns, such as private keys, to detect non-provider secrets before they are leaked. To enable these scans, select **Scan for non-provider patterns**. Be aware that non-provider tokens often have a higher rate of false positives. To learn more about non-provider patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns)" and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts#other-alerts-list)."
 
    {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
