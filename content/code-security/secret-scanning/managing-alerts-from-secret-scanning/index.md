@@ -1,6 +1,6 @@
 ---
 title: Managing alerts from secret scanning
-intro: 'Learn how to find, evaluate, and resolve alerts for secrets checked in to your repository.'
+intro: 'Learn how to find, evaluate, and resolve alerts for secrets stored in your repository.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning

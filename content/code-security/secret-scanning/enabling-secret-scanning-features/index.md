@@ -2,7 +2,7 @@
 title: Enabling secret scanning features
 shortTitle: Enable secret scanning features
 allowTitleToDifferFromFilename: true
-intro: 'Learn how to enable {% data variables.product.prodname_secret_scanning %} that scans for and detects secrets that have been checked into a repository, as well as push protection that proactively secures you against leaking secrets by blocking pushes containing secrets.'
+intro: 'Learn how to enable {% data variables.product.prodname_secret_scanning %} to detect secrets that are already visible in a repository, as well as push protection to proactively secure you against leaking additional secrets by blocking pushes containing secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'

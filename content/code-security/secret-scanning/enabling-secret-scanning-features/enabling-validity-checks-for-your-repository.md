@@ -14,7 +14,7 @@ topics:
 
 ## About validity checks
 
-You can choose to enable validity checks for partner patterns for your repository. Once enabled, {% data variables.product.company_short %} will periodically check the validity of a detected credential by sending the secret directly to the provider, as part of {% data variables.product.company_short %}'s secret scanning partnership program. {% data reusables.secret-scanning.partner-program-link %}
+You can enable validity checks for secrets identified as service provider tokens for your repository. Once enabled, {% data variables.product.company_short %} will periodically check the validity of a detected credential by sending the secret directly to the provider, as part of {% data variables.product.company_short %}'s secret scanning partnership program. {% data reusables.secret-scanning.partner-program-link %}
 
 {% data variables.product.company_short %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
 

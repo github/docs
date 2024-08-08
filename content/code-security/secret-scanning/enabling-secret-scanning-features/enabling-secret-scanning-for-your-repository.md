@@ -52,5 +52,5 @@ A repository administrator can choose to disable {% data variables.product.prodn
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)"{% ifversion secret-scanning-validity-check-partner-patterns %}
-* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)"{% endif %}
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)"
+* "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)"

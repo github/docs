@@ -13,7 +13,7 @@ topics:
 
 ## Metrics for custom patterns
 
-Organization owners and people with admin permissions can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
+Organization owners and people with admin permission for a repository can see an overview of the activity for custom patterns. The overview includes alert and push protection activity for the custom pattern during the last 30 days.
 
 > [!NOTE] Metrics for custom patterns are in public beta and subject to change.
 

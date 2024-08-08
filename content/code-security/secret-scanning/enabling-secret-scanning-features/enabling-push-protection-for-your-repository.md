@@ -45,5 +45,6 @@ If your organization is owned by an enterprise account, an enterprise owner can 
 ## Further reading
 
 * "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)"
+* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/excluding-folders-and-files-from-secret-scanning)"
 * "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
 * "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)"

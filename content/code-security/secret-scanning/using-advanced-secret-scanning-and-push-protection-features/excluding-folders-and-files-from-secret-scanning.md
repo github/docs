@@ -66,6 +66,6 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
 Best practices include:
 
 * Minimizing the number of directories excluded and being as precise as possible when defining exclusions. This ensures that the instructions are as clear as possible, and that exclusions work as intended.
-* Explaining why a particular file or folder is excluded in a comment in the `secret_scanning.yml` file. As with regular code, using comments clarifies your intend, making it easier for others to understand the desired behavior.
+* Explaining why a particular file or folder is excluded in a comment in the `secret_scanning.yml` file. As with regular code, using comments clarifies your intention, making it easier for others to understand the desired behavior.
 * Reviewing the `secret_scanning.yml` file on a regular basis. Some exclusions may no longer apply with time, and it is good practice to keep the file clean and current. The use of comments, as advised above, can help with this.
 * Informing the security team what files and folders you've excluded, and why. Good communication is vital in ensuring that everyone is on the same page, and understands why specific folders or files are excluded.
