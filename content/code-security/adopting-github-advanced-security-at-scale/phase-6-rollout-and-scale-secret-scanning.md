@@ -53,11 +53,11 @@ Repeat the last two steps for any new secrets leaked. This process encourages de
 
 ## 2. Enable push protection
 
-Once you have enabled {% data variables.product.prodname_secret_scanning %}, you should also enable push protection. With push protection, {% data variables.product.prodname_secret_scanning %} checks pushes for supported secrets and blocks pushes to {% data variables.product.prodname_dotcom %} _before_ the secrets are exposed to other users. For information on how to enable push protection, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-secret-scanning-as-a-push-protection)."
+Once you have enabled {% data variables.product.prodname_secret_scanning %}, you should also enable push protection. With push protection, {% data variables.product.prodname_secret_scanning %} checks pushes for supported secrets and blocks pushes to {% data variables.product.prodname_dotcom %} _before_ the secrets are exposed to other users. For information on how to enable push protection, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)."
 
 Once enabled, you can do the following:
 
-1. **Provide guidance**: Configure a custom link in the message that contributors will see if their push is blocked by {% data variables.product.prodname_secret_scanning %}. The linked resource can provide guidance for contributors on how to resolve the blocked push. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-secret-scanning-as-a-push-protection)."
+1. **Provide guidance**: Configure a custom link in the message that contributors will see if their push is blocked by {% data variables.product.prodname_secret_scanning %}. The linked resource can provide guidance for contributors on how to resolve the blocked push. For more information, see "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)."
 
 1. **Notify**: Define a webhook that specifically tracks {% data variables.secret-scanning.alerts %} created when someone bypasses push protection by using the alert property `"push_protection_bypassed": true`. Or, use the API to get updates on which  {% data variables.secret-scanning.alerts %} were the result of a push protection bypass by filtering the list of results for `"push_protection_bypassed": true`. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
@@ -107,7 +107,7 @@ Once you have decided on the secret types, you can do the following:
 
 You can now expand beyond the five most critical secret types into a more comprehensive list, with an additional focus on education. You can repeat the previous step, remediating previously committed secrets, for the different secret types you have targeted.
 
-You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+You can also include more of the custom patterns collated in the earlier phases and invite security teams and developer teams to submit more patterns, establishing a process for submitting new patterns as new secret types are created. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
 As you continue to build your remediation processes for other secret types, start to create proactive training material that can be shared with all developers of GitHub in your organization. Until this point, a lot of the focus has been reactive. It is an excellent idea to shift focus to being proactive and encourage developers not to push credentials to GitHub in the first place. This can be achieved in multiple ways but creating a short document explaining the risks and reasons would be a great place to start.
 

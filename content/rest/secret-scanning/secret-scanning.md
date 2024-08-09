@@ -23,6 +23,6 @@ You can use the API to:
 * Enable or disable {% data variables.product.prodname_secret_scanning %} and push protection for a repository. For more information, see "[AUTOTITLE](/rest/repos/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section.
 * Retrieve and update {% data variables.secret-scanning.alerts %} from a repository. For further details, see the sections below.
 
-For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 
 <!-- Content after this section is automatically generated -->

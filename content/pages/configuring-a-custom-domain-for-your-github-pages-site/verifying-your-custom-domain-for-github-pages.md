@@ -24,7 +24,7 @@ It's also possible to verify a domain for your organization{% ifversion ghec %} 
 
 ### Verifying a domain that is already taken
 
-If you are verifying a domain you own, which is currently in use by another user or organization, to make it available for your {% data variables.product.prodname_pages %} website; note that the process to release the domain from its current location will take 7 days to complete. If you are attempting to verify an already verified domain (verified by another user or organization), the release process will not be successful.
+You may be verifying a domain you own, which is currently in use by another user or organization, to make it available for your {% data variables.product.prodname_pages %} website. In this case, the domain will be immediately released from {% data variables.product.prodname_pages %} websites which are owned by other users or organizations. If you are attempting to verify an already verified domain (verified by another user or organization), the release process will not be successful.
 
 ## Verifying a domain for your user site
 
