@@ -6,6 +6,7 @@ redirect_from:
   - /actions/guides/using-github-cli-in-workflows
   - /actions/advanced-guides/using-github-cli-in-workflows
   - /actions/using-workflows/using-github-cli-in-workflows
+  - /actions/examples/using-the-github-cli-on-a-runner
 versions:
   fpt: '*'
   ghes: '*'
