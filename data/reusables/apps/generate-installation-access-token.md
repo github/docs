@@ -1,11 +1,13 @@
 1. Generate a JSON web token (JWT) for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)".
-1. Get the ID of the installation that you want to authenticate as.
+1. Get the installation access token (also known as installation ID or installation token) of the app that you want to authenticate as.
 
-   If you are responding to a webhook event, the webhook payload will include the installation ID.
+   The name _installation access token_ is somewhat misleading because the app is already installed, but it is the secret key used to unlock programmatic access as a GitHub App. Generating a GitHub app installation token is an efficient way to unlock the maximum allotted API calls to avoid rate limiting and can be used by multiple members of your organization.
 
-   You can also use the REST API to find the ID for an installation of your app. For example, you can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /orgs/{org}/installation`, or `GET /app/installations` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)".
+   If you are responding to a webhook event, the webhook payload will include the installation access token.
 
-   You can also find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)".
+   You can also use the REST API to find the access token for an installation of your app. For example, you can get an installation access token with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /orgs/{org}/installation`, or `GET /app/installations` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)".
+
+    Alternatively, you can find the installation access token from the top URL of the GitHub App Settings. In this example URL, the installation access token is `33507770`: `https://github.com/organizations/test-organization/settings/installations/33507770`
 
 1. Send a REST API `POST` request to `/app/installations/INSTALLATION_ID/access_tokens`. Include your JSON web token in the `Authorization` header of your request. Replace `INSTALLATION_ID` with the ID of the installation that you want to authenticate as.
 
