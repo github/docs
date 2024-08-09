@@ -160,8 +160,13 @@ jobs:
     - name: Checkout
       uses: {% data reusables.actions.action-checkout %}
 
+    - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v1 # or specify different version if available
+        with:
+          credentials_json: ${{ secrets.GKE_SA_KEY }}
+
     # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
+    - uses: google-github-actions/setup-gcloud@v2 # or specify different version if available
       with:
         service_account_key: {% raw %}${{ secrets.GKE_SA_KEY }}{% endraw %}
         project_id: {% raw %}${{ secrets.GKE_PROJECT }}{% endraw %}
@@ -172,7 +177,7 @@ jobs:
         gcloud --quiet auth configure-docker
 
     # Get the GKE credentials so we can deploy to the cluster
-    - uses: google-github-actions/get-gke-credentials@db150f2cc60d1716e61922b832eae71d2a45938f
+    - uses: google-github-actions/get-gke-credentials@v2 # or specify different version
       with:
         cluster_name: {% raw %}${{ env.GKE_CLUSTER }}{% endraw %}
         location: {% raw %}${{ env.GKE_ZONE }}{% endraw %}
