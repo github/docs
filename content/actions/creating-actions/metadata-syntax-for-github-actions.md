@@ -36,17 +36,11 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommend using lowercase input ids.
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input values are always converted to strings. We recommend using lowercase input ids.
 
 ### Example: Specifying inputs
 
 This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
-
-{% note %}
-
-**Note:** Workflows using `required: true` will not automatically return an error if the input is not specified for events that automatically trigger workflow runs. If you set `required: true` in your workflow file and are using `workflow_dispatch` to manually run the workflow, you will be required to specify inputs on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
-
-{% endnote %}
 
 Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
 
@@ -61,9 +55,9 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
 
 To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file)."
 
@@ -71,11 +65,11 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>`
 
-**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**Required** A `string` identifier to associate with the input. The value of `<input_id>` is a map of the input's metadata. The `<input_id>` must be a unique identifier within the `inputs` object. The `<input_id>` must start with a letter or `_` and contain only alphanumeric characters, spaces, `-`, or `_`.
 
 ### `inputs.<input_id>.description`
 
-**Required** A `string` description of the input parameter.
+**Optional** A `string` description of the input parameter.
 
 ### `inputs.<input_id>.required`
 
@@ -83,7 +77,7 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>.default`
 
-**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file.
+**Optional** A `string` representing the default value. The default value is used when an input parameter isn't specified in a workflow file. If input is not required and default value is not specified, {% data variables.product.prodname_dotcom %} will use empty string as a default value.
 
 ### `inputs.<input_id>.deprecationMessage`
 
@@ -107,11 +101,11 @@ outputs:
 
 ### `outputs.<output_id>`
 
-**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
+**Required** A `string` identifier to associate with the output. The value of `<output_id>` is a map of the output's metadata. The `<output_id>` must be a unique identifier within the `outputs` object. The `<output_id>` must start with a letter or `_` and contain only alphanumeric characters, space, `-`, or `_`.
 
 ### `outputs.<output_id>.description`
 
-**Required** A `string` description of the output parameter.
+**Optional** A `string` description of the output parameter.
 
 ## `outputs` for composite actions
 
