@@ -22,17 +22,18 @@ upgrade_your_instance:
     ghes: '*'
   guides:
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
+      /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+    - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
+    - >-
+      /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
     - >-
       /admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance
-    - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
     - >-
       /admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise
     - >-
       /admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode
-    - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+    - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+    - /admin/upgrading-your-instance/performing-an-upgrade
 adopting_github_actions_for_your_enterprise_ghec:
   title: Adopt GitHub Actions for your enterprise
   description: >-
@@ -91,9 +92,9 @@ increase_fault_tolerance:
     - >-
       /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
     - >-
       /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
 improve_security_of_your_instance:
