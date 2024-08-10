@@ -19,14 +19,16 @@ shortTitle: Community health file
 Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project.
 You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders. These files help you automate and standardize various aspects of your project's development and community interaction. They are essential for promoting transparency, good practices, and collaboration in open source projects.
 
-{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
+{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in the following order:
 
-1. The `.github` folder
-1. The root of the repository
-1. The `docs` folder
-1. The `.github` folder in the `.github` repository.
-1. The root of the `.github` repository.
-1. The `docs` folder in the `.github` repository.
+1. Local repository:
+  1. The `.github` folder.
+  1. The root of the repository.
+  1. The `docs` folder.
+1. The `.github` repository:
+  1. The `.github` folder.
+  1. The root of the repository.
+  1. The `docs` folder.
 
 For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
 
