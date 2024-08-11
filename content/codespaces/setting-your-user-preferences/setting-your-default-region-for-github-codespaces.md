@@ -11,7 +11,7 @@ redirect_from:
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
 topics:
   - Codespaces
-type: how_to
+type: how_to f7fd_no
 ---
 
 You can manually select the region that your codespaces will be created in, allowing you to meet stringent security and compliance requirements. By default, your region is set automatically, based on your location.
