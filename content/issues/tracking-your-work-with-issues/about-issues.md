@@ -48,6 +48,9 @@ To help contributors open meaningful issues that provide the information that yo
 
 {% ifversion fpt or ghec %}To maintain a healthy community, you can report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."{% endif %}
 
+to add codespace in github, please kindly check this link :
+https://docs.github.com/en/codespaces
+
 ### Efficient communication
 
 You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
