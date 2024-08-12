@@ -30,7 +30,7 @@ You may also need to install custom SSL certificates on your users' machines. Se
 
 ## 4. Grant access to organizations
 
-Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
+Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise)." Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
 
 ## 5. Share onboarding material
 

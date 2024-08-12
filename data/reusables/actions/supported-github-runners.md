@@ -5,12 +5,11 @@ For public repositories, jobs using the workflow labels shown in the table below
 <table style="width:100%">
 <thead>
   <tr>
-    <th scope="col" style="width:10%"><b>Virtual Machine</b></th>
-    <th scope="col" style="width:10%"><b>Processor (CPU)</b></th>
-    <th scope="col" style="width:10%"><b>Memory (RAM)</b></th>
-    <th scope="col" style="width:10%"><b>Storage (SSD)</b></th>
-    <th scope="col" style="width:20%"><b>Workflow label</b></th>
-    <th scope="col" style="width:40%"><b>Notes</b></th>
+    <th scope="col"><b>Virtual Machine</b></th>
+    <th scope="col"><b>Processor (CPU)</b></th>
+    <th scope="col"><b>Memory (RAM)</b></th>
+    <th scope="col"><b>Storage (SSD)</b></th>
+    <th scope="col"><b>Workflow label</b></th>
   </tr>
 </thead>
 <tbody>
@@ -28,10 +27,7 @@ Linux
 14 GB
 </td>
 <td>
-<code>ubuntu-latest</code>, <code>ubuntu-24.04</code> [Beta], <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
-</td>
-<td>
-The <code>ubuntu-latest</code> label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">Ubuntu 22.04 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-latest</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code> [Beta], <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
 </td>
 </tr>
 <tr>
@@ -47,10 +43,7 @@ Windows
 14 GB
 </td>
 <td>
-<code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
-</td>
-<td>
-The <code>windows-latest</code> label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">Windows 2022 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
 </td>
 </tr>
 <tr>
@@ -67,10 +60,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-12</code>
-</td>
-<td>
-Uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macOS 12 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macos-12</a></code>
 </td>
 </tr>
 <tr>
@@ -87,10 +77,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-13</code>
-</td>
-<td>
-Uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macOS 13 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
 </td>
 </tr>
 <tr>
@@ -107,10 +94,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-14</code>
-</td>
-<td>
-The <code>macos-latest</code> label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macOS 14 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code> or <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>
 </td>
 </tr>
 </tbody>
@@ -123,12 +107,11 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
 <table style="width:100%">
 <thead>
   <tr>
-    <th scope="col" style="width:10%"><b>Virtual Machine</b></th>
-    <th scope="col" style="width:10%"><b>Processor (CPU)</b></th>
-    <th scope="col" style="width:10%"><b>Memory (RAM)</b></th>
-    <th scope="col" style="width:10%"><b>Storage (SSD)</b></th>
-    <th scope="col" style="width:20%"><b>Workflow label</b></th>
-    <th scope="col" style="width:40%"><b>Notes</b></th>
+    <th scope="col"><b>Virtual Machine</b></th>
+    <th scope="col"><b>Processor (CPU)</b></th>
+    <th scope="col"><b>Memory (RAM)</b></th>
+    <th scope="col"><b>Storage (SSD)</b></th>
+    <th scope="col"><b>Workflow label</b></th>
   </tr>
 </thead>
 <tbody>
@@ -145,10 +128,7 @@ Linux
 14 GB
 </td>
 <td>
-<code>ubuntu-latest</code>, <code>ubuntu-24.04</code> [Beta], <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
-</td>
-<td>
-The <code>ubuntu-latest</code> label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">Ubuntu 22.04 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-latest</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code> [Beta], <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
 </td>
 </tr>
 <tr>
@@ -164,10 +144,7 @@ Windows
 14 GB
 </td>
 <td>
-<code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
-</td>
-<td>
-The <code>windows-latest</code> label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">Windows 2022 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>, <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
 </td>
 </tr>
 <tr>
@@ -184,10 +161,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-12</code>
-</td>
-<td>
-Uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macOS 12 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md">macos-12</a></code>
 </td>
 </tr>
 <tr>
@@ -204,10 +178,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-13</code>
-</td>
-<td>
-Uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macOS 13 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
 </td>
 </tr>
 <tr>
@@ -224,10 +195,7 @@ macOS
 14 GB
 </td>
 <td>
-<code>macos-latest</code> or <code>macos-14</code>
-</td>
-<td>
-The <code>macos-latest</code>label currently uses the <a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macOS 14 runner image</a>.
+<code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code> or <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>
 </td>
 </tr>
 </tbody>

@@ -18,6 +18,16 @@ If you need help with {% data variables.product.prodname_copilot_chat %} and can
 
 If you can't find {% data variables.product.prodname_copilot_chat %} in your editor, make sure you have checked the "[Prerequisites](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#prerequisites)" section.
 
+{% vscode %}
+
+## Troubleshooting issues caused by version incompatibility
+
+{% data reusables.copilot.vscode-version-compatibility %}
+
+To use {% data variables.product.prodname_copilot_chat %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
+
+{% endvscode %}
+
 ## Troubleshooting authentication issues in your editor
 
 You can use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}. You can use the tabs at the top of this article for troubleshooting information relevant to the editor you're using.

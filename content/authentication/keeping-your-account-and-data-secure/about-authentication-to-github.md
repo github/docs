@@ -64,8 +64,8 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 
     {% endnote %}
     {% endif %}{% ifversion passkeys %}
-* **Passkey** (opt-in beta)
-  * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
+* **Passkey**
+  * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."{% endif %}
 
 {% ifversion ghes %}
 * **External authentication**

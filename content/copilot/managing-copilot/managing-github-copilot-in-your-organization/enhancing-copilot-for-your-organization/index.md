@@ -7,7 +7,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /installing-github-copilot-extensions-for-your-organization
+  - /extending-the-capabilities-of-github-copilot-in-your-organization
   - /indexing-repositories-for-copilot-chat
   - /managing-copilot-knowledge-bases
 ---
+

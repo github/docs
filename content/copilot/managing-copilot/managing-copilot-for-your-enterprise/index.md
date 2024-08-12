@@ -8,6 +8,6 @@ topics:
   - Copilot
 children:
   - /managing-the-copilot-subscription-for-your-enterprise
-  - /managing-policies-and-features-for-copilot-in-your-enterprise
   - /managing-access-to-copilot-in-your-enterprise
+  - /managing-policies-and-features-for-copilot-in-your-enterprise
 ---

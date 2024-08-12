@@ -14,11 +14,7 @@ permissions: The enhanced billing platform is available to all enterprise accoun
 
 ## About billing for {% data variables.large_files.product_name_long %}
 
-{% note %}
-
-**Note:** {% data reusables.user-settings.context_switcher %}
-
-{% endnote %}
+> [!NOTE] {% data reusables.user-settings.context_switcher %}
 
 Each {% data variables.product.prodname_dotcom %} account receives a certain amount of free bandwidth and storage for {% data variables.large_files.product_name_short %}, depending on the account's plan.
 Bandwidth is billed for each GiB of data downloaded. Storage is billed by calculating an hourly usage rate. To estimate costs for paid {% data variables.large_files.product_name_short %} usage, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=lfs).

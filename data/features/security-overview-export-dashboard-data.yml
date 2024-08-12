@@ -1,0 +1,4 @@
+# Reference: #13511
+# Documentation for the ability to download CSV files of data from the overview dashboard page of security overview.
+versions:
+  ghec: '*'

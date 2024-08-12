@@ -10,6 +10,7 @@ type: overview
 redirect_from:
   - /actions/deployment/about-continuous-deployment
   - /actions/deployment/about-deployments/about-continuous-deployment
+  - /actions/deployment/about-deployments
 topics:
   - CD
 ---
@@ -40,6 +41,7 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 ## Further reading
 
-* [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)
-* [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment){% ifversion fpt or ghec %}
+* "[AUTOTITLE](/actions/use-cases-and-examples/deploying)"
+* "[AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)"
+* "[AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment)"{% ifversion fpt or ghec %}
 * "[AUTOTITLE](/billing/managing-billing-for-github-actions)"{% endif %}

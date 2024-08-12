@@ -765,7 +765,7 @@ on:
 
 jobs:
   approved:
-    if: github.event.review.state == 'APPROVED'
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
       - run: echo "This PR was approved"
@@ -935,7 +935,7 @@ jobs:
 
 {% note %}
 
-**Note**: Events will not be created if more than 5000 branches are pushed at once. Events will not be created for tags when more than three tags are pushed at once.
+**Note**: {% ifversion fpt or ghec or ghes > 3.13 %}Events will not be created if more than 5,000 branches are pushed at once. {% endif %}Events will not be created for tags when more than three tags are pushed at once.
 
 {% endnote %}
 

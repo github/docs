@@ -24,6 +24,7 @@ GitHub only supports the latest Autoscaling Runner Sets version of ARC. Support 
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
 * The legacy community-maintained version of ARC
+* Installing, configuring, or maintaining dependencies
 * Template spec customization
 * Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
 * Applying Kubernetes policies

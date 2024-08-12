@@ -84212,6 +84212,10 @@
           "description": "<p>Polar funding platform.</p>"
         },
         {
+          "name": "THANKS_DEV",
+          "description": "<p>thanks.dev funding platform.</p>"
+        },
+        {
           "name": "TIDELIFT",
           "description": "<p>Tidelift funding platform.</p>"
         }

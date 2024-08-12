@@ -23,7 +23,7 @@ For {% data variables.product.product_name %}, the second form of authentication
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
 {% ifversion passkeys %}
-{% data reusables.passkeys.after-2fa-optional-add-passkey %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."
+{% data reusables.passkeys.after-2fa-optional-add-passkey %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
