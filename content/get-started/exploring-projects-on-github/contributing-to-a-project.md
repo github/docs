@@ -162,10 +162,13 @@ When you stage and commit files, you essentially tell Git, "Okay, take a snapsho
 
 Right now, your changes only exist locally. When you're ready to push your changes up to {% data variables.product.product_name %}, push your changes to the remote.
 
+To do that first switch to the feature branch (the branch you want to merge) if you are not. After checking that all the changes are committed, execute the following command. 
+(-u short for --set-upstream)
+
 {% webui %}
 
 ```shell
-git push
+git push -u origin BRANCH_NAME
 ```
 
 {% endwebui %}
@@ -173,7 +176,7 @@ git push
 {% cli %}
 
 ```shell
-git push
+git push -u origin BRANCH_NAME
 ```
 
 {% endcli %}
