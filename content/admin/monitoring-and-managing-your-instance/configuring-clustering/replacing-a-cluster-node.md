@@ -79,7 +79,7 @@ To replace a node in an emergency, you'll take the failed node offline, add your
 1. To remove the node that is experiencing issues from the cluster, from the primary MySQL node of your cluster, run the following command. Replace NODE-HOSTNAME with the hostname of the node you're taking offline.
 
    ```shell
-   ghe-remove-node --no-evacuate NODE-HOSTNAME 
+   ghe-remove-node --no-evacuate NODE-HOSTNAME
    ```
 
    This command will mark the node as offline in your configuration and stop traffic being routed to the node. You can run this command in `no-evacuate` mode now because, later in this procedure, you'll run commands that instruct data services on the node to copy any replicas onto the other available nodes in the cluster. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-remove-node)."
@@ -167,7 +167,7 @@ To replace a node in an emergency, install the {% data variables.product.product
 
 ## Replacing the primary MySQL node
 
-To provide database services, your cluster requires a primary MySQL node and at least one replica MySQL node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/about-cluster-nodes)."
+To provide database services, your cluster requires a primary MySQL node and at least one replica MySQL node. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/about-cluster-nodes)."
 
 If you want to provide the VM for your primary MySQL node with more resources, or if the node fails, you can replace the node. To minimize downtime, add the new node to your cluster, replicate the MySQL data, and then promote the node. Some downtime is required during promotion.
 

@@ -21,7 +21,7 @@ Elasticsearch (ES) powers the search functionality on your {% data variables.pro
 The following sections help administrators prepare for and monitor the Elasticsearch upgrade. The key points are:
 
 * The upgrade will temporarily degrade the experience of the search and audit log features.
-* If you're upgrading an instance in a cluster configuration, you must run a script to prepare your cluster for the ES upgrade. See "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/upgrading-a-cluster#upgrading-the-cluster-nodes)."
+* If you're upgrading an instance in a cluster configuration, you must run a script to prepare your cluster for the ES upgrade. See "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/upgrading-a-cluster#upgrading-the-cluster-nodes)."
 * For backups, all customers should take a snapshot of their instance when the upgrade is complete.
 
 ## Impact on search and audit logs
