@@ -88,22 +88,22 @@ The message body is a JSON array that contains one or more objects, with each ob
 
 The list of valid values for `source` are:
 
-* content
-* commit
-* pull_request_title
-* pull_request_description
-* pull_request_comment
-* issue_title
-* issue_description
-* issue_comment
-* discussion_title
-* discussion_body
-* discussion_comment
-* commit_comment
-* gist_content
-* gist_comment
-* npm
-* unknown
+* Content
+* Commit
+* Pull_request_title
+* Pull_request_description
+* Pull_request_comment
+* Issue_title
+* Issue_description
+* Issue_comment
+* Discussion_title
+* Discussion_body
+* Discussion_comment
+* Commit_comment
+* Gist_content
+* Gist_comment
+* Npm
+* Unknown
 
 ### Implement signature verification in your secret alert service
 

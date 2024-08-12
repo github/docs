@@ -411,7 +411,7 @@ Use alt text to express the core idea of the image, without duplicating the webp
 
 > Diagram showing a five-step process by which a {% data variables.product.prodname_actions %} runner can be automatically added to named classes of runners and then requested by specific jobs.
 
-For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners).
+For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners#architectural-overview-of-larger-runners).
 
 #### Alt text for images of command-line interfaces
 

@@ -103,15 +103,6 @@
         "access": "read"
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "enterprise-admin",
         "slug": "list-provisioned-scim-groups-for-an-enterprise",
         "subcategory": "scim",
@@ -775,15 +766,6 @@
         "access": "read"
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "orgs",
         "slug": "enable-or-disable-a-security-feature-for-an-organization",
         "subcategory": "orgs",
@@ -1167,15 +1149,6 @@
         "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
         "additional-permissions": true,
         "access": "read"
       }

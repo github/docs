@@ -16,7 +16,7 @@ learningTracks:
 includeGuides:
   - /actions/writing-workflows/quickstart
   - /actions/about-github-actions/understanding-github-actions
-  - /actions/creating-actions/creating-a-docker-container-action
+  - /actions/sharing-automations/creating-actions/creating-a-docker-container-action
   - /actions/writing-workflows/using-starter-workflows
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-python
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
@@ -41,9 +41,9 @@ includeGuides:
   - /actions/use-cases-and-examples/using-containerized-services/creating-postgresql-service-containers
   - /actions/use-cases-and-examples/deploying/deploying-to-amazon-elastic-container-service
   - /actions/use-cases-and-examples/deploying/deploying-to-google-kubernetes-engine
-  - /actions/creating-actions/about-custom-actions
-  - /actions/creating-actions/creating-a-javascript-action
-  - /actions/creating-actions/creating-a-composite-action
+  - /actions/sharing-automations/creating-actions/about-custom-actions
+  - /actions/sharing-automations/creating-actions/creating-a-javascript-action
+  - /actions/sharing-automations/creating-actions/creating-a-composite-action
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
