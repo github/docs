@@ -29,6 +29,8 @@ This means that you can use usage-based billing to pay for your licenses for bot
 
 If you have further questions about using {% data variables.product.prodname_GH_advanced_security %}, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
 
+{% data reusables.billing.actions-usage-delay %}
+
 {% endif %}
 
 ## About licenses for {% data variables.product.prodname_GH_advanced_security %}
@@ -49,7 +51,7 @@ If you have further questions about using {% data variables.product.prodname_GH_
 
 {% endnote %}
 
-For information about billing for {% data variables.product.prodname_GH_advanced_security %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+For pricing details for {% data variables.product.prodname_GH_advanced_security %}, see our [pricing information](https://github.com/enterprise/advanced-security#pricing).
 
 {% elsif ghec %}
 

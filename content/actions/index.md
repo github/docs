@@ -8,24 +8,19 @@ introLinks:
 featuredLinks:
   startHere:
     - /actions/writing-workflows
-    - /actions/examples
+    - /actions/use-cases-and-examples
     - /actions/about-github-actions/about-continuous-integration
-    - /actions/deployment/about-deployments/deploying-with-github-actions
-    - /actions/publishing-packages/about-packaging-with-github-actions
+    - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
+    - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows
   guideCards:
     - /actions/writing-workflows/using-starter-workflows
-    - /actions/publishing-packages/publishing-nodejs-packages
-    - /actions/automating-builds-and-tests/building-and-testing-powershell
+    - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
+    - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
   popular:
     - /actions/writing-workflows/workflow-syntax-for-github-actions
     - /actions/writing-workflows
-    - /actions/examples
-    - /actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
-    - /actions/writing-workflows/choosing-what-your-workflow-does/contexts
-    - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
-    - /actions/writing-workflows/choosing-what-your-workflow-does/variables
-    - /actions/security-guides/using-secrets-in-github-actions
+    - /actions/use-cases-and-examples
 changelog:
   label: actions
 redirect_from:
@@ -43,20 +38,15 @@ versions:
   ghec: '*'
 children:
   - /about-github-actions
-  - /examples
   - /writing-workflows
   - /using-workflows
   - /managing-workflow-runs-and-deployments
-  - /automating-builds-and-tests
-  - /deployment
-  - /using-containerized-services
-  - /publishing-packages
-  - /managing-issues-and-pull-requests
   - /migrating-to-github-actions
   - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
-  - /security-guides
+  - /security-for-github-actions
+  - /use-cases-and-examples
   - /creating-actions
   - /administering-github-actions
   - /guides

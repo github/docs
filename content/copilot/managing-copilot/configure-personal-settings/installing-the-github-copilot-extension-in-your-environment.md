@@ -166,9 +166,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-{% data variables.product.prodname_copilot_chat_short %} releases in lockstep with {% data variables.product.prodname_vscode %}, due to its deep UI integration. As a result, every new version of {% data variables.product.prodname_copilot_chat_short %} is only compatible with the latest release of {% data variables.product.prodname_vscode %}. This means that if you are using an older version of {% data variables.product.prodname_vscode %}, you will not be able to use the latest {% data variables.product.prodname_copilot_chat_short %}.
-
-Only the latest {% data variables.product.prodname_copilot_chat_short %} versions will use the latest large language model provided by the {% data variables.product.prodname_copilot_short %} service, as even minor model upgrades require prompt changes and fixes in the extension. An older version of {% data variables.product.prodname_copilot_chat_short %} will still use the latest version of {% data variables.product.prodname_copilot_short %} code completions.
+{% data reusables.copilot.vscode-version-compatibility %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
 

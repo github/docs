@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
   - /actions/using-jobs/using-a-matrix-for-your-jobs
+  - /actions/examples/using-concurrency-expressions-and-a-test-matrix
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

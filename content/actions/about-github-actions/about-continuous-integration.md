@@ -48,9 +48,7 @@ For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions
 
 Browse the complete list of CI starter workflows offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
 
-{% ifversion fpt or ghec %}
-
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
-{% endif %}
+* "[AUTOTITLE](/actions/use-cases-and-examples/building-and-testing)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/billing/managing-billing-for-github-actions)"{% endif %}

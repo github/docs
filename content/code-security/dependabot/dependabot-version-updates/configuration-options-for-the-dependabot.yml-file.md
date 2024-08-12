@@ -366,7 +366,9 @@ updates:
 
 ### `commit-message`
 
-By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
+By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly. This setting also impacts the titles of pull requests.
+
+We populate the titles of pull requests based on the commit messages, whether explicitly set or auto-detected from the repository history.
 
 Supported options
 
@@ -376,7 +378,7 @@ Supported options
 
 {% endnote %}
 
-* `prefix` specifies a prefix for all commit messages.
+* `prefix` specifies a prefix for all commit messages and it will also be added to the start of the PR title.
    When you specify a prefix for commit messages, {% data variables.product.prodname_dotcom %} will automatically add a colon between the defined prefix and the commit message provided the defined prefix ends with a letter, number, closing parenthesis, or closing bracket. This means that, for example, if you end the prefix with a whitespace, there will be no colon added between the prefix and the commit message.
    The code snippet below provides examples of both in the same configuration file.
 

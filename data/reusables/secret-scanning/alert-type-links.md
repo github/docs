@@ -1,0 +1,1 @@
+For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-user-alerts){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-secret-scanning-alerts){% endif %}."

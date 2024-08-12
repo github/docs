@@ -40,7 +40,7 @@ You can use the default network settings used by {% data variables.product.produ
 
 ### 5. Configuring high availability
 
-You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-high-availability)."
+You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability)."
 
 ### 6. Setting up a staging instance
 

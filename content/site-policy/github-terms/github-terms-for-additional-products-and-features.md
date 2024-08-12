@@ -14,7 +14,7 @@ topics:
   - Legal
 ---
 
-Version Effective Date: March 21, 2024
+Version Effective Date: August 1, 2024
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
@@ -30,11 +30,11 @@ By using the Additional Products and Features, you also agree to the applicable 
 GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
 Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/learn-github-actions/usage-limits-billing-and-administration). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
-* cryptomining;
-* disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
-* the provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
-* any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
-* if using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
+* Cryptomining;
+* Disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
+* The provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
+* Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
+* If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
 In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
@@ -60,7 +60,7 @@ GitHub makes extra security features available to customers under an Advanced Se
 
 Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
 
-For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns) provides more details on which partners support the validity check.
+For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
 
 ## Advisory Database
 
@@ -79,11 +79,11 @@ The GitHub Advisory Database is licensed under the [Creative Commons Attribution
 _Note: The github.dev service, available by pressing . on a repo or navigating directly to github.dev, is governed by GitHub's Beta Terms of service._
 
 GitHub Codespaces enables you to develop code directly from your browser using the code within your GitHub repository. Codespaces and any elements of the Codespaces service may not be used in violation of the Agreement or the Acceptable Use Policies. Additionally, Codespaces should not be used for:
-* cryptomining;
-* using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
-* the provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
-* any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
-* any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
+* Cryptomining;
+* Using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
+* The provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
+* Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
+* Any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
 
 In order to prevent violations of these limitations and abuse of GitHub Codespaces, GitHub may monitor your use of GitHub Codespaces. Misuse of GitHub Codespaces may result in termination of your access to Codespaces, restrictions in your ability to use GitHub Codespaces, or the disabling of repositories created to run Codespaces in a way that violates these Terms.
 
@@ -158,3 +158,9 @@ GitHub Sponsors allows the developer community to financially support the people
 ## SQL Server Images
 
 You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+## GitHub Models
+
+GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/prototyping-with-ai-models).
+
+Your use of this feature is subject to the terms of the company hosting the model and the model license.

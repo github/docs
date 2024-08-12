@@ -19,6 +19,9 @@ We currently only support migrating the following repository data from Bitbucket
 * Git source (including commit history)
 * Pull requests (including comments, pull request reviews, pull request review comments at the file and line level, required reviewers, and attachments)
 
+  > [!NOTE]
+  > Users may receive a `500` error when attempting to view a pull request, if the pull request was merged and the head branch deleted on Bitbucket Server prior to migration. Bitbucket Server removes specific Git references to objects for such pull requests, and consequently those Git objects associated with the pull request are unable to be migrated.
+
 ## Data that is not migrated
 
 Currently, the following data is **not** migrated.
