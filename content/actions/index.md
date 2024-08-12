@@ -39,16 +39,14 @@ versions:
 children:
   - /about-github-actions
   - /writing-workflows
-  - /using-workflows
   - /managing-workflow-runs-and-deployments
-  - /migrating-to-github-actions
+  - /sharing-automations
   - /monitoring-and-troubleshooting-workflows
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /security-for-github-actions
   - /use-cases-and-examples
-  - /creating-actions
+  - /migrating-to-github-actions
   - /administering-github-actions
   - /guides
 ---
-

@@ -134,7 +134,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
-* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners)."
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 
