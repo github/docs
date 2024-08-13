@@ -59,7 +59,7 @@ Before you can use Jekyll to test a site, you must:
    - If your `_config.yml` file's `baseurl` field contains your GitHub repository's link, you can use the following command when building locally to ignore that value and serve the site on `localhost:4000/`:
 
      ```shell
-     $ bundle exec jekyll serve --baseurl=""
+     bundle exec jekyll serve --baseurl=""
      ```
 
    {% endnote %}
