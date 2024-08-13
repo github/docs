@@ -2,7 +2,7 @@ You can use `runs-on` to target runner groups, so that the job will execute on a
 
 {% ifversion fpt or ghec %}
 
-Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners) or [self-hosted runners](/actions/hosting-your-own-runners) as members.
+Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners) or [self-hosted runners](/actions/hosting-your-own-runners) as members.
 
 {% endif %}
 
