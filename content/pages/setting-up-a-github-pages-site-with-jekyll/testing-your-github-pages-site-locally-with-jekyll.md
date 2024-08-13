@@ -56,7 +56,7 @@ Before you can use Jekyll to test a site, you must:
 
      To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
 
-   - If your `_config.yml` file's `baseurl` field contains your GitHub repository's link, you can use the following command to run the site locally without changing the `baseurl` in the `_config.yml` file:
+   - If your `_config.yml` file's `baseurl` field contains your GitHub repository's link, you can use the following command when building locally to ignore that value and serve the site on `localhost:4000/`:
 
      ```shell
      $ bundle exec jekyll serve --baseurl=""
