@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 type: reference
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About Dockerfile instructions
@@ -110,4 +110,4 @@ If you use `CMD` in your `Dockerfile`, follow these guidelines:
 
 ## Supported Linux capabilities
 
-{% data variables.product.prodname_actions %} supports the default Linux capabilities that Docker supports. Capabilities can't be added or removed. For more information about the default Linux capabilities that Docker supports, see "[Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" in the Docker documentation. To learn more about Linux capabilities, see "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in the Linux man-pages.
+{% data variables.product.prodname_actions %} supports the default Linux capabilities that Docker supports. Capabilities can't be added or removed. For more information about the default Linux capabilities that Docker supports, see "[Linux kernel capabilities](https://docs.docker.com/engine/security/#linux-kernel-capabilities)" in the Docker documentation. To learn more about Linux capabilities, see "[Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in the Linux man-pages.
