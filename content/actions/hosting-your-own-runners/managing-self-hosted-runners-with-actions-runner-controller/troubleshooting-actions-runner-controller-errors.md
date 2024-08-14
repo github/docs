@@ -73,7 +73,7 @@ kubectl logs -n <CONTROLLER_NAMESPACE> -l app.kubernetes.io/name=gha-runner-scal
 To check the logs of the runner set listener, you can use the following command.
 
 ```bash copy
-kubectl logs -n <CONTROLLER_NAMESPACE> -l auto-scaling-runner-set-namespace=arc-systems -l auto-scaling-runner-set-name=arc-runner-set
+kubectl logs -n <CONTROLLER_NAMESPACE> -l auto-scaling-runner-set-namespace=arc-runners -l auto-scaling-runner-set-name=arc-runner-set
 ```
 
 ## Using the charts from the `master` branch

@@ -92,14 +92,14 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
     ```bash
     NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                       APP VERSION
-    arc             arc-systems     1               2023-04-12 11:45:59.152090536 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
-    arc-runner-set  arc-systems     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
+    arc             arc-runners     1               2023-04-12 11:45:59.152090536 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
+    arc-runner-set  arc-runners     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
 1. To check the manager pod, run the following command in your terminal.
 
     ```bash copy
-    kubectl get pods -n arc-systems
+    kubectl get pods -n arc-runners
     ```
 
     If the installation was successful, the pods will show the `Running` status.

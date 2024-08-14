@@ -47,7 +47,7 @@ In order to use ARC, ensure you have the following.
     The following example installs the latest version of the chart. To install a specific version, you can pass the `--version` argument along with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller).
 
     ```bash copy
-    NAMESPACE="arc-systems"
+    NAMESPACE="arc-runners"
     helm install arc \
         --namespace "{% raw %}${NAMESPACE}{% endraw %}" \
         --create-namespace \
@@ -102,14 +102,14 @@ In order to use ARC, ensure you have the following.
 
     ```bash
     NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                       APP VERSION
-    arc             arc-systems     1               2023-04-12 11:45:59.152090536 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
+    arc             arc-runners     1               2023-04-12 11:45:59.152090536 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
     arc-runner-set  arc-runners     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
 1. To check the manager pod, run the following command in your terminal.
 
     ```bash copy
-    kubectl get pods -n arc-systems
+    kubectl get pods -n arc-runners
     ```
 
     If everything was installed successfully, the status of the pods shows as **Running**.
