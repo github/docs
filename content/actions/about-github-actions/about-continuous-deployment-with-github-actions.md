@@ -1,5 +1,5 @@
 ---
-title: About continuous deployment
+title: About continuous deployment with GitHub Actions
 shortTitle: Continuous deployment
 intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 versions:
@@ -11,6 +11,7 @@ redirect_from:
   - /actions/deployment/about-continuous-deployment
   - /actions/deployment/about-deployments/about-continuous-deployment
   - /actions/deployment/about-deployments
+  - /actions/about-github-actions/about-continuous-deployment
 topics:
   - CD
 ---

@@ -1,5 +1,5 @@
 ---
-title: Finding and customizing actions
+title: Using pre-written building blocks in your workflow
 shortTitle: Find and customize actions
 intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/using-actions-from-github-marketplace
   - /actions/getting-started-with-github-actions/using-community-workflows-and-actions
   - /actions/learn-github-actions/finding-and-customizing-actions
+  - /actions/writing-workflows/choosing-what-your-workflow-does/finding-and-customizing-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,6 +21,15 @@ topics:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
+
+You can use pre-written building blocks, called actions, in your workflow. An action is a pre-defined, reusable set of jobs or code that perform specific tasks within a workflow.
+
+Actions can be:
+
+* **Reusable**: actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
+* **Pre-written**: many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
+* **Configurable**: you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
+* **Community-driven**: you can create your own actions and share them with others or use actions developed by the community.
 
 The actions you use in your workflow can be defined in:
 

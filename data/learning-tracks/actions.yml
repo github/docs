@@ -6,7 +6,7 @@ getting_started:
   guides:
     - /actions/about-github-actions/understanding-github-actions
     - >-
-      /actions/writing-workflows/choosing-what-your-workflow-does/finding-and-customizing-actions
+      /actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow
     - /actions/writing-workflows/about-workflows
     - /actions/sharing-automations/reusing-workflows
     - >-
