@@ -24,7 +24,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_actions %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot create workflow templates for {% data variables.product.prodname_actions %}.
 * Entitlement minutes for {% data variables.product.company_short %}-hosted runners are not available for {% data variables.enterprise.prodname_managed_users %}.
 * {% data variables.product.prodname_emus %} can trigger workflows in organizations where they are not members by forking the organization repository, then creating a pull request targeting the organization repository.
 

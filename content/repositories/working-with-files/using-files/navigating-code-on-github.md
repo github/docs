@@ -39,6 +39,7 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 | PHP              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Protocol Buffers | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Python           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| R                | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Ruby             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Rust             | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Scala            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |

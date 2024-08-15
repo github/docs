@@ -33,22 +33,22 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using a Node.js starter workflow
+## Using a Node.js workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a starter workflow for Node.js that should work for most Node.js projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a workflow template for Node.js that should work for most Node.js projects. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Node.js".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "Node.js".
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Node.js" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
-   If you don't find the "Node.js" starter workflow, copy the following workflow code to a new file called `node.js.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Node.js" workflow template, copy the following workflow code to a new file called `node.js.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Node.js CI
@@ -95,7 +95,7 @@ The easiest way to specify a Node.js version is by using the `setup-node` action
 
 The `setup-node` action takes a Node.js version as an input and configures that version on the runner. The `setup-node` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. Using the `setup-node` action is the recommended way of using Node.js with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to `PATH`.
 
-The starter workflow includes a matrix strategy that builds and tests your code with the Node.js versions listed in `node-version`. The 'x' in the version number is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
+The workflow template includes a matrix strategy that builds and tests your code with the Node.js versions listed in `node-version`. The 'x' in the version number is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
 
 Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 

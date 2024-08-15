@@ -212,6 +212,6 @@ jobs:
 
 For more information on the tools used in these examples, see the following documentation:
 
-* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
+* For the full workflow template, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
 * The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
 * "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.

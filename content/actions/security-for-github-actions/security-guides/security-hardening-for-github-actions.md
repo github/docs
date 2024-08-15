@@ -152,10 +152,10 @@ With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{
 
 {% ifversion fpt or ghec %}
 
-### Using starter workflows for {% data variables.product.prodname_code_scanning %}
+### Using workflow templates for {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
-{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
+{% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)."
 
@@ -229,7 +229,7 @@ For more information on how to configure this setting, see {% ifversion ghes or 
 
 ## Using OpenSSF Scorecards to secure workflows
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in {% data variables.product.prodname_code_scanning %} experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [workflow template](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in {% data variables.product.prodname_code_scanning %} experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## Potential impact of a compromised runner
 
