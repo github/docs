@@ -1,6 +1,6 @@
 ---
-title: Assigning permissions to jobs
-shortTitle: Assign permissions to jobs
+title: Controlling permissions for `GITHUB_TOKEN`
+shortTitle: Permissions for `GITHUB_TOKEN`
 intro: Modify the default permissions granted to `GITHUB_TOKEN`.
 versions:
   fpt: '*'
@@ -8,8 +8,12 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/assigning-permissions-to-jobs
+  - >-
+    /actions/writing-workflows/choosing-what-your-workflow-does/assigning-permissions-to-jobs
+  - >-
+    /actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github-token
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview

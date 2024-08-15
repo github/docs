@@ -1,6 +1,6 @@
 ---
-title: Using a matrix for your jobs
-shortTitle: Matrices
+title: Running variations of jobs in a workflow
+shortTitle: Run job variations
 intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'
@@ -10,8 +10,9 @@ redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
   - /actions/using-jobs/using-a-matrix-for-your-jobs
   - /actions/examples/using-concurrency-expressions-and-a-test-matrix
+  - /actions/writing-workflows/choosing-what-your-workflow-does/using-a-matrix-for-your-jobs
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About matrix strategies

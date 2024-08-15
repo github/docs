@@ -1,5 +1,5 @@
 ---
-title: About continuous integration
+title: About continuous integration with GitHub Actions
 intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-and-testing-code-with-continuous-integration/about-continuous-integration
   - /actions/guides/about-continuous-integration
   - /actions/automating-builds-and-tests/about-continuous-integration
+  - /actions/about-github-actions/about-continuous-integration
 versions:
   fpt: '*'
   ghes: '*'

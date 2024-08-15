@@ -1,5 +1,5 @@
 ---
-title: Contexts
+title: Accessing contextual information about workflow runs
 shortTitle: Contexts
 intro: You can access context information in workflows and actions.
 redirect_from:
@@ -9,6 +9,7 @@ redirect_from:
   - /actions/reference/contexts-and-expression-syntax-for-github-actions
   - /actions/reference/context-and-expression-syntax-for-github-actions
   - /actions/learn-github-actions/contexts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/contexts
 versions:
   fpt: '*'
   ghes: '*'

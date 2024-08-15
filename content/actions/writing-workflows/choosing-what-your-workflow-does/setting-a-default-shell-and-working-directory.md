@@ -1,5 +1,5 @@
 ---
-title: Setting default values for jobs
+title: Setting a default shell and working directory
 shortTitle: Set default values for jobs
 intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
 versions:
@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/setting-default-values-for-jobs
+  - /actions/writing-workflows/choosing-what-your-workflow-does/setting-default-values-for-jobs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

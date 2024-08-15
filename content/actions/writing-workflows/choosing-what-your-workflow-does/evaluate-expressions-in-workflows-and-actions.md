@@ -1,5 +1,5 @@
 ---
-title: Expressions
+title: Evaluate expressions in workflows and actions
 shortTitle: Expressions
 intro: You can evaluate expressions in workflows and actions.
 versions:
@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/learn-github-actions/expressions
+  - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

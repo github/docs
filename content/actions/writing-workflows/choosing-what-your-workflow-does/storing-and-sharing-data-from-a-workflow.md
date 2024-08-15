@@ -1,5 +1,5 @@
 ---
-title: Storing workflow data as artifacts
+title: Storing and sharing data from a workflow
 shortTitle: Store artifacts
 intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
 redirect_from:
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/guides/storing-workflow-data-as-artifacts
   - /actions/advanced-guides/storing-workflow-data-as-artifacts
   - /actions/using-workflows/storing-workflow-data-as-artifacts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/storing-workflow-data-as-artifacts
 versions:
   fpt: '*'
   ghes: '*'

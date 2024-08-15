@@ -1,5 +1,6 @@
 ---
-title: Variables
+title: Store information in variables
+shortTitle: Variables
 intro: '{% data variables.product.prodname_dotcom %} sets default variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom variables for use in a single workflow or multiple workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
@@ -8,6 +9,7 @@ redirect_from:
   - /actions/reference/environment-variables
   - /actions/learn-github-actions/environment-variables
   - /actions/learn-github-actions/variables
+  - /actions/writing-workflows/choosing-what-your-workflow-does/variables
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,5 +1,5 @@
 ---
-title: Using concurrency
+title: Control the concurrency of workflows and jobs
 shortTitle: Concurrency
 intro: Run a single job at a time.
 versions:
@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/using-concurrency
+  - /actions/writing-workflows/choosing-what-your-workflow-does/using-concurrency
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
