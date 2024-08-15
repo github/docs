@@ -23,7 +23,7 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
-{% data reusables.actions.starter-workflow-categories %}
+{% data reusables.actions.workflow-templates-categories %}
 
 > [!NOTE]
 > Because workflow templates require a public `.github` repository, they are not available for {% data variables.product.prodname_emus %}.
@@ -88,7 +88,7 @@ This procedure demonstrates how to create a workflow template and metadata file.
    ```json copy
    {
        "name": "Octo Organization Workflow",
-       "description": "Octo Organization CI starter workflow.",
+       "description": "Octo Organization CI workflow template.",
        "iconName": "example-icon",
        "categories": [
            "Go"
@@ -113,7 +113,7 @@ This procedure demonstrates how to create a workflow template and metadata file.
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory.
+To add another workflow template, add your files to the same `workflow-templates` directory.
 
 ## Next steps
 

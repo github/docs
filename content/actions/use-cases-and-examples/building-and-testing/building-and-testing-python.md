@@ -36,21 +36,21 @@ We recommend that you have a basic understanding of Python, and pip. For more in
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using a Python starter workflow
+## Using a Python workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a starter workflow for Python that should work if your repository already contains at least one `.py` file. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a workflow template for Python that should work if your repository already contains at least one `.py` file. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Python application".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "Python application".
 1. On the "Python application" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
-   If you don't find the "Python application" starter workflow, copy the following workflow code to a new file called `python-app.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Python application" workflow template, copy the following workflow code to a new file called `python-app.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Python application
