@@ -299,6 +299,27 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 
 {% data reusables.copilot.stop-response-generation %}
 
+### Ask why a workflow has failed
+
+> [!NOTE]This feature is currently in beta and subject to change.
+
+1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
+
+{% data reusables.copilot.open-copilot %}
+
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
+
+      For example, you could ask:
+
+      * Tell me why this job failed
+      * Suggest a fix for this error
+
+{% data variables.product.prodname_copilot_short %} will respond with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
+
+1. If {% data variables.product.prodname_copilot_short %} has provided steps to fix the issue, you can follow the steps to resolve the problem.
+{% data reusables.copilot.stop-response-generation %}
+
 ## Asking a question about a specific issue or discussion
 
 You can ask {% data variables.product.prodname_copilot_short %} to summarize or answer questions about a specific issue or discussion.

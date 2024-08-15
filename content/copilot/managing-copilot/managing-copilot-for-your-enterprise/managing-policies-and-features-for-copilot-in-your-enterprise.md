@@ -46,6 +46,7 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 * **Previews of {% data variables.product.prodname_copilot_short %} features** - If enabled, members of your enterprise can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features:
 
   * {% data variables.product.prodname_copilot_autocomplete_pr %}. For more information, see "[Using Copilot text completion](/copilot/using-github-copilot/using-copilot-text-completion)."
+  * Asking {% data variables.product.prodname_copilot_short %} why a workflow has failed. For more information, see "[Ask why a workflow has failed](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#ask-why-a-workflow-has-failed)."
 
 ### {% data variables.product.prodname_copilot_cli %}
 
