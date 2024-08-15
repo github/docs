@@ -54,11 +54,9 @@ The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild
 
 ## {% data variables.product.prodname_codeql %} build modes
 
-{% data reusables.code-scanning.beta-no-build %}
-
 The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
 
-* `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported in beta for {% data variables.code-scanning.no_build_support %}).
+* `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
 * `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
 * `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
 
@@ -143,7 +141,7 @@ To use `autobuild` or manual build steps, you can use advanced setup.
 
 The {% data variables.product.prodname_codeql %} action uses `autobuild` to analyze compiled languages in the following cases.
 
-* Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (beta release supported for {% data variables.code-scanning.no_build_support %}).
+* Default setup is enabled{% ifversion codeql-no-build %} and the language does not support `none` build (supported for {% data variables.code-scanning.no_build_support %}).
 * Advanced setup is enabled and the workflow specifies `build-mode: autobuild`{% endif %}.
 * Advanced setup is enabled and the workflow has an Autobuild step for the language using the `autobuild` action (`{% data reusables.actions.action-codeql-action-autobuild %}`).
 
@@ -453,6 +451,13 @@ Creating a {% data variables.product.prodname_codeql %} Java database without a 
 
 * Gradle or Maven build scripts cannot be queried for dependency information, and dependency guesses (based on Java package names) are inaccurate.
 * The repository normally generates code during the build process. This would be analyzed if you created the {% data variables.product.prodname_codeql %} database using a different mode.
+
+You can ensure a more accurate analysis by taking the following steps:
+
+* Provide access to the public internet or ensure that access to a private artifact repository is available.
+* Check whether the repository requires multiple versions of the same dependency. {% data variables.product.prodname_codeql %} can use only one version and usually chooses the newer version where there are multiple versions. This approach may not work for all repositories.
+* Check whether more than one version of the JDK API is required by different source Java files. When multiple versions are seen, {% data variables.product.prodname_codeql %} will use the highest version required by any build script. This may mean that some files that require a lower version of the JDK will be partially analyzed. For example, if some files require JDK 8 but a JDK 17 requirement is found in one or more build scripts, {% data variables.product.prodname_codeql %} will use JDK 17. Any files that require JDK 8 and could not be built using JDK 17 will be partially analyzed.
+* Avoid colliding class names (for example, multiple files defining `org.myproject.Test`), otherwise this may cause missing method call targets, which has an impact on dataflow analysis.
 
 ### Autobuild summary for Java{% endif %}
 
