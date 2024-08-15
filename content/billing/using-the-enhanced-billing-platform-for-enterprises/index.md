@@ -10,6 +10,7 @@ versions:
 children:
   - /about-the-enhanced-billing-platform-for-enterprises
   - /getting-started-with-the-enhanced-billing-platform
+  - /about-the-billing-cycle
   - /about-usage-based-billing-for-licenses
   - /adding-seats-to-your-enterprise-account
   - /roles-for-the-enhanced-billing-platform
