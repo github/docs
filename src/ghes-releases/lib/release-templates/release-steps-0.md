@@ -7,6 +7,7 @@ labels:
   - priority-0
   - skip FR board
   - GHES {{ release-number }}
+  - ghes-release-automation
 ---
 
 This issue tracks Docs work for the GA release of GHES {{ release-number }}.
@@ -37,6 +38,7 @@ This issue tracks Docs work for the GA release of GHES {{ release-number }}.
 - [ ] {{ release-steps-4-url }}
 - [ ] {{ release-steps-5-url }}
 - [ ] **Friday before the release**, notify the Docs Content first responders to not merge OpenAPI PRs until further notice.
+- [ ] **On the RC date**, optionally sync the search indices again (details in [previous step]({{ release-steps-1-url }}).
 - [ ] **On the RC date**, merge PR for RC when instructed by the GHES Releases team.
 - [ ] After merging PR for RC, notify the API team in [#ecosystem-api](https://github.slack.com/archives/C1042T6MS) on Slack that they can now merge "Update OpenAPI 3.x Descriptions" PRs in [`github/rest-api-description`](https://github.com/github/rest-api-description/pulls), which you blocked as part of the issue for preparing OpenAPI assets.
 - [ ] Notify the Docs Content first responder (`@TBD`) that they can now merge OpenAPI PRs.

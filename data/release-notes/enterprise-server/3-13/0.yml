@@ -183,7 +183,9 @@ sections:
       For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
     - |
       Memory utilization may increase after the upgrade. During periods of high traffic, interruptions in service may occur due to insufficient memory allocations for internal components.
-
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-08-02]
+      
   deprecations:
     # https://github.com/github/releases/issues/2732
     - |

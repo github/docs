@@ -64,10 +64,10 @@ If your account's usage surpasses these limits and you have set a spending limit
 Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
 
 | Operating system | Minute multiplier |
-|------- | ---------|
-| Linux | 1 |
-| Windows | 2 |
-| macOS| 10 |
+|----------------- | ------------------|
+| Linux            | 1                 |
+| Windows          | 2                 |
+| macOS            | 10                |
 
 {% note %}
 
@@ -79,11 +79,11 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Per-minute rates for standard runners
 
-| Operating system            | Per-minute rate (USD) |
-|-----------------------------| ----------------------|
-|  Linux 2-core               |   $0.008              |
-|  Windows 2-core             |   $0.016              |
-|  macOS 3 or 4 (M1 or Intel) |   $0.08               |
+| Operating system                      | Per-minute rate (USD) |
+|---------------------------------------| ----------------------|
+|  Linux 2-core                         |   $0.008              |
+|  Windows 2-core                       |   $0.016              |
+|  macOS 3-core or 4-core (M1 or Intel) |   $0.08               |
 
 #### Per-minute rates for x64-powered {% data variables.actions.hosted_runners %}
 
@@ -126,7 +126,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | Operating system    | Per-minute rate (USD) |
 |---------------------| -----------|
 |  Linux 4-core       |   $0.07    |
-|  Windows 4-core     |   $0.14   |
+|  Windows 4-core     |   $0.14    |
 
 #### Points to note about rates for runners
 
@@ -134,7 +134,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
-* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners)."
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 

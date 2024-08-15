@@ -20,18 +20,18 @@ learningTracks:
 includeGuides:
   - /admin/managing-iam/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
   - /admin/managing-iam/understanding-iam-for-enterprises/changing-authentication-methods
-  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-entra-id
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
-  - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes
   - /admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
-  - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
-  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-using-okta
-  - /admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
+  - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
+  - /admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
   - /admin/managing-iam/using-cas-for-enterprise-iam/using-cas
   - /admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap
   - /admin/managing-iam/using-saml-for-enterprise-iam
@@ -63,17 +63,19 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
   - /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
-  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/setting-up-external-monitoring
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
-  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
+  - /admin/monitoring-and-managing-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
+  - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
+  - /admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/setting-up-external-monitoring
+  - /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+  - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
+  - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+  - /admin/upgrading-your-instance/performing-an-upgrade
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs
   - /support/learning-about-github-support/about-github-support
   - /admin/managing-github-actions-for-your-enterprise/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
@@ -135,3 +137,4 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
+

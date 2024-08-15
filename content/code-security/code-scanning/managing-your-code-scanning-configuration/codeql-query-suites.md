@@ -45,7 +45,7 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 
 ## Query lists for the default query suites
 
-For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where autofix is available for a language, details of which queries are supported are also included.{% endif %}
+For each language, the following article lists which queries are included in the `default` and the `security-extended` suites. {% ifversion code-scanning-autofix %}Where {% data variables.product.prodname_copilot_autofix_short %} is available for a language, details of which queries are supported are also included.{% endif %}
 
 {% data reusables.code-scanning.codeql-query-tables.links-to-all-tables %}
 

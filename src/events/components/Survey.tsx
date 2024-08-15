@@ -70,7 +70,7 @@ export const Survey = () => {
   // readers won't read the error message) so we need to do manual validation
   // ourselves.
   useEffect(() => {
-    const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?/i
+    const emailRegex = /[^@\s.][^@\s]*@\[?[a-z0-9.-]+\]?\.\[?[a-z0-9.-]+\]?/i
     if (!email.trim() || emailRegex.test(email)) {
       setIsEmailError(false)
     } else {
@@ -120,8 +120,8 @@ export const Survey = () => {
         onChange={(event) => setToken(event.target.value)}
       />
 
-      {voteState === null && (
-        <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">
+      {state !== ViewState.END && (
+        <div className="mb-2" role="radiogroup" aria-labelledby="survey-title">
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
             id="survey-yes"
@@ -134,16 +134,16 @@ export const Survey = () => {
           />
           <label
             className={cx(
-              'btn mr-1 color-border-accent-emphasis',
-              voteState === VoteState.YES && 'color-bg-accent-emphasis',
+              'btn mr-1',
+              voteState === VoteState.YES && 'color-fg-on-emphasis color-bg-success-emphasis',
             )}
             htmlFor="survey-yes"
           >
-            <span className="mr-2">{t`yes`}</span>
             <ThumbsupIcon
               size={16}
-              className={voteState === VoteState.YES ? '' : 'color-fg-muted'}
-            />
+              className={voteState === VoteState.YES ? 'color-fg-on-emphasis' : 'color-fg-muted'}
+            />{' '}
+            {t`yes`}
           </label>
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
@@ -157,16 +157,16 @@ export const Survey = () => {
           />
           <label
             className={cx(
-              'btn color-border-accent-emphasis',
-              voteState === VoteState.NO && 'color-bg-danger-emphasis',
+              'btn',
+              voteState === VoteState.NO && 'color-fg-on-emphasis color-bg-danger-emphasis',
             )}
             htmlFor="survey-no"
           >
-            <span className="mr-2">{t`no`}</span>
             <ThumbsdownIcon
               size={16}
-              className={voteState === VoteState.NO ? '' : 'color-fg-muted'}
-            />
+              className={voteState === VoteState.NO ? 'color-fg-on-emphasis' : 'color-fg-muted'}
+            />{' '}
+            {t`no`}
           </label>
         </div>
       )}
@@ -194,23 +194,21 @@ export const Survey = () => {
             ></textarea>
           </p>
 
-          <div className={cx('form-group', isEmailError ? 'warn' : '')}>
+          <div className={cx('form-group', isEmailError && email.trim().length > 3 ? 'warn' : '')}>
             <label className="d-block mb-1 f6" htmlFor="survey-email">
               {t`email_label`}
-              {/* <p className="text-normal color-fg-muted">{t`email_placeholder`}</p> */}
             </label>
             <input
               type="email"
               className="form-control input-sm width-full"
               name="survey-email"
               id="survey-email"
-              placeholder={t`email_placeholder`}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               aria-invalid={isEmailError}
               {...(isEmailError ? { 'aria-describedby': 'email-input-validation' } : {})}
             />
-            {isEmailError && (
+            {isEmailError && email.trim().length > 3 && (
               <p className="note warning" id="email-input-validation">
                 {t`email_validation`}
               </p>
@@ -231,11 +229,7 @@ export const Survey = () => {
             >
               {t`cancel`}
             </button>
-            <button
-              disabled={isEmailError}
-              type="submit"
-              className="btn btn-sm color-border-accent-emphasis"
-            >
+            <button disabled={isEmailError} type="submit" className="btn btn-sm">
               {t`send`}
             </button>
           </div>

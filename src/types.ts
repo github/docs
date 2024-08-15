@@ -100,11 +100,9 @@ type Redirects = {
   [key: string]: string
 }
 
-type Features = {
-  [feature: string]: boolean
-}
-
-export type Context = Features & {
+export type Context = {
+  // Allows dynamic properties like features & version shortnames as keys
+  [key: string]: any
   currentCategory?: string
   error?: Error
   siteTree?: SiteTree
@@ -300,6 +298,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
+  isduplicate: boolean
 }
 
 type Language = {

@@ -22,7 +22,7 @@ redirect_from:
 After you disable SAML or OIDC SSO and SCIM provisioning for your enterprise, the following effects apply:
 
 * All external identities for the enterprise will be removed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
-* All {% data variables.enterprise.prodname_managed_users %} will be suspended. The suspended accounts will not be renamed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members-in-an-enterprise-with-managed-users)."
+* All {% data variables.enterprise.prodname_managed_users %} will be suspended. The suspended accounts will not be renamed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members)."
 * All {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted.
 * All of the external groups provisioned by SCIM will be deleted. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 

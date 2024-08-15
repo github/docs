@@ -4,6 +4,57 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'THANKS_DEV<code>was added to enum</code>FundingPlatform'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-08-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>doNotEnforceOnCreate</code> was added to object type <code>RequiredStatusChecksParameters</code></p>",
+          "<p>Input field <code>doNotEnforceOnCreate</code> of type <code>Boolean</code> was added to input object type <code>RequiredStatusChecksParametersInput</code></p>",
+          "<p>Field <code>doNotEnforceOnCreate</code> was added to object type <code>WorkflowsParameters</code></p>",
+          "<p>Input field <code>doNotEnforceOnCreate</code> of type <code>Boolean</code> was added to input object type <code>WorkflowsParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MergeQueueGroupingStrategy</code> was added</p>",
+          "<p>Type <code>MergeQueueMergeMethod</code> was added</p>",
+          "<p>Type <code>MergeQueueParameters</code> was added</p>",
+          "<p>Type <code>MergeQueueParametersInput</code> was added</p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Discussion</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to interface <code>Labelable</code></p>",
+          "<p>Field <code>viewerCanLabel</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Member <code>MergeQueueParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>mergeQueue</code> of type <code>MergeQueueParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-07-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>closedByPullRequestsReferences</code> was added to object type <code>Issue</code></p>"
         ]
       }

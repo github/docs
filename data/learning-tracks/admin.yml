@@ -22,17 +22,18 @@ upgrade_your_instance:
     ghes: '*'
   guides:
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
+      /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
+    - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
+    - >-
+      /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
     - >-
       /admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance
-    - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
     - >-
       /admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise
     - >-
       /admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode
-    - >-
-      /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+    - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
+    - /admin/upgrading-your-instance/performing-an-upgrade
 adopting_github_actions_for_your_enterprise_ghec:
   title: Adopt GitHub Actions for your enterprise
   description: >-
@@ -43,14 +44,14 @@ adopting_github_actions_for_your_enterprise_ghec:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
-    - /actions/security-guides/security-hardening-for-github-actions
+    - /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes:
@@ -63,7 +64,7 @@ adopting_github_actions_for_your_enterprise_ghes:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
@@ -74,7 +75,7 @@ adopting_github_actions_for_your_enterprise_ghes:
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
-    - /actions/security-guides/security-hardening-for-github-actions
+    - /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 increase_fault_tolerance:
@@ -91,9 +92,9 @@ increase_fault_tolerance:
     - >-
       /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
     - >-
-      /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
+      /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
     - >-
       /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
 improve_security_of_your_instance:

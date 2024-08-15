@@ -43,7 +43,7 @@ Security overview shows which security features are enabled for repositories and
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% ifversion security-overview-export-data %}
-{% data reusables.security-overview.download-csv-files %} For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+{% data reusables.security-overview.download-csv-files %} For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
 {% endif %}
 
 The views are interactive with filters that allow you to look at the aggregated data in detail and identify sources of high risk or low feature coverage. As you apply multiple filters to focus on narrower areas of interest, all data and metrics across the view change to reflect your current selection. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
@@ -60,7 +60,7 @@ There are also dedicated views for each type of security alert that you can use 
 
 ## About security overview for organizations
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %} For example, {% ifversion security-overview-dashboard %}the team can use the "Overview" dashboard view (beta) to track your organization's security landscape and progression{% else %}the team can use the "Coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}{% endif %}. {% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %} {% ifversion code-security-multi-repo-enablement %}{% ifversion security-configurations-beta-and-pre-beta %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."{% endif %}{% endif %}
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %} For example, {% ifversion security-overview-dashboard %}the team can use the "Overview" dashboard view to track your organization's security landscape and progression{% else %}the team can use the "Coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}{% endif %}. {% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %} {% ifversion code-security-multi-repo-enablement %}{% ifversion security-configurations-beta-and-pre-beta %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."{% endif %}{% endif %}
 
 You can find security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected. For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
 
@@ -89,7 +89,7 @@ Each repository is shown in security overview with an indicator for each type of
 | Indicator | Meaning |
 | -------- | -------- |
 | {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)." |
-| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." |
+| {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)." |
 | {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
 | {% octicon "check" aria-label="Enabled" %} | The security feature is enabled, but does not raise alerts in this repository. |
 | {% octicon "x" aria-label="Not supported" %} | The security feature is not supported in this repository. |
@@ -128,27 +128,29 @@ For information about permissions, see "[Permission to view data in security ove
 
 If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.
 
-If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.
+If you are an organization or team member, you can view security overview for the organization and see data for repositories where you have an appropriate level of access.
 
 {% ifversion security-overview-dashboard %}
 {% rowheaders %}
 
-| Organization member with | Overview dashboard (beta) view | Risk and alerts views | Coverage view |
+| Organization or team member with | Overview dashboard view | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|---------|
 | `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories{% ifversion security-configurations-beta-and-pre-beta %}, and enable and disable security features{% endif %} |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
-| Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access for those repositories
+| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
+| `read` or `triage` access for one or more repositories | No access | No access | No access |
+| Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access |
 | Custom organization role with permission to view one or more types of security alert | View allowed alert data for all repositories |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
 {% else %}
 {% rowheaders %}
 
-| Organization member with | Risk and alerts views | Coverage view |
+| Organization or team member with | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|
 | `admin` access for one or more repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
-| Security alert access for one or more repositories | View all security alert data for those repositories | No access for those repositories
+| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
+| `read` or `triage` access for one or more repositories | No access | No access |
+| Security alert access for one or more repositories | View all security alert data for those repositories | No access |
 | Custom organization role with permission to view one or more types of security alert |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
@@ -185,7 +187,8 @@ If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-* "[AUTOTITLE](/code-security/getting-started/securing-your-organization)"
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion security-configurations-ga %}
+* "[AUTOTITLE](/code-security/securing-your-organization)"{% else %}
+* "[AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-organization)"{% endif %}
 * "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)"
 {% endif %}

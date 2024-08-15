@@ -8,30 +8,13 @@ topics:
   - Networking
 versions:
   feature: copilot
-shortTitle: Firewall settings
+shortTitle: Connectivity security settings
 ---
 
-If you or your organization employs security measures like a firewall or proxy server, it may be beneficial to include certain domain URLs in an "allowlist" and open specific ports and protocols. Doing so will enhance your installation and usage of {% data variables.product.prodname_copilot_short %} for an optimal experience.
+## About the problem
 
-## URLs to add to an allowlist
+If you or your company uses a firewall, {% data variables.product.prodname_copilot_short %} may not function as expected. {% data variables.product.prodname_copilot_short %} interacts with a remote machine learning model and checks for updates, and a firewall may block important traffic and degrade the user experience.
 
-Due to {% data variables.product.prodname_copilot_short %}'s interaction with a remote machine learning model and its update-checking functionality, it is recommended to include the following domain URLs in the allowlist, marking them as trusted either in the user interface or within your deployment scripts.
+## Solving the problem
 
-| Domain and/or URL                      | Purpose |
-| :------------------------------------- | :--------------------------------- |
-| `https://github.com/login/*`             | Authentication |
-| `https://api.github.com/user`             | User Management |
-| `https://api.github.com/copilot_internal/*` | User Management |
-| `https://copilot-telemetry.githubusercontent.com/telemetry` | Telemetry |
-| `https://default.exp-tas.com/` | Telemetry |
-| `https://copilot-proxy.githubusercontent.com/` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://origin-tracker.githubusercontent.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.githubcopilot.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-
-Additional domains and URLs may require allowlisting, depending on your organization's security policies and the editors in use. For more information about specific editors, see "[Further reading](#further-reading)."
-
-## Further reading
-
-* [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)
-* [Install and use Visual Studio and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server)
-* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+For an optimal {% data variables.product.prodname_copilot_short %} experience, you should create an "allowlist" that lets certain URLs, ports, and protocols through your firewall. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot)."

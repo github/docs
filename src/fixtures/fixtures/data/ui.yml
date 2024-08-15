@@ -63,7 +63,6 @@ survey:
   additional_feedback: Can you tell us more about your rating? (Optional)
   optional: Optional
   required: Required
-  email_placeholder: 'Example: email@example.com'
   email_label: Leave your email if we can contact you. (Optional)
   email_validation: Please enter a valid email address
   send: Send
@@ -235,6 +234,7 @@ product_landing:
   view: View all
   view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
+  all_content: 'View all {{ title }} content'
 product_guides:
   learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path

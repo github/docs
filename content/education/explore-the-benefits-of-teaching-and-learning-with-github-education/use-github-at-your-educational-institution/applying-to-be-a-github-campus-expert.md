@@ -34,7 +34,7 @@ To become a {% data variables.product.prodname_student_leader_program_singular %
 ### Submitting your application form
 
 In the application form, we’re looking for students to tell us about the challenges their student community faces, what opportunities they want to build for their peers, and the potential they see for growth.
-1. Go to [https://education.github.com/experts](https://education.github.com/experts).
+1. Go to [https://education.github.com/campus_experts](https://education.github.com/campus_experts).
 1. To learn if applications are open, click **Become a Campus Expert** {% octicon "arrow-right" aria-label="The right arrow icon" %}.
 1. If applications are open, a new page will appear titled “Your journey starts here”. To start your application, click **Apply Now**.
 

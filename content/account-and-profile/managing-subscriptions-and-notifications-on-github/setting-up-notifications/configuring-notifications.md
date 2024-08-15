@@ -55,7 +55,7 @@ One benefit of using an email client is that all of your notifications can be ke
 
 Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
 
-Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a  verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
+Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a verified personal email address. For more information, about your email customization options, see "[Customizing your email notifications](#customizing-your-email-notifications)."
 
 ## About participating and watching notifications
 
@@ -132,6 +132,20 @@ Email notifications from {% data variables.product.prodname_dotcom %} contain he
 | `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% ifversion fpt or ghec %}`@noreply.github.com`{% else %}based on the no-reply email address configured by your site administrator{% endif %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
 | `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.product.product_url %}>`. |
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
+
+## Replying to email notifications
+
+You can reply to email notifications from {% data variables.product.product_name %} and your reply will be posted to the issue, pull request, or discussion.
+
+The `reply-to` address on each email notification identifies the thread and the account that the comment will be posted from. This email address remains valid until you reset your password.
+
+{% data variables.product.product_name %} will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
+
+* Email addresses in a standard format, such as `octocat@github.com`, are transformed to `***@***.***`.
+* Signatures and quoted reply chains, when the email client has used a `>` to mark those sections, are stripped.
+* While the unsubscribe link from your email notification is sometimes quoted, the link will only work when signed in to your account.
+* Email attachments are not included in the resulting comment.
+* The maximum length of a comment created via an email reply is 65530 characters.
 
 ## Choosing your notification settings
 
@@ -220,7 +234,7 @@ For more information about the notification delivery methods available to you, a
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[Configuring notifications for secret scanning alerts](/code-security/secret-scanning/managing-alerts-from-secret-scanning#configuring-notifications-for-secret-scanning-alerts)."
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)."
 
 {% ifversion update-notification-settings-22 or ghes %}
 

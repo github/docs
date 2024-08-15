@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Accepting unknown SSH host keys when using Paramiko](https://codeql.github.com/codeql-query-help/python/py-paramiko-missing-host-key-validation/) | 295 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/python/py-bad-tag-filter/) | 116, 020, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -8,6 +8,7 @@
 | [Clear-text logging of sensitive information](https://codeql.github.com/codeql-query-help/python/py-clear-text-logging-sensitive-data/) | 312, 359, 532 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Clear-text storage of sensitive information](https://codeql.github.com/codeql-query-help/python/py-clear-text-storage-sensitive-data/) | 312, 315, 359 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Code injection](https://codeql.github.com/codeql-query-help/python/py-code-injection/) | 094, 095, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Construction of a cookie using user-supplied input](https://codeql.github.com/codeql-query-help/python/py-cookie-injection/) | 20 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [CSRF protection weakened or disabled](https://codeql.github.com/codeql-query-help/python/py-csrf-protection-disabled/) | 352 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Default version of SSL/TLS may be insecure](https://codeql.github.com/codeql-query-help/python/py-insecure-default-protocol/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Deserialization of user-controlled data](https://codeql.github.com/codeql-query-help/python/py-unsafe-deserialization/) | 502 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

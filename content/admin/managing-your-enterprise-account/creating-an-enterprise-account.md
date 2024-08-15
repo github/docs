@@ -30,9 +30,9 @@ In most cases, you can create an enterprise account **yourself**.
 
 You'll **need help** creating an enterprise account for:
 
-* {% data variables.product.prodname_emus %}
 * {% data variables.product.prodname_ghe_server %}
 * Invoicing
+* Managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 

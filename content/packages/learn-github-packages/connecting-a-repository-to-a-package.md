@@ -113,3 +113,10 @@ When you publish a package that is scoped to a personal account or an organizati
 > It is possible that the Repository source section exists, but there is no trash icon present. This is because a repository source has been defined as part of the packaged code i.e. a `package.json` file, `.gemspec` file, however, it is not actually linked to a repository on GitHub. To link the package to a repository, you will need to follow the steps in the section above.
 
 1. Confirm that you would like to unlink the repository from the package with the dialogue.
+
+## Migrating a package to another repository
+
+If you currently have a package linked to a repository and you would like to link it to a different repository, this can be done by unlinking the package from the current repository and linking it to the new repository.
+
+1. Follow the steps to unlink it, see "[Unlinking a repository from a package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#unlinking-a-repository-from-a-package-on-github)."
+1. Follow the steps to link the package to the new repository, see "[Connecting a repository to an organization-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-user-scoped-package-on-github)" or "[Connecting a repository to a user-scoped package on {% data variables.product.prodname_dotcom %}](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-an-organization-scoped-package-on-github)."

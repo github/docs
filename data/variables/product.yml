@@ -89,7 +89,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.5{% endif %}
+  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% endif %}
 
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -127,6 +127,7 @@ prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth app'
 prodname_oauth_apps: 'OAuth apps'
+prodname_github_models: 'GitHub Models'
 
 # API and developer docs
 prodname_enterprise_api: 'GitHub Enterprise Server APIs'
@@ -137,7 +138,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% endif %}
+  {% ifversion ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -276,6 +277,10 @@ prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
+prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
+prodname_copilot_autocomplete_pr: 'Copilot text completion'
+prodname_copilot_autofix: 'GitHub Copilot Autofix'
+prodname_copilot_autofix_short: 'Copilot Autofix'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'

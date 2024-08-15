@@ -32,7 +32,7 @@ This article tells you how to make commits with sensitive data unreachable from 
 
 * In any clones or forks of your repository
 * Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
-* Through any pull requests that reference them.
+* Through any pull requests that reference them
 
 You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
 
@@ -214,10 +214,10 @@ There are a few simple tricks to avoid committing things you don't want committe
 * Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 * Use `git add --interactive` to individually review and stage changes within each file.
 * Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
-* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#about-push-protection-for-repositories-and-organizations)."
+* Enable push protection for your repository to detect and prevent pushes which contain hardcoded secrets from being committed to your codebase. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)."
 
 ## Further reading
 
 * [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html)
 * [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
-* "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"
+* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)"

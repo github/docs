@@ -861,7 +861,7 @@ To clone a repository, the code will use your {% data variables.product.prodname
 git clone https://x-access-token:TOKEN@github.com/OWNER/REPO.git
 ```
 
-The command above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
+The command above clones a repository over HTTPS. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
 Open your `server.rb` file. In the code block that starts with `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 

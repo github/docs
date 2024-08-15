@@ -69,5 +69,6 @@ Check whether your repository meets the following requirements.
 * The branch you are using to publish your site must be the `main` or default branch.
 * The repository must have a commit pushed to it by someone with admin permissions for the repository, such as the repository owner.
 * Switching the repository's visibility from public to private or vice versa will change the URL of your {% data variables.product.prodname_pages %} site, which will result in broken links until the site is rebuilt.
+* If you are using a private repository for the {% data variables.product.prodname_pages %} site, please check if your {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} subscription is still active. If you renew the plan, the {% data variables.product.prodname_pages %} site will be automatically re-deployed. Otherwise, you can change your repository's visibility to public to continue using {% data variables.product.prodname_pages %} for free.
 
 If you are still receiving a 404 error, start a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pages) in the Pages category.

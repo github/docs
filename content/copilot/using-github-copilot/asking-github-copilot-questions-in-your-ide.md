@@ -35,7 +35,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
    >
    > For additional ways to access {% data variables.product.prodname_copilot_chat_short %}, including inline with your code, see [Additional ways to access {% data variables.product.prodname_copilot_chat_short %}](#additional-ways-to-access-copilot-chat) below.
 
-1. Enter a prompt in the prompt box, or click one of the suggested prompts. For example prompts, see "[Example prompts](#example-prompts)" below.
+1. Enter a prompt in the prompt box, or click one of the suggested prompts. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow up request if needed.
 
@@ -43,20 +43,22 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
 ## Using keywords in your prompt
 
-You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
+You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
 
 ### Chat participants
 
 Use chat participants to scope your prompt to a specific domain. To use a chat participant, type `@` in the chat prompt box, followed by a chat participant name. Chat participants include:
 
-* `@workspace`: Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project. See "[Ask questions about your project](#ask-questions-about-your-project)."
-* `@vscode`: Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}. See "[Ask questions about {% data variables.product.prodname_vscode %}](#ask-questions-about-visual-studio-code)."
-* `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands. See "[Ask questions about the command line](#ask-questions-about-the-command-line)."
+* `@workspace`: Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project.
+* `@vscode`: Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}.
+* `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands.
 {% ifversion ghec %}
 * `@github`: Allows you to use {% data variables.product.prodname_dotcom %}-specific {% data variables.product.prodname_copilot_short %} skills. See "[Using {% data variables.product.prodname_dotcom %}  skills for {% data variables.product.prodname_copilot_short %}](#using-github-skills-for-copilot)."
 {% endif %}
 
 In addition to the built-in {% data variables.product.prodname_vscode %} chat participants, you can also install {% data variables.product.prodname_copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions)."
+
+{% data reusables.copilot.copilot-extensions.beta-note %}
 
 To see all available chat participants, type `@` in the chat prompt box.
 
@@ -82,93 +84,6 @@ Use chat variables to include specific context in your prompt. To use a chat var
 * `#terminalLastCommand`: Include the last run command in the active {% data variables.product.prodname_vscode %} terminal.
 
 To see all available chat variables, type `#` in the chat prompt box. See also [Chat variables](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-variables) in the {% data variables.product.prodname_vscode %} documentation.
-
-## Example prompts
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.product.prodname_copilot_chat_short %} to write code, fix errors, write tests, and document code.
-
-### Ask general software questions
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
-
-* `tell me about nodejs web server frameworks`
-* `how to create an express app`
-* `@terminal how to update an npm package` (uses the @terminal [chat participant](#chat-participants))
-
-### Ask questions about your project
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} questions about your project.
-
-* `what sorting algorithm does this function use`
-* `@workspace how are notifications scheduled`
-* `#file:gameReducer.js #file:gameInit.js how are these files related`
-
-To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
-
-* Highlight relevant lines of code
-* Use chat variables like `#selection`, `#file`, `#editor`, `#codebase`, or `#git`
-* Use the `@workspace` chat participant
-
-### Write code
-
-You can ask {% data variables.product.prodname_copilot_short %} to write code for you. For example:
-
-* `write a function to sum all numbers in a list`
-* `add error handling to this function`
-* `@workspace add form validation, similar to the newsletter page`
-
-When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, or to insert the code at your cursor, into a new file, or into the terminal.
-
-### Set up a new project
-
-Use the `/new` slash command to set up a new project. For example:
-
-* `/new react app with typescript`
-* `/new python django web application`
-* `/new node.js express server`
-
-Copilot will suggest a directory structure and provide a button to create the suggested files and contents. To preview a suggested file, select the file name in the suggested directory structure.
-
-Use the `/newNotebook` slash command to set up a new Jupyter notebook. For example:
-
-* `/newNotebook retrieve the titanic dataset and use Seaborn to plot the data`
-
-### Fix, improve, and refactor code
-
-If your active file contains an error, use the `/fix` slash command to ask {% data variables.product.prodname_copilot_short %} to fix the error.
-
-You can also make general requests to improve or refactor your code.
-
-* `how would you improve this code?`
-* `translate this code to C#`
-* `add error handling to this function`
-
-### Write tests
-
-Use the `/tests` slash command to ask {% data variables.product.prodname_copilot_short %} to write tests for the active file or selected code. For example:
-
-* `/tests`
-* `/tests using the Jest framework`
-* `/tests ensure the function rejects an empty list`
-
-The `/tests` slash command writes tests for existing code. If you prefer to write tests before writing code (test driven development), omit the `/tests` command. For example:
-
-* `Add tests for a JavaScript function that should sum a list of integers`
-
-### Ask questions about {% data variables.product.prodname_vscode %}
-
-Use the `@vscode` chat participant to ask specific questions about {% data variables.product.prodname_vscode %}. For example:
-
-* `@vscode tell me how to debug a node.js app`
-* `@vscode how do I change my {% data variables.product.prodname_vscode %} colors`
-* `@vscode how can I change key bindings`
-
-### Ask questions about the command line
-
-Use the `@terminal` chat participant to ask specific questions about the command line. For example:
-
-* `@terminal find the largest file in the src directory`
-* `@terminal #terminalLastCommand` to explain the last command and any errors
 
 {% ifversion ghec %}
 
@@ -233,9 +148,9 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
-{% ifversion ghec %}
+{%- ifversion ghec %}
 * "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-{% endif %}
+{%- endif %}
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
@@ -260,7 +175,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[Example prompts](#example-prompts)" below.
+1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy, insert, or preview the result of a code block.
@@ -292,63 +207,6 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 * Reference the current file: `Is there a delete method in this #solution`
 
 See also [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#reference) in the {% data variables.product.prodname_vs %} documentation.
-
-## Example prompts
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.product.prodname_copilot_chat_short %} to write code, fix errors, write tests, and document code.
-
-### Ask general software questions
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
-
-* `tell me about nodejs web server frameworks`
-* `how to create an express app`
-* `how to update an npm package`
-
-### Ask questions about your project
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} questions about your project. To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
-
-* Highlight relevant lines of code
-* Open the relevant file
-* Use `#file` to tell {% data variables.product.prodname_copilot_short %} to reference specific files
-* Use `#solution` to tell {% data variables.product.prodname_copilot_short %} to reference the active file
-
-For example:
-
-* `what sorting algorithm does this function use`
-* `#file:gameReducer.js what happens when a new game is requested`
-
-### Write code
-
-You can ask {% data variables.product.prodname_copilot_short %} to write code for you. For example:
-
-* `write a function to sum all numbers in a list`
-* `add error handling to this function`
-
-When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, insert the code into a new file, or preview the code output.
-
-### Fix, improve, and refactor code
-
-If your active file contains an error, use the `/fix` slash command to ask {% data variables.product.prodname_copilot_short %} to fix the error.
-
-You can also make general requests to improve or refactor your code.
-
-* `how would you improve this code?`
-* `translate this code to C#`
-* `add error handling to this function`
-
-### Write tests
-
-Use the `/tests` slash command to ask {% data variables.product.prodname_copilot_short %} to write tests for the active file or selected code. For example:
-
-* `/tests`
-* `/tests using the Jest framework`
-* `/tests ensure the function rejects an empty list`
-
-The `/tests` slash command writes tests for existing code. If you prefer to write tests before writing code (test driven development), omit the `/tests` command. For example:
-
-* `Add tests for a JavaScript function that should sum a list of integers`
 
 {% ifversion ghec %}
 
@@ -415,9 +273,9 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
 * [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
-{% ifversion ghec %}
+{%- ifversion ghec %}
 * "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"
-{% endif %}
+{%- endif %}
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center){% endif %}
@@ -445,7 +303,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
    ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. Enter a prompt in the prompt box. For example prompts, see "[Example prompts](#example-prompts)" below.
+1. Enter a prompt in the prompt box. For example prompts, see "[AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat)."
 
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
@@ -472,62 +330,6 @@ To see all available slash commands, type `/` in the chat prompt box.
 
 By default, {% data variables.product.prodname_copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also tell {% data variables.product.prodname_copilot_chat_short %} which files to reference by dragging a file into the chat prompt box. Alternatively, you can right click on a file, select **GitHub Copilot**, then select **Reference File in Chat**.
 
-## Example prompts
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.product.prodname_copilot_chat_short %} to write code, fix errors, write tests, and document code.
-
-### Ask general software questions
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
-
-* `tell me about nodejs web server frameworks`
-* `how to create an express app`
-* `how to update an npm package`
-
-### Ask questions about your project
-
-You can ask {% data variables.product.prodname_copilot_chat_short %} questions about your project. To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
-
-* Highlight relevant lines of code.
-* Open the relevant file.
-* Add the file as a reference. See [File references](#file-references).
-
-For example:
-
-* `what sorting algorithm does this function use`
-* `how are these files related` (with references to the files in question)
-
-### Write code
-
-You can ask {% data variables.product.prodname_copilot_short %} to write code for you. For example:
-
-* `write a function to sum all numbers in a list`
-* `add error handling to this function`
-
-When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code or to insert the code at your cursor.
-
-### Fix, improve, and refactor code
-
-If your active file contains an error, use the `/fix` slash command to ask {% data variables.product.prodname_copilot_short %} to fix the error.
-
-You can also make general requests to improve or refactor your code.
-
-* `how would you improve this code?`
-* `translate this code to C#`
-* `add error handling to this function`
-
-### Write tests
-
-Use the `/tests` slash command to ask {% data variables.product.prodname_copilot_short %} to write tests for the active file or selected code. For example:
-
-* `/tests`
-* `/tests using the Jest framework`
-* `/tests ensure the function rejects an empty list`
-
-The `/tests` slash command writes tests for existing code. If you prefer to write tests before writing code (test driven development), omit the `/tests` command. For example:
-
-* `Add tests for a JavaScript function that should sum a list of integers`
-
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
 In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **GitHub Copilot**, then selecting one of the options.
@@ -547,7 +349,8 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 ## Further reading
 
 * "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
-{% ifversion ghec %}- "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}
+{%- ifversion ghec %}
+* "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}
 * "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 * "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) "{% ifversion ghec %}

@@ -12,10 +12,12 @@ children:
   - /asking-github-copilot-questions-in-githubcom
   - /asking-github-copilot-questions-in-github-mobile
   - /creating-a-pull-request-summary-with-github-copilot
+  - /using-copilot-text-completion
   - /using-github-copilot-in-the-command-line
   - /prompt-engineering-for-github-copilot
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
   - /finding-public-code-that-matches-github-copilot-suggestions
+  - /example-use-cases
 redirect_from:
   - /copilot/github-copilot-chat
   - /copilot/github-copilot-in-the-cli

@@ -17,7 +17,11 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 ---
 
+{% ifversion ghes < 3.14 %}
+
 {% data reusables.security-overview.beta-overview-dashboard %}
+
+{% endif %}
 
 ## {% ifversion security-overview-dashboard-enterprise %}About security insights{% else %} About organization-level security insights{% endif %}
 
@@ -33,7 +37,11 @@ You can view a variety of metrics about the security alerts in your organization
 * The "Remediation" section shows information about how alerts are resolved and alert activity over time.
 * The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
 
-You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. This feature is in beta, and is subject to change.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+{% ifversion security-overview-export-dashboard-data %}
+You can download a CSV file of the overview dashboard data for your organization. This data file can integrate easily with external datasets, so you may find it useful for security research, data analysis, and more. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
+{% endif %}
 
 {% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
 
@@ -78,9 +86,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 {% endif %}
 
 {% ifversion security-overview-additional-tools %}
-
-Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%. This feature is in beta, and is subject to change. This feature is in beta, and is subject to change.
-
+Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
 {% endif %}
 
 >[!NOTE]
@@ -104,12 +110,6 @@ The age of each open alert is calculated by subtracting the date the alert was c
 
 ### Reopened alerts
 
-{% note %}
-
-**Note:** The "Reopened alerts" metric is in beta, and is subject to change.
-
-{% endnote %}
-
 The "Reopened alerts" metric is the total open alerts that were reopened during the chosen time period. Only alerts that are open at the end of the reporting period are reported. This includes:
 
 * Alerts that were closed as of the day before the chosen time period, and that remain open at the end of the period.
@@ -124,7 +124,7 @@ The "Secrets bypassed / blocked" metric shows the ratio of secrets bypassed to t
 
 You can also see how many secrets were successfully blocked, which is calculated by subtracting the number of secrets bypassed from the total number of secrets blocked by push protection. A secret is considered to have been successfully blocked when it has been corrected, and not committed to the repository.
 
-{% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected. This feature is in beta, and is subject to change.{% endif %}
+{% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected.{% endif %}
 
 For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
 
@@ -140,23 +140,19 @@ The "Net resolve rate" metric is the rate at which alerts are being closed. This
 
 The rate is calculated by dividing the number of alerts that were closed and remained closed during the chosen time period, by the number of alerts created during the time period.
 
-{% note %}
-
-**Note:** The net resolve rate takes into account any new and any closed alerts during the chosen time period. This means that the set of new alerts and set of closed alerts used for the calculation do not necessarily correspond, since they may represent different populations of alerts.
-
-{% endnote %}
+>[!NOTE] The net resolve rate takes into account any new and any closed alerts during the chosen time period. This means that the set of new alerts and set of closed alerts used for the calculation do not necessarily correspond, since they may represent different populations of alerts.
 
 Alerts that are reopened and re-closed during the chosen time period are ignored.
 
 {% ifversion code-scanning-autofix %}
 
-### Autofix suggestions
+### {% data variables.product.prodname_copilot_autofix_short %} suggestions
 
 {% data reusables.rai.code-scanning.autofix-note %}
 
-Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
-The "Autofix suggestions" metric is the total number of autofix suggestions generated in open and closed pull requests during the chosen time period.
+The "{% data variables.product.prodname_copilot_autofix_short %} suggestions" metric is the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions generated in open and closed pull requests during the chosen time period.
 
 {% endif %}
 
@@ -169,12 +165,6 @@ Green bars represent the number of new alerts created during the segmented time 
 {% ifversion security-overview-additional-tools %}
 
 ### Impact analysis table
-
-{% note %}
-
-**Note:** The "Impact analysis" table is in beta, and is subject to change.
-
-{% endnote %}
 
 The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
 
