@@ -40,17 +40,15 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-wor
 
 ## Workflow syntax
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
-
-{% data reusables.actions.workflow-basic-example-and-explanation %}
+Workflows are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
 
 For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[AUTOTITLE](/actions/managing-workflow-runs)."
 
-## Using starter workflows
+## Using workflow templates
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+{% data reusables.actions.workflow-templates-repo-link %}
 
 ## Advanced workflow features
 
