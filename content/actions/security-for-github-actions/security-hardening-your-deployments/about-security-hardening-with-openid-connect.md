@@ -296,7 +296,7 @@ To help improve security, compliance, and standardization, you can customize the
 
 {% note %}
 
-**Note**: When the organization template is applied, it will not affect any workflows in existing repositories that already use OIDC. For existing repositories, as well as any new repositories that are created after the template has been applied, the repository owner will need to use the REST API to opt in to receive this configuration. Alternatively, the repository owner could use the REST API to apply a different configuration specific to the repository. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+**Note**: When the organization template is applied, it will not affect any workflows already using OIDC unless their repository has opted in to custom organization templates. For all repositories, existing and new, the repository owner will need to use the repository-level REST API to opt in to receive this configuration by setting `use_default` to `false`. Alternatively, the repository owner could use the REST API to apply a different configuration specific to the repository. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 
 {% endnote %}
 
@@ -429,7 +429,7 @@ or:
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
 
-#### Resetting your customizations
+#### Resetting organization template customizations
 
 This example template resets the subject claims to the default format. This template effectively opts out of any organization-level customization policy.
 
@@ -446,11 +446,13 @@ This example template resets the subject claims to the default format. This temp
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo` and `context`.
 
-#### Using the default subject claims
+#### Resetting repository template customizations
 
-Default subject claims can be created at the organization level. All repositories in an organization have the ability to opt in or opt out of using their organization's default `sub` claim.
+All repositories in an organization have the ability to opt in or opt out of (organization and repository-level) customized `sub` claim templates.
 
-To create a default `sub` claim at the organization level, an organization administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)." Once an organization has created a default claim, the REST API can be used to programmatically apply the default claim to repositories within the organization. To configure repositories to use the default `sub` claim format, use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+To opt out a repository and reset back to the default `sub` claim format, a repository administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+
+To configure repositories to use the default `sub` claim format, use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body.
 
 ```json
 {
@@ -460,7 +462,7 @@ To create a default `sub` claim at the organization level, an organization admin
 
 #### Example: Configuring a repository to use an organization template
 
-A repository administrator can configure their repository to use the template created by the administrator of their organisation.
+Once an organization has created a customized `sub` claim template, the REST API can be used to programmatically apply the template to repositories within the organization. A repository administrator can configure their repository to use the template created by the administrator of their organization.
 
 To configure the repository to use the organization's template, a repository admin must use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 
