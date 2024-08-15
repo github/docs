@@ -113,11 +113,16 @@ shortTitle: Install Git LFS
    **Note:** You may have to use `sudo ./install.sh` to install the file.
 
    {% endnote %}
-1. Verify that the installation was successful:
+1. Update your global Git config and verify the installation:
 
    ```shell
+   # Update global Git config (recommended for most users)
    $ git {% data variables.large_files.command_name %} install
    > {% data variables.large_files.product_name_short %} initialized.
+
+   # Verify the installation
+   $ git {% data variables.large_files.command_name %} version
+   > git-lfs/x.x.x (GitHub; windows amd64; go x.x.x)
    ```
 
 1. If you don't see a message indicating that `git {% data variables.large_files.command_name %} install` was successful, please contact {% data variables.contact.contact_support %}. Be sure to include the name of your operating system.
