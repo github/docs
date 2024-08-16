@@ -2992,6 +2992,15 @@
         "access": "write"
       },
       {
+        "category": "code-security",
+        "slug": "get-the-code-security-configuration-associated-with-a-repository",
+        "subcategory": "configurations",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-security-configuration",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "collaborators",
         "slug": "add-a-repository-collaborator",
         "subcategory": "collaborators",
@@ -5743,6 +5752,33 @@
         "access": "read"
       },
       {
+        "category": "activity",
+        "slug": "check-if-a-repository-is-starred-by-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "get",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "star-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "put",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "activity",
+        "slug": "unstar-a-repository-for-the-authenticated-user",
+        "subcategory": "starring",
+        "verb": "delete",
+        "requestPath": "/user/starred/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "list-repositories-for-a-user",
         "subcategory": "repos",
@@ -7734,7 +7770,7 @@
         "subcategory": "starring",
         "verb": "get",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -7743,7 +7779,7 @@
         "subcategory": "starring",
         "verb": "put",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -7752,7 +7788,7 @@
         "subcategory": "starring",
         "verb": "delete",
         "requestPath": "/user/starred/{owner}/{repo}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
