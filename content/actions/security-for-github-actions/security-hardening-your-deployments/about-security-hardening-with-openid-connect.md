@@ -250,9 +250,9 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 
 You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customizations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:
 
-* You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. For more information, see {% ifversion ghec %}"[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)" and {% endif %}"[Customizing the `audience` value](#customizing-the-audience-value)."
+* You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. See {% ifversion ghec %}"[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)" and {% endif %}"[Customizing the `audience` value](#customizing-the-audience-value)."
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. See "[Understanding the OIDC token](#understanding-the-oidc-token)."
 
 ### Customizing the `audience` value
 
