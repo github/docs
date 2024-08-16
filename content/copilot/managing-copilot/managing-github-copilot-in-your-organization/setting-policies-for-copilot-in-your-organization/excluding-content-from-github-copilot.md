@@ -25,7 +25,7 @@ topics:
 
 {% data reusables.copilot.content-exclusion-note %}
 
-You can use content exclusions to configure {% data variables.product.prodname_copilot_short %} to ignore certain files in a repository or organization. When you exclude content from {% data variables.product.prodname_copilot_short %}:
+You can use content exclusions to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
 
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
@@ -81,15 +81,17 @@ You can use your repository settings to specify content in your repository that 
 
 ## Configuring content exclusions for your organization
 
-You can use your organization settings to specify content in any Git repository that {% data variables.product.prodname_copilot %} should ignore.
+You can use your organization settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
-1. In the box following "Repositories and paths to exclude," enter details of where {% data variables.product.prodname_copilot_short %} should be excluded.
+1. In the box following "Repositories and paths to exclude," enter the details of files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 
-   For each repository in which you want files to be excluded from {% data variables.product.prodname_copilot_short %}, enter a reference to the repository on one line, followed by paths to locations within the repository, with each path on a separate line. Use the following format, replacing `REPOSITORY-REFERENCE` with a reference to the repository that contains the files you'd like to exclude:
+   To exclude files located anywhere (within a Git repository or elsewhere), enter `"*":` followed by the path to the file, or files, you want to exclude. If you want to specify multiple file path patterns, list each pattern on a separate line.
+
+   To exclude files in a Git repository from {% data variables.product.prodname_copilot_short %}, enter a reference to the repository on one line, followed by paths to locations within the repository, with each path on a separate line. Use the following format, replacing `REPOSITORY-REFERENCE` with a reference to the repository that contains the files you'd like to exclude:
 
    ```yaml
    REPOSITORY-REFERENCE:
@@ -119,8 +121,8 @@ You can use your organization settings to specify content in any Git repository 
 ### Example of repositories and paths in organization settings
 
 ```yaml annotate
-# Ignore all `.env` files at any path, in any repository.
-# This setting applies to all repositories, not just to those on GitHub.com.
+# Ignore all `.env` files from all file system roots (Git and non-Git).
+# For example, this excludes `REPOSITORY-PATH/.env` and also `/.env`.
 # This could also have been written on a single line as:
 #
 # "*": ["**/.env"]
