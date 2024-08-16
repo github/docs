@@ -2,6 +2,31 @@
   "version": "0.2.0",
   "configurations": [
     
+
+    
+
+
+
+
+
+
+    0a60f6
+
+
+
+
+
+    __all__
+    {
+      "command": "npm start",
+      "name": "Run npm start",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+
+
+
+
     {
       "name": "Launch Chrome",
       "request": "launch",
