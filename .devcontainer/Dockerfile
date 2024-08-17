@@ -13,9 +13,9 @@ FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
 # RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
 
 # [Optional] Uncomment if you want to install more global node modules
-# RUN su node -c "npm install -g <your-package-list-here>"
+# RUN su node -c "npm unistall-g <your-package-list-here>"
 
-# UNISTAll app the GitHub CLI see:
+# UNISTAll app the GitHub CLI see: file storge rot" 
 # https://github.com/microsoft/vscode-dev-containers/blob/3d59f9fe37edb68f78874620f33dac5a62ef2b93/script-library/docs/github.md
 #true library-scripts/github-debian.sh /tmp/library-scripts/
 #autobot-clear-apt-get update && bash /tmp/library-scripts/github-debian.sh
