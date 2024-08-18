@@ -16,23 +16,26 @@ shortTitle: Community health file
 
 ## About default community health files
 
-Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project.
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders. These files help you automate and standardize various aspects of your project's development and community interaction. They are essential for promoting transparency, good practices, and collaboration in open source projects.
+Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project. These files help you automate and standardize various aspects of your project's development and community interaction, promoting transparency, good practices, and collaboration.
 
-{% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in the following order:
+You can add default community health files to a public repository called `.github`. {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type. The location of these default files determines whether and how they will be used. 
 
-1. Local repository:
-   1. The `.github` folder.
-   1. The root of the repository.
-   1. The `docs` folder.
-1. The `.github` repository:
-   1. The `.github` folder.
-   1. The root of the repository.
-   1. The `docs` folder.
+### File Location and Precedence
 
-For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
+When a repository does not contain its own file of a specific type, {% data variables.product.product_name %} will look for a default file in the following order:
 
-Default files won’t appear in the file browser or Git history and are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+1. **Within the Local Repository**:
+   1. `.github` folder
+   1. Root of the repository
+   1. `docs` folder
+1. **Within the `.github` Repository**:
+   1. `.github` folder
+   1. Root of the repository
+   1. `docs` folder
+
+For example, if a repository does not have its own CONTRIBUTING file, the local `.github` folder will be checked first, then the root, followed by the `docs` folder. If none of these locations contain the file, it will then check the `.github` repository in the same order.
+
+Default files are not displayed in the file browser, are not part of the Git history, and are excluded from clones, packages, or downloads of individual repositories because they exist only in the `.github` repository.
 
 {% ifversion fpt or ghec %}
 
