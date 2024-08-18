@@ -64,11 +64,8 @@ These features can enhance your CI/CD pipelines in the following ways.
 
 ### Understanding billing
 
-{% note %}
-
-**Note**: {% data variables.actions.hosted_runner_caps %}s are not eligible for the use of included minutes on private repositories. For both private and public repositories, when {% data variables.actions.hosted_runners %} are in use, they will always be billed at the per-minute rate.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.actions.hosted_runner_caps %}s are not eligible for the use of included minutes on private repositories. For both private and public repositories, when {% data variables.actions.hosted_runners %} are in use, they will always be billed at the per-minute rate.
 
 Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runners %} are billed differently. {% data reusables.actions.about-larger-runners-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
@@ -78,18 +75,15 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 ### Specifications for general {% data variables.actions.hosted_runners %}
 
-{% note %}
-
-**Note:** arm64 runners are currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> arm64 runners are currently in beta and subject to change.
 
 | CPU | Memory (RAM)  | Storage (SSD) | Architecture | Operating system (OS) |
 | --- | ------------- | ------------- | ------------ | --------------------- |
 | 6   | 14 GB         | 14 GB         | arm64        | macOS                 |
 | 12  | 30 GB         | 14 GB         | x64          | macOS                 |
 | 2   | 8 GB          | 75 GB         | x64, arm64   | Ubuntu                |
-| 4   | 16 GB         | 150 GB        | x64, arm64   | Ubuntu, Windows               |
+| 4   | 16 GB         | 150 GB        | x64, arm64   | Ubuntu, Windows       |
 | 8   | 32 GB         | 300 GB        | x64, arm64   | Ubuntu, Windows       |
 | 16  | 64 GB         | 600 GB        | x64, arm64   | Ubuntu, Windows       |
 | 32  | 128 GB        | 1200 GB       | x64, arm64   | Ubuntu, Windows       |
@@ -106,21 +100,15 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 ## About runner groups
 
-{% note %}
-
-**Note:** Only {% data variables.actions.hosted_runners %} with Linux or Windows operating systems can be assigned to runner groups.
-
-{% endnote %}
+> [!NOTE]
+> Only {% data variables.actions.hosted_runners %} with Linux or Windows operating systems can be assigned to runner groups.
 
 Runner groups enable administrators to control access to runners at the organization and enterprise levels. With runner groups, you can collect sets of runners and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines. During the {% data variables.actions.hosted_runner %} deployment process, the runner can be added to an existing group, otherwise it will join a default group. You can create a group by following the steps in "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 ## Architectural overview of {% data variables.actions.hosted_runners %}
 
-{% note %}
-
-**Note:** This architecture diagram only applies to {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
-
-{% endnote %}
+> [!NOTE]
+> This architecture diagram only applies to {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
 
 {% data variables.actions.hosted_runner_caps %}s are managed at the organization level, where they are arranged into groups that can contain multiple instances of the runner. They can also be created at the enterprise level and shared with organizations in the hierarchy. Once you've created a group, you can then add a runner to the group and update your workflows to target either the group name or the label assigned to the {% data variables.actions.hosted_runner %}. You can also control which repositories are permitted to send jobs to the group for processing. For more information about groups, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
@@ -136,25 +124,22 @@ In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` h
 
 ## Autoscaling {% data variables.actions.hosted_runners %}
 
-{% note %}
-
-**Note:** Autoscaling is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
-
-{% endnote %}
+> [!NOTE]
+> Autoscaling is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
 
 {% data variables.actions.hosted_runner_caps %}s can automatically scale to suit your needs. You can provision machines to run a specified maximum number of jobs when jobs are submitted for processing. Each machine only handles one job at a time, so these settings effectively determine the number of jobs that can be run concurrently.
 
 You can configure the maximum job concurrency, which allows you to control your costs by setting the maximum parallel number of jobs that can be run using this set. A higher value here can help avoid workflows being blocked due to parallelism. For more information on how to set limits, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#configuring-autoscaling-for-larger-runners)". For more information on the maximum auto-scaling limits for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)."
 
+## Assigning static IP addresses to {% data variables.actions.hosted_runners %}
+
+You can assign static IP addresses only to {% data variables.actions.hosted_runners %} that use Linux or Windows operating systems.
+
+Static IP addresses assigned are all usable and are not in CIDR notation.
+
+{% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
+
 ## Networking for {% data variables.actions.hosted_runners %}
-
-{% note %}
-
-**Notes:**
-* Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runners %} with Linux or Windows operating systems.
-* {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."
-
-{% endnote %}
 
 By default, {% data variables.actions.hosted_runners %} receive a dynamic IP address that changes for each job run. Optionally, {% data variables.product.prodname_ghe_cloud %} customers can configure their {% data variables.actions.hosted_runners %} to receive static IP addresses from {% data variables.product.prodname_dotcom %}'s IP address pool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
 
@@ -162,8 +147,5 @@ When enabled, instances of the {% data variables.actions.hosted_runner %} will r
 
 {% data reusables.actions.larger-runner-static-ip-contact-support %}
 
-{% note %}
-
-**Note**: If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
-
-{% endnote %}
+> [!NOTE]
+> If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
