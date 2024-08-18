@@ -18,7 +18,7 @@ shortTitle: Community health file
 
 Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project. These files help you automate and standardize various aspects of your project's development and community interaction, promoting transparency, good practices, and collaboration.
 
-You can add default community health files to a public repository called `.github`. {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type. The location of these default files determines whether and how they will be used. 
+You can add default community health files to a public repository called `.github`. {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type. The location of these default files determines whether and how they will be used.
 
 ### File Location and Precedence
 
@@ -33,9 +33,11 @@ When a repository does not contain its own file of a specific type, {% data vari
    1. Root of the repository
    1. `docs` folder
 
-### Limiting Usage of Default Files
+If no corresponding file is found in the local repository, {% data variables.product.product_name %} will use the default file from the `.github` repository, following the same order of precedence.
 
-For example, if anyone creates an issue or pull request in a repository that does not have its own CONTRIBUTING file, they will see a link to the default CONTRIBUTING file. However, if the repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used. This rule allows you to override the default files selectively by providing specific templates or configurations in the local repository.
+For example, if someone creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file, {% data variables.product.product_name %} will check the local repository first and, if no file is found, it will fall back to the default `CONTRIBUTING.md` in the `.github` repository. 
+
+However, if a repository contains any files in its own `.github/ISSUE_TEMPLATE` folder, such as issue templates or a `_config.yml` file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder in the `.github` repository will be used. This allows repository maintainers to override the default files with specific templates or configurations as needed.
 
 Default files do not appear in the file browser, are not part of the Git history, and are excluded from clones, packages, or downloads of individual repositories because they exist only in the `.github` repository.
 
