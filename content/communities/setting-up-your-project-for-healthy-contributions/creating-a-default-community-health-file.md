@@ -33,9 +33,11 @@ When a repository does not contain its own file of a specific type, {% data vari
    1. Root of the repository
    1. `docs` folder
 
-For example, if a repository does not have its own CONTRIBUTING file, the local `.github` folder will be checked first, then the root, followed by the `docs` folder. If none of these locations contain the file, it will then check the `.github` repository in the same order.
+### Limiting Usage of Default Files
 
-Default files are not displayed in the file browser, are not part of the Git history, and are excluded from clones, packages, or downloads of individual repositories because they exist only in the `.github` repository.
+For example, if anyone creates an issue or pull request in a repository that does not have its own CONTRIBUTING file, they will see a link to the default CONTRIBUTING file. However, if the repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used. This rule allows you to override the default files selectively by providing specific templates or configurations in the local repository.
+
+Default files do not appear in the file browser, are not part of the Git history, and are excluded from clones, packages, or downloads of individual repositories because they exist only in the `.github` repository.
 
 {% ifversion fpt or ghec %}
 
