@@ -27,6 +27,10 @@ This article describes the setup for an **enterprise with managed users**. If yo
 
 {% data reusables.copilot-business-for-non-ghe.request-access %}
 
+After we create your enterprise, you will receive an email inviting you to choose a password for the setup user, which is used to configure authentication and provisioning. The username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. Make sure to open the password reset link using an **incognito or private browsing window**. The link can only be opened once and if done incorrectly you will need to contact {% data variables.contact.github_support %} to send you a new link.
+
+>[!NOTE] {% data reusables.enterprise-accounts.emu-password-reset-session %}
+
 ## Adding users to the enterprise
 
 To provision user accounts through your IdP, you'll need to **configure your IdP** by completing the following steps.

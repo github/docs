@@ -196,7 +196,7 @@ Now that the nomad timeout for MySQL has been updated you can upgrade your {% da
 
 If you're affected by this problem, restore your {% data variables.product.prodname_ghe_server %} instance to the state it was in prior to the upgrade attempt, and then follow the steps from the previous section.
 
-For more information about restoring from a failed upgrade, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade)."
+For more information about restoring from a failed upgrade, see "[AUTOTITLE](/admin/upgrading-your-instance/troubleshooting-upgrades/restoring-from-a-failed-upgrade)."
 
 {% endif %}
 {% ifversion ghes > 3.10 and ghes < 3.13 %}
@@ -210,5 +210,5 @@ If your appliance averages more than 70% CPU utilization, {% data variables.prod
 
 ## Elasticsearch Upgrade
 
-As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/preparing-for-the-elasticsearch-upgrade)."
+As part of upgrading GitHub Enterprise Server to version 3.13 or later, the Elasticsearch service will be upgraded. {% data variables.product.company_short %} strongly recommends following the guidance in "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade)."
 {% endif %}

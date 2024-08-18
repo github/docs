@@ -35,21 +35,21 @@ We recommend that you have a basic understanding of Java and the Maven framework
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using a Maven starter workflow
+## Using a Maven workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a starter workflow for Maven that should work for most Java with Maven projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a workflow template for Maven that should work for most Java with Maven projects. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "Java with Maven".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "Java with Maven".
 1. On the "Java with Maven" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
-   If you don't find the "Java with Maven" starter workflow, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Java with Maven" workflow template, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Java CI with Maven
@@ -95,7 +95,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
 
 You can use the same commands that you use locally to build and test your code.
 
-The starter workflow will run the `package` target by default. In the default Maven configuration, this command will download dependencies, build classes, run tests, and package classes into their distributable format, for example, a JAR file.
+The workflow template will run the `package` target by default. In the default Maven configuration, this command will download dependencies, build classes, run tests, and package classes into their distributable format, for example, a JAR file.
 
 If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a _pom-ci.xml_ file.
 

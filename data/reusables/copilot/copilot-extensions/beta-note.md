@@ -1,1 +1,1 @@
-> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are in limited public beta and subject to change.
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are in limited public beta and subject to change. To request access to {% data variables.product.prodname_copilot_extensions_short %}, join the [waitlist](https://gh.io/join-copilot-extensions).

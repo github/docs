@@ -28,22 +28,22 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 * [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 * [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using a Ruby starter workflow
+## Using a Ruby workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a starter workflow for Ruby that should work for most Ruby projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a workflow template for Ruby that should work for most Ruby projects. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "ruby".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "ruby".
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Ruby" workflow, click **Configure**.
 
 {%- ifversion ghes %}
 
-   If you don't find the "Ruby" starter workflow, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Ruby" workflow template, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Ruby

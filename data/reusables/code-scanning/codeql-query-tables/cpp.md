@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Bad check for overflow of integer addition](https://codeql.github.com/codeql-query-help/cpp/cpp-bad-addition-overflow-check/) | 190, 192 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Badly bounded write](https://codeql.github.com/codeql-query-help/cpp/cpp-badly-bounded-write/) | 120, 787, 805 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -41,6 +41,7 @@
 | [Uncontrolled data used in OS command](https://codeql.github.com/codeql-query-help/cpp/cpp-command-line-injection/) | 078, 088 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Uncontrolled format string](https://codeql.github.com/codeql-query-help/cpp/cpp-tainted-format-string/) | 134 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Unsafe use of this in constructor](https://codeql.github.com/codeql-query-help/cpp/cpp-unsafe-use-of-this/) | 670 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Unsigned difference expression compared to zero](https://codeql.github.com/codeql-query-help/cpp/cpp-unsigned-difference-expression-compared-zero/) | 191 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Upcast array used in pointer arithmetic](https://codeql.github.com/codeql-query-help/cpp/cpp-upcast-array-pointer-arithmetic/) | 119, 843 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of a broken or risky cryptographic algorithm](https://codeql.github.com/codeql-query-help/cpp/cpp-weak-cryptographic-algorithm/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Use of a cryptographic algorithm with insufficient key size](https://codeql.github.com/codeql-query-help/cpp/cpp-insufficient-key-size/) | 326 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -84,7 +85,6 @@
 | [Unbounded write](https://codeql.github.com/codeql-query-help/cpp/cpp-unbounded-write/) | 120, 787, 805 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Uncontrolled data used in path expression](https://codeql.github.com/codeql-query-help/cpp/cpp-path-injection/) | 022, 023, 036, 073 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Uncontrolled process operation](https://codeql.github.com/codeql-query-help/cpp/cpp-uncontrolled-process-operation/) | 114 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Unsigned difference expression compared to zero](https://codeql.github.com/codeql-query-help/cpp/cpp-unsigned-difference-expression-compared-zero/) | 191 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Unterminated variadic call](https://codeql.github.com/codeql-query-help/cpp/cpp-unterminated-variadic-call/) | 121 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Untrusted input for a condition](https://codeql.github.com/codeql-query-help/cpp/cpp-tainted-permissions-check/) | 807 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of potentially dangerous function](https://codeql.github.com/codeql-query-help/cpp/cpp-potentially-dangerous-function/) | 676 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

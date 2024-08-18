@@ -27,23 +27,23 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of the Go language. For more information, see [Getting started with Go](https://golang.org/doc/tutorial/getting-started).
 
-## Using a Go starter workflow
+## Using a Go workflow template
 
-{% data reusables.actions.starter-workflow-get-started %}
+{% data reusables.actions.workflow-templates-get-started %}
 
-{% data variables.product.prodname_dotcom %} provides a Go starter workflow that should work for most Go projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
+{% data variables.product.prodname_dotcom %} provides a Go workflow template that should work for most Go projects. The subsequent sections of this guide give examples of how you can customize this workflow template.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
-1. The "Choose a workflow" page shows a selection of recommended starter workflows. Search for "go".
+1. The "Choose a workflow" page shows a selection of recommended workflow templates. Search for "go".
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Go - by {% data variables.product.prodname_actions %}" workflow, click **Configure**.
 
    ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Go" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-go.png)
 
 {%- ifversion ghes %}
-   If you don't find the "Go - by {% data variables.product.prodname_actions %}" starter workflow, copy the following workflow code to a new file called `go.yml` in the `.github/workflows` directory of your repository.
+   If you don't find the "Go - by {% data variables.product.prodname_actions %}" workflow template, copy the following workflow code to a new file called `go.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
    name: Go

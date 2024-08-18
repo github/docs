@@ -79,8 +79,8 @@ Code often needs to communicate with other systems over a network, and requires 
 
 {% ifversion fpt %}
 You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
-   * public repositories on {% data variables.product.prodname_dotcom_the_website %}.
-   * an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
+   * Public repositories on {% data variables.product.prodname_dotcom_the_website %}.
+   * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
 If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}

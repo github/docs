@@ -53,6 +53,8 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 ## Changing the duration of your enterprise account's billing cycle
 
+>[!IMPORTANT] If you are on the new billing platform, this procedure does not apply to you. For more information about the billing cycle for your enterprise account, see "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle)."
+
 {% data reusables.enterprise-accounts.billing-perms %}
 
 {% note %}

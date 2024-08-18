@@ -122,13 +122,13 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 {% data reusables.rai.code-scanning.autofix-note %}
 
-{% data variables.product.prodname_code_scanning_caps %} autofix can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} can generate fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click the name of an alert.
-1. If autofix can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
+1. If {% data variables.product.prodname_copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-label="Generate fix"%} Generate fix**.
 1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
 
 {% endif %}

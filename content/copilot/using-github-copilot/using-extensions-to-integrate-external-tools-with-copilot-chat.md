@@ -36,13 +36,15 @@ After you install a {% data variables.product.prodname_copilot_extension_short %
 
 ## About using {% data variables.product.prodname_copilot_extensions %}
 
-{% data variables.product.prodname_copilot_extensions_short %} **work the same way across all {% data variables.product.prodname_copilot_chat_short %} interfaces where {% data variables.product.prodname_copilot_extensions_short %} are available**. {% data variables.product.prodname_copilot_extensions_short %} are available in:
+{% data variables.product.prodname_copilot_extensions_short %} work the same way across all {% data variables.product.prodname_copilot_chat_short %} interfaces where {% data variables.product.prodname_copilot_extensions_short %} are available. {% data variables.product.prodname_copilot_extensions_short %} are available in:
 
 {% data reusables.copilot.copilot-extensions.compatible-chat-interfaces %}
 
-If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription, you need to install a {% data variables.product.prodname_copilot_extension_short %} before you can use the extension in {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account)."
+**If you have a {% data variables.product.prodname_copilot_individuals_short %} subscription**, you need to install a {% data variables.product.prodname_copilot_extension_short %} before you can use the extension in {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account)."
 
-If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription, an organization owner needs to install {% data variables.product.prodname_copilot_extensions_short %} for your organization. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization)."
+**If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription**:
+  1. An organization owner or enterprise owner needs to enable the {% data variables.product.prodname_copilot_extensions_short %} policy for your organization or enterprise. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#setting-a-policy-for-github-copilot-extensions-in-your-organization)" and "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+  1. An organization owner needs to install {% data variables.product.prodname_copilot_extensions_short %} for your organization. See "[AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization)."
 
 ## Using {% data variables.product.prodname_copilot_extensions %}
 

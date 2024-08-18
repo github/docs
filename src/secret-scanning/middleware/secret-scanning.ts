@@ -41,6 +41,9 @@ export default async function secretScanning(
         entry[key] = evaluated as string
       }
     }
+    if (entry.isduplicate) {
+      entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
+    }
   })
 
   return next()

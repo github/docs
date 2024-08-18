@@ -15,7 +15,7 @@ topics:
   - Containers
   - Docker
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About service containers
@@ -32,7 +32,7 @@ You can configure jobs in a workflow to run directly on a runner machine or in a
 
 ### Running jobs in a container
 
-When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
+When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Bridge network driver](https://docs.docker.com/engine/network/drivers/bridge/)" in the Docker documentation.
 
 Running the job and services in a container simplifies network access. You can access a service container using the label you configure in the workflow. The hostname of the service container is automatically mapped to the label name. For example, if you create a service container with the label `redis`, the hostname of the service container is `redis`.
 
