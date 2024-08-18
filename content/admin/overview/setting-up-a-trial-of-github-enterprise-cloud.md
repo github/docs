@@ -89,10 +89,21 @@ For more information about the effects of downgrading an organization, see "[AUT
 
 You can end a trial by purchasing {% data variables.product.prodname_enterprise %} or by canceling the trial. If a trial has expired, you can delete the trial.
 
+### Purchasing {% data variables.product.prodname_enterprise %}
+
+You can purchase {% data variables.product.prodname_enterprise %} at any time during the trial.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. To end the trial period and purchase {% data variables.product.prodname_enterprise %}, click **Activate Enterprise** in the blue banner at the top of the page.
+
+### Canceling or deleting a trial
+
+You can cancel a trial at any time. Once the trial has expired, you can delete the trial.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Buy Enterprise**, **Cancel trial**, or **Delete trial**.
+1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Profile**.
+1. At the bottom of the page, in the "Danger zone" section, click **Cancel trial** or **Delete trial**.
 
 ## Further reading
 
