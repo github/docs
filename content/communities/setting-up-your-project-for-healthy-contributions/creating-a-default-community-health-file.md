@@ -35,7 +35,7 @@ When a repository does not contain its own file of a specific type, {% data vari
 
 If no corresponding file is found in the local repository, {% data variables.product.product_name %} will use the default file from the `.github` repository, following the same order of precedence.
 
-For example, if someone creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file, {% data variables.product.product_name %} will check the local repository first and, if no file is found, it will fall back to the default `CONTRIBUTING.md` in the `.github` repository. 
+For example, if someone creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file, {% data variables.product.product_name %} will check the local repository first and, if no file is found, it will fall back to the default `CONTRIBUTING.md` in the `.github` repository.
 
 However, if a repository contains any files in its own `.github/ISSUE_TEMPLATE` folder, such as issue templates or a `_config.yml` file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder in the `.github` repository will be used. This allows repository maintainers to override the default files with specific templates or configurations as needed.
 
