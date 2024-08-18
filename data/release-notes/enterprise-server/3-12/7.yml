@@ -113,6 +113,8 @@ sections:
       On an instance with a GitHub Advanced Security license, contributions were not tracked on public repositories.
     - |
       On an instance with a GitHub Advanced Security license, the "adjust configuration" step failed when enabling code scanning with the default setup on self-hosted Windows runners.
+    - |
+      Migration of the `issue_edits` table caused intermittent failures during the upgrade to GitHub Enterprise Server version 3.12, resulting in the error message `ActiveRecord::ConcurrentMigrationError: Failed to release advisory lock.` [Updated: 2024-08-14]
   changes:
     - |
       In a high availability configuration, users can only run `ghe-config-apply` or `ghe-cluster-config-apply` on a replica node if replication is already running (from `ghe-repl-start`). If replication isnt running on the node, the user will be instructed to start replication.
