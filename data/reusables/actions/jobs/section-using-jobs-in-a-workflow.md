@@ -1,4 +1,4 @@
-A workflow run is made up of one or more `jobs`, which run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
+A workflow run is made up of at least one or more `jobs`, which run in parallel by default. Without any jobs to run, a workflow will fail. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 
 Each job runs in a runner environment specified by `runs-on`.
 
