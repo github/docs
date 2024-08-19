@@ -93,6 +93,7 @@ You should see this output:
 1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
+   $ ssh-add .ssh/id_rsa
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
