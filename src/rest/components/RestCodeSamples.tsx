@@ -311,10 +311,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
+          role="scrollbar"
+          aria-controls="example-request-code"
+          aria-valuenow={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <code id="example-request-code" ref={requestCodeExample}>
+            {displayedExample[selectedLanguage]}
+          </code>
         </div>
       </div>
 
@@ -369,10 +373,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
+              role="scrollbar"
+              aria-controls="example-response-code"
+              aria-valuenow={0}
             >
-              <code ref={responseCodeExample}>
+              <code id="example-response-code" ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}
