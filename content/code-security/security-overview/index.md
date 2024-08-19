@@ -20,4 +20,5 @@ children:
   - /enabling-security-features-for-multiple-repositories
   - /exporting-data-from-security-overview
   - /viewing-metrics-for-secret-scanning-push-protection
+  - /viewing-metrics-for-pull-request-alerts
 ---

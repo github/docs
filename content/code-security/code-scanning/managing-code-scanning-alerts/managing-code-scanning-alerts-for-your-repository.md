@@ -55,6 +55,14 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-cod
 
 {% endnote %}
 
+{% ifversion security-overview-org-codeql-pr-alerts %}
+
+## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
+
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."
+
+{% endif %}
+
 ## Filtering {% data variables.product.prodname_code_scanning %} alerts
 
 You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed.

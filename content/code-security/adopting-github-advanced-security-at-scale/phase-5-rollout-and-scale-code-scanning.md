@@ -70,6 +70,12 @@ It’s a good idea to run regular company meetings on specific topics to educate
 You can use the data you have collected about the distribution of different languages among repositories to create targeted meetings.
 {% endif %}
 
+{% ifversion security-overview-org-codeql-pr-alerts %}
+
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories across your organization, and to identify repositories where you may need to take action. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."
+
+{% endif %}
+
 {% note %}
 
 For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning)."
