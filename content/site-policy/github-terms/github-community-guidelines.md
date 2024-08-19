@@ -46,25 +46,26 @@ While some disagreements can be resolved with direct, respectful communication b
 
 While we are passionate about empowering maintainers to moderate their own projects, please contact {% data variables.contact.contact_support %} if you need additional support in dealing with a situation.
 
-## What happens if someone violates GitHub's policies?
+## What Happens if GitHub's Policies Are Violated?
 
-We rely on reports from the community, as well as proactive detection, to help ensure that GitHub is a safe, welcoming, and productive platform for software developers. There are a variety of factors we consider when we’re made aware of behavior or content not in line with GitHub’s policies. However, our policy enforcement and content moderation approach prioritizes our vision to be the home for all developers. This means:
+To maintain GitHub as a safe, welcoming, and productive space for software developers, we rely on both community reports and proactive monitoring. When we’re made aware of behavior or content that violates our policies, we evaluate it based on several factors while prioritizing our core mission of being a home for all developers. Here’s how we approach policy enforcement and content moderation:
 
-* We optimize for code collaboration. We recognize that code can have multiple uses and we distinguish between how the code is being used on the platform and other possible uses. We also think about how our enforcement actions can affect a potentially complicated web of interdependencies across the platform and aim to restrict as little legitimate content as possible.
+- **Code Collaboration Focus**: We prioritize code collaboration. We understand that code may have multiple uses, and we differentiate between how code is used on GitHub versus potential other applications. When enforcing policies, we strive to minimize disruptions to legitimate content while considering the complex interdependencies across the platform.
 
-* We take a human-centered approach to content moderation and we tailor our responses to meet the needs of a specific situation. Our global team investigates the reports we receive on a case-by-case basis—considering context and the surrounding facts—before taking action. This could include taking into account potentially offensive content being posted in a way that lacks context or makes it easy for other users to unwittingly view or interact with while using GitHub. In those instances, we may favor moderation in order to safeguard our community.
+- **Human-Centered Content Moderation**: Our approach to content moderation is human-centered and tailored to each specific situation. Our global team investigates reports on a case-by-case basis, considering context and facts before taking action. This includes evaluating potentially offensive content posted without context, which could unintentionally expose users to inappropriate material. In such cases, we may choose moderation to protect the community.
 
-* Our decisions are rooted in our core belief that serving an interconnected community and empowering human progress through developer collaboration requires a commitment to diversity, inclusion, and belonging.
+- **Commitment to Diversity, Inclusion, and Belonging**: Our decisions are guided by our belief that fostering an interconnected developer community and promoting human progress requires a strong commitment to diversity, inclusion, and belonging.
 
-Where we have decided that moderation action is warranted, these are some of the ways we may respond:
+When moderation action is necessary, we may respond by:
 
-* Removing the offending content
-* Blocking or disabling the offending content
-* Downgrading the visibility of the offending content
-* Hiding a user account or organization from public view
-* Suspending a user account or organization
+- Removing the offending content
+- Blocking or disabling the offending content
+- Reducing the visibility of the offending content
+- Hiding a user account or organization from public view
+- Suspending a user account or organization
 
 ## Appeal and Reinstatement
+
 
 If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
 
