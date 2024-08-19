@@ -65,7 +65,7 @@ Knowledge bases you create will be accessible by all organization members with a
 
 ## Updating a knowledge base
 
-Organization owners can delete a knowledge base created in their organization.
+Organization owners can update a knowledge base created in their organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
