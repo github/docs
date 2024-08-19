@@ -35,7 +35,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 ### Limitations of content exclusions
 
-Content exclusions are not currently available for Copilot Chat in Visual Studio, Copilot Chat in GitHub.com, or code completion in Azure Data Studio. Additionally:
+Content exclusions are not currently available for {% data variables.product.prodname_copilot_chat_dotcom_short %}, or code completion in Azure Data Studio. Additionally:
 
 {% data reusables.copilot.content-exclusion-limitations %}
 
@@ -184,9 +184,10 @@ There are a few different ways to test your content exclusions, depending on whi
 1. Open a file that you expect to be affected by your content exclusions.
 1. Use one or more of the following techniques to test if content is being excluded:
    * **In JetBrains IDEs, {% data variables.product.prodname_vs %}, and {% data variables.product.prodname_vscode %}**, check the {% data variables.product.prodname_copilot_short %} icon in the status bar. If a {% data variables.product.prodname_copilot_short %} content exclusion applies to the file, the {% data variables.product.prodname_copilot_short %} icon will have a diagonal line through it. Hover over the icon to see whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for the file.
-   * **In JetBrains IDEs and {% data variables.product.prodname_vscode %}**, you can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
+   * **In JetBrains IDEs, {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %}**, you can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
    * **In Vim/Neovim**, begin typing in the file. If {% data variables.product.prodname_copilot %} no longer provides inline suggestions as you type, the file is excluded.
 
 ## Further reading
 
 * "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)"
+* [Configuring content exclusion for {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion)
