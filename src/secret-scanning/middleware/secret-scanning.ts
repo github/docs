@@ -14,7 +14,11 @@ export default async function secretScanning(
   res: Response,
   next: NextFunction,
 ) {
-  if (!req.pagePath!.endsWith('code-security/secret-scanning/secret-scanning-patterns'))
+  if (
+    !req.pagePath!.endsWith(
+      'code-security/secret-scanning/introduction/supported-secret-scanning-patterns',
+    )
+  )
     return next()
 
   const secretScanningData = yaml.load(
@@ -36,6 +40,9 @@ export default async function secretScanning(
         const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
         entry[key] = evaluated as string
       }
+    }
+    if (entry.isduplicate) {
+      entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
     }
   })
 

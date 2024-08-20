@@ -9,5 +9,7 @@ topics:
 children:
   - /enabling-copilot-for-organizations-in-your-enterprise
   - /disabling-copilot-for-organizations-in-your-enterprise
-  - /viewing-copilot-usage-for-your-enterprise
+  - /viewing-copilot-license-usage-in-your-enterprise
+  - /managing-github-copilot-access-to-your-enterprises-network
 ---
+

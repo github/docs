@@ -28,7 +28,7 @@ You can use security overview to see which repositories and teams are free from 
 ![Screenshot of the header section of the "Security risk" view on the "Security" tab for an organization.](/assets/images/help/security-overview/security-risk-view-summary.png)
 
 {% ifversion security-overview-export-data %}
-You can download a CSV file of the data displayed on the "Security risk" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+You can download a CSV file of the data displayed on the "Security risk" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
 {% endif %}
 
 {% note %}

@@ -82,6 +82,7 @@ children:
   - support
   - video-transcripts
   - contributing
+  - github-models
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -133,6 +134,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
+      - github-models
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -169,4 +171,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

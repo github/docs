@@ -75,7 +75,7 @@ Think about how your enterprise can use features of {% data variables.product.pr
 
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+To provide a starting place for developers building new workflows, you can use workflow templates. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 
 {% ifversion not internal-actions %}
 Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)."

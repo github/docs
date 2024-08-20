@@ -162,17 +162,17 @@
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users
 - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-with-okta
 - /early-access/github/articles/configuring-provisioning-for-managed-users-with-okta
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 
-/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users
 - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
 
-/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
+/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups
 - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/managing-team-memberships-with-identity-provider-groups
@@ -378,9 +378,9 @@
 
 # FPT versioning for these files was removed as part of github/docs-content#5642
 
-/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
+/enterprise-cloud@latest/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
 - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
-- /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
+- /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
 
 /enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
 - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories

@@ -133,6 +133,20 @@ Email notifications from {% data variables.product.prodname_dotcom %} contain he
 | `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.product.product_url %}>`. |
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
 
+## Replying to email notifications
+
+You can reply to email notifications from {% data variables.product.product_name %} and your reply will be posted to the issue, pull request, or discussion.
+
+The `reply-to` address on each email notification identifies the thread and the account that the comment will be posted from. This email address remains valid until you reset your password.
+
+{% data variables.product.product_name %} will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
+
+* Email addresses in a standard format, such as `octocat@github.com`, are transformed to `***@***.***`.
+* Signatures and quoted reply chains, when the email client has used a `>` to mark those sections, are stripped.
+* While the unsubscribe link from your email notification is sometimes quoted, the link will only work when signed in to your account.
+* Email attachments are not included in the resulting comment.
+* The maximum length of a comment created via an email reply is 65530 characters.
+
 ## Choosing your notification settings
 
 {% data reusables.notifications.access_notifications %}
@@ -220,7 +234,7 @@ For more information about the notification delivery methods available to you, a
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[Configuring notifications for secret scanning alerts](/code-security/secret-scanning/managing-alerts-from-secret-scanning#configuring-notifications-for-secret-scanning-alerts)."
+For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts)."
 
 {% ifversion update-notification-settings-22 or ghes %}
 

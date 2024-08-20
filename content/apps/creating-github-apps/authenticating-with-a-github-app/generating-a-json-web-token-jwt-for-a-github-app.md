@@ -84,15 +84,16 @@ puts jwt
 
 {% note %}
 
-**Note:** You must run `pip install jwt` to install the `jwt` package in order to use this script.
+**Note:** You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
 
 {% endnote %}
 
 ```python copy
 #!/usr/bin/env python3
-from jwt import JWT, jwk_from_pem
-import time
 import sys
+import time
+
+import jwt
 
 
 # Get PEM file path
@@ -117,7 +118,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = jwk_from_pem(pem_file.read())
+    signing_key = pem_file.read()
 
 payload = {
     # Issued at time
@@ -132,8 +133,7 @@ payload = {
 }
 
 # Create JWT
-jwt_instance = JWT()
-encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
+encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
 
 print(f"JWT:  {encoded_jwt}")
 ```
@@ -172,11 +172,11 @@ header_json='{
 # Header encode
 header=$( echo -n "${header_json}" | b64enc )
 
-payload_json='{
-    "iat":'"${iat}"',
-    "exp":'"${exp}"',
-    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${app_id}"'{% endif %}
-}'
+payload_json="{
+    \"iat\":${iat},
+    \"exp\":${exp},
+    {% ifversion client-id-for-app %}\"iss\":\"${client_id}\"{% else %}\"iss\":\"${app_id}\"{% endif %}
+}"
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
 

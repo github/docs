@@ -4,12 +4,13 @@ getting_started:
     Discover the possibilities of {% data variables.product.prodname_actions %}
     by creating your first workflow.
   guides:
-    - /actions/learn-github-actions/understanding-github-actions
-    - /actions/learn-github-actions/finding-and-customizing-actions
-    - /actions/learn-github-actions/essential-features-of-github-actions
-    - /actions/using-workflows/about-workflows
-    - /actions/using-workflows/reusing-workflows
-    - /actions/security-guides/security-hardening-for-github-actions
+    - /actions/about-github-actions/understanding-github-actions
+    - >-
+      /actions/writing-workflows/choosing-what-your-workflow-does/using-pre-written-building-blocks-in-your-workflow
+    - /actions/writing-workflows/about-workflows
+    - /actions/sharing-automations/reusing-workflows
+    - >-
+      /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
 adopting_github_actions_for_your_enterprise_ghec:
   title: Adopt GitHub Actions for your enterprise
   description: >-
@@ -20,14 +21,15 @@ adopting_github_actions_for_your_enterprise_ghec:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
-    - /actions/security-guides/security-hardening-for-github-actions
+    - >-
+      /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes:
@@ -40,7 +42,7 @@ adopting_github_actions_for_your_enterprise_ghes:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/learn-github-actions/understanding-github-actions
+    - /actions/about-github-actions/understanding-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
@@ -51,7 +53,8 @@ adopting_github_actions_for_your_enterprise_ghes:
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
-    - /actions/security-guides/security-hardening-for-github-actions
+    - >-
+      /actions/security-for-github-actions/security-guides/security-hardening-for-github-actions
     - >-
       /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 hosting_your_own_runners:
@@ -83,11 +86,16 @@ create_actions:
     your project? Learn how to build shareable actions and publish them to
     GitHub Marketplace.
   guides:
-    - /actions/creating-actions/about-custom-actions
-    - /actions/creating-actions/creating-a-docker-container-action
-    - /actions/creating-actions/creating-a-javascript-action
-    - /actions/creating-actions/creating-a-composite-action
-    - /actions/creating-actions/metadata-syntax-for-github-actions
-    - /actions/creating-actions/dockerfile-support-for-github-actions
-    - /actions/creating-actions/setting-exit-codes-for-actions
-    - /actions/creating-actions/publishing-actions-in-github-marketplace
+    - /actions/sharing-automations/creating-actions/about-custom-actions
+    - >-
+      /actions/sharing-automations/creating-actions/creating-a-docker-container-action
+    - /actions/sharing-automations/creating-actions/creating-a-javascript-action
+    - /actions/sharing-automations/creating-actions/creating-a-composite-action
+    - >-
+      /actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions
+    - >-
+      /actions/sharing-automations/creating-actions/dockerfile-support-for-github-actions
+    - >-
+      /actions/sharing-automations/creating-actions/setting-exit-codes-for-actions
+    - >-
+      /actions/sharing-automations/creating-actions/publishing-actions-in-github-marketplace

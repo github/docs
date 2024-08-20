@@ -45,7 +45,7 @@ shortTitle: Install Git LFS
    **Note:** You may have to use `sudo ./install.sh` to install the file.
 
    {% endnote %}
-1. Verify that the installation was successful:
+1. Next, make required changes to your global Git config:
 
    ```shell
    $ git {% data variables.large_files.command_name %} install
@@ -113,7 +113,7 @@ shortTitle: Install Git LFS
    **Note:** You may have to use `sudo ./install.sh` to install the file.
 
    {% endnote %}
-1. Verify that the installation was successful:
+1. Next, make required changes to your global Git config:
 
    ```shell
    $ git {% data variables.large_files.command_name %} install

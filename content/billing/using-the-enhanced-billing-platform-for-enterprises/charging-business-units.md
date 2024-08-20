@@ -14,6 +14,19 @@ To drive accountability and control costs, the enhanced billing platform lets yo
 
 If your account is billed to Azure, you will have the option to add an Azure subscription ID. Cost centers allows for multiple Azure subscription IDs so that different business units, within an enterprise, can directly pay for their usage.
 
+{% ifversion metered-ghe-ghas %}
+
+## Cost center billing for seat-based products
+
+For seat-based products like {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, cost centers are based on **users**. Changes to users (additions or deletions) will affect billing as follows:
+
+* Any new usage after the change will be billed to the cost center immediately.
+* Seats added before a user is added to a cost center are only reflected at the start of the next month.
+* Deletion of a user from a cost center is reflected at the start of the next month.
+
+For example, if you add a user to a cost center, any new usage for that user will be billed to the cost center right away. However, if the usage (seat) for the user was added _before_ the user was added to the cost center, then the user’s seat will only start being billed to the cost center at the start of the next billing cycle.
+{% endif %}
+
 ## Creating a cost center
 
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations and repositories can be assigned to one cost center.
@@ -25,7 +38,7 @@ This method can be used to track only non-seat based products usage such as:
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_short %}
 
-For seat-based products like {% data variables.product.prodname_copilot %}, assign users to the cost center via the API.
+For seat-based products like usage-based billing for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_copilot %}, assign users to the cost center via the API.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}

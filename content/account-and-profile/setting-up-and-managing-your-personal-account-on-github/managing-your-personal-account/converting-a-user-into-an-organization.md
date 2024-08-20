@@ -33,7 +33,16 @@ shortTitle: User into an organization
 * You will no longer have access to the list of users you were following from your user account.
 * Any followers of your user account will not automatically follow the new organization.
 {% ifversion projects-v2 %}- Any existing collaborators on your projects will still have access to those projects in the new organization.{% endif %}
+* {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and will have to be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
 {% endwarning %}
+
+## Prerequisites
+
+The personal account you want to convert cannot be a member of any organizations. If the personal account you want to convert is a member of an organization, you must leave the organization before you can convert the account.
+
+{% ifversion ghes %}
+You may not be able to convert a personal account into an organization, if an enterprise owner has set a policy at the enterprise level. See, "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations)."
+{% endif %}
 
 ## Keep your personal account and create a new organization manually
 

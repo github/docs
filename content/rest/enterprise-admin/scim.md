@@ -100,7 +100,7 @@ To use other IdPs for SAML, the following SAML claims and SCIM attribute must ma
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-{% data variables.product.product_name %} provides endpoints for use by SCIM-enabled Identity Providers (IdPs). An integration on the IdP can use the REST API to automatically provision, manage, or deprovision user accounts on a {% data variables.product.product_name %} instance that uses SAML single sign-on (SSO) for authentication. For more information about SAML SSO, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+{% data variables.product.product_name %} provides endpoints for use by SCIM-enabled Identity Providers (IdPs). An integration on the IdP can use the REST API to automatically provision, manage, or deprovision user accounts on a {% data variables.product.product_name %} instance that uses SAML single sign-on (SSO) for authentication. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes)."
 
 These endpoints are based on SCIM 2.0. For more information, refer to your IdP's documentation or see the [specification on the IETF website](https://datatracker.ietf.org/doc/html/rfc7644).
 
@@ -111,6 +111,8 @@ An IdP can use the following root URL to communicate with the endpoints in this 
 ```http
 {% data variables.product.rest_url %}/scim/v2/
 ```
+
+Do **not** include the `enterprises/{enterprise}/` portion of the URLs provided in the endpoint documentation below. This part of the path is not applicable to {% data variables.product.product_name %}. In the future, this documentation will display the correct URLs for {% data variables.product.product_name %}.
 
 Endpoints in this category are case-sensitive. For example, the first letter in the `Users` endpoint must be capitalized.
 

@@ -30,19 +30,27 @@ In most cases, you can create an enterprise account **yourself**.
 
 You'll **need help** creating an enterprise account for:
 
-* {% data variables.product.prodname_emus %}
 * {% data variables.product.prodname_ghe_server %}
 * Invoicing
+* Managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## What will happen after I upgrade my organization?
 
-* Your existing organization will automatically be owned by the enterprise account. To learn how the organization will change, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
-* The organization's billing details will become the billing details for the enterprise.
-* All of the organization's owners will become owners of the enterprise.
-* All of the organization's billing managers will become billing managers for the enterprise.
-* Going forward, {% data variables.product.company_short %} will bill the enterprise account for usage within **all** organizations owned by the enterprise.
+The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
+
+* **Ownership transfer**: Your organization will automatically be owned by the enterprise account. For details, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
+* **Ownership roles**: All organization owners will become enterprise owners.
+* **Billing details**: The organization’s billing details will now apply to the enterprise account.
+* **Billing managers**: All organization billing managers will become enterprise billing managers.
+* **Billing process**: {% data variables.product.company_short %} will bill the enterprise account for usage within **all** organizations owned by the enterprise.
+* **Enterprise account name**: During the upgrade, the new enterprise account name will match your organization name or be as close as possible if taken. You can rename it after the upgrade.
+* **SAML SSO:** Existing SAML SSO will stay at the organization level after being added to the new enterprise account. You can configure SSO at the enterprise level post-upgrade, which will override the organization level. Existing PATs and SAML-authorized tokens will remain unchanged.
+* **Policies**: The new enterprise account starts with no policies, so existing organization policies won't be overridden.
+* **Spending limits**: Existing organization spending limits transfer to the new enterprise account. Post-upgrade, billing is handled at the enterprise level. To adjust spending limits, under "Settings" in the enterprise account sidebar, select **Billing**.
+* **Coupons**: Existing coupons will carry over to the new enterprise account with no interruptions.
+* **Workflow permissions**: The new enterprise account will inherit your organization's workflow permissions. If the organization has a permissive setting ("Read and write"), the enterprise account will also default to permissive. Otherwise, it defaults to restrictive ("Read repository contents and packages"). For workflows with the id-token permission, the default changes to read-only due to a February 2023 update. Add an explicit permissions block in these workflows to grant the required permissions.
 
 ## Upgrading an organization to an enterprise account
 

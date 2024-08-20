@@ -16,7 +16,7 @@ featuredLinks:
   startHere:
     - /github-cli/github-cli/creating-github-cli-extensions
     - /github-cli/github-cli/using-github-cli-extensions
-    - /actions/using-workflows/using-github-cli-in-workflows
+    - /actions/writing-workflows/choosing-what-your-workflow-does/using-github-cli-in-workflows
     - /codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request

@@ -115,9 +115,17 @@ Your plan may come with included amounts of usage-based products. For example, w
 
 You must manage billing settings, payment method, and paid features and products for each of your accounts separately. You can choose to pay monthly or yearly for each account. All subscriptions and usage-based billing associated with an account shares a billing date, payment method, and receipt.
 
-{% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
+{% ifversion fpt %}{% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-{% ifversion fpt or ghec %}For qualifying usage-based services, you may choose to pay for the services from your {% data variables.product.prodname_dotcom %} account or from an Azure subscription. The terms of the billing method you choose will apply to services billed in this manner.{% endif %}
+For qualifying usage-based services, you may choose to pay for the services from your {% data variables.product.prodname_dotcom %} account or from an Azure subscription. The terms of the billing method you choose will apply to services billed in this manner.{% endif %}
+
+{% ifversion ghec %}
+
+{% data reusables.billing.usage-based-billing %}
+
+Payments can be made via credit card, PayPal, or Azure subscription. When you update the payment method for your account's plan, your new payment method is automatically added to your other subscriptions and usage-based billing.
+
+{% endif %}
 
 For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings)."
 

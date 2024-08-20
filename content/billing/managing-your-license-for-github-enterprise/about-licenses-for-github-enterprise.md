@@ -11,15 +11,15 @@ topics:
 shortTitle: About licenses
 ---
 
+{% ifversion metered-ghe-ghas %}
+
+{% data reusables.billing.usage-based-billing %}
+
+{% endif %}
+
 ## About licensing for {% data variables.product.prodname_enterprise %}
 
 {% data reusables.enterprise.about-deployment-methods %}
-
-{% ifversion ghec %}
-
-{% data reusables.enterprise.invoiced-customer-to-access-ghes %}
-
-{% endif %}
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %} To understand how {% data variables.product.company_short %} bills you for consumed licensed seats, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)." For more about the price of {% data variables.product.prodname_enterprise %} licenses, see [Pricing](https://github.com/pricing) on the {% data variables.product.prodname_dotcom %} website.
 
