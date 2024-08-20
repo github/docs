@@ -41,7 +41,7 @@ In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 The following changes also apply to single organizations that are automatically upgraded to an enterprise account. For details, see the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-06-19-upcoming-automatic-upgrade-to-the-enterprise-account-experience/).
 
 * **Ownership transfer**: Your organization will automatically be owned by the enterprise account. For details, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."
-* **Ownership roles:**: All organization owners will become enterprise owners.
+* **Ownership roles**: All organization owners will become enterprise owners.
 * **Billing details**: The organization’s billing details will now apply to the enterprise account.
 * **Billing managers**: All organization billing managers will become enterprise billing managers.
 * **Billing process**: {% data variables.product.company_short %} will bill the enterprise account for usage within **all** organizations owned by the enterprise.
