@@ -34,7 +34,7 @@ Dependency review is included in {% data variables.product.product_name %} for p
 
 {% elsif ghes %}
 
-Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
+Dependency review is available when dependency graph is enabled for the instance and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository.{% ifversion ghes %} For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."{% endif %}
 
 ### Checking if the dependency graph is enabled
 
