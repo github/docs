@@ -80,7 +80,7 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
    * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 {% endif %}
 
-{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."{% endif %}
+{% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."{% endif %}
 
 For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 

@@ -90,9 +90,9 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 
 {% ifversion security-advisories-ghes %}
 
-## Accessing the local advisory database on {% data variables.location.product_location %}
+## Accessing the local advisory database on {% data variables.product.prodname_ghe_server %}
 
-If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.location.product_location %}, you can also browse reviewed advisories locally. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)".
+If your site administrator has enabled {% data variables.product.prodname_github_connect %} for your instance, you can also browse reviewed advisories locally. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)".
 
 You can use your local advisory database to check whether a specific security vulnerability is included, and therefore whether you'd get alerts for vulnerable dependencies. You can also view any vulnerable repositories.
 
@@ -107,7 +107,7 @@ You can use your local advisory database to check whether a specific security vu
 
 You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
 
-### Viewing vulnerable repositories for {% data variables.location.product_location %}
+### Viewing vulnerable repositories for your instance
 
 {% data reusables.repositories.enable-security-alerts %}
 
