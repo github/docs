@@ -13,8 +13,6 @@ sections:
     - |
       **CRITICAL:** On GitHub Enterprise Server instances that use SAML single sign-on (SSO) authentication with specific IdPs utilizing publicly exposed signed federation metadata XML, an attacker could forge a SAML response to provision and/or gain access to a user account with site administrator privileges. GitHub has requested CVE ID [CVE-2024-6800](https://www.cve.org/cverecord?id=CVE-2024-6800) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      **MEDIUM:** An attacker could update the `title`, `assignees`, and `labels` of any issue inside a public repository. This was only exploitable inside a public repository, and private/internal repositories were not affected. GitHub has requested CVE ID [CVE-2024-7711](https://www.cve.org/cverecord?id=CVE-2024-7711) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
-    - |
       **MEDIUM:** An attacker could disclose the issue contents from a private repository using a GitHub App with only `contents: read` and `pull requests: write` permissions. This was only exploitable via user access token, and installation access tokens were not impacted. GitHub has requested CVE ID [CVE-2024-6337](https://www.cve.org/cverecord?id=CVE-2024-6337) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       Packages have been updated to the latest security versions.
