@@ -39,7 +39,7 @@ If your cloud provider doesn't yet offer an official action, you can update your
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Using official actions
 
