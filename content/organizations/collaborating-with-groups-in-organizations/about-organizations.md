@@ -40,8 +40,9 @@ To learn how to use organizations most effectively, see "[AUTOTITLE](/organizati
 
 <!-- expires 2024-09-03 -->
 {% ifversion ghec %}
-{% data reusables.enterprise.single-organizations-enterprise-migration %}
+> [!NOTE] Starting September 3, 2024, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization will be automatically upgraded to an enterprise account at no additional cost. For details, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization)."
 {% endif %}
+<!-- When this note expires, replace "Starting September 3, 2024" with something like "Currently" and adjust the expiry date in the articles to be a future date when we want to remove it entirely. -->
 <!-- end expires 2024-09-03 -->
 
 {% ifversion fpt %}
