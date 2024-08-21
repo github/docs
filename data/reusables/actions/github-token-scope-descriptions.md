@@ -1,4 +1,4 @@
-For each of the available permissions, shown in the table below, you can assign one of the access levels: `read`, `write`, or `none`. `write` includes `read`. If you specify the access for any of these permissions, all of those that are not specified are set to `none`.
+For each of the available permissions, shown in the table below, you can assign one of the access levels: `read` (if applicable), `write`, or `none`. `write` includes `read`. If you specify the access for any of these permissions, all of those that are not specified are set to `none`.
 
 Available permissions and details of what each allows an action to do:
 

@@ -45,9 +45,9 @@ You can also open a pull request directly on an advisory file in the [github/adv
 
 {% ifversion security-advisories-ghes %}
 
-## Editing advisories from {% data variables.location.product_location %}
+## Editing advisories from {% data variables.product.prodname_ghe_server %}
 
-If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.location.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
+If you have {% data variables.product.prodname_github_connect %} enabled on your instance, you will be able to see advisories by adding `/advisories` to the instance url.
 
 1. Navigate to `https://HOSTNAME/advisories`.
 1. Select the security advisory you would like to contribute to.

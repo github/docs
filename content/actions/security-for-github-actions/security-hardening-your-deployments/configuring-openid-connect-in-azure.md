@@ -66,7 +66,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 

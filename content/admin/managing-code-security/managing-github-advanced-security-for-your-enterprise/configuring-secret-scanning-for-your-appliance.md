@@ -1,7 +1,7 @@
 ---
 title: Configuring secret scanning for your appliance
 shortTitle: Configuring secret scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_secret_scanning %} for {% data variables.product.prodname_ghe_server %}. {% data variables.product.prodname_secret_scanning_caps %} allows users to scan code for accidentally committed secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /admin/configuration/configuring-secret-scanning-for-your-appliance
@@ -27,7 +27,7 @@ If someone checks a secret with a known pattern into a repository, {% data varia
 
 ## Prerequisites for {% data variables.product.prodname_secret_scanning %}
 
-* The SSSE3 (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}. For more information about SSSE3, see [Intel 64 and IA-32 Architectures Optimization Reference Manual](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) in the Intel documentation.
+* The SSSE3 (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.product.prodname_ghe_server %}. For more information about SSSE3, see [Intel 64 and IA-32 Architectures Optimization Reference Manual](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) in the Intel documentation.
 
 * A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
@@ -44,7 +44,7 @@ The SSSE3 set of instructions is required because {% data variables.product.prod
    grep -iE '^flags.*ssse3' /proc/cpuinfo >/dev/null | echo $?
    ```
 
-   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
+   If this returns the value `0`, it means that the SSSE3 flag is available and enabled. You can now enable {% data variables.product.prodname_secret_scanning %}. For more information, see "[Enabling {% data variables.product.prodname_secret_scanning %}](#enabling-secret-scanning)" below.
 
    If this doesn't return `0`, SSSE3 is not enabled on your VM/KVM. You need to refer to the documentation of the hardware/hypervisor on how to enable the flag, or make it available to guest VMs.
 

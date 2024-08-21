@@ -36,6 +36,14 @@ shortTitle: User into an organization
 * {% data variables.product.prodname_actions %} is not automatically enabled on the account after converting it to an organization, and will have to be re-enabled. To re-enable {% data variables.product.prodname_actions %}, create a new workflow file in the `.github/workflows` directory of your repository.
 {% endwarning %}
 
+## Prerequisites
+
+The personal account you want to convert cannot be a member of any organizations. If the personal account you want to convert is a member of an organization, you must leave the organization before you can convert the account.
+
+{% ifversion ghes %}
+You may not be able to convert a personal account into an organization, if an enterprise owner has set a policy at the enterprise level. See, "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/preventing-users-from-creating-organizations)."
+{% endif %}
+
 ## Keep your personal account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
