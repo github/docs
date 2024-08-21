@@ -46,12 +46,9 @@ export default async function contextualizeSearch(req, res, next) {
     }
   }
 
-  // Feature flag
-  if (
-    ['enterprise-cloud', 'enterprise-server'].includes(req.context.currentVersion.split('@')[0])
-  ) {
-    search.aggregate = ['toplevel']
-  }
+  // This enables so that when the search is sent to Elasticsearch
+  // it will request an aggregate by these keyword fields.
+  search.aggregate = ['toplevel']
 
   req.context.search = { search, validationErrors }
 
