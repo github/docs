@@ -8,7 +8,7 @@ import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
-import { analyzeComment } from './analyze-comment.js'
+import { analyzeComment, getGuessedLanguage } from './analyze-comment.js'
 
 const router = express.Router()
 const OMIT_FIELDS = ['type']
@@ -74,6 +74,7 @@ router.post(
         comment: req.body.survey_comment,
         language: req.body.context.path_language,
       })
+      req.body.survey_comment_language = await getGuessedLanguage(req.body.survey_comment)
     }
 
     await publish({
