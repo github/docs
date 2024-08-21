@@ -392,7 +392,12 @@ const survey = {
     survey_rating: {
       type: 'number',
       description:
-        'The compute rating of the quality of the survey comment. Used for spam filtering and quality control.',
+        'The computed rating of the quality of the survey comment. Used for spam filtering and quality control.',
+    },
+    survey_comment_language: {
+      type: 'string',
+      description:
+        'The guessed language of the survey comment. The guessed language is very inaccurate when the string contains fewer than 3 or 4 words.',
     },
   },
 }
