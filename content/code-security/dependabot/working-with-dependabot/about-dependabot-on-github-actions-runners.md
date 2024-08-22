@@ -89,10 +89,8 @@ If you run into {% data variables.product.prodname_dependabot %} timeouts and ou
 
 > [!NOTE] You can only enable {% data variables.actions.hosted_runners %} for {% data variables.product.prodname_dependabot %} _at the organization level_. {% data variables.product.prodname_dotcom %} will bill your organization at the regular Actions runner pricing. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
-1. Add a {% data variables.actions.hosted_runner %} to your organization. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
-1. Add the `dependabot` label to the {% data variables.actions.hosted_runner %}.
-1. Optionally, call the {% data variables.actions.hosted_runner %} `dependabot`.
-1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` label.
+1. Add a {% data variables.actions.hosted_runner %} to your organization and ensure the name specified is `dependabot`. For more informaton, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
+1. Opt in the organization to self-hosted runners. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-dependabot-on-self-hosted-runners#enabling-or-disabling-for-your-organization)." This step is required, as it ensures that future {% data variables.product.prodname_dependabot %} jobs will run on the larger {% data variables.product.prodname_dotcom %}-hosted runner that has the `dependabot` name.
 
 ## Managing {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
