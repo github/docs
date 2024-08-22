@@ -9,3 +9,7 @@
 .opacity100 {
   opacity: 1;
 }
+
+.customFocus:focus {
+  box-shadow: 0 0 1px 3px var(--color-accent-muted);
+}
