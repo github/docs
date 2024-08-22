@@ -1,4 +1,4 @@
----
+commit---
 title: About GitHub Copilot
 shortTitle: About GitHub Copilot
 intro: 'Learn about GitHub Copilot.'
