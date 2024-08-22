@@ -30,7 +30,7 @@ Once a secret has been committed to a repository, you should consider the secret
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+> If a secret is detected in a public repository on {% data variables.product.prodname_dotcom %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
 
