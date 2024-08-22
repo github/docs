@@ -93,13 +93,13 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
-{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion ghes < 3.15 %}
 * [Scanning for non-provider patterns](#scanning-for-non-provider-patterns){% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
 * [Generic secret detection](#generic-secret-detection){% endif %}
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits){% ifversion ghec or ghes %}
 * [Defining custom patterns](#defining-custom-patterns){% endif %}
 
-{% ifversion secret-scanning-non-provider-patterns %}
+{% ifversion ghes < 3.15 %}
 
 ### Scanning for non-provider patterns
 
