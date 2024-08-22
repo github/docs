@@ -22,7 +22,7 @@ This article is part of a series on adopting {% data variables.product.prodname_
 Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful.{% ifversion default-setup-ghas-enablement %}{% else %} As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}.{% endif %}
 
 {% ifversion ghec %}
-{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom_the_website %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
 ### Preparing teams for {% data variables.product.prodname_code_scanning %}
 
@@ -138,7 +138,7 @@ Secrets found in public repositories using {% data variables.secret-scanning.par
 
 If a project communicates with an external service, it might use a token or private key for authentication. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repositories for secrets and alert you or block the push containing the secret. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)."
 
-{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom_the_website %}.
+{% ifversion ghec %}{% data variables.secret-scanning.partner_alerts_caps %} runs automatically on public repositories and public npm packages to notify service providers about leaked secrets on {% data variables.product.prodname_dotcom %}.
 
 {% data variables.secret-scanning.user_alerts_caps %} are available for free on all public repositories.{% endif %}
 
