@@ -38,7 +38,6 @@ Reasons for choosing to work in a codespace include:
 * **Work anywhere** - All you need is a web browser. You can work in a codespace on your own computer, on a friend's laptop, or on a tablet. Open your codespace and pick up from where you left off on a different device.
 * **Choose your editor** - Work in the browser in the {% data variables.product.prodname_vscode_shortname %} web client, or choose from a selection of desktop-based applications.
 * **Work on multiple projects** - You can use multiple codespaces to work on separate projects, or on different branches of the same repository, compartmentalizing your work to avoid changes made for one piece of work accidentally affecting something else you're working on.
-* **Pair program with a teammate** - If you work on a codespace in {% data variables.product.prodname_vscode_shortname %}, you can use Live Share to work collaboratively with other people on your team. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace)."
 * **Publish your web app from a codespace** - Forward a port from your codespace and then share the URL, to allow teammates to try out the changes you've made to the application before you submit those changes in a pull request.
 * **Try out a framework** - {% data variables.product.prodname_github_codespaces %} reduces the setup time when you want to learn a new framework. Just create a codespace from one of the [quickstart templates](https://github.com/codespaces/templates).
 

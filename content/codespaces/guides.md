@@ -30,7 +30,6 @@ includeGuides:
   - /codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace
   - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
   - /codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace
-  - /codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace
   - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
   - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   - /codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli
