@@ -4,5 +4,7 @@
 }
 
 .customRadio:focus + label {
-  box-shadow: 0 0 1px 3px var(--color-accent-muted);
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline-offset: -2px;
+  box-shadow: 0 0 0 3px inset;
 }
