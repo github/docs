@@ -21,6 +21,9 @@ A pre-receive environment for {% data variables.product.prodname_ghe_server %} i
 
 If you have a specific requirement that isn't met by this environment, such as support for a particular language, you can create and upload your own 64-bit Linux `chroot` environment.
 
+The Git version used in the pre-receive hook environment must be at least 2.11, or if you are using libgit2 you must use at least version 0.18.
+If you are using another Git implementation, it must support relative paths in the `info/alternates` file.
+
 ## Creating a pre-receive hook environment using Docker
 
 You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
