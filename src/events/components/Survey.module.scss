@@ -4,7 +4,7 @@
 }
 
 .customRadio:focus + label {
-  outline: 2px auto Highlight; // for firefox
-  outline: 2px auto -webkit-focus-ring-color;
-  // var(--fgColor-accent, var(--color-accent-fg))
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline-offset: -2px;
+  box-shadow: 0 0 0 3px inset;
 }
