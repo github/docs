@@ -103,7 +103,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>releases delete button</pre> | Deletion of a release | "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release)" |
 | <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories)" |
 | <pre>tag create api</pre> | Creation of a tag via the API | "[AUTOTITLE](/rest/git/tags#create-a-tag-object)" |
-{%- ifversion ghes < 3.13 %}
+| {% ifversion ghes < 3.13 %} |
 | <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion)" |
 | {% endif %} |
 | <pre>web branch create</pre> | Creation of a branch via the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)" |

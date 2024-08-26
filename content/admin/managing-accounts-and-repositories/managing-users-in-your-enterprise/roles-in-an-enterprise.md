@@ -83,7 +83,7 @@ Billing managers only have access to your enterprise's billing settings. They ca
 * View a list of billing managers
 * Add or remove other billing managers
 
-Billing managers do not have access to organization settings or content by default.
+Billing managers do not have access to organization settings or content by default except for internal repositories within an enterprise in which they are a member.
 
 {% endif %}
 
