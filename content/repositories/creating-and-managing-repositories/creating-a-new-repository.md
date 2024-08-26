@@ -64,13 +64,14 @@ You must have the proper permissions for any action to use the equivalent query 
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the invalid query parameters will be ignored and the rest of the URL will function as normal. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
-Query parameter | Example | Valid values
----  | --- | ---
-`name` | `https://{% data variables.product.product_url %}/new?name=test-repo&owner=avocado-corp` creates a repository called "test-repo" owned by the "avocado-corp" organization. | Any valid repository name. Spaces must be replaced with `+` or `%20`.
-`description` | `https://{% data variables.product.product_url %}/new?description=An+exciting+repository&visibility=private&owner=octocat` creates a repo with the description "An exciting repository" with private visibility owned by @octocat. | Any string. Spaces must be replaced with `+` or `%20`.
-`visibility` | `https://{% data variables.product.product_url %}/new?visibility=private` creates a repository with private visibility. | `public`<br> `private`<br>{% ifversion not fpt %}`internal`{% endif %}
-`owner` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&visibility=public` creates a public repository owned by the "avocado-corp" organization. | Any valid organization name or username. Alternatively, while signed in use `@me` to specify your user account as the owner.
-`template_owner` and `template_name` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&template_owner=avocado-corp&template_name=octo-repo` creates a repository owned by the "avocado-corp" using the avocado-corp's template "octo-repo". | The username of the template owner and the name of the repository template.
+| Query parameter | Example | Valid values |
+| ---  | --- | --- |
+| `name` | `https://{% data variables.product.product_url %}/new?name=test-repo&owner=avocado-corp` creates a repository called "test-repo" owned by the "avocado-corp" organization. | Any valid repository name. Spaces must be replaced with `+` or `%20`. |
+| `description` | `https://{% data variables.product.product_url %}/new?description=An+exciting+repository&visibility=private&owner=octocat` creates a repo with the description "An exciting repository" with private visibility owned by @octocat. | Any string. Spaces must be replaced with `+` or `%20`. |
+| `visibility` | `https://{% data variables.product.product_url %}/new?visibility=private` creates a repository with private visibility. | `public`<br> `private`<br>{% ifversion not fpt %}`internal`{% endif %} |
+| `owner` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&visibility=public` creates a public repository owned by the "avocado-corp" organization. | Any valid organization name or username. Alternatively, while signed in use `@me` to specify your user account as the owner. |
+| `template_owner` and `template_name` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&template_owner=avocado-corp&template_name=octo-repo` creates a repository owned by the "avocado-corp" using the avocado-corp's template "octo-repo". | The username of the template owner and the name of the repository template. |
+
 {% endif %}
 
 ## Further reading
