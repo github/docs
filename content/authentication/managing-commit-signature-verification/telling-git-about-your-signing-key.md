@@ -111,6 +111,12 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bashrc
    ```
 
+   Alternatively, if you use the `fish` shell, run this command:
+
+   ```shell
+   [ -f ~/.config/fish/config.fish ] && echo -e '\nset -x GPG_TTY (tty)' >> ~/.config/fish/config.fish
+   ```
+
 {% endlinux %}
 
 ## Telling Git about your SSH key
