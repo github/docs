@@ -131,6 +131,112 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Venezuela</li>
 </ul>
 
+## Countries Not Included in the List
+The following countries are not included:
+
+| Flag | Country                      |
+|------|------------------------------|
+| 🇦🇫   | Afghanistan                  |
+| 🇦🇱   | Albania                      |
+| 🇦🇩   | Andorra                      |
+| 🇦🇷   | Argentina                    |
+| 🇦🇲   | Armenia                      |
+| 🇦🇿   | Azerbaijan                   |
+| 🇧🇧   | Barbados                     |
+| 🇧🇹   | Bhutan                       |
+| 🇧🇼   | Botswana                     |
+| 🇧🇷   | Brazil                       |
+| 🇧🇫   | Burkina Faso                 |
+| 🇨🇲   | Cameroon                     |
+| 🇨🇱   | Chile                        |
+| 🇨🇳   | China                        |
+| 🇨🇴   | Colombia                     |
+| 🇰🇲   | Comoros                      |
+| 🇨🇷   | Costa Rica                   |
+| 🇨🇺   | Cuba                         |
+| 🇩🇯   | Djibouti                     |
+| 🇪🇬   | Egypt                        |
+| 🇸🇻   | El Salvador                  |
+| 🇪🇷   | Eritrea                      |
+| 🇪🇹   | Ethiopia                     |
+| 🇫🇯   | Fiji                         |
+| 🇲🇬   | Madagascar                   |
+| 🇲🇼   | Malawi                       |
+| 🇲🇸   | Malaysia                     |
+| 🇲🇻   | Maldives                     |
+| 🇲🇱   | Mali                         |
+| 🇲🇹   | Malta                        |
+| 🇲🇽   | Mexico                       |
+| 🇲🇩   | Moldova                      |
+| 🇲🇨   | Monaco                       |
+| 🇲🇳   | Mongolia                     |
+| 🇲🇪   | Montenegro                   |
+| 🇲🇦   | Morocco                      |
+| 🇲🇿   | Mozambique                   |
+| 🇲🇲   | Myanmar                      |
+| 🇳🇦   | Namibia                      |
+| 🇳🇵   | Nepal                        |
+| 🇳🇱   | Netherlands                  |
+| 🇳🇿   | New Zealand                  |
+| 🇳🇮   | Nicaragua                    |
+| 🇳🇪   | Niger                        |
+| 🇳🇬   | Nigeria                      |
+| 🇰🇵   | North Korea                  |
+| 🇲🇰   | North Macedonia              |
+| 🇳🇴   | Norway                       |
+| 🇴🇲   | Oman                         |
+| 🇵🇰   | Pakistan                     |
+| 🇵🇦   | Panama                       |
+| 🇵🇬   | Papua New Guinea             |
+| 🇵🇪   | Peru                         |
+| 🇵🇭   | Philippines                  |
+| 🇵🇱   | Poland                       |
+| 🇵🇹   | Portugal                     |
+| 🇶🇦   | Qatar                        |
+| 🇷🇴   | Romania                      |
+| 🇷🇼   | Rwanda                       |
+| 🇰🇳   | Saint Kitts and Nevis        |
+| 🇱🇨   | Saint Lucia                  |
+| 🇻🇨   | Saint Vincent and the Grenadines |
+| 🇼🇸   | Samoa                        |
+| 🇸🇲   | San Marino                   |
+| 🇸🇦   | Saudi Arabia                 |
+| 🇸🇳   | Senegal                      |
+| 🇷🇸   | Serbia                       |
+| 🇸🇨   | Seychelles                   |
+| 🇱🇸   | Lesotho                      |
+| 🇱🇷   | Liberia                      |
+| 🇱🇰   | Sri Lanka                    |
+| 🇸🇷   | Suriname                     |
+| 🇸🇪   | Sweden                       |
+| 🇨🇭   | Switzerland                  |
+| 🇸🇾   | Syria                        |
+| 🇹🇯   | Tajikistan                   |
+| 🇹🇿   | Tanzania                     |
+| 🇹🇭   | Thailand                     |
+| 🇹🇬   | Togo                         |
+| 🇹🇴   | Tonga                        |
+| 🇹🇹   | Trinidad and Tobago          |
+| 🇹🇳   | Tunisia                      |
+| 🇹🇷   | Turkey                       |
+| 🇹🇲   | Turkmenistan                 |
+| 🇹🇻   | Tuvalu                       |
+| 🇺🇬   | Uganda                       |
+| 🇺🇦   | Ukraine                      |
+| 🇦🇪   | United Arab Emirates         |
+| 🇬🇧   | United Kingdom               |
+| 🇺🇸   | United States                |
+| 🇺🇾   | Uruguay                      |
+| 🇺🇿   | Uzbekistan                   |
+| 🇻🇺   | Vanuatu                      |
+| 🇻🇪   | Venezuela                    |
+| 🇻🇳   | Vietnam                      |
+| 🇾🇪   | Yemen                        |
+| 🇿🇲   | Zambia                       |
+| 🇿🇼   | Zimbabwe                     |
+
+
+
 ## Further reading
 
 * "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
