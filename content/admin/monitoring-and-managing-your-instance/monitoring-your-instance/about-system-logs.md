@@ -43,8 +43,8 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 * [Log files for databases](#log-files-for-databases)
 * [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
 * [Log files for the HTTP server](#log-files-for-the-http-server)
-* [Log files for instance configuration](#log-files-for-instance-configuration)
 * [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-the-management-console)
+* [Log files for instance configuration](#log-files-for-instance-configuration)
 * [Log files for search](#log-files-for-search)
 * [Log files for system services](#log-files-for-system-services)
 
@@ -56,6 +56,7 @@ The following log files record events from database services on your instance.
 | :- | :- |
 | <pre>/var/log/mysql/mysql.log</pre> | Records events related to the instance's MySQL database. |
 | <pre>/var/log/mysql/mysql.err</pre> | Records errors related to the instance's MySQL database. |
+| <pre>/data/user/mssql/log/errorlog</pre> | Records errors related to the instance's MSSQL database. See [Journal logs for databases](#journal-logs-for-databases) later in this article for other events. |
 
 ### Log files for the {% data variables.product.prodname_dotcom %} application
 
@@ -112,14 +113,6 @@ The following log files contain events from services that provide search functio
 | :- | :- |
 | <pre>/var/log/elasticsearch/github-enterprise.log</pre> | Records events associated with the Elasticsearch service, which your instance uses to provide search services. |
 
-### Journal logs for webhooks
-
-The following log files contain events related to webhooks that your instance sends.
-
-| Service name | Description |
-| :- | :- |
-| <pre>hookshot-go</pre> | Records events for all webhook activity on the instance, including triggered webhooks, deliveries, and failures.|
-
 ### Log files for system services
 
 The following logs contain events from system services on your instance.
@@ -139,7 +132,7 @@ Several {% data variables.product.product_name %} services, such as the `babeld`
 
 People with administrative SSH access to the instance can parse these logs using the `journalctl` command. For more information, see [journalctl(1)](http://man7.org/linux/man-pages/man1/journalctl.1.html) in the online Linux manual pages.
 
-To view logs in the systemd journal, run the following command, replacing SERVICE-NAME with a service name from the following list of logs.
+To view logs in the systemd journal, run the following command, replacing SERVICE-NAME with a service name from the following list of logs. For view logs of all other containerized services, run `nomad job status` and use the `ID` as the SERVICE-NAME.
 
 ```shell
 journalctl -t SERVICE-NAME
@@ -175,6 +168,23 @@ The following logs contain events from services that store or retrieve data on y
 | Service name | Description |
 | :- | :- |
 | <pre>alambic</pre> | Records events related to the storage and retrieval of files, such as {% data variables.large_files.product_name_short %} objects, avatar images, file attachments from comments in the web UI, and release archives. |
+
+### Journal logs for databases
+
+The following logs contain events related to database services on your instance.
+
+| Service name | Description |
+| :- | :- |
+| <pre>mysql</pre> | Records events related to the instance's MySQL database. |
+| <pre>mssql</pre> | Records events related to the instance's MSSQL database. |
+
+### Journal logs for webhooks
+
+The following log files contain events related to webhooks that your instance sends.
+
+| Service name | Description |
+| :- | :- |
+| <pre>hookshot-go</pre> | Records events for all webhook activity on the instance, including triggered webhooks, deliveries, and failures.|
 
 ## About system logs in support bundles
 
