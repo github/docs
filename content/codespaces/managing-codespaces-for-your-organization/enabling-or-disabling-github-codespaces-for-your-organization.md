@@ -72,3 +72,15 @@ Once a user loses access to a codespace, the codespace is retained for a period 
 1. On the {% data variables.product.prodname_codespaces %} settings page, under "Codespaces access," select your preferred setting for {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories.
 
    You can disable {% data variables.product.prodname_codespaces %}, enable for specific members or teams, enable for all members, or enable for all members and collaborators.
+app.example.com wants you to sign in with your Ethereum account:
+0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
+
+I further authorize this app to send me notifications. Read more at https://walletconnect.com/notifications
+
+URI: did:key:z6MkqJ6qV18zBazggzhGMHNgadEQGbX9RceEH3j2G6kNTbKq
+Version: 1
+Chain ID: 1
+Nonce: bb0b6514e8a5e817
+Issued At: 2023-09-01T15:29:36.509Z
+Resources:
+- https://keys.walletconnect.com
