@@ -150,6 +150,11 @@ const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
+  'table-liquid-versioning': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
