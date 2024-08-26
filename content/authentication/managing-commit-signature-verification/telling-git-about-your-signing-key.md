@@ -50,6 +50,12 @@ If you have multiple GPG keys, you need to tell Git which one to use.
      else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.profile; fi
    ```
 
+   If you use the `fish` shell, run the following command:
+
+   ```
+   $ [ -f ~/.config/fish/config.fish ] && echo -e '\nset -x GPG_TTY (tty)' >> ~/.config/fish/config.fish
+   ```
+
 1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
 
    ```shell
