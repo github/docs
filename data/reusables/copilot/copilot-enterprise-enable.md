@@ -12,4 +12,4 @@
 
 1. Next to "Give {% data variables.product.prodname_copilot_short %} access to Bing," click the dropdown menu and select the policy you want to enforce. By default, Bing is disabled at the organization level.
 
-   > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.
+   > [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in beta and is subject to change.

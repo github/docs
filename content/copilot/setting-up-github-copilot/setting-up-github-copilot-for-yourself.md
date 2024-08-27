@@ -45,4 +45,4 @@ If you have your own subscription to {% data variables.product.prodname_copilot_
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot)." {% data variables.product.prodname_copilot_short %} code suggestions and {% data variables.product.prodname_copilot_chat_short %} in your IDE is a great place to start.
 
-To improve your {% data variables.product.prodname_copilot_short %} results, follow these prompt engineering strategies: "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)."
+To learn how to best use {% data variables.product.prodname_copilot_short %}, see "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)" and "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)."
