@@ -58,7 +58,7 @@ Before you can sponsor an account, you must have a verified email address. For m
 
    To sponsor these maintainers using the downloaded file, in the corresponding cells of the "Sponsorship amount in USD" column, input sponsorship amounts in US dollars for each maintainer you want to sponsor.
 
-1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**.
+1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**. Organizations can also access the "Bulk Sponsor" functionality from the sponsors dashboard.
 1. Optionally, to change which account or organization you are sponsoring as, select the **Sponsor as USERNAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the desired account or organization from the options that appear.
 
     ![Screenshot of the first bulk sponsorship screen. A collapsed dropdown menu, labeled "octocat", is highlighted in dark orange.](/assets/images/help/sponsors/bulk-sponsors-sponsor-as-dropdown.png)
