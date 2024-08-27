@@ -41,7 +41,7 @@ Alternatively, you can set up a self-serve workflow using the API. See "[Add tea
 
 ## 5. Share onboarding material
 
-* **Share onboarding material**: Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)."
+* **Share onboarding material**: Share onboarding material with each member that you granted {% data variables.product.prodname_copilot_short %} access to. See "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)."
 * **Encourage adoption**: Encouragement from leadership can help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. Consider messaging your support of {% data variables.product.prodname_copilot_short %} and how it can help your organization.
 * **Set up training sessions or workshops**: Training sessions or workshops can help members learn how to use {% data variables.product.prodname_copilot_short %} effectively.
 
@@ -51,13 +51,14 @@ Enhance the {% data variables.product.prodname_copilot_short %} experience for y
 
 * **Indexing repositories** to improve {% data variables.product.prodname_copilot_short %}'s responses relating to {% data variables.product.prodname_dotcom %} repositories _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat)."
 * **Setting up knowledge bases** for use with {% data variables.product.prodname_copilot_chat_short %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_. See "[AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases)."
+* **Fine tuning {% data variables.product.prodname_copilot_short %}** by creating a custom large language model. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot)."
 * **Installing {% data variables.product.prodname_copilot_extensions_short %}** to integrate other tools with {% data variables.product.prodname_copilot_chat_short %}. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization)."
 
 ## 7. Drive adoption
 
 To help your organization get the most out of {% data variables.product.prodname_copilot_short %}, reach out to users who have not used {% data variables.product.prodname_copilot_short %} recently. (You can use the API to identify users who have not used {% data variables.product.prodname_copilot_short %} recently.) To help those users, consider:
 
-* Sharing resources to help them get started, such as "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)" and "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
+* Sharing resources to help them get started, such as "[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself)," "[AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)," and "[AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)"
 * Learning about their barriers to using {% data variables.product.prodname_copilot_short %}
 * Addressing any concerns they have about using {% data variables.product.prodname_copilot_short %}
 * Giving them ideas for how to incorporate {% data variables.product.prodname_copilot_short %} into their work
