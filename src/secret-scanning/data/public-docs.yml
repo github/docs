@@ -1462,7 +1462,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.13'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
@@ -1844,7 +1844,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
