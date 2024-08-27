@@ -1,14 +1,9 @@
-date: '2024-08-07'
-release_candidate: true
-deprecated: true
+date: '2024-08-27'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
+
 sections:
 
   features:
@@ -177,7 +172,7 @@ sections:
 
   known_issues:
     - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.14 release will be added between now and the GA.
+      Complete SCIM payloads are written to the audit log, including SCIM attributes that are not required or supported per [API docs](/rest/enterprise-admin/scim?apiVersion=2022-11-28#supported-scim-user-attributes). Customers using Okta with SCIM may notice that a placeholder password attribute is among the data passed to audit logs in its current configuration. This placeholder data is associated with Okta’s password synchronization feature that is not expected or required by GitHub. See [okta-scim](https://developer.okta.com/docs/api/openapi/okta-scim/guides/scim-20/#create-the-user) for more information.
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
@@ -197,7 +192,7 @@ sections:
     - |
       REST API endpoints for admin stats may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
@@ -216,6 +211,12 @@ sections:
       In the header bar displayed to site administrators, some icons are not available.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
+    - |
+      Services may respond with a 503 status due to an out of date haproxy configuration. This can usually be resolved with a `ghe-config-apply` run.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
 
   deprecations:
     - |
