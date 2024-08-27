@@ -29,17 +29,16 @@ When you squash and merge, {% data variables.product.prodname_dotcom %} generate
 {% else %}
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
-| Number of commits | Summary | Description |
-| ----------------- | ------- | ----------- |
-| One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit |
-| More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order |
-
+Number of commits | Summary | Description |
+----------------- | ------- | ----------- |
+One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
+More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 {% endif %}
 
-| Number of commits | Summary | Description |
-| ----------------- | ------- | ----------- |
-| One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit |
-| More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order |
+Number of commits | Summary | Description |
+----------------- | ------- | ----------- |
+One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
+More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 
 {% ifversion default-merge-squash-commit-message %}
 People with maintainer or admin access to a repository can configure their repository's default merge message for all squashed commits to use the pull request title, the pull request title and commit details, or the pull request title and description. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)".{% endif %}
