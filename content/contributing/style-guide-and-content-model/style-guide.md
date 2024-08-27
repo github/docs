@@ -277,10 +277,14 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 ## Emphasis
 
-Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+Use bold to emphasize words or parts of a sentence. Use emphasis sparingly (no more than five contiguous words), and remember that it is a visual aid for scannability for sighted users.
 
-* **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
-* **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+* Do not bold words that have other formatting applied, such as all caps for placeholder text.
+* For accessibility, do not use bolding as the only way to convey meaning or emphasis.
+
+For example:
+
+* **Use:** Managed user accounts **cannot create public content** or collaborate outside your enterprise.
 * **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Error messages
