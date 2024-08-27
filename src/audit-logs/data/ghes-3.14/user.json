@@ -1640,16 +1640,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "user_email.confirm_claim",
-    "description": "An enterprise managed user claimed an email address.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_email.mark_as_unclaimed",
-    "description": "N/A",
-    "docs_reference_links": "An enterprise managed user unclaimed an email address."
-  },
-  {
     "action": "user.enable_collaborators_only",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1855,18 +1845,8 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "workflows.pin_workflow",
-    "description": "A workflow was pinned.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "workflows.reject_workflow_job",
     "description": "A workflow job was rejected.",
     "docs_reference_links": "/actions/managing-workflow-runs/reviewing-deployments"
-  },
-  {
-    "action": "workflows.unpin_workflow",
-    "description": "A workflow was unpinned after previously being pinned.",
-    "docs_reference_links": "N/A"
   }
 ]
