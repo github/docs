@@ -9,6 +9,7 @@ topics:
   - Copilot
 type: how_to
 redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/extending-the-capabilities-of-github-copilot-in-your-organization
   - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/installing-github-copilot-extensions-for-your-organization
