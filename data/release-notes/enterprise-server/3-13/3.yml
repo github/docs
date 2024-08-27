@@ -123,3 +123,7 @@ sections:
       Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
     - |
       Instance setup in AWS with IMDSv2 enforced fails if no public IP is present.
+    - |
+      {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
+
+      [Updated: 2024-08-26]
