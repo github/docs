@@ -1,5 +1,5 @@
-# Reference: #14183 (Add C# to existing Java support)
-# Note: This feature is currently in beta and will move to GA for all versions at the same time (see #14184)
+# Reference: #14183 (C# beta)
+# Reference: #15544 (C# GA)
 
 versions:
   fpt: '*'
