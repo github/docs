@@ -57,7 +57,17 @@ To align the `last_activity_at` data point with _actual usage_, the system retur
 
 The `last_activity_at` date is consistent across the CSV generated via `Get Report` in Copilot Access settings as well as through {% data variables.product.prodname_dotcom %}'s REST API. The events which are tracked come from both client, and server-side telemetry. This allows the timestamp to be durable in the event that network conditions would impact client-telemetry.
 
-Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again.
+### Troubleshooting `last_activity_at` data
+
+Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. Users must have telemetry enabled in their IDE for their usage to be reflected in `last_activity_at`.
+
+If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
+
+For more information about enabling telemetry in various IDEs, see:
+
+* "[Enable or disable usage data collection for Azure Data Studio](https://learn.microsoft.com/azure-data-studio/usage-data-collection)" in the Microsoft documentation
+* "[Data Sharing](https://www.jetbrains.com/help/idea/settings-usage-statistics.html)" in the JetBrains documentation
+* "[Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry)" in the {% data variables.product.prodname_vscode_shortname %} documentation
 
 ## Further reading
 
