@@ -33,7 +33,7 @@ redirect_from:
 * We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud#running-your-migrations)."
 * {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)."
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
+* For the destination organization on {% data variables.product.prodname_dotcom %}, you need to be an organization owner or have the migrator role. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
 
 {% api %}
 

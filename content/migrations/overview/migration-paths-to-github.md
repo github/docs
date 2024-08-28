@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 ---
 
-## About migration paths to GitHub
+## About migration paths to {% data variables.product.prodname_dotcom %}
 
 {% data reusables.migrations.about-migrations %}
 
@@ -27,7 +27,7 @@ You can review the scope and tooling for your migration to {% data variables.pro
 * [{% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_dotcom_the_website %}](#githubcom-to-githubcom)
 * [Azure DevOps Services (Azure DevOps Cloud) to {% data variables.product.prodname_dotcom_the_website %}](#azure-devops-services-azure-devops-cloud-to-githubcom)
 * [Azure DevOps Server to {% data variables.product.prodname_dotcom_the_website %}](#azure-devops-server-to-githubcom)
-* [Bitbucket Cloud (Bitbucket.org-to-githubcom) to {% data variables.product.prodname_dotcom_the_website %}](#bitbucket-cloud-bitbucketorg-to-githubcom)
+* [Bitbucket Cloud (Bitbucket.org) to {% data variables.product.prodname_dotcom_the_website %}](#bitbucket-cloud-bitbucketorg-to-githubcom)
 * [Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_dotcom_the_website %}](#bitbucket-server-or-bitbucket-data-center-to-githubcom)
 * [GitLab to {% data variables.product.prodname_dotcom_the_website %}](#gitlab-to-githubcom)
 * [Any Git repository to {% data variables.product.prodname_dotcom_the_website %}](#any-git-repository-to-githubcom)

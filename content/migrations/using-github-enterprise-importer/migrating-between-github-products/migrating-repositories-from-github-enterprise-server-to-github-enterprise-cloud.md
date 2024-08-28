@@ -25,11 +25,11 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 1. Create a {% data variables.product.pat_generic %} for both the source and destination organization
 1. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
-1. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
+1. Set up a migration source via {% data variables.product.prodname_dotcom %}'s GraphQL API to identify where you're migrating from
 1. For each repository you want to migrate, repeat these steps.
    * Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
-   * Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
-   * Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
+   * Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom %}
+   * Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom %}, passing in your archive URLs
    * Check the status of your migration via the GraphQL API
    * Validate your migration and check the error log
 
@@ -75,7 +75,7 @@ You must first set up blob storage with a supported cloud provider, then configu
 
 {% note %}
 
-**Note**: You only need to configure blob storage if you use {% data variables.product.prodname_ghe_server %} versions 3.8 or higher. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, skip to "[Step 4: Set up a migration source in GitHub Enterprise Cloud](#step-4-set-up-a-migration-source-in-github-enterprise-cloud)."
+**Note**: You only need to configure blob storage if you use {% data variables.product.prodname_ghe_server %} versions 3.8 or higher. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, skip to "[Step 4: Set up a migration source in {% data variables.product.prodname_ghe_cloud %}](#step-4-set-up-a-migration-source-in-github-enterprise-cloud)."
 
 Blob storage is required to migrate repositories with large Git source or metadata. If you use {% data variables.product.prodname_ghe_server %} versions 3.7 or lower, you will not be able to perform migrations where your Git source or metadata exports exceed 2GB. To perform these migrations, update to {% data variables.product.prodname_ghe_server %} versions 3.8 or higher.
 
@@ -235,9 +235,9 @@ After both migrations have completed and you have downloaded the archives, you c
 
 ## Step 6: Upload your migration archives
 
-To import your data into {% data variables.product.prodname_ghe_cloud %}, you must pass both archives for each repository (Git source and metadata) from your machine to {% data variables.product.prodname_dotcom_the_website %}, using our GraphQL API.
+To import your data into {% data variables.product.prodname_ghe_cloud %}, you must pass both archives for each repository (Git source and metadata) from your machine to {% data variables.product.prodname_dotcom %}, using our GraphQL API.
 
-If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower, you must first generate URLs for the archives that are accessible by {% data variables.product.prodname_dotcom_the_website %}. Most customers choose to upload the archives to a cloud provider's blob storage service, such as Amazon S3 or Azure Blob Storage, then generate a short-lived URL for each.
+If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower, you must first generate URLs for the archives that are accessible by {% data variables.product.prodname_dotcom %}. Most customers choose to upload the archives to a cloud provider's blob storage service, such as Amazon S3 or Azure Blob Storage, then generate a short-lived URL for each.
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or higher, your instance uploads the archives and generates the URLs for you. The `Location` header in the previous step will return the short-lived URL.
 

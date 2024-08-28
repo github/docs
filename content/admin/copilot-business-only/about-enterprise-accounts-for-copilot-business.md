@@ -37,7 +37,7 @@ How you will add users to your enterprise and manage license assignment depends 
 If you request an enterprise with personal accounts:
 
 * You'll **add users** to the enterprise by sending an invitation to their personal {% data variables.product.prodname_dotcom %} account.
-* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams on {% data variables.product.prodname_dotcom_the_website %} or with the REST API.
+* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams on {% data variables.product.prodname_dotcom %} or with the REST API.
 * When users receive a license, they can authenticate to {% data variables.product.prodname_dotcom %} from their development environment and **gain access** to {% data variables.product.prodname_copilot_short %}.
 * Optionally, you can configure **SAML single sign-on** (SSO), so that users must authenticate to an external identity system in addition to their personal account.
 
@@ -46,7 +46,7 @@ If you request an enterprise with personal accounts:
 If you request an {% data variables.enterprise.prodname_emu_enterprise %}:
 
 * You'll **add users** to the enterprise by provisioning {% data variables.enterprise.prodname_managed_users %} from an identity provider (IdP), using SCIM.
-* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams from your IdP, on {% data variables.product.prodname_dotcom_the_website %}, or with the REST API.
+* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams from your IdP, on {% data variables.product.prodname_dotcom %}, or with the REST API.
 * When users receive a license, they can use single sign-on to authenticate to their {% data variables.product.prodname_dotcom %} account from their development environment and **gain access** to {% data variables.product.prodname_copilot_short %}.
 
 ## Limitations
