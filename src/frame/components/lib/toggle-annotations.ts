@@ -53,11 +53,11 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   annotationButtons.forEach((el) => {
     if (el.getAttribute('value') === targetMode) {
       el.ariaCurrent = 'true'
-      el.classList.add('selected')
+      el.classList.add('selected', 'color-fg-on-emphasis', 'color-bg-emphasis')
       activeElements.push(el)
     } else {
       el.removeAttribute('aria-current')
-      el.classList.remove('selected')
+      el.classList.remove('selected', 'color-fg-on-emphasis', 'color-bg-emphasis')
     }
   })
 
