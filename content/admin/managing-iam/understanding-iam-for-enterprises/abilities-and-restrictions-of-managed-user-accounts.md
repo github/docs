@@ -57,7 +57,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## Interactions
 
-* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot interact with repositories outside of the enterprise in any of the following ways:
+* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories, but cannot interact with repositories outside of the enterprise in any of the following ways:
   * Push code to the repository
   * Create issues or pull requests within the repository
   * Create or comment on discussions within the repository
