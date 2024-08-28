@@ -64,7 +64,9 @@ You can view the usage of your cost centers and download the usage data for furt
 
 You can view, edit, and delete cost centers to manage your business units effectively.
 
->[!NOTE] To add or remove members from a cost center, you can use the API. See "[AUTOTITLE](/rest/enterprise-admin/billing)."
+To add or remove members from a cost center, you can use the API. See "[AUTOTITLE](/rest/enterprise-admin/billing)."
+
+>[!NOTE] For {% data variables.product.prodname_copilot_short %} seats, {% data variables.product.company_short %} checks if a user is part of a cost center. If they are, their usage is shown under that cost center. If not, their usage is displayed under their organization. In this case, costs are assumed to belong to the first organization the user was assigned to.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
