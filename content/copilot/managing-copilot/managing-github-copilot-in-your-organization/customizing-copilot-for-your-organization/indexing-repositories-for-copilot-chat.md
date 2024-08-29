@@ -27,7 +27,9 @@ After you index a repository it is automatically re-indexed every time a change 
 1. On {% data variables.product.prodname_dotcom_the_website %}, browse to the repository you want to index.
 1. On any page, click the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** icon in the upper-right corner.
 
-   The indexing status of the repository is displayed near top of the {% data variables.product.prodname_copilot_short %} Chat panel.
+   If the repository has been indexed, this is shown near top of the {% data variables.product.prodname_copilot_short %} Chat panel.
+
+   ![Screenshot showing 'Indexed for improved understanding and accuracy' highlighted with a dark orange outline.](/assets/images/help/copilot/indexed-repo.png)
 
 1. If the repository has not been indexed, an **Index REPOSITORY NAME** button is displayed. Click this button to start the indexing process.
 
