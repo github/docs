@@ -1,3 +1,4 @@
+![background-removed](https://github.com/user-attachments/assets/fa5ef038-c28a-4877-b447-b4faef47186e)
 ---
 title: Managing remote repositories
 intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
