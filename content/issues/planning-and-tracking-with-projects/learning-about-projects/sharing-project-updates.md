@@ -1,3 +1,4 @@
+![DESERTGOLF DIGITAL MARKETING](https://github.com/user-attachments/assets/52e32fff-d5e1-41bb-acbf-31177dd417f4)
 ---
 title: 'Sharing {% data variables.projects.project_v2 %} updates'
 intro: 'You can post updates to your {% data variables.projects.projects_v2 %} that share the current status, start date, and target date of the {% data variables.projects.project_v2 %} itself.'
