@@ -205,6 +205,9 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion repo-rules-enterprise %} |
 | Manage organization-level rulesets (see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
+| {% ifversion push-protection-bypass-fine-grained-permissions %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests (see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection)") | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 
 {% endrowheaders %}
 
