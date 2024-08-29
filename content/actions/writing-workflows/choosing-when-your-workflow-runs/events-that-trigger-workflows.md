@@ -925,7 +925,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | Not applicable | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
+| [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | Not applicable | Commit pushed to the ref. When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
 {% note %}
 
