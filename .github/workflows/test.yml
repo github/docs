@@ -71,6 +71,7 @@ jobs:
           - release-notes
           - rest
           - search
+          - secret-scanning
           - shielding
           - tracking
           # - tests
