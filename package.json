@@ -362,7 +362,7 @@
     "husky": "^9.1.4",
     "json-schema-merge-allof": "^0.8.1",
     "kill-port": "2.0.1",
-    "lint-staged": "^15.2.2",
+    "lint-staged": "^15.2.9",
     "markdownlint": "^0.34.0",
     "markdownlint-rule-search-replace": "^1.2.0",
     "mdast-util-gfm-table": "^2.0.0",
