@@ -45,6 +45,7 @@ jobs:
           - automated-pipelines
           # - bookmarklets
           - changelogs
+          # - code-scanning
           # - codeql-cli
           - color-schemes
           - content-linter
@@ -71,10 +72,11 @@ jobs:
           - release-notes
           - rest
           - search
+          - secret-scanning
           - shielding
-          - tracking
           # - tests
           # - tools
+          - tracking
           - versions
           - webhooks
           - workflows
