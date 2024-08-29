@@ -19,7 +19,7 @@ function validateMode(mode?: string) {
 }
 
 export default function toggleAnnotation() {
-  const annotationButtons = Array.from(document.querySelectorAll('div.BtnGroup button'))
+  const annotationButtons = Array.from(document.querySelectorAll('.annotate-toggle button'))
   if (!annotationButtons.length) return
 
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside
@@ -53,11 +53,11 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   annotationButtons.forEach((el) => {
     if (el.getAttribute('value') === targetMode) {
       el.ariaCurrent = 'true'
-      el.classList.add('selected', 'color-fg-on-emphasis', 'color-bg-emphasis')
+      el.classList.add('selected')
       activeElements.push(el)
     } else {
       el.removeAttribute('aria-current')
-      el.classList.remove('selected', 'color-fg-on-emphasis', 'color-bg-emphasis')
+      el.classList.remove('selected')
     }
   })
 
