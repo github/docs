@@ -16,7 +16,9 @@ shortTitle: Manage support entitlements
 
 People with support entitlements for your enterprise account can use the support portal to open, view, and comment on support tickets associated with the enterprise account.
 
-Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to up to 20 additional members of organizations owned by their enterprise account.
+Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to a limited number of enterprise members.
+* **{% data variables.product.premium_support_plan %}**: Up to 20 members
+* **{% data variables.product.premium_plus_support_plan %}**: Up to 40 members
 
 ## Adding a support entitlement to an enterprise member
 

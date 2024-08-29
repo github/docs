@@ -1,0 +1,5 @@
+# Issue 13329
+# Push protection bypass fine-grained permissions
+versions:
+  ghec: '*'
+  ghes: '>=3.16'

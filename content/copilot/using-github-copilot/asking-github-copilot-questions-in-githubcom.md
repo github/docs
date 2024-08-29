@@ -106,19 +106,31 @@ Depending on the question you ask, and your enterprise and organization settings
 
 {% data variables.product.prodname_copilot_short %} allows you to use natural language questions to explore repositories on {% data variables.product.prodname_dotcom %}. This can help you get a better understanding of where specific aspects of a codebase are implemented.
 
-{% data reusables.copilot.go-to-copilot-page %}
+1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 
-{% data reusables.copilot.ask-copilot-not-displayed %}
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.
 
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+   The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
+
+1. The heading at the top of the panel should read "Chatting about" followed by the name of the current repository.
+
+   If the wrong repository name is displayed, because you were previously chatting about another repository, click **All repositories** then choose the repository you want to chat about.
+
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, at the bottom of the chat panel, type a question and press <kbd>Enter</kbd>.
 
    For example, you could ask:
 
    * When was the most recent release?
    * Where is rate limiting implemented in our API?
    * How does the WidgetFactory class work?
-   * Where is the code for converting an organization member to be an outside collaborator?
+   * Where is the code for updating a phone number?
    * Where are SAT tokens generated?
+   * Show the most recently updated issues assigned to USERNAME
+   * List open issues about SUBJECT
+   * What was the last merged PR by USERNAME
+   * What are the latest commits to the main branch by USERNAME
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
