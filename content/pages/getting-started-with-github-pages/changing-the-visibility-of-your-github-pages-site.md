@@ -11,7 +11,7 @@ shortTitle: Change visibility of site
 
 ## About access control for {% data variables.product.prodname_pages %} sites
 
-With access control for {% data variables.product.prodname_pages %}, you can restrict access to your project site by publishing the site privately. A privately published site can only be accessed by people with read access to the repository the site is published from. You can use privately published sites to share your internal documentation or knowledge base with members of your enterprise.
+With access control for {% data variables.product.prodname_pages %}, you can limit access to your project site by publishing it privately. A privately published site is accessible only to individuals who have read access to the associated repository. This feature is ideal for sharing internal documentation or knowledge bases exclusively with members of your organization.
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
