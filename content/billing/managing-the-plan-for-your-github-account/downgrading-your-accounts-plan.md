@@ -1,6 +1,6 @@
 ---
 title: Downgrading your account's plan
-intro: 'You can downgrade the plan for any type of account on {% data variables.location.product_location %} at any time.'
+intro: 'You can downgrade the plan for any type of account on {% data variables.product.prodname_dotcom %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan

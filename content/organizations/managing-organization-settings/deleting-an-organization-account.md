@@ -1,6 +1,6 @@
 ---
 title: Deleting an organization account
-intro: 'You can delete your organization account on {% data variables.location.product_location %} at any time.'
+intro: 'You can delete your organization account at any time.'
 permissions: Organization owners can delete an organization.
 redirect_from:
   - /articles/deleting-an-organization-account
