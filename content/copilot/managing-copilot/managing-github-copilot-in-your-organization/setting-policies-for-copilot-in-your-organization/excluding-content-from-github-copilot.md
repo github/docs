@@ -33,9 +33,18 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-### Limitations of content exclusions
+### Availability of content exclusions
 
-Content exclusions are not currently available for {% data variables.product.prodname_copilot_chat_dotcom_short %}, or code completion in Azure Data Studio. Additionally:
+| Tool | Code completion support | {% data variables.product.prodname_copilot_chat_short %} support |
+|--------|:--------:|:--------:|
+| {% data variables.product.prodname_vs %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.product.prodname_vscode %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| JetBrains IDEs | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Vim/Neovim | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| Azure Data Studio | {% octicon "x" aria-label="Not supported" %} | Not applicable |
+| {% data variables.product.prodname_dotcom_the_website %} | Not applicable | {% octicon "x" aria-label="Not supported" %} |
+
+### Limitations of content exclusions
 
 {% data reusables.copilot.content-exclusion-limitations %}
 

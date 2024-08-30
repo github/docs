@@ -18,7 +18,7 @@ If you already have a profile README, you can follow this guide by adding some f
 
 ## Creating or editing your profile README
 
-Your profile README lets you share information about yourself with the community on {% data variables.location.product_location %}. The README is displayed at the top of your profile page.
+Your profile README lets you share information about yourself with the community on {% data variables.product.prodname_dotcom %}. The README is displayed at the top of your profile page.
 
 If you don't already have a profile README, you can add one.
 

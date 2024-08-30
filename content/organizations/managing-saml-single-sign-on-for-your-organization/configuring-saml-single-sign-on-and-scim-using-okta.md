@@ -1,6 +1,6 @@
 ---
 title: Configuring SAML single sign-on and SCIM using Okta
-intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) with Okta to automatically manage access to your organization on {% data variables.location.product_location %}.'
+intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SSO) and System for Cross-domain Identity Management (SCIM) with Okta to automatically manage access to your organization on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/configuring-saml-single-sign-on-and-scim-using-okta
 permissions: Organization owners can configure SAML SSO and SCIM using Okta for an organization.
@@ -14,20 +14,20 @@ shortTitle: Configure SAML & SCIM with Okta
 
 ## About SAML and SCIM with Okta
 
-You can control access to your organization on {% data variables.location.product_location %} and other web applications from one central interface by configuring the organization to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
+You can control access to your organization on {% data variables.product.prodname_dotcom %} and other web applications from one central interface by configuring the organization to use SAML SSO and SCIM with Okta, an Identity Provider (IdP).
 
 {% data reusables.saml.ghec-only %}
 
-SAML SSO controls and secures access to organization resources like repositories, issues, and pull requests. SCIM automatically adds, manages, and removes members' access to your organization on {% data variables.location.product_location %} when you make changes in Okta. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" and "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+SAML SSO controls and secures access to organization resources like repositories, issues, and pull requests. SCIM automatically adds, manages, and removes members' access to your organization on {% data variables.product.prodname_dotcom %} when you make changes in Okta. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" and "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.prodname_ghe_cloud %} application to in Okta.
 
 | Feature | Description |
 | --- | --- |
-| Push New Users | When you create a new user in Okta, the user will receive an email to join your organization on {% data variables.location.product_location %}. |
-| Push User Deactivation | When you deactivate a user in Okta, Okta will remove the user from your organization on {% data variables.location.product_location %}. |
-| Push Profile Updates | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.location.product_location %}. |
-| Reactivate Users | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.location.product_location %}. |
+| Push New Users | When you create a new user in Okta, the user will receive an email to join your organization on {% data variables.product.prodname_dotcom %}. |
+| Push User Deactivation | When you deactivate a user in Okta, Okta will remove the user from your organization on {% data variables.product.prodname_dotcom %}. |
+| Push Profile Updates | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your organization on {% data variables.product.prodname_dotcom %}. |
+| Reactivate Users | When you reactivate a user in Okta, Okta will send an email invitation for the user to rejoin your organization on {% data variables.product.prodname_dotcom %}. |
 
 Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 

@@ -26,7 +26,7 @@ The {% data variables.product.prodname_command_palette %} also gives you quick a
 
 {% endif %}
 
-The following sections list some of the available keyboard shortcuts, organized by the pages where you can use them on {% data variables.location.product_location %}.
+The following sections list some of the available keyboard shortcuts, organized by the pages where you can use them on {% data variables.product.prodname_dotcom %}.
 
 ## Site wide shortcuts
 
