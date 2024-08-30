@@ -7,15 +7,23 @@
 company_short: 'GitHub'
 
 # GitHub's flagship products
+
+## Use this variable to refer generically to the "GitHub" platform or website (for example, when referring to GitHub.com, GHEC, or GHES as simply "GitHub").
+## Use another variable if it is important to specify the environment (e.g. GHES)
+github: 'GitHub'
+
+## DEPRECATED: Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
+prodname_dotcom: 'GitHub'
+
 product_name: >-
   {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% else %}GitHub{% endif %}
-## Use this variable when referring to the product, when the output should always be GitHub. For example, "the GitHub REST API"
-prodname_dotcom: 'GitHub'
 
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
 prodname_enterprise: 'GitHub Enterprise'
 
 ## Use this variable only when the output should specifically be GitHub.com, to distinguish from GitHub the company or other GitHub products (e.g. connecting GHE to GitHub.com)
+## Note that many users access GitHub through a different URL
+## Do NOT use as a synonym for "The GitHub web interface" (for example, if you want to distinguish something from the GitHub Mobile interface), or in cases where the .com top-level domain is not relevant.
 prodname_dotcom_the_website: 'GitHub.com'
 
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
