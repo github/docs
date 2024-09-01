@@ -14,5 +14,6 @@ children:
   - /setting-policies-for-copilot-in-your-organization
   - /configuring-your-proxy-server-or-firewall-for-copilot
   - /managing-access-to-github-copilot-in-your-organization
-  - /enhancing-copilot-for-your-organization
+  - /customizing-copilot-for-your-organization
+  - /reviewing-activity-related-to-github-copilot-in-your-organization
 ---

@@ -11,7 +11,8 @@ updates:
       # Because whatever we have needs to match what @primer/react also uses
       - dependency-name: 'styled-components'
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types:
+          ['version-update:semver-patch', 'version-update:semver-minor']
 
   - package-ecosystem: 'github-actions'
     directory: '/'
@@ -20,7 +21,8 @@ updates:
       day: wednesday
     ignore:
       - dependency-name: '*'
-        update-types: ['version-update:semver-patch']
+        update-types:
+          ['version-update:semver-patch', 'version-update:semver-minor']
 
   - package-ecosystem: 'docker'
     directory: '/'

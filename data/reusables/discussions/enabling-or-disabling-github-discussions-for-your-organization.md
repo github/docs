@@ -1,4 +1,4 @@
-1. On {% data variables.location.product_location %}, navigate to the main page of your organization.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
 1. Under your organization name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
 

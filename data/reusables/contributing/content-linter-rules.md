@@ -63,3 +63,4 @@
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | error | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
+| [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |

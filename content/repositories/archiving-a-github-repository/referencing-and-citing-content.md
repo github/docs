@@ -14,7 +14,7 @@ shortTitle: Reference & cite content
 ---
 ## Issuing a persistent identifier for your repository with Zenodo
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://about.zenodo.org/) to archive a repository on {% data variables.location.product_location %} and issue a DOI for the archive.
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://about.zenodo.org/) to archive a repository on {% data variables.product.prodname_dotcom %} and issue a DOI for the archive.
 
 {% tip %}
 

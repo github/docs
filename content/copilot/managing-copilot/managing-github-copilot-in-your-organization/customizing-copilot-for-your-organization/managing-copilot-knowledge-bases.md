@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/managing-copilot-knowledge-bases
   - /copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets
   - /copilot/github-copilot-enterprise/copilot-docset-management
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases

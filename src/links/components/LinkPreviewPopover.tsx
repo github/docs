@@ -98,6 +98,7 @@ function getOrCreatePopoverGlobal() {
     product.classList.add('color-fg-muted')
 
     const headingLink = document.createElement('a')
+    headingLink.style.textDecoration = 'underline'
     headingLink.href = ''
     // the id is necessary since we're intercepting natural focus order,
     // so when focus enters the topBumper, we'll manually move it to the link

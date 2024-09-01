@@ -50,13 +50,13 @@ You can download a CSV or JSON file containing the membership information report
 
 ## Viewing members' email addresses
 
-You may be able to view the email addresses for members of your organization on either {% data variables.location.product_location %} or an external identity system. The visibility of the email addresses depends on the organization's authentication configuration, domains, and potentially the member's user profile configuration.
+You may be able to view the email addresses for members of your organization on either {% data variables.product.prodname_dotcom %} or an external identity system. The visibility of the email addresses depends on the organization's authentication configuration, domains, and potentially the member's user profile configuration.
 
 * If SAML single sign-on (SSO) is configured for your organization and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your organization members.
 
 * If you verify a domain for your organization, you can view members' email addresses for the verified domain.
 
-* If you don't configure SAML SSO, members access your organization's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
+* If you don't configure SAML SSO, members access your organization's resources on {% data variables.product.prodname_dotcom %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 
 If SAML SSO is configured for your organization, or if you have verified a domain, you may be able to view the email addresses in one or more of the following ways.
 

@@ -2,7 +2,9 @@
 title: Using organization roles
 intro: "Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments."
 versions:
-  feature: 'custom-org-roles'
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'
 topics:
   - Organizations
   - Access management
@@ -10,7 +12,7 @@ topics:
   - Permissions
 permissions: 'Organization owners{% ifversion ghec %} and users with the "Manage custom organization roles" permission{% endif %}'
 product: 'Organizations on {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %}'
-shortTitle: Using organization roles
+shortTitle: Use organization roles
 ---
 
 ## About organization roles

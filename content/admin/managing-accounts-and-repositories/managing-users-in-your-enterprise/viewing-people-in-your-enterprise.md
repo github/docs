@@ -223,7 +223,7 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 
 ## Viewing members without an email address from a verified domain
 
-You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.
+You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
