@@ -6,7 +6,7 @@ redirect_from:
   - /github/supporting-the-open-source-community-with-github-sponsors/viewing-your-sponsors-and-sponsorships
 versions:
   fpt: '*'
-  ghec: '*'
+  ghec: '*
 type: how_to
 topics:
   - Open Source
