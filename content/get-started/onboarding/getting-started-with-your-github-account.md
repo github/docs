@@ -23,7 +23,7 @@ The first steps in starting with {% data variables.product.product_name %} are t
 
 ### 1. Creating an account
 
-To sign up for an account on {% data variables.location.product_location %}, navigate to https://github.com/ and follow the prompts.
+To sign up for an account, navigate to https://github.com/ and follow the prompts.
 
 To keep your {% data variables.product.prodname_dotcom %} account secure you should use a strong and unique password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 

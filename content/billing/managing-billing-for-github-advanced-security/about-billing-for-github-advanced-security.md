@@ -118,7 +118,7 @@ We record and display two numbers of {% ifversion ghas-billing-UI-update %}activ
 
 If there are no unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Deactivating the feature for that repository or organization would not free any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
 
-> [!NOTE]  Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}regardless of how many repositories or organizations the user contributes to.
+> [!NOTE] Users can contribute to multiple repositories or organizations. Usage is measured across the whole enterprise account to ensure that each member uses one {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}regardless of how many repositories or organizations the user contributes to.
 
 When you activate or deactivate {% data variables.product.prodname_advanced_security %} for repositories, {% data variables.product.prodname_dotcom %} displays an overview of changes to the use of your license. If you deactivate access to {% data variables.product.prodname_GH_advanced_security %}, any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used by unique active committers are freed up.
 
