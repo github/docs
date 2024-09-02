@@ -159,7 +159,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 {% powershell %}
 
 ```powershell copy
-Write-Output "::notice file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicolon"
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -179,7 +179,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 {% bash %}
 
 ```bash copy
-echo "::warning file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicolon"
+echo "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -187,7 +187,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semic
 {% powershell %}
 
 ```powershell copy
-Write-Output "::warning file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicolon"
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
@@ -207,7 +207,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 {% bash %}
 
 ```bash copy
-echo "::error file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicolon"
+echo "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endbash %}
@@ -215,7 +215,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicol
 {% powershell %}
 
 ```powershell copy
-Write-Output "::error file=app.js,line=1,col=5,endColumn=7,title=Syntax::Missing semicolon"
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
 ```
 
 {% endpowershell %}
