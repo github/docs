@@ -124,10 +124,10 @@ The `hashicorp/vault-action` action receives a JWT from the {% data variables.pr
 
 This example demonstrates how to create a job that requests a secret from HashiCorp Vault.
 
-* `<Vault URL>`: Replace this with the URL of your HashiCorp Vault.
-* `<Vault Namespace>`: Replace this with the Namespace you've set in HashiCorp Vault. For example: `admin`.
-* `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
-* `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
+* `VAULT-URL`: Replace this with the URL of your HashiCorp Vault.
+* `VAULT-NAMESPACE`: Replace this with the Namespace you've set in HashiCorp Vault. For example: `admin`.
+* `ROLE-NAME`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
+* `SECRET-PATH`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
 ```yaml copy
 jobs:
@@ -141,10 +141,10 @@ jobs:
         uses: hashicorp/vault-action@v2.4.0
           with:
             method: jwt
-            url: <Vault URL>
-            namespace: <Vault Namespace - HCP Vault and Vault Enterprise only>
-            role: <Role name>
-            secrets: <Secret-Path>
+            url: VAULT-URL
+            namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
+            role: ROLE-NAME
+            secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
@@ -156,7 +156,7 @@ jobs:
 **Note**:
 
 * If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
-* `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
+* `VAULT-NAMESPACE` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
 
 {% endnote %}
 
@@ -180,9 +180,9 @@ jobs:
           with:
             exportToken: true
             method: jwt
-            url: <Vault URL>
-            role: <Role name>
-            secrets: <Secret-Path>
+            url: VAULT-URL
+            role: ROLE-NAME
+            secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
@@ -193,7 +193,7 @@ jobs:
         if: always()
         run: |
           curl -X POST -sv -H "X-Vault-Token: {% raw %}${{ env.VAULT_TOKEN }}{% endraw %}" \
-            <Vault URL>/v1/auth/token/revoke-self
+            VAULT-URL/v1/auth/token/revoke-self
 ```
 
 ## Further reading
