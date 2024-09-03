@@ -14,8 +14,6 @@ topics:
 
 Custom patterns are user-defined patterns that you can use to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
 
-At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. There are no similar restrictions for editing custom patterns at repository and organization level.
-
 ## Editing a custom pattern
 
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
@@ -32,8 +30,6 @@ When you save a change to a custom pattern, this closes all the {% data variable
    ![Screenshot of the custom pattern page with the button to disable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png){% endif %}
 
 ## Removing a custom pattern
-
-When you remove a custom pattern, {% data variables.product.prodname_dotcom %} gives you the option to close the {% data variables.secret-scanning.alerts %} relating to the pattern, or keep these alerts.
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="Remove pattern" %}.

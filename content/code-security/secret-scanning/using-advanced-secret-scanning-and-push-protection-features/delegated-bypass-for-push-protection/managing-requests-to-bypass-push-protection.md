@@ -22,7 +22,7 @@ shortTitle: Manage bypass requests
 
 An organization owner or repository administrator defines which roles and teams are included in a bypass list. Members of the bypass list can view and manage all requests for bypass privileges on the "Push protection bypass" page, located under the **Security** tab of the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)."
 
-{% data reusables.secret-scanning.push-protection-delegated-bypass-note %}
+> [!NOTE] Members of the bypass list are still protected from accidentally pushing secrets to a repository. When a member of the bypass list attempts to push a commit containing a secret, their push is still blocked, but they can choose to bypass the block by specifying a reason for allowing the push. Members of the bypass list do not have to request bypass privileges from other members in order to override the block.
 
 ### Managing requests to bypass push protection at the repository level
 
