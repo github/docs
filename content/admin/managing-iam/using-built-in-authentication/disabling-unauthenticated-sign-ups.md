@@ -32,5 +32,5 @@ shortTitle: Block unauthenticated sign-up
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-1. Deselect **Enable sign-up**.
+1. Make sure to select **Private mode**.
 {% data reusables.enterprise_management_console.save-settings %}
