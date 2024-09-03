@@ -75,9 +75,6 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 ### Specifications for general {% data variables.actions.hosted_runners %}
 
-> [!NOTE]
-> arm64 runners are currently in beta and subject to change.
-
 | CPU | Memory (RAM)  | Storage (SSD) | Architecture | Operating system (OS) |
 | --- | ------------- | ------------- | ------------ | --------------------- |
 | 6   | 14 GB         | 14 GB         | arm64        | macOS                 |
