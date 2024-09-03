@@ -35,7 +35,4 @@ Azure private networking supports arm64 runners in the following regions.
 * `NorthCentralUs`
 * `SouthCentralUs`
 
-> [!NOTE]
-> arm64 runners are currently in beta and subject to change.
-
 If your desired region is not supported, please submit a request for new region availability in [this GitHub form](https://resources.github.com/private-networking-for-github-hosted-runners-with-azure-virtual-networks/). You may also use global virtual network peering to connect virtual networks across Azure regions. For more information, see [Virtual network peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) in the Azure documentation.

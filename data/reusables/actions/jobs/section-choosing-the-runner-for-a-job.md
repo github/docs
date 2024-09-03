@@ -66,10 +66,10 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner labels are:
 <tbody>
 <tr>
 <td>
-<code>ubuntu-latest</code>,<code>ubuntu-24.04</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
+<code>ubuntu-latest</code>,<code>ubuntu-24.04</code> [Beta], <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
 </td>
 <td>
-The <code>ubuntu-latest</code> label currently uses the Ubuntu 24.04 runner image.
+The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
 </td>
 </tr>
 <tr>
