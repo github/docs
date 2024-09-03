@@ -4,6 +4,7 @@ intro: 'When an outside contributor submits a pull request to a public repositor
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 shortTitle: Approve public fork runs
 redirect_from:
   - /actions/managing-workflow-runs/approving-workflow-runs-from-public-forks
