@@ -6,7 +6,19 @@ versions:
   feature: 'contributing'
 ---
 
-Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. For more information on adding topics to an article see, "[Topics](https://github.com/github/docs/tree/main/content#topics)" and for a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
+Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. Here's an example of a topic in frontmatter:
+
+```yaml
+---
+title: "Managing branches in your repository"
+topics:
+  - "GitHub"
+  - "Git"
+  - "Repositories"
+---
+```
+
+For more information on adding topics to an article see, "[Topics]( https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter#topics)" and for a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
 
 ## Topics for all content types
 
