@@ -6,7 +6,7 @@ versions:
   feature: 'contributing'
 ---
 
-Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. Here's an example of a topic in frontmatter:
+Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Also, an article can be defined as being relevant to one or more topics by having those topics listed in the article's frontmatter. Here's an example:
 
 ```yaml
 ---
