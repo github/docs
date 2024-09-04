@@ -993,10 +993,16 @@ ghe-repo USERNAME/REPONAME
 
 This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
 
-You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
 ```shell
 ghe-repo-gc USERNAME/REPONAME
+```
+
+You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing previously expunged sensitive information. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+If you use a deployment topology with multiple nodes, to prevent sensitive data from persisting on other nodes and potentially being exposed during a failover, you must run the command on all nodes. For example, for a cluster configuration, you can use the following command.
+
+```shell
+ghe-cluster-each -r git -- "ghe-repo-gc --prune USERNAME/REPONAME"
 ```
 
 ## {% data variables.product.prodname_actions %}
