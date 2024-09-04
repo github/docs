@@ -104,7 +104,7 @@ To ensure that all code is properly reviewed prior to being merged into the defa
 
 If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool or the BFG Repo-Cleaner open source tool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)." Also, it is possible to revert almost anything in Git. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/).
 
-At the organization level, if you're unable to coordinate with the user who pushed the sensitive data to remove it, we recommend you contact [GitHub Support](https://support.github.com/contact) with the concerning commit SHA.
+At the organization level, if you're unable to coordinate with the user who pushed the sensitive data to remove it, we recommend you contact {% data variables.contact.contact_support %} with the concerning commit SHA.
 
 If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
 
