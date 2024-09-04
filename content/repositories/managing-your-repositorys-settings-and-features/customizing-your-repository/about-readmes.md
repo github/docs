@@ -31,6 +31,8 @@ If you put your README file in your repository's hidden `.github`, root, or `doc
 
 If a repository contains more than one README file, then the file shown is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 
+When your README is viewed on GitHub, any content beyond 500 KiB will be truncated.
+
 {% data reusables.profile.profile-readme %}
 
 ## Auto-generated table of contents for README files
