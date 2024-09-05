@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, Select, TabNav } from '@primer/react'
 import { Tooltip } from '@primer/react/next'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
+import { announce } from '@primer/live-region-element'
 import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
@@ -288,14 +289,11 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             >
               <button
                 className="js-btn-copy btn-octicon"
-                aria-label={
-                  isCopied
-                    ? t('button_text.copied')
-                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
-                }
-                aria-live="polite"
-                aria-atomic="true"
-                onClick={() => setCopied()}
+                aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
+                onClick={() => {
+                  setCopied()
+                  announce('Copied!')
+                }}
               >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
               </button>
