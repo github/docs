@@ -390,7 +390,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^18 || ^20"
+    "node": "^18 || ^20 || ^22"
   },
   "cacheDirectories": [
     "node_modules",
