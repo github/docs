@@ -44,7 +44,7 @@ Organizations can use the `name@organization.com` email as a public point of con
    $ git commit -m "Refactor usability tests.
    >
    >
-   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
+   on-behalf-of: @org <name@organization.com>"
    ```
 
 The new commit, message, and badge will appear on {% data variables.product.prodname_dotcom %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
