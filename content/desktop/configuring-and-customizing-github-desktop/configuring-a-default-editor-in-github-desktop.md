@@ -10,9 +10,12 @@ versions:
   feature: desktop
 shortTitle: Configure default editor
 ---
-## Supported editors
 
-{% data variables.product.prodname_desktop %} supports the following editors. If you installed an editor while {% data variables.product.prodname_desktop %} was open you will need to quit and reopen {% data variables.product.prodname_desktop %} in order for the editor to be detected.
+## Introduction
+
+{% data variables.product.prodname_desktop %} provides support for a number of editors, and also allows you to select a custom editor if your preferred editor is not supported. If you installed an editor while {% data variables.product.prodname_desktop %} was open you will need to quit and reopen {% data variables.product.prodname_desktop %} in order for the editor to be detected.
+
+## Supported editors
 
 {% mac %}
 
@@ -96,6 +99,17 @@ shortTitle: Configure default editor
 1. Click **Save**.
 
 {% endwindows %}
+
+## Configuring a custom editor
+
+{% data reusables.desktop.mac-select-desktop-menu %}
+1. In the Preferences window, select **Integrations**.
+   ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
+1. Under "External Editor", use the dropdown menu to select **Configure Custom Editor**.
+   ![Screenshot of the "Preferences window. Under "External Editor", the dropdown menu is displayed with "Configure Custom Editor" highlighted in blue and outlined in orange.](/assets/images/help/desktop/configure-custom-editor.png)
+1. Click **Choose** to open the system dialog to navigate to the path of your custom editor.
+1. Under "Arguments", enter any arguments you would like to use after the "%TARGET_PATH%" variable. Reference supporting documentation for your custom editor to ensure you have the arguments set correctly, as invalid arguments can prevent the editor from launching in {% data variables.product.prodname_desktop %}.
+1. Click **Save**.
 
 ## Opening a repository in the default editor
 
