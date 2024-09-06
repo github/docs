@@ -73,3 +73,5 @@
 - is: https://github.com/actions/runner/pkgs/container/actions-runner
 - is: https://github.com/Codertocat/hello-world-npm/pkgs/npm/hello-world-npm
 - is: https://jsonformatter.org/
+- is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
+- is: https://mvnrepository.com/artifact/com.google.guava/guava

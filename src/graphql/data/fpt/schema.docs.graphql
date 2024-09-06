@@ -36513,7 +36513,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   closedAt: DateTime
 
   """
-  List of issues that were may be closed by this pull request
+  List of issues that may be closed by this pull request
   """
   closingIssuesReferences(
     """

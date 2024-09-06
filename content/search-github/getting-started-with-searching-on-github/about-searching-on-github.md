@@ -51,7 +51,7 @@ After running a search on {% data variables.product.product_name %}, you can sor
 
 ## Types of searches on {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.location.product_location %}.
+You can search for the following information across all repositories you can access on {% data variables.product.prodname_dotcom %}.
 
 * [Repositories](/search-github/searching-on-github/searching-for-repositories)
 * [Topics](/search-github/searching-on-github/searching-topics)

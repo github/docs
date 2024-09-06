@@ -52,7 +52,7 @@ Your repository may be secured by push protection. With push protection, {% data
 
 ## Adding a file to a repository using the command line
 
-You can upload an existing file to a repository on {% data variables.location.product_location %} using the command line.
+You can upload an existing file to a repository on {% data variables.product.prodname_dotcom %} using the command line.
 
 {% tip %}
 

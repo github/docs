@@ -74,7 +74,7 @@ If you lose access to your preferred TOTP app or phone number, you can provide a
 
 ## Authenticating with a verified device, SSH token, or {% data variables.product.pat_generic %}
 
-If you know your password for {% data variables.location.product_location %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
+If you know your password for {% data variables.product.prodname_dotcom %} but don't have the two-factor authentication credentials or your two-factor authentication recovery codes, you can have a one-time password sent to your verified email address to begin the verification process and regain access to your account.
 
 {% note %}
 
@@ -113,7 +113,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 If you have forgotten your password and you've lost access to your two-factor authentication credentials, you can start account recovery to regain access to your account. You'll need to verify your identity using a recovery authentication factor, such as an SSH key or previously verified device. If no recovery methods are available, you can choose to unlink your email address from your account.
 
 1. Click **Forgot password?**.
-1. Enter a primary or backup email address associated with your account on {% data variables.location.product_location %}, then click **Send password reset email.**
+1. Enter a primary or backup email address associated with your account, then click **Send password reset email.**
 1. Check your email for a link to reset your password. You must click on this link within three hours of receiving the email. If you don't see an email from us, make sure to check your spam folder.
 1. Click on the link in the email, then under "Having problems?", click **Start a 2FA recovery request**.
 1. To complete your recovery request, you'll need to verify an alternative authentication factor. {% data reusables.accounts.alternative-authentication %}

@@ -38,12 +38,11 @@ To learn how to use organizations most effectively, see "[AUTOTITLE](/organizati
 
 ## Organizations and enterprise accounts
 
-<!-- expires 2024-09-03 -->
+<!-- expires 2024-10-01 -->
 {% ifversion ghec %}
-> [!NOTE] Starting September 3, 2024, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization will be automatically upgraded to an enterprise account at no additional cost. For details, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization)."
+> [!NOTE] Currently, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization are being automatically upgraded to an enterprise account at no additional cost. For details, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization)."
 {% endif %}
-<!-- When this note expires, replace "Starting September 3, 2024" with something like "Currently" and adjust the expiry date in the articles to be a future date when we want to remove it entirely. -->
-<!-- end expires 2024-09-03 -->
+<!-- end expires 2024-10-01 -->
 
 {% ifversion fpt %}
 Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).

@@ -30,6 +30,8 @@ topics:
 
 {% data variables.product.prodname_dependabot_security_updates %} make it easier for you to fix vulnerable dependencies in your repository. You typically add a `dependabot.yml` file to your repository to enable {% data variables.product.prodname_dependabot_security_updates %}. You then configure options in this file to tell {% data variables.product.prodname_dependabot %} how to maintain your repository.
 
+{% data reusables.dependabot.dependabot-updates-supported-repos-ecosystems %}
+
 If you enable {% data variables.product.prodname_dependabot_security_updates %}, when a {% data variables.product.prodname_dependabot %} alert is raised for a vulnerable dependency in the dependency graph of your repository, {% data variables.product.prodname_dependabot %} automatically tries to fix it. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
 > [!NOTE]

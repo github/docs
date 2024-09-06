@@ -52,18 +52,31 @@ For each ruleset you create, you specify which branches or tags in your reposito
 
 {% endif %}
 
+{% ifversion ghes < 3.16 %}
+
 ## About rulesets, protected branches, and protected tags
 
-Rulesets work alongside any branch protection rules and tag protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
+{% else %}
 
-{% ifversion tag-protection-rules-import %}Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets)."{% endif %}
+## About rulesets and protected branches
 
-Rulesets have the following advantages over branch and tag protection rules.
+{% endif %}
 
-* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch or tag in your repository will be evaluated when someone interacts with that branch or tag. For more information, see "[About rule layering](#about-rule-layering)."
+Rulesets work alongside any branch protection rules{% ifversion ghes < 3.16 %} and tag protection rules{% endif %} in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
+
+{% ifversion ghes < 3.16 %}
+
+Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. See "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets)."
+
+{% endif %}
+
+Rulesets have the following advantages over branch {% ifversion ghes < 3.16 %}
+and tag{% endif %} protection rules.
+
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch {% ifversion ghes < 3.16 %}or tag{% endif %} in your repository will be evaluated when someone interacts with that branch{% ifversion ghes < 3.16 %} or tag{% endif %}. See "[About rule layering](#about-rule-layering)."
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 ## Using ruleset enforcement statuses
 

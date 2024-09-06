@@ -42,7 +42,7 @@ You can use the command `git remote set-url` to [change a remote's URL](/get-sta
 
 ## Choosing a URL for your remote repository
 
-There are several ways to clone repositories available on {% data variables.location.product_location %}.
+There are several ways to clone repositories available on {% data variables.product.prodname_dotcom %}.
 
 When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
 
@@ -68,7 +68,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 ## Cloning with SSH URLs
 
-SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
+SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
 
 When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using SSH URLs, you'll be prompted for a password and must provide your SSH key passphrase. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
 
