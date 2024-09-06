@@ -18,7 +18,7 @@ versions:
 
 ## About the dependency graph
 
-TODO:
+{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 In this article, you can see what the supported ecosystems are.
 
