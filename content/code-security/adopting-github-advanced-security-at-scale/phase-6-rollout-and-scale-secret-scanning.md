@@ -27,6 +27,12 @@ You can enable secret scanning for individual repositories or for all repositori
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
 
+{% ifversion copilot-chat-ghas-alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_secret_scanning %} alerts in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
+
 ## 1. Focus on newly committed secrets
 
 When you enable {% data variables.product.prodname_secret_scanning %}, you should focus on remediating any newly committed credentials detected by secret scanning. If you focus on cleaning up committed credentials, developers could continue to accidentally push new credentials, which means your total secret count will stay around the same level, not decrease as intended. This is why it is essential to stop new credentials being leaked before focusing on revoking any current secrets.

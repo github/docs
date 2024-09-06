@@ -1,3 +1,5 @@
+import { announce } from '@primer/live-region-element'
+
 export default function copyCode() {
   const buttons = Array.from(document.querySelectorAll('button.js-btn-copy'))
 
@@ -13,11 +15,12 @@ export default function copyCode() {
       if (!text) return
       await navigator.clipboard.writeText(text)
 
-      const beforeTooltip = button.getAttribute('aria-label') || ''
-      button.setAttribute('aria-label', 'Copied!')
+      button.classList.add('copied')
+
+      announce('Copied!')
 
       setTimeout(() => {
-        button.setAttribute('aria-label', beforeTooltip)
+        button.classList.remove('copied')
       }, 2000)
     }),
   )

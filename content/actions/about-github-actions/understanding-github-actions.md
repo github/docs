@@ -9,6 +9,7 @@ redirect_from:
   - /actions/learn-github-actions/introduction-to-github-actions
   - /actions/learn-github-actions/understanding-github-actions
   - /actions/learn-github-actions/essential-features-of-github-actions
+  - /articles/getting-started-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,7 +17,6 @@ versions:
 type: overview
 topics:
   - Fundamentals
-layout: inline
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

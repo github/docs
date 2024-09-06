@@ -49,6 +49,15 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, or to insert the code at your cursor, into a new file, or into the terminal.
 
+## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+
+* `How would I fix this alert?`
+* `How many alerts do I have on this pull request?`
+* `Which line of code is this {% data variables.product.prodname_code_scanning %} alert referencing?`
+* `What library is affected by this {% data variables.product.prodname_dependabot %} alert?`
+
 ## Set up a new project
 
 Use the `/new` slash command to set up a new project. For example:
@@ -134,6 +143,15 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 * `add error handling to this function`
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, insert the code into a new file, or preview the code output.
+
+## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+
+* `How would I fix this alert?`
+* `How many alerts do I have on this pull request?`
+* `Which line of code is this {% data variables.product.prodname_code_scanning %} alert referencing?`
+* `What library is affected by this {% data variables.product.prodname_dependabot %} alert?`
 
 ## Fix, improve, and refactor code
 
