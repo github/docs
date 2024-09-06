@@ -69,7 +69,7 @@ You can use the dependency graph to:
 * View and update vulnerable dependencies for your repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 * See information about vulnerable dependencies in pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
-For information about ecosystem support for the dependency graph, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-ecosystems-and-repositories)."
+For information about ecosystem support for the dependency graph, see "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems)."
 
 ## Further reading
 

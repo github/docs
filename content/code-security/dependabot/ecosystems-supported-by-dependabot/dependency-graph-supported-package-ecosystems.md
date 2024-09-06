@@ -1,5 +1,5 @@
 ---
-title: Dependency graph supported ecosystems and repositories
+title: Dependency graph supported package ecosystems
 shortTitle: Dependabot ecosystem support # Max 31 characters
 intro: 'Dependency graph supports a variety of ecosystems and repositories'
 allowTitleToDifferFromFilename: true
@@ -22,6 +22,6 @@ TODO:
 
 In this article, you can see what the supported ecosystems and repositories are.
 
-## Supported ecosystems and repositories
+## Supported package ecosystems
 
-{% data reusables.dependency-graph.supported-ecosystems %}
+{% data reusables.dependency-graph.supported-package-ecosystems %}

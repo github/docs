@@ -165,4 +165,4 @@ updates:
 
 * "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
 * "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)"
+* "[AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)"
