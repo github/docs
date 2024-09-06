@@ -1875,6 +1875,12 @@
       "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
+      "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+      "subcategory": "org-pre-receive-hooks",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
       "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
       "subcategory": "org-pre-receive-hooks",
       "verb": "delete",
@@ -1890,6 +1896,12 @@
       "slug": "get-a-pre-receive-hook-for-a-repository",
       "subcategory": "repo-pre-receive-hooks",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
+      "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+      "subcategory": "repo-pre-receive-hooks",
+      "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
