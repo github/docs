@@ -172,8 +172,6 @@ When creating databases for Python you must ensure:
 
 * You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
 * You have the version of Python used by your code installed.
-* You have access to the [pip](https://pypi.org/project/pip/) packaging management system and can install any packages that the codebase depends on.
-* You have installed the [virtualenv](https://pypi.org/project/virtualenv/) pip module.
 
 In the command line you must specify `--language=python`. For example:
 
