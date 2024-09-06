@@ -67,6 +67,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 | **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | _When was the latest release?_ |
 | **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | _Tell me about this repo_ |
 | **Symbol definition** | Retrieves the lines of code that define a specific code symbol (function, class, or struct) in the default branch of the Git repository. This skill is useful when you have the exact name of a symbol, and want to understand it. | Yes | _Write unit tests for the AuthUser method_ |
+| **Support-Search** | Retrieves information from the Support Docs. This skill is useful for asking Copilot about GitHub Products and Support related questions. | Yes | _Can I use Copilot knowledge bases with Copilot Individual?_ |
 
 ## Asking a general question about software development
 
