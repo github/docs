@@ -28,20 +28,18 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% data reusables.dependency-graph.supported-package-ecosystems %}
 
-## Supported package ecosystems via the dependency submission action
+## Supported package ecosystems via dependency submission actions
 
 You can use the {% data variables.dependency-submission-api.name %} to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. {% data reusables.dependency-graph.dependency-submission-API-short %} For more information on the {% data variables.dependency-submission-api.name %}, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 
-Any ecosystem added via the {% data variables.dependency-submission-api.name %} will also be supported for the dependency graph. Dependency information from these discovered and submitted dependencies will, in turns, flows into {% data variables.product.prodname_dependabot_updates %} and {% data variables.product.prodname_dependabot_alerts %}.
+Dependency information from these discovered and submitted dependencies will, in turn, flow into {% data variables.product.prodname_dependabot_updates %} and {% data variables.product.prodname_dependabot_alerts %}.
 
->[NOTE!] You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}.
+>[!NOTE] You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}.
 
-You typically use the dependency submission API in a GitHub Actions workflow to submit dependencies for your project when your project is built. {% data reusables.dependency-submission.api-premade-actions %} You can find links to the currently available actions in the table below.
+You typically use the {% data variables.dependency-submission-api.name %} in a {% data variables.product.prodname_actions %} workflow to submit dependencies for your project when your project is built. {% data reusables.dependency-submission.api-premade-actions %} You can find links to the currently available actions in the table below.
 
 {% data reusables.dependency-submission.premade-action-table %}
 
-TODO:
+TODO: - Move more content from "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api) to here?
 
-You can also create your own action.
-
-Move more content from "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api) to here?
+You can also create your own action. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#creating-your-own-action)."
