@@ -21,6 +21,7 @@ children:
   - /collectd-metrics-for-github-enterprise-server
   - /monitoring-using-snmp
   - /about-system-logs
+  - /troubleshooting-resource-allocation-problems
   - /generating-a-health-check-for-your-enterprise
 shortTitle: Monitor your instance
 ---

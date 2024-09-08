@@ -49,6 +49,14 @@ For information on how to enable validity checks for partner patterns, see "[AUT
 
 You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in "[AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert)."
 
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_secret_scanning %} alerts
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_secret_scanning %} alerts, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
+
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 
 ## Performing an on-demand validity check

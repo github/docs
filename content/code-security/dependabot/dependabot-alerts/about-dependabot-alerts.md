@@ -108,6 +108,14 @@ By default, we notify people with {% ifversion dependabot-alerts-permissions-wri
 
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
+{% ifversion copilot-chat-ghas-alerts %}
+
+## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_dependabot_alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_dependabot_alerts %}, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
+
 ## Further reading
 
 * "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"
