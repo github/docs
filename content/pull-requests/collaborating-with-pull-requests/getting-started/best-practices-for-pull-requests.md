@@ -60,8 +60,6 @@ You can use protected branches to prevent pull requests from being merged into i
 
 ### Use push rulesets
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
-
 {% data reusables.repositories.push-rulesets-overview %}
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets)."

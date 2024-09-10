@@ -44,8 +44,6 @@ Public forks do not inherit the permissions structure of the upstream repository
 
 ### About push rulesets for forked repositories
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
-
 {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets)."
