@@ -26,8 +26,6 @@ For organizations on the {% data variables.product.prodname_enterprise %} and {%
 
 You can use rulesets to target branches or tags in a repository or to block pushes to a repository and the repository's entire fork network.
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
-
 {% endif %}
 
 {% ifversion push-rule-delegated-bypass %}
@@ -45,8 +43,6 @@ For each ruleset you create, you specify which branches or tags in your reposito
 {% ifversion push-rulesets %}
 
 ### Push rulesets
-
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
 
 {% data reusables.repositories.push-rulesets-overview %}
 

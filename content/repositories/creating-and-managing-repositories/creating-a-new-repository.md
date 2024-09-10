@@ -47,6 +47,8 @@ topics:
     * You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."{% ifversion fpt or ghec %}
     * You can choose to add a software license for your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
+{%- ifversion custom-properties-on-create %}
+1. If custom properties are required for repository creation, set the required properties for the repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."{% endif %}
 {% data reusables.repositories.create-repo %}
 {% ifversion fpt or ghec %}
 1. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
