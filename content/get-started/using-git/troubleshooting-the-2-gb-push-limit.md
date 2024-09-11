@@ -34,7 +34,7 @@ You can avoid hitting the limit by breaking your push into smaller parts, each o
 1. Push each of these commits one at a time to your {% data variables.product.prodname_dotcom %} hosted repository.
 
    ```shell
-   git push REMOTE-NAME <YOUR_COMMIT_SHA_NUMBER>:refs/heads/BRANCH-NAME
+   git push REMOTE-NAME +<YOUR_COMMIT_SHA_NUMBER>:refs/heads/BRANCH-NAME
    ```
 
    If you see the message `remote: fatal: pack exceeds maximum allowed size`, reduce the step size in step 2 and try again.
@@ -52,7 +52,7 @@ Once you're familiar with the procedure, you can automate steps 2 to 4 to simpli
 
 ```shell
 step_commits=$(git log --oneline --reverse refs/heads/BRANCH-NAME | awk 'NR % 1000 == 0')
-echo "$step_commits" | while read commit message; do git push REMOTE-NAME  $commit:refs/heads/BRANCH-NAME; done
+echo "$step_commits" | while read commit message; do git push REMOTE-NAME +$commit:refs/heads/BRANCH-NAME; done
 ```
 
 ## Starting from scratch
