@@ -17,8 +17,6 @@ You can create rulesets in your organization to control how users can interact w
 
 {% data reusables.repositories.rulesets-push-rulesets-intro %}
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
-
 {% endif %}
 
 Forks do not inherit branch or tag rulesets from their upstream repositories. However, forks owned by your organization are subject to the rulesets you create, like any other repository.
@@ -88,9 +86,7 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 ## Creating a push ruleset
 
-{% data reusables.repositories.rulesets-push-rules-beta-note %}
->
-> This ruleset will enforce push restrictions for this repository's entire fork network.
+{% data reusables.repositories.push-rules-fork-network-note %}
 
 You can create a push ruleset for private or internal repositories in your organization.
 

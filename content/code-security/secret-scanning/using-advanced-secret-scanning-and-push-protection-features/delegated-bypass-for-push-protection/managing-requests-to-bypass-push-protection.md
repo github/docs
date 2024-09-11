@@ -24,6 +24,14 @@ An organization owner or repository administrator defines which roles and teams 
 
 {% data reusables.secret-scanning.push-protection-delegated-bypass-note %}
 
+To help you effectively triage secrets for which there is a bypass request, {% data variables.product.prodname_dotcom %} displays the following information in the request:
+
+* Name of the user who attempted the push.
+* Repository where the push was attempted.
+* Commit hash of the push.
+* Timestamp of the push.{% ifversion push-protection-delegated-bypass-enhancements %}
+* File path and branch information. The branch information is only available for pushes to single branches.{% endif %}
+
 ### Managing requests to bypass push protection at the repository level
 
 {% data reusables.repositories.navigate-to-repo %}
