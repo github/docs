@@ -6,7 +6,7 @@ p.hover-card-anchor {
 
   &:before {
     content: "";
-    background-color: var(--color-fg-muted);
+    background-color: LinkText;
     display: inline-flex;
     height: 16px;
     width: 16px;
@@ -14,5 +14,8 @@ p.hover-card-anchor {
     mask-image: url("/assets/cb-479/images/site/hash.svg");
     mask-size: cover;
     vertical-align: middle;
+    @media (forced-colors: active) {
+      background-color: LinkText;
+    }
   }
 }
