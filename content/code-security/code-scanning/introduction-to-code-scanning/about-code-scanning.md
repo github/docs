@@ -29,7 +29,7 @@ If {% data variables.product.prodname_code_scanning %} finds a potential vulnera
 
 {% ifversion code-scanning-autofix %}
 
-Autofix will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories, allowing developers to prevent and reduce vulnerabilities with less effort. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% endif %}
 

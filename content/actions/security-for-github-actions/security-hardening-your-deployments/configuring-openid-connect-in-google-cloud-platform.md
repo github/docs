@@ -51,7 +51,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
@@ -59,9 +59,8 @@ The `google-github-actions/auth` action receives a JWT from the {% data variable
 
 This example has a job called `Get_OIDC_ID_token` that uses actions to request a list of services from GCP.
 
-* `<example-workload-identity-provider>`: Replace this with the path to your identity provider in GCP. For example, `projects/<example-project-id>/locations/global/workloadIdentityPools/<name-of-pool>/providers/<name-of-provider>`
-* `<example-service-account>`: Replace this with the name of your service account in GCP.
-* `<project-id>`: Replace this with the ID of your GCP project.
+* `WORKLOAD-IDENTITY-PROVIDER`: Replace this with the path to your identity provider in GCP. For example, `projects/example-project-id/locations/global/workloadIdentityPools/name-of-pool/providers/name-of-provider`
+* `SERVICE-ACCOUNT`: Replace this with the name of your service account in GCP.
 
 This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token for a Google Cloud access token, using [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
 
@@ -86,8 +85,8 @@ jobs:
       uses: 'google-github-actions/auth@v0.3.1'
       with:
           create_credentials_file: 'true'
-          workload_identity_provider: '<example-workload-identity-provider>'
-          service_account: '<example-service-account>'
+          workload_identity_provider: 'WORKLOAD-IDENTITY-PROVIDER'
+          service_account: 'SERVICE-ACCOUNT'
     - id: 'gcloud'
       name: 'gcloud'
       run: |-

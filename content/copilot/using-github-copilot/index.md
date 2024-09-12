@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /best-practices-for-using-github-copilot
   - /getting-code-suggestions-in-your-ide-with-github-copilot
   - /asking-github-copilot-questions-in-your-ide
   - /asking-github-copilot-questions-in-githubcom

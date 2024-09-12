@@ -24,7 +24,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_actions %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot create workflow templates for {% data variables.product.prodname_actions %}.
 * Entitlement minutes for {% data variables.product.company_short %}-hosted runners are not available for {% data variables.enterprise.prodname_managed_users %}.
 * {% data variables.product.prodname_emus %} can trigger workflows in organizations where they are not members by forking the organization repository, then creating a pull request targeting the organization repository.
 
@@ -57,7 +57,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## Interactions
 
-* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot interact with repositories outside of the enterprise in any of the following ways:
+* {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories, but cannot interact with repositories outside of the enterprise in any of the following ways:
   * Push code to the repository
   * Create issues or pull requests within the repository
   * Create or comment on discussions within the repository

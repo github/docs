@@ -114,7 +114,7 @@ _README_ files are a great place to describe your project in more detail, or add
 
 ## Next steps
 
-You have now created a repository, including a _README_ file, and created your first commit on {% data variables.location.product_location %}.
+You have now created a repository, including a _README_ file, and created your first commit on {% data variables.product.prodname_dotcom %}.
 
 {% webui %}
 

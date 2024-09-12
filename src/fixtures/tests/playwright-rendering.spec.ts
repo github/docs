@@ -523,8 +523,8 @@ test.describe('survey', () => {
 
     await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill('This is a comment')
-    await page.getByPlaceholder('email@example.com').click()
-    await page.getByPlaceholder('email@example.com').fill('test@example.com')
+    await page.locator('[name=survey-email]').click()
+    await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
     // One for the page view event, one for the thumbs up click, one for
     // the submission.

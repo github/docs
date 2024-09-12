@@ -10,7 +10,7 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student
 versions:
   fpt: '*'
-shortTitle: Apply to Github Education
+shortTitle: Apply to GitHub Education
 ---
 {% data reusables.education.about-github-education-link %}
 

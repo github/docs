@@ -1,6 +1,6 @@
 date: '2024-08-07'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >
@@ -8,7 +8,7 @@ intro: |
   >
   > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
 sections:
 
   features:
@@ -22,7 +22,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/4178
         - |
-          Administrators can scale the appliance using generation 2 virtual machines, with support for booting in UEFI mode. This requires deploying a new instance and restoring data onto it. See "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/using-generation-2-virtual-machines)."
+          Administrators can scale the appliance using generation 2 virtual machines, with support for booting in UEFI mode. This requires deploying a new instance and restoring data onto it. See "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/using-generation-2-virtual-machines)."
         # https://github.com/github/releases/issues/4179
         - |
           Nomad has been upgraded to 1.5.17 and Consul has been upgraded to 1.17.4. These services are used in {% data variables.product.prodname_ghe_server %} to orchestrate containers and configuration.
@@ -197,9 +197,9 @@ sections:
     - |
       REST API endpoints for admin stats may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors.
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors.
     - |
-      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shut down the node and repeat the steps.
     - |
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
     - |

@@ -64,6 +64,9 @@ sql:
 text:
   name: Text
   comment: number
+typescript:
+  name: TypeScript
+  comment: slash
 xml:
   name: XML
   comment: xml

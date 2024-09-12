@@ -72,7 +72,7 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 }
 ```
 
-If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:OWNER/REPOSITORY:environment:NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
+If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
 
 {% data reusables.actions.oidc-deployment-protection-rules %}
 
@@ -118,15 +118,15 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
- {% data reusables.actions.oidc-permissions-token %}
+{% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
 The `aws-actions/configure-aws-credentials` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from AWS. For more information, see the AWS [documentation](https://github.com/aws-actions/configure-aws-credentials).
 
-* `<example-bucket-name>`: Add the name of your S3 bucket here.
-* `<role-to-assume>`: Replace the example with your AWS role.
-* `<example-aws-region>`: Add the name of your AWS region here.
+* `BUCKET-NAME`: Add the name of your S3 bucket here.
+* `AWS-REGION`: Add the name of your AWS region here.
+* `ROLE-TO-ASSUME`: Replace this with your AWS role. For example, `arn:aws:iam::1234567890:role/example-role`
 
 ```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -135,8 +135,8 @@ name: AWS example workflow
 on:
   push
 env:
-  BUCKET_NAME : "<example-bucket-name>"
-  AWS_REGION : "<example-aws-region>"
+  BUCKET_NAME : "BUCKET-NAME"
+  AWS_REGION : "AWS-REGION"
 # permission can be added at job level or workflow level
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -150,7 +150,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::1234567890:role/example-role
+          role-to-assume: ROLE-TO-ASSUME
           role-session-name: samplerolesession
           aws-region: {% raw %}${{ env.AWS_REGION }}{% endraw %}
       # Upload a file to AWS s3

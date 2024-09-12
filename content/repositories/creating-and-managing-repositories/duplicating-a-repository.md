@@ -37,7 +37,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Mirror-push to the new repository.
 
    ```shell
-   cd OLD-REPOSITORY.git
+   cd OLD-REPOSITORY
    git push --mirror https://{% data variables.product.product_url %}/EXAMPLE-USER/NEW-REPOSITORY.git
    ```
 
@@ -45,7 +45,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 
    ```shell
    cd ..
-   rm -rf OLD-REPOSITORY.git
+   rm -rf OLD-REPOSITORY
    ```
 
 ## Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
@@ -60,7 +60,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 1. Navigate to the repository you just cloned.
 
    ```shell
-   cd OLD-REPOSITORY.git
+   cd OLD-REPOSITORY
    ```
 
 1. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
@@ -85,7 +85,7 @@ Before you can push the original repository to your new copy, or _mirror_, of th
 
    ```shell
    cd ..
-   rm -rf OLD-REPOSITORY.git
+   rm -rf OLD-REPOSITORY
    ```
 
 ## Mirroring a repository in another location

@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | Autofix |
+| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/javascript/js-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/javascript/js-bad-tag-filter/) | 020, 080, 116, 184, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -31,7 +31,7 @@
 | [Hard-coded credentials](https://codeql.github.com/codeql-query-help/javascript/js-hardcoded-credentials/) | 259, 321, 798 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Host header poisoning in email generation](https://codeql.github.com/codeql-query-help/javascript/js-host-header-forgery-in-email-generation/) | 640 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Improper code sanitization](https://codeql.github.com/codeql-query-help/javascript/js-bad-code-sanitization/) | 094, 079, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Inclusion of functionality from an untrusted source](https://codeql.github.com/codeql-query-help/javascript/js-functionality-from-untrusted-source/) | 830 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Inclusion of functionality from an untrusted source](https://codeql.github.com/codeql-query-help/javascript/js-functionality-from-untrusted-source/) | 830 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Incomplete HTML attribute sanitization](https://codeql.github.com/codeql-query-help/javascript/js-incomplete-html-attribute-sanitization/) | 079, 116, 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incomplete multi-character sanitization](https://codeql.github.com/codeql-query-help/javascript/js-incomplete-multi-character-sanitization/) | 020, 080, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incomplete regular expression for hostnames](https://codeql.github.com/codeql-query-help/javascript/js-incomplete-hostname-regexp/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

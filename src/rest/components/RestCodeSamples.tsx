@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, TabNav } from '@primer/react'
-import { Tooltip } from '@primer/react/next'
+import { FormControl, IconButton, Select, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
+import { announce } from '@primer/live-region-element'
 import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
@@ -281,25 +281,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             </TabNav>
           </div>
           <div className="mr-2">
-            <Tooltip
-              className="mr-2"
-              direction="w"
-              text={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
-            >
-              <button
-                className="js-btn-copy btn-octicon"
-                aria-label={
-                  isCopied
-                    ? t('button_text.copied')
-                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
-                }
-                aria-live="polite"
-                aria-atomic="true"
-                onClick={() => setCopied()}
-              >
-                {isCopied ? <CheckIcon /> : <CopyIcon />}
-              </button>
-            </Tooltip>
+            <IconButton
+              icon={isCopied ? CheckIcon : CopyIcon}
+              className="js-btn-copy btn-octicon"
+              aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
+              onClick={() => {
+                setCopied()
+                announce('Copied!')
+              }}
+            ></IconButton>
           </div>
         </div>
 
@@ -311,10 +301,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
+          role="scrollbar"
+          aria-controls="example-request-code"
+          aria-valuenow={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <code id="example-request-code" ref={requestCodeExample}>
+            {displayedExample[selectedLanguage]}
+          </code>
         </div>
       </div>
 
@@ -369,10 +363,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
+              role="scrollbar"
+              aria-controls="example-response-code"
+              aria-valuenow={0}
             >
-              <code ref={responseCodeExample}>
+              <code id="example-response-code" ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}

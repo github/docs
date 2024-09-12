@@ -9,13 +9,19 @@ import { ExtendedRequest, SecretScanningData } from '@/types'
 
 const secretScanningPath = 'src/secret-scanning/data/public-docs.yml'
 
+// This is the path to the file that contains the secret scanning data.
+// Currently it's:
+// code-security/secret-scanning/introduction/supported-secret-scanning-pattern
+const { targetFilename } = JSON.parse(
+  fs.readFileSync('src/secret-scanning/lib/config.json', 'utf-8'),
+)
+
 export default async function secretScanning(
   req: ExtendedRequest,
   res: Response,
   next: NextFunction,
 ) {
-  if (!req.pagePath!.endsWith('code-security/secret-scanning/secret-scanning-patterns'))
-    return next()
+  if (!req.pagePath!.endsWith(targetFilename)) return next()
 
   const secretScanningData = yaml.load(
     fs.readFileSync(secretScanningPath, 'utf-8'),
@@ -36,6 +42,9 @@ export default async function secretScanning(
         const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
         entry[key] = evaluated as string
       }
+    }
+    if (entry.isduplicate) {
+      entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
     }
   })
 

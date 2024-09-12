@@ -2,22 +2,13 @@
 title: Configuring tag protection rules
 shortTitle: Tag protection rules
 intro: You can configure tag protection rules for your repository to prevent contributors from creating or deleting tags.
-product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+  ghes: '<3.16'
 ---
 
-{% ifversion tag-protection-rules-deprecation %}
+>[!NOTE] Tag protection rules will be deprecated on August 30, 2024, and in {% data variables.product.prodname_ghe_server %} version 3.16 and later, in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
 
->[!NOTE] Tag protection rules will be deprecated on August 30, 2024 in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
-
-{% endif %}
-
-## About tag protection rules
-
-When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions{% ifversion edit-repository-rules %}, or custom roles with the "edit repository rules" permission{% endif %} in the repository will be able to create protected tags, and only users with admin permissions{% ifversion edit-repository-rules %} or custom roles with the "edit repository rules" permission{% endif %} in the repository will be able to delete protected tags. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)." {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
+When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions, or custom roles with the "edit repository rules" permission in the repository will be able to create protected tags, and only users with admin permissions or custom roles with the "edit repository rules" permission in the repository will be able to delete protected tags. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)." {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
 
 {% ifversion custom-repository-roles %}
 Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}

@@ -3,6 +3,37 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddMobileDevicePublicKeyPayload.expiresAt</code>:<code>expiresAt</code> will be removed. Do not rely on this field, it is currently set to a date far in the future if a device key is expirationless <strong>Effective 2025-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-08-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'THANKS_DEV<code>was added to enum</code>FundingPlatform'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-08-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": [
           "<p>Field <code>doNotEnforceOnCreate</code> was added to object type <code>RequiredStatusChecksParameters</code></p>",
           "<p>Input field <code>doNotEnforceOnCreate</code> of type <code>Boolean</code> was added to input object type <code>RequiredStatusChecksParametersInput</code></p>",

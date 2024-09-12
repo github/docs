@@ -96,3 +96,7 @@ If you don’t use {% data variables.product.prodname_actions %}, and your code 
      * Implement a retry logic with exponential backoff retries.
      * Implement a reasonable number of retries to account for the typical runtime of your dependency submission code.
 {% endif %}
+
+## Further reading
+
+* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/customizing-your-dependency-review-action-configuration)"

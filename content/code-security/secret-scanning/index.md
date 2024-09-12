@@ -15,19 +15,11 @@ topics:
   - Advanced Security
   - Repositories
 children:
-  - /about-secret-scanning
-  - /secret-scanning-partner-program
-  - /configuring-secret-scanning-for-your-repositories
-  - /defining-custom-patterns-for-secret-scanning
-  - /about-generating-regular-expressions-with-ai
-  - /generating-regular-expressions-for-custom-patterns-with-ai
+  - /introduction
+  - /enabling-secret-scanning-features
   - /managing-alerts-from-secret-scanning
-  - /secret-scanning-patterns
-  - /about-the-detection-of-generic-secrets-with-secret-scanning
-  - /enabling-ai-powered-generic-secret-detection
-  - /push-protection-for-repositories-and-organizations
-  - /push-protection-for-users
-  - /working-with-push-protection
-  - /pushing-a-branch-blocked-by-push-protection
-  - /troubleshooting-secret-scanning
+  - /working-with-secret-scanning-and-push-protection
+  - /using-advanced-secret-scanning-and-push-protection-features
+  - /troubleshooting-secret-scanning-and-push-protection
+  - /secret-scanning-partnership-program
 ---

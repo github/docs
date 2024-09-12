@@ -1,9 +1,10 @@
 ---
 title: Approving workflow runs from public forks
-intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve any workflow runs.'
+intro: 'When an outside contributor submits a pull request to a public repository, a maintainer with write access may need to approve some workflow runs.'
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 shortTitle: Approve public fork runs
 redirect_from:
   - /actions/managing-workflow-runs/approving-workflow-runs-from-public-forks

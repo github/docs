@@ -25,7 +25,7 @@ topics:
 
 {% data reusables.copilot.content-exclusion-note %}
 
-You can use content exclusions to configure {% data variables.product.prodname_copilot_short %} to ignore certain files in a repository or organization. When you exclude content from {% data variables.product.prodname_copilot_short %}:
+You can use content exclusions to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
 
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
@@ -33,9 +33,18 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-### Limitations of content exclusions
+### Availability of content exclusions
 
-Content exclusions are not currently available for Copilot Chat in Visual Studio, Copilot Chat in GitHub.com, or code completion in Azure Data Studio. Additionally:
+| Tool | Code completion support | {% data variables.product.prodname_copilot_chat_short %} support |
+|--------|:--------:|:--------:|
+| {% data variables.product.prodname_vs %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.product.prodname_vscode %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| JetBrains IDEs | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Vim/Neovim | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| Azure Data Studio | {% octicon "x" aria-label="Not supported" %} | Not applicable |
+| {% data variables.product.prodname_dotcom_the_website %} | Not applicable | {% octicon "x" aria-label="Not supported" %} |
+
+### Limitations of content exclusions
 
 {% data reusables.copilot.content-exclusion-limitations %}
 
@@ -81,15 +90,17 @@ You can use your repository settings to specify content in your repository that 
 
 ## Configuring content exclusions for your organization
 
-You can use your organization settings to specify content in any Git repository that {% data variables.product.prodname_copilot %} should ignore.
+You can use your organization settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
-1. In the box following "Repositories and paths to exclude," enter details of where {% data variables.product.prodname_copilot_short %} should be excluded.
+1. In the box following "Repositories and paths to exclude," enter the details of files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 
-   For each repository in which you want files to be excluded from {% data variables.product.prodname_copilot_short %}, enter a reference to the repository on one line, followed by paths to locations within the repository, with each path on a separate line. Use the following format, replacing `REPOSITORY-REFERENCE` with a reference to the repository that contains the files you'd like to exclude:
+   To exclude files located anywhere (within a Git repository or elsewhere), enter `"*":` followed by the path to the file, or files, you want to exclude. If you want to specify multiple file path patterns, list each pattern on a separate line.
+
+   To exclude files in a Git repository from {% data variables.product.prodname_copilot_short %}, enter a reference to the repository on one line, followed by paths to locations within the repository, with each path on a separate line. Use the following format, replacing `REPOSITORY-REFERENCE` with a reference to the repository that contains the files you'd like to exclude:
 
    ```yaml
    REPOSITORY-REFERENCE:
@@ -119,8 +130,8 @@ You can use your organization settings to specify content in any Git repository 
 ### Example of repositories and paths in organization settings
 
 ```yaml annotate
-# Ignore all `.env` files at any path, in any repository.
-# This setting applies to all repositories, not just to those on GitHub.com.
+# Ignore all `.env` files from all file system roots (Git and non-Git).
+# For example, this excludes `REPOSITORY-PATH/.env` and also `/.env`.
 # This could also have been written on a single line as:
 #
 # "*": ["**/.env"]
@@ -182,9 +193,10 @@ There are a few different ways to test your content exclusions, depending on whi
 1. Open a file that you expect to be affected by your content exclusions.
 1. Use one or more of the following techniques to test if content is being excluded:
    * **In JetBrains IDEs, {% data variables.product.prodname_vs %}, and {% data variables.product.prodname_vscode %}**, check the {% data variables.product.prodname_copilot_short %} icon in the status bar. If a {% data variables.product.prodname_copilot_short %} content exclusion applies to the file, the {% data variables.product.prodname_copilot_short %} icon will have a diagonal line through it. Hover over the icon to see whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for the file.
-   * **In JetBrains IDEs and {% data variables.product.prodname_vscode %}**, you can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
+   * **In JetBrains IDEs, {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %}**, you can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
    * **In Vim/Neovim**, begin typing in the file. If {% data variables.product.prodname_copilot %} no longer provides inline suggestions as you type, the file is excluded.
 
 ## Further reading
 
 * "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)"
+* [Configuring content exclusion for {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion)

@@ -1,1 +1,1 @@
-> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are in limited public beta and subject to change.
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} is in public beta and subject to change.

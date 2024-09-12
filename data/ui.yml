@@ -63,7 +63,6 @@ survey:
   additional_feedback: Can you tell us more about your rating? (Optional)
   optional: Optional
   required: Required
-  email_placeholder: 'Example: email@example.com'
   email_label: Leave your email if we can contact you. (Optional)
   email_validation: Please enter a valid email address
   send: Send

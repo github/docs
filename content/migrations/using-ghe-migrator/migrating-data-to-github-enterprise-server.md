@@ -270,6 +270,8 @@ After your migration is applied to your target instance and you have reviewed th
 
 ## Unlocking repositories on the source
 
+After your migration is complete, you should unlock the repositories on the source.
+
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:

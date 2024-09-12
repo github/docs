@@ -1,6 +1,6 @@
 {% ifversion fpt or ghec %}
 
-{% data variables.location.product_location %} retains checks data for 400 days. After 400 days, the data is archived. 10 days after archival, the data is permanently deleted.
+{% data variables.product.prodname_dotcom %} retains checks data for 400 days. After 400 days, the data is archived. 10 days after archival, the data is permanently deleted.
 
 {% elsif ghes %}
 

@@ -59,7 +59,7 @@ You can assign different types of credit to people.
 | Credit type           | Reason                                                                                     |
 |-----------------------|--------------------------------------------------------------------------------------------|
 | Finder                | Identifies the vulnerability                                                               |
-| Reporter             | Notifies the vendor of the vulnerability to a CNA                                          |
+| Reporter              | Notifies the vendor of the vulnerability to a CNA                                          |
 | Analyst               | Validates the vulnerability to ensure accuracy or severity                                 |
 | Coordinator           | Facilitates the coordinated response process                                               |
 | Remediation developer | Prepares a code change or other remediation plans                                          |
@@ -67,6 +67,7 @@ You can assign different types of credit to people.
 | Remediation verifier  | Tests and verifies the vulnerability or its remediation                                    |
 | Tool                  | Names of tools used in vulnerability discovery or identification                           |
 | Sponsor               | Supports the vulnerability identification or remediation activities                        |
+
 {% endif %}
 
 If someone accepts credit, the person's username appears in the "Credits" section of the security advisory. Anyone with read access to the repository can see the advisory and the people who accepted credit for it.

@@ -3,7 +3,7 @@
 
    {% note %}
 
-   **Note:** You can enter a regular expression manually instead of using the generator, by typing a regular expression for the format of your secret pattern in the "Secret format" field. For more information, see "[Defining a custom pattern for a repository](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+   **Note:** You can enter a regular expression manually instead of using the generator, by typing a regular expression for the format of your secret pattern in the "Secret format" field. For more information, see "[Defining a custom pattern for a repository](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)" or "[Defining a custom pattern for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
 
    {% endnote %}
 

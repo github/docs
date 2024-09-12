@@ -182,7 +182,7 @@ The subject claim includes the environment name when the job references an envir
 
 You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/managing-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:environment:<environmentName>`
+* Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
 * Example: `repo:octo-org/octo-repo:environment:Production`
 
 #### Filtering for `pull_request` events
@@ -191,7 +191,7 @@ The subject claim includes the `pull_request` string when the workflow is trigge
 
 You can configure a subject that filters for the [`pull_request`](/actions/using-workflows/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:pull_request`
+* Syntax: `repo:ORG-NAME/REPO-NAME:pull_request`
 * Example: `repo:octo-org/octo-repo:pull_request`
 
 #### Filtering for a specific branch
@@ -200,7 +200,7 @@ The subject claim includes the branch name of the workflow, but only if the job 
 
 You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax:  `repo:<orgName/repoName>:ref:refs/heads/branchName`
+* Syntax:  `repo:ORG-NAME/REPO-NAME:ref:refs/heads/BRANCH-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`
 
 #### Filtering for a specific tag
@@ -209,7 +209,7 @@ The subject claim includes the tag name of the workflow, but only if the job doe
 
 You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
-* Syntax: `repo:<orgName/repoName>:ref:refs/tags/<tagName>`
+* Syntax: `repo:ORG-NAME/REPO-NAME:ref:refs/tags/TAG-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`
 
 ### Configuring the subject in your cloud provider
@@ -250,9 +250,9 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 
 You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customizations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:
 
-* You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. For more information, see {% ifversion ghec %}"[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)" and {% endif %}"[Customizing the `audience` value](#customizing-the-audience-value)."
+* You can customize values for {% ifversion ghec %}`issuer` or {% endif %}`audience` claims. See {% ifversion ghec %}"[Customizing the `issuer` value for an enterprise](#customizing-the-issuer-value-for-an-enterprise)" and {% endif %}"[Customizing the `audience` value](#customizing-the-audience-value)."
 * You can customize the format of your OIDC configuration by setting conditions on the subject (`sub`) claim that require JWT tokens to originate from a specific repository, reusable workflow, or other source.
-* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)".
+* You can define granular OIDC policies by using additional OIDC token claims, such as `repository_id` and `repository_visibility`. See "[Understanding the OIDC token](#understanding-the-oidc-token)."
 
 ### Customizing the `audience` value
 
@@ -296,7 +296,7 @@ To help improve security, compliance, and standardization, you can customize the
 
 {% note %}
 
-**Note**: When the organization template is applied, it will not affect any workflows in existing repositories that already use OIDC. For existing repositories, as well as any new repositories that are created after the template has been applied, the repository owner will need to use the REST API to opt in to receive this configuration. Alternatively, the repository owner could use the REST API to apply a different configuration specific to the repository. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+**Note**: When the organization template is applied, it will not affect any workflows already using OIDC unless their repository has opted in to custom organization templates. For all repositories, existing and new, the repository owner will need to use the repository-level REST API to opt in to receive this configuration by setting `use_default` to `false`. Alternatively, the repository owner could use the REST API to apply a different configuration specific to the repository. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 
 {% endnote %}
 
@@ -304,7 +304,7 @@ Customizing the claims results in a new format for the entire `sub` claim, which
 
 {% note %}
 
-**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:<orgName/repoName>`) instead of `repository` to reference the repository.
+**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:ORG-NAME/REPO-NAME`) instead of `repository` to reference the repository.
 
 {% endnote %}
 
@@ -368,7 +368,7 @@ The following example template combines the requirement of a specific reusable w
 
 {% data reusables.actions.use-request-body-api %}
 
-This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:<environmentName>`.
+This example also demonstrates how to use `"context"` to define your conditions. This is the part that follows the repository in the [default `sub` format](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims). For example, when the job references an environment, the context contains: `environment:ENVIRONMENT-NAME`.
 
 ```json
 {
@@ -382,7 +382,7 @@ This example also demonstrates how to use `"context"` to define your conditions.
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo`, `context`, and `job_workflow_ref`.
 
-This customization template requires that the `sub` uses the following format: `repo:<orgName/repoName>:environment:<environmentName>:job_workflow_ref:<reusableWorkflowPath>`.
+This customization template requires that the `sub` uses the following format: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME:job_workflow_ref:REUSABLE-WORKFLOW-PATH`.
 For example: `"sub": "repo:octo-org/octo-repo:environment:prod:job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`
 
 #### Example: Granting access to a specific repository
@@ -429,7 +429,7 @@ or:
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require a `repository_owner_id` claim that matches the required value.
 
-#### Resetting your customizations
+#### Resetting organization template customizations
 
 This example template resets the subject claims to the default format. This template effectively opts out of any organization-level customization policy.
 
@@ -446,11 +446,13 @@ This example template resets the subject claims to the default format. This temp
 
 In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repo` and `context`.
 
-#### Using the default subject claims
+#### Resetting repository template customizations
 
-Default subject claims can be created at the organization level. All repositories in an organization have the ability to opt in or opt out of using their organization's default `sub` claim.
+All repositories in an organization have the ability to opt in or opt out of (organization and repository-level) customized `sub` claim templates.
 
-To create a default `sub` claim at the organization level, an organization administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-an-organization)." Once an organization has created a default claim, the REST API can be used to programmatically apply the default claim to repositories within the organization. To configure repositories to use the default `sub` claim format, use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+To opt out a repository and reset back to the default `sub` claim format, a repository administrator must use the REST API endpoint at "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
+
+To configure repositories to use the default `sub` claim format, use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body.
 
 ```json
 {
@@ -460,7 +462,7 @@ To create a default `sub` claim at the organization level, an organization admin
 
 #### Example: Configuring a repository to use an organization template
 
-A repository administrator can configure their repository to use the template created by the administrator of their organisation.
+Once an organization has created a customized `sub` claim template, the REST API can be used to programmatically apply the template to repositories within the organization. A repository administrator can configure their repository to use the template created by the administrator of their organization.
 
 To configure the repository to use the organization's template, a repository admin must use the `PUT /repos/{owner}/{repo}/actions/oidc/customization/sub` REST API endpoint at with the following request body. For more information, see "[AUTOTITLE](/rest/actions/oidc#set-the-customization-template-for-an-oidc-subject-claim-for-a-repository)."
 

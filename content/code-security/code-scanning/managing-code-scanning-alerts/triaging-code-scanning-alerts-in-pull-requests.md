@@ -44,7 +44,7 @@ In repositories where {% data variables.product.prodname_code_scanning %} is con
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_code_scanning_caps %} autofix will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information on working with suggestions from autofix in pull requests, see "[Working with autofix suggestions for alerts on a pull request](#working-with-autofix-suggestions-for-alerts-on-a-pull-request)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_codeql %} analysis in private repositories. For more information on working with suggestions from {% data variables.product.prodname_copilot_autofix_short %} in pull requests, see "[Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)."
 
 {% endif %}
 
@@ -53,6 +53,12 @@ If you have write permission for the repository, you can see any existing {% dat
 In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-push)."
 
 If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_caps %} results" check must pass before you can merge the pull request. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
+
+{% ifversion copilot-chat-ghas-alerts %}
+
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+
+{% endif %}
 
 ## About {% data variables.product.prodname_code_scanning %} as a pull request check
 
@@ -124,34 +130,34 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 {% ifversion code-scanning-autofix %}
 
-## Working with autofix suggestions for alerts on a pull request
+## Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request
 
 {% data reusables.rai.code-scanning.autofix-note %}
 
-Autofix, powered by {% data variables.product.prodname_copilot %}, is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
 
 ![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. Part of the "autofix" suggestion is outlined in dark orange.](/assets/images/help/code-scanning/alert+autofix.png)
 
-### Generating autofix suggestions and publishing to a pull request
+### Generating {% data variables.product.prodname_copilot_autofix_short %} suggestions and publishing to a pull request
 
-When autofix is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_codeql %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_codeql %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
 
 {% note %}
 
 **Notes:**
-* Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of autofix, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
-* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
-* On alerts generated from queries that are not supported by autofix, you will see a note telling you that the query is not supported. If an autofix suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
+* {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+* When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+* On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
 
 {% endnote %}
 
-Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an autofix comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
+Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an {% data variables.product.prodname_copilot_autofix_short %} comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
 
-![Screenshot of the autofix suggestion with explanation and change in the current file. A suggested change in "package.json" is outlined in dark orange.](/assets/images/help/code-scanning/autofix-example.png)
+![Screenshot of the {% data variables.product.prodname_copilot_autofix_short %} suggestion with explanation and change in the current file. A suggested change in "package.json" is outlined in dark orange.](/assets/images/help/code-scanning/autofix-example.png)
 
-### Assessing and committing an autofix suggestion
+### Assessing and committing an {% data variables.product.prodname_copilot_autofix_short %} suggestion
 
-Each autofix suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of autofix suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-suggestions)" in "About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
+Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of {% data variables.product.prodname_copilot_autofix_short %} suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-suggestions)" in "About {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
 
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
@@ -163,9 +169,9 @@ Each autofix suggestion demonstrates a potential solution for a {% data variable
 1. When you have finished testing your changes, commit the changes, and push them to your branch.
 1. Pushing the changes to your branch will trigger all the usual tests for your pull request. Confirm that your unit tests still pass and that the {% data variables.product.prodname_code_scanning %} alert is now fixed.
 
-### Dismissing an autofix suggestion
+### Dismissing a {% data variables.product.prodname_copilot_autofix_short %} suggestion
 
-If you decide to reject an autofix suggestion, click **Dismiss suggestion** in the comment to dismiss the suggested fix.
+If you decide to reject a {% data variables.product.prodname_copilot_autofix_short %} suggestion, click **Dismiss suggestion** in the comment to dismiss the suggested fix.
 
 {% endif %}
 

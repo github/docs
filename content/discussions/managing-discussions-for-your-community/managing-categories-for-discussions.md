@@ -34,7 +34,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
 ## Creating a category
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Click **New category**.
@@ -50,7 +50,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
 ## Creating a section
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Click **New section**.
@@ -64,7 +64,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
 You can edit a category to change the category's emoji, title, description, and discussion format.
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to edit a category.
+1. Navigate to the main page of the repository or organization where you want to edit a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. To the right of a category in the list, click {% octicon "pencil" aria-label="The pencil icon" %}.
@@ -79,7 +79,7 @@ You can edit a category to change the category's emoji, title, description, and 
 
 You can edit a section to change the section's emoji and title, and to add and remove categories from the section.
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to edit a section.
+1. Navigate to the main page of the repository or organization where you want to edit a section.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. To the right of a section in the list, click {% octicon "pencil" aria-label="The pencil icon" %}.
@@ -93,7 +93,7 @@ When you delete a category, {% data variables.product.product_name %} will move 
 
 {% ifversion discussions-category-section %}When you delete a section, all categories within the section will no longer belong to a section.{% endif %}
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to delete a category.
+1. Navigate to the main page of the repository or organization where you want to delete a category.
 {% data reusables.discussions.discussions-tab %}
 1. To the right of a category in the list, click {% octicon "trash" aria-label="The trash icon" %}.
 1. Select the dropdown menu, and click a new category for any discussions in the category you're deleting.
@@ -105,7 +105,7 @@ When you delete a category, {% data variables.product.product_name %} will move 
 
 When you delete a section, all categories within the section will no longer belong to a section.
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to delete a section.
+1. Navigate to the main page of the repository or organization where you want to delete a section.
 {% data reusables.discussions.discussions-tab %}
 1. To the right of a section in the list, click {% octicon "trash" aria-label="The trash icon" %}.
 1. In the dialog box, review the information about deleting a section, then click **Delete**.

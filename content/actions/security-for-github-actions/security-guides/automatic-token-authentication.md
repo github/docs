@@ -91,7 +91,7 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | deployments   | read/write  | none | read |
 | discussions   | read/write  | none | read |
 | {% ifversion fpt or ghec %} |
-| id-token      | none        | none | read |
+| id-token      | none        | none | none |
 | {% endif %} |
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |

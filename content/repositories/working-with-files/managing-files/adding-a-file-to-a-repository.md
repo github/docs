@@ -35,7 +35,7 @@ You can upload multiple files to {% data variables.product.product_name %} at th
 
 {% ifversion push-protection-block-uploads %}
 
-Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-push-protection#using-push-protection-from-the-web-ui)" and "[AUTOTITLE](/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection#resolving-a-blocked-commit-in-the-web-ui)."
+Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)" and "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit)."
 
 {% data reusables.secret-scanning.push-protection-web-UI-uploads-beta %}
 
@@ -52,7 +52,7 @@ Your repository may be secured by push protection. With push protection, {% data
 
 ## Adding a file to a repository using the command line
 
-You can upload an existing file to a repository on {% data variables.location.product_location %} using the command line.
+You can upload an existing file to a repository on {% data variables.product.prodname_dotcom %} using the command line.
 
 {% tip %}
 

@@ -658,3 +658,11 @@ upcoming_changes:
     date: '2024-10-01T00:00:00+00:00'
     criticality: breaking
     owner: stevepopovich
+  - location: AddMobileDevicePublicKeyPayload.expiresAt
+    description:
+      '`expiresAt` will be removed. Do not rely on this field, it is currently
+      set to a date far in the future if a device key is expirationless'
+    reason: We are deprecating expirations for mobile device keys used in mobile 2FA
+    date: '2025-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: chriskirkland

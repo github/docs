@@ -106,10 +106,11 @@ children:
   - /administering-your-instance
   - /managing-iam
   - /managing-accounts-and-repositories
+  - /upgrading-your-instance
   - /backing-up-and-restoring-your-instance
   - /enforcing-policies
   - /monitoring-activity-in-your-enterprise
-  - /monitoring-managing-and-updating-your-instance
+  - /monitoring-and-managing-your-instance
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /managing-code-security
@@ -118,4 +119,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-
