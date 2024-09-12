@@ -43,6 +43,12 @@ After a reader clicks {% octicon "triangle-right" aria-label="The right triangle
 
 ![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
 
+{% note %}
+
+**Note:** The Markdown within a `<details>` block will not render correctly for GitHub Pages. Use HTML formatting instead.
+
+{% endnote %}
+
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
