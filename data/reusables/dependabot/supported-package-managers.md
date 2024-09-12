@@ -19,7 +19,8 @@ npm            | `npm`            | v6, v7, v8, v9   | {% octicon "check" aria-l
 [NuGet](#nuget-cli)          | `nuget`          | {% ifversion dependabot-updates-v680-nuget-support %}<=6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-PEP621-support %}[pip](#pip-and-pip-compile){% else %}pip{% endif %} | `pip`            | v21.1.2          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-|  {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-and-pip-compile){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+|  {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-compile-and-uv){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+|  {% ifversion dependabot-PEP621-support %}[uv](#pip-compile-and-uv){% else %}uv{% endif %}   | `pip`            | 0.4.9            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% ifversion dependabot-updates-pnpm-support %} |
 [pnpm](#pnpm)   | `npm`            | v7, v8, v9      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (v7 and v8 only) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
@@ -116,9 +117,11 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 {% ifversion dependabot-PEP621-support %}
 
-#### pip and pip-compile
+#### pip-compile and uv
 
-In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
+{% data variables.product.prodname_dependabot %} can update `requirements.txt` compiled files using both `pip-compile` and `uv` (depending on which one was used to generate the file), as well as performing updates to `pyproject.toml` files if they follow the PEP 621 standard.
+
+`uv.lock` files are not supported yet.
 {% endif %}
 
 #### pnpm
