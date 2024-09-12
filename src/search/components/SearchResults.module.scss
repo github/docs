@@ -2,6 +2,9 @@
   mark {
     background-color: transparent;
     font-weight: bold;
+    @media (forced-colors: active) {
+      color: CanvasText;
+    }
   }
 
   word-wrap: break-word;
