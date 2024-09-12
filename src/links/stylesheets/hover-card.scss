@@ -6,7 +6,7 @@ p.hover-card-anchor {
 
   &:before {
     content: "";
-    background-color: LinkText;
+    background-color: var(--color-fg-muted);
     display: inline-flex;
     height: 16px;
     width: 16px;
