@@ -5,9 +5,9 @@ This repository contains the documentation website code and Markdown source file
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
+Use the table of contents icon <img alt="Table of contents icon" bttctcv bsrc="./contributing/images/table-of-contents.png" width="40" height="40" /> on the top right corner of this document to navigate to a specific section quickly.
 
-## Contributing
+## Contributing&(
 
 We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
 
@@ -29,7 +29,7 @@ If you're having trouble with your GitHub account, contact [Support](https://sup
 
 That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
-## READMEs
+## README
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
@@ -53,3 +53,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+f
