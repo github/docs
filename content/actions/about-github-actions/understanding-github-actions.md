@@ -47,6 +47,14 @@ For more information about introducing {% data variables.product.prodname_action
 
 You can configure a {% data variables.product.prodname_actions %} **workflow** to be triggered when an **event** occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more **jobs** which can run in sequential order or in parallel.  Each job will run inside its own virtual machine **runner**, or inside a container, and has one or more **steps** that either run a script that you define or run an **action**, which is a reusable extension that can simplify your workflow.
 
+A GitHub Actions workflow consists of several key components:
+- **Workflows**: Automated processes triggered by events.
+- **Jobs**: Individual units of work within a workflow.
+- **Steps**: Tasks that define what each job does.
+- **Actions**: Reusable commands that simplify steps.
+- **Runners**: Servers that execute jobs.
+
+
 ![Diagram of an event triggering Runner 1 to run Job 1, which triggers Runner 2 to run Job 2. Each of the jobs is broken into multiple steps.](/assets/images/help/actions/overview-actions-simple.png)
 
 ### Workflows
@@ -98,7 +106,11 @@ For more information{% ifversion fpt or ghec %} about self-hosted runners{% endi
 
 ## Next steps
 
-{% data reusables.actions.onboarding-next-steps %}
+To get started with GitHub Actions, you can:
+- Learn how to create your first workflow
+- Explore different events to trigger your workflows
+- Discover how to create and use custom actions
+
 
 {% ifversion ghec or ghes %}
 
