@@ -49,7 +49,7 @@ There's no minimum Git version necessary to interact with {% data variables.prod
 
 ### Ensure the remote is correct
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+The repository you're trying to fetch must exist on {% data variables.location.product_location %}.
 
 You can find the URL of the local repository by opening the command line and
 typing `git remote -v`:
@@ -57,8 +57,8 @@ typing `git remote -v`:
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/ghost/reactivecocoa.git (fetch)
-> origin  https://github.com/ghost/reactivecocoa.git (push)
+> origin  https://github.com/ghost/cocoareactive.git (fetch)
+> origin  https://github.com/ghost/cocoareactive.git (push)
 
 $ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL

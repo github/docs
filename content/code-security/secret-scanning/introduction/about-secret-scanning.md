@@ -54,7 +54,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Review**: When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation**: You then need take appropriate actions to remediate the exposure. This might include:
+* **Remediation**: You then need to take appropriate actions to remediate the exposure. This might include:
   * Rotating the affected credential to ensure it is no longer usable.
   * Removing the secret from the repository's history (using tools like BFG Repo-Cleaner or {% data variables.product.prodname_dotcom %}'s built-in features).
 
