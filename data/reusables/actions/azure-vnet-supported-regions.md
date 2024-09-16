@@ -32,6 +32,7 @@ Azure private networking supports arm64 runners in the following regions.
 * `EastUs`
 * `EastUs2`
 * `WestUs2`
+* `WestUs3`
 * `NorthCentralUs`
 * `SouthCentralUs`
 
