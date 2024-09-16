@@ -5,9 +5,7 @@ redirect_from:
   - /actions/guides/moving-assigned-issues-on-project-boards
   - /actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: projects-v1
 type: tutorial
 topics:
   - Workflows
