@@ -112,7 +112,7 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 
 ## Adding a collapsed section
 
-To keep your content tidy, you can use the `<details>` tag to create an expandible collapsed section.
+To keep your content tidy, you can use the `<details>` tag to create an expandable collapsed section.
 
 1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
 

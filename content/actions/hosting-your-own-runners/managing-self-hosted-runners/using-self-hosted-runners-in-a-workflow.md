@@ -17,7 +17,7 @@ shortTitle: Use runners in a workflow
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
 
->[!NOTE]Action Runner Controller does not support multiple labels, only the name of the runner can be used in place of a label
+>[!NOTE]Actions Runner Controller does not support multiple labels, only the name of the runner can be used in place of a label
 
 ## About self-hosted runner labels
 

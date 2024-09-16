@@ -62,6 +62,7 @@
 - is: https://azure.microsoft.com
 - is: https://api.octocorp.ghe.com
 - is: https://platform.openai.com/docs/guides/safety-best-practices
+- is: https://platform.openai.com/docs/guides/function-calling
 - is: https://global.rel.tunnels.api.visualstudio.com/api/version
 - is: https://www.wireguard.com/quickstart/
 - is: https://docs.openstack.org/horizon/latest/
