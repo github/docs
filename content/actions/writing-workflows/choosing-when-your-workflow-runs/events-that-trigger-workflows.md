@@ -452,6 +452,8 @@ on:
   page_build
 ```
 
+{% ifversion projects-v1 %}
+
 ## `project`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -565,6 +567,8 @@ on:
   project_column:
     types: [created, deleted]
 ```
+
+{% endif %}
 
 ## `public`
 
