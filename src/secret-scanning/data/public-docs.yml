@@ -847,6 +847,28 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Coveo
+  supportedSecret: Coveo Access Token
+  secretType: coveoaccesstoken
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Coveo
+  supportedSecret: Coveo API Key
+  secretType: coveoapikey
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: crates.io
   supportedSecret: Crates.io API Token
   secretType: cratesio_api_token
@@ -2355,7 +2377,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: PagerDuty
@@ -2640,7 +2662,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Rootly
@@ -2880,6 +2902,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Siemens
+  supportedSecret: Siemens API Token
+  secretType: siemens_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Slack
@@ -3122,6 +3155,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Thunderstore
+  supportedSecret: Thunderstore IO API Token
+  secretType: thunderstore_io_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio Access Token
   secretType: twilio_access_token
@@ -3308,7 +3352,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Yandex
