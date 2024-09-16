@@ -24,21 +24,26 @@ Once you have configured your server and created your {% data variables.product.
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
-1. In the "Identifying and authorizing users" section, under "Callback URL," enter your server's hostname, then click **Save changes**.
+1. In the "Identifying and authorizing users" section, under "Callback URL", enter your server's hostname, then click **Save changes**.
 
-    > [!NOTE] Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
+    > [!NOTE] This step is only required if you intend to request user authorization (OAuth) during installation.
+    >
+    > Your server's hostname is the forwarding endpoint that you copied from your terminal when you configured your server. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent)."
     >
     > If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
+1. In the left sidebar, click **Permissions & events**.
+1. To expand the "Account permissions" section, click anywhere in the section.
+1. In the "{% data variables.product.prodname_copilot_chat %}" row, select the **Access:** dropdown menu, then click **Read-only**. Click **Save changes**.
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
-1. Under "URL," enter your server's hostname (aka forwarding endpoint) that you copied from your terminal, then click **Save changes**.
+1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
+1. In the "App type" section, select the dropdown menu, then click **Agent**.
+1. Under "URL," enter your server's hostname (aka forwarding endpoint) that you copied from your terminal.
 
     > [!NOTE] If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
+1. Under "Inference description", type a brief description of your agent, then click **Save**. This will be the description users see when they hover over your agent's slug in the chat window.
 1. Your pre-authorization URL is a link on your website that starts the authorization process for your extension. Users will be redirected to this URL when they decide to authorize your extension. If you are using a pre-authorization URL, under "Pre-authorization URL," enter the URL, then click **Save changes**.
-1. In the left sidebar, click **Permissions and events**.
-1. Expand the "Account permissions" section.
-1. In the dropdown menu, to the right of {% data variables.product.prodname_copilot_chat %}, select **Read only**, then click **Save changes**.
 1. In your {% data variables.product.prodname_github_app %} settings, in the left sidebar, click **Install App**, then, next to the account you want to install your app on, click **Install**.
 {% data reusables.copilot.go-to-copilot-page %}
 1. Invoke your extension by typing `@EXTENSION-NAME`, replacing any spaces in the extension name with `-`, then press `Enter`.

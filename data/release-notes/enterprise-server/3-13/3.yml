@@ -98,8 +98,6 @@ sections:
     - |
       Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
     - |
-      When log forwarding is enabled, some forwarded log entries may be duplicated.
-    - |
       For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
     - |
       `TokenScanningServiceMetricsApiError` errors may appear after the upgrade.
@@ -127,3 +125,7 @@ sections:
       {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
 
       [Updated: 2024-08-26]
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.13.3 when log forwarding is enabled, some forwarded log entries may be duplicated.
+      The fix for this problem was already included in GitHub Enterprise Server [3.13.2](/admin/release-notes#3.13.2-bugs). [Updated: 2024-09-16]

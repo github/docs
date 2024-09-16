@@ -98,8 +98,6 @@ sections:
     - |
       The `reply.HOSTNAME` subdomain is falsely displayed as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
     - |
-      When log forwarding is enabled, some forwarded log entries may be duplicated.
-    - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
@@ -113,3 +111,7 @@ sections:
       {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
 
       [Updated: 2024-08-26]
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.8 when log forwarding is enabled, some forwarded log entries may be duplicated.
+      The fix for this problem was already included in GitHub Enterprise Server [3.12.7](/admin/release-notes#3.12.7-bugs). [Updated: 2024-09-16]
