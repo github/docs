@@ -45,7 +45,9 @@ The following sections list some of the available keyboard shortcuts, organized 
 |<kbd>G</kbd> <kbd>I</kbd> | Go to the **Issues** tab. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
 |<kbd>G</kbd> <kbd>P</kbd> | Go to the **Pull requests** tab. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 |<kbd>G</kbd> <kbd>A</kbd> | Go to the **Actions** tab. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+| {% ifversion projects-v1 %} |
 |<kbd>G</kbd> <kbd>B</kbd> | Go to the **Projects** tab. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+| {% endif %} |
 |<kbd>G</kbd> <kbd>W</kbd> | Go to the **Wiki** tab. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)." |
 |  {% ifversion discussions %} |
 |<kbd>G</kbd> <kbd>G</kbd> | Go to the **Discussions** tab. For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."

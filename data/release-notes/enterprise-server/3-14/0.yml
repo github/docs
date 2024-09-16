@@ -188,8 +188,6 @@ sections:
     - |
       Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
     - |
-      When log forwarding is enabled, some forwarded log entries may be duplicated.
-    - |
       REST API endpoints for admin stats may time out on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       When following the steps for [Replacing the primary MySQL node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
@@ -221,3 +219,8 @@ sections:
   deprecations:
     - |
       The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will remove the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see "[AUTOTITLE](/rest/enterprise-admin/management-console)."
+
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.14.0 when log forwarding is enabled, some forwarded log entries may be duplicated.
+      The fix for this problem was already included prior to the release of GitHub Enterprise Server 3.14.0. [Updated: 2024-09-16]
