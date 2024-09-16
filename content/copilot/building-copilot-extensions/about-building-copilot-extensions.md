@@ -20,6 +20,10 @@ type: overview
 * Sending responses to users in the {% data variables.product.prodname_copilot_chat_short %} window
 * Execution of {% data variables.product.company_short %} (first party) or functions on external services (third party)
 
+{% data variables.product.prodname_copilot_extensions_short %} can be used with:
+
+{% data reusables.copilot.copilot-extensions.compatible-chat-interfaces %}
+
 ## Visibility of {% data variables.product.prodname_copilot_extensions_short %}
 
 {% data variables.product.prodname_copilot_extensions_short %} can be private, public and shareable, or public and listed on the {% data variables.product.prodname_marketplace %}. Which visibility option you choose will depend on your use case and the audience you are targeting.
