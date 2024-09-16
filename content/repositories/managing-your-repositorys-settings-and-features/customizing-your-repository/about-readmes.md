@@ -45,6 +45,8 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 {% data reusables.repositories.section-links %}
 
+For more detailed information about section links, see "[Section links](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links)."
+
 ## Relative links and image paths in README files
 
 {% data reusables.repositories.relative-links %}
