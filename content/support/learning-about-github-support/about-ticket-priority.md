@@ -49,6 +49,8 @@ Ticket priority helps to ensure that support requests are handled in order, and 
 
 ## Ticket priorities for {% data variables.product.prodname_advanced_security %}
 
+All tickets regarding code security features follow this logic for ticket prioritization.
+
 | Priority | Description |
 | :---: | --- |
 | {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_advanced_security %} is not functioning or is stopped or severely impacted such that the end user cannot reasonably continue use of the software and no workaround is available. |

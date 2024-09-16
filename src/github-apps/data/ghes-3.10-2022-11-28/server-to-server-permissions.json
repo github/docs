@@ -1137,6 +1137,17 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
         "subcategory": "org-pre-receive-hooks",
         "verb": "delete",
@@ -5948,6 +5959,17 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

@@ -45,7 +45,7 @@ Use one of your recovery codes to automatically regain entry into your account. 
 
     {% endwarning %}
 
-1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or request a reset{% endif %}**.
+1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
 
 {% ifversion passkeys %}
@@ -92,12 +92,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 
     {% endwarning %}
 1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
-
-{% ifversion 2fa-reconfiguration-inline-update %}
-1. Under "Locked out?", click **Recover your account or unlink an email address**.
-{% else %}
-1. To the right of "Locked out?", click **Try recovering your account**.
-{% endif %}
+1. Under "Locked out?", click **Try 2FA account recovery, or unlink your account email address(es)**.
 1. Click **I understand, get started** to request a reset of your authentication settings.
 1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
 1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent, then click **Verify email address**.
